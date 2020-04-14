@@ -18,7 +18,7 @@ symfony serve //start des lokalen entwicklungsservers
 
 ---
 
-Hey Pro4GD:
+Installation with more details:
 
 Fuer den Vendor Ordner im PHP Storm Terminal folgendes durchführen/eingeben:
 
