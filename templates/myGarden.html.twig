@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Garden{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+
+{% block body %}
+    <h1>Mein Garten</h1>
+
+    <div>hinzufügen<div/>
+    <div>Bild auf der Seite</div>
+    <div id="Eintrag" >
+        <p>Name (Gattung)</p>
+        <p>Ist durstig!</p>
+        <p>Standort</p>
+        <p>Gießzeit</p>
+        <p>Menge</p>
+        <div>Bild</div>
+        <button>Gießen</button>
+    </div>
+    <div id="Eintrag">
+        <p>Name (Gattung)</p>
+        <p>Ist durstig!</p>
+        <p>Standort</p>
+        <p>Gießzeit</p>
+        <p>Menge</p>
+        <div>Bild</div>
+        <button>Gießen</button>
+    </div>
+    <div id="Eintrag">
+        <p>Name (Gattung)</p>
+        <p>Ist durstig!</p>
+        <p>Standort</p>
+        <p>Gießzeit</p>
+        <p>Menge</p>
+        <div>Bild</div>
+        <button>Gießen</button>
+    </div>
+    <div id="Eintrag">
+        <p>Name (Gattung)</p>
+        <p>Ist durstig!</p>
+        <p>Standort</p>
+        <p>Gießzeit</p>
+        <p>Menge</p>
+        <div>Bild</div>
+        <button>Gießen</button>
+    </div>
+
+
+
+{% endblock %}
+
+</body>
+</html>
