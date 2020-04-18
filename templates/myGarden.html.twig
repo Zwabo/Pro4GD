@@ -12,44 +12,13 @@
 {% block body %}
     <h1>Mein Garten</h1>
 
-    <div>hinzufügen<div/>
+    <div>hinzufügen</div>
     <div>Bild auf der Seite</div>
+
+    {% for plant in plants %}
     <div id="Eintrag" >
         <ul>
-            <li>Name (Gattung)</li>
-            <li>Ist durstig!</li>
-            <li>Standort</li>
-            <li>Gießzeit</li>
-            <li>Menge</li>
-        </ul>
-        <div>Bild</div>
-        <button>Gießen</button>
-    </div>
-    <div id="Eintrag">
-        <ul>
-            <li>Name (Gattung)</li>
-            <li>Ist durstig!</li>
-            <li>Standort</li>
-            <li>Gießzeit</li>
-            <li>Menge</li>
-        </ul>
-        <div>Bild</div>
-        <button>Gießen</button>
-    </div>
-    <div id="Eintrag">
-        <ul>
-            <li>Name (Gattung)</li>
-            <li>Ist durstig!</li>
-            <li>Standort</li>
-            <li>Gießzeit</li>
-            <li>Menge</li>
-        </ul>
-        <div>Bild</div>
-        <button>Gießen</button>
-    </div>
-    <div id="Eintrag">
-        <ul>
-            <li>Name (Gattung)</li>
+            <li>{{ plant.name }} ({{ plant.genus }})</li>
             <li>Ist durstig!</li>
             <li>Standort</li>
             <li>Gießzeit</li>
@@ -59,7 +28,7 @@
         <button>Gießen</button>
     </div>
 
-
+    {% endfor %}
 
 {% endblock %}
 

@@ -69,3 +69,8 @@ Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpExcept
 
 forum solution: 
 https://stackoverflow.com/questions/55678255/uncaught-php-exception-symfony-component-httpkernel-exception-notfoundhttpexcept
+---
+
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+php bin/console doctrine:fixtures:load
