@@ -4,9 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\Plant;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class PlantFixtures extends Fixture
+class PlantFixtures extends Fixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -39,8 +40,17 @@ class PlantFixtures extends Fixture
         $plant->setHeydayAddinfo("loe vera blüht mit Erreichen der Geschlechtsreife jedes Jahr im Frühling. Die pflegeleichte Zimmerpflanze benötigt dazu keine besonderen Bedingungen. Ein kühler Standort im Winter ist jedoch für die Blütenbildung förderlich.");
         $plant->setCareTips("Die Pflanze mäßig gießen, um das Substrat zwischenzeitlich gut antrocknen zu lassen. Vorzugsweise kalkarmes Wasser verwenden, das von unten verabreicht wird. Von März bis Oktober alle 4 Wochen flüssigen Kakteendünger applizieren Vergilbte, eingezogene Blätter am äußeren Rand anschneiden und herausdrehen");
 
+        //$this.addReference('plant.category', $plant);
+
         $manager->persist($plant);
 
         $manager->flush();
     }
+
+    public function getOrder()
+    {
+        return 100;
+    }
 }
+
+

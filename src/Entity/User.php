@@ -35,6 +35,26 @@ class User implements UserInterface
     private $firstName;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lastName;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateBirth;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $country;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $description;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $level;
@@ -45,12 +65,6 @@ class User implements UserInterface
     private $created;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $lastName;
-
-
-    /**
      * @ORM\Column(type="json")
      */
     private $roles = [];
@@ -59,6 +73,24 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $achievements = [];
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $garden = [];
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $friends = [];
+
+
+    /*-------------------------getter and setter--------------------------*/
 
     /**
      * @return mixed
@@ -206,5 +238,77 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDateBirth(): ?\DateTimeInterface
+    {
+        return $this->dateBirth;
+    }
+
+    public function setDateBirth(?\DateTimeInterface $dateBirth): self
+    {
+        $this->dateBirth = $dateBirth;
+
+        return $this;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?string $country): self
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    public function getAchievements(): ?array
+    {
+        return $this->achievements;
+    }
+
+    public function setAchievements(?array $achievements): self
+    {
+        $this->achievements = $achievements;
+
+        return $this;
+    }
+
+    public function getGarden(): ?array
+    {
+        return $this->garden;
+    }
+
+    public function setGarden(?array $garden): self
+    {
+        $this->garden = $garden;
+
+        return $this;
+    }
+
+    public function getFriends(): ?array
+    {
+        return $this->friends;
+    }
+
+    public function setFriends(?array $friends): self
+    {
+        $this->friends = $friends;
+
+        return $this;
     }
 }
