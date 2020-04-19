@@ -12,7 +12,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Validator\Constraints\DateTime;
 
-class UserplantFixture extends Fixture implements OrderedFixtureInterface
+class UserplantFixture extends Fixture
 {
     public function load(ObjectManager $manager)
     {
@@ -24,7 +24,7 @@ class UserplantFixture extends Fixture implements OrderedFixtureInterface
 
         //$userplant->setIdPlant(1);*/
 
-        $userplant->setPlantName("Alois");
+        $userplant->setName("Alois");
         $userplant->setLocation("Wohnzimmer");
 
         $userplant->setNotes("No notes added.");
@@ -33,13 +33,13 @@ class UserplantFixture extends Fixture implements OrderedFixtureInterface
         $dateAdded->format('Y/m/d');
         $userplant->setDateAdded($dateAdded);
         $userplant->setDateWatered($dateAdded);
-        $userplant->setUserplantCareTips("Blabalbalba");
+        //$userplant->setUserplantCareTips("Blabalbalba");
 
         //$userplant->category($this->>getReference('category.plant');
 
-        //$manager->persist($userplant);
+        $manager->persist($userplant);
 
-        //$manager->flush();
+        $manager->flush();
     }
 
     public function getOrder()

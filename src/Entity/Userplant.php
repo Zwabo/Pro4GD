@@ -17,73 +17,79 @@ class Userplant
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
-    // connected id of the user of the plant
-    private $id_user;
+    //private $id_user;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Plant", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    //private $id_plant;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    //name for the plant, given by the user
-    private $plantName;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    //physical location of the plant
     private $location;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $dateAdded;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $dateWatered;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    // notes of the user for the plant
     private $notes;
 
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\user", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    // plant category, connected to the plant inside the database
-    private $plant_category;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    // date, when the plant was added
-    private $date_added;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    // date, when the plant was last watered
-    private $date_watered;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $userplant_care_tips;
-
-    //---------------- getter and setter ---------------------------------------------------------------
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdUser(): ?User
+    /*public function getIdUser(): ?User
     {
         return $this->id_user;
     }
 
-    public function getPlantName(): ?string
+    public function setIdUser(?User $id_user): self
     {
-        return $this->plantName;
+        $this->id_user = $id_user;
+
+        return $this;
+    }*/
+
+    /*public function getIdPlant(): ?Plant
+    {
+        return $this->id_plant;
     }
 
-    public function setPlantName(string $name): self
+    public function setIdPlant(Plant $id_plant): self
     {
-        $this->plantName = $name;
+        $this->id_plant = $id_plant;
+
+        return $this;
+    }*/
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
@@ -100,6 +106,30 @@ class Userplant
         return $this;
     }
 
+    public function getDateAdded(): ?\DateTimeInterface
+    {
+        return $this->dateAdded;
+    }
+
+    public function setDateAdded(\DateTimeInterface $dateAdded): self
+    {
+        $this->dateAdded = $dateAdded;
+
+        return $this;
+    }
+
+    public function getDateWatered(): ?\DateTimeInterface
+    {
+        return $this->dateWatered;
+    }
+
+    public function setDateWatered(\DateTimeInterface $dateWatered): self
+    {
+        $this->dateWatered = $dateWatered;
+
+        return $this;
+    }
+
     public function getNotes(): ?string
     {
         return $this->notes;
@@ -111,46 +141,4 @@ class Userplant
 
         return $this;
     }
-
-    public function getPlantCategory(): ?user
-    {
-        return $this->plant_category;
-    }
-
-    public function getDateAdded(): ?\DateTimeInterface
-    {
-        return $this->date_added;
-    }
-
-    public function setDateAdded(\DateTimeInterface $date_added): self
-    {
-        $this->date_added = $date_added;
-
-        return $this;
-    }
-
-    public function getDateWatered(): ?\DateTimeInterface
-    {
-        return $this->date_watered;
-    }
-
-    public function setDateWatered(\DateTimeInterface $date_watered): self
-    {
-        $this->date_watered = $date_watered;
-
-        return $this;
-    }
-
-    public function getUserplantCareTips(): ?string
-    {
-        return $this->userplant_care_tips;
-    }
-
-    public function setUserplantCareTips(string $userplant_care_tips): self
-    {
-        $this->userplant_care_tips = $userplant_care_tips;
-
-        return $this;
-    }
 }
-
