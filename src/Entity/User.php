@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -82,12 +84,17 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="array", nullable=true)
      */
-    private $garden = [];
+    private $friends = [];
 
     /**
-     * @ORM\Column(type="array", nullable=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Userplant", mappedBy="user")
      */
-    private $friends = [];
+    private $userplants;
+
+    public function __construct()
+    {
+        $this->userplants = new ArrayCollection();
+    }
 
     /*-------------------------getter and setter--------------------------*/
 
@@ -287,18 +294,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getGarden(): ?array
-    {
-        return $this->garden;
-    }
-
-    public function setGarden(?array $garden): self
-    {
-        $this->garden = $garden;
-
-        return $this;
-    }
-
     public function getFriends(): ?array
     {
         return $this->friends;
@@ -307,6 +302,37 @@ class User implements UserInterface
     public function setFriends(?array $friends): self
     {
         $this->friends = $friends;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Userplant[]
+     */
+    public function getUserplants(): Collection
+    {
+        return $this->userplants;
+    }
+
+    public function addUserplant(Userplant $userplant): self
+    {
+        if (!$this->userplants->contains($userplant)) {
+            $this->userplants[] = $userplant;
+            $userplant->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserplant(Userplant $userplant): self
+    {
+        if ($this->userplants->contains($userplant)) {
+            $this->userplants->removeElement($userplant);
+            // set the owning side to null (unless already changed)
+            if ($userplant->getUser() === $this) {
+                $userplant->setUser(null);
+            }
+        }
 
         return $this;
     }

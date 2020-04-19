@@ -33,27 +33,28 @@ class UserplantController extends AbstractController
         ]);
     }
 
-    /*public function createUserplant(): Response
+    /**
+     * @Route("/createUserplant", name="app_createUserplant")
+     */
+    public function createUserplant()
     {
-        // you can fetch the EntityManager via $this->getDoctrine()
-        // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
         $entityManager = $this->getDoctrine()->getManager();
 
+        /** @var \App\Entity\User $user */
+        $user = $this->getUser();
+
         $userplant = new Userplant();
-        $userplant->setIdUser("1");
-        $userplant->setIdPlant("1");
-        $userplant->setName("Keyboard");
-        $userplant->setLocation("Keyboard");
-        $userplant->setNotes("Keyboard");
-        $userplant->setDateAdded(date('m/d/Y h:i:s', time));
-        $userplant->setDateWatered(date('m/d/Y h:i:s', time));
+        $userplant->setName("Testplant");
+        $userplant->setLocation("Irgendwo");
+        $userplant->setNotes("This plant is dope");
+        $userplant->setDateAdded(new \DateTime("now"));
+        $userplant->setDateWatered(new \DateTime("now"));
 
-        // tell Doctrine you want to (eventually) save the Product (no queries yet)
+        $user->addUserplant($userplant);
+
         $entityManager->persist($userplant);
-
-        // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
 
         return new Response('Saved new userplant with id '.$userplant->getId());
-    }*/
+    }
 }
