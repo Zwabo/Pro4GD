@@ -26,7 +26,10 @@ class UserplantController extends AbstractController
      */
     public function index()
     {
-        $userplants = $this->getDoctrine()->getRepository('App:Userplant')->findAll();
+        /** @var \App\Entity\User $user */
+        $user = $this->getUser();
+
+        $userplants = $user->getUserplants();
 
         return $this->render('userplant.html.twig', [
             'controller_name' => 'UserplantController', 'userplants' => $userplants
