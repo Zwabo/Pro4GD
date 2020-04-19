@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
 {
+
     /**
      * @Route("/profile", name="profile")
      */

@@ -89,7 +89,6 @@ class User implements UserInterface
      */
     private $friends = [];
 
-
     /*-------------------------getter and setter--------------------------*/
 
     /**
