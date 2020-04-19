@@ -16,11 +16,7 @@ class UserplantFixture extends Fixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        //$plants = GardenController::class->getDoctrine()->getRepository('App.Plant')->findAll();
-
         $userplant = new Userplant();
-
-        //$userplant->setIdUser(1);
 
         /*$queryPlant = $manager->createQuery('select id from App\Entity\Plant');
         $plantId = $queryPlant->getResult();
@@ -28,7 +24,7 @@ class UserplantFixture extends Fixture implements OrderedFixtureInterface
 
         //$userplant->setIdPlant(1);*/
 
-        $userplant->setName("Alois");
+        $userplant->setPlantName("Alois");
         $userplant->setLocation("Wohnzimmer");
 
         $userplant->setNotes("No notes added.");
@@ -37,12 +33,13 @@ class UserplantFixture extends Fixture implements OrderedFixtureInterface
         $dateAdded->format('Y/m/d');
         $userplant->setDateAdded($dateAdded);
         $userplant->setDateWatered($dateAdded);
+        $userplant->setUserplantCareTips("Blabalbalba");
 
         //$userplant->category($this->>getReference('category.plant');
 
-        $manager->persist($userplant);
+        //$manager->persist($userplant);
 
-        $manager->flush();
+        //$manager->flush();
     }
 
     public function getOrder()

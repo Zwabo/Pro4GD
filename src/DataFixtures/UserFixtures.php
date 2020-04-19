@@ -23,6 +23,12 @@ class UserFixtures extends Fixture
         //Set the parameters
         $user->setEmail("test@test.at");
         $user->setUsername("Testuser1");
+        $user->setFirstName("Hugo");
+        $user->setLevel(1);
+        $dateAdded = date_create('2019-05-19 12:30:03');
+        $dateAdded->format('YYYY-MM-DD hh:mm:ss');
+        //$user->setCreated($dateAdded);
+        $user->setLastName("Doe");
         $user->setPassword($this->passwordEncoder->encodePassword($user, "test123"));
         $roles[] = 'ROLE_USER';
         $user->setRoles($roles);
