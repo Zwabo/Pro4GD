@@ -47,8 +47,11 @@ class RegistrationController extends AbstractController
             );
         }
 
+        $words = ['foo', 'bar'];
+
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'words' => $words
         ]);
     }
 }

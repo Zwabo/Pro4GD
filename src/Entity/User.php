@@ -30,17 +30,99 @@ class User implements UserInterface
     private $username;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $firstName;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $level;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lastName;
+
 
     /**
      * @ORM\Column(type="json")
      */
     private $roles = [];
-
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @return mixed
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+
+    /**
+     * @param mixed $level
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param mixed $created
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @param mixed $lastName
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param mixed $firstName
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+    }
 
     public function getId(): ?int
     {
@@ -64,7 +146,7 @@ class User implements UserInterface
      *
      * @see UserInterface
      */
-    public function getUsername(): string
+    public function getUsername(): ?string
     {
         return $this->username;
     }
