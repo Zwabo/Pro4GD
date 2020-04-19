@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>{% block title %}Userplant{% endblock %}</title>
+</head>
+
+<body>
+
+{% block body %}
+
+    {% for userplant in userplants%}
+
+    <div id="baseInfos">
+        <h2>{{ userplant.name }}</h2>
+        <h3>Pflanzenkategorie</h3>
+        <p>{{ userplant.location }}</p>
+
+        <ul>
+            <li id ="watering">Gießintervall</li>
+            <li id="wateringDay">Gießtag</li>
+        </ul>
+    </div>
+
+    <div id="picture">
+        <p>img</p>
+        <p>Level</p>
+    </div>
+
+    <div id="careTips" class="dropInfos">
+        <h3>Pflegetipps</h3>
+        <p>Pflegetipps aus Pflanzendatenbank</p>
+    </div>
+
+    <div id="moreInfos" class="dropInfos">
+        <h3>Weitere Informationen</h3>
+        <p>Weitere Informatioen aus Pflanzendatenbank</p>
+    </div>
+
+    <div id="baseInfoWidgets">
+        <div id="dung">
+            <ul>
+                <li>Düngen</li>
+                <li>Bild</li>
+                <li>Info</li>
+            </ul>
+        </div>
+        <div id="locationWidget">
+            <ul>
+                <li>Standort</li>
+                <li>Bild</li>
+                <li>Info</li>
+            </ul>
+        </div>
+        <div id="substrateWidget">
+            <ul>
+                <li>Substrat</li>
+                <li>Bild</li>
+                <li>Info</li>
+            </ul>
+        </div>
+        <div id="tempWidget">
+            <ul>
+                <li>Temperatur</li>
+                <li>Bild</li>
+                <li>Info</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="additionalInfoWidget">
+        <div id="bloomWidget">
+            <ul>
+                <li>Blütezeit</li>
+                <li>Bild</li>
+                <li>Info</li>
+            </ul>
+        </div>
+        <div id="specialWidget">
+            <ul>
+                <li>Blütezeit</li>
+                <li>Bild</li>
+                <li>Info</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="notes">
+        <h3>Meine Notizen</h3>
+        <button>bearbeiten</button>
+        <p>Bild</p>
+        <input></input>
+        <p>User Notizen</p>
+    </div>
+
+    <div id="dataBaseLink">
+        <p>Weiter zum Datenbankeintrag</p>
+    </div>
+
+    {% endfor %}
+
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

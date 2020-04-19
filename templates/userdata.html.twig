@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>{% block title %}Userplant{% endblock %}</title>
+</head>
+
+<body>
+
+{% block body %}
+
+    {% for data in userdata%}
+
+        <div id="user">
+            <h1>{{ data.firstname }} {{ data.lastname }}</h1>
+            <h2>Username: {{ data.username }}</h2>
+            <h3>Rang: {{ data.level }}</h3>
+            <button>Hinzufügen</button>
+        </div>
+
+        <br><br>
+
+        <div id="userinfo">
+            <ul>
+                <li>seit ... Mitglied</li>
+                <li>Land: {{ data.country }}</li>
+                <li>Alter: ...</li>
+                <li>Geb.: ...</li>
+            </ul>
+        </div>
+
+        <br>
+
+        <div id="left">
+            <div id="descrition">
+                <h3>Über {{ data.firstname }} {{ data.lastname }}</h3>
+                <p>{{ data.description }}</p>
+            </div>
+
+            <br>
+            <div id="friends">
+                <h3>Freunde</h3>
+                    <div>
+                        {% for friend in data.friends %}
+                            <ul>
+                                <li>picture</li>
+                                <li>{{ friend }}</li>
+                                <li>Level</li>
+                            </ul>
+
+                            <ul>
+                                <button>Picturebutton Profil</button>
+                                <button>Picturebutton Hinzufügen</button>
+                            </ul>
+                        {% endfor %}
+                    </div>
+                <button> Alle Freunde</button>
+            </div>
+
+            <br><br>
+
+            <div id="garden">
+                <h3>{{ data.firstname }} {{ data.lastname }}s Garten</h3>
+                <div>
+                    {% for plant in data.garden %}
+                        <ul>
+                            <li>{{ plant }}</li>
+                            <li>Level</li>
+                            <li>Alter</li>
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+            <br>
+
+            <div id="Besuchernachrichten">
+
+            </div>
+        </div>
+
+        <div id="rechts">
+            <div id="Errugenschaften">
+                <h4>Erungenschaften</h4>
+                <button>Dropdown</button>
+                <p>Wird nur gezeigt wenn welche vorhanden</p>
+            </div>
+
+            <div id="forenposts">
+                <h4>Forenposts</h4>
+                <button>Dropdown</button>
+                <p>Liste an Forenposts</p>
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
