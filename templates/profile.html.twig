@@ -65,11 +65,9 @@
             <div id="garden">
                 <h3>{{ user.firstname }} {{ user.lastname }}s Garten</h3>
                 <div>
-                    {% for plant in user.garden %}
+                    {% for plant in user.userplants %}
                         <ul>
-                            <li>{{ plant }}</li>
-                            <li>Level</li>
-                            <li>Alter</li>
+                            <li>{{ plant.name }}</li>
                         </ul>
                     {% endfor %}
                 </div>
