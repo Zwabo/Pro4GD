@@ -17,12 +17,6 @@ class Userplant
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Plant", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    //private $id_plant;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $name;
@@ -51,6 +45,12 @@ class Userplant
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="userplants")
      */
     private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Plant", inversedBy="userplants")
+     *
+     */
+    private $plant;
 
     public function getId(): ?int
     {
@@ -149,6 +149,18 @@ class Userplant
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getPlant(): ?Plant
+    {
+        return $this->plant;
+    }
+
+    public function setPlant(?Plant $plant): self
+    {
+        $this->plant = $plant;
 
         return $this;
     }

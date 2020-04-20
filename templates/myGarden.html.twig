@@ -13,19 +13,17 @@
     <div class="row border border-success" >
         <div class="col-sm">
         <div class="row">
-            {% for plant in plants %}
-    {% for im in image %}
             <div class="col-sm" id="Eintrag">
                 <ul>
-                    <li >{{ plant.name }} ({{ plant.name }})</li>
+                    <li >{{ userplant.name }} ({{ plant.genus }})</li>
                     <li>Ist durstig!</li>
-                    <li>{{ plant.location }} </li>
+                    <li>{{ userplant.location }} </li>
                     <li>Gießzeit</li>
                     <li>Menge</li>
                 </ul>
             </div>
 
-            <img src="{{ im.icon }}" alt="Picture of plant" height="40" class="col-sm">
+            <img src="{{ plant.icon }}" alt="Picture of plant" height="40" class="col-sm">
 
         </div>
 
@@ -43,9 +41,6 @@
 
     </div>
 
-
-    {% endfor %}
-    {% endfor %}
 
 {% endblock %}
 
