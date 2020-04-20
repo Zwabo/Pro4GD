@@ -2,9 +2,6 @@
 {% block title %}Userplant{% endblock %}
 
 {% block body %}
-
-    {% for userplant in userplants%}
-
     <div id="baseInfos">
         <h2>{{ userplant.name }}</h2>
         <h3>Pflanzenkategorie</h3>
@@ -90,7 +87,4 @@
     <div id="dataBaseLink">
         <p>Weiter zum Datenbankeintrag</p>
     </div>
-
-    {% endfor %}
-
 {% endblock %}
