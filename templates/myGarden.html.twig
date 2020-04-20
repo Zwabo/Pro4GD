@@ -14,17 +14,18 @@
         <div class="col-sm">
         <div class="row">
             {% for plant in plants %}
+    {% for im in image %}
             <div class="col-sm" id="Eintrag">
                 <ul>
-                    <li >{{ plant.name }} ({{ plant.genus }})</li>
+                    <li >{{ plant.name }} ({{ plant.name }})</li>
                     <li>Ist durstig!</li>
-                    <li>Standort</li>
+                    <li>{{ plant.location }} </li>
                     <li>Gießzeit</li>
                     <li>Menge</li>
                 </ul>
             </div>
 
-            <img src="{{ plant.icon }}" class="col-sm">
+            <img src="{{ im.icon }}" alt="Picture of plant" height="40" class="col-sm">
 
         </div>
 
@@ -37,12 +38,13 @@
     </div>
 
     <div class="col-sm">
-        <img src="Images/Aloe.png" alt="Plant side view" class="col-sm">
+        <img src="/build/images/Aloe.png" alt="Plant side view" height="800" class="col-sm">
     </div>
 
     </div>
 
 
+    {% endfor %}
     {% endfor %}
 
 {% endblock %}
