@@ -46,7 +46,7 @@ class UserFixtures extends Fixture
         //$this.addReference('user.member', $user);
 
         $user->setFriends(["Milan", "Markus", "Kita", "Marie"]);
-        $user->setGarden(["plant1", "plant2", "plant3", "plant4"]);
+        //$user->setGarden(["plant1", "plant2", "plant3", "plant4"]);
 
         $manager->persist($user);
 
