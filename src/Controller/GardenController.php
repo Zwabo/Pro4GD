@@ -15,6 +15,8 @@ class GardenController extends AbstractController
      */
     public function index()
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $plants = $this->getDoctrine()->getRepository('App:Plant')->findAll();
 
         return $this->render('myGarden.html.twig', [
