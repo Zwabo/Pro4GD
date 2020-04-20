@@ -22,17 +22,22 @@ class UserplantController extends AbstractController
     }*/
 
     /**
-     * @Route("/userplant", name="userplant")
+     * @Route("/userplant/{id}", name="userplant")
      */
-    public function index()
+    public function index($id)
     {
-        /** @var \App\Entity\User $user */
-        $user = $this->getUser();
+        $userplant = $this->getDoctrine()
+            ->getRepository(Userplant::class)
+            ->find($id);
 
-        $userplants = $user->getUserplants();
+        if (!$userplant) {
+            throw $this->createNotFoundException(
+                'No userplant found for id ' . $id
+            );
+        }
 
         return $this->render('userplant.html.twig', [
-            'controller_name' => 'UserplantController', 'userplants' => $userplants
+            'controller_name' => 'UserplantController', 'userplant' => $userplant
         ]);
     }
 
