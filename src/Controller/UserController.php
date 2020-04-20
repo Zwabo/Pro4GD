@@ -13,10 +13,13 @@ class UserController extends AbstractController
      */
     public function index()
     {
-        $users = $this->getDoctrine()->getRepository('App:User')->findAll();
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        /** @var \App\Entity\User $user */
+        $user = $this->getUser();
 
         return $this->render('profile.html.twig', [
-            'controller_name' => 'UserController', 'users' => $users
+            'controller_name' => 'UserController', 'user' => $user
         ]);
     }
 }
