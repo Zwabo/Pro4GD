@@ -148,6 +148,11 @@ class Plant
      */
     private $userplants;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $WindowIcon;
+
     public function __construct()
     {
         $this->userplantId = new ArrayCollection();
@@ -486,6 +491,18 @@ class Plant
                 $userplant->setPlant(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getWindowIcon(): ?string
+    {
+        return $this->WindowIcon;
+    }
+
+    public function setWindowIcon(string $WindowIcon): self
+    {
+        $this->WindowIcon = $WindowIcon;
 
         return $this;
     }

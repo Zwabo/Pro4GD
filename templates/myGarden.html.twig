@@ -10,12 +10,13 @@
 
     <div>hinzufügen</div>
 
-    <div class="row border border-success" >
+    <div class="row border bg-light" >
         <div class="col-sm">
         <div class="row">
-            <div class="col-sm" id="Eintrag">
+
+            <div class="col-sm bg-light" id="Eintrag" >
                 <ul>
-                    <li >{{ userplant.name }} ({{ plant.genus }})</li>
+                    <li >{{ userplant.name }} ({{ userplant.getPlant().genus }})</li>
                     <li>Ist durstig!</li>
                     <li>{{ userplant.location }} </li>
                     <li>Gießzeit</li>
@@ -23,7 +24,7 @@
                 </ul>
             </div>
 
-            <img src="{{ plant.icon }}" alt="Picture of plant" height="40" class="col-sm">
+            <img src="{{ userplant.getPlant().icon}}" alt="Picture of plant" height="150"  class="col-sm">
 
         </div>
 
@@ -36,7 +37,7 @@
     </div>
 
     <div class="col-sm">
-        <img src="/build/images/Aloe.png" alt="Plant side view" height="800" class="col-sm">
+        <img src="{{ userplant.getPlant().WindowIcon }}" alt="Plant side view" height="700" class="col-sm">
     </div>
 
     </div>
