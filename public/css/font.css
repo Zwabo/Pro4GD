@@ -1,0 +1,15 @@
+/*basic font for the site*/
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/*ul class for no list style*/
+.noListStyle {
+    list-style-type: none;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.h3Margin {
+    margin-top: 50px;
+}

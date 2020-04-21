@@ -1,0 +1,103 @@
+/* special fonts for UserArea */
+#userCnt h1 {
+    font-size: 180%;
+    color: #B8E269;
+}
+#userCnt h2 { font-size: 140%; }
+
+/* Profil */
+.userPicture {
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+}
+
+/* UserButton */
+#userButton {
+    background-color: #97B753;
+    padding: 10px 20px;
+    color: white;
+    border: 2px solid #97B753;
+    border-radius: 0px 50px 50px 0px;
+    font-size: 120%;
+}
+#userButton svg {
+    fill: white;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+}
+#userButton:hover {
+    background-color: #B8E269;
+    border: 2px solid #B8E269;
+    color: #707070;
+}
+#userButton:hover svg { fill: #707070; }
+#userButton:active {
+    background-color: #97B753;
+    border: 2px solid #97B753;
+    color: white;
+}
+#userButton:active svg { fill: white; }
+
+/* picture Buttons*/
+.userProfileButton svg{ width: 40%; fill: white; }
+.userProfileButton svg .path1 { fill: #707070; }
+.userProfileButton svg:hover { fill: white; }
+.userProfileButton svg:hover .path1 {  fill: #97B753; }
+.userProfileButton svg:active { fill: #B8E269; }
+.userProfileButton svg:active .path1 { fill: #000000;}
+
+.addUserButton svg { width: 40%; fill: white; }
+.addUserButton svg .path1 { fill: #707070; }
+.addUserButton svg:hover { fill: white; }
+.addUserButton svg:hover .path1 {  fill: #97B753; }
+.addUserButton svg:active { fill: #B8E269; }
+.addUserButton svg:active .path1 { fill: #000000;}
+
+/*Friends Container*/
+.friends {
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+/*Containerbreite*/
+#userInfoCnt{
+    padding: 40px 50px;
+    margin-bottom: 50px;
+}
+#userPicCnt, #userDataCnt { align-self: center; }
+#userDataCnt ul { font-size: 110%; }
+#userDataCnt ul li svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 3%;
+    fill: #B8E269;
+}
+
+/*plants garden on profile*/
+.plantsProfile {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 10px 10px 10px 30px;
+}
+.plantsProfile:hover {
+    background-color: #707070;
+    color: white;
+}
+.plantsProfile:active {
+    background-color: #DEDEDE;
+    color: #707070;
+}
+.imgTest {
+    width: 50px;
+}
+
+/*rechte Boxen*/
+.rightBoxes {
+    background-color: white;
+    border: 2px solid #DEDEDE;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}

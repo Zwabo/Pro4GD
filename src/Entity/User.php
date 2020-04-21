@@ -42,6 +42,11 @@ class User implements UserInterface
     private $lastName;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $userPic;
+
+    /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateBirth;
@@ -302,6 +307,18 @@ class User implements UserInterface
     public function setFriends(?array $friends): self
     {
         $this->friends = $friends;
+
+        return $this;
+    }
+
+    public function getUserPic(): ?string
+    {
+        return $this->userPic;
+    }
+
+    public function setUserPic(string $userPic): self
+    {
+        $this->userPic = $userPic;
 
         return $this;
     }

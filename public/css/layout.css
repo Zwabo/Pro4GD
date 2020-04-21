@@ -1,0 +1,38 @@
+/* side padding of all rows so that they are not stucking to the left and right edges*/
+.rowIntent {
+    padding: 0px 40px;
+}
+
+/* distance between two cols so that they are not stucking together too much*/
+.left { width: 94%; }
+
+/*to align pictures to the center*/
+.selfAlignCenter {
+    align-self: center;
+}
+
+/*small user pictures for profile and forum*/
+.smallUserPics {
+    max-width: 100px;
+    min-width: 50px;
+    width: 80%;
+    border-radius: 100px;
+}
+
+/*green hr line underneath the h2 of sections, lay class on a div container to get the green line*/
+.greenLine {
+    width: 100%;
+    height: 2px;
+    background: #97B753;
+    margin-bottom: 4%;
+}
+
+/*dropshadow*/
+.dropShadow {
+    -webkit-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.19);
+    -moz-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.19);
+    box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.19);
+}
+
+/*right side floating boxes*/
+.rightBoxesPadding { padding: 20px; }
