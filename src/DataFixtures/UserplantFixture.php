@@ -37,7 +37,21 @@ class UserplantFixture extends Fixture
 
         //$userplant->category($this->>getReference('category.plant');
 
+
+        $userplant2 = new Userplant();
+
+        $userplant2->setName("Lisa");
+        $userplant2->setLocation("Küche");
+
+        $userplant2->setNotes("No notes added.");
+
+        $dateAdded = date_create('2000-02-03');
+        $dateAdded->format('Y/m/d');
+        $userplant2->setDateAdded($dateAdded);
+        $userplant2->setDateWatered($dateAdded);
+
         $manager->persist($userplant);
+        $manager->persist($userplant2);
 
         $manager->flush();
     }

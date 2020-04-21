@@ -12,6 +12,7 @@
 
     <div class="row border bg-light" >
         <div class="col-sm">
+            {% for userplant in userplants %}
         <div class="row">
 
             <div class="col-sm bg-light" id="Eintrag" >
@@ -31,13 +32,14 @@
         <div class="row">
             <button class="col-sm" >Gießen</button>
         </div>
-
+            {% endfor %}
         </div>
     </div>
+
     </div>
 
     <div class="col-sm">
-        <img src="{{ userplant.getPlant().WindowIcon }}" alt="Plant side view" height="700" class="col-sm">
+        <img src="{{ userplants[0].getPlant().WindowIcon }}" alt="Plant side view" height="700" class="col-sm">
     </div>
 
     </div>
