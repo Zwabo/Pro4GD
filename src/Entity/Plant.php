@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -140,6 +142,22 @@ class Plant
      * @ORM\Column(type="string", length=500)
      */
     private $care_tips;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Userplant", mappedBy="plant")
+     */
+    private $userplants;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $WindowIcon;
+
+    public function __construct()
+    {
+        $this->userplantId = new ArrayCollection();
+        $this->userplants = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -445,4 +463,48 @@ class Plant
 
         return $this;
     }
+
+    /**
+     * @return Collection|Userplant[]
+     */
+    public function getUserplants(): Collection
+    {
+        return $this->userplants;
+    }
+
+    public function addUserplant(Userplant $userplant): self
+    {
+        if (!$this->userplants->contains($userplant)) {
+            $this->userplants[] = $userplant;
+            $userplant->setPlant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserplant(Userplant $userplant): self
+    {
+        if ($this->userplants->contains($userplant)) {
+            $this->userplants->removeElement($userplant);
+            // set the owning side to null (unless already changed)
+            if ($userplant->getPlant() === $this) {
+                $userplant->setPlant(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getWindowIcon(): ?string
+    {
+        return $this->WindowIcon;
+    }
+
+    public function setWindowIcon(string $WindowIcon): self
+    {
+        $this->WindowIcon = $WindowIcon;
+
+        return $this;
+    }
+
 }

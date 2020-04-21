@@ -10,42 +10,40 @@
 
     <div>hinzufügen</div>
 
-    <div class="row border border-success" >
+    <div class="row border bg-light" >
         <div class="col-sm">
+            {% for userplant in userplants %}
         <div class="row">
-            {% for plant in plants %}
-    {% for im in image %}
-            <div class="col-sm" id="Eintrag">
+
+            <div class="col-sm bg-light" id="Eintrag" >
                 <ul>
-                    <li >{{ plant.name }} ({{ plant.name }})</li>
+                    <li >{{ userplant.name }} ({{ userplant.getPlant().genus }})</li>
                     <li>Ist durstig!</li>
-                    <li>{{ plant.location }} </li>
+                    <li>{{ userplant.location }} </li>
                     <li>Gießzeit</li>
                     <li>Menge</li>
                 </ul>
             </div>
 
-            <img src="{{ im.icon }}" alt="Picture of plant" height="40" class="col-sm">
+            <img src="{{ userplant.getPlant().icon}}" alt="Picture of plant" height="150"  class="col-sm">
 
         </div>
 
         <div class="row">
             <button class="col-sm" >Gießen</button>
         </div>
-
+            {% endfor %}
         </div>
     </div>
+
     </div>
 
     <div class="col-sm">
-        <img src="/build/images/Aloe.png" alt="Plant side view" height="800" class="col-sm">
+        <img src="{{ userplants[0].getPlant().WindowIcon }}" alt="Plant side view" height="700" class="col-sm">
     </div>
 
     </div>
 
-
-    {% endfor %}
-    {% endfor %}
 
 {% endblock %}
 
