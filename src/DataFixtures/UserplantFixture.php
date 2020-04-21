@@ -9,10 +9,13 @@ use App\Entity\User;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Validator\Constraints\DateTime;
 
-class UserplantFixture extends Fixture
+use App\DataFixtures\UserFixtures;
+
+class UserplantFixture extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -33,6 +36,9 @@ class UserplantFixture extends Fixture
         $dateAdded->format('Y/m/d');
         $userplant->setDateAdded($dateAdded);
         $userplant->setDateWatered($dateAdded);
+
+        $userplant->setUser($this->getReference(UserFixtures::TESTUSER));
+
         //$userplant->setUserplantCareTips("Blabalbalba");
 
         //$userplant->category($this->>getReference('category.plant');
@@ -50,14 +56,17 @@ class UserplantFixture extends Fixture
         $userplant2->setDateAdded($dateAdded);
         $userplant2->setDateWatered($dateAdded);
 
+        $userplant2->setUser($this->getReference(UserFixtures::TESTUSER));
+
         $manager->persist($userplant);
         $manager->persist($userplant2);
 
         $manager->flush();
     }
-
-    public function getOrder()
+    public function getDependencies()
     {
-        return 200;
+        return array(
+            UserFixtures::class,
+        );
     }
 }
