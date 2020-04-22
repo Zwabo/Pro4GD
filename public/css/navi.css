@@ -1,25 +1,41 @@
-.navbar div ul li a {
-    color: white;
+.navbar {
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid #97B753;
 }
 
-.navbar div ul li:hover {
-    background-color: #707070;
-    border-radius: 5px;
-}
+/*navigation links*/
+.navbar div ul li a { color: white; }
+.navbar div ul li:hover .nav-link { color: #707070; }
 
+/*navigation list*/
+.navbar div ul li { padding: 7px 10px; }
+#naviUser { padding: 4px 10px; }
+.navbar div ul li:last-of-type { margin-right: 20px; }
+.navbar div ul li:hover { background-color: #B8E269; }
+.navbar div ul li:active { background-color: #B8E269; }
+
+/*dropdown Menue*/
+.dropdown-menu .dropdown-item { color: white; }
+.dropdown-menu .dropdown-item:hover { background-color: #97B753; }
+.dropdown-menu .dropdown-item:active { background-color: #B8E269;}
+
+/*navigation userimage*/
 #naviImg {
     width: 30px;
     height: 30px;
     border-radius: 50px;
+    margin-left: 10px;
+}
+/*navigation logo*/
+#naviLogo {
+    padding-left: 30px;
+    padding-top: 3px;
 }
 #naviLogo svg {
     width:135px;
     height:40px;
     fill: white;
 }
-#naviLogo svg:hover {
-    fill: #707070;
-}
-#naviLogo svg:active {
-    fill: #0a0a0a;
-}
+#naviLogo svg:hover { fill: #B8E269; }
+#naviLogo svg:active { fill: #707070; }
