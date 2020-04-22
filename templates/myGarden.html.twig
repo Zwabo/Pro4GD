@@ -6,16 +6,19 @@
 
     <div class="row">
     <div class="col-sm">
-    <h1>Mein Garten</h1>
+        <div class="row">
+            <h1 class="col-sm">Mein Garten</h1>
 
-    <div>hinzufügen</div>
+            <div class="col-sm add">hinzufügen</div>
+        </div>
 
-    <div class="row border bg-light" >
-        <div class="col-sm">
+    <div class="col-sm">
             {% for userplant in userplants %}
+
+        <div class="bgWhiteGrey plantsProfile dropShadow ">
         <div class="row">
 
-            <div class="col-sm bg-light" id="Eintrag" >
+            <div class="col-sm" id="Eintrag" >
                 <ul>
                     <li >{{ userplant.name }} ({{ userplant.getPlant().genus }})</li>
                     <li>Ist durstig!</li>
@@ -25,15 +28,17 @@
                 </ul>
             </div>
 
-            <img src="{{ userplant.getPlant().icon}}" alt="Picture of plant" height="150"  class="col-sm">
+            <img class="col-sm imgTest" src="{{ userplant.getPlant().icon}}" alt="Picture of plant" height="150">
 
         </div>
 
         <div class="row">
             <button class="col-sm" >Gießen</button>
         </div>
-            {% endfor %}
         </div>
+
+            {% endfor %}
+
     </div>
 
     </div>

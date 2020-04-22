@@ -9,6 +9,9 @@ use Doctrine\Persistence\ObjectManager;
 
 class PlantFixtures extends Fixture implements OrderedFixtureInterface
 {
+
+    public const ALOEVERA = 'aloevera';
+
     public function load(ObjectManager $manager)
     {
         $plant = new Plant();
@@ -19,8 +22,8 @@ class PlantFixtures extends Fixture implements OrderedFixtureInterface
         $plant->setGenus("Aloen");
         $plant->setCareLevel("gering");
         $plant->setWateringAmount("500ml");
-        $plant->setIcon("/images/plants/SmallAloe.png");
-        $plant->setWindowIcon("/build/images/AloeBackground.png");
+        $plant->setIcon("images/plants/Aloe.png");
+        $plant->setWindowIcon("images/plants/AloeBackground.png");
         $plant->setLocationIcon("sonnig, auch direkte Sonneneinstrahlung");
         $plant->setTemperatureIcon("20-25°");
         $plant->setFertiliserIcon("2 bis 4 Wochen");
@@ -45,6 +48,8 @@ class PlantFixtures extends Fixture implements OrderedFixtureInterface
         $manager->persist($plant);
 
         $manager->flush();
+
+        $this->addReference(self::ALOEVERA, $plant);
     }
 
     public function getOrder()

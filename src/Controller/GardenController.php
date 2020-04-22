@@ -18,7 +18,6 @@ class GardenController extends AbstractController
     public function index()
     {
 
-
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         $userplants = $this->getDoctrine()->getRepository('App:Userplant')->findAll();
