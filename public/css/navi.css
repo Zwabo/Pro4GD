@@ -1,0 +1,25 @@
+.navbar div ul li a {
+    color: white;
+}
+
+.navbar div ul li:hover {
+    background-color: #707070;
+    border-radius: 5px;
+}
+
+#naviImg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+}
+#naviLogo svg {
+    width:135px;
+    height:40px;
+    fill: white;
+}
+#naviLogo svg:hover {
+    fill: #707070;
+}
+#naviLogo svg:active {
+    fill: #0a0a0a;
+}
