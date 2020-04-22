@@ -2,90 +2,97 @@
 {% block title %}Userplant{% endblock %}
 
 {% block body %}
-    <div id="baseInfos">
-        <h2>{{ userplant.name }}</h2>
-        <h3 class="h3Margin">Pflanzenkategorie</h3>
-        <div class="greenLine"></div>
-        <p>{{ userplant.location }}</p>
+        <div class="row" id="basicInfos">
+            <div class="col-lg-3" align="center">
+                <div class ="plantPicture">
+                    <img  src="/images/plants/Aloe.png" alt="Userbild von">
+                </div>
+                <p>Level: </p>
+            </div>
+            <div class="col-lg-5">
+                <h1>{{ userplant.name }}</h1>
+                <h2>{{userplant.getPlant().name}}</h2>
 
-        <ul>
-            <li id ="watering">Gießintervall</li>
-            <li id="wateringDay">Gießtag</li>
-        </ul>
-    </div>
-
-    <div id="picture">
-        <p>img</p>
-        <p>Level</p>
-    </div>
-
-    <div id="careTips" class="dropInfos">
-        <h3>Pflegetipps</h3>
-        <p>Pflegetipps aus Pflanzendatenbank</p>
-    </div>
-
-    <div id="moreInfos" class="dropInfos">
-        <h3>Weitere Informationen</h3>
-        <p>Weitere Informatioen aus Pflanzendatenbank</p>
-    </div>
-
-    <div id="baseInfoWidgets">
-        <div id="dung">
-            <ul>
-                <li>Düngen</li>
-                <li>Bild</li>
-                <li>Info</li>
-            </ul>
+                <ul>
+                    <li>{{ userplant.location }}</li>
+                    <li id ="watering">{{userplant.getPlant().getWateringAmount()}}</li>
+                    <li id="wateringDay">Gießtag</li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-flex align-content-center flex-wrap" id="InfoWidgetContainerBasic">
+                    <div class="infoWidget dung">
+                        <ul>
+                            <li>Düngen</li>
+                            <li>Bild</li>
+                            <li>Info</li>
+                        </ul>
+                    </div>
+                    <div class="infoWidget location">
+                        <ul>
+                            <li>Standort</li>
+                            <li>Bild</li>
+                            <li>Info</li>
+                        </ul>
+                    </div>
+                    <div class="infoWidget substrate">
+                        <ul>
+                            <li>Substrat</li>
+                            <li>Bild</li>
+                            <li>Info</li>
+                        </ul>
+                    </div>
+                    <div class="infoWidget temperature">
+                        <ul>
+                            <li>Temperatur</li>
+                            <li>Bild</li>
+                            <li>Info</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="locationWidget">
-            <ul>
-                <li>Standort</li>
-                <li>Bild</li>
-                <li>Info</li>
-            </ul>
-        </div>
-        <div id="substrateWidget">
-            <ul>
-                <li>Substrat</li>
-                <li>Bild</li>
-                <li>Info</li>
-            </ul>
-        </div>
-        <div id="tempWidget">
-            <ul>
-                <li>Temperatur</li>
-                <li>Bild</li>
-                <li>Info</li>
-            </ul>
-        </div>
-    </div>
 
-    <div id="additionalInfoWidget">
-        <div id="bloomWidget">
-            <ul>
-                <li>Blütezeit</li>
-                <li>Bild</li>
-                <li>Info</li>
-            </ul>
-        </div>
-        <div id="specialWidget">
-            <ul>
-                <li>Blütezeit</li>
-                <li>Bild</li>
-                <li>Info</li>
-            </ul>
-        </div>
-    </div>
+    <div class="row" id="careTips">
+        <div class="col-lg-8">
+            <div id="careTips">
+                <h3>Pflegetipps</h3>
+                <div class="greenLine"></div>
+                <p>{{userplant.getPlant().getCareTips()}}</p>
+            </div>
 
-    <div id="notes">
-        <h3>Meine Notizen</h3>
-        <button>bearbeiten</button>
-        <p>Bild</p>
-        <input></input>
-        <p>User Notizen</p>
-    </div>
+            <div id="moreInfos">
+                <h3>Weitere Informationen</h3>
+                <div class="greenLine"></div>
+                <p>Weitere Informatioen aus Pflanzendatenbank</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="d-flex align-content-center flex-wrap" id="InfoWidgetContainerSpecial">
+                <div class="infoWidget bloom">
+                    <ul>
+                        <li>Blütezeit</li>
+                        <li>Bild</li>
+                        <li>Info</li>
+                    </ul>
+                </div>
+                <div class="infoWidget uniqueness">
+                    <ul>
+                        <li>Blütezeit</li>
+                        <li>Bild</li>
+                        <li>Info</li>
+                    </ul>
+                </div>
+            </div>
 
-    <div id="dataBaseLink">
-        <p>Weiter zum Datenbankeintrag</p>
+            <div id="notes">
+                <div class="heading">Meine Notizen <a href="#">Bearbeiten</a></div>
+                <div class="body">{{userplant.notes}}</div>
+            </div>
+
+            <div id="dataBaseLink" class="text-center">
+                <button class="buttonDarkGreen">Zum Datenbankeintrag</button>
+            </div>
+        </div>
     </div>
 {% endblock %}
