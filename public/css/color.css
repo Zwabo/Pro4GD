@@ -1,0 +1,40 @@
+/*basic color for background and font-color*/
+body {
+    background-color: white;
+    color: #707070;
+}
+
+/* Font-Color classes*/
+.fontWhite { color: white;}
+.fontLightGrey { color: #DEDEDE; }
+.fontDarkGrey { color: #707070; }
+.fontLightGreen { color: #B8E269; }
+.fontDarkGreen { color: #97B753; }
+
+/* Background-Color classes*/
+.bgWhite { background-color: #ffffff; }
+.bgLightGrey { background-color: #DEDEDE; }
+.bgDarkGrey { background-color: #707070; }
+.bgWhiteGrey{ background-color: #F5F5F5; }
+.bgLightGreen { background-color: #B8E269; }
+.bgDarkGreen { background-color: #97B753; }
+
+/* Buttons */
+.buttonDarkGreen {
+    background-color: #97B753;
+    padding: 10px 14px;
+    color: white;
+    border: 2px solid #97B753;
+    border-radius: 10px;
+    font-size: 110%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+.buttonDarkGreen:hover {
+    background-color: #B8E269;
+    color: #707070;
+}
+.buttonDarkGreen:active {
+    background-color: #97B753;
+    color: white;
+}

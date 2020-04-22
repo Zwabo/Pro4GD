@@ -19,7 +19,7 @@ class PlantFixtures extends Fixture implements OrderedFixtureInterface
         $plant->setGenus("Aloen");
         $plant->setCareLevel("gering");
         $plant->setWateringAmount("500ml");
-        $plant->setIcon("/build/images/AloeSmall.png");
+        $plant->setIcon("/images/plants/SmallAloe.png");
         $plant->setWindowIcon("/build/images/AloeBackground.png");
         $plant->setLocationIcon("sonnig, auch direkte Sonneneinstrahlung");
         $plant->setTemperatureIcon("20-25°");

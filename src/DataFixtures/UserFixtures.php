@@ -10,6 +10,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture
 {
+    public const TESTUSER = 'admin-user';
     private $passwordEncoder;
 
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
@@ -29,6 +30,7 @@ class UserFixtures extends Fixture
         $user->setDescription('Hi guys. I\'m Mira and I\'m happy to use this app to take better care of my plants.');
         $user->setCountry("Österreich");
         $user->setLevel(1559);
+        $user->setUserPic("/images/pictures/profile_test1.jpg");
 
         $dateAdded = date_create('2019-05-19 12:30:03');
         $dateAdded->format('Y-m-d h.i.s');
@@ -51,5 +53,7 @@ class UserFixtures extends Fixture
         $manager->persist($user);
 
         $manager->flush();
+
+        $this->addReference(self::TESTUSER, $user);
     }
 }
