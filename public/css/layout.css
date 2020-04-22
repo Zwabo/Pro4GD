@@ -36,3 +36,8 @@
 
 /*right side floating boxes*/
 .rightBoxesPadding { padding: 20px; }
+
+/*basic border radius for elements and boxes*/
+.borderRad10{
+    border-radius: 10px;
+}

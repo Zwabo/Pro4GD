@@ -55,7 +55,7 @@
                     <div class="container">
 
                     {% for friend in user.friends %}
-                    <div class="row friends bgWhiteGrey dropShadow">
+                    <div class="row friends bgWhiteGrey dropShadow borderRad10">
 
                         <div class="col-lg-2">
                             <img class="smallUserPics " src="{{ user.userPic }}">
@@ -131,11 +131,12 @@
 
                         </div>
                         {% endif %}
-
                         {% endfor %}
+
                         {% if user.userplants|length is not divisible by(2) %}
                         </div>
                         {% endif %}
+
                         </div>
                     </div>
                 </div>
