@@ -9,6 +9,9 @@ use Doctrine\Persistence\ObjectManager;
 
 class PlantFixtures extends Fixture implements OrderedFixtureInterface
 {
+
+    public const ALOEVERA = 'aloevera';
+
     public function load(ObjectManager $manager)
     {
         $plant = new Plant();
@@ -45,6 +48,8 @@ class PlantFixtures extends Fixture implements OrderedFixtureInterface
         $manager->persist($plant);
 
         $manager->flush();
+
+        $this->addReference(self::ALOEVERA, $plant);
     }
 
     public function getOrder()

@@ -38,6 +38,7 @@ class UserplantFixture extends Fixture implements DependentFixtureInterface
         $userplant->setDateWatered($dateAdded);
 
         $userplant->setUser($this->getReference(UserFixtures::TESTUSER));
+        $userplant->setPlant($this->getReference(PlantFixtures::ALOEVERA));
 
         //$userplant->setUserplantCareTips("Blabalbalba");
 
@@ -57,6 +58,7 @@ class UserplantFixture extends Fixture implements DependentFixtureInterface
         $userplant2->setDateWatered($dateAdded);
 
         $userplant2->setUser($this->getReference(UserFixtures::TESTUSER));
+        $userplant2->setPlant($this->getReference(PlantFixtures::ALOEVERA));
 
         $manager->persist($userplant);
         $manager->persist($userplant2);
