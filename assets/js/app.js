@@ -9,7 +9,7 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import Vue from 'vue';
 import App from './components/App';
-import '../css/app.css';
+//import '../css/app.css';
 
 new Vue({
     el: '#app',
