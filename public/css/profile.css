@@ -62,10 +62,7 @@
 }
 
 /*Containerbreite*/
-#userInfoCnt{
-    padding: 40px 50px;
-    margin-bottom: 50px;
-}
+#userInfoCnt{ padding: 40px 50px; }
 #userPicCnt, #userDataCnt { align-self: center; }
 #userDataCnt ul { font-size: 110%; }
 #userDataCnt ul li svg {
