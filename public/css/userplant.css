@@ -31,7 +31,6 @@
 }
 .infoWidget{
     width:50%;
-    padding-top:25%;
 }
 .infoWidget.dung{
     background-color: #5eb5e0;
@@ -52,7 +51,25 @@
     background-color: #718C00;
 }
 
+.infoWidget ul{
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 0;
+    padding:5px;
+
+    text-align:center;
+}
+.infoWidget ul li:first-child{
+    font-size: 1.25rem;
+}
+.infoWidget ul li{
+    margin-bottom: 10px;
+}
+.infoWidget ul li:last-child{
+    margin-bottom: 0;
+}
 #notes{
+    color: #ffffff;
     background-color: #97B753;
     margin-top: 25px;
     margin-bottom: 25px;

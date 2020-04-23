@@ -24,29 +24,29 @@
                     <div class="infoWidget dung">
                         <ul>
                             <li>Düngen</li>
-                            <li>Bild</li>
-                            <li>Info</li>
+                            <li><img src="/images/icons/userplant/duenger.svg" height="75"></li>
+                            <li>{{userplant.getPlant().getFertiliserIcon()}}</li>
                         </ul>
                     </div>
                     <div class="infoWidget location">
                         <ul>
                             <li>Standort</li>
-                            <li>Bild</li>
-                            <li>Info</li>
+                            <li><img src="/images/icons/userplant/location.svg" height="75"></li>
+                            <li>{{userplant.getPlant().getLocationIcon()}}</li>
                         </ul>
                     </div>
                     <div class="infoWidget substrate">
                         <ul>
                             <li>Substrat</li>
-                            <li>Bild</li>
-                            <li>Info</li>
+                            <li><img src="/images/icons/userplant/substrat.svg" height="75"></li>
+                            <li>{{userplant.getPlant().getSubstrateIcon()}}</li>
                         </ul>
                     </div>
                     <div class="infoWidget temperature">
                         <ul>
                             <li>Temperatur</li>
-                            <li>Bild</li>
-                            <li>Info</li>
+                            <li><img src="/images/icons/userplant/temperature.svg" height="75"></li>
+                            <li>{{userplant.getPlant().getTemperatureIcon()}}</li>
                         </ul>
                     </div>
                 </div>
@@ -64,7 +64,10 @@
             <div id="moreInfos">
                 <h3>Weitere Informationen</h3>
                 <div class="greenLine"></div>
-                <p>Weitere Informatioen aus Pflanzendatenbank</p>
+                <h4>Standort</h4>
+                <p>{{userplant.getPlant().getLocationAddInfo()}}</p>
+                <h4>Temperatur</h4>
+                <p>{{userplant.getPlant().getTemperatureAddInfo()}}</p>
             </div>
         </div>
         <div class="col-lg-4">
@@ -72,15 +75,15 @@
                 <div class="infoWidget bloom">
                     <ul>
                         <li>Blütezeit</li>
-                        <li>Bild</li>
-                        <li>Info</li>
+                        <li><img src="/images/icons/userplant/bloom.svg" height="75"></li>
+                        <li>{{userplant.getPlant().getHeyDayIcon()}}</li>
                     </ul>
                 </div>
                 <div class="infoWidget uniqueness">
                     <ul>
-                        <li>Blütezeit</li>
-                        <li>Bild</li>
-                        <li>Info</li>
+                        <li>Besonderheiten</li>
+                        <li><img src="/images/icons/userplant/uniqueness.svg" height="75"></li>
+                        <li>{{userplant.getPlant().getSpecialFeatureIcon()}}</li>
                     </ul>
                 </div>
             </div>
@@ -95,4 +98,5 @@
             </div>
         </div>
     </div>
+
 {% endblock %}
