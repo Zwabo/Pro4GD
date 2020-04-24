@@ -94,7 +94,7 @@
             </div>
 
             <div id="dataBaseLink" class="text-center">
-                <button class="buttonDarkGreen">Zum Datenbankeintrag</button>
+                <a href="{{ path('plantName', {name: userplant.getPlant().getName()}) }}" class="buttonDarkGreen">Zum Datenbankeintrag</a>
             </div>
         </div>
     </div>

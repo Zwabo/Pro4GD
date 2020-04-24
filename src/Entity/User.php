@@ -99,6 +99,8 @@ class User implements UserInterface
     public function __construct()
     {
         $this->userplants = new ArrayCollection();
+        $this->friendsOutgoing = new ArrayCollection();
+        $this->friendsIncoming = new ArrayCollection();
     }
 
     /*-------------------------getter and setter--------------------------*/
