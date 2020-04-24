@@ -38,6 +38,8 @@ class PlantFixtures extends Fixture implements OrderedFixtureInterface
 
         $plant = new Plant();
 
+        $plant->setLinkName("aloeVera");
+
         $plant->setName("Aloe Vera");
         $plant->setAlternativeName("Echte Aloe");
         $plant->setLatinName("Aloe Vera");
@@ -73,6 +75,8 @@ class PlantFixtures extends Fixture implements OrderedFixtureInterface
         /*---------------------------------ALPENVEILCHEN--------------------------------*/
 
         $alpenveilchen = new Plant();
+
+        $alpenveilchen->setLinkName("alpenveilchen");
 
         $alpenveilchen->setName("Alpenveilchen");
         $alpenveilchen->setAlternativeName("Zyklamen");
@@ -123,6 +127,8 @@ Gießwasser darf nicht im Untersetzer oder Übertopf belassen werden. Es ist von
         /*---------------------------------BEGONIE--------------------------------*/
 
         $begonie = new Plant();
+
+        $begonie->setLinkName("begonie");
 
         $begonie->setName("Begonie");
         $begonie->setAlternativeName("Schiefblatt");
@@ -186,6 +192,8 @@ genügend Helligkeit sorgt."
 
         $blattbegonie = new Plant();
 
+        $blattbegonie->setLinkName("blattbegonie");
+
         $blattbegonie->setName("Blattbegonie");
         $blattbegonie->setAlternativeName("Schiefblatt");
         $blattbegonie->setLatinName("Begonia bowerae");
@@ -247,6 +255,8 @@ genügend Helligkeit sorgt."
 
         $koenigsbegonie = new Plant();
 
+        $koenigsbegonie->setLinkName("koenigsbegonie");
+
         $koenigsbegonie->setName("Königsbegonie");
         $koenigsbegonie->setAlternativeName("Schiefblatt");
         $koenigsbegonie->setLatinName("Begonia");
@@ -307,6 +317,8 @@ genügend Helligkeit sorgt."
         /*---------------------------------WIMPERNBEGONIE--------------------------------*/
 
         $wimpernbegonie = new Plant();
+
+        $wimpernbegonie->setLinkName("wimpernbegonie");
 
         $wimpernbegonie->setName("Wimpernbegonie");
         $wimpernbegonie->setAlternativeName("Schiefblatt");
@@ -373,6 +385,8 @@ genügend Helligkeit sorgt."
 
         $zimmercalla = new Plant();
 
+        $zimmercalla->setLinkName("zimmercalla");
+
         $zimmercalla->setName("Zimmercalla");
         $zimmercalla->setAlternativeName("Calla, Kalla oder selten Calla-Lilien");
         $zimmercalla->setLatinName("Zantedeschieae");
@@ -423,6 +437,8 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
         /*---------------------------------GERANIE--------------------------------*/
 
         $geranie = new Plant();
+
+        $geranie->setLinkName("geranie");
 
         $geranie->setName("Geranie");
         $geranie->setLatinName("Pelargonium");
@@ -479,6 +495,8 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
 
         $edelgeranie = new Plant();
 
+        $edelgeranie->setLinkName("edelgeranie");
+
         $edelgeranie->setName("Edelgeranie");
         $edelgeranie->setLatinName("Pelagonium x grandiflorum");
         $edelgeranie->setGenus("Storchschnabelgewächse");
@@ -530,6 +548,8 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
         /*---------------------------------SCHMETTERLINGSGERANIE--------------------------------*/
 
         $schmetterlingsgeranie = new Plant();
+
+        $schmetterlingsgeranie->setLinkName("schmetterlingsgeranie");
 
         $schmetterlingsgeranie->setName("Schmetterlingsgeranie");
         $schmetterlingsgeranie->setAlternativeName("Duftgeranien");
@@ -588,7 +608,9 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
 
         $gluecksfeder = new Plant();
 
-        $gluecksfeder->setName("Gl&uuml;cksfeder");
+        $gluecksfeder->setLinkName("gluecksfeder");
+
+        $gluecksfeder->setName("Glücksfeder");
         $gluecksfeder->setLatinName("Zamioculcas zamiifolia");
         $gluecksfeder->setGenus("Aronstabgewächse");
         $gluecksfeder->setCareLevel("gering");
@@ -624,6 +646,8 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
         /*---------------------------------CHINESISCHER ROSENEIBISCH--------------------------------*/
 
         $chinroseneibisch = new Plant();
+
+        $chinroseneibisch->setLinkName("chinesischeRoseneibisch");
 
         $chinroseneibisch->setName("Chinesische Roseneibisch");
         $chinroseneibisch->setAlternativeName("Chinesische Rose, Zimmer-Hibiskus oder einfach Hibiskus ");
@@ -661,7 +685,9 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
 
         $hawaipalme = new Plant();
 
-        $hawaipalme->setName("Hawaiipalme");
+        $hawaipalme->setLinkName("hawaipalme");
+
+        $hawaipalme->setName("Hawaipalme");
         $hawaipalme->setAlternativeName("Vulkanpalme");
         $hawaipalme->setLatinName("Brighamia insignis");
         $hawaipalme->setGenus("Glockenblumengewächse");
@@ -693,6 +719,8 @@ Licht als im Sommer. Während sie in der kalten Jahreszeit einen sehr hellen Sta
 
         $katzengras = new Plant();
 
+        $katzengras->setLinkName("katzengras");
+        
         $katzengras->setName("Katzengras");
         $katzengras->setAlternativeName("Zyperngras");
         $katzengras->setLatinName("Cyperus zumula");
@@ -721,12 +749,13 @@ Licht als im Sommer. Während sie in der kalten Jahreszeit einen sehr hellen Sta
 
         $venusfliegenfalle = new Plant();
 
+        $venusfliegenfalle->setLinkName("venusfliegenfalle");
+        
         $venusfliegenfalle->setName("Venusfliegenfalle");
         $venusfliegenfalle->setLatinName("Dionea Muscipula");
         $venusfliegenfalle->setGenus("Fleischfressende Pflanzen");
         $venusfliegenfalle->setCareLevel("gering");
         $venusfliegenfalle->setWateringAmount("alle 2 Tage");
-
         $venusfliegenfalle->setLocationIcon("sehr hell, sonnig");
         $venusfliegenfalle->setTemperatureIcon("20-23°C");
         $venusfliegenfalle->setFertiliserIcon("kein Dünger");
@@ -750,6 +779,8 @@ Licht als im Sommer. Während sie in der kalten Jahreszeit einen sehr hellen Sta
 
         $narzisse = new Plant();
 
+        $narzisse->setLinkName("narzisse");
+        
         $narzisse->setName("Narzisse");
         $narzisse->setAlternativeName("Osterglocke, Märzenbecher, Osterglöckchen");
         $narzisse->setLatinName("Narcissus");
@@ -795,33 +826,35 @@ Wichtig ist die Stängel nach der Blütenzeit zu stutzen, aber die Blätter noch
 
         /*---------------------------------ORCHIDEE--------------------------------*/
 
-        $ochidee = new Plant();
+        $orchidee = new Plant();
 
-        $ochidee->setName("Orchidee");
-        $ochidee->setLatinName("Orchidacea");
-        $ochidee->setGenus("Bedecktsamer");
-        $ochidee->setCareLevel("hoch");
-        $ochidee->setWateringAmount("alle 2 - 3 Tage");
-        $ochidee->setLocationIcon("sonnig, keine direkte Sonneneinstrahlung");
-        $ochidee->setTemperatureIcon("13-30°C");
-        $ochidee->setFertiliserIcon("Frühling/Sommer: alle 2 Wochen");
-        $ochidee->setSubstrateIcon("Blumenerde/Orchideenerde");
-        $ochidee->setHeydayIcon("zwischen Februar und Mai");
-        $ochidee->setHeightIcon("20 cm");
-        $ochidee->setSpecialFeatureIcon("1x im Jahr");
-        $ochidee->setShortDescription("Aufgrund ihrer hübschen Blüten zählen Orchideen zu den meistverbreiteten Zimmerpflanzen. Doch um kräftig und lange zu blühen, die tropischen Gewächse besonders viel Pflege.");
-        $ochidee->setSpecialFeaturesAddinfo("Sie besitzt wunderschöne, verschiedenfärbige und manchmal auch gesprenkelte Blüten, welche in jedem Wohnraum sehr gut zur Geltung kommen. Ihre Wurzeln sind großteils Obererdig. Es ist wichtig die Orchidee gut zu Pflegen, da sie sehr empfindlich sind. Mit der richtigen Pflege kann eine Orchidee jedoch über das ganze Jahr hinweg blühen.");
-        $ochidee->setLocationAddinfo("Stellen Sie die Orchidee an einen sonnigen Standort ohne direkte Sonneneinstrahlung. Zu viel Sonnenlicht schadet den Blättern und sorgt dafür, dass diese weniger glänzen. Diese Zimmerpflanze mag keinen Luftzug. Auch ist es ratsam, die Orchidee nicht in die Nähe einer Heizung zu stellen bei. 
+        $orchidee->setLinkName("orchidee");
+        
+        $orchidee->setName("Orchidee");
+        $orchidee->setLatinName("Orchidacea");
+        $orchidee->setGenus("Bedecktsamer");
+        $orchidee->setCareLevel("hoch");
+        $orchidee->setWateringAmount("alle 2 - 3 Tage");
+        $orchidee->setLocationIcon("sonnig, keine direkte Sonneneinstrahlung");
+        $orchidee->setTemperatureIcon("13-30°C");
+        $orchidee->setFertiliserIcon("Frühling/Sommer: alle 2 Wochen");
+        $orchidee->setSubstrateIcon("Blumenerde/Orchideenerde");
+        $orchidee->setHeydayIcon("zwischen Februar und Mai");
+        $orchidee->setHeightIcon("20 cm");
+        $orchidee->setSpecialFeatureIcon("1x im Jahr");
+        $orchidee->setShortDescription("Aufgrund ihrer hübschen Blüten zählen Orchideen zu den meistverbreiteten Zimmerpflanzen. Doch um kräftig und lange zu blühen, die tropischen Gewächse besonders viel Pflege.");
+        $orchidee->setSpecialFeaturesAddinfo("Sie besitzt wunderschöne, verschiedenfärbige und manchmal auch gesprenkelte Blüten, welche in jedem Wohnraum sehr gut zur Geltung kommen. Ihre Wurzeln sind großteils Obererdig. Es ist wichtig die Orchidee gut zu Pflegen, da sie sehr empfindlich sind. Mit der richtigen Pflege kann eine Orchidee jedoch über das ganze Jahr hinweg blühen.");
+        $orchidee->setLocationAddinfo("Stellen Sie die Orchidee an einen sonnigen Standort ohne direkte Sonneneinstrahlung. Zu viel Sonnenlicht schadet den Blättern und sorgt dafür, dass diese weniger glänzen. Diese Zimmerpflanze mag keinen Luftzug. Auch ist es ratsam, die Orchidee nicht in die Nähe einer Heizung zu stellen bei. 
 Bitte beachten Sie, dass Sie die Zimmerpflanze nicht in die Nähe einer Obstschale stellen. Obst sondert ein spezielles Gas aus, wodurch die Pflanze schneller altert.");
-        $ochidee->setPot("Topfen Sie die Orchidee alle 2 bis 3 Jahre oder aber wenn der Topf zu klein geworden ist um. Verwenden Sie beim Umtopfen spezielle Orchideenerde. Entfernen Sie schlechte Wurzeln, bevor Sie die Pflanze in den neuen Topf setzen. Sie können die Pflanze auch direkt nach der Anschaffung umtopfen. Benutzen Sie in beiden Fällen einen Topf der mindestens 20% größer ist als der vorherige. Topfen Sie die Pflanze bevorzugt im Frühling um. In dieser Zeit kann die Orchidee eventuelle Beschädigungen besser heilen.");
-        $ochidee->setWateringAmountAddinfo("Die Orchidee braucht nicht viel Wasser. Die Pflanze verlangt erst Wasser, wenn der Boden relativ trocken ist. Gießen Sie die Zimmerpflanze deswegen alle 7 bis 10 Tage mit einer kleinen Menge. Gießen Sie das Wasser auf die Erde und nicht auf die Pflanze selbst. Sorgen Sie dafür, dass das Wasser Zimmertemperatur hat. Gießen Sie bevorzugt am Morgen. Auf diese Weise kann die Orchidee das Wasser besser aufnehmen. 
+        $orchidee->setPot("Topfen Sie die Orchidee alle 2 bis 3 Jahre oder aber wenn der Topf zu klein geworden ist um. Verwenden Sie beim Umtopfen spezielle Orchideenerde. Entfernen Sie schlechte Wurzeln, bevor Sie die Pflanze in den neuen Topf setzen. Sie können die Pflanze auch direkt nach der Anschaffung umtopfen. Benutzen Sie in beiden Fällen einen Topf der mindestens 20% größer ist als der vorherige. Topfen Sie die Pflanze bevorzugt im Frühling um. In dieser Zeit kann die Orchidee eventuelle Beschädigungen besser heilen.");
+        $orchidee->setWateringAmountAddinfo("Die Orchidee braucht nicht viel Wasser. Die Pflanze verlangt erst Wasser, wenn der Boden relativ trocken ist. Gießen Sie die Zimmerpflanze deswegen alle 7 bis 10 Tage mit einer kleinen Menge. Gießen Sie das Wasser auf die Erde und nicht auf die Pflanze selbst. Sorgen Sie dafür, dass das Wasser Zimmertemperatur hat. Gießen Sie bevorzugt am Morgen. Auf diese Weise kann die Orchidee das Wasser besser aufnehmen. 
 Vermeiden Sie, dass Wasser länger im Topf zum Stehen kommt. Im Winter ist diese Zimmerpflanze im Ruhezustand. Geben Sie daher in dieser Zeit weniger Wasser. 
 Tipp: Sprühen im Winter Die Orchidee stellt keine hohen Ansprüche an Luftfeuchtigkeit. Im Winter ist es ratsam, die Pflanze ab und zu zu besprühen. Damit erhöhen Sie die Luftfeuchtigkeit. 
 Tipp: Wasserbad für die Luftwurzeln In ihrer Heimat gedeiht die Phalaenopsis-Orchidee als Aufsitzerpflanze. Ihre Luftwurzeln entnehmen dabei den kurzen, aber heftigen Regenschauern die lebenswichtige Feuchtigkeit.");
-        $ochidee->setFertiliserAddinfo("Sie können der Orchidee im Frühling und Sommer extra Dünger geben. Verwenden Sie hierfür speziele Orchidee-Dünger. Düngen Sie die Orchidee im Herbst und Winter nicht extra. Dies schadet der Pflanze. Für die richtige Menge schauen Sie auf die Verpackung. Nutzen Sie nie mehr als angegeben.");
-        $ochidee->setFlowerColor("Lila, Rosa, Pink, Weiß, Blau, Orange, Gelb, Grün, Purpur, Lavendel, Rot, ..., Gesprenkel, Mischformen");
-        $ochidee->setHeydayAddinfo("Die Mehrzahl der Orchideensorten blühen maximal einmal pro Jahr. Die Blüte dauert ungefähr 6 bis 10 Wochen. Eine Ausnahme ist hier die Phalaenopsis Orchidee. Diese Variante kann bis zu dreimal im Jahr blühen mit einer Blütenzeit von zwei bis 6 Monaten. Aus diesem Grund ist die Phalaenopsis Orchidee sehr beliebt in den Niederlanden. Stellen Sie die Orchidee nach der Blüte an einen kälteren Platz. Tun Sie dies für ungefähr 3 bis 4 Wochen. Auf diese Weise kann die Pflanze leichter neue Äste produzieren.");
-        $ochidee->setCareTips("Verfärbte Blätter: 
+        $orchidee->setFertiliserAddinfo("Sie können der Orchidee im Frühling und Sommer extra Dünger geben. Verwenden Sie hierfür speziele Orchidee-Dünger. Düngen Sie die Orchidee im Herbst und Winter nicht extra. Dies schadet der Pflanze. Für die richtige Menge schauen Sie auf die Verpackung. Nutzen Sie nie mehr als angegeben.");
+        $orchidee->setFlowerColor("Lila, Rosa, Pink, Weiß, Blau, Orange, Gelb, Grün, Purpur, Lavendel, Rot, ..., Gesprenkel, Mischformen");
+        $orchidee->setHeydayAddinfo("Die Mehrzahl der Orchideensorten blühen maximal einmal pro Jahr. Die Blüte dauert ungefähr 6 bis 10 Wochen. Eine Ausnahme ist hier die Phalaenopsis Orchidee. Diese Variante kann bis zu dreimal im Jahr blühen mit einer Blütenzeit von zwei bis 6 Monaten. Aus diesem Grund ist die Phalaenopsis Orchidee sehr beliebt in den Niederlanden. Stellen Sie die Orchidee nach der Blüte an einen kälteren Platz. Tun Sie dies für ungefähr 3 bis 4 Wochen. Auf diese Weise kann die Pflanze leichter neue Äste produzieren.");
+        $orchidee->setCareTips("Verfärbte Blätter: 
         Wenn die Pflanze ihre Knospen fallen lässt, ist das die Folge von zu viel Kälte, zu viel Wasser oder zu wenig Licht. Unter 15 Grad sind die Wurzeln nicht mehr aktiv, weshalb die Pflanze ihre Knospen verliert. Zu viel Sonnenlicht verbrennt die Blätter und der Glanz geht verloren. Dunkel grüne Blätter sind ein Zeichen dafür, dass die Orchidee mehr Licht braucht.
         Schneiden:
     Die Orchidee blüht von ende Winter bis Februar/März. Entfernen Sie die verblühten Blüten. Schneiden Sie alle tote Blätter und alte Stängel ab. Schneiden Sie den Stängel bis 12 Millimeter unter der verblühten Blüte ab. 
@@ -829,55 +862,59 @@ Es ist ratsam, eine Gartenschere zu verwenden. Die Orchidee ist nämlich sehr em
     Schädlinge:
     Orchideen sind anfällig für Schildläuse. Vorsorgliches Sprühen wirkt gut gegen Schildläuse. Diese mögen nämlich keine Feuchtigkeit. Bekämpfen ist auch möglich. Hierfür gibt es spezielle Schädlingsbekämpfungsmitteln.");
 
-        $ochidee->setIcon("images/plants/Aloe.png");
-        $ochidee->setWindowIcon("images/plants/AloeBackground.png");
+        $orchidee->setIcon("images/plants/Aloe.png");
+        $orchidee->setWindowIcon("images/plants/AloeBackground.png");
 
-        $manager->persist($ochidee);
+        $manager->persist($orchidee);
         $manager->flush();
-        $this->addReference(self::ORCHIDEE, $ochidee);
+        $this->addReference(self::ORCHIDEE, $orchidee);
 
 
         /*---------------------------------WEIHNACHTSSTERN--------------------------------*/
 
-        $weichnachtsstern = new Plant();
+        $weihnachtsstern = new Plant();
 
-        $weichnachtsstern->setName("Weihnachsstern");
-        $weichnachtsstern->setAlternativeName("Adventtstern, Chrisststern");
-        $weichnachtsstern->setLatinName("Euphorbia pulcherrima");
-        $weichnachtsstern->setGenus("Wolfsmilchgewächse");
-        $weichnachtsstern->setCareLevel("hoch");
-        $weichnachtsstern->setWateringAmount("alle 1-2 Tage");
-        $weichnachtsstern->setLocationIcon("keine direkte Sonne");
-        $weichnachtsstern->setTemperatureIcon("15-22°C");
-        $weichnachtsstern->setFertiliserIcon("1x im Monat");
-        $weichnachtsstern->setSubstrateIcon("Kakteenerde");
-        $weichnachtsstern->setHeydayIcon("Weinachten");
-        $weichnachtsstern->setHeightIcon("15-20 cm");
-        $weichnachtsstern->setSpecialFeatureIcon("giftig");
-        $weichnachtsstern->setShortDescription("Der Weihnachtsstern ist eine beliebte Zimmerpflanze in der Adventszeit - aber er ist auch sehr anspruchsvoll. ");
-        $weichnachtsstern->setLocationAddinfo("Der Weihnachtsstern bevorzugt einen hellen Standort ohne direkte Sonne und Temperaturen von 15 bis 22 Grad. Wenn ein Weihnachtsstern seine Blätter verliert, sind oft Kälte und Zugluft schuld, denn beides verträgt die ursprünglich in Mexiko beheimatete Pflanze nicht.");
-        $weichnachtsstern->setPot("Da die Erde des Topfballens bei neu gekauften Weihnachtssternen oft minderwertig ist und das Wasser nicht richtig hält, empfiehlt sich spätestens nach der Blüte ein Umtopfen. Als gutes Substrat hat sich Kakteenerde erwiesen, da sie wenig Feuchtigkeit speichert und die staunässeempfindlichen Wurzeln des Weihnachtssterns zu häufiges Gießen so besser vertragen, als wenn sehr humusreiche Erde zum Einsatz kommt.");
-        $weichnachtsstern->setWateringAmountAddinfo("Weihnachtssterne gedeihen, wenn sie regelmäßig handwarmes Wasser bekommen. Auf einen ausgetrockneten Wurzelballen reagiert die Pflanze mit dem Abwerfen ihrer Blätter. Sie erholt sie sich aber meist wieder, nachdem sie gegossen wurde. Zu große Feuchtigkeit oder Staunässe hingegen verzeiht der Weihnachtsstern kaum: Seine Blätter färben sich gelb und fallen ab, die Wurzeln fangen an zu faulen- im schlimmsten Fall geht er ein. Vor dem Kauf sollte geprüft werden, wie feucht der Wurzelballen ist.");
-        $weichnachtsstern->setFertiliserAddinfo("Während der Blüte brauchen Weihnachtssterne keinen Dünger. Danach genügt es, dem Wasser einmal im Monat eine Nährstofflösung zuzugeben.");
-        $weichnachtsstern->setFlowerColor("Blüten: Rot, Rosa, Weiß, Orange-Rot
+        $weihnachtsstern->setLinkName("weihnachtsstern");
+
+        $weihnachtsstern->setName("Weihnachsstern");
+        $weihnachtsstern->setAlternativeName("Adventtstern, Chrisststern");
+        $weihnachtsstern->setLatinName("Euphorbia pulcherrima");
+        $weihnachtsstern->setGenus("Wolfsmilchgewächse");
+        $weihnachtsstern->setCareLevel("hoch");
+        $weihnachtsstern->setWateringAmount("alle 1-2 Tage");
+        $weihnachtsstern->setLocationIcon("keine direkte Sonne");
+        $weihnachtsstern->setTemperatureIcon("15-22°C");
+        $weihnachtsstern->setFertiliserIcon("1x im Monat");
+        $weihnachtsstern->setSubstrateIcon("Kakteenerde");
+        $weihnachtsstern->setHeydayIcon("Weinachten");
+        $weihnachtsstern->setHeightIcon("15-20 cm");
+        $weihnachtsstern->setSpecialFeatureIcon("giftig");
+        $weihnachtsstern->setShortDescription("Der Weihnachtsstern ist eine beliebte Zimmerpflanze in der Adventszeit - aber er ist auch sehr anspruchsvoll. ");
+        $weihnachtsstern->setLocationAddinfo("Der Weihnachtsstern bevorzugt einen hellen Standort ohne direkte Sonne und Temperaturen von 15 bis 22 Grad. Wenn ein Weihnachtsstern seine Blätter verliert, sind oft Kälte und Zugluft schuld, denn beides verträgt die ursprünglich in Mexiko beheimatete Pflanze nicht.");
+        $weihnachtsstern->setPot("Da die Erde des Topfballens bei neu gekauften Weihnachtssternen oft minderwertig ist und das Wasser nicht richtig hält, empfiehlt sich spätestens nach der Blüte ein Umtopfen. Als gutes Substrat hat sich Kakteenerde erwiesen, da sie wenig Feuchtigkeit speichert und die staunässeempfindlichen Wurzeln des Weihnachtssterns zu häufiges Gießen so besser vertragen, als wenn sehr humusreiche Erde zum Einsatz kommt.");
+        $weihnachtsstern->setWateringAmountAddinfo("Weihnachtssterne gedeihen, wenn sie regelmäßig handwarmes Wasser bekommen. Auf einen ausgetrockneten Wurzelballen reagiert die Pflanze mit dem Abwerfen ihrer Blätter. Sie erholt sie sich aber meist wieder, nachdem sie gegossen wurde. Zu große Feuchtigkeit oder Staunässe hingegen verzeiht der Weihnachtsstern kaum: Seine Blätter färben sich gelb und fallen ab, die Wurzeln fangen an zu faulen- im schlimmsten Fall geht er ein. Vor dem Kauf sollte geprüft werden, wie feucht der Wurzelballen ist.");
+        $weihnachtsstern->setFertiliserAddinfo("Während der Blüte brauchen Weihnachtssterne keinen Dünger. Danach genügt es, dem Wasser einmal im Monat eine Nährstofflösung zuzugeben.");
+        $weihnachtsstern->setFlowerColor("Blüten: Rot, Rosa, Weiß, Orange-Rot
         Blätter: Grün");
-        $weichnachtsstern->setHeydayAddinfo("So blüht der Weinachtsstern pünktlich zum Fest Damit ein Weihnachtsstern pünktlich zum Fest farbige Blätter entwickelt, muss er zuvor mindestens acht Wochen lang mindestens 12 Stunden täglich in völliger Dunkelheit stehen. Bereits kleinste Lichtmengen während der täglichen Verdunkelungszeit verhindern erneutes Blühen. Deshalb lohnt es sich meist eher, jedes Jahr eine neue Pflanze zu kaufen.");
-        $weichnachtsstern->setCareTips("Der Weihnachtsstern wird nach Weihnachten, wenn er seine roten Hochblätter verliert, oft einfach entsorgt – zu Unrecht, denn wer ein paar Pflege-Tipps beachtet, hat lange etwas von ihm. Ebenso wie der Weihnachtskaktus (Schlumbergera) ist der 
+        $weihnachtsstern->setHeydayAddinfo("So blüht der Weinachtsstern pünktlich zum Fest Damit ein Weihnachtsstern pünktlich zum Fest farbige Blätter entwickelt, muss er zuvor mindestens acht Wochen lang mindestens 12 Stunden täglich in völliger Dunkelheit stehen. Bereits kleinste Lichtmengen während der täglichen Verdunkelungszeit verhindern erneutes Blühen. Deshalb lohnt es sich meist eher, jedes Jahr eine neue Pflanze zu kaufen.");
+        $weihnachtsstern->setCareTips("Der Weihnachtsstern wird nach Weihnachten, wenn er seine roten Hochblätter verliert, oft einfach entsorgt – zu Unrecht, denn wer ein paar Pflege-Tipps beachtet, hat lange etwas von ihm. Ebenso wie der Weihnachtskaktus (Schlumbergera) ist der 
 Weihnachtsstern eine Kurztagspflanze. Er bildet nur bei weniger als zwölf Stunden Tageslänge neue Hochblätter und Blütenknospen aus. In unseren Breiten ist das ab Oktober der Fall. Allerdings dauert die Helligkeit im Wohnraum durch künstliches Licht meist deutlich länger an, als sie der Weihnachtsstern zur Blütenbildung benötigt. Wird er länger als zwölf Stunden Licht ausgesetzt, tritt er in den Blühstreik und bildet nur grüne Blätter: Der Langschläfer braucht eben seinen Schönheitsschlaf. 
 Die Eigenschaft, dass die Blütenbildung beim Weihnachtsstern durch eine maximal zwölf Stunden lange Belichtung ausgelöst wird, machen sich hierzulande die Gärtnereien zunutze: Sie decken ihre Gewächshäuser ab Oktober mit schwarzer Folie ab, sodass den Weihnachtssternen ein entsprechend kurzer Tag vorgegaukelt wird. Und voilá – zusammen mit der Blüte erscheinen die roten Sterne pünktlich zur Adventszeit. Im Umkehrschluss bedeutet das, dass Sie Ihren Weihnachtsstern auch mitten im Sommer blühen lassen können, wenn Sie etwas experimentieren und den Lichtentzug entsprechend früh vornehmen. 
 Tipp: Wenn man die Kurztagspflanze ab September für etwa zwei Monate täglich 12 bis 14 Stunden abdunkelt, indem man zum Beispiel einen Pappkarton überstülpt, simuliert man die tropischen Lichtverhältnisse und bringt seinen Weihnachtsstern rechtzeitig zu Weihnachten erneut zum Blühen.");
 
-        $weichnachtsstern->setIcon("images/plants/Aloe.png");
-        $weichnachtsstern->setWindowIcon("images/plants/AloeBackground.png");
+        $weihnachtsstern->setIcon("images/plants/Aloe.png");
+        $weihnachtsstern->setWindowIcon("images/plants/AloeBackground.png");
 
-        $manager->persist($weichnachtsstern);
+        $manager->persist($weihnachtsstern);
         $manager->flush();
-        $this->addReference(self::WEIHNACHTSSTERN, $weichnachtsstern);
+        $this->addReference(self::WEIHNACHTSSTERN, $weihnachtsstern);
 
 
         /*---------------------------------YUCCA-PALME--------------------------------*/
 
         $yuccapalme = new Plant();
+
+        $yuccapalme->setLinkName("yuccaPalme");
 
         $yuccapalme->setName("Yucca-Palme");
         $yuccapalme->setAlternativeName("Palmlilien");
@@ -914,6 +951,8 @@ Yuccas sollten alle 2 – 3 Jahre umgetopft werden, nämlich immer dann, wenn de
         /*---------------------------------Schwertfarn--------------------------------*/
 
         $schwertfarn = new Plant();
+
+        $schwertfarn->setLinkName("schwertfarn");
 
         $schwertfarn->setName("Schwertfarn");
         $schwertfarn->setLatinName("Nephrolepis exaltata");

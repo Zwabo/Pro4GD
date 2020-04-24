@@ -38,3 +38,68 @@ body {
     background-color: #97B753;
     color: white;
 }
+
+.buttonWhite {
+    background-color: white;
+    padding: 10px 14px;
+    color: #97B753;;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 110%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    font-weight: bold;
+}
+.buttonWhite:hover {
+    background-color: #B8E269;
+    color: #707070;
+    border: 2px solid #B8E269;
+}
+.buttonWhite:active {
+    background-color: white;
+    color: #97B753;;
+    border: 2px solid white;
+}
+
+/*smaller Buttons*/
+.buttonIndexDarkGreen {
+    background-color: #97B753;
+    padding: 5px 14px;
+    color: white;
+    border: 2px solid #97B753;
+    border-radius: 10px;
+    font-size: 110%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+.buttonIndexDarkGreen:hover {
+    background-color: #B8E269;
+    color: #707070;
+    border: 2px solid #B8E269;
+}
+.buttonIndexDarkGreen:active {
+    background-color: #97B753;
+    color: white;
+    border: 2px solid #97B753;
+}
+.buttonWhiteIndex {
+    background-color: white;
+    padding: 5px 14px;
+    color: #97B753;;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 110%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    font-weight: bold;
+}
+.buttonWhiteIndex:hover {
+    background-color: #B8E269;
+    color: #707070;
+    border: 2px solid #B8E269;
+}
+.buttonWhiteIndex:active {
+    background-color: white;
+    color: #97B753;;
+    border: 2px solid white;
+}

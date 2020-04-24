@@ -4,14 +4,12 @@
 
 {% block body %}
 
-    <div id="appProfile">
-    </div>
-
     <div class="container-fluid">
 
     <!-- upper Profile Part -->
         <div class = "row bgDarkGrey fontWhite" id="userInfoCnt">
-            <div class = "col-lg-3" id="userPicCnt">
+            <div class="col-lg-1"></div>
+            <div class = "col-lg-2" id="userPicCnt">
                 <img  src="{{ user.userPic }}" alt="Userbild von {{ user.firstname }} {{ user.lastname }}" class ="userPicture">
             </div>
 
@@ -19,10 +17,14 @@
                 <h1>{{ user.firstname }} {{ user.lastname }}</h1>
                 <h2>{{ user.username }}</h2>
                 <p>Rang: {{ user.level }}</p>
-                <button id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <button id="userButton">Profil bearbeiten</button>
+                {% else %}
+                    <button id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
+                {% endif %}
             </div>
 
-            <div id="userDataCnt" class = "col-lg-3">
+            <div id="userDataCnt" class = "col-lg-2">
                 <ul class="noListStyle">
                     <li>
                         <!--<img src="/images/icons/user.svg" />-->
@@ -39,10 +41,11 @@
                         ...</li>
                 </ul>
             </div>
+            <div class="col-lg-1"></div>
         </div>
 
     <!-- lower Profile Part -->
-        <div class = "row">
+        <div class = "row marginLeftRight">
             <div class="col-lg-8">
             <div class="left">
                 <div id="description">

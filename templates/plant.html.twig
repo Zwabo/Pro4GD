@@ -2,11 +2,16 @@
 {% block title %}Userplant{% endblock %}
 
 {% block body %}
+    <div class="marginLeftRight">
     <p> diese Seite muss mit vue dynamisch gestaltet werden, da hier Inhalte sind, die sich verändern (null inhalte sollen nicht aufgelistet werden</p>
 
     <h1>{{ plant.name  }}</h1>
 
-    <ul><li>{{ plant.getAlternativeName }}</li><li>{{ plant.getLatinName }}</li>
+    <ul>
+        {% if plant.getAlternativeName != null %}
+        <li>{{ plant.getAlternativeName }}</li>
+        {% endif %}
+        <li>{{ plant.getLatinName }}</li>
         <li> {{ plant.genus }}</li>
         <li> {{  plant.getCareLevel }}</li>
     </ul>
@@ -67,6 +72,6 @@
 
     <h3>Pflegetipps</h3>
     <p>{{ plant.getCareTips }}</p>
-
+    </div>
 
 {% endblock %}

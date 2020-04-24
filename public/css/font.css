@@ -1,7 +1,17 @@
 /*basic font for the site*/
 body {
     font-family: 'Quicksand', sans-serif;
+    font-size: 100%;
+    font-weight: normal;
 }
+
+/*font-weight*/
+.fontBold { font-weight: bold; }
+.fontNormal { font-weight: normal; }
+.fontLight { font-weight: lighter; }
+
+
+.fontUpperCase { text-transform: uppercase; }
 
 /*ul class for no list style*/
 .noListStyle {
@@ -10,7 +20,10 @@ body {
     padding: 0px;
 }
 
+.alignTextCenter { text-align: center; }
+
 .h3Margin {
     margin-top: 50px;
     color: #97B753;
 }
+
