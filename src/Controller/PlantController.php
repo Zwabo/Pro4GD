@@ -15,7 +15,6 @@ class PlantController extends AbstractController {
      */
     public function plant()
     {
-
         return $this->render('searchPlant.html.twig', [
             'controller_name' => 'PlantController'
         ]);
@@ -25,7 +24,7 @@ class PlantController extends AbstractController {
     /**
      * @Route("/plant/{name}", name="plant")
      */
-    public function index($name)
+    /*public function index($name)
     {
         $plant = $this->getDoctrine()->getRepository(Plant::class)->find($name);
 
@@ -38,25 +37,21 @@ class PlantController extends AbstractController {
         return $this->render('plant.html.twig', [
             'controller_name' => 'PlantController', 'plant' => $plant
         ]);
-    }
+    }*/
 
     /**
      * @Route("/plant/{name}", name="plantName")
      */
-    /*public function index($name)
+    public function index($name)
     {
-        $plant = $this->getDoctrine()
-            ->getRepository(Plant::class)
-            ->find($name);
+        $plant = $this->getDoctrine()->getRepository('App:Plant')->findAll();
 
-        if (!$plant) {
-            throw $this->createNotFoundException(
-                'No plant found for name ' . $name
-            );
+        foreach ($plant as $dataPlant) {
+            $plant = $this->getDoctrine()->getRepository('App:Plant')->findOneBy(array('name' => $name));
         }
 
         return $this->render('plant.html.twig', [
             'controller_name' => 'PlantController', 'plant' => $plant
         ]);
-    }*/
+    }
 }
