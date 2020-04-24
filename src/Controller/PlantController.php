@@ -44,11 +44,7 @@ class PlantController extends AbstractController {
      */
     public function index($name)
     {
-        $plant = $this->getDoctrine()->getRepository('App:Plant')->findAll();
-
-        foreach ($plant as $dataPlant) {
-            $plant = $this->getDoctrine()->getRepository('App:Plant')->findOneBy(array('name' => $name));
-        }
+        $plant = $this->getDoctrine()->getRepository('App:Plant')->findOneBy(array('name' => $name));
 
         return $this->render('plant.html.twig', [
             'controller_name' => 'PlantController', 'plant' => $plant
