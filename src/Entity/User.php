@@ -96,9 +96,21 @@ class User implements UserInterface
      */
     private $userplants;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Friendship", mappedBy="user")
+     */
+    private $friendsOutgoing;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Friendship", mappedBy="friend")
+     */
+    private $friendsIncoming;
+
     public function __construct()
     {
         $this->userplants = new ArrayCollection();
+        $this->friendsOutgoing = new ArrayCollection();
+        $this->friendsIncoming = new ArrayCollection();
     }
 
     /*-------------------------getter and setter--------------------------*/
@@ -348,6 +360,68 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($userplant->getUser() === $this) {
                 $userplant->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Friendship[]
+     */
+    public function getFriendsOutgoing(): Collection
+    {
+        return $this->friendsOutgoing;
+    }
+
+    public function addFriendsOutgoing(Friendship $friendsOutgoing): self
+    {
+        if (!$this->friendsOutgoing->contains($friendsOutgoing)) {
+            $this->friendsOutgoing[] = $friendsOutgoing;
+            $friendsOutgoing->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFriendsOutgoing(Friendship $friendsOutgoing): self
+    {
+        if ($this->friendsOutgoing->contains($friendsOutgoing)) {
+            $this->friendsOutgoing->removeElement($friendsOutgoing);
+            // set the owning side to null (unless already changed)
+            if ($friendsOutgoing->getUser() === $this) {
+                $friendsOutgoing->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Friendship[]
+     */
+    public function getFriendsIncoming(): Collection
+    {
+        return $this->friendsIncoming;
+    }
+
+    public function addFriendsIncoming(Friendship $friendsIncoming): self
+    {
+        if (!$this->friendsIncoming->contains($friendsIncoming)) {
+            $this->friendsIncoming[] = $friendsIncoming;
+            $friendsIncoming->setFriend($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFriendsIncoming(Friendship $friendsIncoming): self
+    {
+        if ($this->friendsIncoming->contains($friendsIncoming)) {
+            $this->friendsIncoming->removeElement($friendsIncoming);
+            // set the owning side to null (unless already changed)
+            if ($friendsIncoming->getFriend() === $this) {
+                $friendsIncoming->setFriend(null);
             }
         }
 
