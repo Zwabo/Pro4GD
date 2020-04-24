@@ -51,10 +51,10 @@
 #indexAloe { width: 70%; }
 
 /* offering part */
-#indexOffer div svg {
-    width: 100%;
-    margin-bottom: 10%;
-    margin-top: 4%;
+.indexIcon svg {
+    width:90%;
+    margin-bottom: 15%;
+    margin-top: 10%;
 }
 
 /*news Sllider*/
@@ -67,11 +67,12 @@
 }
 
 /*hover Animations*/
-#indexIconRotation:hover {
+.indexIconRotation:hover {
     transform: rotateY(360deg);
     transition: transform 1s;
 }
 
+/*fillings of the icons*/
 #indexWateringCan svg .circle { fill: white; }
 #indexWateringCan svg .grey { fill: #707070; }
 #indexWateringCan svg .green { fill: #97B753 }
