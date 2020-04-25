@@ -4,47 +4,53 @@
 
 {% block body %}
 
-    <div class="row marginLeftRight">
-    <div class="col-sm">
-        <div class="row ">
+    <div class="row">
+    <div class="col right marginLeftRight">
+        <div class="row garden">
             <h1 class="col-sm">Mein Garten</h1>
 
-            <div class="col-sm add">hinzufügen</div>
-        </div>
-
-    <div class="col-sm">
-            {% for userplant in userplants %}
-        <a  class="link" href="{{ path('userplant', {id: userplant.id}) }}">
-        <div class="bgWhiteGrey plantsProfile dropShadow ">
-        <div class="row">
-
-            <div class="col-sm" id="Eintrag" >
-                <ul>
-                    <li >{{ userplant.name }} ({{ userplant.getPlant().genus }})</li>
-                    <li>Ist durstig!</li>
-                    <li>{{ userplant.location }} </li>
-                    <li>Gießzeit</li>
-                    <li>Menge</li>
-                </ul>
+            <div class="col-sm text-right add">hinzufügen
+                <span class="addPlant">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="path1" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><path class="path2" d="M362.8,227.9c0,14.2-11.4,25.6-25.6,25.6h-85.3v85.3c0,14.2-11.4,25.6-25.6,25.6s-25.6-11.4-25.6-25.6v-85.3
+	h-85.3c-14.2,0-25.6-11.4-25.6-25.6s11.4-25.6,25.6-25.6h85.3v-85.3c0-14.2,11.4-25.6,25.6-25.6s25.6,11.4,25.6,25.6v85.3h85.3
+	C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
+                            </span>
             </div>
 
-            <img class="col-sm imgTest" src="{{ userplant.getPlant().icon}}" alt="Picture of plant" height="150">
-
         </div>
+        <div class="greenLine"></div>
 
-        <div class="row">
-            <button class="col-sm" >Gießen</button>
+        <div class="row userplants">
+        {% for userplant in userplants %}
+        <div class="col">
+
+        <a  class="link" href="{{ path('userplant', {id: userplant.id}) }}">
+        <div class="bgWhiteGrey plantsProfile dropShadow ">
+
+            <div class="row">
+            <div class="col-sm-7 plantInfo" id="Eintrag" >
+                <p class="text-left">{{ userplant.name }} ({{ userplant.getPlant().name }})</p>
+                <p>Ist durstig!</p>
+                <p class="location">{{ userplant.location }} </p>
+                <p class="watering">Gießzeit</p>
+                <p class="amount">Menge</p>
+                <button class="buttonDarkGreen">Gießen</button>
+            </div>
+
+            <img class="col-sm imgTest" src="{{ userplant.getPlant().icon}}" alt="Picture of plant" height="200">
         </div>
         </div>
             </a>
-            {% endfor %}
 
+        </div>
+
+        {% endfor %}
     </div>
 
     </div>
 
-    <div class="col-sm">
-        <img src="{{ userplants[0].getPlant().WindowIcon }}" alt="Plant side view" height="700" class="col-sm">
+    <div class="col windowImage">
+        <img src="{{ userplants[0].getPlant().WindowIcon }}" alt="Plant side view" height="700" class="col-sm plantWindow">
     </div>
 
     </div>

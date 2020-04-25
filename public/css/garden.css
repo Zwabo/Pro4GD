@@ -1,15 +1,59 @@
 
+.windowImage {
+    margin: 0;
+    padding: 0;
+}
 
-.plantsProfile {
-    margin-bottom: 20px;
-    border-radius: 10px;
-    padding: 10px 10px 10px 30px;
+.whiteLine {
+    width: 0 !important;
+    height: 0 !important;
 }
-.plantsProfile:hover {
-    background-color: #707070;
-    color: white;
+
+.garden{
+    margin-top:50px;
+    margin-bottom: 5px;
 }
-.plantsProfile:active {
-    background-color: #DEDEDE;
-    color: #707070;
+.garden h1{
+    font-size: 2.5rem;
 }
+
+.userplants {
+    margin-top:50px;
+}
+
+.addPlant svg { width: 10%; fill: white; }
+.addPlant svg .path1 { fill: #B8E269; }
+.addPlant svg:hover .path1 {  fill: #97B753; }
+.addPlant svg:active { fill: #B8E269; }
+.addPlant svg:active .path1 { fill: #000000;}
+
+.add { padding-top: 11px; }
+
+a:link { text-decoration: none; }
+a { color: #6E6E6E; }
+
+.plantInfo {
+    font-size: 10pt;
+    text-align: left;
+}
+
+.buttonDarkGreen {
+    padding: 3%;
+    margin-top: 15%;
+    font-size: 10pt;
+}
+
+p {
+    margin-bottom: 3%;
+}
+
+p:first-of-type {
+    font-size: 11.5pt;
+}
+
+.location{
+    margin-top: 15%;
+}
+
+
+

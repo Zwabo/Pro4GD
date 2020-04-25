@@ -22,11 +22,6 @@ class GardenController extends AbstractController
 
         $userplants = $this->getDoctrine()->getRepository('App:Userplant')->findAll();
 
-        foreach ($userplants as $userplant) {
-            $plant = $this->getDoctrine()->getRepository('App:Plant')->findOneBy(array('name' => 'Aloe Vera'));
-            $plant->addUserplant($userplant);
-        }
-
         return $this->render('myGarden.html.twig', [
             'controller_name' => 'GardenController', 'userplants' => $userplants
         ]);

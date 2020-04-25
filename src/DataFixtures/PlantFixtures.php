@@ -116,8 +116,8 @@ Gießwasser darf nicht im Untersetzer oder Übertopf belassen werden. Es ist von
             "Das Pflegegeheimnis des Alpenveilchens ließe sich wie folgt zusammenfassen: leichte Feuchte und frische Kühle. Wenn Sie für die hübschen Dauerblüher einen Platz am sonnigen Wohnzimmerfenster vorgesehen haben, werden es Ihnen die Alpenveilchen allerdings kaum danken. Viel wohler fühlen sich die Pflanzen in einem kühlen Schlafzimmer, in einem hellen Flur oder in einem Badezimmer, wo wenig geheizt wird. Werden Alpenveilchen im Inneren zu intensiv bewässert, führt dies zum Faulen der Blatt- und Blütenstiele. Wird das Alpenveilchen in ein Gefäß mit feuchtem Torf gestellt, bleibt das Substrat gleichmäßig feucht."
         );
 
-        $alpenveilchen->setIcon("images/plants/Aloe.png");
-        $alpenveilchen->setWindowIcon("images/plants/AloeBackground.png");
+        $alpenveilchen->setIcon("images/plants/Alpenveilchen.png");
+        $alpenveilchen->setWindowIcon("images/plants/AlpenveilchenBackground.png");
 
         $manager->persist($alpenveilchen);
         $manager->flush();
@@ -181,8 +181,8 @@ genügend Helligkeit sorgt."
         Dünger: 1x pro Monat düngen, im Winter seltener"
         );
 
-        $begonie->setIcon("images/plants/Aloe.png");
-        $begonie->setWindowIcon("images/plants/AloeBackground.png");
+        $begonie->setIcon("images/plants/Begonie.png");
+        $begonie->setWindowIcon("images/plants/BegonieBackground.png");
 
         $manager->persist($begonie);
         $manager->flush();
@@ -244,8 +244,8 @@ genügend Helligkeit sorgt."
         Dünger: 1x pro Monat düngen, im Winter seltener"
         );
 
-        $blattbegonie->setIcon("images/plants/Aloe.png");
-        $blattbegonie->setWindowIcon("images/plants/AloeBackground.png");
+        $blattbegonie->setIcon("images/plants/Begonie.png");
+        $blattbegonie->setWindowIcon("images/plants/BegonieBackground.png");
 
         $manager->persist($blattbegonie);
         $manager->flush();
@@ -306,8 +306,8 @@ genügend Helligkeit sorgt."
         Dünger: 1x pro Monat düngen, im Winter seltener"
         );
 
-        $koenigsbegonie->setIcon("images/plants/Aloe.png");
-        $koenigsbegonie->setWindowIcon("images/plants/AloeBackground.png");
+        $koenigsbegonie->setIcon("images/plants/Begonie.png");
+        $koenigsbegonie->setWindowIcon("images/plants/BegonieBackground.png");
 
         $manager->persist($koenigsbegonie);
         $manager->flush();
@@ -373,8 +373,8 @@ genügend Helligkeit sorgt."
         Dünger: 1x pro Monat düngen, im Winter seltener"
         );
 
-        $wimpernbegonie->setIcon("images/plants/Aloe.png");
-        $wimpernbegonie->setWindowIcon("images/plants/AloeBackground.png");
+        $wimpernbegonie->setIcon("images/plants/Begonie.png");
+        $wimpernbegonie->setWindowIcon("images/plants/BegonieBackground.png");
 
         $manager->persist($wimpernbegonie);
         $manager->flush();
@@ -427,8 +427,8 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
             "Während der Blüte feucht halten und einmal in der Woche mit Wasser besprühen. Verblühtes und Vertrocknetes abschneiden und nach der Blütezeit austrocknen lassen. Im Topf oder als Blumenzwiebel überwintern"
         );
 
-        $zimmercalla->setIcon("images/plants/Aloe.png");
-        $zimmercalla->setWindowIcon("images/plants/AloeBackground.png");
+        $zimmercalla->setIcon("images/plants/Calla.png");
+        $zimmercalla->setWindowIcon("images/plants/CallaBackground.png");
 
         $manager->persist($zimmercalla);
         $manager->flush();
