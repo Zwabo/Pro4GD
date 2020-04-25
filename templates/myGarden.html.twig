@@ -14,7 +14,7 @@
 
     <div class="col-sm">
             {% for userplant in userplants %}
-
+        <a  class="link" href="{{ path('userplant', {id: userplant.id}) }}">
         <div class="bgWhiteGrey plantsProfile dropShadow ">
         <div class="row">
 
@@ -36,7 +36,7 @@
             <button class="col-sm" >Gießen</button>
         </div>
         </div>
-
+            </a>
             {% endfor %}
 
     </div>

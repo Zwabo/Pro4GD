@@ -31,12 +31,12 @@ class Plant
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $alternative_name;
+    private $alternativeName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $latin_name;
+    private $latinName;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -46,12 +46,12 @@ class Plant
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $care_level;
+    private $careLevel;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $watering_amount;
+    private $wateringAmount;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -61,92 +61,92 @@ class Plant
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $location_icon;
+    private $locationIcon;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $temperature_icon;
+    private $temperatureIcon;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $fertiliser_icon;
+    private $fertiliserIcon;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $substrate_icon;
+    private $substrateIcon;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $heyday_icon;
+    private $heydayIcon;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $height_icon;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $special_feature_icon;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $short_description;
+    private $heightIcon;
 
     /**
      * @ORM\Column(type="string", length=500, nullable=true)
      */
-    private $special_features_addinfo;
-
-    /**
-     * @ORM\Column(type="string", length=500, nullable=true)
-     */
-    private $location_addinfo;
-
-    /**
-     * @ORM\Column(type="string", length=500, nullable=true)
-     */
-    private $temperature_addinfo;
-
-    /**
-     * @ORM\Column(type="string", length=500, nullable=true)
-     */
-    private $pot;
-
-    /**
-     * @ORM\Column(type="string", length=500, nullable=true)
-     */
-    private $watering_amount_addinfo;
-
-    /**
-     * @ORM\Column(type="string", length=500, nullable=true)
-     */
-    private $substrate_addinfo;
-
-    /**
-     * @ORM\Column(type="string", length=500, nullable=true)
-     */
-    private $fertiliser_addinfo;
-
-    /**
-     * @ORM\Column(type="string", length=500, nullable=true)
-     */
-    private $flower_color;
-
-    /**
-     * @ORM\Column(type="string", length=500, nullable=true)
-     */
-    private $heyday_addinfo;
+    private $specialFeatureIcon;
 
     /**
      * @ORM\Column(type="string", length=500)
      */
-    private $care_tips;
+    private $shortDescription;
+
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $specialFeaturesAddinfo;
+
+    /**
+     * @ORM\Column(type="string", length=1000, nullable=true)
+     */
+    private $locationAddinfo;
+
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $temperatureAddinfo;
+
+    /**
+     * @ORM\Column(type="string", length=700, nullable=true)
+     */
+    private $pot;
+
+    /**
+     * @ORM\Column(type="string", length=1000, nullable=true)
+     */
+    private $wateringAmountAddinfo;
+
+    /**
+     * @ORM\Column(type="string", length=700, nullable=true)
+     */
+    private $substrateAddinfo;
+
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $fertiliserAddinfo;
+
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $flowerColor;
+
+    /**
+     * @ORM\Column(type="string", length=700, nullable=true)
+     */
+    private $heydayAddinfo;
+
+    /**
+     * @ORM\Column(type="string", length=1500)
+     */
+    private $careTips;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Userplant", mappedBy="plant")
@@ -195,24 +195,24 @@ class Plant
 
     public function getAlternativeName(): ?string
     {
-        return $this->alternative_name;
+        return $this->alternativeName;
     }
 
-    public function setAlternativeName(?string $alternative_name): self
+    public function setAlternativeName(?string $alternativeName): self
     {
-        $this->alternative_name = $alternative_name;
+        $this->alternativeName = $alternativeName;
 
         return $this;
     }
 
     public function getLatinName(): ?string
     {
-        return $this->latin_name;
+        return $this->latinName;
     }
 
-    public function setLatinName(string $latin_name): self
+    public function setLatinName(string $latinName): self
     {
-        $this->latin_name = $latin_name;
+        $this->latinName = $latinName;
 
         return $this;
     }
@@ -231,24 +231,24 @@ class Plant
 
     public function getCareLevel(): ?string
     {
-        return $this->care_level;
+        return $this->careLevel;
     }
 
-    public function setCareLevel(string $care_level): self
+    public function setCareLevel(string $careLevel): self
     {
-        $this->care_level = $care_level;
+        $this->careLevel = $careLevel;
 
         return $this;
     }
 
     public function getWateringAmount(): ?string
     {
-        return $this->watering_amount;
+        return $this->wateringAmount;
     }
 
-    public function setWateringAmount(string $watering_amount): self
+    public function setWateringAmount(string $wateringAmount): self
     {
-        $this->watering_amount = $watering_amount;
+        $this->wateringAmount = $wateringAmount;
 
         return $this;
     }
@@ -267,132 +267,132 @@ class Plant
 
     public function getLocationIcon(): ?string
     {
-        return $this->location_icon;
+        return $this->locationIcon;
     }
 
-    public function setLocationIcon(string $location_icon): self
+    public function setLocationIcon(string $locationIcon): self
     {
-        $this->location_icon = $location_icon;
+        $this->locationIcon = $locationIcon;
 
         return $this;
     }
 
     public function getTemperatureIcon(): ?string
     {
-        return $this->temperature_icon;
+        return $this->temperatureIcon;
     }
 
-    public function setTemperatureIcon(string $temperature_icon): self
+    public function setTemperatureIcon(string $temperatureIcon): self
     {
-        $this->temperature_icon = $temperature_icon;
+        $this->temperatureIcon = $temperatureIcon;
 
         return $this;
     }
 
     public function getFertiliserIcon(): ?string
     {
-        return $this->fertiliser_icon;
+        return $this->fertiliserIcon;
     }
 
-    public function setFertiliserIcon(?string $fertiliser_icon): self
+    public function setFertiliserIcon(?string $fertiliserIcon): self
     {
-        $this->fertiliser_icon = $fertiliser_icon;
+        $this->fertiliserIcon = $fertiliserIcon;
 
         return $this;
     }
 
     public function getSubstrateIcon(): ?string
     {
-        return $this->substrate_icon;
+        return $this->substrateIcon;
     }
 
-    public function setSubstrateIcon(string $substrate_icon): self
+    public function setSubstrateIcon(string $substrateIcon): self
     {
-        $this->substrate_icon = $substrate_icon;
+        $this->substrateIcon = $substrateIcon;
 
         return $this;
     }
 
     public function getHeydayIcon(): ?string
     {
-        return $this->heyday_icon;
+        return $this->heydayIcon;
     }
 
-    public function setHeydayIcon(?string $heyday_icon): self
+    public function setHeydayIcon(?string $heydayIcon): self
     {
-        $this->heyday_icon = $heyday_icon;
+        $this->heydayIcon = $heydayIcon;
 
         return $this;
     }
 
     public function getHeightIcon(): ?string
     {
-        return $this->height_icon;
+        return $this->heightIcon;
     }
 
-    public function setHeightIcon(string $height_icon): self
+    public function setHeightIcon(string $heightIcon): self
     {
-        $this->height_icon = $height_icon;
+        $this->heightIcon = $heightIcon;
 
         return $this;
     }
 
     public function getSpecialFeatureIcon(): ?string
     {
-        return $this->special_feature_icon;
+        return $this->specialFeatureIcon;
     }
 
-    public function setSpecialFeatureIcon(?string $special_feature_icon): self
+    public function setSpecialFeatureIcon(?string $specialFeatureIcon): self
     {
-        $this->special_feature_icon = $special_feature_icon;
+        $this->specialFeatureIcon = $specialFeatureIcon;
 
         return $this;
     }
 
     public function getShortDescription(): ?string
     {
-        return $this->short_description;
+        return $this->shortDescription;
     }
 
-    public function setShortDescription(string $short_description): self
+    public function setShortDescription(string $shortDescription): self
     {
-        $this->short_description = $short_description;
+        $this->shortDescription = $shortDescription;
 
         return $this;
     }
 
     public function getSpecialFeaturesAddinfo(): ?string
     {
-        return $this->special_features_addinfo;
+        return $this->specialFeaturesAddinfo;
     }
 
-    public function setSpecialFeaturesAddinfo(?string $special_features_addinfo): self
+    public function setSpecialFeaturesAddinfo(?string $specialFeaturesAddinfo): self
     {
-        $this->special_features_addinfo = $special_features_addinfo;
+        $this->specialFeaturesAddinfo = $specialFeaturesAddinfo;
 
         return $this;
     }
 
     public function getLocationAddinfo(): ?string
     {
-        return $this->location_addinfo;
+        return $this->locationAddinfo;
     }
 
-    public function setLocationAddinfo(?string $location_addinfo): self
+    public function setLocationAddinfo(?string $locationAddinfo): self
     {
-        $this->location_addinfo = $location_addinfo;
+        $this->locationAddinfo = $locationAddinfo;
 
         return $this;
     }
 
     public function getTemperatureAddinfo(): ?string
     {
-        return $this->temperature_addinfo;
+        return $this->temperatureAddinfo;
     }
 
-    public function setTemperatureAddinfo(?string $temperature_addinfo): self
+    public function setTemperatureAddinfo(?string $temperatureAddinfo): self
     {
-        $this->temperature_addinfo = $temperature_addinfo;
+        $this->temperatureAddinfo = $temperatureAddinfo;
 
         return $this;
     }
@@ -411,72 +411,72 @@ class Plant
 
     public function getWateringAmountAddinfo(): ?string
     {
-        return $this->watering_amount_addinfo;
+        return $this->wateringAmountAddinfo;
     }
 
-    public function setWateringAmountAddinfo(?string $watering_amount_addinfo): self
+    public function setWateringAmountAddinfo(?string $wateringAmountAddinfo): self
     {
-        $this->watering_amount_addinfo = $watering_amount_addinfo;
+        $this->wateringAmountAddinfo = $wateringAmountAddinfo;
 
         return $this;
     }
 
     public function getSubstrateAddinfo(): ?string
     {
-        return $this->substrate_addinfo;
+        return $this->substrateAddinfo;
     }
 
-    public function setSubstrateAddinfo(?string $substrate_addinfo): self
+    public function setSubstrateAddinfo(?string $substrateAddinfo): self
     {
-        $this->substrate_addinfo = $substrate_addinfo;
+        $this->substrateAddinfo = $substrateAddinfo;
 
         return $this;
     }
 
     public function getFertiliserAddinfo(): ?string
     {
-        return $this->fertiliser_addinfo;
+        return $this->fertiliserAddinfo;
     }
 
-    public function setFertiliserAddinfo(?string $fertiliser_addinfo): self
+    public function setFertiliserAddinfo(?string $fertiliserAddinfo): self
     {
-        $this->fertiliser_addinfo = $fertiliser_addinfo;
+        $this->fertiliserAddinfo = $fertiliserAddinfo;
 
         return $this;
     }
 
     public function getFlowerColor(): ?string
     {
-        return $this->flower_color;
+        return $this->flowerColor;
     }
 
-    public function setFlowerColor(?string $flower_color): self
+    public function setFlowerColor(?string $flowerColor): self
     {
-        $this->flower_color = $flower_color;
+        $this->flowerColor = $flowerColor;
 
         return $this;
     }
 
     public function getHeydayAddinfo(): ?string
     {
-        return $this->heyday_addinfo;
+        return $this->heydayAddinfo;
     }
 
-    public function setHeydayAddinfo(?string $heyday_addinfo): self
+    public function setHeydayAddinfo(?string $heydayAddinfo): self
     {
-        $this->heyday_addinfo = $heyday_addinfo;
+        $this->heydayAddinfo = $heydayAddinfo;
 
         return $this;
     }
 
     public function getCareTips(): ?string
     {
-        return $this->care_tips;
+        return $this->careTips;
     }
 
-    public function setCareTips(string $care_tips): self
+    public function setCareTips(string $careTips): self
     {
-        $this->care_tips = $care_tips;
+        $this->careTips = $careTips;
 
         return $this;
     }
