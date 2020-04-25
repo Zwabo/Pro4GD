@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+{% block title %}Userplant{% endblock %}
+
+{% block body %}
+    <div class="marginLeftRight">
+    <p> diese Seite muss mit vue dynamisch gestaltet werden, da hier Inhalte sind, die sich verändern (null inhalte sollen nicht aufgelistet werden</p>
+
+    <h1>{{ plant.name  }}</h1>
+
+    <ul>
+        {% if plant.getAlternativeName != null %}
+        <li>{{ plant.getAlternativeName }}</li>
+        {% endif %}
+        <li>{{ plant.getLatinName }}</li>
+        <li> {{ plant.genus }}</li>
+        <li> {{  plant.getCareLevel }}</li>
+    </ul>
+
+    <ul>
+        <li>{{ plant.getLocationIcon }}</li>
+        <li>{{ plant.getTemperatureIcon }}</li>
+        <li>{{ plant.getSubstrateIcon }}</li>
+        <li>{{ plant.getFertiliserIcon }}</li>
+        <li>{{ plant.getWateringAmount }}</li>
+        <li>{{ plant.getHeightIcon }}</li>
+        <li>{{ plant.getFlowerColor }}</li>
+    </ul>
+
+    <h3>Kurzbeschreibung</h3>
+    <p>{{ plant.getShortDescription }}</p>
+
+
+    {% if plant.getSpecialFeaturesAddinfo != null %}
+    <h3>Besonderheiten</h3>
+    <p>{{ plant.getSpecialFeaturesAddinfo }}</p>
+    {% endif %}
+
+    {% if plant.getLocationAddinfo != null %}
+    <h3>Idealer Standort</h3>
+    <p>{{ plant.getLocationAddinfo }}</p>
+    {% endif %}
+
+    {% if plant.getTemperatureAddinfo != null %}
+    <h3>Temperatur</h3>
+    <p>{{ plant.getTemperatureAddinfo }}</p>
+    {% endif %}
+
+    {% if plant.pot != null %}
+    <h3>Topf</h3>
+    <p>{{ plant.pot }}</p>
+    {% endif %}
+
+    {% if plant.getWateringAmountAddinfo != null %}
+    <h3>Wasserbedarf</h3>
+    <p>{{ plant.getWateringAmountAddInfo }}</p>
+    {% endif %}
+
+    {% if plant.getSubstrateAddinfo != null %}
+    <h3>Erde</h3>
+    <p>{{ plant.getSubstrateAddinfo }}</p>
+    {% endif %}
+
+    {% if plant.getFertiliserAddinfo != null %}
+    <h3>Dünger</h3>
+    <p>{{ plant.getFertiliserAddinfo }}</p>
+    {% endif %}
+
+    {% if plant.getHeydayAddinfo != null %}
+    <h3>Blütezeitn</h3>
+    <p>{{ plant.getHeydayAddinfo }}</p>
+    {% endif %}
+
+    <h3>Pflegetipps</h3>
+    <p>{{ plant.getCareTips }}</p>
+    </div>
+
+{% endblock %}

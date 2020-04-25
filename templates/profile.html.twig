@@ -8,7 +8,8 @@
 
     <!-- upper Profile Part -->
         <div class = "row bgDarkGrey fontWhite" id="userInfoCnt">
-            <div class = "col-lg-3" id="userPicCnt">
+            <div class="col-lg-1"></div>
+            <div class = "col-lg-2" id="userPicCnt">
                 <img  src="{{ user.userPic }}" alt="Userbild von {{ user.firstname }} {{ user.lastname }}" class ="userPicture">
             </div>
 
@@ -16,10 +17,14 @@
                 <h1>{{ user.firstname }} {{ user.lastname }}</h1>
                 <h2>{{ user.username }}</h2>
                 <p>Rang: {{ user.level }}</p>
-                <button id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <button id="userButton">Profil bearbeiten</button>
+                {% else %}
+                    <button id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
+                {% endif %}
             </div>
 
-            <div id="userDataCnt" class = "col-lg-3">
+            <div id="userDataCnt" class = "col-lg-2">
                 <ul class="noListStyle">
                     <li>
                         <!--<img src="/images/icons/user.svg" />-->
@@ -36,14 +41,15 @@
                         ...</li>
                 </ul>
             </div>
+            <div class="col-lg-1"></div>
         </div>
 
     <!-- lower Profile Part -->
-        <div class = "row">
+        <div class = "row marginLeftRight">
             <div class="col-lg-8">
             <div class="left">
                 <div id="description">
-                    <h3>Über {{ user.firstname }} {{ user.lastname }}</h3>
+                    <h3 class="h3Margin">Über {{ user.firstname }} {{ user.lastname }}</h3>
                     <div class="greenLine"></div>
                     <p>{{ user.description }}</p>
                 </div>
@@ -55,7 +61,7 @@
                     <div class="container">
 
                     {% for friend in user.friends %}
-                    <div class="row friends bgWhiteGrey dropShadow">
+                    <div class="row friends bgWhiteGrey dropShadow borderRad10">
 
                         <div class="col-lg-2">
                             <img class="smallUserPics " src="{{ user.userPic }}">
@@ -95,47 +101,52 @@
                         <div class="row">
 
                             <div class="col-lg-6">
-                            <div class="container bgWhiteGrey plantsProfile dropShadow">
-                            <div class="row">
-                            <div class="col-lg-8 selfAlignCenter">
-                            <ul class="noListStyle">
-                                <li>{{ plant.name }}</li>
-                                <li> {{ plant.location }}</li>
-                                <li> Level </li>
-                            </ul>
-                            </div>
-                            <div class="col-lg-4">
-                            <img class="imgTest" src="/images/plants/Aloe.png">
-                            </div>
-                            </div>
-                            </div>
+                                <a href="{{ path('userplant', {id: plant.id}) }}">
+                                    <div class="container bgWhiteGrey plantsProfile dropShadow">
+                                        <div class="row">
+                                            <div class="col-lg-8 selfAlignCenter">
+                                                <ul class="noListStyle">
+                                                    <li>{{ plant.name }}</li>
+                                                    <li> {{ plant.location }}</li>
+                                                    <li> Level </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <img class="imgTest" src="/images/plants/Aloe.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
 
                             {%  else %}
                             <div class="col-lg-6">
-                            <div class="container bgWhiteGrey plantsProfile dropShadow" >
-                            <div class="row">
-                            <div class="col-lg-8 selfAlignCenter">
-                                <ul class="noListStyle">
-                                    <li>{{ plant.name }}</li>
-                                    <li> {{ plant.location }}</li>
-                                    <li> Level </li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-4">
-                                <img class="imgTest" src="/images/plants/Aloe.png">
-                            </div>
-                            </div>
-                            </div>
+                                <a href="{{ path('userplant', {id: plant.id}) }}">
+                                    <div class="container bgWhiteGrey plantsProfile dropShadow" >
+                                        <div class="row">
+                                            <div class="col-lg-8 selfAlignCenter">
+                                                <ul class="noListStyle">
+                                                    <li>{{ plant.name }}</li>
+                                                    <li> {{ plant.location }}</li>
+                                                    <li> Level </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <img class="imgTest" src="/images/plants/Aloe.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
 
                         </div>
                         {% endif %}
-
                         {% endfor %}
+
                         {% if user.userplants|length is not divisible by(2) %}
                         </div>
                         {% endif %}
+
                         </div>
                     </div>
                 </div>
@@ -160,8 +171,6 @@
             </div>
         </div>
 
-
-    </div>
     <div style="display: none;">
     <!-- profile symbole -->
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -213,4 +222,8 @@
     </symbol></svg>
     </div>
 
+{% endblock %}
+
+{% block javascripts %}
+    <!--<script src="../assets/js/profile.js"></script>-->
 {% endblock %}

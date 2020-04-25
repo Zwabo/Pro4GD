@@ -21,6 +21,11 @@ class Plant
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private $linkName;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $name;
 
     /**
@@ -162,6 +167,18 @@ class Plant
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getLinkName(): ?string
+    {
+        return $this->linkName;
+    }
+
+    public function setLinkName(string $linkName): self
+    {
+        $this->linkName = $linkName;
+
+        return $this;
     }
 
     public function getName(): ?string
