@@ -25,6 +25,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
     use TargetPathTrait;
 
     public const LOGIN_ROUTE = 'app_login';
+    public const LOGIN_ROUTE_INDEX = 'home';
 
     private $entityManager;
     private $urlGenerator;
@@ -41,8 +42,15 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
     public function supports(Request $request)
     {
-        return self::LOGIN_ROUTE === $request->attributes->get('_route')
-            && $request->isMethod('POST');
+        /*return self::LOGIN_ROUTE === $request->attributes->get('_route')
+            && $request->isMethod('POST');*/
+
+        if (self::LOGIN_ROUTE) {
+            return self::LOGIN_ROUTE === $request->attributes->get('_route') && $request->isMethod('POST');
+        } else if (self::LOGIN_ROUTE_INDEX) {
+            return self::LOGIN_ROUTE_INDEX === $request->attributes->get('_route') && $request->isMethod('POST');
+        }
+
     }
 
     public function getCredentials(Request $request)
@@ -103,6 +111,13 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
     protected function getLoginUrl()
     {
-        return $this->urlGenerator->generate(self::LOGIN_ROUTE);
+        //return $this->urlGenerator->generate(self::LOGIN_ROUTE);
+
+        if(self::LOGIN_ROUTE) {
+            return $this->urlGenerator->generate(self::LOGIN_ROUTE);
+        } else if(self::LOGIN_ROUTE_INDEX) {
+            return $this->urlGenerator->generate(self::LOGIN_ROUTE_INDEX);
+        }
+
     }
 }

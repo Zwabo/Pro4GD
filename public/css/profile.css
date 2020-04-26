@@ -90,13 +90,6 @@
     width: 50px;
 }
 
-/*weiße Linie*/
-.whiteLine {
-    width: 100%;
-    height: 1px;
-    background: white;
-}
-
 /*rechte Boxen*/
 .rightBoxes {
     background-color: white;

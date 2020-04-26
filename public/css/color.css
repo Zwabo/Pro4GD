@@ -21,21 +21,45 @@ body {
 
 /* Buttons */
 .buttonDarkGreen {
+     background-color: #97B753;
+     padding: 10px 14px;
+     color: white;
+     border: 2px solid #97B753;
+     border-radius: 10px;
+     font-size: 110%;
+     margin-bottom: 2%;
+     margin-top: 2%;
+ }
+.buttonDarkGreen:hover {
+    background-color: #B8E269;
+    border: 2px solid #B8E269;
+    color: #707070;
+}
+.buttonDarkGreen:active {
+    background-color: #97B753;
+    border: 2px solid #97B753;
+    color: white;
+}
+
+.buttonDarkGreenSmall {
     background-color: #97B753;
     padding: 10px 14px;
     color: white;
     border: 2px solid #97B753;
     border-radius: 10px;
-    font-size: 110%;
+    font-size: 10pt;
     margin-bottom: 2%;
-    margin-top: 2%;
+    margin-top: 15%;
+    padding: 3%;
 }
-.buttonDarkGreen:hover {
+.buttonDarkGreenSmall:hover {
     background-color: #B8E269;
+    border: 2px solid #B8E269;
     color: #707070;
 }
-.buttonDarkGreen:active {
+.buttonDarkGreenSmall:active {
     background-color: #97B753;
+    border: 2px solid #97B753;
     color: white;
 }
 

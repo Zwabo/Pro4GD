@@ -9,13 +9,13 @@ class UserController extends AbstractController
 {
 
     /**
-     * @Route("/profile", name="profile")
-     */
+ * @Route("/profile", name="profile")
+ */
     public function index()
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
-        /** @var \App\Entity\User $user */
+        /* @var \App\Entity\User $user */
         $user = $this->getUser();
 
         return $this->render('profile.html.twig', [

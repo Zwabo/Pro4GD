@@ -10,6 +10,9 @@
 .selfAlignCenter {
     align-self: center;
 }
+.placeContentCenter {
+    place-content: center;
+}
 
 /*small user pictures for profile and forum*/
 .smallUserPics {
@@ -25,6 +28,13 @@
     height: 2px;
     background: #97B753;
     margin-bottom: 4%;
+}
+
+/*weiße Linien*/
+.whiteLine {
+    width: 100%;
+    height: 1px;
+    background: white;
 }
 
 .whiteLineVert {

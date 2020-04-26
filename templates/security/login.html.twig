@@ -8,10 +8,10 @@
         <div class="container-fluid">
         <div class="row">
 
-            <div class="col-lg-6">
+            <div class="col-lg-6 selfAlignCenter">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <h1 class="h1Logo">Willkommen bei</h1>
+                        <h2 class="h1Logo">Willkommen bei</h2>
                     </div>
                     <div class="row justify-content-center">
                         <div class="loginLogo">
@@ -62,7 +62,7 @@
 
             <div class="col-lg-1 whiteLineVert"></div>
 
-            <div class="col-lg-5">
+            <div class="col-lg-5 selfAlignCenter">
                 <div class="container-fluid">
 
 
@@ -78,6 +78,9 @@
                     {% endif %}
 
                     <div class="container-fluid">
+                        <div class="row placeContentCenter">
+                            <h1 class="loginRegisterh1">Logge dich ein!</h1>
+                        </div>
                         <div class="row">
                         <label for="inputEmail">Email</label>
                         <input  placeholder="email@plantbase.com" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
