@@ -8,12 +8,11 @@
 
     <!-- upper Profile Part -->
         <div class = "row bgDarkGrey fontWhite" id="userInfoCnt">
-            <div class="col-lg-1"></div>
-            <div class = "col-lg-2" id="userPicCnt">
+            <div class = "col-lg-4" id="userPicCnt">
                 <img  src="{{ user.userPic }}" alt="Userbild von {{ user.firstname }} {{ user.lastname }}" class ="userPicture">
             </div>
 
-            <div id="userCnt" class = "col-lg-6">
+            <div id="userCnt" class = "col-lg-5">
                 <h1>{{ user.firstname }} {{ user.lastname }}</h1>
                 <h2>{{ user.username }}</h2>
                 <p>Rang: {{ user.level }}</p>
@@ -24,7 +23,7 @@
                 {% endif %}
             </div>
 
-            <div id="userDataCnt" class = "col-lg-2">
+            <div id="userDataCnt" class = "col-lg-3">
                 <ul class="noListStyle">
                     <li>
                         <!--<img src="/images/icons/user.svg" />-->
@@ -41,7 +40,6 @@
                         ...</li>
                 </ul>
             </div>
-            <div class="col-lg-1"></div>
         </div>
 
     <!-- lower Profile Part -->
@@ -58,21 +56,21 @@
                     <h3 class="h3Margin">Freunde</h3>
                     <div class="greenLine"></div>
 
-                    <div class="container">
+                    <div class="container-fluid">
 
                     {% for friend in user.friends %}
                     <div class="row friends bgWhiteGrey dropShadow borderRad10">
 
-                        <div class="col-lg-2">
+                        <div class="col-lg-2 friendsPicture text-center justify-content-center">
                             <img class="smallUserPics " src="{{ user.userPic }}">
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-lg-6 friendsInfo selfAlignCenter">
                             <ul class="noListStyle">
                              <li>{{ friend }}</li>
                              <li>Level</li>
                              </ul>
                         </div>
-                        <div class="col-lg-2 selfAlignCenter">
+                        <div class="col-lg-4 text-right selfAlignCenter friendsButtons justify-content-center">
                              <span class="userProfileButton">
                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve">
 <path class="path1" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><g><g><path class="path2" d="M229,16.7c-61.1,0-110.9,49.8-110.9,110.9S167.9,238.5,229,238.5s110.9-49.8,110.9-110.9S290.1,16.7,229,16.7z"/></g></g><path class="path2" d="M366,304.9c-30.4-30.8-70.6-47.8-113.3-47.8h-49.3c-42.7,0-83,17-113.3,47.8c-26,26.4-42,60.2-45.9,96.5c1.9,1.9,3.8,3.7,5.8,5.3c68.3,56.9,285.9,56.9,355.6,0c2.2-1.8,4.3-3.7,6.3-5.9C407.8,364.8,391.9,331.2,366,304.9z"/></svg>
@@ -85,7 +83,9 @@
                          </div>
                     </div>
                     {% endfor %}
-                    <div class="row"><button class="buttonDarkGreen"> Alle Freunde</button></div>
+                    <div class="row d-flex justify-content-end">
+                            <button class="buttonDarkGreen"> Alle Freunde</button>
+                    </div>
                     </div>
 
 
@@ -95,24 +95,24 @@
                     <h3 class="h3Margin">{{ user.firstname }} {{ user.lastname }}s Garten</h3>
                     <div class="greenLine"></div>
                     <div>
-                        <div class="container">
+                        <div class="container-fluid">
                         {% for plant in user.userplants %}
                         {% if loop.index is not divisible by(2) %}
                         <div class="row">
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 paddingNormalize">
                                 <a href="{{ path('userplant', {id: plant.id}) }}">
-                                    <div class="container bgWhiteGrey plantsProfile dropShadow">
+                                    <div class="container-fluid plantsProfile dropShadow bgWhiteGrey plantsProfileLeftGrid">
                                         <div class="row">
-                                            <div class="col-lg-8 selfAlignCenter">
+                                            <div class="col-lg-8 selfAlignCenter plantsProfileInfoCol">
                                                 <ul class="noListStyle">
                                                     <li>{{ plant.name }}</li>
                                                     <li> {{ plant.location }}</li>
                                                     <li> Level </li>
                                                 </ul>
                                             </div>
-                                            <div class="col-lg-4">
-                                                <img class="imgTest" src="/images/plants/Aloe.png">
+                                            <div class="col-lg-4 plantsProfileImgCol text-right">
+                                                <img class="plantsProfileImg" src="/images/plants/Aloe.png">
                                             </div>
                                         </div>
                                     </div>
@@ -120,19 +120,19 @@
                             </div>
 
                             {%  else %}
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 paddingNormalize">
                                 <a href="{{ path('userplant', {id: plant.id}) }}">
-                                    <div class="container bgWhiteGrey plantsProfile dropShadow" >
+                                    <div class="container-fluid bgWhiteGrey plantsProfile dropShadow bgWhiteGrey plantsProfileRightGrid" >
                                         <div class="row">
-                                            <div class="col-lg-8 selfAlignCenter">
+                                            <div class="col-lg-8 selfAlignCenter plantsProfileInfoCol">
                                                 <ul class="noListStyle">
                                                     <li>{{ plant.name }}</li>
                                                     <li> {{ plant.location }}</li>
                                                     <li> Level </li>
                                                 </ul>
                                             </div>
-                                            <div class="col-lg-4">
-                                                <img class="imgTest" src="/images/plants/Aloe.png">
+                                            <div class="col-lg-4 plantsProfileImgCol text-right">
+                                                <img class="plantsProfileImg" src="/images/plants/Aloe.png">
                                             </div>
                                         </div>
                                     </div>
@@ -160,12 +160,12 @@
 
             <div class="col-lg-4">
                 <div class="rightBoxes">
-                    <h4 class="bgLightGrey rightBoxesPadding">Erungenschaften</h4>
+                    <h4 class="bgLightGrey rightBoxesPadding h4Box">Erungenschaften</h4>
                     <p class="rightBoxesPadding">Wird nur gezeigt wenn welche vorhanden</p>
                 </div>
 
                 <div class="rightBoxes">
-                    <h4 class="bgLightGrey rightBoxesPadding">Forenposts</h4>
+                    <h4 class="bgLightGrey rightBoxesPadding h4Box">Forenposts</h4>
                     <p class="rightBoxesPadding">Liste an Forenposts</p>
                 </div>
             </div>

@@ -37,11 +37,11 @@ a { color: #6E6E6E; }
     text-align: left;
 }
 
-p {
+.gardenPlants p {
     margin-bottom: 3%;
 }
 
-p:first-of-type {
+.gardenPFirst {
     font-size: 11.5pt;
 }
 

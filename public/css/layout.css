@@ -1,3 +1,7 @@
+/*normalize padding & margin*/
+.paddingNormalize { padding: 0;}
+.marginNormalize { margin: 0; }
+
 /* side padding of all rows so that they are not stucking to the left and right edges*/
 .rowIntent {
     padding: 0px 40px;
@@ -68,3 +72,22 @@
 .siteMarginBottom { margin-bottom: 7%; }
 .sitePaddingTop { padding-top: 7%; }
 .sitePaddingBottom { padding-bottom: 7%; }
+
+/*Large devices (desktops, less than 1200px)*/
+@media (max-width: 1199.98px) {
+    .paddingLeftRight { padding-left: 4%; padding-right: 4%; }
+    .marginLeftRight { margin-left: 4%; margin-right: 4%; }
+
+    .smallUserPics { width: 80%; }
+}
+
+/* Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) {
+    .smallUserPics { width: 60%; }
+}
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .paddingLeftRight { padding-left: 2%; padding-right: 2%; }
+    .marginLeftRight { margin-left: 2%; margin-right: 2%; }
+}

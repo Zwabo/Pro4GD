@@ -1,7 +1,7 @@
 /*basic font for the site*/
 body {
     font-family: 'Quicksand', sans-serif;
-    font-size: 100%;
+    font-size: 110%;
     font-weight: normal;
 }
 
@@ -27,3 +27,25 @@ body {
     color: #97B753;
 }
 
+@media (max-width: 1199.98px) {
+    body {
+        font-size: 100%;
+    }
+}
+
+
+/*Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767.98px) {
+    .h3Margin { font-size: 140%; }
+    body { font-size: 100%; }
+    .h4Box { font-size: 120%; }
+}
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    body { font-size: 80%; }
+    .h3Margin { font-size: 120%; }
+
+    p:first-of-type, p { font-size: 100%; }
+    p { font-size: 100%; }
+}

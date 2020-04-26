@@ -41,14 +41,14 @@
 #userButton:active svg { fill: white; }
 
 /* picture Buttons*/
-.userProfileButton svg{ width: 40%; fill: white; }
+.userProfileButton svg{ width: 20%; fill: white; }
 .userProfileButton svg .path1 { fill: #707070; }
 .userProfileButton svg:hover { fill: white; }
 .userProfileButton svg:hover .path1 {  fill: #97B753; }
 .userProfileButton svg:active { fill: #B8E269; }
 .userProfileButton svg:active .path1 { fill: #000000;}
 
-.addUserButton svg { width: 40%; fill: white; }
+.addUserButton svg { width: 20%; fill: white; }
 .addUserButton svg .path1 { fill: #707070; }
 .addUserButton svg:hover { fill: white; }
 .addUserButton svg:hover .path1 {  fill: #97B753; }
@@ -63,7 +63,10 @@
 
 /*Containerbreite*/
 #userInfoCnt{ padding: 40px 50px; }
-#userPicCnt, #userDataCnt { align-self: center; }
+#userPicCnt {
+    text-align-last: center;
+    align-self: center;}
+#userDataCnt { align-self: center; }
 #userDataCnt ul { font-size: 110%; }
 #userDataCnt ul li svg {
     width: 18px;
@@ -77,6 +80,7 @@
     margin-bottom: 20px;
     border-radius: 10px;
     padding: 10px 10px 10px 30px;
+    width: 97%;
 }
 .plantsProfile:hover {
     background-color: #707070;
@@ -86,9 +90,12 @@
     background-color: #DEDEDE;
     color: #707070;
 }
-.imgTest {
-    width: 50px;
+.plantsProfileImg {
+    width: 70%;
+    margin-right: 2%;
 }
+.plantsProfileLeftGrid { float: left; }
+.plantsProfileRightGrid { flaot: right; }
 
 /*rechte Boxen*/
 .rightBoxes {
@@ -99,4 +106,99 @@
 }
 .rightBoxes:first-of-type {
     margin-top: 50px;
+}
+
+/*Large devices (desktops, less than 1200px)*/
+@media (max-width: 1199.98px) {
+    .userProfileButton svg { width: 20%; }
+    .addUserButton svg { width: 20%; }
+
+    #userPicCnt { width: 20%; }
+    #userCnt { width: 50%; }
+    #userDataCnt { width: 30%; }
+
+    #userCnt h1 { font-size: 160%; }
+    #userCnt h2 { font-size: 120%; }
+
+    #userButton {
+        padding: 7px 15px;
+        font-size: 100%;
+    }
+    #userButton svg {
+        width: 10px;
+        height: 10px;
+        margin-left: 7px;
+    }
+
+    #userDataCnt ul { font-size: 90%; }
+    #userDataCnt ul li svg {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) {
+    .friends .friendsPicture { width: 20%; }
+    .friends .friendsInfo {width: 50%; }
+    .friends .friendsButtons { width: 30%; }
+
+    .plantsProfileInfoCol { width: 60%; }
+    .plantsProfileImgCol { width: 40%; }
+    .plantsProfileImg { width: 30%; }
+
+    .plantsProfile {
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .userPicture {
+        width: 120px;
+        height: 120px;
+        border-radius: 100px;
+    }
+
+    #userCnt { padding-left: 4%; }
+    #userCnt h1 { font-size: 140%; }
+    #userCnt h2 {
+        font-size: 100%;
+        margin-bottom: 1%;
+    }
+    #userCnt p { font-size: 80%; }
+
+    #userButton {
+        padding: 5px 10px;
+        font-size: 80%;
+    }
+    #userButton svg {
+        width: 7px;
+        height: 7px;
+        margin-left: 5px;
+    }
+
+    #userDataCnt ul { font-size: 80%; }
+    #userDataCnt ul li svg {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/*Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767.98px) {
+    .userProfileButton svg { width: 22%; }
+    .addUserButton svg { width: 22%; }
+
+    #userPicCnt { width: 30%; }
+    #userCnt { width: 70%; align-self: center; }
+    #userDataCnt { display: none; width: 0%; }
+
+    #userCnt p { display: none; }
+    #userButton { display: none; }
+}
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .userProfileButton svg { width: 40%; }
+    .addUserButton svg { width: 40%; }
 }
