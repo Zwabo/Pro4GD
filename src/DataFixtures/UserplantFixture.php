@@ -58,7 +58,7 @@ class UserplantFixture extends Fixture implements DependentFixtureInterface
         $userplant2->setDateWatered($dateAdded);
 
         $userplant2->setUser($this->getReference(UserFixtures::TESTUSER));
-        $userplant2->setPlant($this->getReference(PlantFixtures::ALOEVERA));
+        $userplant2->setPlant($this->getReference(PlantFixtures::ZIMMERCALLA));
 
         $manager->persist($userplant);
         $manager->persist($userplant2);

@@ -116,8 +116,8 @@ Gießwasser darf nicht im Untersetzer oder Übertopf belassen werden. Es ist von
             "Das Pflegegeheimnis des Alpenveilchens ließe sich wie folgt zusammenfassen: leichte Feuchte und frische Kühle. Wenn Sie für die hübschen Dauerblüher einen Platz am sonnigen Wohnzimmerfenster vorgesehen haben, werden es Ihnen die Alpenveilchen allerdings kaum danken. Viel wohler fühlen sich die Pflanzen in einem kühlen Schlafzimmer, in einem hellen Flur oder in einem Badezimmer, wo wenig geheizt wird. Werden Alpenveilchen im Inneren zu intensiv bewässert, führt dies zum Faulen der Blatt- und Blütenstiele. Wird das Alpenveilchen in ein Gefäß mit feuchtem Torf gestellt, bleibt das Substrat gleichmäßig feucht."
         );
 
-        $alpenveilchen->setIcon("images/plants/Aloe.png");
-        $alpenveilchen->setWindowIcon("images/plants/AloeBackground.png");
+        $alpenveilchen->setIcon("images/plants/Alpenveilchen.png");
+        $alpenveilchen->setWindowIcon("images/plants/AlpenveilchenBackground.png");
 
         $manager->persist($alpenveilchen);
         $manager->flush();
@@ -181,8 +181,8 @@ genügend Helligkeit sorgt."
         Dünger: 1x pro Monat düngen, im Winter seltener"
         );
 
-        $begonie->setIcon("images/plants/Aloe.png");
-        $begonie->setWindowIcon("images/plants/AloeBackground.png");
+        $begonie->setIcon("images/plants/Begonie.png");
+        $begonie->setWindowIcon("images/plants/BegonieBackground.png");
 
         $manager->persist($begonie);
         $manager->flush();
@@ -244,8 +244,8 @@ genügend Helligkeit sorgt."
         Dünger: 1x pro Monat düngen, im Winter seltener"
         );
 
-        $blattbegonie->setIcon("images/plants/Aloe.png");
-        $blattbegonie->setWindowIcon("images/plants/AloeBackground.png");
+        $blattbegonie->setIcon("images/plants/Begonie.png");
+        $blattbegonie->setWindowIcon("images/plants/BegonieBackground.png");
 
         $manager->persist($blattbegonie);
         $manager->flush();
@@ -306,8 +306,8 @@ genügend Helligkeit sorgt."
         Dünger: 1x pro Monat düngen, im Winter seltener"
         );
 
-        $koenigsbegonie->setIcon("images/plants/Aloe.png");
-        $koenigsbegonie->setWindowIcon("images/plants/AloeBackground.png");
+        $koenigsbegonie->setIcon("images/plants/Begonie.png");
+        $koenigsbegonie->setWindowIcon("images/plants/BegonieBackground.png");
 
         $manager->persist($koenigsbegonie);
         $manager->flush();
@@ -373,8 +373,8 @@ genügend Helligkeit sorgt."
         Dünger: 1x pro Monat düngen, im Winter seltener"
         );
 
-        $wimpernbegonie->setIcon("images/plants/Aloe.png");
-        $wimpernbegonie->setWindowIcon("images/plants/AloeBackground.png");
+        $wimpernbegonie->setIcon("images/plants/Begonie.png");
+        $wimpernbegonie->setWindowIcon("images/plants/BegonieBackground.png");
 
         $manager->persist($wimpernbegonie);
         $manager->flush();
@@ -427,8 +427,8 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
             "Während der Blüte feucht halten und einmal in der Woche mit Wasser besprühen. Verblühtes und Vertrocknetes abschneiden und nach der Blütezeit austrocknen lassen. Im Topf oder als Blumenzwiebel überwintern"
         );
 
-        $zimmercalla->setIcon("images/plants/Aloe.png");
-        $zimmercalla->setWindowIcon("images/plants/AloeBackground.png");
+        $zimmercalla->setIcon("images/plants/Calla.png");
+        $zimmercalla->setWindowIcon("images/plants/CallaBackground.png");
 
         $manager->persist($zimmercalla);
         $manager->flush();
@@ -896,11 +896,10 @@ Es ist ratsam, eine Gartenschere zu verwenden. Die Orchidee ist nämlich sehr em
         $weihnachtsstern->setFertiliserAddinfo("Während der Blüte brauchen Weihnachtssterne keinen Dünger. Danach genügt es, dem Wasser einmal im Monat eine Nährstofflösung zuzugeben.");
         $weihnachtsstern->setFlowerColor("Blüten: Rot, Rosa, Weiß, Orange-Rot
         Blätter: Grün");
-        $weihnachtsstern->setHeydayAddinfo("So blüht der Weinachtsstern pünktlich zum Fest Damit ein Weihnachtsstern pünktlich zum Fest farbige Blätter entwickelt, muss er zuvor mindestens acht Wochen lang mindestens 12 Stunden täglich in völliger Dunkelheit stehen. Bereits kleinste Lichtmengen während der täglichen Verdunkelungszeit verhindern erneutes Blühen. Deshalb lohnt es sich meist eher, jedes Jahr eine neue Pflanze zu kaufen.");
-        $weihnachtsstern->setCareTips("Der Weihnachtsstern wird nach Weihnachten, wenn er seine roten Hochblätter verliert, oft einfach entsorgt – zu Unrecht, denn wer ein paar Pflege-Tipps beachtet, hat lange etwas von ihm. Ebenso wie der Weihnachtskaktus (Schlumbergera) ist der 
+        $weihnachtsstern->setHeydayAddinfo("Damit ein Weihnachtsstern pünktlich zum Fest farbige Blätter entwickelt, muss er zuvor mindestens acht Wochen lang mindestens 12 Stunden täglich in völliger Dunkelheit stehen. Bereits kleinste Lichtmengen während der täglichen Verdunkelungszeit verhindern erneutes Blühen. Deshalb lohnt es sich meist eher, jedes Jahr eine neue Pflanze zu kaufen.");
+        $weihnachtsstern->setCareTips("Der Weihnachtsstern wird nach Weihnachten, wenn er seine roten Hochblätter verliert, oft einfach entsorgt – zu Unrecht, denn wer ein paar Pflege-Tipps beachtet, hat lange etwas von ihm. Der 
 Weihnachtsstern eine Kurztagspflanze. Er bildet nur bei weniger als zwölf Stunden Tageslänge neue Hochblätter und Blütenknospen aus. In unseren Breiten ist das ab Oktober der Fall. Allerdings dauert die Helligkeit im Wohnraum durch künstliches Licht meist deutlich länger an, als sie der Weihnachtsstern zur Blütenbildung benötigt. Wird er länger als zwölf Stunden Licht ausgesetzt, tritt er in den Blühstreik und bildet nur grüne Blätter: Der Langschläfer braucht eben seinen Schönheitsschlaf. 
-Die Eigenschaft, dass die Blütenbildung beim Weihnachtsstern durch eine maximal zwölf Stunden lange Belichtung ausgelöst wird, machen sich hierzulande die Gärtnereien zunutze: Sie decken ihre Gewächshäuser ab Oktober mit schwarzer Folie ab, sodass den Weihnachtssternen ein entsprechend kurzer Tag vorgegaukelt wird. Und voilá – zusammen mit der Blüte erscheinen die roten Sterne pünktlich zur Adventszeit. Im Umkehrschluss bedeutet das, dass Sie Ihren Weihnachtsstern auch mitten im Sommer blühen lassen können, wenn Sie etwas experimentieren und den Lichtentzug entsprechend früh vornehmen. 
-Tipp: Wenn man die Kurztagspflanze ab September für etwa zwei Monate täglich 12 bis 14 Stunden abdunkelt, indem man zum Beispiel einen Pappkarton überstülpt, simuliert man die tropischen Lichtverhältnisse und bringt seinen Weihnachtsstern rechtzeitig zu Weihnachten erneut zum Blühen.");
+Die Eigenschaft, dass die Blütenbildung beim Weihnachtsstern durch eine maximal zwölf Stunden lange Belichtung ausgelöst wird, machen sich hierzulande die Gärtnereien zunutze: Sie decken ihre Gewächshäuser ab Oktober mit schwarzer Folie ab, sodass den Weihnachtssternen ein entsprechend kurzer Tag vorgegaukelt wird. Und voilá – zusammen mit der Blüte erscheinen die roten Sterne pünktlich zur Adventszeit. Im Umkehrschluss bedeutet das, dass Sie Ihren Weihnachtsstern auch mitten im Sommer blühen lassen können, wenn Sie etwas experimentieren und den Lichtentzug entsprechend früh vornehmen. ");
 
         $weihnachtsstern->setIcon("images/plants/Aloe.png");
         $weihnachtsstern->setWindowIcon("images/plants/AloeBackground.png");
