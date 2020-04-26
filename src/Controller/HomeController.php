@@ -46,9 +46,9 @@ class HomeController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        if ($this->getUser()) {
+        /*if ($this->getUser()) {
             return $this->redirectToRoute('garden');
-        }
+        }*/
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
