@@ -96,11 +96,23 @@ class User implements UserInterface
      */
     private $userplants;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\FriendRequest", mappedBy="sender")
+     */
+    private $outgoingFriendRequests;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\FriendRequest", mappedBy="receiver")
+     */
+    private $incomingFriendRequests;
+
     public function __construct()
     {
         $this->userplants = new ArrayCollection();
         $this->friendsOutgoing = new ArrayCollection();
         $this->friendsIncoming = new ArrayCollection();
+        $this->outgoingFriendRequests = new ArrayCollection();
+        $this->incomingFriendRequests = new ArrayCollection();
     }
 
     /*-------------------------getter and setter--------------------------*/
@@ -350,6 +362,68 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($userplant->getUser() === $this) {
                 $userplant->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|FriendRequest[]
+     */
+    public function getOutgoingFriendRequests(): Collection
+    {
+        return $this->outgoingFriendRequests;
+    }
+
+    public function addOutgoingFriendRequest(FriendRequest $outgoingFriendRequest): self
+    {
+        if (!$this->outgoingFriendRequests->contains($outgoingFriendRequest)) {
+            $this->outgoingFriendRequests[] = $outgoingFriendRequest;
+            $outgoingFriendRequest->setSender($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOutgoingFriendRequest(FriendRequest $outgoingFriendRequest): self
+    {
+        if ($this->outgoingFriendRequests->contains($outgoingFriendRequest)) {
+            $this->outgoingFriendRequests->removeElement($outgoingFriendRequest);
+            // set the owning side to null (unless already changed)
+            if ($outgoingFriendRequest->getSender() === $this) {
+                $outgoingFriendRequest->setSender(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|FriendRequest[]
+     */
+    public function getIncomingFriendRequests(): Collection
+    {
+        return $this->incomingFriendRequests;
+    }
+
+    public function addIncomingFriendRequest(FriendRequest $incomingFriendRequest): self
+    {
+        if (!$this->incomingFriendRequests->contains($incomingFriendRequest)) {
+            $this->incomingFriendRequests[] = $incomingFriendRequest;
+            $incomingFriendRequest->setReceiver($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIncomingFriendRequest(FriendRequest $incomingFriendRequest): self
+    {
+        if ($this->incomingFriendRequests->contains($incomingFriendRequest)) {
+            $this->incomingFriendRequests->removeElement($incomingFriendRequest);
+            // set the owning side to null (unless already changed)
+            if ($incomingFriendRequest->getReceiver() === $this) {
+                $incomingFriendRequest->setReceiver(null);
             }
         }
 

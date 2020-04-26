@@ -3,10 +3,12 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
+use App\Entity\FriendRequest;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Validator\Constraints\Date;
 
 class UserFixtures extends Fixture
 {
@@ -55,5 +57,47 @@ class UserFixtures extends Fixture
         $manager->flush();
 
         $this->addReference(self::TESTUSER, $user);
+
+
+        $user2 = new User();
+
+        //Set the parameters
+        $user2->setEmail("test2@test.at");
+
+        $user2->setUsername("Testuser2");
+        $user2->setFirstName("Franzi");
+        $user2->setLastName("Fuchs");
+        $user2->setDescription('Hallo! Wie gehts?');
+        $user2->setCountry("Österreich");
+        $user2->setLevel(1559);
+        $user2->setUserPic("/images/pictures/profile_test1.jpg");
+
+        $dateAdded = date_create('2019-05-19 12:30:03');
+        $dateAdded->format('Y-m-d h.i.s');
+        $user2->setCreated($dateAdded);
+
+        $dateBirth = date_create('2000-02-03 12:30:03');
+        $dateBirth->format('Y-m-d h.i.s');
+        $user2->setDateBirth($dateBirth);
+
+        $user2->setPassword($this->passwordEncoder->encodePassword($user2, "test123"));
+
+        $roles[] = 'ROLE_USER';
+        $user2->setRoles($roles);
+
+        $user2->setFriends(["Milan", "Markus", "Kita", "Marie"]);
+
+        $friendRequest = new FriendRequest();
+        $friendRequest->setReceiver($user);
+        $friendRequest->setConfirmed(false);
+        $friendRequest->setDate(date_create('2000-02-03 12:30:03'));
+
+        $manager->persist($friendRequest);
+
+        $user2->addOutgoingFriendRequest($friendRequest);
+
+        $manager->persist($user2);
+
+        $manager->flush();
     }
 }
