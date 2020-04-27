@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Friends{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <h3>Freundschaftsanfragen</h3>
+        <div class="greenLine"></div>
+        {% for request in user.getIncomingFriendRequests() %}
+            {% if request.confirmed == false %}
+                <p>Von {{ request.getSender().getFirstName() }} {{ request.getSender().getLastName() }}</p>
+                <p>Erhalten am {{ request.getDate().format('d. m. Y') }} um {{request.getDate().format('H:i')}}</p>
+            {% endif %}
+        {% endfor %}
+
+        <h3>Freunde</h3>
+        <div class="greenLine"></div>
+
+        {% for friend in friends %}
+            <p>{{ friend.getFirstName() }} {{ friend.getLastName() }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}
