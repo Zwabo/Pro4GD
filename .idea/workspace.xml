@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="pt">
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="Made the relation between Userplant and User work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/color.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/color.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/font.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/font.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/garden.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/garden.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/myGarden.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/myGarden.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/news/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news/index.html.twig" afterDir="false" />
     </list>
-    <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
+    <ignored path="$PROJECT_DIR$/node_modules/" />
+    <ignored path="$PROJECT_DIR$/symvue/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/cache/" />
@@ -134,87 +130,57 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="-1864558712">
+    <session id="-477546479">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="4" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.2" value="3" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.5" value="3" />
-          <entry key="project.open.time.6" value="4" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="19" />
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="68" />
+          <entry key="css" value="9" />
           <entry key="env" value="1" />
-          <entry key="gitignore" value="2" />
-          <entry key="jpg" value="1" />
-          <entry key="js" value="21" />
-          <entry key="json" value="1" />
-          <entry key="md" value="7" />
-          <entry key="php" value="90" />
-          <entry key="svg" value="37" />
-          <entry key="twig" value="75" />
-          <entry key="vue" value="5" />
-          <entry key="xml" value="1" />
-          <entry key="yaml" value="1" />
+          <entry key="js" value="2" />
+          <entry key="md" value="1" />
+          <entry key="php" value="15" />
+          <entry key="twig" value="13" />
+          <entry key="vue" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key=".env file" value="1" />
-          <entry key="CSS" value="68" />
-          <entry key="Image" value="1" />
-          <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="21" />
-          <entry key="Markdown" value="7" />
-          <entry key="PHP" value="90" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="SVG" value="37" />
-          <entry key="Twig" value="75" />
-          <entry key="Vue.js" value="5" />
-          <entry key="XML" value="1" />
-          <entry key="YAML" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="css" value="14315" />
-          <entry key="js" value="779" />
-          <entry key="json" value="26" />
-          <entry key="php" value="5388" />
-          <entry key="svg" value="22" />
-          <entry key="twig" value="20098" />
-          <entry key="txt" value="800" />
-          <entry key="vue" value="11" />
-          <entry key="xml" value="11" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="CSS" value="14315" />
-          <entry key="JSON" value="26" />
-          <entry key="JavaScript" value="779" />
-          <entry key="PHP" value="5388" />
-          <entry key="PLAIN_TEXT" value="800" />
-          <entry key="SVG" value="22" />
-          <entry key="Twig" value="20098" />
-          <entry key="Vue.js" value="11" />
-          <entry key="XML" value="11" />
+          <entry key="CSS" value="9" />
+          <entry key="JavaScript" value="2" />
+          <entry key="Markdown" value="1" />
+          <entry key="PHP" value="15" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Twig" value="13" />
+          <entry key="Vue.js" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
-          <entry key="git.branch.checkout.local" value="9" />
-          <entry key="git.branch.create.new" value="2" />
-          <entry key="git.branch.delete.local" value="1" />
+          <entry key="git.branch.checkout.remote" value="3" />
+          <entry key="git.branch.create.new" value="1" />
+          <entry key="git.branch.rename" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="php" value="12" />
+          <entry key="twig" value="25" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PHP" value="12" />
+          <entry key="Twig" value="25" />
         </counts>
       </usages-collector>
     </session>
@@ -222,186 +188,120 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/main.css">
+        <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="21" selection-start-column="21" selection-end-column="21" />
+            <state relative-caret-position="2057">
+              <caret line="125" selection-start-line="125" selection-end-line="125" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/profile.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="199" selection-start-line="199" selection-end-line="203" selection-end-column="1" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/Entity/Userplant.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/profile.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="167" column="66" selection-start-line="167" selection-start-column="66" selection-end-line="167" selection-end-column="66" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/Entity/News.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Plant.php">
+        <entry file="file://$PROJECT_DIR$/src/DataFixtures/AppFixtures.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserFixtures.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-88">
-              <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
-            </state>
+            <state relative-caret-position="-1416" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/css/layout.css">
+        <entry file="file://$PROJECT_DIR$/src/DataFixtures/NewsFixture.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="91" column="55" selection-start-line="91" selection-start-column="55" selection-end-line="91" selection-end-column="55" />
+            <state relative-caret-position="187">
+              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/color.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="134" column="24" selection-start-line="134" selection-start-column="24" selection-end-line="134" selection-end-column="24" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserplantFixture.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/font.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/public/css/userplant.css">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/garden.css">
+        <entry file="file://$PROJECT_DIR$/templates/userplant.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/myGarden.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="30" column="55" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="55" />
+            <state relative-caret-position="1003">
+              <caret line="59" column="45" selection-start-line="55" selection-start-column="4" selection-end-line="59" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-        <option value="CSS File" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>loginindex</find>
-      <find>plant</find>
-      <find>phone</find>
-      <find>wateringcan</find>
-      <find>favicon</find>
-      <find>offer</find>
-      <find>angebote</find>
-      <find>indexicon</find>
-      <find>buttondark</find>
-      <find>button</find>
-      <find>buttondar</find>
-      <find>white</find>
-      <find>.path1</find>
-      <find>whiteline</find>
-      <find>login_route</find>
-      <find>label</find>
-      <find>login</find>
-      <find>h3index</find>
-      <find>rowsindex</find>
-      <find>style</find>
-      <find>profile</find>
-      <find>greenlin</find>
-      <find>userprofile</find>
-      <find>garten</find>
-      <find>garden</find>
-      <find>imgtest</find>
-      <find>userpicture</find>
-      <find>paddingleft</find>
-      <find>userpiccnt</find>
-      <find>erungenschaften</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="ROOT_SYNC" value="SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="_" />
       </map>
     </option>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="develop" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/develop" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Entity/User.php" />
-        <option value="$PROJECT_DIR$/public/build/app.css" />
-        <option value="$PROJECT_DIR$/assets/css/app.css" />
-        <option value="$PROJECT_DIR$/public/css/pictures.css" />
-        <option value="$PROJECT_DIR$/public/images/icons/user.svg" />
-        <option value="$PROJECT_DIR$/public/css/spacing.css" />
-        <option value="$PROJECT_DIR$/public/images/icons/plus.svg" />
-        <option value="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" />
-        <option value="$PROJECT_DIR$/public/build/entrypoints.json" />
-        <option value="$PROJECT_DIR$/public/css/navi.css" />
-        <option value="$PROJECT_DIR$/assets/js/components/Test.vue" />
-        <option value="$PROJECT_DIR$/public/js/profile.js" />
-        <option value="$PROJECT_DIR$/assets/js/profile.js" />
-        <option value="$PROJECT_DIR$/assets/js/app.js" />
-        <option value="$PROJECT_DIR$/public/build/plantBase.js" />
-        <option value="$PROJECT_DIR$/webpack.config.js" />
-        <option value="$PROJECT_DIR$/public/build/app.js" />
-        <option value="$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Plant.php" />
-        <option value="$PROJECT_DIR$/templates/searchPlant.html.twig" />
-        <option value="$PROJECT_DIR$/templates/userplant.html.twig" />
-        <option value="$PROJECT_DIR$/templates/plant.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/PlantController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
-        <option value="$PROJECT_DIR$/templates/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/HomeController.php" />
-        <option value="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" />
-        <option value="$PROJECT_DIR$/public/css/registration.css" />
-        <option value="$PROJECT_DIR$/public/css/main.css" />
-        <option value="$PROJECT_DIR$/symvue/vendor/sensio/framework-extra-bundle/src/Resources/config/security.xml" />
-        <option value="$PROJECT_DIR$/public/css/register.css" />
-        <option value="$PROJECT_DIR$/public/css/login.css" />
-        <option value="$PROJECT_DIR$/templates/security/login.html.twig" />
-        <option value="$PROJECT_DIR$/templates/registration/register.html.twig" />
-        <option value="$PROJECT_DIR$/templates/index.html.twig" />
-        <option value="$PROJECT_DIR$/public/css/index.css" />
-        <option value="$PROJECT_DIR$/public/css/color.css" />
-        <option value="$PROJECT_DIR$/templates/myGarden.html.twig" />
-        <option value="$PROJECT_DIR$/public/css/garden.css" />
-        <option value="$PROJECT_DIR$/public/css/profile.css" />
-        <option value="$PROJECT_DIR$/templates/profile.html.twig" />
-        <option value="$PROJECT_DIR$/public/css/font.css" />
-        <option value="$PROJECT_DIR$/public/css/layout.css" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/templates/news/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/DataFixtures/NewsFixture.php" />
       </list>
     </option>
   </component>
@@ -422,12 +322,10 @@
   </component>
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
-    <handled-path value="$PROJECT_DIR$/symvue/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
       <path value="$PROJECT_DIR$/package.json" />
-      <path value="$PROJECT_DIR$/symvue/package.json" />
     </packageJsonPaths>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -547,9 +445,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1270" />
-    <option name="width" value="1300" />
-    <option name="height" value="1400" />
+    <option name="y" value="20" />
+    <option name="width" value="1440" />
+    <option name="height" value="830" />
   </component>
   <component name="ProjectId" id="1aBMjwTOzdV3XHXsdTmLo0udF2h" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -564,6 +462,17 @@
             <path>
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
@@ -598,6 +507,28 @@
               <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="news" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="registration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -613,26 +544,23 @@
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="smallUserPic&#9;null&#9;null&#10;security&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/symvue/vendor/sensio/framework-extra-bundle/src/Resources/config/security.xml&#10;we&#9;FILE&#9;file://C:/Users/Verena/Documents/GitHub/Pro4GD/webpack.config.js&#10;HomeCon&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="we&#9;FILE&#9;file://C:/Users/Verena/Documents/GitHub/Pro4GD/webpack.config.js&#10;HomeCon&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="F:/FH Hagenberg/MTD BAKK/02_Semester 1/Hypermedia 1 -HM1-/UB -MTD115-/Projekte_Abgaben/S1810238002_Aigner_MTD115_04" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\FH_Projekte\Pro4GD\templates" />
-      <recent name="C:\FH_Projekte\Pro4GD\assets\js\components" />
+      <recent name="$PROJECT_DIR$/public/build" />
       <recent name="$PROJECT_DIR$/templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\FH_Projekte\Pro4GD\templates" />
-      <recent name="C:\FH_Projekte\Pro4GD\templates\security" />
-      <recent name="C:\FH_Projekte\Pro4GD\public\images\icons\index" />
-      <recent name="C:\FH_Projekte\Pro4GD\public" />
-      <recent name="C:\FH_Projekte\Pro4GD\public\images\plantBase" />
+      <recent name="$PROJECT_DIR$/symvue/public/build" />
+      <recent name="$PROJECT_DIR$/src/Migrations" />
+      <recent name="$PROJECT_DIR$/symvue/public" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="C:\Users\Verena\Documents\GitHub\Pro4GD" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -654,10 +582,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="JavaScript Debug.myGarden.html.twig" />
-        <item itemvalue="JavaScript Debug.myGarden.html.twig" />
-        <item itemvalue="JavaScript Debug.myGarden.html.twig" />
-        <item itemvalue="JavaScript Debug.myGarden.html.twig" />
-        <item itemvalue="JavaScript Debug.myGarden.html.twig" />
       </list>
     </recent_temporary>
   </component>
@@ -667,7 +591,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="" />
-      <changelist id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
       <created>1585074705072</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -697,25 +620,16 @@
       <workItem from="1587136098746" duration="4588000" />
       <workItem from="1587142107774" duration="45000" />
       <workItem from="1587223128071" duration="4979000" />
-      <workItem from="1587390753572" duration="96000" />
-      <workItem from="1587390865341" duration="792000" />
-      <workItem from="1587399237913" duration="3563000" />
-      <workItem from="1587418456798" duration="104000" />
-      <workItem from="1587474062565" duration="15302000" />
-      <workItem from="1587490108711" duration="15538000" />
-      <workItem from="1587545174123" duration="2817000" />
-      <workItem from="1587557123591" duration="1365000" />
-      <workItem from="1587566906172" duration="12455000" />
-      <workItem from="1587594771107" duration="2211000" />
-      <workItem from="1587629745634" duration="23471000" />
-      <workItem from="1587659349274" duration="10382000" />
-      <workItem from="1587716057293" duration="31006000" />
-      <workItem from="1587747355452" duration="4957000" />
-      <workItem from="1587802680536" duration="11000" />
-      <workItem from="1587806877646" duration="650000" />
-      <workItem from="1587900861111" duration="402000" />
-      <workItem from="1587909011780" duration="10000" />
-      <workItem from="1587922653740" duration="9989000" />
+      <workItem from="1587387984728" duration="999000" />
+      <workItem from="1587389027930" duration="428000" />
+      <workItem from="1587389474960" duration="216000" />
+      <workItem from="1587389734165" duration="862000" />
+      <workItem from="1587998042657" duration="445000" />
+      <workItem from="1587998577812" duration="385000" />
+      <workItem from="1587998999265" duration="1232000" />
+      <workItem from="1588003490627" duration="249000" />
+      <workItem from="1588062485772" duration="1863000" />
+      <workItem from="1588079822669" duration="300000" />
     </task>
     <task id="LOCAL-00001" summary="Delete Laravel">
       <created>1585845914961</created>
@@ -773,167 +687,41 @@
       <option name="project" value="LOCAL" />
       <updated>1587320492297</updated>
     </task>
-    <task id="LOCAL-00009" summary="isa workspace">
-      <created>1587402330269</created>
+    <task id="LOCAL-00009" summary="Made the relation between Userplant and User work">
+      <created>1587389997107</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1587402330269</updated>
+      <updated>1587389997108</updated>
     </task>
-    <task id="LOCAL-00010" summary="isa symvue">
-      <created>1587402761057</created>
+    <task id="LOCAL-00010" summary="Made the relation between Userplant and User work">
+      <created>1587998774647</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1587402761058</updated>
+      <updated>1587998774647</updated>
     </task>
-    <task id="LOCAL-00011" summary="isa symvue">
-      <created>1587403365765</created>
+    <task id="LOCAL-00011" summary="Made the relation between Userplant and User work">
+      <created>1587999415496</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1587403365765</updated>
+      <updated>1587999415496</updated>
     </task>
-    <task id="LOCAL-00012" summary="isa workspace">
-      <created>1587474100368</created>
+    <task id="LOCAL-00012" summary="Made the relation between Userplant and User work">
+      <created>1588069990859</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1587474100368</updated>
+      <updated>1588069990859</updated>
     </task>
-    <task id="LOCAL-00013" summary="erste Stylesheets / Icons &amp; Styleimplementierungen hinzugefügt (Testrun)">
-      <created>1587508409253</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1587508409253</updated>
-    </task>
-    <task id="LOCAL-00014" summary="kleine Anpassungen for-Schleife (profile.twig) / base.twig">
-      <created>1587551177000</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1587551177000</updated>
-    </task>
-    <task id="LOCAL-00015" summary="small style sheet correction">
-      <created>1587557488689</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1587557488689</updated>
-    </task>
-    <task id="LOCAL-00016" summary="reset .plantsProfile correction">
-      <created>1587557790300</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1587557790300</updated>
-    </task>
-    <task id="LOCAL-00017" summary=".vue connection aus twig.template ausgeklammert">
-      <created>1587574695002</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1587574695002</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Navigation angepasste/gestyled für Desktopversion">
-      <created>1587586809049</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1587586809049</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Update Navi">
-      <created>1587596790068</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1587596790068</updated>
-    </task>
-    <task id="LOCAL-00020" summary="plant fixtures work in progress - vue tests">
-      <created>1587652693292</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1587652693292</updated>
-    </task>
-    <task id="LOCAL-00021" summary="plant fixtures update">
-      <created>1587660544739</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1587660544739</updated>
-    </task>
-    <task id="LOCAL-00022" summary="plantController (started, not finished)">
-      <created>1587664683704</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1587664683704</updated>
-    </task>
-    <task id="LOCAL-00023" summary="plantController">
-      <created>1587690343835</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1587690343835</updated>
-    </task>
-    <task id="LOCAL-00024" summary="added starting page and some styles">
-      <created>1587746298282</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1587746298282</updated>
-    </task>
-    <task id="LOCAL-00025" summary="change PhoneMockup to png">
-      <created>1587746453938</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1587746453938</updated>
-    </task>
-    <task id="LOCAL-00026" summary="something that didn't got pushed the last time o.O">
-      <created>1587747397499</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1587747397499</updated>
-    </task>
-    <task id="LOCAL-00027" summary="added browser icon">
-      <created>1587748578784</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1587748578784</updated>
-    </task>
-    <task id="LOCAL-00028" summary="corrected offer part of landing page">
-      <created>1587752141442</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1587752141442</updated>
-    </task>
-    <task id="LOCAL-00029" summary="added styles">
-      <created>1587901027578</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1587901027578</updated>
-    </task>
-    <task id="LOCAL-00030" summary="added styles pt2">
-      <created>1587901136309</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1587901136309</updated>
-    </task>
-    <option name="localTasksCounter" value="31" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145504000" />
+    <option name="totallyTimeSpent" value="6979000" />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -943,26 +731,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
+    <frame x="71" y="-7" width="1472" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22427572" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21954674" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4985015" weight="0.32997987" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49929178" weight="0.32885906" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.499001" weight="0.32997987" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49929178" weight="0.32885906" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.489011" weight="0.32997987" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5204795" side_tool="true" visible="true" weight="0.27364185" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.47952047" visible="true" weight="0.27364185" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32997987" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49929178" weight="0.32885906" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49220964" visible="true" weight="0.23489933" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5077904" side_tool="true" visible="true" weight="0.23489933" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -984,14 +771,7 @@
               <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
                 <collection />
               </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -1002,32 +782,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Delete Laravel" />
     <MESSAGE value="Add Symfony" />
     <MESSAGE value="Changed README" />
     <MESSAGE value="myGarden" />
     <MESSAGE value="myGarden twig" />
     <MESSAGE value="Made the relation between Userplant and User work" />
-    <MESSAGE value="isa symvue" />
-    <MESSAGE value="isa workspace" />
-    <MESSAGE value="erste Stylesheets / Icons &amp; Styleimplementierungen hinzugefügt (Testrun)" />
-    <MESSAGE value="kleine Anpassungen for-Schleife (profile.twig) / base.twig" />
-    <MESSAGE value="small style sheet correction" />
-    <MESSAGE value="reset .plantsProfile correction" />
-    <MESSAGE value=".vue connection aus twig.template ausgeklammert" />
-    <MESSAGE value="Navigation angepasste/gestyled für Desktopversion" />
-    <MESSAGE value="Update Navi" />
-    <MESSAGE value="plant fixtures work in progress - vue tests" />
-    <MESSAGE value="plant fixtures update" />
-    <MESSAGE value="plantController (started, not finished)" />
-    <MESSAGE value="plantController" />
-    <MESSAGE value="added starting page and some styles" />
-    <MESSAGE value="change PhoneMockup to png" />
-    <MESSAGE value="something that didn't got pushed the last time o.O" />
-    <MESSAGE value="added browser icon" />
-    <MESSAGE value="corrected offer part of landing page" />
-    <MESSAGE value="added styles" />
-    <MESSAGE value="added styles pt2" />
-    <option name="LAST_COMMIT_MESSAGE" value="added styles pt2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made the relation between Userplant and User work" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
@@ -1052,305 +813,197 @@
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Controller/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symvue/public/build/build/app.js" />
+    <entry file="file://$PROJECT_DIR$/symvue/public/build/build/app.css" />
+    <entry file="file://$PROJECT_DIR$/symvue/public/build/build/runtime.js" />
+    <entry file="file://$PROJECT_DIR$/symvue/public/build/build/manifest.json" />
+    <entry file="file://$PROJECT_DIR$/symvue/public/build/build/vendors~app.js" />
+    <entry file="file://$PROJECT_DIR$/symvue/public/build/build/entrypoints.json" />
+    <entry file="file://$PROJECT_DIR$/symvue/public/build/app.js" />
+    <entry file="file://$PROJECT_DIR$/symvue/public/build/app.css" />
+    <entry file="file://$PROJECT_DIR$/symvue/public/build/runtime.js" />
+    <entry file="file://$PROJECT_DIR$/symvue/public/build/manifest.json" />
+    <entry file="file://$PROJECT_DIR$/symvue/public/build/vendors~app.js" />
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200407162450.php" />
+    <entry file="file://$PROJECT_DIR$/symvue/public/build/entrypoints.json" />
+    <entry file="file://$PROJECT_DIR$/public/build/entrypoints.json" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="330">
-            <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <first_editor relative-caret-position="608">
+            <caret line="75" selection-start-line="75" selection-end-line="75" selection-end-column="38" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/build/app.js">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="111" column="115" lean-forward="true" selection-start-line="111" selection-start-column="115" selection-end-line="111" selection-end-column="115" />
+        <state relative-caret-position="561">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
+    <entry file="file://$PROJECT_DIR$/assets/css/app.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/build/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="29" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="29" />
+        <state relative-caret-position="17">
+          <caret line="1" column="28" lean-forward="true" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+        <state relative-caret-position="544">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/register.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1717">
+          <caret line="101" column="35" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/profile.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/garden.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/profile.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/NewsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/color.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/friends.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/myGarden.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="47" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="9" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/font.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/layout.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/news/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Plant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1768">
+          <caret line="106" column="31" selection-start-line="106" selection-start-column="31" selection-end-line="106" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2057">
+          <caret line="125" selection-start-line="125" selection-end-line="125" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Userplant.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/userplant.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-464">
-          <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/icons/index/arrowLeft.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/icons/index/arrowRight.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/icons/index/community.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/plantBase/PlantBaseZweizeilige.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-287">
-          <caret line="71" column="21" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/icons/index/wateringCan.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/icons/index/idea.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/icons/index/plant.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/icons/index/bell.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-594" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PlantController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UserplantController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/GardenController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/navi.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-25" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/userplant.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/RegistrationController.php">
+    <entry file="file://$PROJECT_DIR$/templates/userplant.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="59" column="45" selection-start-line="55" selection-start-column="4" selection-end-line="59" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/News.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/PlantIconType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-924" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/RegistrationFormType.php">
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/AppFixtures.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/register.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="64" column="56" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="48" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/register.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symvue/vendor/sensio/framework-extra-bundle/src/Resources/config/security.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-872">
-          <caret line="249" column="16" lean-forward="true" selection-start-line="249" selection-start-column="16" selection-end-line="249" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="84" column="14" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/searchPlant.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Security/HomeLoginFormAuthenticator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1122" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2046">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/plant.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="848">
-          <caret line="74" column="10" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/color.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="134" column="24" selection-start-line="134" selection-start-column="24" selection-end-line="134" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="44" column="34" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserplantFixture.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserFixtures.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-528" />
+        <state relative-caret-position="-1416" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/myGarden.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/NewsFixture.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="30" column="55" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/garden.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/font.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/profile.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="199" selection-start-line="199" selection-end-line="203" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Plant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-88">
-          <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/profile.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="167" column="66" selection-start-line="167" selection-start-column="66" selection-end-line="167" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/layout.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="91" column="55" selection-start-line="91" selection-start-column="55" selection-end-line="91" selection-end-column="55" />
+        <state relative-caret-position="187">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
         </state>
       </provider>
     </entry>
