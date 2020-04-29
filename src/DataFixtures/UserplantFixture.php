@@ -2,18 +2,11 @@
 
 namespace App\DataFixtures;
 
-use App\Controller\GardenController;
 use App\Entity\Userplant;
-use App\Entity\Plant;
-use App\Entity\User;
-
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\Validator\Constraints\DateTime;
 
-use App\DataFixtures\UserFixtures;
 
 class UserplantFixture extends Fixture implements DependentFixtureInterface
 {
@@ -60,8 +53,24 @@ class UserplantFixture extends Fixture implements DependentFixtureInterface
         $userplant2->setUser($this->getReference(UserFixtures::TESTUSER));
         $userplant2->setPlant($this->getReference(PlantFixtures::ZIMMERCALLA));
 
+        $userplant3 = new Userplant();
+
+        $userplant3->setName("Ben");
+        $userplant3->setLocation("Bad");
+
+        $userplant3->setNotes("No notes added.");
+
+        $dateAdded = date_create('2000-02-03');
+        $dateAdded->format('Y/m/d');
+        $userplant3->setDateAdded($dateAdded);
+        $userplant3->setDateWatered($dateAdded);
+
+        $userplant3->setUser($this->getReference(UserFixtures::TESTUSER));
+        $userplant3->setPlant($this->getReference(PlantFixtures::ALPENVEILCHEN));
+
         $manager->persist($userplant);
         $manager->persist($userplant2);
+        $manager->persist($userplant3);
 
         $manager->flush();
     }

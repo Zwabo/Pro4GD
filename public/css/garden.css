@@ -1,13 +1,10 @@
 
+/*everything but userplants*/
+
 .windowImage {
     margin: 0;
     padding: 0;
 }
-
-/*.whiteLine {
-    width: 0 !important;
-    height: 0 !important;
-}*/
 
 .garden{
     margin-top:50px;
@@ -17,37 +14,60 @@
     font-size: 2.5rem;
 }
 
-.userplants {
-    margin-top:50px;
-}
-
-.addPlant svg { width: 10%; fill: white; }
-.addPlant svg .path1 { fill: #B8E269; }
-.addPlant svg:hover .path1 {  fill: #97B753; }
-.addPlant svg:active { fill: #B8E269; }
-.addPlant svg:active .path1 { fill: #000000;}
-
 .add { padding-top: 11px; }
+
+/*icons*/
+
+.iconGarden svg { width: 10%; fill: white; }
+.iconGarden svg .path1 { fill: #B8E269; }
+.iconGarden svg:hover .path1 {  fill: #97B753; }
+.iconGarden svg:active { fill: #B8E269; }
+.iconGarden svg:active .path1 { fill: #000000;}
+.iconGarden {padding-top: 11px;}
+
+.calendar svg { width: 10%; fill: white; }
+.calendar svg .path1 { fill: #B8E269; }
+.calendar svg:hover .path1 {  fill: #97B753; }
+.calendar svg:active { fill: #B8E269; }
+.calendar svg:active .path1 { fill: #000000;}
+
+/*userplants*/
+
+.userplants { margin-top:50px; }
 
 a:link { text-decoration: none; }
 a { color: #6E6E6E; }
+
+.plantsProfil {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 10px 10px 10px 30px;
+}
+
+.plantsProfil:hover {
+    background-color: #707070;
+    color: white;
+}
+.plantsProfil:active {
+    background-color: #DEDEDE;
+    color: #707070;
+}
 
 .plantInfo {
     font-size: 10pt;
     text-align: left;
 }
 
-.gardenPlants p {
-    margin-bottom: 3%;
+.plantInfo p {
+    margin-bottom: 2.5%;
 }
 
 .gardenPFirst {
     font-size: 11.5pt;
 }
 
-.location{
-    margin-top: 15%;
+.list {
+    margin-top: 25px;
 }
-
 
 
