@@ -22,7 +22,7 @@ class NewsController extends AbstractController
 
 
     /**
-     * @Route("/news/{id}", name="news")
+     * @Route("/news/{id}", name="article")
      */
 
     public function showArticle($id)

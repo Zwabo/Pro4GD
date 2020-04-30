@@ -8,7 +8,6 @@ use Doctrine\Persistence\ObjectManager;
 
 class NewsFixture extends Fixture
 {
-    public const NEWS = 'news';
     public function load(ObjectManager $manager)
     {
         $news = new News();
