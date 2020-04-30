@@ -13,9 +13,12 @@ class NewsFixture extends Fixture
     {
         $news = new News();
 
-        $news->setTitle("TestTitle1: Wie ich meine Pflanzen nicht umbringe!");
-        $news->setDatePosted(date_create('2019-05-19 12:30:03'));
-        $news->setShortText("I guess this is the short version of the article");
+        $news->setTitle("Das sind die besten Anti-Stress-Pflanzen");
+        $news->setThumbnail("/images/pictures/aloe.png");
+        $date_posted = date_create('2019-05-19 12:30:03');
+        $date_posted->format('Y-m-d h.i.s');
+        $news->setShortText("Gestressten Menschen wir oft zu Achtsamkeitsübungen und Spaziergängen in der Natur geraten. Begleitend können aber Kräuter 
+        Linderung bringen. Ein Experte erklärt, welche Pflanzen dafür infrage kommen.");
         $news->setLongText("this is the very long article everyone was looking forward this whole time and it is even getting longer by the second.");
 
 

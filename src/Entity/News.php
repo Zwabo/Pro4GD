@@ -36,6 +36,11 @@ class News
      */
     private $long_text;
 
+    /**
+     * @ORM\Column(type="string", length=500)
+     */
+    private $Thumbnail;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class News
     public function setLongText(string $long_text): self
     {
         $this->long_text = $long_text;
+
+        return $this;
+    }
+
+    public function getThumbnail(): ?string
+    {
+        return $this->Thumbnail;
+    }
+
+    public function setThumbnail(string $Thumbnail): self
+    {
+        $this->Thumbnail = $Thumbnail;
 
         return $this;
     }
