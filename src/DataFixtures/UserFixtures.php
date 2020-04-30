@@ -54,8 +54,6 @@ class UserFixtures extends Fixture
 
         $manager->persist($user);
 
-        $manager->flush();
-
         $this->addReference(self::TESTUSER, $user);
 
 
@@ -97,6 +95,46 @@ class UserFixtures extends Fixture
         $user2->addOutgoingFriendRequest($friendRequest);
 
         $manager->persist($user2);
+
+
+        $user3 = new User();
+
+        //Set the parameters
+        $user3->setEmail("test3@test.at");
+
+        $user3->setUsername("Testuser3");
+        $user3->setFirstName("Maria");
+        $user3->setLastName("Dachsinger");
+        $user3->setDescription('Ich heiße Maria..');
+        $user3->setCountry("Deutschland");
+        $user3->setLevel(1559);
+        $user3->setUserPic("/images/pictures/profile_test1.jpg");
+
+        $dateAdded = date_create('2019-07-19 12:30:03');
+        $dateAdded->format('Y-m-d h.i.s');
+        $user3->setCreated($dateAdded);
+
+        $dateBirth = date_create('1997-02-03 12:30:03');
+        $dateBirth->format('Y-m-d h.i.s');
+        $user3->setDateBirth($dateBirth);
+
+        $user3->setPassword($this->passwordEncoder->encodePassword($user3, "test123"));
+
+        $roles[] = 'ROLE_USER';
+        $user3->setRoles($roles);
+
+        $user3->setFriends(["Milan", "Markus", "Kita", "Marie"]);
+
+        $friendRequest = new FriendRequest();
+        $friendRequest->setReceiver($user);
+        $friendRequest->setConfirmed(true);
+        $friendRequest->setDate(date_create('2019-02-03 12:30:03'));
+
+        $manager->persist($friendRequest);
+
+        $user3->addOutgoingFriendRequest($friendRequest);
+
+        $manager->persist($user3);
 
         $manager->flush();
     }
