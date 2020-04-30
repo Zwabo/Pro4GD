@@ -15,6 +15,9 @@ class NewsFixture extends Fixture
 
         $news->setTitle("Das sind die besten Anti-Stress-Pflanzen");
         $news->setThumbnail("/images/pictures/aloe.png");
+
+
+
         $date_posted = date_create('2019-05-19 12:30:03');
         $date_posted->format('Y-m-d h.i.s');
         $news->setShortText("Gestressten Menschen wir oft zu Achtsamkeitsübungen und Spaziergängen in der Natur geraten. Begleitend können aber Kräuter 

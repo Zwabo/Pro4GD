@@ -22,8 +22,7 @@ class News
     private $title;
 
     /**
-     * @ORM\Column(type="date")
-     */
+     * @ORM\Column(type="date", nullable=true)
     private $date_posted;
 
     /**
