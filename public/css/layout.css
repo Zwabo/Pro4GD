@@ -4,7 +4,7 @@
 
 /* side padding of all rows so that they are not stucking to the left and right edges*/
 .rowIntent {
-    padding: 0px 40px;
+    padding: 0 40px;
 }
 
 /* distance between two cols so that they are not stucking together too much*/
@@ -62,11 +62,11 @@
 
 /*container for fluid & not-fluid objects --> use @media here to get the basic sizes done*/
 #baseContainer {
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 0;
+    padding-left: 0;
 }
 
-.marginLeftRight { margin-left: 7%; margin-right: 7%; }
+.marginLeftRight { margin-left: 5%; margin-right: 5%; }
 .paddingLeftRight { padding-left: 7%; padding-right: 7%; }
 .siteMarinTop { margin-top: 7%; }
 .siteMarginBottom { margin-bottom: 7%; }
