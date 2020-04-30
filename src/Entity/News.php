@@ -23,6 +23,7 @@ class News
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     * */
     private $date_posted;
 
     /**
