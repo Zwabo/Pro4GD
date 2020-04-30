@@ -27,6 +27,8 @@ class NewsController extends AbstractController
 
     public function showArticle($id)
     {
+
+
         return $this->render('newsArticle.html.twig', [
             'controller_name' => 'NewsController',
 
