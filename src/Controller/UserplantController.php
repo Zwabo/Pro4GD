@@ -27,8 +27,8 @@ class UserplantController extends AbstractController
     public function index($id)
     {
         $userplant = $this->getDoctrine()
-            ->getRepository(Userplant::class)
-            ->find($id);
+        ->getRepository(Userplant::class)
+        ->find($id);
 
         if (!$userplant) {
             throw $this->createNotFoundException(

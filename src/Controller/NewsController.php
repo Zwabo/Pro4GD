@@ -43,4 +43,18 @@ class NewsController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @Route("/news/{id}", name="article")
+     */
+
+    public function showArticle($id)
+    {
+
+
+        return $this->render('newsArticle.html.twig', [
+            'controller_name' => 'NewsController',
+
+        ]);
+    }
 }
