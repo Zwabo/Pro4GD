@@ -20,25 +20,6 @@ class PlantController extends AbstractController {
         ]);
     }
 
-
-    /**
-     * @Route("/plant/{name}", name="plant")
-     */
-    /*public function index($name)
-    {
-        $plant = $this->getDoctrine()->getRepository(Plant::class)->find($name);
-
-        if (!$plant) {
-            throw $this->createNotFoundException(
-                'No plant found for plant ' . $plant
-            );
-        }
-
-        return $this->render('plant.html.twig', [
-            'controller_name' => 'PlantController', 'plant' => $plant
-        ]);
-    }*/
-
     /**
      * @Route("/plant/{name}", name="plantName")
      */

@@ -1,4 +1,4 @@
-{% extends '../base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}News{% endblock %}
 
@@ -12,12 +12,11 @@
 
     <div class="col-lg-8" id="longText">
         <h3 id="date">03. April 2020, 00:35</h3>
-        <h2 id="title">{{ title }}</h2>
-        <p id="shortText">Gestressten Menschen wir oft zu Achtsamkeitsübungen und Spaziergängen in der Natur geraten.
-            Begleitend können aber Kräuter Linderung bringen. Ein Experte erklärt, welche Pflanzen dafür infrage kommen.
+        <p><img style="width: 10%;" src="{{ article.thumbnail }}"></p>
+        <h2 id="title">{{ article.title }}</h2>
+        <p id="shortText">{{ article.longText }}
         </p>
-        <P>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</P>
+        <a  class="backNews" href="{{ path('news') }}">zurück<b>>> </b></a>
     </div>
 
 {% endblock %}

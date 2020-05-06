@@ -39,7 +39,7 @@ class News
     /**
      * @ORM\Column(type="string", length=500)
      */
-    private $Thumbnail;
+    private $thumbnail;
 
     public function getId(): ?int
     {
@@ -96,12 +96,12 @@ class News
 
     public function getThumbnail(): ?string
     {
-        return $this->Thumbnail;
+        return $this->thumbnail;
     }
 
-    public function setThumbnail(string $Thumbnail): self
+    public function setThumbnail(string $thumbnail): self
     {
-        $this->Thumbnail = $Thumbnail;
+        $this->thumbnail = $thumbnail;
 
         return $this;
     }
