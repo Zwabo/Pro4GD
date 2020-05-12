@@ -13,15 +13,10 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    /*public function index()
+    public function index()
     {
-        $words = ['sky', 'cloud', 'wood', 'rock', 'forest',
-            'mountain', 'breeze'];
-
-        return $this->render('index.html.twig', [
-            'words' => $words
-        ]);
-    }*/
+        return $this->render('index.html.twig');
+    }
 
     /**
      * @Route("/", name="home")
@@ -44,11 +39,12 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
+    /**
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         /*if ($this->getUser()) {
             return $this->redirectToRoute('garden');
-        }*/
+        }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -57,5 +53,5 @@ class HomeController extends AbstractController
 
         return $this->render('index.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
-
+     */
 }

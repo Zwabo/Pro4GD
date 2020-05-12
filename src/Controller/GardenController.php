@@ -15,6 +15,7 @@ class GardenController extends AbstractController
     /**
      * @Route("/garden", name="garden")
      */
+    /**
     public function index()
     {
 
@@ -27,6 +28,7 @@ class GardenController extends AbstractController
         ]);
 
     }
+     */
 }
 
 

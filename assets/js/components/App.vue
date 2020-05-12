@@ -1,36 +1,18 @@
 <template>
-  <div>
-    <h2 class="center">My Application</h2>
-    <h2>foo</h2>
-    <div v-text="message"></div>
-    {{ message }}
-   <h2>foo</h2>
-    <ul>
-      <li :key="word.id" v-for="word in words">{{ word }}</li>
-    </ul>
-  </div>
+    <div id ="baseContainer" class="container-fluid">
+        <main-navigation></main-navigation>
+        <router-view></router-view>
+        <main-footer></main-footer>
+    </div>
 </template>
 
 <script>
+    import MainNavigation from "./layout/MainNavigation";
+    import MainFooter from "./layout/MainFooter";
 export default {
-  data() {
-    return {
-      message: "A list of words",
-      words: []
-    };
-  },
-  mounted() {
-
-    let el = document.querySelector("div[data-words]");
-    let mywords = el.dataset.words.split(",");
-
-    this.words.push.apply(this.words, mywords);
-  }
+    components: {MainFooter, MainNavigation}
 };
 </script>
 
 <style>
-.center {
-  text-align: center;
-}
 </style>

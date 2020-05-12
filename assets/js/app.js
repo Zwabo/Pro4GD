@@ -9,10 +9,16 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import Vue from 'vue';
 import App from './components/App';
-//import '../css/app.css';
+import Routes from './routes.js';
+
+//CSS Imports
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../css/main.css';
 
 new Vue({
     el: '#app',
+    router: Routes,
     render: h => h(App)
 });
 
