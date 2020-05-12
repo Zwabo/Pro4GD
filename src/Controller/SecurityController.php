@@ -27,6 +27,20 @@ class SecurityController extends AbstractController
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
     */
+    /**
+     * @Route("/security/login", name="app_login", methods={"POST"})
+     */
+    public function login(){
+        if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->json([
+                'error' => 'Invalid login request: check that the Content-Type header is "application/json".'
+            ], 400);
+        }
+
+        return $this->json([
+                'user' => $this->getUser() ? $this->getUser()->getId() : null]
+        );
+    }
 
     /**
      * @Route("/logout", name="app_logout")
