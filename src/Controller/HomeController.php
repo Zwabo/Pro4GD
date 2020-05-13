@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\SerializerInterface;
 
 
 class HomeController extends AbstractController
@@ -13,9 +14,18 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index()
+    public function index(SerializerInterface $serializer)
     {
-        return $this->render('index.html.twig');
+        if($this->getUser() != null){
+            return $this->render('index.html.twig', [
+                'user' => $this->getUser()->toAssoc()
+            ]);
+        }
+        else{
+            return $this->render('index.html.twig', [
+                'user' => null
+            ]);
+        }
     }
 
     /**

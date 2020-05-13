@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -30,20 +31,24 @@ class SecurityController extends AbstractController
     /**
      * @Route("/security/login", name="app_login", methods={"POST"})
      */
-    public function login(){
+    public function login() : JsonResponse{
         if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
-            return $this->json([
+            return new JsonResponse([
                 'error' => 'Invalid login request: check that the Content-Type header is "application/json".'
-            ], 400);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
-        return $this->json([
-                'user' => $this->getUser() ? $this->getUser()->getId() : null]
-        );
+        if($this->getUser()){
+            $userdata = $this->getUser()->toAssoc();
+            return new JsonResponse($userdata, Response::HTTP_OK);
+        }
+        else{
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
     }
 
     /**
-     * @Route("/logout", name="app_logout")
+     * @Route("/security/logout", name="app_logout")
      */
     public function logout()
     {

@@ -428,4 +428,13 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function toAssoc()
+    {
+        return [
+            'id' => $this->id,
+            'username' => $this->username,
+            'email' => $this->email
+        ];
+    }
 }

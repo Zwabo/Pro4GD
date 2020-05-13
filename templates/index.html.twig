@@ -3,6 +3,11 @@
 {% block title %}Home page{% endblock %}
 
 {% block body %}
+    <script>
+        window.user = {{ user|json_encode|raw }};
+
+    </script>
+
     <div id="app">
         <app></app>
     </div>

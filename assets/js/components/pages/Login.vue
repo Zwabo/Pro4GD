@@ -65,8 +65,8 @@
                             <form method="post" @submit="submitForm" id="loginForm">
                                 <div v-if="error" class="alert alert-danger">{{error}}</div>
 
-                                <div class="mb-3">
-                                    You are logged in as , <a href="">Logout</a>
+                                <div class="mb-3" v-if="user != null">
+                                    You are logged in as {{user.username}}, <a href="/security/logout">Logout</a>
                                 </div>
 
                                 <div class="container-fluid">
@@ -110,12 +110,16 @@
 <script>
     export default {
         name: "Login",
+        mounted() {
+            this.user = window.user;
+        },
         data: function(){
             return{
                 email: "",
                 password: "",
                 isLoading: false,
-                error: ''
+                error: '',
+                user: null
             }
         },
         methods:{
@@ -132,6 +136,7 @@
                     })
                     .then(response => {
                         console.log(response.data);
+                        this.user = response.data;
                         //this.$emit('user-authenticated', userUri);
                         //this.email = '';
                         //this.password = '';
