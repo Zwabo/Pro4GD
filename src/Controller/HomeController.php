@@ -16,16 +16,7 @@ class HomeController extends AbstractController
      */
     public function index(SerializerInterface $serializer)
     {
-        if($this->getUser() != null){
-            return $this->render('index.html.twig', [
-                'user' => $this->getUser()->toAssoc()
-            ]);
-        }
-        else{
-            return $this->render('index.html.twig', [
-                'user' => null
-            ]);
-        }
+        return $this->render('index.html.twig');
     }
 
     /**

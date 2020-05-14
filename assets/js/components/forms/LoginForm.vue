@@ -3,7 +3,7 @@
         <div v-if="error" class="alert alert-danger">{{error}}</div>
 
         <div class="mb-3" v-if="user != null">
-            You are logged in as {{user.username}}, <a href="/security/logout">Logout</a>
+            You are logged in as {{user.username}}, <router-link to="/logout">Logout</router-link>
         </div>
 
         <div class="container-fluid">
@@ -29,8 +29,9 @@
 <script>
     export default {
         name: "LoginForm",
-        mounted() {
-            this.user = window.user; //get the global user object if user is already logged in
+        mounted: function(){
+            //Get user from local storage
+          this.user = JSON.parse(localStorage.getItem('user'));
         },
         data: function(){
             return{
@@ -56,7 +57,9 @@
                     .then(response => {
                         console.log(response.data);
                         this.user = response.data;
-                        window.user = this.user; //Set the global user object to current user
+
+                        //Store user in local storage
+                        localStorage.setItem('user', JSON.stringify(this.user));
 
                         //this.$emit('user-authenticated', userUri);
                         //this.email = '';
