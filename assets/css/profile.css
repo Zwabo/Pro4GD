@@ -13,7 +13,7 @@
 }
 
 /* UserButton */
-#userButton {
+.userButton {
     background-color: #97B753;
     padding: 10px 20px;
     color: white;
@@ -21,24 +21,24 @@
     border-radius: 0px 50px 50px 0px;
     font-size: 120%;
 }
-#userButton svg {
+.userButton svg {
     fill: white;
     width: 15px;
     height: 15px;
     margin-left: 10px;
 }
-#userButton:hover {
+.userButton:hover {
     background-color: #B8E269;
     border: 2px solid #B8E269;
     color: #707070;
 }
-#userButton:hover svg { fill: #707070; }
-#userButton:active {
+.userButton:hover svg { fill: #707070; }
+.userButton:active {
     background-color: #97B753;
     border: 2px solid #97B753;
     color: white;
 }
-#userButton:active svg { fill: white; }
+.userButton:active svg { fill: white; }
 
 /* picture Buttons*/
 .userProfileButton svg{ width: 20%; fill: white; }
