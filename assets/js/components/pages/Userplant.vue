@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="userplant != null">
         <div class="row marginLeftRight" id="basicInfos">
             <div class="col-lg-3" align="center">
                 <div class ="plantPicture">
@@ -12,7 +12,7 @@
                 <h2>Plantname</h2>
 
                 <ul>
-                    <li>Userplant Location</li>
+                    <li>{{userplant.location}}</li>
                     <li id ="watering">Watering amount</li>
                     <li id="wateringDay">Gießtag</li>
                 </ul>
@@ -88,7 +88,7 @@
 
                 <div id="notes">
                     <div class="heading">Meine Notizen <a href="#">Bearbeiten</a></div>
-                    <div class="body">Userplant notes</div>
+                    <div class="body">{{userplant.notes}}</div>
                 </div>
 
                 <div id="dataBaseLink" class="text-center">
@@ -113,7 +113,7 @@
                     this.userplant = response.data;
                 })
                 .catch(error => {
-                    console.log(error);
+                    alert(error);
                 });
         }
     }

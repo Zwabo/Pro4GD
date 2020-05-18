@@ -170,7 +170,8 @@ class Userplant
             'id' => $this->id,
             'name' => $this->name,
             'location' => $this->location,
-            'dateAdded' => $this->dateAdded
+            'dateAdded' => $this->dateAdded,
+            'notes' => $this->notes
         ];
     }
 }
