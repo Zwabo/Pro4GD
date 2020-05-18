@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\Userplant;
@@ -11,6 +12,21 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UserplantController extends AbstractController
 {
+    /**
+     * @Route("/api/userplant/{id}", name="userplant")
+     */
+    public function getUserplant($id){
+        $userplant = $this->getDoctrine()
+            ->getRepository(Userplant::class)
+            ->find($id);
+
+        if (!$userplant) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);
+    }
+
     /**
      * @Route("/userplant", name="userplant")
      */
@@ -24,6 +40,7 @@ class UserplantController extends AbstractController
     /**
      * @Route("/userplant/{id}", name="userplant")
      */
+    /*
     public function index($id)
     {
         $userplant = $this->getDoctrine()
@@ -40,6 +57,7 @@ class UserplantController extends AbstractController
             'controller_name' => 'UserplantController', 'userplant' => $userplant
         ]);
     }
+    */
 
     /**
      * @Route("/createUserplant", name="app_createUserplant")
