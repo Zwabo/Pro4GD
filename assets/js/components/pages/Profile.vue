@@ -13,11 +13,10 @@
                     <h1>{{ user.firstname }} {{ user.lastname }}</h1>
                     <h2>{{ user.username }}</h2>
                     <p>Rang: {{ user.level }}</p>
-                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <button class="userButton">Profil bearbeiten</button>
-                    {% else %}
-                    <button class="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
-                    {% endif %}
+
+                    <button v-if="user === null" class="userButton">Profil bearbeiten</button>
+                    <button v-else class="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
+
                 </div>
 
                 <div id="userDataCnt" class = "col-lg-3">
@@ -232,6 +231,9 @@
             return {
 
             }
+        },
+        methods: {
+
         }
     }
 </script>
