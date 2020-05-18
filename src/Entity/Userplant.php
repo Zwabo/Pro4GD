@@ -171,7 +171,8 @@ class Userplant
             'name' => $this->name,
             'location' => $this->location,
             'dateAdded' => $this->dateAdded,
-            'notes' => $this->notes
+            'notes' => $this->notes,
+            'plant' => $this->plant->toAssoc()
         ];
     }
 }

@@ -3,17 +3,17 @@
         <div class="row marginLeftRight" id="basicInfos">
             <div class="col-lg-3" align="center">
                 <div class ="plantPicture">
-                    <img  src="/images/plants/Aloe.png" alt="Userbild von">
+                    <img v-bind:src="'../' + userplant.plant.icon" alt="Plant Image">
                 </div>
                 <p>Level: </p>
             </div>
             <div class="col-lg-5">
                 <h1>{{userplant.name}}</h1>
-                <h2>Plantname</h2>
+                <h2>{{userplant.plant.name}}</h2>
 
                 <ul>
                     <li>{{userplant.location}}</li>
-                    <li id ="watering">Watering amount</li>
+                    <li id ="watering">{{userplant.plant.wateringAmount}}</li>
                     <li id="wateringDay">Gießtag</li>
                 </ul>
             </div>
@@ -23,28 +23,28 @@
                         <ul>
                             <li>Düngen</li>
                             <li><img src="/images/icons/userplant/duenger.svg" height="75"></li>
-                            <li>Ferilizer icon</li>
+                            <li>{{userplant.plant.fertilizerIcon}}</li>
                         </ul>
                     </div>
                     <div class="infoWidget location">
                         <ul>
                             <li>Standort</li>
                             <li><img src="/images/icons/userplant/location.svg" height="75"></li>
-                            <li>Location icon</li>
+                            <li>{{userplant.plant.locationIcon}}</li>
                         </ul>
                     </div>
                     <div class="infoWidget substrate">
                         <ul>
                             <li>Substrat</li>
                             <li><img src="/images/icons/userplant/substrat.svg" height="75"></li>
-                            <li>Substrate icon</li>
+                            <li>{{userplant.plant.substrateIcon}}</li>
                         </ul>
                     </div>
                     <div class="infoWidget temperature">
                         <ul>
                             <li>Temperatur</li>
                             <li><img src="/images/icons/userplant/temperature.svg" height="75"></li>
-                            <li>Temperature icon</li>
+                            <li>{{userplant.plant.temperatureIcon}}</li>
                         </ul>
                     </div>
                 </div>
@@ -56,16 +56,16 @@
                 <div id="careTips">
                     <h3>Pflegetipps</h3>
                     <div class="greenLine"></div>
-                    <p>Care tips</p>
+                    <p>{{userplant.plant.careTips}}</p>
                 </div>
 
                 <div id="moreInfos">
                     <h3>Weitere Informationen</h3>
                     <div class="greenLine"></div>
                     <h4>Standort</h4>
-                    <p>Location info</p>
+                    <p>{{userplant.plant.locationAddinfo}}</p>
                     <h4>Temperatur</h4>
-                    <p>Temperature info</p>
+                    <p>{{userplant.plant.temperatureAddinfo}}</p>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -74,14 +74,14 @@
                         <ul>
                             <li>Blütezeit</li>
                             <li><img src="/images/icons/userplant/bloom.svg" height="75"></li>
-                            <li>HeyDay infos</li>
+                            <li>{{userplant.plant.heydayIcon}}</li>
                         </ul>
                     </div>
                     <div class="infoWidget uniqueness">
                         <ul>
                             <li>Besonderheiten</li>
                             <li><img src="/images/icons/userplant/uniqueness.svg" height="75"></li>
-                            <li>Special info</li>
+                            <li>{{userplant.plant.specialFeatureIcon}}</li>
                         </ul>
                     </div>
                 </div>
