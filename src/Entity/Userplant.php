@@ -164,4 +164,13 @@ class Userplant
 
         return $this;
     }
+
+    public function toAssoc(){
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'location' => $this->location,
+            'dateAdded' => $this->dateAdded
+        ];
+    }
 }
