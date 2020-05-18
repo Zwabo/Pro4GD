@@ -61,6 +61,9 @@
                         //Store user in local storage
                         localStorage.setItem('user', JSON.stringify(this.user));
 
+                        //Send logged in information to Event Bus
+                        this.$root.$emit('loggedIn');
+
                         //this.$emit('user-authenticated', userUri);
                         //this.email = '';
                         //this.password = '';

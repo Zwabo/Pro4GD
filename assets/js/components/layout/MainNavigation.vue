@@ -31,8 +31,8 @@
                     <li class="nav-item selfAlignCenter">
                         <a class="nav-link" href="">My Garden</a>
                     </li>
-                    <li class="nav-item dropdown selfAlignCenter" id="naviUser">
-                        <a class="nav-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe <img id="naviImg" src=""></a>
+                    <li class="nav-item dropdown selfAlignCenter" id="naviUser" v-if="navigationUser">
+                        <a class="nav-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{navigationUser.username}} <img id="naviImg" v-bind:src="navigationUser.userPic"></a>
                         <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="">Profil</a>
                             <a class="dropdown-item" href="#">Freunde</a>
@@ -55,7 +55,20 @@
 
 <script>
     export default {
-        name: "MainNavigation"
+        name: "MainNavigation",
+        data: function(){
+            return{
+                navigationUser: null
+            }
+        },
+        mounted: function(){
+            this.navigationUser = JSON.parse(localStorage.getItem('user'));
+
+            //Retrieve user item from local storage in case of login
+            this.$root.$on('loggedIn', () => {
+                this.navigationUser = JSON.parse(localStorage.getItem('user'));
+            });
+        }
     }
 </script>
 
