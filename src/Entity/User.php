@@ -434,7 +434,8 @@ class User implements UserInterface
         return [
             'id' => $this->id,
             'username' => $this->username,
-            'email' => $this->email
+            'email' => $this->email,
+            'userPic' => $this->userPic
         ];
     }
 }
