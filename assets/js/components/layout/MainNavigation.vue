@@ -39,10 +39,10 @@
                             <a class="dropdown-item" href="">Mein Garten</a>
                             <a class="dropdown-item" href="#">Statistik</a>
                             <a class="dropdown-item" href="#">Einstellungen</a>
-                            <a class="dropdown-item" href="">Ausloggen</a>
+                            <router-link class="dropdown-item" to="logout">Ausloggen</router-link>
                         </div>
                     </li>
-                    <li class="nav-item selfAlignCenter">
+                    <li class="nav-item selfAlignCenter" v-if="navigationUser == null">
                         <router-link class="nav-link" to="login">Login</router-link>
 
                     </li>
