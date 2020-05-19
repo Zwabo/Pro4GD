@@ -83,3 +83,22 @@
 #notes .body{
     padding:10px;
 }
+#notes button{
+    background-color: #97B753;
+    padding: 5px 8px;
+    margin-left: 10px;
+    color: white;
+    border: 2px solid #97B753;
+    border-radius: 10px;
+    font-size: 10pt;
+}
+#notes button {
+    background-color: #B8E269;
+    border: 2px solid #B8E269;
+    color: #707070;
+}
+#notes button {
+    background-color: #97B753;
+    border: 2px solid #97B753;
+    color: white;
+}

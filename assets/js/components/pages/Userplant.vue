@@ -87,8 +87,11 @@
                 </div>
 
                 <div id="notes">
-                    <div class="heading">Meine Notizen <a href="#">Bearbeiten</a></div>
-                    <div class="body">{{userplant.notes}}</div>
+                    <div class="heading">Meine Notizen <button @click="editNotes">Bearbeiten</button></div>
+                    <div class="body" v-if="editing">
+                        <textarea class="form-control" v-model="userplant.notes" @blur="stopEditing"></textarea>
+                    </div>
+                    <div class="body" v-if="!editing">{{userplant.notes}}</div>
                 </div>
 
                 <div id="dataBaseLink" class="text-center">
@@ -104,17 +107,35 @@
         name: "Userplant",
         data: function(){
             return{
-                userplant: null
+                userplant: null,
+                editing: false
             }
         },
         mounted: function(){
             this.$http.get('/api/userplant/' + this.$route.params.id)
                 .then(response => {
+                    console.log(response.data);
                     this.userplant = response.data;
                 })
                 .catch(error => {
                     alert(error);
                 });
+        },
+        methods: {
+            editNotes: function(){
+                this.editing = true;
+            },
+            stopEditing: function(){
+                this.$http.put('/api/userplant/setNotes/' + this.$route.params.id, this.userplant.notes)
+                    .then(response => {
+                        this.userplant = response.data;
+                    })
+                    .catch(error => {
+                        alert(error);
+                    });
+
+                this.editing = false;
+            }
         }
     }
 </script>
