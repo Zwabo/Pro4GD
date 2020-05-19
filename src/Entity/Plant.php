@@ -524,4 +524,36 @@ class Plant
         return $this;
     }
 
+    public function toAssoc(){
+        return [
+            'id' => $this->id,
+            'linkName' => $this->linkName,
+            'name' => $this->name,
+            'alternativeName' => $this->alternativeName,
+            'latinName' => $this->latinName,
+            'genus' => $this->genus,
+            'careLevel' => $this->careLevel,
+            'wateringAmount' => $this->wateringAmount,
+            'icon' => $this->icon,
+            'locationIcon' => $this->locationIcon,
+            'temperatureIcon' => $this->temperatureIcon,
+            'fertilizerIcon' => $this->fertiliserIcon,
+            'substrateIcon' => $this->substrateIcon,
+            'heydayIcon' => $this->heydayIcon,
+            'heightIcon' => $this->heightIcon,
+            'specialFeatureIcon' => $this->specialFeatureIcon,
+            'shortDescription' => $this->shortDescription,
+            'specialFeaturesAddinfo' => $this->specialFeaturesAddinfo,
+            'locationAddinfo' => $this->locationAddinfo,
+            'temperatureAddinfo' => $this->temperatureAddinfo,
+            'pot' => $this->pot,
+            'wateringAmountAddinfo' => $this->wateringAmountAddinfo,
+            'substrateAddinfo' => $this->substrateAddinfo,
+            'fertiliserAddinfo' => $this->fertiliserAddinfo,
+            'flowerColor' => $this->flowerColor,
+            'heydayAddinfo' => $this->heydayAddinfo,
+            'careTips' => $this->careTips
+        ];
+    }
+
 }
