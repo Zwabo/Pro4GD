@@ -3,20 +3,45 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
+
+use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends AbstractController
 {
+    private function assignParameters(User $user, Request $request) : User
+    {
+        $data = json_decode($request->getContent(), true);
+        return $user;
+    }
+
+    /**
+     * @Route("/api/profile/{username}", name="profile")
+     */
+    public function getUser($username) : JsonResponse {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy($username);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
 
 /**
  * @Route("/profile", name="profile")
  */
-    public function profile()
+    /*public function profile()
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         /* @var \App\Entity\User $user */
-        $user = $this->getUser();
+        /*$user = $this->getUser();
 
         return $this->render('profile.html.twig', [
             'controller_name' => 'UserController', 'user' => $user
@@ -25,12 +50,12 @@ class UserController extends AbstractController
     /**
      * @Route("/profile/friends", name="profile_friends")
      */
-    public function friends()
+   /* public function friends()
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         /* @var \App\Entity\User $user */
-        $user = $this->getUser();
+  /*      $user = $this->getUser();
 
         $friends = array();
         foreach($user->getOutgoingFriendRequests() as $request){
@@ -49,5 +74,5 @@ class UserController extends AbstractController
             'user' => $user,
             'friends' => $friends
         ]);
-    }
+    }*/
 }
