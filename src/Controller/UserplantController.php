@@ -8,12 +8,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\Userplant;
 use Doctrine\ORM\EntityManagerInterface;
+
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class UserplantController extends AbstractController
 {
+
     /**
-     * @Route("/api/userplant/{id}", name="userplant")
+     * @Route("/api/userplant/{id}", name="userplant", methods={"GET"})
      */
     public function getUserplant($id){
         $userplant = $this->getDoctrine()
@@ -23,6 +26,25 @@ class UserplantController extends AbstractController
         if (!$userplant) {
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
+
+        return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/userplant/setNotes/{id}", name="setNotes", methods={"PUT"})
+     */
+    public function setNotes($id, Request $request){
+        $userplant = $this->getDoctrine()
+            ->getRepository(Userplant::class)
+            ->find($id);
+
+        if (!$userplant) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $data = $request->getContent();
+        $userplant->setNotes($data); //Set notes to new text
+        $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);
     }
