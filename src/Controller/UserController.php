@@ -24,13 +24,22 @@ class UserController extends AbstractController
     public function getUser($username) : JsonResponse {
         $user = $this->getDoctrine()
             ->getRepository(User::class)
-            ->findOneBy($username);
+            ->findOneBy(['username' => $username]);
 
         if (!$user) {
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
 
         return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
+
+    public function getUserplant($id)
+    {
+        $userplant = $this->getDoctrine()
+            ->getRepository(Userplant::class)
+            ->find($id);
+
+        return new JsonResponse($userplant->toAssoc(), Response::HTPP_OK);
     }
 
 /**
