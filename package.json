@@ -15,6 +15,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "@trevoreyre/autocomplete-vue": "^2.1.1",
         "axios": "^0.19.2",
         "bootstrap": "^4.4.1",
         "jquery": "^3.5.1",

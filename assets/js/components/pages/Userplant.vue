@@ -8,7 +8,7 @@
                 <p>Level: </p>
             </div>
             <div class="col-lg-5">
-                <h1>{{userplant.name}}</h1>
+                <h1>{{userplant.name}}</h1> <edit-userplant-modal :userplant="userplant"></edit-userplant-modal>
                 <h2>{{userplant.plant.name}}</h2>
 
                 <ul>
@@ -103,8 +103,10 @@
 </template>
 
 <script>
+    import EditUserplantModal from "../modals/EditUserplantModal";
     export default {
         name: "Userplant",
+        components: {EditUserplantModal},
         data: function(){
             return{
                 userplant: null,
