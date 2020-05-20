@@ -7,28 +7,31 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\Userplant;
-use App\Entity\Plant;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class GardenController extends AbstractController
 {
     /**
-     * @Route("/garden", name="garden")
+     * @Route("/api/garden/", name="garden")
      */
-    /**
     public function index()
     {
+        $userplants = $this->getDoctrine()->getRepository(Userplant::class)->findAll();
 
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        if (!$userplants) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
 
-        $userplants = $this->getDoctrine()->getRepository('App:Userplant')->findAll();
+        $garden = [];
+        foreach ($userplants as $userplant) {
+            $garden[] = $userplant->toAssoc();
+        }
 
-        return $this->render('myGarden.html.twig', [
-            'controller_name' => 'GardenController', 'userplants' => $userplants
-        ]);
+        return new JsonResponse($garden, Response::HTTP_OK);
 
     }
-     */
+
 }
 
 

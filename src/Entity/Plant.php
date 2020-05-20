@@ -552,7 +552,8 @@ class Plant
             'fertiliserAddinfo' => $this->fertiliserAddinfo,
             'flowerColor' => $this->flowerColor,
             'heydayAddinfo' => $this->heydayAddinfo,
-            'careTips' => $this->careTips
+            'careTips' => $this->careTips,
+            'WindowIcon' => $this->WindowIcon
         ];
     }
 

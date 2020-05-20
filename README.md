@@ -71,6 +71,10 @@ forum solution:
 https://stackoverflow.com/questions/55678255/uncaught-php-exception-symfony-component-httpkernel-exception-notfoundhttpexcept
 ---
 
+php bin/console doctrine:migrations:diff
+ 
 php bin/console make:migration
 php bin/console doctrine:migrations:migrate
 php bin/console doctrine:fixtures:load
+
+npm run watch

@@ -29,14 +29,14 @@
                         </div>
                     </li>
                     <li class="nav-item selfAlignCenter">
-                        <a class="nav-link" href="">My Garden</a>
+                        <router-link class="nav-link" to="garden">Mein Garten</router-link>
                     </li>
                     <li class="nav-item dropdown selfAlignCenter" id="naviUser" v-if="navigationUser">
                         <a class="nav-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{navigationUser.username}} <img id="naviImg" v-bind:src="navigationUser.userPic"></a>
                         <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="">Profil</a>
                             <a class="dropdown-item" href="#">Freunde</a>
-                            <a class="dropdown-item" href="">Mein Garten</a>
+                            <router-link class="dropdown-item" to="garden">Mein Garten</router-link>
                             <a class="dropdown-item" href="#">Statistik</a>
                             <a class="dropdown-item" href="#">Einstellungen</a>
                             <router-link class="dropdown-item" to="logout">Ausloggen</router-link>

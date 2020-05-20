@@ -28,38 +28,6 @@ class UserplantController extends AbstractController
     }
 
     /**
-     * @Route("/userplant", name="userplant")
-     */
-    /*public function index()
-    {
-        return $this->render('userplant.html.twig', [
-            'controller_name' => 'UserplantController'
-        ]);
-    }*/
-
-    /**
-     * @Route("/userplant/{id}", name="userplant")
-     */
-    /*
-    public function index($id)
-    {
-        $userplant = $this->getDoctrine()
-        ->getRepository(Userplant::class)
-        ->find($id);
-
-        if (!$userplant) {
-            throw $this->createNotFoundException(
-                'No userplant found for id ' . $id
-            );
-        }
-
-        return $this->render('userplant.html.twig', [
-            'controller_name' => 'UserplantController', 'userplant' => $userplant
-        ]);
-    }
-    */
-
-    /**
      * @Route("/createUserplant", name="app_createUserplant")
      */
     public function createUserplant()
@@ -84,3 +52,36 @@ class UserplantController extends AbstractController
         return new Response('Saved new userplant with id '.$userplant->getId());
     }
 }
+
+
+/**
+ * @Route("/userplant", name="userplant")
+ */
+/*public function index()
+{
+    return $this->render('userplant.html.twig', [
+        'controller_name' => 'UserplantController'
+    ]);
+}*/
+
+/**
+ * @Route("/userplant/{id}", name="userplant")
+ */
+/*
+public function index($id)
+{
+    $userplant = $this->getDoctrine()
+    ->getRepository(Userplant::class)
+    ->find($id);
+
+    if (!$userplant) {
+        throw $this->createNotFoundException(
+            'No userplant found for id ' . $id
+        );
+    }
+
+    return $this->render('userplant.html.twig', [
+        'controller_name' => 'UserplantController', 'userplant' => $userplant
+    ]);
+}
+*/
