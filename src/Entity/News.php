@@ -37,7 +37,7 @@ class News
     private $long_text;
 
     /**
-     * @ORM\Column(type="string", length=500)
+     * @ORM\Column(type="string", length=500, nullable=true)
      */
     private $thumbnail;
 

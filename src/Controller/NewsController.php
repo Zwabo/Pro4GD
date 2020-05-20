@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class NewsController extends AbstractController
 {
     /**
-     * @Route("/news", name="news")
+     * @Route("api/news", name="news")
      */
 
     public function news()
@@ -22,9 +22,10 @@ class NewsController extends AbstractController
     }
 
     /**
-     * @Route("/news/{id}", name="article")
+     * @Route("api/news/{id}", name="article", methods={"GET"})
      */
-    public function index($id)
+
+    public function getArticle($id)
     {
         $article = $this->getDoctrine()->getRepository('App:News')->findOneBy(array('id' => $id));
 
@@ -33,14 +34,14 @@ class NewsController extends AbstractController
             ->find($id);*/
 
         if (!$article) {
-            throw $this->createNotFoundException(
-                'No article found for id ' . $id
-            );
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
 
-        return $this->render('newsArticle.html.twig', [
+        return new JsonResponse($article->toAssoc(), Response::HTTP_OK);
+
+        /*return $this->render('newsArticle.html.twig', [
             'controller_name' => 'NewsController', 'article' => $article
-        ]);
+        ]);*/
     }
 
 
@@ -50,7 +51,6 @@ class NewsController extends AbstractController
 
     public function showArticle($id)
     {
-
 
         return $this->render('newsArticle.html.twig', [
             'controller_name' => 'NewsController',
