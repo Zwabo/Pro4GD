@@ -9,6 +9,12 @@
             </div>
             <div class="col-lg-5">
                 <h1>{{userplant.name}}</h1>
+
+                    <edit-userplant-modal
+                            :userplant="userplant"
+                            @updatedUserplant="updateUserplant">
+                    </edit-userplant-modal>
+
                 <h2>{{userplant.plant.name}}</h2>
 
                 <ul>
@@ -103,8 +109,10 @@
 </template>
 
 <script>
+    import EditUserplantModal from "../modals/EditUserplantModal";
     export default {
         name: "Userplant",
+        components: {EditUserplantModal},
         data: function(){
             return{
                 userplant: null,
@@ -114,7 +122,6 @@
         mounted: function(){
             this.$http.get('/api/userplant/' + this.$route.params.id)
                 .then(response => {
-                    console.log(response.data);
                     this.userplant = response.data;
                 })
                 .catch(error => {
@@ -135,6 +142,9 @@
                     });
 
                 this.editing = false;
+            },
+            updateUserplant: function(updatedUserplant){
+                this.userplant = updatedUserplant;
             }
         }
     }
