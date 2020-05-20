@@ -1,7 +1,8 @@
 <template>
+    <div id="root">
     <div v-if="profileUser != null">
 
-        <div class="container-fluid" id="route">
+        <div class="container-fluid">
 
             <!-- upper profile part -->
             <div class="row bgDarkGrey fontWhite" id="userInfoCnt">
@@ -99,19 +100,21 @@
                         </div>
 
                         <div class="container-fluid">
-                            <div v-for="{plant, index} in profileUser.userplants" class="row friends bgWhiteGrey dropShadow borderRad10">
-                                <p>test</p>
-                            </div>
-                            <!--<div v-for="{plant, index} in profileUser.plantsUser" class="container-fluid row">
-                                <p>test</p>
+                            <p>test</p>
+                            <div v-for="{userplant, index} in profileUser.plantsUser" class="container-fluid row">
                                 <div v-if="index % 2 != 0" class="col-lg-6 paddingNormalize">
-                                    <router-link to="/userplant/plant.id">
+                                    <router-link to="/userplant/plant.id">          <!-- v-bind???-->
                                         <div class="container-fluid plantsProfile dropShadow bgWhite plantsProfileLeftGrid">
                                             <div clss="row">
                                                 <div class="col-lg-8 selfAlignCenter plantsProfileInfoCol">
                                                     <ul class="noListStyle">
-                                                        <li>Test</li>
+                                                        <li>{{ userplant.name }}</li>
+                                                        <li>{{ userplant.location }}</li>
+                                                        <li> {{ userplant.level }}</li>
                                                     </ul>
+                                                </div>
+                                                <div class="col-lg-4 plantsProfileImgCol text-right">
+                                                    <img class="plantsProfileImg" src="/images/plants/Aloe.png">          <!-- plant in plantbase -->
                                                 </div>
                                             </div>
                                         </div>
@@ -124,18 +127,42 @@
                                             <div class="row">
                                                    <div calss="col-lg-8 selfAllignCenter plantsProfileInfoCol">
                                                        <ul class="noListStyle">
-                                                           <li>Test</li>
+                                                           <li>{{ userplant.name }}</li>
+                                                           <li>{{ userplant.location }}</li>
+                                                           <li> {{ userplant.level }}</li>
                                                        </ul>
                                                    </div>
+                                            </div>
+                                            <div class="col-lg-4 plantsProfileImgCol text-right">
+                                                <img class="plantsProfileImg" src="/images/plants/Aloe.png">          <!-- plant in plantbase -->
                                             </div>
                                         </div>
                                     </router-link>
                                 </div>
-                            </div>-->
+                            </div>
                         </div>
 
+                        <div id="Besuchernachrichten">
+                            <h3 class="h3Margin">Besuchernachrichten</h3>
+                            <div class="greenLine"></div>
+                            <div>Keine Besuchernachrichten vorhanden</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="rightBoxes">
+                        <h4 class="bgLightGrey rightBoxesPadding h4Box">Erungenschaften</h4>
+                        <p class="rightBoxesPadding">Wird nur gezeigt wenn welche vorhanden sind</p>    <!-- Besuchernachrichten auslesen -->
+                    </div>
+
+                    <div class="rightBoxes">
+                        <h4 class="bgLightGrey rightBoxesPadding h4Box">Forenposts</h4>
+                        <p class="rightBoxesPadding">Liste an Forenposts</p> <!-- wird aus dem Forum ausgelesen -->
                     </div>
                 </div>
+
             </div>
 
         </div>
@@ -185,6 +212,7 @@
         </div>
 
     </div>
+    </div>
 </template>
 
 <script>
@@ -197,17 +225,27 @@
             }
         },
 
-        beforeCreate: function(){
+        mounted: function(){
             this.$http.get('/api/profile/' + this.$route.params.username)
                 .then(response => {
                     console.log("response: " + response.data);
                     this.profileUser = response.data;
+
+                    /*this.$http.get('/api/profile/' + this.$route.params.username + '/userplants')
+                        .then(response => {
+                            console.log("response userplants: " + response.data);
+                            this.profileUserplants = response.data;
+                        })
+                        .catch(error => {
+                            this.getError(error);
+                        })
+                      */
+
                 })
                 .catch(error => {
-                    alert(error);
-                    //this.getError(error);
+                    //alert(error);
+                    this.getError(error);
                 });
-
         },
 
         methods: {
@@ -233,12 +271,12 @@
                     age--;
                 }
                 return age;
-            }
+            },
 
-            /*getError(error) {
+            getError(error) {
                 console.log(error);
 
-                let element = document.getElementById("route");
+                let element = document.getElementById("root");
                 let div = document.createElement("div");
                 div.setAttribute('class', 'text-center errorMsg');
 
@@ -250,7 +288,7 @@
                 element.appendChild(div);
                 div.appendChild(p1);
                 div.appendChild(p2);
-            }*/
+            }
         }
     }
 </script>

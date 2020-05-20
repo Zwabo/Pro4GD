@@ -32,15 +32,27 @@ class UserController extends AbstractController
 
         return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
     }
+/*
+    public function getUserData($username) : JsonResponse {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $username]);
 
-    public function getUserplant($id)
-    {
-        $userplant = $this->getDoctrine()
-            ->getRepository(Userplant::class)
-            ->find($id);
 
-        return new JsonResponse($userplant->toAssoc(), Response::HTPP_OK);
-    }
+        $rep = $this->getDoctrine()->getRepository(Entry::class);
+        $entries = $rep->findAll($user->id);
+        $userplant = [];
+        foreach ($entries as $entry) {
+            $userplants[] = $entry->toAssoc();
+        }
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        return new JsonResponse(array('user'=>$user,'userplant'=>$userplant)->toAssoc(), Response::HTTP_OK);
+    }*/
+
 
 /**
  * @Route("/profile", name="profile")
