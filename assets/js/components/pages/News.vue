@@ -14,7 +14,7 @@
                     <h3 id="date">03. April 2020, 00:35</h3>
                     <h2 id="title">{{ article.title }}</h2>
                     <p id="shortText">{{ article.shortText }}</p>
-                    <a  class="readMore" href="#article">mehr lesen <b>>> </b></a>
+                    <a  class="readMore"  router-link to="/news/article.id"> >mehr lesen <b>>> </b></a>
                 </div>
                 <div class="greenLine"></div>
                 {% endfor %}
