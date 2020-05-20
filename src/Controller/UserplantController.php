@@ -27,6 +27,9 @@ class UserplantController extends AbstractController
         if (!$userplant) {
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
+        if($userplant->getUser() != $this->getUser()){
+            return new JsonResponse([], Response::HTTP_FORBIDDEN);
+        }
 
         return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);
     }

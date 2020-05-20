@@ -10,7 +10,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5>Pflanze "{{userplant.name}} bearbeiten"</h5>
+                        <h5>Pflanze "{{userplant.name}}" bearbeiten</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="modalOpen = false">
                             <span aria-hidden="true">&times;</span>
                         </button>

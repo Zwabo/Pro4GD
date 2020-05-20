@@ -145,7 +145,6 @@
             },
             updateUserplant: function(updatedUserplant){
                 this.userplant = updatedUserplant;
-                console.log(this.userplant);
             }
         }
     }
