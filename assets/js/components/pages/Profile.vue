@@ -17,7 +17,8 @@
                     <p>Sprössling</p>           <!-- Rang Benennung: aus Lvl berechnet -->
 
                     <button v-if="profileUser==null" id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
-                    <button v-else id="userButton">Profil bearbeiten</button>
+                    <button v-else-if="profileUser!=null && editProfile!=true" id="userButton"  v-on:click="changeProfile">Profil bearbeiten</button>
+                    <button v-else-if="profileUser!=null && editProfile==true" id="userButton" v-on:click="saveProfile">Profil speichern</button>
                 </div>
 
                 <div id="userDataCnt" class="col-lg-3">
@@ -46,7 +47,7 @@
             <div class="row marginLeftRight">
                 <div class="col-lg-8">
                     <div class="left">
-                        <div id="description">
+                        <div id="description" :class="{editing: editing}">
                             <h3 class="h3Margin">Über {{ profileUser.username }} </h3>
                             <div class="greenLine"></div>
                             <p>{{ profileUser.description }}</p>
@@ -231,13 +232,14 @@
         name: "Profile",
         data: function() {
             return {
-                profileUser: null,
-                profileUserplants: null,
+                profileUser: null,              // object for user
+                profileUserplants: null,        // object for userplants
 
-                createdUserString: null,
+                createdUserString: null,        // date objects and age calculated from date objects
                 birthdayString: null,
                 userAge: null,
 
+                editProfile: false,       // bool if edit profile is active or not
             }
         },
 
@@ -247,16 +249,26 @@
                     console.log("response: " + response.data);
                     this.profileUser = response.data;
 
+                    console.log("id: " + response.data.id);
+
+                    /*this.$http.get('/api/profile/' + response.data.id + '/userplants')
+                        .then(plantresponse => {
+                            console.log("response userplants: " + plantresponse.data);
+                            this.profileUserplants = plantresponse.data;
+                        })*/
+
+
+                    /*save the created date as string*/
                     this.createdUserString = this.profileUser.dateCreated.date.substr(8,2)
                         + "." + this.profileUser.dateCreated.date.substr(5,2)
                         + "." + this.profileUser.dateCreated.date.substr(0,4);
 
+                    /*save the birtday as string*/
                     this.birthdayString = this.profileUser.dateBirth.date.substr(8,2)
                         + "." + this.profileUser.dateBirth.date.substr(5,2)
                         + "." + this.profileUser.dateBirth.date.substr(0,4);
 
-                    console.log("userplants: " + this.profileUser.userplants);
-
+                    /*calculate the age*/
                     let year = Number(this.profileUser.dateBirth.date.substr(0,4));
                     let month = Number(this.profileUser.dateBirth.date.substr(5,2));
                     let day = Number(this.profileUser.dateBirth.date.substr(8,2));
@@ -273,20 +285,35 @@
                     this.getError(error);
                 });
 
+            this.$http('/api/profile/' + this.$route.params.username + '/userplants')
+                .then(response => {
+                    console.log("response: " + response.data);
+                    this.profileUserplants = response.data;
+                })
+                    .catch(error => {
+                        this.getError(error);
+                });
+
         },
+
+        /*beforeUpdate: function() {
+            console.log("beforeupdate id: " + this.profileUser.id);
+
+            this.$http.get('/api/profile/plantsUser/' + this.profileUser.id)
+                .then(response => {
+                    console.log("response userplants: " + response.data);
+                    this.profileUserplants = response.data;
+                })
+        },*/
 
         methods: {
 
-            getAge: function() {
-                let year = Number(this.profileUser.dateBirth.substr(0,4));
-                let month = Number(this.profileUser.dateBirth.substr(4,2))-1;
-                let day = Number(this.profileUser.dateBirth.substr(6,2));
-                let today = new Date();
-                let age = today.getFullYear() - year;
-                if (today.getMonth() < month || (today.getMoth() == month && today.getDate() < day)) {
-                    age--;
-                }
-                return age;
+            changeProfile: function() {
+                this.editProfile = true;
+            },
+
+            saveProfile: function() {
+                this.editProfile = false;
             },
 
             getError(error) {
