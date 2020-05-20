@@ -7,21 +7,18 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\User;
+use App\Entity\Userplant;
 use Doctrine\ORM\EntityManagerInterface;
+
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends AbstractController
 {
-    private function assignParameters(User $user, Request $request) : User
-    {
-        $data = json_decode($request->getContent(), true);
-        return $user;
-    }
-
     /**
      * @Route("/api/profile/{username}", name="profile")
      */
-    public function getUser($username) : JsonResponse {
+    public function getProfileuser($username) : JsonResponse {
         $user = $this->getDoctrine()
             ->getRepository(User::class)
             ->findOneBy(['username' => $username]);

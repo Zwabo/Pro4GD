@@ -17,8 +17,6 @@ const router = new VueRouter({
         {path:'/logout', name:'logout', component:Logout},
         {path:'/userplant/:id', name:'userplant', component:Userplant},
         {path: '/profile/:username', name:'profile', component:Profile},
-        //{path: 'profile/:username/:userid/userplants', name: 'profile_userplants', component: Profile},
-
     ]
 });
 
