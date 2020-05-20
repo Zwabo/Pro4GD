@@ -8,7 +8,13 @@
                 <p>Level: </p>
             </div>
             <div class="col-lg-5">
-                <h1>{{userplant.name}}</h1> <edit-userplant-modal :userplant="userplant"></edit-userplant-modal>
+                <h1>{{userplant.name}}</h1>
+
+                    <edit-userplant-modal
+                            :userplant="userplant"
+                            @updatedUserplant="updateUserplant">
+                    </edit-userplant-modal>
+
                 <h2>{{userplant.plant.name}}</h2>
 
                 <ul>
@@ -116,7 +122,6 @@
         mounted: function(){
             this.$http.get('/api/userplant/' + this.$route.params.id)
                 .then(response => {
-                    console.log(response.data);
                     this.userplant = response.data;
                 })
                 .catch(error => {
@@ -137,6 +142,10 @@
                     });
 
                 this.editing = false;
+            },
+            updateUserplant: function(updatedUserplant){
+                this.userplant = updatedUserplant;
+                console.log(this.userplant);
             }
         }
     }
