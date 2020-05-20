@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\Userplant;
+use App\Entity\Plant;
 use Doctrine\ORM\EntityManagerInterface;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -26,6 +27,28 @@ class UserplantController extends AbstractController
         if (!$userplant) {
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
+        if($userplant->getUser() != $this->getUser()){
+            return new JsonResponse([], Response::HTTP_FORBIDDEN);
+        }
+
+        return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/userplant/setName/{id}", name="setName", methods={"PUT"})
+     */
+    public function setName($id, Request $request){
+        $userplant = $this->getDoctrine()
+            ->getRepository(Userplant::class)
+            ->find($id);
+
+        if (!$userplant) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $data = $request->getContent();
+        $userplant->setName($data); //Set notes to new text
+        $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);
     }
@@ -44,6 +67,30 @@ class UserplantController extends AbstractController
 
         $data = $request->getContent();
         $userplant->setNotes($data); //Set notes to new text
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/userplant/setPlant/{id}", name="setPlant", methods={"PUT"})
+     */
+    public function setPlant($id, Request $request){
+        $userplant = $this->getDoctrine()
+            ->getRepository(Userplant::class)
+            ->find($id);
+
+        if (!$userplant) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $data = $request->getContent();
+
+        $plant = $this->getDoctrine()
+            ->getRepository(Plant::class)
+            ->findOneBy(['name' => $data]);
+
+        $userplant->setPlant($plant); //Set notes to new text
         $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);

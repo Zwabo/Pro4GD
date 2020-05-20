@@ -433,9 +433,20 @@ class User implements UserInterface
     {
         return [
             'id' => $this->id,
-            'username' => $this->username,
             'email' => $this->email,
-            'userPic' => $this->userPic
+            'username' => $this->username,
+            'firstName' => $this->firstName,
+            'lastName' => $this->lastName,
+            'userPic' => $this->userPic,
+            'dateBirth' => $this->dateBirth,
+            'country' => $this->country,
+            'description' => $this->description,
+            'level' => $this->level,
+            'dateCreated' => $this->created,
+            'roles' => $this->roles,
+            'achievments' => $this->achievements,
+            'friends' => $this->friends,
+            'userplants' => $this->userplants
         ];
     }
 }
