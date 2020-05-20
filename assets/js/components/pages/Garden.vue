@@ -14,11 +14,12 @@
 
             </div>
 
+            <button >{{image}}</button>
             <div class="greenLine"></div>
 
             <div class="row userplants">
                 <div  v-for="userplant in garden">
-                <div  class="col-sm" v-on:mouseover="image += userplant.plant.WindowIcon">
+                <div  class="col-sm" v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
                     <router-link class="link":to="{ name: 'userplant', params: { id: userplant.id  }}">
                         <div class="bgWhiteGrey plantsProfil dropShadow ">
 
@@ -61,8 +62,11 @@
             </div>
             </div>
 
-        <div class="col windowImage">
+        <div v-if="image === ''" class="col windowImage">
            <img :src="'../' + garden[0].plant.WindowIcon" alt="Plant side view" height="700" class="col-sm plantWindow">
+        </div>
+        <div v-else="image !== ''" class="col windowImage">
+            <img :src="'../' + image" alt="Plant side view" height="700" class="col-sm plantWindow">
         </div>
 
     </div>
@@ -78,6 +82,7 @@
            return{
                garden: null,
                counter: 1,
+               image: ''
            }
        },
        mounted: function(){
@@ -89,6 +94,15 @@
                    alert(error);
                });
        },
+       methods:{
+
+           replaceImage: function (image) {
+
+               this.image= image;
+
+           }
+
+       }
 
    }
 </script>
