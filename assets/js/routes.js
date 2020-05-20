@@ -5,6 +5,7 @@ import Home from './components/pages/Home';
 import Login from './components/pages/Login';
 import Logout from './components/pages/Logout';
 import Userplant from "./components/pages/Userplant";
+import News from "./component/pages/News";
 
 Vue.use(VueRouter);
 
@@ -14,7 +15,8 @@ const router = new VueRouter({
         {path:'/', name:'home', component:Home},
         {path:'/login', name:'login', component:Login},
         {path:'/logout', name:'logout', component:Logout},
-        {path:'/userplant/:id', name:'userplant', component:Userplant}
+        {path:'/userplant/:id', name:'userplant', component:Userplant},
+        {path:'/news/:id', name: 'news',component:News}
     ]
 });
 
