@@ -9,6 +9,12 @@
             </div>
             <div class="col-lg-5">
                 <h1>{{userplant.name}}</h1>
+
+                    <edit-userplant-modal
+                            :userplant="userplant"
+                            @updatedUserplant="updateUserplant">
+                    </edit-userplant-modal>
+
                 <h2>{{userplant.plant.name}}</h2>
 
                 <ul>
@@ -87,8 +93,11 @@
                 </div>
 
                 <div id="notes">
-                    <div class="heading">Meine Notizen <a href="#">Bearbeiten</a></div>
-                    <div class="body">{{userplant.notes}}</div>
+                    <div class="heading">Meine Notizen <button @click="editNotes">Bearbeiten</button></div>
+                    <div class="body" v-if="editing">
+                        <textarea class="form-control" v-model="userplant.notes" @blur="stopEditing"></textarea>
+                    </div>
+                    <div class="body" v-if="!editing">{{userplant.notes}}</div>
                 </div>
 
                 <div id="dataBaseLink" class="text-center">
@@ -100,11 +109,14 @@
 </template>
 
 <script>
+    import EditUserplantModal from "../modals/EditUserplantModal";
     export default {
         name: "Userplant",
+        components: {EditUserplantModal},
         data: function(){
             return{
-                userplant: null
+                userplant: null,
+                editing: false
             }
         },
         mounted: function(){
@@ -115,6 +127,25 @@
                 .catch(error => {
                     alert(error);
                 });
+        },
+        methods: {
+            editNotes: function(){
+                this.editing = true;
+            },
+            stopEditing: function(){
+                this.$http.put('/api/userplant/setNotes/' + this.$route.params.id, this.userplant.notes)
+                    .then(response => {
+                        this.userplant = response.data;
+                    })
+                    .catch(error => {
+                        alert(error);
+                    });
+
+                this.editing = false;
+            },
+            updateUserplant: function(updatedUserplant){
+                this.userplant = updatedUserplant;
+            }
         }
     }
 </script>

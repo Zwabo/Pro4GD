@@ -34,7 +34,9 @@
                     <li class="nav-item dropdown selfAlignCenter" id="naviUser" v-if="navigationUser">
                         <a class="nav-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{navigationUser.username}} <img id="naviImg" v-bind:src="navigationUser.userPic"></a>
                         <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="">Profil</a>
+                            <router-link to="/profile/Testuser1" class="dropdown-item">          <!-- change to dynamic -->
+                                Profil
+                            </router-link>
                             <a class="dropdown-item" href="#">Freunde</a>
                             <router-link class="dropdown-item" to="garden">Mein Garten</router-link>
                             <a class="dropdown-item" href="#">Statistik</a>
