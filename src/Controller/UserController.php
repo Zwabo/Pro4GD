@@ -16,34 +16,33 @@ use Symfony\Component\HttpFoundation\Response;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/api/profile/{username}/userplants", name="userplant", methods={"GET"})
+     * @Route("/api/profile/{username}/userplants", name="profile_userplant", methods={"GET"})
      */
     public function getProfileUserplant($username){
-
         $user = $this->getDoctrine()
             ->getRepository(User::class)
             ->findOneBy(['username' => $username]);
 
-        $userid = $user->id;
+        $userid = $user->getId();
 
-        $userplant = $this->getDoctrine()
+        $plants = $this->getDoctrine()
             ->getRepository(Userplant::class)
-            ->findAll($userid);
+            ->findAll();
 
-        if (!$userplant) {
-            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        $userplantsProfile = [];
+
+        foreach($plants as $plant) {
+            $userplantsProfile[] = $plant->toAssoc();
         }
-        /*if($userplant->getUser() != $this->getUser()){
-            return new JsonResponse([], Response::HTTP_FORBIDDEN);
-        }*/
 
-        return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);
+        return new JsonResponse($userplantsProfile, Response::HTTP_OK);
     }
 
     /**
      * @Route("/api/profile/{username}", name="profile")
      */
     public function getProfileUser($username) : JsonResponse {
+
         $user = $this->getDoctrine()
             ->getRepository(User::class)
             ->findOneBy(['username' => $username]);

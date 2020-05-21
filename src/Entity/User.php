@@ -438,10 +438,6 @@ class User implements UserInterface
             $plants = $userplant->toAssoc();
         }
 
-        /*$plants = $this->getDoctrine()
-            ->getRepository(Userplant::class)
-            ->findAll($this->id);*/
-
         return [
             'id' => $this->id,
             'email' => $this->email,

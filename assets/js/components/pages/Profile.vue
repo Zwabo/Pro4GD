@@ -109,20 +109,21 @@
                             <div class="row">
 
                                 <div class="col-lg-6">
-                                    <div v-for="{userplant, index} in profileUser.userplants" class="container-fluid">
-                                        <div v-if="index % 2 !== 0" class="row paddingNormalize">
+                                    <div v-for="(userplant, index) in profileUserplants" class="container-fluid">
+                                        <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
                                             <router-link to="/" class="container-fluid">
                                                 <div class="container-fluid plantsProfile dropShadow bgWhiteGrey ">
                                                     <div class="row">
                                                         <div class="col-lg-8 selfAlignCenter plantsProfileInfoCol">
                                                             <ul class="noListStyle">
-                                                                <li>name</li>
-                                                                <li>location</li>
-                                                                <li>level</li>
+                                                                <li>{{ userplant.name }}</li>
+                                                                <li>{{ userplant.location }}</li>
+                                                                <li>level erstellen</li>
+                                                                <li>{{ userplant.plant.icon}}</li>
                                                             </ul>
                                                         </div>
                                                         <div class="col-lg-4 plantsProfileImgCol text-right">
-                                                            <img class="plantsProfileImg" src="/images/plants/Aloe.png">
+                                                            <img class="plantsProfileImg" v-bind:src="userplant.plant.icon">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -132,20 +133,21 @@
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <div v-for="{userplant, index} in profileUser.userplants" class="container-fluid">
+                                    <div v-for="(userplant, index) in profileUserplants" class="container-fluid">
                                         <div v-if="index % 2 !== 0" class="row paddingNormalize">
                                             <router-link to="/" class="container-fluid">
                                                 <div class="container-fluid plantsProfile dropShadow bgWhiteGrey">
                                                     <div class="row">
                                                         <div class="col-lg-8 selfAlignCenter plantsProfileInfoCol">
                                                             <ul class="noListStyle">
-                                                                <li>name</li>
-                                                                <li>location</li>
-                                                                <li>level</li>
+                                                                <li>{{ userplant.name }}</li>
+                                                                <li>{{ userplant.location }}</li>
+                                                                <li>level erstellen</li>
+                                                                <li>{{ userplant.plant.icon}}</li>
                                                             </ul>
                                                         </div>
                                                         <div class="col-lg-4 plantsProfileImgCol text-rigth">
-                                                            <img class="plantsProfileImg" src="/images/plants/Aloe.png">
+                                                            <img class="plantsProfileImg" v-bind:src="userplant.plant.icon">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -252,7 +254,6 @@
         mounted: function(){
             this.$http.get('/api/profile/' + this.$route.params.username)
                 .then(response => {
-                    console.log("response: " + response.data);
                     this.profileUser = response.data;
 
                     console.log("id: " + response.data.id);
@@ -293,26 +294,23 @@
                     this.getError(error);
                 });
 
-            this.$http('/api/profile/' + this.$route.params.username + '/userplants')
+
+
+            this.$http.get('/api/profile/' + this.$route.params.username + '/userplants')
                 .then(response => {
-                    console.log("response: " + response.data);
+                    console.log('/api/profile/' + this.$route.params.username + '/userplants');
+                    console.log("response userplant: " + response.data);
+                    console.log(response.data);
+
                     this.profileUserplants = response.data;
+
+                    console.log(response.data[0].name);
                 })
                     .catch(error => {
                         this.getError(error);
                 });
 
         },
-
-        /*beforeUpdate: function() {
-            console.log("beforeupdate id: " + this.profileUser.id);
-
-            this.$http.get('/api/profile/plantsUser/' + this.profileUser.id)
-                .then(response => {
-                    console.log("response userplants: " + response.data);
-                    this.profileUserplants = response.data;
-                })
-        },*/
 
         methods: {
 
