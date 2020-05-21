@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Forum{% endblock %}
+
+{% block body %}
+
+    {{ form_start(threadForm) }}
+    <div id="threadCreateButton">
+        <button class="btn buttonWhite">Thread erstellen</button>
+    </div>
+    {{ form_end(threadForm) }}
+
+{% endblock %}
+
+

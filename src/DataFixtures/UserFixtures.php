@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Constraints\Date;
 class UserFixtures extends Fixture
 {
     public const TESTUSER = 'admin-user';
+
     private $passwordEncoder;
 
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
