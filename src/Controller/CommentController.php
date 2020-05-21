@@ -34,7 +34,6 @@ class CommentController extends AbstractController
 
             $dateCreated = date_create();
             $dateCreated->format('Y-m-d h.i.s');
-
             $comment->setCreated($dateCreated);
 
             /* @var \App\Entity\User $user */
