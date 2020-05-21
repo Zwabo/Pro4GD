@@ -47,10 +47,14 @@
             <div class="row marginLeftRight">
                 <div class="col-lg-8">
                     <div class="left">
-                        <div id="description" :class="{editing: editing}">
+                        <div id="description">
                             <h3 class="h3Margin">Über {{ profileUser.username }} </h3>
                             <div class="greenLine"></div>
-                            <p>{{ profileUser.description }}</p>
+                            <p :class="{editProfile: editProfile}">
+                                <span>{{ profileUser.description }}</span>
+                                <textarea class="edit smallInput" @blur="saveProfile" v-model="userDescriptionTemp" ref="descriptionInput"></textarea>
+                            </p>
+
                         </div>
 
                         <div>
@@ -239,7 +243,9 @@
                 birthdayString: null,
                 userAge: null,
 
-                editProfile: false,       // bool if edit profile is active or not
+                editProfile: false,             // bool if edit profile is active or not
+                userTemp: null,
+                userDescriptionTemp: null,
             }
         },
 
@@ -257,6 +263,8 @@
                             this.profileUserplants = plantresponse.data;
                         })*/
 
+                    // set the variables for editing purpose
+                    this.userDescriptionTemp = this.profileUser.description;
 
                     /*save the created date as string*/
                     this.createdUserString = this.profileUser.dateCreated.date.substr(8,2)
@@ -310,10 +318,22 @@
 
             changeProfile: function() {
                 this.editProfile = true;
+
+                this.$nextTick(function() {
+                    this.$refs.descriptionInput.select();
+                })
             },
 
             saveProfile: function() {
-                this.editProfile = false;
+                this.profileUser.description = this.userDescriptionTemp;
+
+                this.$http.put('/api/profile/' + this.$route.params.username + '/setDescription')
+                    .then(response => {
+                        this.userDescriptionTemp = response.data;
+                    })
+                    .catch(error => {
+                        getError(error);
+                    });
             },
 
             getError(error) {
@@ -337,5 +357,15 @@
 </script>
 
 <style scoped>
+    .edit { display: none; }
 
+    /* trigger fields with class editProfile*/
+    .editProfile span { display: none; }
+    .editProfile .edit {
+        display: block;
+        width: 100%;
+        height: 200px;
+        border: 1px solid #97B753;
+        background-color: #F5F5F5;
+    }
 </style>

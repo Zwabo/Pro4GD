@@ -43,7 +43,7 @@ class UserController extends AbstractController
     /**
      * @Route("/api/profile/{username}", name="profile")
      */
-    public function getProfileuser($username) : JsonResponse {
+    public function getProfileUser($username) : JsonResponse {
         $user = $this->getDoctrine()
             ->getRepository(User::class)
             ->findOneBy(['username' => $username]);
@@ -51,6 +51,25 @@ class UserController extends AbstractController
         if (!$user) {
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/profile/{username}/setDescription", name="setName", methods={"PUT"})
+     */
+    public function setProfileUserDescription($username, Request $request){
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $username]);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $data = $request->getContent();
+        $user->setDescriptioin($data); //Set description to new text
+        $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
     }
