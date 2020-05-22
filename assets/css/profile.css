@@ -91,7 +91,7 @@
     color: #707070;
 }
 .plantsProfileImg {
-    width: 70%;
+    width: 50%;
     margin-right: 2%;
 }
 .plantsProfileLeftGrid { float: left; }
@@ -144,7 +144,7 @@
     .friends .friendsButtons { width: 30%; }
 
     .plantsProfileInfoCol { width: 60%; }
-    .plantsProfileImgCol { width: 40%; }
+    .plantsProfileImgCol { width: 40%; align-self: center; }
     .plantsProfileImg { width: 30%; }
 
     .plantsProfile {

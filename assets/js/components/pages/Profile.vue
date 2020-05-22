@@ -50,9 +50,11 @@
                         <div id="description">
                             <h3 class="h3Margin">Über {{ profileUser.username }} </h3>
                             <div class="greenLine"></div>
-                            <p :class="{editProfile: editProfile}">
-                                <span>{{ profileUser.description }}</span>
-                                <textarea class="edit smallInput" @blur="saveProfile" v-model="userDescriptionTemp" ref="descriptionInput"></textarea>
+                            <p v-if="editProfile">
+                                <textarea class="smallInput" @blur="saveProfile" v-model="profileUser.description"></textarea>
+                            </p>
+                            <p v-if="!editProfile">
+                                {{ profileUser.description }}
                             </p>
 
                         </div>
@@ -63,17 +65,18 @@
 
                             <div class="containerfluid">
 
-                                <div v-for="{friend, index} in profileUser.friends" class="row friends bgWhiteGrey dropShadow borderRad10">
+                                <div v-for="(friend, index) in profileUserFriends" class="row friends bgWhiteGrey dropShadow borderRad10">
 
                                     <div class="col-lg-2 friendsPicture text-center justify-content-center">
                                         <!-- change to friends.userPic when friends are implemented correctly-->
-                                        <img class="smallUserPics" v-bind:src="profileUser.userPic">
+                                        <img class="smallUserPics" v-bind:src="friend.userPic">
                                     </div>
 
                                     <div class="col-lg-6 friendsInfo selfAlignCenter">
                                         <ul class="noListStyle">
-                                            <li>Johanna Doe</li> <!-- {{ profileUser.username }}-->
-                                            <li>Sprössling</li> <!-- Rang Benennung: aus Lvl berechnet -->
+                                            <li>{{ friend.firstName }} {{ friend.lastname }}</li> <!-- {{ profileUser.username }}-->
+                                            <li>{{ friend.username }}</li>
+                                            <li>Rang: {{ friend.level }}</li> <!-- Rang Benennung: aus Lvl berechnet -->
                                         </ul>
                                     </div>
 
@@ -111,7 +114,7 @@
                                 <div class="col-lg-6">
                                     <div v-for="(userplant, index) in profileUserplants" class="container-fluid">
                                         <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
-                                            <router-link to="/" class="container-fluid">
+                                            <router-link :to="'/userplant/' + userplant.id" class="container-fluid">
                                                 <div class="container-fluid plantsProfile dropShadow bgWhiteGrey ">
                                                     <div class="row">
                                                         <div class="col-lg-8 selfAlignCenter plantsProfileInfoCol">
@@ -119,11 +122,10 @@
                                                                 <li>{{ userplant.name }}</li>
                                                                 <li>{{ userplant.location }}</li>
                                                                 <li>level erstellen</li>
-                                                                <li>{{ userplant.plant.icon}}</li>
                                                             </ul>
                                                         </div>
-                                                        <div class="col-lg-4 plantsProfileImgCol text-right">
-                                                            <img class="plantsProfileImg" v-bind:src="userplant.plant.icon">
+                                                        <div class="col-lg-4 plantsProfileImgCol text-right align-self-center">
+                                                            <img class="plantsProfileImg" v-bind:src="'../' + userplant.plant.icon">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -135,7 +137,7 @@
                                 <div class="col-lg-6">
                                     <div v-for="(userplant, index) in profileUserplants" class="container-fluid">
                                         <div v-if="index % 2 !== 0" class="row paddingNormalize">
-                                            <router-link to="/" class="container-fluid">
+                                            <router-link :to="'/userplant/' + userplant.id" class="container-fluid">
                                                 <div class="container-fluid plantsProfile dropShadow bgWhiteGrey">
                                                     <div class="row">
                                                         <div class="col-lg-8 selfAlignCenter plantsProfileInfoCol">
@@ -143,11 +145,10 @@
                                                                 <li>{{ userplant.name }}</li>
                                                                 <li>{{ userplant.location }}</li>
                                                                 <li>level erstellen</li>
-                                                                <li>{{ userplant.plant.icon}}</li>
                                                             </ul>
                                                         </div>
-                                                        <div class="col-lg-4 plantsProfileImgCol text-rigth">
-                                                            <img class="plantsProfileImg" v-bind:src="userplant.plant.icon">
+                                                        <div class="col-lg-4 plantsProfileImgCol text-rigth align-self-center">
+                                                            <img class="plantsProfileImg" v-bind:src="'../' + userplant.plant.icon">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -240,6 +241,7 @@
             return {
                 profileUser: null,              // object for user
                 profileUserplants: null,        // object for userplants
+                profileUserFriends: null,
 
                 createdUserString: null,        // date objects and age calculated from date objects
                 birthdayString: null,
@@ -247,25 +249,14 @@
 
                 editProfile: false,             // bool if edit profile is active or not
                 userTemp: null,
-                userDescriptionTemp: null,
             }
         },
 
         mounted: function(){
+            //user
             this.$http.get('/api/profile/' + this.$route.params.username)
                 .then(response => {
                     this.profileUser = response.data;
-
-                    console.log("id: " + response.data.id);
-
-                    /*this.$http.get('/api/profile/' + response.data.id + '/userplants')
-                        .then(plantresponse => {
-                            console.log("response userplants: " + plantresponse.data);
-                            this.profileUserplants = plantresponse.data;
-                        })*/
-
-                    // set the variables for editing purpose
-                    this.userDescriptionTemp = this.profileUser.description;
 
                     /*save the created date as string*/
                     this.createdUserString = this.profileUser.dateCreated.date.substr(8,2)
@@ -295,21 +286,23 @@
                 });
 
 
-
+            //userplants
             this.$http.get('/api/profile/' + this.$route.params.username + '/userplants')
                 .then(response => {
-                    console.log('/api/profile/' + this.$route.params.username + '/userplants');
-                    console.log("response userplant: " + response.data);
-                    console.log(response.data);
-
                     this.profileUserplants = response.data;
-
-                    console.log(response.data[0].name);
                 })
                     .catch(error => {
                         this.getError(error);
                 });
 
+            //freinds
+            this.$http.get('/api/profile/' + this.$route.params.username + '/friends')
+                .then(response => {
+                    this.profileUserFriends = response.data;
+                })
+                .catch(error => {
+                    this.getError(error);
+                })
         },
 
         methods: {
@@ -317,21 +310,21 @@
             changeProfile: function() {
                 this.editProfile = true;
 
-                this.$nextTick(function() {
+                /*this.$nextTick(function() {
                     this.$refs.descriptionInput.select();
-                })
+                })*/
             },
 
             saveProfile: function() {
-                this.profileUser.description = this.userDescriptionTemp;
-
                 this.$http.put('/api/profile/' + this.$route.params.username + '/setDescription')
                     .then(response => {
-                        this.userDescriptionTemp = response.data;
+                        this.profileUser.descriptioin = response.data;
                     })
                     .catch(error => {
                         getError(error);
                     });
+
+                this.editProfile = false;
             },
 
             getError(error) {
@@ -358,8 +351,7 @@
     .edit { display: none; }
 
     /* trigger fields with class editProfile*/
-    .editProfile span { display: none; }
-    .editProfile .edit {
+    .smallInput {
         display: block;
         width: 100%;
         height: 200px;
