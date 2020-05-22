@@ -7,9 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class NewsController extends AbstractController
 {
-    /**
-     * @Route("api/news", name="news")
-     */
+  /*
 
     public function news()
     {
@@ -19,7 +17,7 @@ class NewsController extends AbstractController
             'controller_name' => 'NewsController', 'news' => $news
 
         ]);
-    }
+    }*/
 
     /**
      * @Route("api/news/{id}", name="article", methods={"GET"})
@@ -46,7 +44,7 @@ class NewsController extends AbstractController
 
 
     /**
-     * @Route("/news/{id}", name="article")
+     * @Route("api/news/{id}", name="article")
      */
 
     public function showArticle($id)
@@ -56,5 +54,25 @@ class NewsController extends AbstractController
             'controller_name' => 'NewsController',
 
         ]);
+    }
+
+    /**
+     * @Route("api/news", name="news")
+     */
+
+    public function index(){
+
+        $articles = $this->getDoctrine()->getRepository(News::class)->findAll();
+
+        if (!$articles) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $news = [];
+        foreach ($articles as $article) {
+            $news[] = $article->toAssoc();
+        }
+
+        return new JsonResponse($news, Response::HTTP_OK);
     }
 }

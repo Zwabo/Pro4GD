@@ -6,18 +6,18 @@
 
                 <div class="greenLine"></div>
 
-                {% for article in news %}
+                <div  v-for="article in news">
                 <div class="col-lg-4">
-                    <p><img style="width: 10%;" src="{{ article.thumbnail }}"></p>
+                    <p><img style="width: 10%;" src="{{ news.thumbnail }}"></p>
                 </div>
                 <div class="col-lg-8">
                     <h3 id="date">03. April 2020, 00:35</h3>
-                    <h2 id="title">{{ article.title }}</h2>
-                    <p id="shortText">{{ article.shortText }}</p>
+                    <h2 id="title">{{ news.title }}</h2>
+                    <p id="shortText">{{ news.shortText }}</p>
                     <a  class="readMore"  router-link to="/news/article.id"> >mehr lesen <b>>> </b></a>
                 </div>
                 <div class="greenLine"></div>
-                {% endfor %}
+                </div>
 
             </div>
         </div>
@@ -27,12 +27,22 @@
 <script>
     export default {
         name: "News.vue",
+
         data: function(){
             return {
-                article: {
-                    title:  this.$http.get('/api/article/' + this.$route.params.thumbnail)
-                },
+                news: null
+
             }
+        },
+
+     mounted: function(){
+            this.$http.get('/api/news/')
+                .then(response => {
+                    this.news = response.data;
+                })
+                .catch(error => {
+                    alert(error);
+                });
         },
     }
 </script>

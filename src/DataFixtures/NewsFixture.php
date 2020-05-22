@@ -17,7 +17,7 @@ class NewsFixture extends Fixture
         $news = new News();
 
         $news->setTitle("Das sind die besten Anti-Stress-Pflanzen");
-      //  $news->setThumbnail("/images/plants/Aloe.png");
+        $news->setThumbnail("/images/plants/Aloe.png");
         $date_posted = date_create('2019-05-19 12:30:03');
         $date_posted->format('Y-m-d h.i.s');
         $news->setDatePosted($date_posted);
@@ -34,7 +34,7 @@ class NewsFixture extends Fixture
         $news2 = new News();
 
         $news2->setTitle("Diese giftige Pflanzen verursacht fiese Verbrennungen");
-      //  $news2->setThumbnail("/images/plants/Aloe.png");
+      $news2->setThumbnail("/images/plants/Aloe.png");
         $date_posted2 = date_create('2019-04-03 12:30:03');
         $date_posted2->format('Y-m-d h.i.s');
         $news2->setDatePosted($date_posted2);
@@ -50,7 +50,7 @@ class NewsFixture extends Fixture
         $news3 = new News();
 
         $news3->setTitle("Diese Wildkräuter und Beeren sind echte Nährstoffbomben");
-        //$news3->setThumbnail("/images/plants/Aloe.png");
+        $news3->setThumbnail("/images/plants/Aloe.png");
         $date_posted3 = date_create('2019-04-03 12:30:03');
         $date_posted3->format('Y-m-d h.i.s');
         $news3->setDatePosted($date_posted3);
