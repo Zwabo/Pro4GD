@@ -1,6 +1,6 @@
 <template>
     <div id="root">
-    <div v-if="profileUser != null">
+    <div v-if="profileUser != null && createdUserString != null">
 
         <div class="container-fluid">
 
@@ -17,14 +17,15 @@
                     <p>Sprössling</p>           <!-- Rang Benennung: aus Lvl berechnet -->
 
                     <button v-if="profileUser==null" id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
-                    <button v-else id="userButton">Profil bearbeiten</button>
+                    <button v-else-if="profileUser!=null && editProfile!=true" id="userButton"  v-on:click="changeProfile">Profil bearbeiten</button>
+                    <button v-else-if="profileUser!=null && editProfile==true" id="userButton" v-on:click="saveProfile">Profil speichern</button>
                 </div>
 
                 <div id="userDataCnt" class="col-lg-3">
                     <ul class="noListStyle">
                         <li>
                             <svg><use href="#profile"></use></svg>
-                            seit {{ getcreatedString }} Mitglied
+                            seit {{ createdUserString }} Mitglied
                         </li>
                         <li>
                             <svg><use href="#locationPin"></use></svg>
@@ -32,11 +33,11 @@
                         </li>
                         <li>
                             <svg><use href="#birthday"></use></svg>
-                            {{ getBirthdayString }}
+                            {{ userAge }}
                         </li>
                         <li>
                             <svg><use href="#calendar"></use></svg>
-                            {{ getAge }}
+                            {{ birthdayString }}
                         </li>
                     </ul>
                 </div>
@@ -49,7 +50,11 @@
                         <div id="description">
                             <h3 class="h3Margin">Über {{ profileUser.username }} </h3>
                             <div class="greenLine"></div>
-                            <p>{{ profileUser.description }}</p>
+                            <p :class="{editProfile: editProfile}">
+                                <span>{{ profileUser.description }}</span>
+                                <textarea class="edit smallInput" @blur="saveProfile" v-model="userDescriptionTemp" ref="descriptionInput"></textarea>
+                            </p>
+
                         </div>
 
                         <div>
@@ -99,47 +104,60 @@
                             <div class="greenLine"></div>
                         </div>
 
+
                         <div class="container-fluid">
-                            <p>test</p>
-                            <div v-for="{userplant, index} in profileUser.plantsUser" class="container-fluid row">
-                                <div v-if="index % 2 != 0" class="col-lg-6 paddingNormalize">
-                                    <router-link to="/userplant/plant.id">          <!-- v-bind???-->
-                                        <div class="container-fluid plantsProfile dropShadow bgWhite plantsProfileLeftGrid">
-                                            <div clss="row">
-                                                <div class="col-lg-8 selfAlignCenter plantsProfileInfoCol">
-                                                    <ul class="noListStyle">
-                                                        <li>{{ userplant.name }}</li>
-                                                        <li>{{ userplant.location }}</li>
-                                                        <li> {{ userplant.level }}</li>
-                                                    </ul>
+                            <div class="row">
+
+                                <div class="col-lg-6">
+                                    <div v-for="(userplant, index) in profileUserplants" class="container-fluid">
+                                        <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
+                                            <router-link to="/" class="container-fluid">
+                                                <div class="container-fluid plantsProfile dropShadow bgWhiteGrey ">
+                                                    <div class="row">
+                                                        <div class="col-lg-8 selfAlignCenter plantsProfileInfoCol">
+                                                            <ul class="noListStyle">
+                                                                <li>{{ userplant.name }}</li>
+                                                                <li>{{ userplant.location }}</li>
+                                                                <li>level erstellen</li>
+                                                                <li>{{ userplant.plant.icon}}</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-4 plantsProfileImgCol text-right">
+                                                            <img class="plantsProfileImg" v-bind:src="userplant.plant.icon">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="col-lg-4 plantsProfileImgCol text-right">
-                                                    <img class="plantsProfileImg" src="/images/plants/Aloe.png">          <!-- plant in plantbase -->
-                                                </div>
-                                            </div>
+                                            </router-link>
                                         </div>
-                                    </router-link>
+                                    </div>
                                 </div>
 
-                                <div v-else class="col-lg-6 paddingNormalize">
-                                    <router-link to="/userplant/plant.id">
-                                        <div class="container-fluid bgWhiteGrey plantsProfile dropShadow bgWhiteGrey plantsProfileRightGrid">
-                                            <div class="row">
-                                                   <div calss="col-lg-8 selfAllignCenter plantsProfileInfoCol">
-                                                       <ul class="noListStyle">
-                                                           <li>{{ userplant.name }}</li>
-                                                           <li>{{ userplant.location }}</li>
-                                                           <li> {{ userplant.level }}</li>
-                                                       </ul>
-                                                   </div>
-                                            </div>
-                                            <div class="col-lg-4 plantsProfileImgCol text-right">
-                                                <img class="plantsProfileImg" src="/images/plants/Aloe.png">          <!-- plant in plantbase -->
-                                            </div>
+                                <div class="col-lg-6">
+                                    <div v-for="(userplant, index) in profileUserplants" class="container-fluid">
+                                        <div v-if="index % 2 !== 0" class="row paddingNormalize">
+                                            <router-link to="/" class="container-fluid">
+                                                <div class="container-fluid plantsProfile dropShadow bgWhiteGrey">
+                                                    <div class="row">
+                                                        <div class="col-lg-8 selfAlignCenter plantsProfileInfoCol">
+                                                            <ul class="noListStyle">
+                                                                <li>{{ userplant.name }}</li>
+                                                                <li>{{ userplant.location }}</li>
+                                                                <li>level erstellen</li>
+                                                                <li>{{ userplant.plant.icon}}</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-4 plantsProfileImgCol text-rigth">
+                                                            <img class="plantsProfileImg" v-bind:src="userplant.plant.icon">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </router-link>
                                         </div>
-                                    </router-link>
+                                    </div>
                                 </div>
+
                             </div>
+
                         </div>
 
                         <div id="Besuchernachrichten">
@@ -220,57 +238,100 @@
         name: "Profile",
         data: function() {
             return {
-                profileUser: null,
-                profileUserplants: null
+                profileUser: null,              // object for user
+                profileUserplants: null,        // object for userplants
+
+                createdUserString: null,        // date objects and age calculated from date objects
+                birthdayString: null,
+                userAge: null,
+
+                editProfile: false,             // bool if edit profile is active or not
+                userTemp: null,
+                userDescriptionTemp: null,
             }
         },
 
         mounted: function(){
             this.$http.get('/api/profile/' + this.$route.params.username)
                 .then(response => {
-                    console.log("response: " + response.data);
                     this.profileUser = response.data;
 
-                    /*this.$http.get('/api/profile/' + this.$route.params.username + '/userplants')
-                        .then(response => {
-                            console.log("response userplants: " + response.data);
-                            this.profileUserplants = response.data;
-                        })
-                        .catch(error => {
-                            this.getError(error);
-                        })
-                      */
+                    console.log("id: " + response.data.id);
+
+                    /*this.$http.get('/api/profile/' + response.data.id + '/userplants')
+                        .then(plantresponse => {
+                            console.log("response userplants: " + plantresponse.data);
+                            this.profileUserplants = plantresponse.data;
+                        })*/
+
+                    // set the variables for editing purpose
+                    this.userDescriptionTemp = this.profileUser.description;
+
+                    /*save the created date as string*/
+                    this.createdUserString = this.profileUser.dateCreated.date.substr(8,2)
+                        + "." + this.profileUser.dateCreated.date.substr(5,2)
+                        + "." + this.profileUser.dateCreated.date.substr(0,4);
+
+                    /*save the birtday as string*/
+                    this.birthdayString = this.profileUser.dateBirth.date.substr(8,2)
+                        + "." + this.profileUser.dateBirth.date.substr(5,2)
+                        + "." + this.profileUser.dateBirth.date.substr(0,4);
+
+                    /*calculate the age*/
+                    let year = Number(this.profileUser.dateBirth.date.substr(0,4));
+                    let month = Number(this.profileUser.dateBirth.date.substr(5,2));
+                    let day = Number(this.profileUser.dateBirth.date.substr(8,2));
+                    let today = new Date();
+                    let age = today.getFullYear() - year;
+                    if(today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
+                        age--;
+                    }
+                    this.userAge = age.toString();
 
                 })
                 .catch(error => {
                     //alert(error);
                     this.getError(error);
                 });
+
+
+
+            this.$http.get('/api/profile/' + this.$route.params.username + '/userplants')
+                .then(response => {
+                    console.log('/api/profile/' + this.$route.params.username + '/userplants');
+                    console.log("response userplant: " + response.data);
+                    console.log(response.data);
+
+                    this.profileUserplants = response.data;
+
+                    console.log(response.data[0].name);
+                })
+                    .catch(error => {
+                        this.getError(error);
+                });
+
         },
 
         methods: {
 
-            getcreatedString() {
-                let date = this.profileUser.dateCreated.getDay.toString() + "."
-                    + this.profileUser.dateCreated.getMonth.toString() + "."
-                    + this.profileUser.dateCreated.getYear.toString();
-                return date;
+            changeProfile: function() {
+                this.editProfile = true;
+
+                this.$nextTick(function() {
+                    this.$refs.descriptionInput.select();
+                })
             },
 
-            getBirthdayString: function() {
-              this.profileUser.dateBirth.toString();
-            },
+            saveProfile: function() {
+                this.profileUser.description = this.userDescriptionTemp;
 
-            getAge: function() {
-                let year = Number(this.profileUser.dateBirth.substr(0,4));
-                let month = Number(this.profileUser.dateBirth.substr(4,2))-1;
-                let day = Number(this.profileUser.dateBirth.substr(6,2));
-                let today = new Date();
-                let age = today.getFullYear() - year;
-                if (today.getMonth() < month || (today.getMoth() == month && today.getDate() < day)) {
-                    age--;
-                }
-                return age;
+                this.$http.put('/api/profile/' + this.$route.params.username + '/setDescription')
+                    .then(response => {
+                        this.userDescriptionTemp = response.data;
+                    })
+                    .catch(error => {
+                        getError(error);
+                    });
             },
 
             getError(error) {
@@ -294,5 +355,15 @@
 </script>
 
 <style scoped>
+    .edit { display: none; }
 
+    /* trigger fields with class editProfile*/
+    .editProfile span { display: none; }
+    .editProfile .edit {
+        display: block;
+        width: 100%;
+        height: 200px;
+        border: 1px solid #97B753;
+        background-color: #F5F5F5;
+    }
 </style>

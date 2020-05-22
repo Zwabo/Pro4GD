@@ -22,7 +22,7 @@ class NewsFixture extends Fixture
         $date_posted->format('Y-m-d h.i.s');
         $news->setDatePosted($date_posted);
         $news->setShortText("Gestressten Menschen wir oft zu Achtsamkeitsübungen und Spaziergängen in der Natur geraten. Begleitend können aber Kräuter 
-        Linderung bringen. Ein Experte erklärt, welche Pflanzen dafür infrage kommen.");
+        Linderung bringen.");
         $news->setLongText("this is the very long article everyone was looking forward this whole time and it is even getting longer by the second.");
 
         $manager->persist($news);

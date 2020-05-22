@@ -27,7 +27,7 @@ class News
     private $date_posted;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=500)
      */
     private $shortText;
 

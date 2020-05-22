@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Entity\Userplant;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -431,6 +433,11 @@ class User implements UserInterface
 
     public function toAssoc()
     {
+        $plants = [];
+        foreach($this->userplants as $userplant) {
+            $plants = $userplant->toAssoc();
+        }
+
         return [
             'id' => $this->id,
             'email' => $this->email,
@@ -446,7 +453,7 @@ class User implements UserInterface
             'roles' => $this->roles,
             'achievments' => $this->achievements,
             'friends' => $this->friends,
-            'userplants' => $this->userplants
+            'userplants' =>$plants
         ];
     }
 }

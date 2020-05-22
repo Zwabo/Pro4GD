@@ -5,9 +5,9 @@ import Home from './components/pages/Home';
 import Login from './components/pages/Login';
 import Logout from './components/pages/Logout';
 import Userplant from "./components/pages/Userplant";
+import Garden from "./components/pages/Garden";
 import Profile from "./components/pages/Profile";
-import News from './components/pages/News';
-
+import Friends from "./components/pages/Friends";
 
 Vue.use(VueRouter);
 
@@ -18,9 +18,9 @@ const router = new VueRouter({
         {path:'/login', name:'login', component:Login},
         {path:'/logout', name:'logout', component:Logout},
         {path:'/userplant/:id', name:'userplant', component:Userplant},
+        {path:'/garden', name:'garden', component:Garden},
         {path: '/profile/:username', name:'profile', component:Profile},
-        {path: '/news/', name:'news', component:News},
-        
+        {path:'/friends', name:'friends', component:Friends}
     ]
 });
 
