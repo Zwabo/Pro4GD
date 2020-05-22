@@ -20,18 +20,21 @@ class FriendsController extends AbstractController
         $user = $this->getUser();
 
         $friends = array();
+        $incomingRequests = array();
         foreach($user->getOutgoingFriendRequests() as $request){
             if($request->getConfirmed()){
                 $id = $request->getReceiver()->getId();
                 $username = $request->getReceiver()->getUsername();
                 $firstName = $request->getReceiver()->getFirstName();
                 $lastName = $request->getReceiver()->getLastName();
+                $userPic = $request->getReceiver()->getUserPic();
 
                 $friendData = [
                     'id' => $id,
                     'username' => $username,
                     'firstName' => $firstName,
-                    'lastName' => $lastName
+                    'lastName' => $lastName,
+                    'userPic' => $userPic
                 ];
                 array_push($friends, $friendData);
             }
@@ -42,16 +45,42 @@ class FriendsController extends AbstractController
                 $username = $request->getSender()->getUsername();
                 $firstName = $request->getSender()->getFirstName();
                 $lastName = $request->getSender()->getLastName();
+                $userPic = $request->getSender()->getUserPic();
 
                 $friendData = [
                     'id' => $id,
                     'username' => $username,
                     'firstName' => $firstName,
-                    'lastName' => $lastName
+                    'lastName' => $lastName,
+                    'userPic' => $userPic
                 ];
                 array_push($friends, $friendData);
             }
+            elseif (!$request->getConfirmed()){
+                $requestId = $request->getId();
+                $userId = $request->getSender()->getId();
+                $username = $request->getSender()->getUsername();
+                $firstName = $request->getSender()->getFirstName();
+                $lastName = $request->getSender()->getLastName();
+                $userPic = $request->getSender()->getUserPic();
+
+                $incomingRequestData = [
+                    'requestId' => $userId,
+                    'userId' => $userId,
+                    'username' => $username,
+                    'firstName' => $firstName,
+                    'lastName' => $lastName,
+                    'userPic' => $userPic
+                ];
+                array_push($incomingRequests, $incomingRequestData);
+            }
         }
-        return new JsonResponse($friends, Response::HTTP_OK);
+
+        $friendshipData = [
+            'friends' => $friends,
+            'incomingRequests' => $incomingRequests
+        ];
+
+        return new JsonResponse($friendshipData, Response::HTTP_OK);
     }
 }
