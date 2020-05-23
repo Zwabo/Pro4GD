@@ -9,7 +9,7 @@
                 <div class="col-lg-8">
                     <h3 id="date">{{article.date}}</h3>
                     <h2 id="title">{{article.title}}</h2>
-                    <p id="longText">{{article.longText}}</p>
+                    <p id="longText">{{article.long_Text}}</p>
                     <router-link  class="readMore"  :to="'/news'"> >zurück </router-link>
                 </div>
             </div>
