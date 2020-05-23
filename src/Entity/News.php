@@ -105,4 +105,17 @@ class News
 
         return $this;
     }
+
+
+    public function toAssoc()
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'date_posted' => $this->date_posted,
+            'shortText' => $this->shortText,
+            'long_Text' => $this->long_text,
+            'thumbnail' => $this->thumbnail
+        ];
+    }
 }

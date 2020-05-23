@@ -4,6 +4,11 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use App\Entity\News;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class NewsController extends AbstractController
 {
@@ -25,7 +30,8 @@ class NewsController extends AbstractController
 
     public function getArticle($id)
     {
-        $article = $this->getDoctrine()->getRepository('App:News')->findOneBy(array('id' => $id));
+        $article = $this->getDoctrine()->getRepository(News::Class)->findAll();
+        //findOneBy(array('id' => $id));
 
         /*$article = $this->getDoctrine()
             ->getRepository(News::class)
@@ -41,28 +47,13 @@ class NewsController extends AbstractController
             'controller_name' => 'NewsController', 'article' => $article
         ]);*/
     }
-
-
-    /**
-     * @Route("api/news/{id}", name="article")
-     */
-
-    public function showArticle($id)
-    {
-
-        return $this->render('newsArticle.html.twig', [
-            'controller_name' => 'NewsController',
-
-        ]);
-    }
-
     /**
      * @Route("api/news", name="news")
      */
 
     public function index(){
 
-        $articles = $this->getDoctrine()->getRepository(News::class)->findAll();
+        $articles = $this->getDoctrine()->getRepository(News::Class)->findAll();
 
         if (!$articles) {
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
@@ -70,7 +61,8 @@ class NewsController extends AbstractController
 
         $news = [];
         foreach ($articles as $article) {
-            $news[] = $article->toAssoc();
+           // array_push($news, $article);
+           $news[] = $article->toAssoc();
         }
 
         return new JsonResponse($news, Response::HTTP_OK);

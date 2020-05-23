@@ -12,6 +12,10 @@ class NewsFixture extends Fixture
     public const NEWS2 = 'news2';
     public const NEWS3 = 'news3';
 
+    public const NEWS4 = 'news4';
+    public const NEWS5 = 'news5';
+    public const NEWS6 = 'news6';
+
     public function load(ObjectManager $manager)
     {
         $news = new News();
@@ -34,7 +38,7 @@ class NewsFixture extends Fixture
         $news2 = new News();
 
         $news2->setTitle("Diese giftige Pflanzen verursacht fiese Verbrennungen");
-      $news2->setThumbnail("/images/plants/Aloe.png");
+        $news2->setThumbnail("/images/plants/Aloe.png");
         $date_posted2 = date_create('2019-04-03 12:30:03');
         $date_posted2->format('Y-m-d h.i.s');
         $news2->setDatePosted($date_posted2);
@@ -61,6 +65,40 @@ class NewsFixture extends Fixture
         $manager->flush();
 
         $this->addReference(self::NEWS3, $news);
+
+
+        $news4 = new News();
+
+        $news4->setTitle("Das sind die besten Anti-Stress-Pflanzen");
+        $news4->setThumbnail("/images/plants/Aloe.png");
+        $date_posted4 = date_create('2019-05-19 12:30:03');
+        $date_posted4->format('Y-m-d h.i.s');
+        $news4->setDatePosted($date_posted4);
+        $news4->setShortText("Gestressten Menschen wir oft zu Achtsamkeitsübungen und Spaziergängen in der Natur geraten. Begleitend können aber Kräuter 
+        Linderung bringen.");
+        $news4->setLongText("this is the very long article everyone was looking forward this whole time and it is even getting longer by the second.");
+
+        $manager->persist($news4);
+        $manager->flush();
+
+        $this->addReference(self::NEWS4, $news4);
+
+
+        $news5 = new News();
+
+        $news5->setTitle("Das sind die besten Anti-Stress-Pflanzen");
+        $news5->setThumbnail("/images/plants/Aloe.png");
+        $date_posted5 = date_create('2019-05-19 12:30:03');
+        $date_posted5->format('Y-m-d h.i.s');
+        $news5->setDatePosted($date_posted5);
+        $news5->setShortText("Gestressten Menschen wir oft zu Achtsamkeitsübungen und Spaziergängen in der Natur geraten. Begleitend können aber Kräuter 
+        Linderung bringen.");
+        $news5->setLongText("this is the very long article everyone was looking forward this whole time and it is even getting longer by the second.");
+
+        $manager->persist($news5);
+        $manager->flush();
+
+        $this->addReference(self::NEWS5, $news5);
 
     }
 }

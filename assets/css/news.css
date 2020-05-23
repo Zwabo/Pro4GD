@@ -5,6 +5,12 @@
     height: 1px;
     background: grey;
 }
+
+#newsThumbnail{
+    width: 150px;
+    height: 150px;
+}
+
 #news{
     text-transform: uppercase;
     color: #97B753;
