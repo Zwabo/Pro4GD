@@ -30,7 +30,7 @@ class NewsController extends AbstractController
 
     public function getArticle($id)
     {
-        $article = $this->getDoctrine()->getRepository(News::Class)->findAll();
+        $article = $this->getDoctrine()->getRepository(News::Class)->find($id);
         //findOneBy(array('id' => $id));
 
         /*$article = $this->getDoctrine()

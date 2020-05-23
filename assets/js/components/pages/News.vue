@@ -5,6 +5,7 @@
                 <h1 class="col-sm" id="news">Neuigkeiten</h1>
 
                 <div class="greenLine"></div>
+
                 <!-- v-for start-->
                 <div v-for="news in newsData">
                 <div class="col-lg-4">
@@ -48,19 +49,6 @@
                 .catch(error => {
                     alert(error);
                 });
-        },
-        methods: {
-            getArticle:function(){
-                this.$http.get('/api/news/' + this.$route.params.id)
-                    .then(response => {
-                        this.newsData = response.data;
-                        console.log(response.data);
-                    })
-                    .catch(error => {
-                        alert(error);
-                    });
-            }
-
         }
     }
 </script>
