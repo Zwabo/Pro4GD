@@ -108,7 +108,7 @@ class UserFixtures extends Fixture
         $user3->setDescription('Ich heiße Maria..');
         $user3->setCountry("Deutschland");
         $user3->setLevel(1559);
-        $user3->setUserPic("/images/pictures/profile_test1.jpg");
+        $user3->setUserPic("/images/pictures/maria.jpg");
 
         $dateAdded = date_create('2019-07-19 12:30:03');
         $dateAdded->format('Y-m-d h.i.s');
