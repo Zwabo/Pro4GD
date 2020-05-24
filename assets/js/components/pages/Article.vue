@@ -7,7 +7,7 @@
                 <div class="greenLine"></div>
 
                 <div class="col-lg-8">
-                    <h3 id="date">{{article.date}}</h3>
+                    <h3 id="date">{{formatDate}}</h3>
                     <h2 id="title">{{article.title}}</h2>
                     <p id="longText">{{article.long_Text}}</p>
                     <router-link  class="readMore"  :to="'/news'"> >zurück </router-link>
@@ -23,8 +23,8 @@
 
         data: function(){
             return {
-                article: null
-
+                article: null,
+                formatDate : null
             }
         },
 
@@ -33,6 +33,11 @@
                 .then(response => {
                     this.article = response.data;
                     console.log(response.data);
+                  //  this.formatDate = this.article.date_posted.date.substring(8,2);
+
+                    this.formatDate = this.article.date_posted.date.substr(8,2)
+                        + "." + this.article.date_posted.date.substr(5,2)
+                        + "." + this.article.date_posted.date.substr(0,4) + " " + this.article.date_posted.date.substr(10,6);
                 })
                 .catch(error => {
                     alert(error);
