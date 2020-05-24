@@ -21,7 +21,7 @@ const router = new VueRouter({
         {path:'/login', name:'login', component:Login},
         {path:'/logout', name:'logout', component:Logout},
         {path:'/userplant/:id', name:'userplant', component:Userplant},
-        {path:'/garden', name:'garden', component:Garden},
+        {path:'/garden/:id', name:'garden', component:Garden},
         {path: '/profile/:username', name:'profile', component:Profile},
         {path:'/friends', name:'friends', component:Friends},
         {path: '/plant/:linkname', name:'plantData', component:Plant},
