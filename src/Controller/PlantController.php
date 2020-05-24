@@ -11,6 +11,24 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class PlantController extends AbstractController {
+
+
+    /**
+     * @Route("/api/plant/{linkName}", name="plantData")
+     */
+    public function getPlantData($linkName) : JsonResponse {
+
+        $plantData = $this->getDoctrine()
+            ->getRepository(Plant::class)
+            ->findOneBy(['linkName' => $linkName]);
+
+        if (!$plantData) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        return new JsonResponse($plantData->toAssoc(), Response::HTTP_OK);
+    }
+
     /**
      * @Route("/plant", name="plant")
      */

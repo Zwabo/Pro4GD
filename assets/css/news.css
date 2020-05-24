@@ -2,9 +2,15 @@
     margin-top: 3%;
     margin-bottom: 3%;
     width: 100%;
-    height: 1px;
+    height: 1.5px;
     background: grey;
 }
+
+#newsThumbnail{
+    width: 30px;
+    height: 100px;
+}
+
 #news{
     text-transform: uppercase;
     color: #97B753;
@@ -19,6 +25,7 @@
     margin-top: 4%;
     font-size: 135%;
     color:#97B753;
+
 }
 
 #shortText{
@@ -26,14 +33,22 @@
     font-size: 100%;
 }
 
-.readMore{
+#readMore{
+    font-size: 90%;
     margin-top: 3%;
-    margin-bottom: 4%;
+    margin-bottom: 10%;
     color:#97B753;
 }
 
 #longText{
 
+    text-align: justify;
     margin-left:15%;
+
+}
+
+#shortTextIntro{
+    margin-top: 3%;
+    font-weight: bold;
 
 }
