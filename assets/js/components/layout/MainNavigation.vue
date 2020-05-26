@@ -28,7 +28,7 @@
                             <a class="dropdown-item" href="news">Neuigkeiten</a>
                         </div>
                     </li>
-                    <li class="nav-item selfAlignCenter">
+                    <li class="nav-item selfAlignCenter" v-if="navigationUser">
                         <router-link class="nav-link" :to="'/garden/' + navigationUser.id">Mein Garten</router-link>
                     </li>
                     <li class="nav-item dropdown selfAlignCenter" id="naviUser" v-if="navigationUser">
