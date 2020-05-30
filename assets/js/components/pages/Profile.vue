@@ -235,6 +235,19 @@
 </template>
 
 <script>
+    class ProfileComment {
+        constructor(date, user, message) {
+            this.date = date;
+            this.user = user;
+            this.message = message;
+        }
+
+        get date() { return this.date; }
+        get user() { return this.user; }
+        get message() { return this.message; }
+    }
+
+
     export default {
         name: "Profile",
         data: function() {
@@ -316,7 +329,7 @@
             },
 
             saveProfile: function() {
-                this.$http.put('/api/profile/' + this.$route.params.username + '/setDescription')
+                this.$http.put('/api/profile/' + this.$route.params.username + '/setDescription', this.profileUser.description)
                     .then(response => {
                         this.profileUser.descriptioin = response.data;
                     })

@@ -99,6 +99,11 @@ class User implements UserInterface
     private $userplants;
 
     /**
+     * @ORM\Column(type="json", nullable=true)
+     */
+    //private $comments = [];
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\FriendRequest", mappedBy="sender")
      */
     private $outgoingFriendRequests;
@@ -233,6 +238,21 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @see UserInterface
+     */
+    /*public function getComments() : array
+    {
+        return $this->$this->comments;
+    }
+
+    public function setComments(array $comments) : self
+    {
+        $this->comments = $comments;
+
+        return $this;
+    }*/
 
     /**
      * @see UserInterface

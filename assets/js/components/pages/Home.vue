@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div id="root">
+    <div v-if="userCreated == true">
 
         <div class="container-fluid">
 
@@ -12,27 +13,41 @@
                         <div class="col-lg-6 selfAlignCenter">
 
                             <h1 id="h1Start">Willkommen</h1>
+                            <div v-if="loggedUser == null">
 
-                            <form method="post" id="loginIndex">
-                                <div class="mb-3">
-                                    You are logged in as {{}}, <a href="{{}}">Logout</a>
-                                </div>
+                                <form method="post" @submit="submitFormIndex" id="loginIndex">
 
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <label for="inputEmail">Email</label>
-                                        <input placeholder="email@plantbase.com" type="email" value="" name="email" id="inputEmail" class="form-control" required autofocus>
+                                    <div v-if="errorIndex" class="alert alert-danger">{{ errorIndex }}</div>
+
+                                    <div class="mb-3">
+                                        <p>Du bist nicht eingelogged.</p>
                                     </div>
-                                    <div class="row">
-                                        <label for="inputPassword">Password</label>
-                                        <input placeholder="************" type="password" name="password" id="inputPassword" class="form-control" required>
-                                    </div>
-                                </div>
 
-                                <button class="btn btn-lg btn-primary buttonWhiteIndex float-right" type="submit">
-                                    Einloggen
-                                </button>
-                            </form>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <label for="inputEmail">Email</label>
+                                            <input v-model="emailIndex" placeholder="email@plantbase.com" type="email" value="" name="email" id="inputEmail" class="form-control" required autofocus>
+                                        </div>
+                                        <div class="row">
+                                            <label for="inputPassword">Password</label>
+                                            <input v-model="passwordIndex" placeholder="************" type="password" name="password" id="inputPassword" class="form-control" required>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-lg btn-primary buttonWhiteIndex float-right" type="submit">
+                                        Einloggen
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div v-else>
+                                <p class="text-center">{{ loggedUser.username }}
+                                <router-link to="/logout"  id="naviLogo">
+                                    Logout
+                                </router-link>
+                                </p>
+                            </div>
+
                         </div>
 
                         <div class="col-lg-1 whiteLineVert"></div>
@@ -49,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                {% endif %}
+
             </div>
 
             <div class="row paddingLeftRight rowsIndex">
@@ -189,7 +204,7 @@
 
             <div class="row paddingLeftRight rowsIndex">
                 <div class="container-fluid">
-                    <h3 class="h3Index text-center fontDarkGreen">Jetzt <spand class="fontBold">Mitglied</spand> werden!</h3>
+                    <h3 class="h3Index text-center fontDarkGreen">Jetzt <span class="fontBold">Mitglied</span> werden!</h3>
                     <p class="text-center pIndex">Registrieren Sie sich sofort und nutzen Sie  unser einzigartiges Angebot für Ihr zuhause.</p>
                     <div class="text-center"><button class="buttonIndexDarkGreen">Registrieren</button></div>
                 </div>
@@ -223,14 +238,78 @@
                 </div>
             </div>
         </div>
-
+    </div>
 
     </div>
 </template>
 
 <script>
     export default {
-        name: "Home"
+        name: "Home",
+
+        data: function() {
+            return{
+                loggedUser: null,
+                userCreated: false,
+
+                emailIndex: "",
+                passwordIndex: "",
+                isLoading: false,
+                errorIndex: '',
+            }
+        },
+
+        created: function(){
+            this.loggedUser = JSON.parse(localStorage.getItem('user'));
+
+            //Retrieve user item from local storage in case of login
+            this.$root.$on('loggedIn', () => {
+                this.loggedUser = JSON.parse(localStorage.getItem('user'));
+            });
+        },
+
+        mounted: function() {
+            console.log(this.loggedUser);
+            this.userCreated = true;
+        },
+
+        methods: {
+            submitFormIndex: function(e){
+                e.preventDefault();
+
+                this.isLoading = true;
+                this.errorIndex = '';
+
+                this.$http
+                    .post('/security/login', {
+                        email: this.emailIndex,
+                        password: this.passwordIndex
+                    })
+                    .then(response => {
+                        console.log(response.data);
+                        this.loggedUser = response.data;
+
+                        //Store user in local storage
+                        localStorage.setItem('user', JSON.stringify(this.loggedUser));
+
+                        //Send logged in information to Event Bus
+                        this.$root.$emit('loggedIn');
+
+                        //this.$emit('user-authenticated', userUri);
+                        //this.email = '';
+                        //this.password = '';
+                    }).catch(error => {
+                    if(error.response.data){
+                        this.errorIndex = error.response.data.error;
+                    }
+                    console.log(error.response.data);
+                    }).finally(() => {
+                        this.isLoading = false;
+                    })
+
+
+            }
+        }
     }
 </script>
 

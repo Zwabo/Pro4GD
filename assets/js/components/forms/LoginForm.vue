@@ -74,7 +74,10 @@
                     console.log(error.response.data);
                 }).finally(() => {
                     this.isLoading = false;
-                })
+                    this.$router.push('/garden/' + this.user.id);
+                });
+
+
             }
         }
     }
