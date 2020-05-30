@@ -24,7 +24,7 @@
 
         data: function(){
             return {
-                article: null,
+                article: {},
                 formatDate : null
             }
         },
