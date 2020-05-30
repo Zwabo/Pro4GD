@@ -70,4 +70,9 @@ a { color: #6E6E6E; }
     margin-top: 25px;
 }
 
+.plantWindow{
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
 

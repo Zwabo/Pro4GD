@@ -22,7 +22,7 @@ class News
     private $title;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      * */
     private $date_posted;
 
@@ -37,7 +37,7 @@ class News
     private $long_text;
 
     /**
-     * @ORM\Column(type="string", length=500)
+     * @ORM\Column(type="string", length=500, nullable=true)
      */
     private $thumbnail;
 
@@ -104,5 +104,18 @@ class News
         $this->thumbnail = $thumbnail;
 
         return $this;
+    }
+
+
+    public function toAssoc()
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'date_posted' => $this->date_posted,
+            'shortText' => $this->shortText,
+            'long_Text' => $this->long_text,
+            'thumbnail' => $this->thumbnail
+        ];
     }
 }

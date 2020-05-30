@@ -4,12 +4,15 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use App\Entity\News;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class NewsController extends AbstractController
 {
-    /**
-     * @Route("/news", name="news")
-     */
+  /*
 
     public function news()
     {
@@ -19,42 +22,49 @@ class NewsController extends AbstractController
             'controller_name' => 'NewsController', 'news' => $news
 
         ]);
-    }
+    }*/
 
     /**
-     * @Route("/news/{id}", name="article")
+     * @Route("api/news/{id}", name="article", methods={"GET"})
      */
-    public function index($id)
+
+    public function getArticle($id)
     {
-        $article = $this->getDoctrine()->getRepository('App:News')->findOneBy(array('id' => $id));
+        $article = $this->getDoctrine()->getRepository(News::Class)->find($id);
+        //findOneBy(array('id' => $id));
 
         /*$article = $this->getDoctrine()
             ->getRepository(News::class)
             ->find($id);*/
 
         if (!$article) {
-            throw $this->createNotFoundException(
-                'No article found for id ' . $id
-            );
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
 
-        return $this->render('newsArticle.html.twig', [
+        return new JsonResponse($article->toAssoc(), Response::HTTP_OK);
+
+        /*return $this->render('newsArticle.html.twig', [
             'controller_name' => 'NewsController', 'article' => $article
-        ]);
+        ]);*/
     }
-
-
     /**
-     * @Route("/news/{id}", name="article")
+     * @Route("api/news", name="news")
      */
 
-    public function showArticle($id)
-    {
+    public function index(){
 
+        $articles = $this->getDoctrine()->getRepository(News::Class)->findAll();
 
-        return $this->render('newsArticle.html.twig', [
-            'controller_name' => 'NewsController',
+        if (!$articles) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
 
-        ]);
+        $news = [];
+        foreach ($articles as $article) {
+           // array_push($news, $article);
+           $news[] = $article->toAssoc();
+        }
+
+        return new JsonResponse($news, Response::HTTP_OK);
     }
 }
