@@ -11,6 +11,9 @@ import Friends from "./components/pages/Friends";
 import Plant from "./components/pages/Plant";
 import News from "./components/pages/News";
 import Article from "./components/pages/Article";
+import Contact from "./components/pages/Contact";
+import AGB from "./components/pages/AGB";
+import Imprint from "./components/pages/Imprint";
 
 Vue.use(VueRouter);
 
@@ -26,7 +29,10 @@ const router = new VueRouter({
         {path:'/friends', name:'friends', component:Friends},
         {path: '/plant/:linkname', name:'plantData', component:Plant},
         {path: '/news', name:'news', component:News},
-        {path: '/news/:id', name:'article', component:Article}
+        {path: '/news/:id', name:'article', component:Article},
+        {path: '/contact', name:'contact', component:Contact},
+        {path: '/imprint', name:'imprint', component:Imprint},
+        {path: '/agb', name:'agb', component:AGB},
     ]
 });
 

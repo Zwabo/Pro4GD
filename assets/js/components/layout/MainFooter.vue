@@ -1,8 +1,13 @@
 <template>
     <div>
         <footer class="page-footer font-small bgDarkGreen fontWhite">
-            <div class="footer-copyright text-center py-3">Datenschutzrichtlinien • Rechtliches • Nutzungsvertrag •
-                Impressum • Kontakt
+            <div class="footer-copyright text-center py-3">
+
+                <router-link to="/imprint" fragment="#privacyStatement">Datenschutzbestimmungen</router-link> •
+                <router-link to="/agb">AGB</router-link> •
+                <router-link to="/imprint">Impressum •</router-link>
+                <router-link to="/contact">Kontakt</router-link>
+
             </div>
         </footer>
 

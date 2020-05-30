@@ -27,6 +27,8 @@ body {
     color: #97B753;
 }
 
+.marginTopOnSite { margin-top: 50px; }
+
 @media (max-width: 1199.98px) {
     body {
         font-size: 100%;
