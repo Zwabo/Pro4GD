@@ -95,7 +95,7 @@
                                 <div class="row">
                                     <div class="indexIconRotation">
                                         <div id="indexWateringCan" class="indexIcon text-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
+                                            <svg @click="waterClick" xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
                                                 <g id="Gruppe_1001" data-name="Gruppe 1001" transform="translate(-179 -2003)">
                                                     <circle class="circle" data-name="Ellipse 115" cx="102.5" cy="102.5" r="102.5" transform="translate(179 2003)" fill="#fff"/>
                                                     <path class="grey" data-name="Vereinigungsmenge 49" d="M68.134,93.159l-8.882-8.882L17.645,81.5a7.77,7.77,0,0,0-4.4,1.023l-9.521,5.5A2.482,2.482,0,0,1,0,85.872V64.982a2.482,2.482,0,0,1,3.724-2.15l9.521,5.5a7.776,7.776,0,0,0,4.4,1.023l25.014-1.668L26.22,51.244a5.918,5.918,0,0,1,0-8.368L59.33,9.765a5.918,5.918,0,0,1,8.368,0l.841.841,4.632-4.632h0a20.428,20.428,0,0,1,34.873,14.445V50.111l1.569,1.569a5.918,5.918,0,0,1,0,8.368L76.5,93.159a5.919,5.919,0,0,1-8.369,0ZM97.513,39.58V20.418a9.9,9.9,0,0,0-16.894-7l-4.632,4.633Z" transform="translate(222.759 2039.906)" fill="#707070"/>
@@ -115,7 +115,7 @@
                                 <div class="row">
                                     <div class="indexIconRotation">
                                         <div id="indexIdea" class="indexIcon text-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
+                                            <svg @click="tippsClick" xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
                                                 <g data-name="Gruppe 1002" transform="translate(-517 -2003)">
                                                     <circle class="circle" data-name="Ellipse 116" cx="102.5" cy="102.5" r="102.5" transform="translate(517 2003)" fill="#fff"/>
                                                     <path class="green" data-name="Pfad 393" d="M45.792,74.731H19.246A3.041,3.041,0,0,1,16.2,71.69a25.58,25.58,0,0,0-7-17.542A32.064,32.064,0,0,1,9.785,9.617,31.7,31.7,0,0,1,32.456,0h.063A32.075,32.075,0,0,1,64.54,32.128a32.049,32.049,0,0,1-8.779,22.1A25.318,25.318,0,0,0,48.832,71.69a3.042,3.042,0,0,1-3.041,3.041Zm0,0" transform="translate(585.503 2053)" stroke-width="1"/>
@@ -137,7 +137,7 @@
                                 <div class="row">
                                     <div class="indexIconRotation">
                                         <div id="indexPlant" class="indexIcon text-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
+                                            <svg @click="gardenClick" xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
                                                 <g data-name="Gruppe 1003" transform="translate(-864 -2003)">
                                                     <circle class="circle" data-name="Ellipse 117" cx="102.5" cy="102.5" r="102.5" transform="translate(864 2003)"/>
                                                     <path class="green" data-name="Pfad 397" d="M317.206,45.536c.588,1.608,7.123,20.745-6.279,43.312-8.14,13.707-20.5,14.614-21.71,14.67-.709-.983-7.687-11.224-2.018-26.124C296.533,52.863,315.582,46.076,317.206,45.536Z" transform="translate(689.033 2003.207)" stroke-width="1"/>
@@ -163,7 +163,7 @@
                                 <div class="row">
                                     <div class="indexIconRotation">
                                         <div id="indexBell" class="indexIcon text-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
+                                            <svg @click="reminderClick" xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
                                                 <g data-name="Gruppe 1004" transform="translate(-1207 -2003)">
                                                     <circle class="circle" data-name="Ellipse 7" cx="102.5" cy="102.5" r="102.5" transform="translate(1207 2003)"/>
                                                     <g data-name="Gruppe 122" transform="translate(1265 2049.196)"><g  data-name="Gruppe 121">
@@ -175,7 +175,7 @@
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
-                                    <p class="pIndex">Errinerungen</p>
+                                    <p class="pIndex">Erinerungen</p>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                                 <div class="row">
                                     <div class="indexIconRotation">
                                         <div id="indexCommunity" class="indexIcon text-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
+                                            <svg @click="communityClick" id="communitySvg" xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
                                                 <g data-name="Gruppe 1005" transform="translate(-1545 -2003)">
                                                     <circle class="circle" data-name="Ellipse 118" cx="102.5" cy="102.5" r="102.5" transform="translate(1545 2003)"/>
                                                     <path class="green" data-name="Pfad 71" d="M260.365,227.782a32.682,32.682,0,0,0-17.923-29.1,44.444,44.444,0,0,1-43.762,43.762,32.593,32.593,0,0,0,45.681,13.394l15.862,4.387-4.387-15.862a32.466,32.466,0,0,0,4.53-16.579Zm0,0" transform="translate(1433.435 1888.435)" stroke-width="1"/>
@@ -201,6 +201,16 @@
                     </div>
                 </div>
             </div>
+
+            <div v-if="waterInfo==true || tippsInfo==true || gardenInfo==true || reminderInfo==true || communityInfo==true"
+                 class="row paddingLeftRight bgDarkGreen fontWhite rowsIndexBottom">
+                <p v-if="waterInfo == true" class="text-center">Nützen Sie mit unserer App oder auf unserer Homepage unsere Bewässerungs-Erinnerungshilfe und erhalten Sie Push-Up Benachrichtigungen und/oder EMails immer dann, wenn ihre lieben Pflanzen versorgt werden müssen.</p>
+                <p v-if="tippsInfo == true" class="text-center">Mit unseren vielseitigen Tipps und Tricks erhalten Sie Anregungen und Informationen zur Pflege, Standort, Umsetzung, Überwinterung, Düngen u.ä., damit Ihre Lieblinge bestimmt gesund und fröhlich durch das Jahr kommen.</p>
+                <p v-if="gardenInfo == true" class="text-center">Fügen Sie in Ihrem Online Garten Ihre Lieblinge hinzu und haben so immer einen Überblick über den Status und das Befinden Ihrer lieben Pflanzen.</p>
+                <p v-if="reminderInfo == true" class="text-center">Stellen Sie sich Erinnerungshilfen, nicht nur für Bewässerung, sondern auch für andere vielseitige Bedürfnisse Ihrer Pflanzen.</p>
+                <p v-if="communityInfo == true" class="text-center">Nutzen Sie unsere Community um sich mit Gleichgesinnten auszutauschen, neue Freunde zu finden und Hilfe zu erhalten. Die große Community and Pflanzenliebhabern hilft immer gerne.</p>
+            </div>
+
 
             <div class="row paddingLeftRight rowsIndex">
                 <div class="container-fluid">
@@ -256,6 +266,12 @@
                 passwordIndex: "",
                 isLoading: false,
                 errorIndex: '',
+
+                waterInfo: false,
+                tippsInfo: false,
+                gardenInfo: false,
+                reminderInfo: false,
+                communityInfo: false
             }
         },
 
@@ -306,13 +322,63 @@
                     }).finally(() => {
                         this.isLoading = false;
                     })
+            },
 
+            waterClick: function() {
+                this.tippsInfo = false;
+                this.gardenInfo = false;
+                this.reminderInfo = false;
+                this.communityInfo = false;
+                this.waterInfo = true;
+            },
 
-            }
+            tippsClick: function() {
+                this.waterInfo = false;
+                this.gardenInfo = false;
+                this.reminderInfo = false;
+                this.communityInfo = false;
+                this.tippsInfo = true;
+            },
+
+            gardenClick: function() {
+                this.waterInfo = false;
+                this.tippsInfo = false;
+                this.reminderInfo = false;
+                this.communityInfo = false;
+                this.gardenInfo = true;
+            },
+
+            reminderClick: function() {
+                this.waterInfo = false;
+                this.tippsInfo = false;
+                this.gardenInfo = false;
+                this.communityInfo = false;
+                this.reminderInfo = true;
+            },
+
+            communityClick: function() {
+                this.waterInfo = false;
+                this.tippsInfo = false;
+                this.gardenInfo = false;
+                this.reminderInfo = false;
+                this.communityInfo = true;
+
+                let icon = document.getElementById("communitySvg");
+                console.log(icon);
+
+                let circle= icon.getElementsByClassName("circle");
+                console.log(circle);
+            },
+
         }
     }
 </script>
 
 <style scoped>
+    .rowsIndexBottom { padding-bottom: 5%; }
 
+    .rowsIndexBottom p {
+        font-size: 120%;
+        margin: 0 5%;
+    }
 </style>
