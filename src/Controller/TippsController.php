@@ -58,7 +58,6 @@ class TippsController extends AbstractController
 
         $tippsSite = [];
         foreach ($tipps as $tipp) {
-            // array_push($news, $article);
             $tippsSite[] = $tipp->toAssoc();
         }
 

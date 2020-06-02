@@ -15,6 +15,7 @@ import Contact from "./components/pages/Contact";
 import AGB from "./components/pages/AGB";
 import Imprint from "./components/pages/Imprint";
 import Tipps from "./components/pages/Tipps";
+import TippArticle from "./components/pages/TippArticle";
 
 Vue.use(VueRouter);
 
@@ -34,7 +35,8 @@ const router = new VueRouter({
         {path: '/contact', name:'contact', component:Contact},
         {path: '/imprint', name:'imprint', component:Imprint},
         {path: '/agb', name:'agb', component:AGB},
-        {path: '/tipps', name:'tipps', component:Tipps}
+        {path: '/tipps', name:'tipps', component:Tipps},
+        {path: '/tipps/:id', name:'tippArticle', component:TippArticle}
     ]
 });
 
