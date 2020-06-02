@@ -33,7 +33,7 @@
 
         data: function(){
             return {
-                newsData: null,
+               newsData: null,
                 dateFormat: null
             }
         },

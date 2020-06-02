@@ -10,7 +10,6 @@ namespace App\DataFixtures;
 
 use App\Entity\Tipps;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
 
