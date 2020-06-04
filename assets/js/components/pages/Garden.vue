@@ -25,7 +25,7 @@
                             <div class="bgWhiteGrey plantsProfil dropShadow ">
 
                                 <div class="row">
-                                    <div class="col-sm-7 plantInfo" id="Eintrag" >
+                                    <div class="col-sm-7 plantInfo">
                                         <p class="text-left gardenPFirst"><b>{{ userplant[0].name }}</b> ({{ userplant[0].plant.name }})</p>
                                         <p>Ist durstig!</p>
                                         <div class="list"></div>
@@ -93,34 +93,36 @@
 
         <div>{{getPlants()}}</div>
 
-        <div class="col" v-if="add">
+        <div class="col"v-if="add">
 
-            <div class="col-sm">
-                <input type="text" placeholder="Suche nach Pflanzen.." class="searchBar">
+        <div class="col addPlant">
+
+            <div class="row search">
+            <div class="col-11">
+                <input type="text" placeholder="Suche nach Pflanzen.." class="searchBar form-control" aria-label="Search">
             </div>
 
-            <div class="col-sm text-right add"><span @click="close()" class="iconGarden">
-
+                <span @click="close()" class="col iconGarden">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="path1" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><path class="path2" d="M362.8,227.9c0,14.2-11.4,25.6-25.6,25.6h-85.3v85.3c0,14.2-11.4,25.6-25.6,25.6s-25.6-11.4-25.6-25.6v-85.3
 	h-85.3c-14.2,0-25.6-11.4-25.6-25.6s11.4-25.6,25.6-25.6h85.3v-85.3c0-14.2,11.4-25.6,25.6-25.6s25.6,11.4,25.6,25.6v85.3h85.3
 	C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg></span>
             </div>
 
             <div v-for="plant in plants">
-                <div class="row userplants">
+                <div class="row plants">
 
-                    <div class="col-sm"> <div class="bgWhiteGrey plantsProfil dropShadow ">
+                    <div class="col-sm"> <div class="bgWhiteGrey plantsProfil spacingPlants dropShadow ">
 
                         <div class="row">
-                            <div class="col-sm-7 plantInfo" id="Eintrag" >
+                            <div class="col-sm-7 plantInfo">
 
-                                <p class="text-left gardenPFirst"><b>{{ plant[0].name }}</b></p>
-                                <p>{{ plant[0].genus}}</p>
-                                <button class="buttonDarkGreen">hinzufügen</button>
-
-                                <img class="col-sm-5 imgTest" v-bind:src="'../' + plant[0].icon"  alt="Picture of plant" height="10" >
-
+                                    <p class="text-left gardenPFirst"><b>{{ plant[0].name }}</b></p>
+                                    <p>{{ plant[0].genus}}</p>
+                                    <button class="buttonDarkGreenSmall">hinzufügen</button>
                             </div>
+
+                            <img class="col-sm-5 imgTest" v-bind:src="'../' + plant[0].icon"  alt="Picture of plant" height="100" >
+
                         </div>
 
                     </div></div>
@@ -128,14 +130,14 @@
                         <div class="bgWhiteGrey plantsProfil dropShadow ">
 
                             <div class="row">
-                                <div class="col-sm-7 plantInfo" id="Eintrag" >
+                                <div class="col-sm-7 plantInfo">
                                     <p class="text-left gardenPFirst"><b>{{ plant[1].name }}</b></p>
                                     <p>{{ plant[1].genus}}</p>
-                                    <button class="buttonDarkGreen">hinzufügen</button>
-
-                                    <img class="col-sm-5 imgTest" v-bind:src="'../' + plant[1].icon"  alt="Picture of plant" height="10" >
+                                    <button class="buttonDarkGreenSmall">hinzufügen</button>
 
                                 </div>
+                                <img class="col-sm-5 imgTest" v-bind:src="'../' + plant[1].icon"  alt="Picture of plant" height="100" >
+
                             </div>
 
                         </div>
@@ -146,14 +148,14 @@
 
                 </div>
             </div>
-
+        </div>
         </div>
 
-        <div class="col" v-else>
-            <div v-if="image === ''" class="col windowImage" >
+        <div class="col windowImage" v-else>
+            <div v-if="image === ''" class="windowImage" >
                 <img :src="'../' + garden[0].plant.WindowIcon" alt="Plant side view" height="700" class="col-sm plantWindow">
             </div>
-            <div v-else="image !== ''" class="col windowImage">
+            <div v-else="image !== ''" class="windowImage">
                 <img :src="'../' + image" alt="Plant side view" height="700" class="col-sm plantWindow">
             </div>
         </div>

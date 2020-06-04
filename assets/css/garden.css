@@ -1,4 +1,9 @@
 
+.scroll {
+    height: 40%;
+    overflow: scroll;
+}
+
 /*everything but userplants*/
 
 .windowImage {
@@ -39,7 +44,6 @@ a:link { text-decoration: none; }
 a { color: #6E6E6E; }
 
 .plantsProfil {
-    margin-bottom: 20px;
     border-radius: 10px;
     padding: 10px 10px 10px 30px;
 }
@@ -76,5 +80,23 @@ a { color: #6E6E6E; }
     top: 0;
 }
 
+/* add plant window*/
+
+.addPlant {
+    padding: 50px;
+    height: 100vh;
+    overflow: auto;
+    background: #DEDEDE;
+
+}
+
 .searchBar {
+    margin-bottom: 50px;
+    border-color: #97B753;
+    padding: 4%;
+    background-color: #DEDEDE;
+}
+
+.spacingPlants {
+    margin-bottom: 20px;
 }
