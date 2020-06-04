@@ -84,7 +84,7 @@
                         this.password = "";
                     }).catch(error => {
                     if(error.response.data){
-                        this.error = error.response.data.error;
+                        this.error = error.response.data;
                     }
                     console.log(error.response.data);
                 }).finally(() => {
