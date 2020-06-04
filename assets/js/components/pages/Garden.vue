@@ -111,14 +111,15 @@
             <div v-for="plant in plants">
                 <div class="row plants">
 
-                    <div class="col-sm"> <div class="bgWhiteGrey plantsProfil spacingPlants dropShadow ">
+                    <div class="col-sm"> <div class="bgWhiteGrey plantProfil spacingPlants dropShadow ">
 
                         <div class="row">
                             <div class="col-sm-7 plantInfo">
 
                                     <p class="text-left gardenPFirst"><b>{{ plant[0].name }}</b></p>
                                     <p>{{ plant[0].genus}}</p>
-                                    <button class="buttonDarkGreenSmall">hinzufügen</button>
+                                <add-userplant-modal :plant="plant[0]" @addUserplant="addUserplant">
+                                </add-userplant-modal>
                             </div>
 
                             <img class="col-sm-5 imgTest" v-bind:src="'../' + plant[0].icon"  alt="Picture of plant" height="100" >
@@ -127,13 +128,14 @@
 
                     </div></div>
                     <div v-if="plant[1] !== null" class="col-sm">
-                        <div class="bgWhiteGrey plantsProfil dropShadow ">
+                        <div class="bgWhiteGrey plantProfil dropShadow ">
 
                             <div class="row">
                                 <div class="col-sm-7 plantInfo">
                                     <p class="text-left gardenPFirst"><b>{{ plant[1].name }}</b></p>
                                     <p>{{ plant[1].genus}}</p>
-                                    <button class="buttonDarkGreenSmall">hinzufügen</button>
+                                    <add-userplant-modal :plant="plant[1]" @addUserplant="addUserplant">
+                                    </add-userplant-modal>
 
                                 </div>
                                 <img class="col-sm-5 imgTest" v-bind:src="'../' + plant[1].icon"  alt="Picture of plant" height="100" >
@@ -166,13 +168,17 @@
 
 <script>
 
+   import AddUserplantModal from "../modals/addUserplantModal";
    export default {
        name: "Garden",
+       components: {AddUserplantModal},
        data: function(){
            return{
                garden: null,
                data: null,
                userPlants: [],
+               index: 0,
+               i: 0,
                plants: [],
                image: '',
                add: false
@@ -208,18 +214,15 @@
 
            getUserPlants: function () {
 
-               var i = 0;
-               var index = 0;
+              while(this.i < this.garden.length && this.index < this.garden.length){
 
-              while(i < this.garden.length && index < this.garden.length){
-
-                  this.userPlants[i] = [this.garden[index],this.garden[index+1]];
-                  i++;
-                  index +=2;
+                  this.userPlants[this.i] = [this.garden[this.index],this.garden[this.index+1]];
+                  this.i++;
+                  this.index +=2;
               }
 
-              if(index % 2 === 0) {
-                  this.userPlants[i-1][1] = null;
+              if(this.index % 2 === 0) {
+                  this.userPlants[this.i-1][1] = null;
               }
 
            },
@@ -254,6 +257,10 @@
             this.add = false;
 
            },
+
+           addUserplant: function(addedUserplant){
+               this.userPlants[this.index] = addedUserplant;
+           }
 
        }
 

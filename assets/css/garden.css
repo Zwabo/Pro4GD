@@ -52,6 +52,7 @@ a { color: #6E6E6E; }
     background-color: #707070;
     color: white;
 }
+
 .plantsProfil:active {
     background-color: #DEDEDE;
     color: #707070;
@@ -82,6 +83,16 @@ a { color: #6E6E6E; }
 
 /* add plant window*/
 
+.plantProfil {
+    border-radius: 10px;
+    padding: 10px 10px 10px 30px;
+}
+
+.plantProfil:active {
+    background-color: #DEDEDE;
+    color: #707070;
+}
+
 .addPlant {
     padding: 50px;
     height: 100vh;
@@ -99,4 +110,8 @@ a { color: #6E6E6E; }
 
 .spacingPlants {
     margin-bottom: 20px;
+}
+
+.addUserButton {
+
 }
