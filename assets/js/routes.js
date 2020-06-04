@@ -16,6 +16,7 @@ import AGB from "./components/pages/AGB";
 import Imprint from "./components/pages/Imprint";
 import Tipps from "./components/pages/Tipps";
 import TippArticle from "./components/pages/TippArticle";
+import Register from "./components/pages/Register";
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,7 @@ const router = new VueRouter({
     routes:[
         {path:'/', name:'home', component:Home},
         {path:'/login', name:'login', component:Login},
+        {path:'/register', name:'register', component:Register},
         {path:'/logout', name:'logout', component:Logout},
         {path:'/userplant/:id', name:'userplant', component:Userplant},
         {path:'/garden/:id', name:'garden', component:Garden},
