@@ -29,7 +29,7 @@ class UserFixtures extends Fixture
         $user->setUsername("Testuser1");
         $user->setFirstName("Hugo");
         $user->setLastName("Doe");
-        $user->setDescription('Hi guys. I\'m Mira and I\'m happy to use this app to take better care of my plants.');
+        $user->setDescription('Hi guys. I\'m Mira and I\'m happy to use this app to take better care of my userPlants.');
         $user->setCountry("Österreich");
         $user->setLevel(1559);
         $user->setUserPic("/images/pictures/profile_test1.jpg");

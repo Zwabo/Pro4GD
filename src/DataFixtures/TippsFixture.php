@@ -29,7 +29,7 @@ class TippsFixture extends Fixture
         $tipps = new Tipps();
 
         $tipps->setTitle("Das sind die besten Anti-Stress-Pflanzen");
-        $tipps->setThumbnail("/images/plants/Aloe.png");
+        $tipps->setThumbnail("/images/userPlants/Aloe.png");
         $date_posted = date_create('2019-05-19 12:30:03');
         $date_posted->format('Y-m-d h.i.s');
         $tipps->setDatePosted($date_posted);
@@ -46,7 +46,7 @@ class TippsFixture extends Fixture
         $tipps2 = new Tipps();
 
         $tipps2->setTitle("Diese giftige Pflanzen verursacht fiese Verbrennungen");
-        $tipps2->setThumbnail("/images/plants/Aloe.png");
+        $tipps2->setThumbnail("/images/userPlants/Aloe.png");
         $date_posted2 = date_create('2019-04-03 12:30:03');
         $date_posted2->format('Y-m-d h.i.s');
         $tipps2->setDatePosted($date_posted2);
@@ -62,7 +62,7 @@ class TippsFixture extends Fixture
         $tipps3 = new Tipps();
 
         $tipps3->setTitle("Diese Wildkräuter und Beeren sind echte Nährstoffbomben");
-        $tipps3->setThumbnail("/images/plants/Aloe.png");
+        $tipps3->setThumbnail("/images/userPlants/Aloe.png");
         $date_posted3 = date_create('2019-04-03 12:30:03');
         $date_posted3->format('Y-m-d h.i.s');
         $tipps3->setDatePosted($date_posted3);
@@ -78,7 +78,7 @@ class TippsFixture extends Fixture
         $tipps4 = new Tipps();
 
         $tipps4->setTitle("Das sind die besten Anti-Stress-Pflanzen");
-        $tipps4->setThumbnail("/images/plants/Aloe.png");
+        $tipps4->setThumbnail("/images/userPlants/Aloe.png");
         $date_posted4 = date_create('2019-05-19 12:30:03');
         $date_posted4->format('Y-m-d h.i.s');
         $tipps4->setDatePosted($date_posted4);
@@ -95,7 +95,7 @@ class TippsFixture extends Fixture
         $tipps5 = new Tipps();
 
         $tipps5->setTitle("Das sind die besten Anti-Stress-Pflanzen");
-        $tipps5->setThumbnail("/images/plants/Aloe.png");
+        $tipps5->setThumbnail("/images/userPlants/Aloe.png");
         $date_posted5 = date_create('2019-05-19 12:30:03');
         $date_posted5->format('Y-m-d h.i.s');
         $tipps5->setDatePosted($date_posted5);
