@@ -1,45 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="Infos zu Angebote auf Startseite hinzugefügt. Werden vial click eingeblendet.">
-      <change afterPath="$PROJECT_DIR$/assets/css/tipps.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/forms/RegistrationForm.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/modals/addUserplantModal.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/pages/Register.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/pages/TippArticle.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/pages/Tipps.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/SettingsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/TippsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/SettingsFixture.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/TippsFixture.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Tipps.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/TippsRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/settings/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/tipps/index.html.twig" afterDir="false" />
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="Update Readme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/garden.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/garden.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/news.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/news.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/modals/EditUserplantModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/modals/EditUserplantModal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Contact.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Contact.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Garden.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Garden.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/News.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/News.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ContactController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GardenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GardenController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PlantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlantController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/NewsFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/NewsFixture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symvue" beforeDir="false" afterPath="$PROJECT_DIR$/symvue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symvue/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/symvue/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue" afterDir="false" />
     </list>
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
@@ -191,14 +155,14 @@
           <entry key="jpg" value="1" />
           <entry key="js" value="36" />
           <entry key="json" value="2" />
-          <entry key="md" value="8" />
+          <entry key="md" value="9" />
           <entry key="php" value="191" />
           <entry key="rnc" value="1" />
           <entry key="scss" value="1" />
           <entry key="svg" value="46" />
           <entry key="ts" value="1" />
           <entry key="twig" value="97" />
-          <entry key="vue" value="88" />
+          <entry key="vue" value="89" />
           <entry key="xml" value="1" />
           <entry key="yaml" value="1" />
         </counts>
@@ -210,7 +174,7 @@
           <entry key="Image" value="1" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="36" />
-          <entry key="Markdown" value="8" />
+          <entry key="Markdown" value="9" />
           <entry key="PHP" value="191" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="RNG Compact" value="1" />
@@ -218,7 +182,7 @@
           <entry key="SVG" value="46" />
           <entry key="Twig" value="97" />
           <entry key="TypeScript" value="1" />
-          <entry key="Vue.js" value="88" />
+          <entry key="Vue.js" value="89" />
           <entry key="XML" value="1" />
           <entry key="YAML" value="1" />
         </counts>
@@ -228,11 +192,12 @@
           <entry key="css" value="14419" />
           <entry key="js" value="1979" />
           <entry key="json" value="26" />
+          <entry key="md" value="198" />
           <entry key="php" value="15241" />
           <entry key="svg" value="22" />
           <entry key="twig" value="20844" />
-          <entry key="txt" value="1266" />
-          <entry key="vue" value="45840" />
+          <entry key="txt" value="1369" />
+          <entry key="vue" value="45889" />
           <entry key="xml" value="11" />
         </counts>
       </usages-collector>
@@ -241,11 +206,12 @@
           <entry key="CSS" value="14419" />
           <entry key="JSON" value="26" />
           <entry key="JavaScript" value="1980" />
+          <entry key="Markdown" value="198" />
           <entry key="PHP" value="15241" />
-          <entry key="PLAIN_TEXT" value="1266" />
+          <entry key="PLAIN_TEXT" value="1369" />
           <entry key="SVG" value="22" />
           <entry key="Twig" value="20844" />
-          <entry key="Vue.js" value="45839" />
+          <entry key="Vue.js" value="45888" />
           <entry key="XML" value="11" />
         </counts>
       </usages-collector>
@@ -266,14 +232,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Contact.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2552">
-              <caret line="112" column="60" lean-forward="true" selection-start-line="112" selection-start-column="60" selection-end-line="112" selection-end-column="60" />
+              <caret line="112" column="60" selection-start-line="112" selection-start-column="60" selection-end-line="112" selection-end-column="60" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="490">
+                <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="23" column="69" lean-forward="true" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -372,7 +359,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/userplant.html.twig" />
         <option value="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" />
         <option value="$PROJECT_DIR$/public/css/registration.css" />
         <option value="$PROJECT_DIR$/public/css/main.css" />
@@ -408,7 +394,6 @@
         <option value="$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" />
         <option value="$PROJECT_DIR$/src/Entity/User.php" />
-        <option value="$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Kontakt.vue" />
         <option value="$PROJECT_DIR$/assets/css/font.css" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Datenschutzrichtlinien.vue" />
@@ -423,6 +408,8 @@
         <option value="$PROJECT_DIR$/symvue/assets/js/app.js" />
         <option value="$PROJECT_DIR$/src/Controller/ContactController.php" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Contact.vue" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue" />
       </list>
     </option>
   </component>
@@ -616,7 +603,7 @@
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="modals" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
@@ -776,27 +763,6 @@
       <workItem from="1590923183548" duration="242000" />
       <workItem from="1591187836404" duration="13000" />
       <workItem from="1591544292090" duration="317000" />
-    </task>
-    <task id="LOCAL-00001" summary="Delete Laravel">
-      <created>1585845914961</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1585845914961</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Add Symfony">
-      <created>1585846063586</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1585846063586</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Changed README">
-      <created>1585846366419</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1585846366419</updated>
     </task>
     <task id="LOCAL-00004" summary="Changed README">
       <created>1585852916386</created>
@@ -1120,11 +1086,32 @@
       <option name="project" value="LOCAL" />
       <updated>1590885271760</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Fixed Plant Image Routes&#10;EMail Client + Contact Formular works now - Emailjs implemented">
+      <created>1591564945848</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1591564945848</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Fixed Plant Image Routes&#10;EMail Client + Contact Formular works now - Emailjs implemented">
+      <created>1591564968970</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1591564968970</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Update Readme">
+      <created>1591565232413</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1591565232413</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="306872000" />
+    <option name="totallyTimeSpent" value="307429000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1139,7 +1126,7 @@
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21628372" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21628372" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -1152,10 +1139,10 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4985015" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.48151848" weight="0.36519116" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.481019" visible="true" weight="0.36519116" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.44005993" side_tool="true" visible="true" weight="0.23541248" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.55994004" visible="true" weight="0.23541248" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51898104" side_tool="true" visible="true" weight="0.36519116" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.55994004" weight="0.23541248" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4995005" weight="0.32997987" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1196,8 +1183,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=".vue connection aus twig.template ausgeklammert" />
-    <MESSAGE value="Navigation angepasste/gestyled für Desktopversion" />
     <MESSAGE value="Update Navi" />
     <MESSAGE value="plant fixtures work in progress - vue tests" />
     <MESSAGE value="plant fixtures update" />
@@ -1221,7 +1206,9 @@
     <MESSAGE value="Fixed Input Profil&#10;Fixed Landing Page Login" />
     <MESSAGE value="Footer Seiten mit (Dummy)Inhalte hinzugefügt. Kontaktformular noch nicht programmiert." />
     <MESSAGE value="Infos zu Angebote auf Startseite hinzugefügt. Werden vial click eingeblendet." />
-    <option name="LAST_COMMIT_MESSAGE" value="Infos zu Angebote auf Startseite hinzugefügt. Werden vial click eingeblendet." />
+    <MESSAGE value="Fixed Plant Image Routes&#10;EMail Client + Contact Formular works now - Emailjs implemented" />
+    <MESSAGE value="Update Readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Readme" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
@@ -1246,13 +1233,6 @@
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/css/profile.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="146" column="59" selection-start-line="146" selection-start-column="59" selection-end-line="146" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserFixtures.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2288">
@@ -1392,13 +1372,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-443">
           <caret line="95" column="80" selection-start-line="95" selection-start-column="71" selection-end-line="95" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -1567,10 +1540,27 @@
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Contact.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2552">
-          <caret line="112" column="60" lean-forward="true" selection-start-line="112" selection-start-column="60" selection-end-line="112" selection-end-column="60" />
+          <caret line="112" column="60" selection-start-line="112" selection-start-column="60" selection-end-line="112" selection-end-column="60" />
           <folding>
             <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="490">
+            <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="23" column="69" lean-forward="true" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
         </state>
       </provider>
     </entry>

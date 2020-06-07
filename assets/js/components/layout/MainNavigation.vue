@@ -22,7 +22,7 @@
                         <a class="nav-link" href="#" id="communityDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Community</a>
                         <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="communityDropdown">
                             <a class="dropdown-item" href="#">Forum</a>
-                            <a class="dropdown-item" href="#">Tipps</a>
+                            <router-link class="dropdown-item" :to="'/tipps/'">Tipps</router-link>
                             <router-link class="dropdown-item" :to="'/news/'">Neuigkeiten</router-link>
                         </div>
                     </li>
