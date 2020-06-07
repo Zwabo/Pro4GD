@@ -67,4 +67,5 @@ class NewsController extends AbstractController
 
         return new JsonResponse($news, Response::HTTP_OK);
     }
+
 }
