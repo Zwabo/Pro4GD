@@ -1,0 +1,43 @@
+#settings{
+    text-transform: uppercase;
+    color: #707070;
+    margin-top: 8%;
+    font-size: 120%;
+    font-weight: lighter;
+}
+
+#push{
+    font-weight: lighter;
+    font-size: 90%;
+}
+
+.bulletPoints{
+    color:#97B753;
+
+    font-size: 88%;
+}
+.bulletExplanation{
+    font-weight: lighter;
+    font-size: 75%;
+}
+.toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+.toggle.ios .toggle-handle { border-radius: 20px; }
+
+.greyProfileLine{
+    color: #707070;
+    height: 3px;
+    width: 100%;
+}
+.private{
+    color: #707070;
+    font-size: 88%;
+}
+
+#privateHeader{
+    font-weight: lighter;
+    font-size: 90%;
+}
+
+.radioButton{
+
+}
