@@ -14,8 +14,8 @@
                     <li class="nav-item dropdown selfAlignCenter">
                         <a class="nav-link" href="#" id="datenbankDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Datenbank</a>
                         <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="datenbankDropdown">
-                            <a class="dropdown-item" href="">In Datenbank Suchen</a>
-                            <a class="dropdown-item" href="#">Neue Pflanze hinufügen</a>
+                            <router-link class="dropdown-item" :to="'/database/'">In Datenbank Suchen</router-link>
+                            <router-link class="dropdown-item" :to="'/addPlant/'">Neue Pflanze hinufügen</router-link>
                         </div>
                     </li>
                     <li class="nav-item dropdown selfAlignCenter">

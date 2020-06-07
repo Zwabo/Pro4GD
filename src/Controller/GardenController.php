@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Userplant;
 use App\Entity\Plant;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class GardenController extends AbstractController
@@ -53,6 +54,14 @@ class GardenController extends AbstractController
 
         return new JsonResponse($garden, Response::HTTP_OK);
 
+    }
+
+    /**
+     * @Route("/api/garden/createUserplant/", name="createUserplant", methods={"POST"})
+     */
+    public function createUserplant(Request $request){
+
+        return new JsonResponse(Response::HTTP_OK);
     }
 
 }
