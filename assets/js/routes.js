@@ -17,6 +17,9 @@ import Imprint from "./components/pages/Imprint";
 import Tipps from "./components/pages/Tipps";
 import TippArticle from "./components/pages/TippArticle";
 import Register from "./components/pages/Register";
+import Database from "./components/pages/Database";
+import AddPlant from "./components/pages/AddPlant";
+import Settings from "./components/pages/Settings";
 
 Vue.use(VueRouter);
 
@@ -39,7 +42,10 @@ const router = new VueRouter({
         {path: '/imprint', name:'imprint', component:Imprint},
         {path: '/agb', name:'agb', component:AGB},
         {path: '/tipps', name:'tipps', component:Tipps},
-        {path: '/tipps/:id', name:'tippArticle', component:TippArticle}
+        {path: '/tipps/:id', name:'tippArticle', component:TippArticle},
+        {path: '/database', name:'getPlants', component:Database},
+        {path: '/addPlant', name:'addPlants', component:AddPlant},
+        {path: '/settings/:username', name:'settings', component:Settings}
     ]
 });
 

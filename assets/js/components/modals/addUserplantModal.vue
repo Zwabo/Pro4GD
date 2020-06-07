@@ -22,15 +22,15 @@
                             <p><b>{{plant.name}}</b> ({{plant.genus}})</p>
                             <div class="form-group">
                                 <label for="userplantName">Name</label>
-                                <input type="text" class="form-control" id="userplantName">
+                                <input type="text" class="form-control" id="userplantName" v-model="name">
                             </div>
                             <div class="form-group">
                                 <label for="userplantLocation">Standort</label>
-                                <input type="text" class="form-control" id="userplantLocation">
+                                <input type="text" class="form-control" id="userplantLocation" v-model="location">
                             </div>
                             <div class="form-group">
                                 <label for="userplantNotes">Notizen</label>
-                                <textarea name="Notes" cols="40" rows="5" class="form-control" id="userplantNotes"></textarea>
+                                <textarea name="Notes" cols="40" rows="5" class="form-control" id="userplantNotes" v-model="notes"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary" @click="addUserplant" data-dismiss="modal">Speichern</button>
                         </form>
@@ -49,14 +49,30 @@
         data: function(){
             return{
                 modalOpen: false,
+                plantName: this.plant.name,
+                name: '',
+                location: '',
+                notes: '',
+                error: ''
             }
         },
         props:{
-            plant: null
+            plant: null,
         },
         methods:{
             addUserplant: function(){
 
+                this.$http.post('/api/garden/createUserplant/', {
+                    plantName: this.plantName,
+                    name: this.name,
+                    location: this.location,
+                    notes: this.notes
+                    })
+                    .catch(error => {
+                        if(error.response.data){
+                            this.error = error.response.data;
+                        }
+                     });
             }
         }
     }

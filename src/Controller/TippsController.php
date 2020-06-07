@@ -47,7 +47,6 @@ class TippsController extends AbstractController
     /**
      * @Route("api/tipps", name="tipps")
      */
-
     public function index(){
 
         $tipps = $this->getDoctrine()->getRepository(Tipps::Class)->findAll();
@@ -63,4 +62,6 @@ class TippsController extends AbstractController
 
         return new JsonResponse($tippsSite, Response::HTTP_OK);
     }
+
+
 }
