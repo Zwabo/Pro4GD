@@ -310,6 +310,7 @@
 
                         //Send logged in information to Event Bus
                         this.$root.$emit('loggedIn');
+                        this.redirect();
 
                         //this.$emit('user-authenticated', userUri);
                         //this.email = '';
@@ -322,6 +323,10 @@
                     }).finally(() => {
                         this.isLoading = false;
                     })
+            },
+
+            redirect: function() {
+              this.$router.push({name: 'profile'});
             },
 
             waterClick: function() {
@@ -363,11 +368,11 @@
                 this.reminderInfo = false;
                 this.communityInfo = true;
 
-                let icon = document.getElementById("communitySvg");
+                /*let icon = document.getElementById("communitySvg");
                 console.log(icon);
 
                 let circle= icon.getElementsByClassName("circle");
-                console.log(circle);
+                console.log(circle);*/
             },
 
         }
