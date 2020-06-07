@@ -32,9 +32,10 @@
                             </div>
 
                             <div>
-                                <h3 id="push"class="h3Margin">Push-Benachrichtigungen</h3>
+                                <div class="row">
+                                <h3 id="push"class="h3Margin col-lg-6">Push-Benachrichtigungen</h3>
                                 <input id="toggle0"type="checkbox" checked data-toggle="toggle" data-style="ios">
-
+                                </div>
                                 <div class="greenLine"></div>
                                 <div>
                                     <h4 class="bulletPoints">Gieß-Erinnerungen</h4>
@@ -168,6 +169,7 @@
                                 kontaktieren Sie uns bitte über unser
                                 Kontaktformular.
                             </p>
+                            <button id="contactButton"type="button">Beschwerdeknopf</button>
                         </div>
                     </div>
                             </div>
