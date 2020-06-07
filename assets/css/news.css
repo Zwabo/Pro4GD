@@ -14,7 +14,7 @@
 #news{
     text-transform: uppercase;
     color: #97B753;
-    margin-top: 7%;
+    margin-top: 3%;
     font-size: 160%;
 }
 #date{
@@ -50,5 +50,16 @@
 #shortTextIntro{
     margin-top: 3%;
     font-weight: bold;
+
+}
+
+.iconNews svg { width: 3%; fill: white; }
+.iconNews svg .path1 { fill: #B8E269; }
+.iconNews svg:hover .path1 {  fill: #97B753; }
+.iconNews svg:active { fill: #B8E269; }
+.iconNews svg:active .path1 { fill: #000000;}
+.iconNews {
+    padding-top: 11px;
+    padding-bottom: 5px;
 
 }

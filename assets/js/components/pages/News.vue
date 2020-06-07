@@ -1,6 +1,12 @@
 <template>
     <div class="row">
         <div class="col right marginLeftRight">
+
+            <add-news-article-modal>
+                    :newsData="newsData"
+                    @addedArticle="addNewsArticle">
+            </add-news-article-modal>
+
                 <h1 class="col-sm" id="news">Neuigkeiten</h1>
                 <div class="greenLine"></div>
 
@@ -28,13 +34,16 @@
 </template>
 
 <script>
+    import AddNewsArticleModal from "../modals/AddNewsArticleModal";
     export default {
         name: "News",
+        components: {AddNewsArticleModal},
 
         data: function(){
             return {
                newsData: null,
-                dateFormat: null
+                dateFormat: null,
+                adding: false
             }
         },
 
@@ -48,8 +57,20 @@
                 .catch(error => {
                     alert(error);
                 });
+        },
+        methods: {
+            addArticle: function(){
+                this.adding = true;
+            },
+            close: function () {
 
-        }
+                this.adding = false;
+
+            },
+            addArticle: function(addedArticle){
+                this.newsData[this.index] = addedArticle;
+            }
+    }
     }
 </script>
 
