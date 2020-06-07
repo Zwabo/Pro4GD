@@ -55,7 +55,7 @@
             userplant: null
         },
         mounted: function(){
-            this.$http.get('/api/plants/names')
+            this.$http.get('/api/userPlants/names')
                 .then(response => {
                     console.log(response.data);
                     this.plantNames = response.data;

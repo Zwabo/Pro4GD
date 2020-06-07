@@ -6,7 +6,7 @@
 
             <div class="row garden">
                 <h1 class="col-sm">Mein Garten</h1>
-                <div class="col-sm text-right add">hinzufügen <span class="iconGarden">
+                <div class="col-sm text-right add"><span @click="addPlant()" class="iconGarden">
 
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="path1" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><path class="path2" d="M362.8,227.9c0,14.2-11.4,25.6-25.6,25.6h-85.3v85.3c0,14.2-11.4,25.6-25.6,25.6s-25.6-11.4-25.6-25.6v-85.3
 	h-85.3c-14.2,0-25.6-11.4-25.6-25.6s11.4-25.6,25.6-25.6h85.3v-85.3c0-14.2,11.4-25.6,25.6-25.6s25.6,11.4,25.6,25.6v85.3h85.3
@@ -15,9 +15,9 @@
             </div>
             <div class="greenLine"></div>
 
-            <div>{{getPlants()}}</div>
+            <div>{{getUserPlants()}}</div>
 
-            <div v-for="userplant in plants">
+            <div v-for="userplant in userPlants">
                 <div class="row userplants">
 
                     <div class="col-sm" v-on:mouseover="replaceImage(userplant[0].plant.WindowIcon)">
@@ -25,7 +25,7 @@
                             <div class="bgWhiteGrey plantsProfil dropShadow ">
 
                                 <div class="row">
-                                    <div class="col-sm-7 plantInfo" id="Eintrag" >
+                                    <div class="col-sm-7 plantInfo">
                                         <p class="text-left gardenPFirst"><b>{{ userplant[0].name }}</b> ({{ userplant[0].plant.name }})</p>
                                         <p>Ist durstig!</p>
                                         <div class="list"></div>
@@ -89,31 +89,99 @@
                 </div>
             </div>
 
+        </div>
+
+        <div>{{getPlants()}}</div>
+
+        <div class="col"v-if="add">
+
+        <div class="col addPlant">
+
+            <div class="row search">
+            <div class="col-11">
+                <input type="text" placeholder="Suche nach Pflanzen.." class="searchBar form-control" aria-label="Search">
             </div>
 
-        <div v-if="image === ''" class="col windowImage" >
-            <img :src="'../' + garden[0].plant.WindowIcon" alt="Plant side view" height="700" class="col-sm plantWindow">
+                <span @click="close()" class="col iconGarden">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="path1" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><path class="path2" d="M362.8,227.9c0,14.2-11.4,25.6-25.6,25.6h-85.3v85.3c0,14.2-11.4,25.6-25.6,25.6s-25.6-11.4-25.6-25.6v-85.3
+	h-85.3c-14.2,0-25.6-11.4-25.6-25.6s11.4-25.6,25.6-25.6h85.3v-85.3c0-14.2,11.4-25.6,25.6-25.6s25.6,11.4,25.6,25.6v85.3h85.3
+	C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg></span>
+            </div>
+
+            <div v-for="plant in plants">
+                <div class="row plants">
+
+                    <div class="col-sm"> <div class="bgWhiteGrey plantProfil spacingPlants dropShadow ">
+
+                        <div class="row">
+                            <div class="col-sm-7 plantInfo">
+
+                                    <p class="text-left gardenPFirst"><b>{{ plant[0].name }}</b></p>
+                                    <p>{{ plant[0].genus}}</p>
+                                <add-userplant-modal :plant="plant[0]" @addUserplant="addUserplant">
+                                </add-userplant-modal>
+                            </div>
+
+                            <img class="col-sm-5 imgTest" v-bind:src="'../' + plant[0].icon"  alt="Picture of plant" height="100" >
+
+                        </div>
+
+                    </div></div>
+                    <div v-if="plant[1] !== null" class="col-sm">
+                        <div class="bgWhiteGrey plantProfil dropShadow ">
+
+                            <div class="row">
+                                <div class="col-sm-7 plantInfo">
+                                    <p class="text-left gardenPFirst"><b>{{ plant[1].name }}</b></p>
+                                    <p>{{ plant[1].genus}}</p>
+                                    <add-userplant-modal :plant="plant[1]" @addUserplant="addUserplant">
+                                    </add-userplant-modal>
+
+                                </div>
+                                <img class="col-sm-5 imgTest" v-bind:src="'../' + plant[1].icon"  alt="Picture of plant" height="100" >
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div v-else class="col-sm w-100">
+
+                    </div>
+
+                </div>
+            </div>
         </div>
-        <div v-else="image !== ''" class="col windowImage">
-            <img :src="'../' + image" alt="Plant side view" height="700" class="col-sm plantWindow">
+        </div>
+
+        <div class="col windowImage" v-else>
+            <div v-if="image === ''" class="windowImage" >
+                <img :src="'../' + garden[0].plant.WindowIcon" alt="Plant side view" height="700" class="col-sm plantWindow">
+            </div>
+            <div v-else="image !== ''" class="windowImage">
+                <img :src="'../' + image" alt="Plant side view" height="700" class="col-sm plantWindow">
+            </div>
         </div>
 
     </div>
-
 
 </template>
 
 <script>
 
+   import AddUserplantModal from "../modals/addUserplantModal";
    export default {
        name: "Garden",
+       components: {AddUserplantModal},
        data: function(){
            return{
                garden: null,
-               plants: [],
+               data: null,
+               userPlants: [],
                index: 0,
                i: 0,
-               image: ''
+               plants: [],
+               image: '',
+               add: false
            }
        },
        mounted: function(){
@@ -124,6 +192,14 @@
                .catch(error => {
                    alert(error);
                });
+           this.$http.get('/api/garden/')
+               .then(response => {
+                   this.data = response.data;
+               })
+               .catch(error => {
+                   alert(error);
+               });
+
 
 
        },
@@ -136,20 +212,55 @@
 
            },
 
-           getPlants: function () {
-
+           getUserPlants: function () {
 
               while(this.i < this.garden.length && this.index < this.garden.length){
 
-                  this.plants[this.i] = [this.garden[this.index],this.garden[this.index+1]];
+                  this.userPlants[this.i] = [this.garden[this.index],this.garden[this.index+1]];
                   this.i++;
                   this.index +=2;
               }
 
               if(this.index % 2 === 0) {
-                  this.plants[this.i-1][1] = null;
+                  this.userPlants[this.i-1][1] = null;
               }
+
            },
+
+
+           getPlants: function () {
+
+               var i = 0;
+               var index = 0;
+
+               while(i < this.data.length && index < this.data.length){
+
+                   this.plants[i] = [this.data[index],this.data[index+1]];
+                   i++;
+                   index +=2;
+               }
+
+               if(index % 2 === 0) {
+                   this.plants[i-1][1] = null;
+               }
+
+           },
+
+           addPlant: function () {
+
+            this.add = true;
+
+           },
+
+           close: function () {
+
+            this.add = false;
+
+           },
+
+           addUserplant: function(addedUserplant){
+               this.userPlants[this.index] = addedUserplant;
+           }
 
        }
 

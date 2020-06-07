@@ -55,7 +55,7 @@ class PlantController extends AbstractController {
     */
 
     /**
-     * @Route("/api/plants/names", name="getPlantNames", methods={"GET"})
+     * @Route("/api/userPlants/names", name="getPlantNames", methods={"GET"})
      */
     public function getPlantNames()
     {
