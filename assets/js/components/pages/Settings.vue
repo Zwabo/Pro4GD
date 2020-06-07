@@ -53,72 +53,127 @@
                                     </div>
 
                             <div>
-                                <h3 id="privateHeader"class="h3Margin">Privatsphäreeinstellungen</h3>
-
+                                <div class="row">
+                                <h3 id="privateHeader" class="h3Margin col-lg-6">Privatsphäreeinstellungen</h3>
+                                <div class="col-lg-6"></div>
+                                    <div class="col-lg-1">
+                                        <h3 class="privacyOptions h3Margin">Alle</h3>
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <h3 class="privacyOptions h3Margin">Freunde</h3>
+                                    </div>
+                                        <div class="col-lg-1">
+                                        <h3 class="privacyOptions h3Margin">Keiner</h3>
+                                        </div>
+                                </div>
+                                </div>
 
                                 <div class="greenLine"></div>
                                 <div>
-                                    <h4 class="col-lg-4">Userprofil</h4>
-                                    <div class ="col-lg-8">
+                                    <div class="row">
+                                        <h4 class="col-lg-6 private">Userprofil</h4>
+                                    <div class ="col-lg-6">
+
                                     <input class="radioButton" name="userprofile"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="userprofile"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="userprofile"type="radio" checked data-toggle="toggle" data-style="ios">
                                     </div>
+                                    </div>
                                     <div class="greenLine"></div>
 
-                                   <h4 class="private">Geburtsdatum</h4>
+                                    <div class="row">
+                                    <h4 class="col-lg-6 private">Geburtsdatum</h4>
+                                    <div class ="col-lg-6">
                                     <input class="radioButton" name="birthday"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="birthday"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="birthday"type="radio" checked data-toggle="toggle" data-style="ios">
+                                    </div>
+                                    </div>
                                     <div class="greenLine"></div>
 
-                                    <h4 class="private">Online-Status</h4>
-
+                                    <div class="row">
+                                    <h4 class="col-lg-6 private">Online-Status</h4>
+                                        <div class ="col-lg-6">
                                     <input class="radioButton" name="onlinestatus"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="onlinestatus"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="onlinestatus"type="radio" checked data-toggle="toggle" data-style="ios">
+                                        </div>
+                                    </div>
                                     <div class="greenLine"></div>
 
-                                    <h4 class="private">Errungenschaften</h4>
+                                    <div class="row">
+                                    <h4 class="col-lg-6 private">Errungenschaften</h4>
+                                        <div class ="col-lg-6">
                                     <input class="radioButton" name="achievements"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="achievements"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="achievements"type="radio" checked data-toggle="toggle" data-style="ios">
+                                        </div>
+                                    </div>
                                     <div class="greenLine"></div>
 
-                                    <h4 class="private">Besuchernachrichten</h4>
+                                    <div class="row">
+                                    <h4 class="col-lg-6 private">Besuchernachrichten</h4>
+                                        <div class ="col-lg-6">
                                     <input class="radioButton" name="messages"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="messages"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="messages"type="radio" checked data-toggle="toggle" data-style="ios">
+                                    </div>
+                                </div>
                                     <div class="greenLine"></div>
 
-                                    <h4 class="private">Freunde</h4>
+                                    <div class="row">
+                                    <h4 class="col-lg-6 private">Freunde</h4>
+                                    <div class ="col-lg-6">
                                     <input class="radioButton" name="friendlist"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="friendlist"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="friendlist"type="radio" checked data-toggle="toggle" data-style="ios">
+                                    </div>
+                                    </div>
                                     <div class="greenLine"></div>
 
-                                    <h4 class="private">Garten</h4>
+                                        <div class="row">
+                                    <h4 class="col-lg-6 private">Garten</h4>
+                                        <div class ="col-lg-6">
                                     <input class="radioButton" name="garden"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="garden"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="garden"type="radio" checked data-toggle="toggle" data-style="ios">
+                                        </div>
+                                        </div>
                                     <div class="greenLine"></div>
 
-                                    <h4 class="private">Forenposts</h4>
+                                            <div class="row">
+                                    <h4 class="col-lg-6 private">Forenposts</h4>
+                                            <div class ="col-lg-6">
                                     <input class="radioButton" name="posts"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="posts"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="posts"type="radio" checked data-toggle="toggle" data-style="ios">
+                                            </div>
+                                            </div>
                                     <div class="greenLine"></div>
                                 </div>
                             </div>
+                    <div class="row">
+                        <div id="creditBox" class="col-lg-4">
+                    <h3 id="credit">Credits</h3>
+                    <p class="creditText">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, ed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    </p>
+                        </div>
 
 
+                        <div id="contactBox" class="col-lg-4">
 
-                                </div>
+                            <h3 id="contact">Kontakt</h3>
+                            <p class="contactText">Bei Problemen, Fragen und Beschwerden
+                                kontaktieren Sie uns bitte über unser
+                                Kontaktformular.
+                            </p>
+                        </div>
+                    </div>
                             </div>
-
+                </div>
                 </div>
         </div>
-    </div>
 </template>
 
 <script>

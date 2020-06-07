@@ -69,6 +69,7 @@
             },
             addArticle: function(addedArticle){
                 this.newsData[this.index] = addedArticle;
+
             }
     }
     }

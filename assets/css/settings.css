@@ -40,4 +40,47 @@
 
 .radioButton{
 
+    margin-right: 15%;
+   color: #97B753;
+}
+
+.privacyOptions{
+     color: #707070;
+    font-weight: lighter;
+    font-size: 90%;
+
+
+ }
+#creditBox{
+    background-color: #B8E269;
+    padding:10px;
+    height: 280px;
+    border-radius: 12px;
+
+}
+
+#contactBox{
+   background-color:#97B753;
+    margin-left:5%;
+    height: 280px;
+    border-radius: 12px;
+}
+
+.creditText{
+    font-size:80%;
+  color: #707070;
+}
+#credit{
+    font-size:20px;
+   color: #707070;
+}
+
+.contactText{
+
+    font-size:80%;
+   color: #FFFFFF;
+}
+#contact{
+    font-size:20px;
+    color: #FFFFFF;
 }
