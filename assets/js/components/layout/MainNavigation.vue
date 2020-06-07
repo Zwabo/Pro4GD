@@ -23,7 +23,7 @@
                         <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="communityDropdown">
                             <a class="dropdown-item" href="#">Forum</a>
                             <a class="dropdown-item" href="#">Tipps</a>
-                            <a class="dropdown-item" href="news">Neuigkeiten</a>
+                            <router-link class="dropdown-item" :to="'/news/'">Neuigkeiten</router-link>
                         </div>
                     </li>
                     <li class="nav-item selfAlignCenter" v-if="navigationUser">
