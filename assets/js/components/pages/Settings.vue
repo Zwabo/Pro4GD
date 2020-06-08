@@ -33,28 +33,42 @@
 
                             <div>
                                 <div class="row">
-                                <h3 id="push"class="h3Margin col-lg-2">Push-Benachrichtigungen</h3>
-                                <input class="col-lg-4"id="toggle0"type="checkbox" checked data-toggle="toggle" data-style="ios">
+                                <h3 id="push"class="h3Margin col-lg-8">Push-Benachrichtigungen</h3>
+                                    <label class="switch ">
+                                <input id="rudeSwitch"class="col-lg-4" type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
                                 </div>
                                 <div class="greenLine"></div>
-                                <div>
-                                    <div class="row">
-                                    <h4 class="bulletPoints col-lg-6">Gieß-Erinnerungen</h4>
-                                        <input class="col-lg-6" id="toggle1"type="checkbox" checked data-toggle="toggle" data-style="ios">
-                                    <p class="bulletExplanation col-lg-12">Erlauben für die Gieß-Erinnerungen E-Mails und Push-Up Nachrichten an ihren Account zu schicken.</p>
 
+
+                                    <div class="row">
+
+                                    <h4 class="bulletPoints col-lg-8">Gieß-Erinnerungen</h4>
+                                        <label class="switch">
+                                        <input class="col-lg-4" type="checkbox">
+                                        <span class="slider round"></span>
+                                        </label>
+                                    <p class="bulletExplanation col-lg-12">Erlauben für die Gieß-Erinnerungen E-Mails und Push-Up Nachrichten an ihren Account zu schicken.</p>
                                     </div>
 
+
                                     <div class="row">
-                                        <h4 class="bulletPoints col-lg-6">Tipps-Benachrichtigungen</h4>
-                                        <input class="col-lg-6" id="toggle2"type="checkbox" checked data-toggle="toggle" data-style="ios">
+                                        <h4 class="bulletPoints col-lg-8">Tipps-Benachrichtigungen</h4>
+                                        <label class="switch">
+                                            <input class="col-lg-4" type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
                                         <p class="bulletExplanation col-lg-12">Erlauben für die Kategorie Tipps und Tricks E-Mails und Push-Up Nachrichten an ihren Account zu schicken.</p>
 
                                     </div>
 
                                     <div class="row">
-                                        <h4 class="bulletPoints col-lg-6">Tägliche News</h4>
-                                        <input class="col-lg-6 toggle.ios" id="toggle3"type="checkbox" checked data-toggle="toggle" data-style="ios">
+                                        <h4 class="bulletPoints col-lg-8">Tägliche News</h4>
+                                        <label class="switch">
+                                            <input class="col-lg-4" type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
                                         <p class="bulletExplanation col-lg-12">Erlauben für die Kategorie Tägliche News E-Mails und Push-Up Nachrichten an ihren Account zu schicken.</p>
 
                                     </div>
@@ -179,7 +193,6 @@
                 </div>
                 </div>
         </div>
-    </div>
 </template>
 
 <script>
