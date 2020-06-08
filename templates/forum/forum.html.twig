@@ -4,6 +4,13 @@
 
 {% block body %}
 
+
+    {{ dump(threads) }}
+
+    {% for thread in threads %}
+        <a href="/forum/thread/{{ thread.id }}">{{ thread.headline }}</a><br>
+    {% endfor %}
+
     {{ form_start(threadForm) }}
     <div id="threadCreateButton">
         <button class="btn buttonWhite">Thread erstellen</button>

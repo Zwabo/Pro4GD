@@ -22,13 +22,13 @@ class Comment {
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="Comment")
+     * @ORM\OneToOne(targetEntity="App\Entity\User")
      *
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Thread", inversedBy="Comment")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Thread")
      *
      */
     private $thread;

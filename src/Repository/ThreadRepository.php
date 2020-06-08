@@ -9,7 +9,19 @@
 namespace App\Repository;
 
 
-class ThreadRepository
-{
+use App\Entity\Thread;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Persistence\ManagerRegistry;
 
+class ThreadRepository extends ServiceEntityRepository
+{
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Thread::class);
+    }
+
+    public function getThreadById(string $id)
+    {
+
+    }
 }

@@ -21,7 +21,7 @@ class Thread {
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="Thread")
+     * @ORM\OneToOne(targetEntity="App\Entity\User")
      *
      */
     private $user;
@@ -143,6 +143,4 @@ class Thread {
     {
         $this->inputtext = $inputtext;
     }
-
-
 }
