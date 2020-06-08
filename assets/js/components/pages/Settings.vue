@@ -33,39 +33,42 @@
 
                             <div>
                                 <div class="row">
-                                <h3 id="push"class="h3Margin col-lg-6">Push-Benachrichtigungen</h3>
-                                <input id="toggle0"type="checkbox" checked data-toggle="toggle" data-style="ios">
+                                <h3 id="push"class="h3Margin col-lg-2">Push-Benachrichtigungen</h3>
+                                <input class="col-lg-4"id="toggle0"type="checkbox" checked data-toggle="toggle" data-style="ios">
                                 </div>
                                 <div class="greenLine"></div>
                                 <div>
-                                    <h4 class="bulletPoints">Gieß-Erinnerungen</h4>
-                                    <p class="bulletExplanation">Erlauben für die Gieß-Erinnerungen E-Mails und Push-Up Nachrichten an ihren Account zu schicken.</p>
+                                    <div class="row">
+                                    <h4 class="bulletPoints col-lg-6">Gieß-Erinnerungen</h4>
+                                        <input class="col-lg-6" id="toggle1"type="checkbox" checked data-toggle="toggle" data-style="ios">
+                                    <p class="bulletExplanation col-lg-12">Erlauben für die Gieß-Erinnerungen E-Mails und Push-Up Nachrichten an ihren Account zu schicken.</p>
 
-                                    <input id="toggle1"type="checkbox" checked data-toggle="toggle" data-style="ios">
+                                    </div>
 
-                                    <h4 class="bulletPoints">Tipps-Benachrichtigungen</h4>
-                                    <p class="bulletExplanation">Erlauben für die Kategorie Tipps und Tricks E-Mails und Push-Up Nachrichten an ihren Account zu schicken.</p>
-                                    <input id="toggle2"type="checkbox" checked data-toggle="toggle" data-style="ios">
+                                    <div class="row">
+                                        <h4 class="bulletPoints col-lg-6">Tipps-Benachrichtigungen</h4>
+                                        <input class="col-lg-6" id="toggle2"type="checkbox" checked data-toggle="toggle" data-style="ios">
+                                        <p class="bulletExplanation col-lg-12">Erlauben für die Kategorie Tipps und Tricks E-Mails und Push-Up Nachrichten an ihren Account zu schicken.</p>
 
-                                    <h4 class="bulletPoints">Tägliche News</h4>
-                                    <p class="bulletExplanation">Erlauben für die Kategorie Tägliche News E-Mails und Push-Up Nachrichten an ihren Account zu schicken.</p>
-                                    <input id="toggle3"type="checkbox" checked data-toggle="toggle" data-style="ios">
-                                </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <h4 class="bulletPoints col-lg-6">Tägliche News</h4>
+                                        <input class="col-lg-6 toggle.ios" id="toggle3"type="checkbox" checked data-toggle="toggle" data-style="ios">
+                                        <p class="bulletExplanation col-lg-12">Erlauben für die Kategorie Tägliche News E-Mails und Push-Up Nachrichten an ihren Account zu schicken.</p>
+
+                                    </div>
+
                                     </div>
 
                             <div>
                                 <div class="row">
                                 <h3 id="privateHeader" class="h3Margin col-lg-6">Privatsphäreeinstellungen</h3>
-                                <div class="col-lg-6"></div>
-                                    <div class="col-lg-1">
-                                        <h3 class="privacyOptions h3Margin">Alle</h3>
-                                    </div>
-                                    <div class="col-lg-1">
-                                        <h3 class="privacyOptions h3Margin">Freunde</h3>
-                                    </div>
-                                        <div class="col-lg-1">
-                                        <h3 class="privacyOptions h3Margin">Keiner</h3>
-                                        </div>
+
+                                    <h3 class="privacyOptions h3Margin col-lg-1">Alle</h3>
+                                    <h3 class="privacyOptions h3Margin col-lg-1">Freunde</h3>
+                                    <h3 class="privacyOptions h3Margin col-lg-1">Keiner</h3>
+
                                 </div>
                                 </div>
 
@@ -176,6 +179,7 @@
                 </div>
                 </div>
         </div>
+    </div>
 </template>
 
 <script>
