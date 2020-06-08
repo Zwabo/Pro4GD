@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -58,22 +59,24 @@ class GardenController extends AbstractController
     }
 
     /**
-     * @Route("/api/garden/createUserplant/", name="createUserplant", methods={"POST"})
+     * @Route("/api/garden/createUserplant/{plantId}", name="createUserplant", methods={"POST"})
      */
-    public function createUserplant(Request $request, ValidatorInterface $validator): JsonResponse
+    public function createUserplant($plantId, Request $request, ValidatorInterface $validator): JsonResponse
     {
 
         $data = $request->getContent();
         $params = json_decode($data, true);
 
+        $int = (int)$params["userId"];
+
         /** @var \App\Entity\User $user */
-        $user = $this->getUser();
+        $user = $this->getDoctrine()->getRepository(User::class)->find($int);
 
         /** @var \App\Entity\Userplant $userplant */
         $userplant = new Userplant();
 
         /** @var \App\Entity\Plant $plant */
-        $plant = $this->getDoctrine()->getRepository(Plant::class)->findBy(['name' => $params["plantName"]]);
+        $plant = $this->getDoctrine()->getRepository(Plant::class)->find($plantId);
 
         if (!$plant) {
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
@@ -85,10 +88,8 @@ class GardenController extends AbstractController
         $userplant->setDateAdded(new \DateTime("now"));
         $userplant->setDateWatered(new \DateTime("now"));
 
-        $plant->addUserplant($userplant);
-        $user->addUserplant($userplant);
-        //$userplant->setUser($user);
-        //$userplant->setPlant($plant);
+        $userplant->setUser($user);
+        $userplant->setPlant($plant);
 
         $errors = $validator->validate($userplant);
         if(count($errors) > 0){

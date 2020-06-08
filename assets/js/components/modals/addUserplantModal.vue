@@ -49,21 +49,23 @@
         data: function(){
             return{
                 modalOpen: false,
-                plantName: this.plant.name,
+                plantId: this.plant.id,
                 name: '',
                 location: '',
                 notes: '',
-                error: ''
+                error: '',
+                userId: this.user
             }
         },
         props:{
             plant: null,
+            user: null
         },
         methods:{
             addUserplant: function(){
 
-                this.$http.post('/api/garden/createUserplant/', {
-                    plantName: this.plantName,
+                this.$http.post('/api/garden/createUserplant/'+ this.plantId, {
+                    userId: this.userId,
                     name: this.name,
                     location: this.location,
                     notes: this.notes
