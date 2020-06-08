@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\FriendRequest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,7 +13,7 @@ class FriendsController extends AbstractController
     /**
      * @Route("/api/friends", name="getFriends")
      */
-    public function friends()
+    public function friends() : JsonResponse
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
@@ -65,7 +66,7 @@ class FriendsController extends AbstractController
                 $userPic = $request->getSender()->getUserPic();
 
                 $incomingRequestData = [
-                    'requestId' => $userId,
+                    'requestId' => $requestId,
                     'userId' => $userId,
                     'username' => $username,
                     'firstName' => $firstName,
@@ -82,5 +83,24 @@ class FriendsController extends AbstractController
         ];
 
         return new JsonResponse($friendshipData, Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/friends/confirmRequest/{requestId}", name="confirmRequest", methods={"PUT"})
+     */
+    public function confirmRequest($requestId) : JsonResponse
+    {
+        $request = $this->getDoctrine()
+            ->getRepository(FriendRequest::class)
+            ->find($requestId);
+
+        if($request != null) {
+            $request->setConfirmed(true);
+            $this->getDoctrine()->getManager()->flush();
+
+            return new JsonResponse($request->getConfirmed(), Response::HTTP_OK);
+        }
+
+        return new JsonResponse([], Response::HTTP_BAD_REQUEST);
     }
 }
