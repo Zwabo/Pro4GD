@@ -12,4 +12,9 @@ use Symfony\Component\HttpFoundation\Response;
 class ContactController extends AbstractController
 {
 
+    /**
+     * @Route("/api/reload", name="reload")
+     */
+
+
 }

@@ -20,15 +20,15 @@
                         <form v-on:submit.prevent="addNewsArticle">
                             <div class="form-group">
                                 <label for="newsArticleTitle">Titel</label>
-                                <input type="text" class="form-control" id="newsArticleTitle">
+                                <input type="text" class="form-control" id="newsArticleTitle" v-model="title">
                             </div>
                             <div class="form-group">
                                 <label for="shortText">Kurztext</label>
-                                <textarea name="shortText" cols="40" rows="5" class="form-control" id="shortText"></textarea>
+                                <textarea name="shortText" cols="40" rows="5" class="form-control" id="shortText" v-model="shortText"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="fullText">Artikel</label>
-                                <textarea name="fullText" cols="40" rows="5" class="form-control" id="fullText"></textarea>
+                                <textarea name="fullText" cols="40" rows="5" class="form-control" id="fullText" v-model="long_Text"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary" @click="addNewsArticle" data-dismiss="modal">Artikel Speichern</button>
                         </form>
@@ -46,11 +46,26 @@
         data: function(){
             return{
                 modalOpen: false,
+                title: this.title,
+                shortText: '',
+                long_Text: '',
+                date: '',
+                error: ''
             }
         },
         methods:{
            addNewsArticle: function(){
-
+               this.$http.post('/api/news', {
+                  title: this.title,
+                   shortText: this.shortText,
+                   long_Text: this.long_Text,
+                   date: now()
+               })
+                   .catch(error => {
+                       if(error.response.data){
+                           this.error = error.response.data;
+                       }
+                   });
             }
         }
     }

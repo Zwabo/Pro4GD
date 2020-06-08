@@ -40,4 +40,69 @@
 
 .radioButton{
 
+    margin-right: 15%;
+   color: #97B753;
 }
+
+.privacyOptions{
+     color: #707070;
+    font-weight: lighter;
+    font-size: 90%;
+
+
+ }
+#creditBox{
+    background-color: #B8E269;
+    padding:10px;
+    height: 280px;
+    border-radius: 12px;
+
+}
+
+#contactBox{
+   background-color:#97B753;
+    margin-left:5%;
+    height: 280px;
+    border-radius: 12px;
+}
+
+.creditText{
+    margin-left:5%;
+    margin-right:8%;
+    font-size:70%;
+  color: #707070;
+}
+#credit{
+    margin-left:5%;
+    margin-top:10%;
+    font-size:20px;
+   color: #707070;
+}
+
+.contactText{
+    margin-right:8%;
+    margin-top:8%;
+    margin-left:5%;
+    font-size:70%;
+   color: #FFFFFF;
+}
+#contact{
+    margin-left:5%;
+    margin-top:10%;
+    font-size:20px;
+    color: #FFFFFF;
+}
+
+#contactButton{
+    margin-left:5%;
+    margin-top:12%;
+    background-color: #FFFFFF;
+    color:#97B753;
+    border-radius: 12px;
+    font-size:14px;
+    border:  none;
+    padding: 5px 60px;
+
+}
+
+

@@ -21,8 +21,9 @@
                 <h4 class="bgLightGrey rightBoxesPadding h4Box">Freundschaftsanfragen</h4>
                 <p class="rightBoxesPadding" v-for="request in friendsData.incomingRequests">
                     <b><router-link :to="{ name: 'profile', params: { username: request.username }}">{{request.firstName}} {{request.lastName}}</router-link></b> <em>({{request.username}})</em>
-                    <button class="buttonDarkGreenMini">Bestätigen</button>
+                    <button class="buttonDarkGreenMini" @click="confirmRequest(request.requestId)">Bestätigen</button>
                 </p>
+                <p class="rightBoxesPadding" v-if="friendsData.incomingRequests.length == 0">Keine Freundschaftsanfragen vorhanden</p>
             </div>
         </div>
     </div>
@@ -45,6 +46,19 @@
                 .catch(error => {
                     alert(error);
                 });
+        },
+        methods: {
+            confirmRequest: function(requestId){
+                this.$http.put('/api/friends/confirmRequest/' + requestId)
+                    .then(response => {
+                        return this.$http.get('/api/friends/').then(response => {
+                            this.friendsData = response.data;
+                        });
+                    })
+                    .catch(error => {
+                        alert(error);
+                    });
+            }
         }
     }
 </script>

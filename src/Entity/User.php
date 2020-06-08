@@ -77,6 +77,7 @@ class User implements UserInterface
      * @ORM\Column(type="json")
      */
     private $roles = [];
+
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
@@ -94,14 +95,14 @@ class User implements UserInterface
     private $friends = [];
 
     /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    //private $comments = [];
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Userplant", mappedBy="user")
      */
     private $userplants;
-
-    /**
-     * @ORM\Column(type="json", nullable=true)
-     */
-    //private $comments = [];
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\FriendRequest", mappedBy="sender")
@@ -112,6 +113,20 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\FriendRequest", mappedBy="receiver")
      */
     private $incomingFriendRequests;
+
+    /*---------------userprofile comments-----------------------*/
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ProfileComments", mappedBy="user", cascade={"persist", "remove"})
+     */
+    //private $writtenComments;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\ProfileComments", inversedBy="profileUser")
+     */
+    //private $gottenComments;
+
+    /*----------------------constructor-------------------------------*/
 
     public function __construct()
     {
@@ -242,21 +257,6 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    /*public function getComments() : array
-    {
-        return $this->$this->comments;
-    }
-
-    public function setComments(array $comments) : self
-    {
-        $this->comments = $comments;
-
-        return $this;
-    }*/
-
-    /**
-     * @see UserInterface
-     */
     public function getPassword(): string
     {
         return (string) $this->password;
@@ -345,6 +345,18 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /*public function getComments(): ?array
+    {
+        return $this->comments;
+    }
+
+    public function setComments(?array $comments): self
+    {
+        $this->comments = $comments;
+
+        return $this;
+    }*/
 
     public function getUserPic(): ?string
     {
@@ -473,7 +485,39 @@ class User implements UserInterface
             'roles' => $this->roles,
             'achievments' => $this->achievements,
             'friends' => $this->friends,
-            'userplants' =>$plants
+            'userplants' =>$plants,
+            //'comments' =>$this->comments
         ];
     }
+
+    /*public function getWrittenComments(): ?ProfileComments
+    {
+        return $this->writtenComments;
+    }
+
+    public function setWrittenComments(ProfileComments $writtenComments): self
+    {
+        $this->writtenComments = $writtenComments;
+
+        // set the owning side of the relation if necessary
+        if ($writtenComments->getUser() !== $this) {
+            $writtenComments->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function getGottenComments(): ?ProfileComments
+    {
+        return $this->gottenComments;
+    }
+
+    public function setGottenComments(?ProfileComments $gottenComments): self
+    {
+        $this->gottenComments = $gottenComments;
+
+        return $this;
+    }
+    */
+
 }

@@ -5,7 +5,7 @@
 
                 <router-link to="/imprint" fragment="#privacyStatement">Datenschutzbestimmungen</router-link> •
                 <router-link to="/agb">AGB</router-link> •
-                <router-link to="/imprint">Impressum •</router-link>
+                <router-link to="/imprint">Impressum</router-link> •
                 <router-link to="/contact">Kontakt</router-link>
 
             </div>

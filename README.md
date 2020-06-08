@@ -79,3 +79,8 @@ php bin/console doctrine:fixtures:load
 
 npm run watch
 
+---
+
+EMailJS
+https://dashboard.emailjs.com/
+Email: plantBasePro4@gmail.com

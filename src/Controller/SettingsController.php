@@ -15,16 +15,5 @@ class SettingsController extends AbstractController
     /**
      * @Route("api/settings/{username}", name="settings")
      */
-    public function getUser($username) : JsonResponse {
 
-        $user = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->findOneBy(['username' => $username]);
-
-        if (!$user) {
-            return new JsonResponse([], Response::HTTP_NOT_FOUND);
-        }
-
-        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
-    }
 }

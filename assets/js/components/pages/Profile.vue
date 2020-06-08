@@ -161,10 +161,14 @@
 
                         </div>
 
-                        <div id="Besuchernachrichten">
+                        <div class="container-fluid" id="Besuchernachrichten">
                             <h3 class="h3Margin">Besuchernachrichten</h3>
                             <div class="greenLine"></div>
-                            <div>Keine Besuchernachrichten vorhanden</div>
+                            <div class="row" id="leaveComment">
+                                <div class="col-lg-2"><img class="commentPics" v-bind:src="profileUser.userPic"></div>
+                                <div class="col-lg-10"><textarea class="commentInput" type="text" placeholder="Nachricht hinterlassen"></textarea></div>
+                            </div>
+                            <div v-if="" id="commentInfo">Keine Besuchernachrichten vorhanden</div>
                         </div>
                     </div>
 
@@ -369,6 +373,22 @@
         width: 100%;
         height: 200px;
         border: 1px solid #97B753;
+        background-color: #F5F5F5;
+    }
+    #leaveComment{
+        margin-bottom: 3%;
+    }
+    .commentPics {
+        max-width: 100px;
+        min-width: 50px;
+        width: 80%;
+        border-radius: 100px;
+    }
+    .commentInput {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #97B753;
+        border-radius: 4px;
         background-color: #F5F5F5;
     }
 </style>
