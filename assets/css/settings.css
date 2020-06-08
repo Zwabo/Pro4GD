@@ -7,8 +7,9 @@
 }
 
 #push{
-    font-weight: lighter;
-    font-size: 90%;
+    font-weight: normal;
+    font-size: 100%;
+    color:#97B753;
 }
 
 .bulletPoints{

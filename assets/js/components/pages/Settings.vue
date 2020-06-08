@@ -33,8 +33,8 @@
 
                             <div>
                                 <div class="row">
-                                <h3 id="push"class="h3Margin col-lg-8">Push-Benachrichtigungen</h3>
-                                    <label class="switch ">
+                                <h3 id="push"class="col-lg-3">Push-Benachrichtigungen</h3>
+                                    <label class="switch">
                                 <input id="rudeSwitch"class="col-lg-4" type="checkbox">
                                         <span class="slider round"></span>
                                     </label>
