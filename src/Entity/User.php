@@ -97,7 +97,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="array", nullable=true)
      */
-    //private $comments = [];
+    private $comments = [];
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Userplant", mappedBy="user")
@@ -116,14 +116,12 @@ class User implements UserInterface
 
     /*---------------userprofile comments-----------------------*/
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ProfileComments", mappedBy="user", cascade={"persist", "remove"})
-     */
+
+     // @ORM\OneToMany(targetEntity="App\Entity\ProfileComments", mappedBy="user", cascade={"persist", "remove"})
     //private $writtenComments;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ProfileComments", inversedBy="profileUser")
-     */
+
+     // @ORM\ManyToOne(targetEntity="App\Entity\ProfileComments", inversedBy="profileUser")
     //private $gottenComments;
 
     /*----------------------constructor-------------------------------*/
@@ -346,7 +344,7 @@ class User implements UserInterface
         return $this;
     }
 
-    /*public function getComments(): ?array
+    public function getComments(): ?array
     {
         return $this->comments;
     }
@@ -356,7 +354,7 @@ class User implements UserInterface
         $this->comments = $comments;
 
         return $this;
-    }*/
+    }
 
     public function getUserPic(): ?string
     {
@@ -486,7 +484,7 @@ class User implements UserInterface
             'achievments' => $this->achievements,
             'friends' => $this->friends,
             'userplants' =>$plants,
-            //'comments' =>$this->comments
+            'comments' =>$this->comments
         ];
     }
 

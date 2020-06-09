@@ -145,6 +145,35 @@ class UserController extends AbstractController
         return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
     }
 
+    /**
+     * @Route("/api/profile/{username}/saveComment", name="profile_comments", methods={"PUT"})
+     */
+    public function saveComment($username, Request $request) {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $username]);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $profileComments = $user->getComments();
+
+
+
+        if ($user->getComments() != null) {
+            $profileComments = $user->getComments();
+        }
+
+        $comment = $request->getContent();
+
+        //array_push($profileComments, $comment);
+
+        $user->setComments($profileComments);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
 /*
     public function getUserData($username) : JsonResponse {
         $user = $this->getDoctrine()

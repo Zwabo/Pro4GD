@@ -1,6 +1,6 @@
 <template>
     <div id="root">
-    <div v-if="profileUser != null && createdUserString != null">
+    <div v-if="profileUser != null && createdUserString != null && loggedInUser != null">
 
         <div class="container-fluid">
 
@@ -165,10 +165,17 @@
                             <h3 class="h3Margin">Besuchernachrichten</h3>
                             <div class="greenLine"></div>
                             <div class="row" id="leaveComment">
-                                <div class="col-lg-2"><img class="commentPics" v-bind:src="profileUser.userPic"></div>
-                                <div class="col-lg-10"><textarea class="commentInput" type="text" placeholder="Nachricht hinterlassen"></textarea></div>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-2"><img class="commentPics" v-bind:src="profileUser.userPic"></div>
+                                        <div class="col-lg-10"><textarea v-model="commentMessage" class="commentInput" type="text" placeholder="Nachricht hinterlassen"></textarea></div>
+                                    </div>
+                                    <div class="text-right"><button v-on:click="saveComment" class="buttonComments">Nachricht speichern</button></div>
+                                </div>
                             </div>
-                            <div v-if="" id="commentInfo">Keine Besuchernachrichten vorhanden</div>
+
+                            <div v-if="profileUser.comments == null" id="commentInfo">Keine Besuchernachrichten vorhanden</div>
+                            <div v-else v-for="(profileComment, index) in profileUser.comments" class="container-fluid">{{profileComment}}</div>
                         </div>
                     </div>
 
@@ -240,15 +247,15 @@
 
 <script>
     class ProfileComment {
-        constructor(date, user, message) {
-            this.date = date;
-            this.user = user;
+        constructor(message, user, date) {
             this.message = message;
+            this.user = user;
+            this.date = date;
         }
 
-        get date() { return this.date; }
-        get user() { return this.user; }
-        get message() { return this.message; }
+        get commentDate() { return this.date; }
+        get commentUser() { return this.user; }
+        get commentMessage() { return this.message; }
     }
 
 
@@ -266,7 +273,22 @@
 
                 editProfile: false,             // bool if edit profile is active or not
                 userTemp: null,
+
+                commentMessage: "",             // new comment added in textarea
+                newComment: "",                 // comment class of ProfileComment
+                newCommentArray: [],            // array that will be taken to save as profileUser.comments
+
+                loggedInUser: null,
             }
+        },
+
+        created: function(){
+            this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+
+            //Retrieve user item from local storage in case of login
+            this.$root.$on('loggedIn', () => {
+                this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+            });
         },
 
         mounted: function(){
@@ -295,6 +317,8 @@
                         age--;
                     }
                     this.userAge = age.toString();
+
+                    console.log(this.profileUser.comments);
 
                 })
                 .catch(error => {
@@ -344,6 +368,53 @@
                 this.editProfile = false;
             },
 
+            saveComment: function() {
+
+                this.newComment = new ProfileComment(this.commentMessage, this.loggedInUser, new Date());
+
+                /*let commentsTemp= [];
+                if (this.profileUser.comments != null) {
+                    commentsTemp = this.profileUser.comments;
+                }
+                commentsTemp.push({comment});*/
+
+                console.log("commentMessage");
+                console.log(this.commentMessage);
+                console.log("loggedInUser");
+                console.log(this.loggedInUser);
+                console.log("date");
+                console.log(new Date());
+
+                console.log(this.newComment);
+
+                this.newComment = JSON.stringify(this.newComment);
+                console.log(this.newComment);
+
+
+                /*if (this.profileUser.comments != null) {
+                    this.newCommentsArray = this.profileUser.comments;
+                }
+
+                this.newCommentsArray.push({
+                    newComment
+                });
+
+                this.newCommentsArray = JSON.stringify(this.newCommentsArray);
+                console.log(this.newCommentsArray);*/
+
+                this.$http.put('/api/profile/' + this.$route.params.username + '/saveComment', this.newComment)
+                    .then(response => {
+                        this.profileUser.comments = response.data;
+                        console.log(response.data);
+                    })
+                    .catch(error => {
+                        this.getError(error);
+                    });
+
+
+                this.commentMessage = "";
+            },
+
             getError(error) {
                 console.log(error);
 
@@ -390,5 +461,25 @@
         border: 1px solid #97B753;
         border-radius: 4px;
         background-color: #F5F5F5;
+    }
+    .buttonComments {
+        background-color: #97B753;
+        padding: 1%;
+        color: white;
+        border: 2px solid #97B753;
+        border-radius: 10px;
+        font-size: 80%;
+        margin-bottom: 2%;
+        margin-top: 1%;
+    }
+    .buttonComments:hover {
+        background-color: #B8E269;
+        border: 2px solid #B8E269;
+        color: #707070;
+    }
+    .buttonComments:active {
+        background-color: #97B753;
+        border: 2px solid #97B753;
+        color: white;
     }
 </style>
