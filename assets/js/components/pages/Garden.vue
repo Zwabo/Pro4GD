@@ -118,7 +118,7 @@
 
                                     <p class="text-left gardenPFirst"><b>{{ plant[0].name }}</b></p>
                                     <p>{{ plant[0].genus}}</p>
-                                <add-userplant-modal :plant="plant[0]" >
+                                <add-userplant-modal :plant="plant[0]" :user="$route.params.id" >
                                 </add-userplant-modal>
                             </div>
 
@@ -134,7 +134,7 @@
                                 <div class="col-sm-7 plantInfo">
                                     <p class="text-left gardenPFirst"><b>{{ plant[1].name }}</b></p>
                                     <p>{{ plant[1].genus}}</p>
-                                    <add-userplant-modal :plant="plant[1]">
+                                    <add-userplant-modal :plant="plant[1]" :user="$route.params.id" @newUserplant="addUserplant">
                                     </add-userplant-modal>
 
                                 </div>
@@ -258,6 +258,9 @@
 
            },
 
+           addUserplant: function(newUserplant){
+               this.userPlants[this.i-1][1] = newUserplant;
+           }
 
        }
 
