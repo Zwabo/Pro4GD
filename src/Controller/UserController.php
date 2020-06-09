@@ -157,7 +157,7 @@ class UserController extends AbstractController
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
 
-        $profileComments = $user->getComments();
+        $profileComments = [];
 
 
 
@@ -167,7 +167,7 @@ class UserController extends AbstractController
 
         $comment = $request->getContent();
 
-        //array_push($profileComments, $comment);
+        array_push($profileComments, $comment);
 
         $user->setComments($profileComments);
         $this->getDoctrine()->getManager()->flush();

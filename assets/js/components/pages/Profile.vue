@@ -387,7 +387,7 @@
 
                 console.log(this.newComment);
 
-                this.newComment = JSON.stringify(this.newComment);
+                //this.newComment = JSON.stringify(this.newComment);
                 console.log(this.newComment);
 
 
