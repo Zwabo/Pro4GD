@@ -175,7 +175,17 @@
                             </div>
 
                             <div v-if="profileUser.comments == null" id="commentInfo">Keine Besuchernachrichten vorhanden</div>
-                            <div v-else v-for="(profileComment, index) in profileUser.comments" class="container-fluid">{{profileComment}}</div>
+                            <div v-else v-for="(profileComment, index) in profileUser.comments" class="container-fluid">
+                                <!--<div class="row">{{profileComment.commentMsg}}</div>
+                                <div class="row">
+                                    <div class="col-lg-6">{{profileComment.commentUsername}}</div>
+                                    <div class="col-lg-6">{{profileComment.commentDate}}</div>
+                                </div>-->
+                                {{profileComment}}
+                                {{index}}
+
+                                {{profileComment}}
+                            </div>
                         </div>
                     </div>
 
@@ -247,15 +257,17 @@
 
 <script>
     class ProfileComment {
-        constructor(message, user, date) {
-            this.message = message;
-            this.user = user;
+        constructor(msg, username, userid, date) {
+            this.msg = msg;
+            this.username = username;
+            this.userid = userid;
             this.date = date;
         }
 
         get commentDate() { return this.date; }
-        get commentUser() { return this.user; }
-        get commentMessage() { return this.message; }
+        get commentUsername() { return this.username; }
+        get commentUserid() { return this.userid; }
+        get commentMsg() { return this.msg; }
     }
 
 
@@ -370,37 +382,7 @@
 
             saveComment: function() {
 
-                this.newComment = new ProfileComment(this.commentMessage, this.loggedInUser, new Date());
-
-                /*let commentsTemp= [];
-                if (this.profileUser.comments != null) {
-                    commentsTemp = this.profileUser.comments;
-                }
-                commentsTemp.push({comment});*/
-
-                console.log("commentMessage");
-                console.log(this.commentMessage);
-                console.log("loggedInUser");
-                console.log(this.loggedInUser);
-                console.log("date");
-                console.log(new Date());
-
-                console.log(this.newComment);
-
-                //this.newComment = JSON.stringify(this.newComment);
-                console.log(this.newComment);
-
-
-                /*if (this.profileUser.comments != null) {
-                    this.newCommentsArray = this.profileUser.comments;
-                }
-
-                this.newCommentsArray.push({
-                    newComment
-                });
-
-                this.newCommentsArray = JSON.stringify(this.newCommentsArray);
-                console.log(this.newCommentsArray);*/
+                this.newComment = new ProfileComment(this.commentMessage, this.loggedInUser.username, this.loggedInUser.id, new Date());
 
                 this.$http.put('/api/profile/' + this.$route.params.username + '/saveComment', this.newComment)
                     .then(response => {

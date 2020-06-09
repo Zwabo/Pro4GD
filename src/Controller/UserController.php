@@ -159,8 +159,6 @@ class UserController extends AbstractController
 
         $profileComments = [];
 
-
-
         if ($user->getComments() != null) {
             $profileComments = $user->getComments();
         }
