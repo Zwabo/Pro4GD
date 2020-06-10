@@ -183,7 +183,7 @@
                                 <div class="row">
                                     <div class="col-lg-1"></div>
                                     <div class="col-lg-5 paddingNormalize">{{profileComment.username}}</div>
-                                    <div class="col-lg-6 paddingNormalize text-right">{{profileComment.date}}</div>
+                                    <div class="col-lg-6 paddingNormalize text-right">{{profileComment.date}},  {{profileComment.time}}</div>
                                 </div>
                                 <div class="row">
                                     <div class="container-fluid text-right paddingNormalize">
@@ -263,15 +263,17 @@
 
 <script>
     class ProfileComment {
-        constructor(msg, username, userid, userpic, date) {
+        constructor(msg, username, userid, userpic, date, time) {
             this.msg = msg;
             this.username = username;
             this.userid = userid;
-            this.date = date;
             this.userpic = userpic;
+            this.date = date;
+            this.time = time;
         }
 
         get commentDate() { return this.date; }
+        get commentTime() { return this.time; }
         get commentUsername() { return this.username; }
         get commentUserid() { return this.userid; }
         get commentMsg() { return this.msg; }
@@ -396,12 +398,18 @@
             saveComment: function() {
 
                 let datetime = new Date();
-                let tmpDate = datetime(parseInt(item.timestamp, 10));
 
-                console.log(hour);
+                let month = datetime.getUTCMonth()+ 1;
+                let day = datetime.getUTCDate();
+                let year = datetime.getUTCFullYear();
+                let hours = datetime.getHours();
+                let minutes = datetime.getMinutes();
+
+                let date = day + "." + month + "." + year;
+                let time = hours + ":" + minutes;
 
                 this.newComment = new ProfileComment(this.commentMessage, this.loggedInUser.username,
-                    this.loggedInUser.id, this.loggedInUser.userPic, new Date());
+                    this.loggedInUser.id, this.loggedInUser.userPic, date, time);
 
                 this.$http.put('/api/profile/' + this.$route.params.username + '/saveComment', this.newComment)
                     .then(response => {
@@ -420,10 +428,14 @@
             deleteComment: function(index) {
                 console.log(index);
                 //this.profileUser.comments = this.profileUser.comments.splice(index, 1);
+                console.log(this.profileUser.comments);
                 this.commentArray = this.profileUser.comments.splice(index, 1);
+                console.log("this.commentArray before");
+                console.log(this.commentArray);
+
                 this.commentArray = JSON.stringify(this.commentArray);
 
-
+                console.log("splice");
                 console.log(this.commentArray);
 
 
