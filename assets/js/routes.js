@@ -45,7 +45,7 @@ const router = new VueRouter({
         {path: '/tipps/:id', name:'tippArticle', component:TippArticle},
         {path: '/database', name:'getPlants', component:Database},
         {path: '/addPlant', name:'addPlants', component:AddPlant},
-        {path: '/settings/:username', name:'settings', component:Settings}
+        {path: '/settings/', name:'settings', component:Settings}
     ]
 });
 

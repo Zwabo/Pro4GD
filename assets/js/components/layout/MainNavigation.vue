@@ -39,7 +39,7 @@
                                 Freunde
                             </router-link>
                             <a class="dropdown-item" href="#">Statistik</a>
-                            <router-link class="dropdown-item" :to="'/settings/' + navigationUser.username">Einstellungen</router-link>
+                            <router-link class="dropdown-item" :to="'/settings/'">Einstellungen</router-link>
                             <router-link class="dropdown-item" to="/logout">Ausloggen</router-link>
                         </div>
                     </li>

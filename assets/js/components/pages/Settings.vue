@@ -91,7 +91,6 @@
                                     <div class="row">
                                         <h4 class="col-lg-6 private">Userprofil</h4>
                                     <div class ="col-lg-6">
-
                                     <input class="radioButton" name="userprofile"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="userprofile"type="radio" checked data-toggle="toggle" data-style="ios">
                                     <input class="radioButton" name="userprofile"type="radio" checked data-toggle="toggle" data-style="ios">
@@ -102,9 +101,11 @@
                                     <div class="row">
                                     <h4 class="col-lg-6 private">Geburtsdatum</h4>
                                     <div class ="col-lg-6">
-                                    <input class="radioButton" name="birthday"type="radio" checked data-toggle="toggle" data-style="ios">
-                                    <input class="radioButton" name="birthday"type="radio" checked data-toggle="toggle" data-style="ios">
-                                    <input class="radioButton" name="birthday"type="radio" checked data-toggle="toggle" data-style="ios">
+                                        <form @change="privacyBirthdayChange">
+                                            <input class="radioButton" name="birthday" v-model="privacyBirthday" value="all" type="radio" checked data-toggle="toggle" data-style="ios">
+                                            <input class="radioButton" name="birthday" v-model="privacyBirthday" value="friends" type="radio" checked data-toggle="toggle" data-style="ios">
+                                            <input class="radioButton" name="birthday" v-model="privacyBirthday" value="none" type="radio" checked data-toggle="toggle" data-style="ios">
+                                        </form>
                                     </div>
                                     </div>
                                     <div class="greenLine"></div>
@@ -112,9 +113,11 @@
                                     <div class="row">
                                     <h4 class="col-lg-6 private">Online-Status</h4>
                                         <div class ="col-lg-6">
-                                    <input class="radioButton" name="onlinestatus"type="radio" checked data-toggle="toggle" data-style="ios">
-                                    <input class="radioButton" name="onlinestatus"type="radio" checked data-toggle="toggle" data-style="ios">
-                                    <input class="radioButton" name="onlinestatus"type="radio" checked data-toggle="toggle" data-style="ios">
+                                            <form>
+                                                <input class="radioButton" name="onlinestatus" value="all" type="radio" checked data-toggle="toggle" data-style="ios">
+                                                <input class="radioButton" name="onlinestatus" value="friends" type="radio" checked data-toggle="toggle" data-style="ios">
+                                                <input class="radioButton" name="onlinestatus" value="none" type="radio" checked data-toggle="toggle" data-style="ios">
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="greenLine"></div>
@@ -122,9 +125,11 @@
                                     <div class="row">
                                     <h4 class="col-lg-6 private">Errungenschaften</h4>
                                         <div class ="col-lg-6">
-                                    <input class="radioButton" name="achievements"type="radio" checked data-toggle="toggle" data-style="ios">
-                                    <input class="radioButton" name="achievements"type="radio" checked data-toggle="toggle" data-style="ios">
-                                    <input class="radioButton" name="achievements"type="radio" checked data-toggle="toggle" data-style="ios">
+                                            <form>
+                                                <input class="radioButton" name="achievements" value="all" type="radio" checked data-toggle="toggle" data-style="ios">
+                                                <input class="radioButton" name="achievements" value="friends" type="radio" checked data-toggle="toggle" data-style="ios">
+                                                <input class="radioButton" name="achievements" value="none" type="radio" checked data-toggle="toggle" data-style="ios">
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="greenLine"></div>
@@ -132,9 +137,11 @@
                                     <div class="row">
                                     <h4 class="col-lg-6 private">Besuchernachrichten</h4>
                                         <div class ="col-lg-6">
-                                    <input class="radioButton" name="messages"type="radio" checked data-toggle="toggle" data-style="ios">
-                                    <input class="radioButton" name="messages"type="radio" checked data-toggle="toggle" data-style="ios">
-                                    <input class="radioButton" name="messages"type="radio" checked data-toggle="toggle" data-style="ios">
+                                            <form>
+                                                <input class="radioButton" name="messages" v-model="privacyComments" value="all" type="radio" checked data-toggle="toggle" data-style="ios">
+                                                <input class="radioButton" name="messages" v-model="privacyComments" value="friends" type="radio" checked data-toggle="toggle" data-style="ios">
+                                                <input class="radioButton" name="messages" v-model="privacyComments" value="none" type="radio" checked data-toggle="toggle" data-style="ios">
+                                            </form>
                                     </div>
                                 </div>
                                     <div class="greenLine"></div>
@@ -142,9 +149,11 @@
                                     <div class="row">
                                     <h4 class="col-lg-6 private">Freunde</h4>
                                     <div class ="col-lg-6">
-                                    <input class="radioButton" name="friendlist"type="radio" checked data-toggle="toggle" data-style="ios">
-                                    <input class="radioButton" name="friendlist"type="radio" checked data-toggle="toggle" data-style="ios">
-                                    <input class="radioButton" name="friendlist"type="radio" checked data-toggle="toggle" data-style="ios">
+                                        <form>
+                                            <input class="radioButton" name="friendlist" v-model="privacyFriends" value="all" type="radio" checked data-toggle="toggle" data-style="ios">
+                                            <input class="radioButton" name="friendlist" v-model="privacyFriends" value="friends" type="radio" checked data-toggle="toggle" data-style="ios">
+                                            <input class="radioButton" name="friendlist" v-model="privacyFriends" value="none" type="radio" checked data-toggle="toggle" data-style="ios">
+                                        </form>
                                     </div>
                                     </div>
                                     <div class="greenLine"></div>
@@ -152,9 +161,11 @@
                                         <div class="row">
                                     <h4 class="col-lg-6 private">Garten</h4>
                                         <div class ="col-lg-6">
-                                    <input class="radioButton" name="garden"type="radio" checked data-toggle="toggle" data-style="ios">
-                                    <input class="radioButton" name="garden"type="radio" checked data-toggle="toggle" data-style="ios">
-                                    <input class="radioButton" name="garden"type="radio" checked data-toggle="toggle" data-style="ios">
+                                            <form>
+                                                <input class="radioButton" name="garden" v-model="privacyGarden" value="all" type="radio" checked data-toggle="toggle" data-style="ios">
+                                                <input class="radioButton" name="garden" v-model="privacyGarden" value="friends" type="radio" checked data-toggle="toggle" data-style="ios">
+                                                <input class="radioButton" name="garden" v-model="privacyGarden" value="none" type="radio" checked data-toggle="toggle" data-style="ios">
+                                            </form>
                                         </div>
                                         </div>
                                     <div class="greenLine"></div>
@@ -162,9 +173,11 @@
                                             <div class="row">
                                     <h4 class="col-lg-6 private">Forenposts</h4>
                                             <div class ="col-lg-6">
-                                    <input class="radioButton" name="posts"type="radio" checked data-toggle="toggle" data-style="ios">
-                                    <input class="radioButton" name="posts"type="radio" checked data-toggle="toggle" data-style="ios">
-                                    <input class="radioButton" name="posts"type="radio" checked data-toggle="toggle" data-style="ios">
+                                                <form>
+                                                    <input class="radioButton" name="posts" v-model="privacyForum" type="radio" value="all" checked data-toggle="toggle" data-style="ios">
+                                                    <input class="radioButton" name="posts" v-model="privacyForum" type="radio" value="friends" checked data-toggle="toggle" data-style="ios">
+                                                    <input class="radioButton" name="posts" v-model="privacyForum" type="radio" value="none" checked data-toggle="toggle" data-style="ios">
+                                                </form>
                                             </div>
                                             </div>
                                     <div class="greenLine"></div>
@@ -203,18 +216,25 @@
         data: function() {
             return {
                 profileUser: null,              // object for user
+                privacyBirthday: "all",
+                privacyComments: "all",
+                privacyFriends: "all",
+                privacyGarden: "all",
+                privacyForum: "all"
             }
         },
         mounted: function (){
-
-            this.$http.get('/api/profile/' + this.$route.params.username)
-                .then(response => {
-                    this.profileUser = response.data;
-        })
-                .catch(error => {
-                    //alert(error);
-                    this.getError(error);
-                });
+            this.profileUser = JSON.parse(localStorage.getItem('user'));
+            this.privacyBirthday = this.profileUser.privacyBirthday;
+            this.privacyComments = this.profileUser.privacyComments;
+            this.privacyFriends = this.profileUser.privacyFriends;
+            this.privacyGarden = this.profileUser.privacyGarden;
+            this.privacyForum = this.profileUser.privacyForum;
+        },
+        methods:{
+            privacyBirthdayChange: function(){
+                console.log(this.privacyBirthday);
+            }
         }
     }
 </script>
