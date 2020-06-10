@@ -114,8 +114,32 @@ class User implements UserInterface
      */
     private $incomingFriendRequests;
 
-    /*---------------userprofile comments-----------------------*/
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $privacyBirthday = "all";
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $privacyComments = "all";
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $privacyFriends = "all";
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $privacyGarden = "all";
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $privacyForum = "all";
+
+    /*---------------userprofile comments-----------------------*/
 
      // @ORM\OneToMany(targetEntity="App\Entity\ProfileComments", mappedBy="user", cascade={"persist", "remove"})
     //private $writtenComments;
@@ -484,8 +508,73 @@ class User implements UserInterface
             'achievments' => $this->achievements,
             'friends' => $this->friends,
             'userplants' =>$plants,
-            'comments' =>$this->comments
+            'comments' =>$this->comments,
+            'privacyBirthday' => $this->privacyBirthday,
+            'privacyComments' => $this->privacyComments,
+            'privacyForum' => $this->privacyForum,
+            'privacyFriends' => $this->privacyFriends,
+            'privacyGarden' => $this->privacyGarden
         ];
+    }
+
+    public function getPrivacyBirthday(): ?string
+    {
+        return $this->privacyBirthday;
+    }
+
+    public function setPrivacyBirthday(string $privacyBirthday): self
+    {
+        $this->privacyBirthday = $privacyBirthday;
+
+        return $this;
+    }
+
+    public function getPrivacyComments(): ?string
+    {
+        return $this->privacyComments;
+    }
+
+    public function setPrivacyComments(string $privacyComments): self
+    {
+        $this->privacyComments = $privacyComments;
+
+        return $this;
+    }
+
+    public function getPrivacyFriends(): ?string
+    {
+        return $this->privacyFriends;
+    }
+
+    public function setPrivacyFriends(string $privacyFriends): self
+    {
+        $this->privacyFriends = $privacyFriends;
+
+        return $this;
+    }
+
+    public function getPrivacyGarden(): ?string
+    {
+        return $this->privacyGarden;
+    }
+
+    public function setPrivacyGarden(string $privacyGarden): self
+    {
+        $this->privacyGarden = $privacyGarden;
+
+        return $this;
+    }
+
+    public function getPrivacyForum(): ?string
+    {
+        return $this->privacyForum;
+    }
+
+    public function setPrivacyForum(string $privacyForum): self
+    {
+        $this->privacyForum = $privacyForum;
+
+        return $this;
     }
 
     /*public function getWrittenComments(): ?ProfileComments
