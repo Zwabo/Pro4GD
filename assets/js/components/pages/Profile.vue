@@ -176,16 +176,21 @@
 
                             <div v-if="profileUser.comments == null" id="commentInfo">Keine Besuchernachrichten vorhanden</div>
                             <div v-else v-for="(profileComment, index) in profileUser.comments" class="container-fluid">
-                                <!--<div class="row">{{profileComment.commentMsg}}</div>
                                 <div class="row">
-                                    <div class="col-lg-6">{{profileComment.commentUsername}}</div>
-                                    <div class="col-lg-6">{{profileComment.commentDate}}</div>
-                                </div>-->
-                                {{profileComment.commentMsg}}<br>
-                                {{index}}<br>
-
-                                {{profileComment}}<br>
-
+                                    <div class="col-lg-1 paddingNormalize"><img class="commentPics" v-bind:src="profileComment.userpic"></div>
+                                    <div class="col-lg-11 commentMsg container-fluid">{{profileComment.msg}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-5 paddingNormalize">{{profileComment.username}}</div>
+                                    <div class="col-lg-6 paddingNormalize text-right">{{profileComment.date}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="container-fluid text-right paddingNormalize">
+                                        <button v-if="profileUser!=null && editProfile==true" class="deleteButton" @click="deleteComment(index)">Löschen</button>
+                                    </div>
+                                </div>
+                                <div class="row smallWhiteGreyLine paddingNormalize"></div>
                             </div>
                         </div>
                     </div>
@@ -258,17 +263,19 @@
 
 <script>
     class ProfileComment {
-        constructor(msg, username, userid, date) {
+        constructor(msg, username, userid, userpic, date) {
             this.msg = msg;
             this.username = username;
             this.userid = userid;
             this.date = date;
+            this.userpic = userpic;
         }
 
         get commentDate() { return this.date; }
         get commentUsername() { return this.username; }
         get commentUserid() { return this.userid; }
         get commentMsg() { return this.msg; }
+        get commentUserpic() { return this.userpic; }
     }
 
 
@@ -289,6 +296,7 @@
 
                 commentMessage: "",             // new comment added in textarea
                 newComment: "",                 // comment class of ProfileComment
+                commentArray: "",               // temp array for deleting purpose
 
                 loggedInUser: null,
             }
@@ -330,7 +338,12 @@
                     }
                     this.userAge = age.toString();
 
-                    console.log(this.profileUser.comments);
+                    console.log("start");
+                    if(this.profileUser.comments == null) {
+                        console.log("it's null");
+                    } else {
+                        console.log(this.profileUser.comments);
+                    }
 
                 })
                 .catch(error => {
@@ -355,7 +368,7 @@
                 })
                 .catch(error => {
                     this.getError(error);
-                })
+                });
         },
 
         methods: {
@@ -382,11 +395,18 @@
 
             saveComment: function() {
 
-                this.newComment = new ProfileComment(this.commentMessage, this.loggedInUser.username, this.loggedInUser.id, new Date());
+                let datetime = new Date();
+                let tmpDate = datetime(parseInt(item.timestamp, 10));
+
+                console.log(hour);
+
+                this.newComment = new ProfileComment(this.commentMessage, this.loggedInUser.username,
+                    this.loggedInUser.id, this.loggedInUser.userPic, new Date());
 
                 this.$http.put('/api/profile/' + this.$route.params.username + '/saveComment', this.newComment)
                     .then(response => {
-                        this.profileUser.comments = response.data;
+                        this.profileUser = response.data;
+                        console.log(response.data.comments);
                     })
                     .catch(error => {
                         this.getError(error);
@@ -395,6 +415,26 @@
 
                 this.commentMessage = "";
                 this.newComment = "";
+            },
+
+            deleteComment: function(index) {
+                console.log(index);
+                //this.profileUser.comments = this.profileUser.comments.splice(index, 1);
+                this.commentArray = this.profileUser.comments.splice(index, 1);
+                this.commentArray = JSON.stringify(this.commentArray);
+
+
+                console.log(this.commentArray);
+
+
+                this.$http.put('/api/profile/' + this.$route.params.username + '/deleteComment', this.commentArray)
+                    .then(response => {
+                        this.profileUser = response.data;
+                        console.log(response.data);
+                    })
+                    .catch(error => {
+                        this.getError(error);
+                    });
             },
 
             getError(error) {
@@ -463,5 +503,39 @@
         background-color: #97B753;
         border: 2px solid #97B753;
         color: white;
+    }
+
+    .deleteButton {
+        background-color: #97B753;
+        padding: 1%;
+        color: white;
+        border: 2px solid #97B753;
+        border-radius: 10px;
+        font-size: 80%;
+        margin-top: 1%;
+    }
+    .deleteButton:hover {
+        background-color: #B8E269;
+        border: 2px solid #B8E269;
+        color: #707070;
+    }
+    .deleteButton:active {
+        background-color: #97B753;
+        border: 2px solid #97B753;
+        color: white;
+    }
+
+    .smallWhiteGreyLine {
+        width: 100%;
+        height: 1px;
+        background: #DEDEDE;
+        margin-bottom: 4%;
+        margin-top: 2%;
+    }
+
+    .commentMsg {
+        background-color: #F5F5F5;
+        border-radius: 6px;
+        padding: 10px;
     }
 </style>

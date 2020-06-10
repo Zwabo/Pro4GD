@@ -163,11 +163,35 @@ class UserController extends AbstractController
             $profileComments = $user->getComments();
         }
 
-        $comment = $request->getContent();
+        $comment = $request->getContent();              //gets json string --> we need an array
+        //$comment = var_dump(json_decode($comment, true));
+        $comment = json_decode($comment);
+
 
         array_push($profileComments, $comment);
 
         $user->setComments($profileComments);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/profile/{username}/deleteComment", name="delete_comments", methods={"PUT"})
+     */
+    public function deleteComment($username, Request $request) {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $username]);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $commentArray = $request->getContent();
+        $commentArray = json_decode($commentArray);
+
+        $user->setComments($commentArray);
         $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
