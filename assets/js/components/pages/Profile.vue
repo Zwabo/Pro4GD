@@ -181,10 +181,11 @@
                                     <div class="col-lg-6">{{profileComment.commentUsername}}</div>
                                     <div class="col-lg-6">{{profileComment.commentDate}}</div>
                                 </div>-->
-                                {{profileComment}}
-                                {{index}}
+                                {{profileComment.commentMsg}}<br>
+                                {{index}}<br>
 
-                                {{profileComment}}
+                                {{profileComment}}<br>
+
                             </div>
                         </div>
                     </div>
@@ -288,7 +289,6 @@
 
                 commentMessage: "",             // new comment added in textarea
                 newComment: "",                 // comment class of ProfileComment
-                newCommentArray: [],            // array that will be taken to save as profileUser.comments
 
                 loggedInUser: null,
             }
@@ -387,7 +387,6 @@
                 this.$http.put('/api/profile/' + this.$route.params.username + '/saveComment', this.newComment)
                     .then(response => {
                         this.profileUser.comments = response.data;
-                        console.log(response.data);
                     })
                     .catch(error => {
                         this.getError(error);
@@ -395,6 +394,7 @@
 
 
                 this.commentMessage = "";
+                this.newComment = "";
             },
 
             getError(error) {

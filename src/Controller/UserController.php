@@ -172,6 +172,9 @@ class UserController extends AbstractController
 
         return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
     }
+
+
+
 /*
     public function getUserData($username) : JsonResponse {
         $user = $this->getDoctrine()
