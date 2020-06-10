@@ -175,7 +175,23 @@
                             </div>
 
                             <div v-if="profileUser.comments == null" id="commentInfo">Keine Besuchernachrichten vorhanden</div>
-                            <div v-else v-for="(profileComment, index) in profileUser.comments" class="container-fluid">{{profileComment}}</div>
+                            <div v-else v-for="(profileComment, index) in profileUser.comments" class="container-fluid">
+                                <div class="row">
+                                    <div class="col-lg-1 paddingNormalize"><img class="commentPics" v-bind:src="profileComment.userpic"></div>
+                                    <div class="col-lg-11 commentMsg container-fluid">{{profileComment.msg}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-5 paddingNormalize">{{profileComment.username}}</div>
+                                    <div class="col-lg-6 paddingNormalize text-right">{{profileComment.date}},  {{profileComment.time}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="container-fluid text-right paddingNormalize">
+                                        <button v-if="profileUser!=null && editProfile==true" class="deleteButton" @click="deleteComment(index)">Löschen</button>
+                                    </div>
+                                </div>
+                                <div class="row smallWhiteGreyLine paddingNormalize"></div>
+                            </div>
                         </div>
                     </div>
 
@@ -247,15 +263,21 @@
 
 <script>
     class ProfileComment {
-        constructor(message, user, date) {
-            this.message = message;
-            this.user = user;
+        constructor(msg, username, userid, userpic, date, time) {
+            this.msg = msg;
+            this.username = username;
+            this.userid = userid;
+            this.userpic = userpic;
             this.date = date;
+            this.time = time;
         }
 
         get commentDate() { return this.date; }
-        get commentUser() { return this.user; }
-        get commentMessage() { return this.message; }
+        get commentTime() { return this.time; }
+        get commentUsername() { return this.username; }
+        get commentUserid() { return this.userid; }
+        get commentMsg() { return this.msg; }
+        get commentUserpic() { return this.userpic; }
     }
 
 
@@ -276,7 +298,7 @@
 
                 commentMessage: "",             // new comment added in textarea
                 newComment: "",                 // comment class of ProfileComment
-                newCommentArray: [],            // array that will be taken to save as profileUser.comments
+                commentArray: "",               // temp array for deleting purpose
 
                 loggedInUser: null,
             }
@@ -318,7 +340,12 @@
                     }
                     this.userAge = age.toString();
 
-                    console.log(this.profileUser.comments);
+                    console.log("start");
+                    if(this.profileUser.comments == null) {
+                        console.log("it's null");
+                    } else {
+                        console.log(this.profileUser.comments);
+                    }
 
                 })
                 .catch(error => {
@@ -343,7 +370,7 @@
                 })
                 .catch(error => {
                     this.getError(error);
-                })
+                });
         },
 
         methods: {
@@ -370,42 +397,24 @@
 
             saveComment: function() {
 
-                this.newComment = new ProfileComment(this.commentMessage, this.loggedInUser, new Date());
+                let datetime = new Date();
 
-                /*let commentsTemp= [];
-                if (this.profileUser.comments != null) {
-                    commentsTemp = this.profileUser.comments;
-                }
-                commentsTemp.push({comment});*/
+                let month = datetime.getUTCMonth()+ 1;
+                let day = datetime.getUTCDate();
+                let year = datetime.getUTCFullYear();
+                let hours = datetime.getHours();
+                let minutes = datetime.getMinutes();
 
-                console.log("commentMessage");
-                console.log(this.commentMessage);
-                console.log("loggedInUser");
-                console.log(this.loggedInUser);
-                console.log("date");
-                console.log(new Date());
+                let date = day + "." + month + "." + year;
+                let time = hours + ":" + minutes;
 
-                console.log(this.newComment);
-
-                //this.newComment = JSON.stringify(this.newComment);
-                console.log(this.newComment);
-
-
-                /*if (this.profileUser.comments != null) {
-                    this.newCommentsArray = this.profileUser.comments;
-                }
-
-                this.newCommentsArray.push({
-                    newComment
-                });
-
-                this.newCommentsArray = JSON.stringify(this.newCommentsArray);
-                console.log(this.newCommentsArray);*/
+                this.newComment = new ProfileComment(this.commentMessage, this.loggedInUser.username,
+                    this.loggedInUser.id, this.loggedInUser.userPic, date, time);
 
                 this.$http.put('/api/profile/' + this.$route.params.username + '/saveComment', this.newComment)
                     .then(response => {
-                        this.profileUser.comments = response.data;
-                        console.log(response.data);
+                        this.profileUser = response.data;
+                        console.log(response.data.comments);
                     })
                     .catch(error => {
                         this.getError(error);
@@ -413,6 +422,31 @@
 
 
                 this.commentMessage = "";
+                this.newComment = "";
+            },
+
+            deleteComment: function(index) {
+                console.log(index);
+                //this.profileUser.comments = this.profileUser.comments.splice(index, 1);
+                console.log(this.profileUser.comments);
+                this.commentArray = this.profileUser.comments.splice(index, 1);
+                console.log("this.commentArray before");
+                console.log(this.commentArray);
+
+                this.commentArray = JSON.stringify(this.commentArray);
+
+                console.log("splice");
+                console.log(this.commentArray);
+
+
+                this.$http.put('/api/profile/' + this.$route.params.username + '/deleteComment', this.commentArray)
+                    .then(response => {
+                        this.profileUser = response.data;
+                        console.log(response.data);
+                    })
+                    .catch(error => {
+                        this.getError(error);
+                    });
             },
 
             getError(error) {
@@ -481,5 +515,39 @@
         background-color: #97B753;
         border: 2px solid #97B753;
         color: white;
+    }
+
+    .deleteButton {
+        background-color: #97B753;
+        padding: 1%;
+        color: white;
+        border: 2px solid #97B753;
+        border-radius: 10px;
+        font-size: 80%;
+        margin-top: 1%;
+    }
+    .deleteButton:hover {
+        background-color: #B8E269;
+        border: 2px solid #B8E269;
+        color: #707070;
+    }
+    .deleteButton:active {
+        background-color: #97B753;
+        border: 2px solid #97B753;
+        color: white;
+    }
+
+    .smallWhiteGreyLine {
+        width: 100%;
+        height: 1px;
+        background: #DEDEDE;
+        margin-bottom: 4%;
+        margin-top: 2%;
+    }
+
+    .commentMsg {
+        background-color: #F5F5F5;
+        border-radius: 6px;
+        padding: 10px;
     }
 </style>
