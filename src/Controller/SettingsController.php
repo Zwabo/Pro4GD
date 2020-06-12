@@ -13,7 +13,7 @@ use App\Entity\User;
 class SettingsController extends AbstractController
 {
     /**
-     * @Route("api/settings/{username}", name="settings")
+     * @Route("api/settings/{username}", name="settings", methods={"GET"})
      */
 
 }
