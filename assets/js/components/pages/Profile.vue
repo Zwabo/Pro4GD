@@ -1,6 +1,6 @@
 <template>
     <div id="root">
-    <div v-if="profileUser != null && createdUserString != null">
+    <div v-if="profileUser != null && createdUserString != null && loggedInUser != null">
 
         <div class="container-fluid">
 
@@ -165,10 +165,33 @@
                             <h3 class="h3Margin">Besuchernachrichten</h3>
                             <div class="greenLine"></div>
                             <div class="row" id="leaveComment">
-                                <div class="col-lg-2"><img class="commentPics" v-bind:src="profileUser.userPic"></div>
-                                <div class="col-lg-10"><textarea class="commentInput" type="text" placeholder="Nachricht hinterlassen"></textarea></div>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-2"><img class="commentPics" v-bind:src="profileUser.userPic"></div>
+                                        <div class="col-lg-10"><textarea v-model="commentMessage" class="commentInput" type="text" placeholder="Nachricht hinterlassen"></textarea></div>
+                                    </div>
+                                    <div class="text-right"><button v-on:click="saveComment" class="buttonComments">Nachricht speichern</button></div>
+                                </div>
                             </div>
-                            <div v-if="" id="commentInfo">Keine Besuchernachrichten vorhanden</div>
+
+                            <div v-if="profileUser.comments == null" id="commentInfo">Keine Besuchernachrichten vorhanden</div>
+                            <div v-else v-for="(profileComment, index) in profileUser.comments" class="container-fluid">
+                                <div class="row">
+                                    <div class="col-lg-1 paddingNormalize"><img class="commentPics" v-bind:src="profileComment.userpic"></div>
+                                    <div class="col-lg-11 commentMsg container-fluid">{{profileComment.msg}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-5 paddingNormalize">{{profileComment.username}}</div>
+                                    <div class="col-lg-6 paddingNormalize text-right">{{profileComment.date}},  {{profileComment.time}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="container-fluid text-right paddingNormalize">
+                                        <button v-if="profileUser!=null && editProfile==true" class="deleteButton" @click="deleteComment(index)">Löschen</button>
+                                    </div>
+                                </div>
+                                <div class="row smallWhiteGreyLine paddingNormalize"></div>
+                            </div>
                         </div>
                     </div>
 
@@ -240,15 +263,21 @@
 
 <script>
     class ProfileComment {
-        constructor(date, user, message) {
+        constructor(msg, username, userid, userpic, date, time) {
+            this.msg = msg;
+            this.username = username;
+            this.userid = userid;
+            this.userpic = userpic;
             this.date = date;
-            this.user = user;
-            this.message = message;
+            this.time = time;
         }
 
-        get date() { return this.date; }
-        get user() { return this.user; }
-        get message() { return this.message; }
+        get commentDate() { return this.date; }
+        get commentTime() { return this.time; }
+        get commentUsername() { return this.username; }
+        get commentUserid() { return this.userid; }
+        get commentMsg() { return this.msg; }
+        get commentUserpic() { return this.userpic; }
     }
 
 
@@ -266,7 +295,22 @@
 
                 editProfile: false,             // bool if edit profile is active or not
                 userTemp: null,
+
+                commentMessage: "",             // new comment added in textarea
+                newComment: "",                 // comment class of ProfileComment
+                commentArray: "",               // temp array for deleting purpose
+
+                loggedInUser: null,
             }
+        },
+
+        created: function(){
+            this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+
+            //Retrieve user item from local storage in case of login
+            this.$root.$on('loggedIn', () => {
+                this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+            });
         },
 
         mounted: function(){
@@ -296,6 +340,13 @@
                     }
                     this.userAge = age.toString();
 
+                    console.log("start");
+                    if(this.profileUser.comments == null) {
+                        console.log("it's null");
+                    } else {
+                        console.log(this.profileUser.comments);
+                    }
+
                 })
                 .catch(error => {
                     //alert(error);
@@ -319,7 +370,7 @@
                 })
                 .catch(error => {
                     this.getError(error);
-                })
+                });
         },
 
         methods: {
@@ -342,6 +393,60 @@
                     });
 
                 this.editProfile = false;
+            },
+
+            saveComment: function() {
+
+                let datetime = new Date();
+
+                let month = datetime.getUTCMonth()+ 1;
+                let day = datetime.getUTCDate();
+                let year = datetime.getUTCFullYear();
+                let hours = datetime.getHours();
+                let minutes = datetime.getMinutes();
+
+                let date = day + "." + month + "." + year;
+                let time = hours + ":" + minutes;
+
+                this.newComment = new ProfileComment(this.commentMessage, this.loggedInUser.username,
+                    this.loggedInUser.id, this.loggedInUser.userPic, date, time);
+
+                this.$http.put('/api/profile/' + this.$route.params.username + '/saveComment', this.newComment)
+                    .then(response => {
+                        this.profileUser = response.data;
+                        console.log(response.data.comments);
+                    })
+                    .catch(error => {
+                        this.getError(error);
+                    });
+
+
+                this.commentMessage = "";
+                this.newComment = "";
+            },
+
+            deleteComment: function(index) {
+                console.log(index);
+                //this.profileUser.comments = this.profileUser.comments.splice(index, 1);
+                console.log(this.profileUser.comments);
+                this.commentArray = this.profileUser.comments.splice(index, 1);
+                console.log("this.commentArray before");
+                console.log(this.commentArray);
+
+                this.commentArray = JSON.stringify(this.commentArray);
+
+                console.log("splice");
+                console.log(this.commentArray);
+
+
+                this.$http.put('/api/profile/' + this.$route.params.username + '/deleteComment', this.commentArray)
+                    .then(response => {
+                        this.profileUser = response.data;
+                        console.log(response.data);
+                    })
+                    .catch(error => {
+                        this.getError(error);
+                    });
             },
 
             getError(error) {
@@ -390,5 +495,59 @@
         border: 1px solid #97B753;
         border-radius: 4px;
         background-color: #F5F5F5;
+    }
+    .buttonComments {
+        background-color: #97B753;
+        padding: 1%;
+        color: white;
+        border: 2px solid #97B753;
+        border-radius: 10px;
+        font-size: 80%;
+        margin-bottom: 2%;
+        margin-top: 1%;
+    }
+    .buttonComments:hover {
+        background-color: #B8E269;
+        border: 2px solid #B8E269;
+        color: #707070;
+    }
+    .buttonComments:active {
+        background-color: #97B753;
+        border: 2px solid #97B753;
+        color: white;
+    }
+
+    .deleteButton {
+        background-color: #97B753;
+        padding: 1%;
+        color: white;
+        border: 2px solid #97B753;
+        border-radius: 10px;
+        font-size: 80%;
+        margin-top: 1%;
+    }
+    .deleteButton:hover {
+        background-color: #B8E269;
+        border: 2px solid #B8E269;
+        color: #707070;
+    }
+    .deleteButton:active {
+        background-color: #97B753;
+        border: 2px solid #97B753;
+        color: white;
+    }
+
+    .smallWhiteGreyLine {
+        width: 100%;
+        height: 1px;
+        background: #DEDEDE;
+        margin-bottom: 4%;
+        margin-top: 2%;
+    }
+
+    .commentMsg {
+        background-color: #F5F5F5;
+        border-radius: 6px;
+        padding: 10px;
     }
 </style>
