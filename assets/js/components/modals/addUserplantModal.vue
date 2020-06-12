@@ -68,13 +68,14 @@
                     userId: this.userId,
                     name: this.name,
                     location: this.location,
-                    notes: this.notes
+                    notes: this.notes,
                     })
                     .catch(error => {
                         if(error.response.data){
                             this.error = error.response.data;
                         }
                      });
+                this.$emit('newUserplant');
             }
         }
     }

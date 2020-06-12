@@ -118,7 +118,7 @@
 
                                     <p class="text-left gardenPFirst"><b>{{ plant[0].name }}</b></p>
                                     <p>{{ plant[0].genus}}</p>
-                                <add-userplant-modal :plant="plant[0]" :user="$route.params.id">{{addUserplant()}}
+                                <add-userplant-modal :plant="plant[0]" :user="$route.params.id" @newUserplant="newUserplant">
                                 </add-userplant-modal>
                             </div>
 
@@ -134,7 +134,7 @@
                                 <div class="col-sm-7 plantInfo">
                                     <p class="text-left gardenPFirst"><b>{{ plant[1].name }}</b></p>
                                     <p>{{ plant[1].genus}}</p>
-                                    <add-userplant-modal :plant="plant[1]" :user="$route.params.id">{{addUserplant()}}
+                                    <add-userplant-modal :plant="plant[1]" :user="$route.params.id" @newUserplant="newUserplant">
                                     </add-userplant-modal>
 
                                 </div>
@@ -181,7 +181,8 @@
                i: 0,
                plants: [],
                image: '',
-               add: false
+               add: false,
+               userid: this.$route.params.id
            }
        },
        mounted: function(){
@@ -221,7 +222,7 @@
                   this.index +=2;
               }
 
-              if(this.index % 2 === 0) {
+              if(this.userPlants[this.i-1][1] == null) {
                   this.userPlants[this.i-1][1] = null;
               }
 
@@ -240,7 +241,7 @@
                    index +=2;
                }
 
-               if(index % 2 === 0) {
+               if(this.plants[i-1][1] == null) {
                    this.plants[i-1][1] = null;
                }
 
@@ -258,8 +259,8 @@
 
            },
 
-           addUserplant: function(){
-              // vm.$forceUpdate();
+           newUserplant: function(){
+               location.reload(true);
            }
 
        }
