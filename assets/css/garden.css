@@ -90,10 +90,6 @@ a { color: #6E6E6E; }
     padding: 10px 10px 10px 30px;
     margin-bottom: 30px;
     height: 120px;
-}
-
-.plantProfil:active {
-    background-color: #DEDEDE;
     color: #707070;
 }
 

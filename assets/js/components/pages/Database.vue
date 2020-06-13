@@ -49,26 +49,92 @@
             <h1 class="font-weight-light">Datenbank</h1>
         </div>
         <div class="col-lg-1 whiteLineVert"></div>
-        <div class="col-5 text-center">
+        <div class="col-5 text-center" v-if="!buttonPressed">
             <form>
                 <p class="search">Suche</p>
-                <input type="text" placeholder="Suche nach Pflanzen.." class="form-control form-control-sm searchBarDatabase" aria-label="Search">
-                <select class="form-control form-control-sm searchBarDatabase DropdownFont">
-                    <option>Kathegorie auswählen</option>
-                    <option>Kathegorie auswählen</option>
-                    <option>Kathegorie auswählen</option>
+                <input type="text" placeholder="Suche nach Pflanzen.." class="form-control form-control-sm searchBarDatabase" aria-label="Search" v-model="search">
+                <select class="form-control form-control-sm searchBarDatabase DropdownFont" v-model="category">
+                    <option value="" disabled selected>Kathegorie auswählen</option>
+                    <option>Wildpflanze</option>
+                    <option>Heilpflanze</option>
+                    <option>Fleischfressende Pflanze</option>
+                    <option>Kletterpflanze</option>
+                    <option>Palme</option>
+                    <option>Zimmerpflanze</option>
+                    <option>Sonnenpflanze</option>
+                    <option>Frühlingsblüher</option>
+                    <option>Sommerblüher</option>
+                    <option>Herbstblüher</option>
+                    <option>Winterblüher</option>
                 </select>
-                <select class="form-control form-control-sm searchBarDatabase DropdownFont ">
-                    <option>Schwierigkeit</option>
-                    <option>Schwierigkeit</option>
-                    <option>Schwierigkeit</option>
+                <select class="form-control form-control-sm searchBarDatabase DropdownFont" v-model="difficulty">
+                    <option value="" disabled selected>Schwierigkeit</option>
+                    <option>gering</option>
+                    <option>mittel</option>
+                    <option>hoch</option>
+                    <option>extrem</option>
                 </select>
-                <button class="buttonWhiteSearch">Suche starten</button>
+                <button class="buttonWhiteSearch" v-on:click="buttonPressed = true">Suche starten</button>
                 <button class="col-lg-10 selfAlignCenter buttonWhiteExplore">
                     Pflanzen entdecken
                 </button>
             </form>
 
+        </div>
+
+        <div v-if="buttonPressed">
+
+            <div class="row">
+                <div class="col-6"> Hier stehen alle eingaben magst ds ändern</div>
+                <button type="button" class="close col-2 " aria-label="Close" @click="buttonPressed = false">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="row searchPlants">
+            <div class="col-lg-6">
+                <div v-for="(plant, index) in filteredPlants" class="container-fluid">
+                    <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
+                        <div class="container-fluid plantProfil dropShadow bgWhiteGrey ">
+                            <div class="row">
+                                <div class="col-sm-7 plantInfo">
+                                    <p class="text-left gardenPFirst"><b>{{ plant.name }}</b></p>
+                                    <p>{{ plant.genus}}</p>
+                                    <router-link :to="'/plant/' + plant.linkName">
+                                        <button class="buttonDarkGreenSmall">Zum Eintrag</button>
+                                    </router-link>
+
+                                </div>
+                                <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon"  alt="Picture of plant" height="100" >
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div v-for="(plant, index) in filteredPlants" class="container-fluid">
+                    <div v-if="index % 2 !== 0" class="row paddingNormalize">
+                        <div class="container-fluid plantProfil dropShadow bgWhiteGrey">
+                            <div class="row">
+                                <div class="col-sm-7 plantInfo">
+                                    <p class="text-left gardenPFirst"><b>{{ plant.name }}</b></p>
+                                    <p>{{plant.genus}}</p>
+                                    <router-link :to="'/plant/' + plant.linkName">
+                                        <button class="buttonDarkGreenSmall">Zum Eintrag</button>
+                                    </router-link>
+
+                                </div>
+                                <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon"  alt="Picture of plant" height="100" >
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
         </div>
 
     </div>
@@ -80,6 +146,10 @@
         data: function(){
             return{
                 plants: null,
+                category: '',
+                search: '',
+                difficulty: '',
+                buttonPressed: false
             }
         },
         mounted: function() {
@@ -90,7 +160,23 @@
                 .catch(error => {
                     alert(error);
                 });
-        }
+        },
+
+        computed: {
+
+            filteredPlants: function () {
+                return this.plants.filter((plant) => {
+                    return (plant.name.toLowerCase().match(this.search.toLowerCase())
+                        || plant.genus.toLowerCase().match(this.search.toLowerCase())
+                        || plant.latinName.toLowerCase().match(this.search.toLowerCase()))
+                        //|| plant.alternativeName.toLowerCase().match(this.search.toLowerCase()) can be null
+                        && plant.careLevel.match(this.difficulty)
+                        //&& plant.category.match(this.category) not yet in database
+                });
+
+            }
+
+        },
     }
 
 </script>

@@ -6,7 +6,7 @@
 
             <div class="row garden">
                 <h1 class="col-sm">Mein Garten</h1>
-                <div class="col-sm text-right add"><span @click="addPlant()" class="iconGarden">
+                <div class="col-sm text-right add"><span @click="add = true" class="iconGarden">
 
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="path1" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><path class="path2" d="M362.8,227.9c0,14.2-11.4,25.6-25.6,25.6h-85.3v85.3c0,14.2-11.4,25.6-25.6,25.6s-25.6-11.4-25.6-25.6v-85.3
 	h-85.3c-14.2,0-25.6-11.4-25.6-25.6s11.4-25.6,25.6-25.6h85.3v-85.3c0-14.2,11.4-25.6,25.6-25.6s25.6,11.4,25.6,25.6v85.3h85.3
@@ -14,7 +14,6 @@
 
             </div>
             <div class="greenLine"></div>
-
 
             <div class="row">
 
@@ -97,14 +96,12 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
         <div class="col addPlant">
 
             <div class="row search">
-            <div class="col-11">
-                <input type="text" placeholder="Suche nach Pflanzen.." class="searchBar form-control" aria-label="Search" v-model="search">
-            </div>
-
-                <span @click="close()" class="col iconGarden">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="path1" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><path class="path2" d="M362.8,227.9c0,14.2-11.4,25.6-25.6,25.6h-85.3v85.3c0,14.2-11.4,25.6-25.6,25.6s-25.6-11.4-25.6-25.6v-85.3
-	h-85.3c-14.2,0-25.6-11.4-25.6-25.6s11.4-25.6,25.6-25.6h85.3v-85.3c0-14.2,11.4-25.6,25.6-25.6s25.6,11.4,25.6,25.6v85.3h85.3
-	C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg></span>
+                 <div class="col-11">
+                    <input type="text" placeholder="Suche nach Pflanzen.." class="searchBar form-control" aria-label="Search" v-model="search">
+                </div>
+                <button type="button" class="close col iconGarden" aria-label="Close" @click="add = false">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
 
                 <div class="row">
@@ -221,18 +218,6 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
            replaceImage: function (image) {
 
                this.image= image;
-
-           },
-
-           addPlant: function () {
-
-            this.add = true;
-
-           },
-
-           close: function () {
-
-            this.add = false;
 
            },
 

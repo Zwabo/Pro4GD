@@ -43,3 +43,11 @@
 .DropdownFont {
     font-weight: lighter;
 }
+
+.searchPlants {
+    margin-top: 30px;
+    height: 50vh;
+    width: 90vh;
+    overflow: auto;
+}
+
