@@ -92,13 +92,13 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 
         </div>
 
-        <div class="col"v-if="add">
+        <div class="col" v-if="add">
 
         <div class="col addPlant">
 
             <div class="row search">
             <div class="col-11">
-                <input type="text" placeholder="Suche nach Pflanzen.." class="searchBar form-control" aria-label="Search">
+                <input type="text" placeholder="Suche nach Pflanzen.." class="searchBar form-control" aria-label="Search" v-model="search">
             </div>
 
                 <span @click="close()" class="col iconGarden">
@@ -110,7 +110,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                 <div class="row">
 
                     <div class="col-lg-6">
-                        <div v-for="(plant, index) in plants" class="container-fluid">
+                        <div v-for="(plant, index) in filteredPlants" class="container-fluid">
                             <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
                                 <div class="container-fluid plantProfil dropShadow bgWhiteGrey ">
                                     <div class="row">
@@ -130,7 +130,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                     </div>
 
                     <div class="col-lg-6">
-                        <div v-for="(plant, index) in plants" class="container-fluid">
+                        <div v-for="(plant, index) in filteredPlants" class="container-fluid">
                             <div v-if="index % 2 !== 0" class="row paddingNormalize">
                                 <div class="container-fluid plantProfil dropShadow bgWhiteGrey">
                                     <div class="row">
@@ -179,6 +179,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                plants: null,
                image: '',
                add: false,
+               search: ''
            }
        },
        mounted: function(){
@@ -198,6 +199,20 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                });
 
 
+
+       },
+
+       computed: {
+
+           filteredPlants: function () {
+               return this.plants.filter((plant) => {
+                   return plant.name.toLowerCase().match(this.search.toLowerCase())
+                       || plant.genus.toLowerCase().match(this.search.toLowerCase())
+                       || plant.latinName.toLowerCase().match(this.search.toLowerCase())
+                       //|| plant.alternativeName.toLowerCase().match(this.search.toLowerCase()) can be null
+               });
+
+           }
 
        },
 
