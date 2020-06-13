@@ -44,8 +44,10 @@ a:link { text-decoration: none; }
 a { color: #6E6E6E; }
 
 .plantsProfil {
+    margin-bottom: 40px;
     border-radius: 10px;
     padding: 10px 10px 10px 30px;
+    width: 90%;
 }
 
 .plantsProfil:hover {
@@ -86,6 +88,8 @@ a { color: #6E6E6E; }
 .plantProfil {
     border-radius: 10px;
     padding: 10px 10px 10px 30px;
+    margin-bottom: 30px;
+    height: 120px;
 }
 
 .plantProfil:active {
