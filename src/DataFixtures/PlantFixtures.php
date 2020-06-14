@@ -67,6 +67,8 @@ class PlantFixtures extends Fixture implements OrderedFixtureInterface
         $plant->setHeydayAddinfo("loe vera blüht mit Erreichen der Geschlechtsreife jedes Jahr im Frühling. Die pflegeleichte Zimmerpflanze benötigt dazu keine besonderen Bedingungen. Ein kühler Standort im Winter ist jedoch für die Blütenbildung förderlich.");
         $plant->setCareTips("Die Pflanze mäßig gießen, um das Substrat zwischenzeitlich gut antrocknen zu lassen. Vorzugsweise kalkarmes Wasser verwenden, das von unten verabreicht wird. Von März bis Oktober alle 4 Wochen flüssigen Kakteendünger applizieren Vergilbte, eingezogene Blätter am äußeren Rand anschneiden und herausdrehen");
 
+        $plant->setCategory("Heilpflanze");
+
         $manager->persist($plant);
         $manager->flush();
         $this->addReference(self::ALOEVERA, $plant);
@@ -115,6 +117,8 @@ Gießwasser darf nicht im Untersetzer oder Übertopf belassen werden. Es ist von
         $alpenveilchen->setCareTips(
             "Das Pflegegeheimnis des Alpenveilchens ließe sich wie folgt zusammenfassen: leichte Feuchte und frische Kühle. Wenn Sie für die hübschen Dauerblüher einen Platz am sonnigen Wohnzimmerfenster vorgesehen haben, werden es Ihnen die Alpenveilchen allerdings kaum danken. Viel wohler fühlen sich die Pflanzen in einem kühlen Schlafzimmer, in einem hellen Flur oder in einem Badezimmer, wo wenig geheizt wird. Werden Alpenveilchen im Inneren zu intensiv bewässert, führt dies zum Faulen der Blatt- und Blütenstiele. Wird das Alpenveilchen in ein Gefäß mit feuchtem Torf gestellt, bleibt das Substrat gleichmäßig feucht."
         );
+
+        $alpenveilchen->setCategory("Wildpflanze");
 
         $alpenveilchen->setIcon("images/plants/Alpenveilchen.png");
         $alpenveilchen->setWindowIcon("images/plants/AlpenveilchenBackground.png");
@@ -181,6 +185,8 @@ genügend Helligkeit sorgt."
         Dünger: 1x pro Monat düngen, im Winter seltener"
         );
 
+        $begonie->setCategory("Zimmerpflanze");
+
         $begonie->setIcon("images/plants/Begonie.png");
         $begonie->setWindowIcon("images/plants/BegonieBackground.png");
 
@@ -244,6 +250,8 @@ genügend Helligkeit sorgt."
         Dünger: 1x pro Monat düngen, im Winter seltener"
         );
 
+        $blattbegonie->setCategory("Zimmerpflanze");
+
         $blattbegonie->setIcon("images/plants/Begonie.png");
         $blattbegonie->setWindowIcon("images/plants/BegonieBackground.png");
 
@@ -305,6 +313,8 @@ genügend Helligkeit sorgt."
         Wintertipps: verwende Pflanzenleuchte für genügend Helligkeit und vermeide aufsteigende Heizungsluft (z.B. Fenster mit darunter liegendem Heizkörper)
         Dünger: 1x pro Monat düngen, im Winter seltener"
         );
+
+        $koenigsbegonie->setCategory("Zimmerpflanze");
 
         $koenigsbegonie->setIcon("images/plants/Begonie.png");
         $koenigsbegonie->setWindowIcon("images/plants/BegonieBackground.png");
@@ -373,6 +383,8 @@ genügend Helligkeit sorgt."
         Dünger: 1x pro Monat düngen, im Winter seltener"
         );
 
+        $wimpernbegonie->setCategory("Zimmerpflanze");
+
         $wimpernbegonie->setIcon("images/plants/Begonie.png");
         $wimpernbegonie->setWindowIcon("images/plants/BegonieBackground.png");
 
@@ -426,6 +438,8 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
         $zimmercalla->setCareTips(
             "Während der Blüte feucht halten und einmal in der Woche mit Wasser besprühen. Verblühtes und Vertrocknetes abschneiden und nach der Blütezeit austrocknen lassen. Im Topf oder als Blumenzwiebel überwintern"
         );
+
+        $zimmercalla->setCategory("Zierpflanze");
 
         $zimmercalla->setIcon("images/plants/Calla.png");
         $zimmercalla->setWindowIcon("images/plants/CallaBackground.png");
@@ -483,6 +497,8 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
         $geranie->setHeydayAddinfo("ganzer Sommer bei entsprechender Düngung");
         $geranie->setCareTips("Regelmäßigs ausputzen der Blüten regt die Blütenbildung zur Höchstleistung an.");
 
+        $geranie->setCategory("Zierpflanze");
+
         $geranie->setIcon("images/plants/Aloe.png");
         $geranie->setWindowIcon("images/plants/AloeBackground.png");
 
@@ -536,6 +552,8 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
         $edelgeranie->setFlowerColor("Lila, Weiß, Rot, Pink, Orange, Gelb, Lavendel, Purpur, zwei-färbig");
         $edelgeranie->setHeydayAddinfo("ganzer Sommer bei entsprechender Düngung");
         $edelgeranie->setCareTips("- regelmäßigs ausputzen der Blüten regt die Blütenbildung zur Höchstleistung an");
+
+        $edelgeranie->setCategory("Zierpflanze");
 
         $edelgeranie->setIcon("images/plants/Aloe.png");
         $edelgeranie->setWindowIcon("images/plants/AloeBackground.png");
@@ -596,6 +614,8 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
         $schmetterlingsgeranie->setHeydayAddinfo("ganzer Sommer bei entsprechender Düngung");
         $schmetterlingsgeranie->setCareTips("- regelmäßigs ausputzen der Blüten regt die Blütenbildung zur Höchstleistung an");
 
+        $schmetterlingsgeranie->setCategory("Zierpflanze");
+
         $schmetterlingsgeranie->setIcon("images/plants/Aloe.png");
         $schmetterlingsgeranie->setWindowIcon("images/plants/AloeBackground.png");
 
@@ -635,6 +655,8 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
             "Die Glücksfeder ist eine pflegeleichte Kübelpflanze, die auch bei einem Gartenanfänger Einzug halten kann. Denn auch wenn ab und zu das Gießen einmal vergessen wird, zieht sich die Pflanze die Feuchtigkeit aus den Rhizomen. Auch an das Substrat oder den Dünger stellt die Pflanze keine großen Ansprüche. Der Standort ist optimal, wenn die Glücksfeder morgens und abends ein wenig Sonneneinstrahlung erhält, ansonsten darf sie auch dunkel stehen."
         );
 
+        $gluecksfeder->setCategory("Zimmerpflanze");
+
         $gluecksfeder->setIcon("images/plants/Aloe.png");
         $gluecksfeder->setWindowIcon("images/plants/AloeBackground.png");
 
@@ -673,6 +695,10 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
         $chinroseneibisch->setFlowerColor("Rot, Rosa, Gelb");
         $chinroseneibisch->setCareTips("Den Roseneibisch hält man am besten als Kübelpflanze, da er bei uns nicht winterhart ist. Nach den Eisheiligen kann man ihn ins Freie stellen: Er braucht allerdings einen geschützten, warmen Platz, der aber nicht in der prallen Sonne, sondern im Halbschatten liegen sollte, da der Roseneibisch eine hohe Luftfeuchtigkeit braucht. An trocken-heißen Tagen sollte man ihn deshalb immer etwas mit der Sprühflasche einnebeln. Außerdem sollte man ihn während der Sommermonate reichlich gießen. Im Herbst kommt er dann wieder ins Winterquartier bei 12 bis 15 Grad Celsius. Im Winter wird er trockener gehalten und seltener gegossen und gedüngt. Der Roseneibisch lässt sich durch Stecklinge vegetativ vermehren, die man zwischen April und Mai oder zwischen Juli und August schneidet und bei Temperaturen zwischen 18 und 21 Grad Celsius wurzeln lässt.");
 
+        $chinroseneibisch->getCareLevel("Zierpflanze");
+
+        $chinroseneibisch->setCategory("Zierpflanze");
+
         $chinroseneibisch->setIcon("images/plants/Aloe.png");
         $chinroseneibisch->setWindowIcon("images/plants/AloeBackground.png");
 
@@ -707,6 +733,7 @@ Licht als im Sommer. Während sie in der kalten Jahreszeit einen sehr hellen Sta
         $hawaipalme->setFlowerColor("Grün, Gelb");
         $hawaipalme->setCareTips("Pflegetipps??");
 
+        $hawaipalme->setCategory("Palme");
         $hawaipalme->setIcon("images/plants/Aloe.png");
         $hawaipalme->setWindowIcon("images/plants/AloeBackground.png");
 
@@ -737,6 +764,8 @@ Licht als im Sommer. Während sie in der kalten Jahreszeit einen sehr hellen Sta
         $katzengras->setSubstrateAddinfo("Anzuchterde ist keimfrei und nährstoffarm und deshalb besonders gut geeignet. Alternativ kann ein nährstoffarmes, wasser- und luftdurchlässiges Substrat genutzt werden.");
         $katzengras->setCareTips("Pflegetipps???");
 
+        $katzengras->setCategory("Gräser");
+
         $katzengras->setIcon("images/plants/Aloe.png");
         $katzengras->setWindowIcon("images/plants/AloeBackground.png");
 
@@ -766,6 +795,8 @@ Licht als im Sommer. Während sie in der kalten Jahreszeit einen sehr hellen Sta
         $venusfliegenfalle->setLocationAddinfo("Im Sommer kann die Pflanze auch nach draußen umziehen.");
         $venusfliegenfalle->setTemperatureAddinfo("Überwinterung: etwas kühlere Temperatur als normal");
         $venusfliegenfalle->setCareTips("Pflegetipps???");
+
+        $venusfliegenfalle->setCategory("Fleischfressende Pflanze");
 
         $venusfliegenfalle->setIcon("images/plants/Aloe.png");
         $venusfliegenfalle->setWindowIcon("images/plants/AloeBackground.png");
@@ -816,6 +847,8 @@ Zu beachten ist das richtige Überwintern und das Stutzen der Stängel nach der 
         Wenn die Blütenknospen zu sehen sind, ist es ratsam, die Narzisse an einen kühleren Ort wie in den Hausflur zu stellen. Dort halten sich die Blüten länger. 
 Wichtig ist die Stängel nach der Blütenzeit zu stutzen, aber die Blätter noch an der Nazisse zu lassen, sodass die Zwiebeln genug Nährstoffe erhalten und überleben");
 
+        $narzisse->setCategory("Zwiebelgewächse");
+
         $narzisse->setIcon("images/plants/Aloe.png");
         $narzisse->setWindowIcon("images/plants/AloeBackground.png");
 
@@ -862,6 +895,8 @@ Es ist ratsam, eine Gartenschere zu verwenden. Die Orchidee ist nämlich sehr em
     Schädlinge:
     Orchideen sind anfällig für Schildläuse. Vorsorgliches Sprühen wirkt gut gegen Schildläuse. Diese mögen nämlich keine Feuchtigkeit. Bekämpfen ist auch möglich. Hierfür gibt es spezielle Schädlingsbekämpfungsmitteln.");
 
+        $orchidee->setCategory("Zierpflanze");
+
         $orchidee->setIcon("images/plants/Aloe.png");
         $orchidee->setWindowIcon("images/plants/AloeBackground.png");
 
@@ -901,6 +936,8 @@ Es ist ratsam, eine Gartenschere zu verwenden. Die Orchidee ist nämlich sehr em
 Weihnachtsstern eine Kurztagspflanze. Er bildet nur bei weniger als zwölf Stunden Tageslänge neue Hochblätter und Blütenknospen aus. In unseren Breiten ist das ab Oktober der Fall. Allerdings dauert die Helligkeit im Wohnraum durch künstliches Licht meist deutlich länger an, als sie der Weihnachtsstern zur Blütenbildung benötigt. Wird er länger als zwölf Stunden Licht ausgesetzt, tritt er in den Blühstreik und bildet nur grüne Blätter: Der Langschläfer braucht eben seinen Schönheitsschlaf. 
 Die Eigenschaft, dass die Blütenbildung beim Weihnachtsstern durch eine maximal zwölf Stunden lange Belichtung ausgelöst wird, machen sich hierzulande die Gärtnereien zunutze: Sie decken ihre Gewächshäuser ab Oktober mit schwarzer Folie ab, sodass den Weihnachtssternen ein entsprechend kurzer Tag vorgegaukelt wird. Und voilá – zusammen mit der Blüte erscheinen die roten Sterne pünktlich zur Adventszeit. Im Umkehrschluss bedeutet das, dass Sie Ihren Weihnachtsstern auch mitten im Sommer blühen lassen können, wenn Sie etwas experimentieren und den Lichtentzug entsprechend früh vornehmen. ");
 
+        $weihnachtsstern->setCategory("Zierpflanze");
+
         $weihnachtsstern->setIcon("images/plants/Aloe.png");
         $weihnachtsstern->setWindowIcon("images/plants/AloeBackground.png");
 
@@ -939,6 +976,8 @@ Des Weiteren haben Yuccas einen hohen Wasserbedarf und müssen dementsprechend o
 Eine monatliche Düngegabe von März bis September genügt den Yucca-Palmen vollkommen. 
 Yuccas sollten alle 2 – 3 Jahre umgetopft werden, nämlich immer dann, wenn der Ballen komplett durchwurzelt ist. Bei der Wahl des Pflanzgefäßes ist darauf zu achten, dass dieses tief und nicht breit ist.");
 
+        $yuccapalme->setCategory("Palme");
+
         $yuccapalme->setIcon("images/plants/Aloe.png");
         $yuccapalme->setWindowIcon("images/plants/AloeBackground.png");
 
@@ -970,6 +1009,8 @@ Yuccas sollten alle 2 – 3 Jahre umgetopft werden, nämlich immer dann, wenn de
         $schwertfarn->setWateringAmountAddinfo("Die Erde sollte gleichmäßig feucht bleiben, man sollte oft gießen, jedoch nicht zu reichlich, vor allem bei Temperaturen unter 16 °C. Unbedingt Staunässe und zu lange Trockenheit vermeiden");
         $schwertfarn->setFertiliserAddinfo("Alle zwei Wochen mit flüssigen Volldünger. Bei Komposterdenbasis nur alle 4 Wochen.");
         $schwertfarn->setCareTips("Während der Wachstumszeit öfter düngen, im Winter eher seltener. Der beste Zeitraum zum Umtopfen ist der Frühling. Bei Lufttrockenheit kann es sein, dass der Schwertfarn von Spinnmilben befallen wird und seine Blätter abwirft, deshalb sollte er öfter abgesprüht werden oder in einem Raum mit hoher Luftfeuchtigkeit platziert werden.");
+
+        $schwertfarn->setCategory("Farn");
 
         $schwertfarn->setIcon("images/plants/Aloe.png");
         $schwertfarn->setWindowIcon("images/plants/AloeBackground.png");

@@ -107,6 +107,25 @@ class GardenController extends AbstractController
         return new JsonResponse(Response::HTTP_OK);
     }
 
+    /**
+     * @Route("/api/garden/setWateringDate/{id}", name="setWateringDate", methods={"PUT"})
+     */
+    public function setName($id, Request $request){
+        $userplant = $this->getDoctrine()
+            ->getRepository(Userplant::class)
+            ->find($id);
+
+        if (!$userplant) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $data = $request->getContent();
+        $userplant->setWateringDate($data);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);
+    }
+
 }
 
 
