@@ -29,6 +29,7 @@ class UserplantFixture extends Fixture implements DependentFixtureInterface
         $dateAdded->format('Y/m/d');
         $userplant->setDateAdded($dateAdded);
         $userplant->setDateWatered($dateAdded);
+        $userplant->setWateringCycle(5);
 
         $userplant->setUser($this->getReference(UserFixtures::TESTUSER));
         $userplant->setPlant($this->getReference(PlantFixtures::ALOEVERA));
@@ -49,6 +50,7 @@ class UserplantFixture extends Fixture implements DependentFixtureInterface
         $dateAdded->format('Y/m/d');
         $userplant2->setDateAdded($dateAdded);
         $userplant2->setDateWatered($dateAdded);
+        $userplant2->setWateringCycle(5);
 
         $userplant2->setUser($this->getReference(UserFixtures::TESTUSER));
         $userplant2->setPlant($this->getReference(PlantFixtures::ZIMMERCALLA));
@@ -64,6 +66,7 @@ class UserplantFixture extends Fixture implements DependentFixtureInterface
         $dateAdded->format('Y/m/d');
         $userplant3->setDateAdded($dateAdded);
         $userplant3->setDateWatered($dateAdded);
+        $userplant3->setWateringCycle(5);
 
         $userplant3->setUser($this->getReference(UserFixtures::TESTUSER));
         $userplant3->setPlant($this->getReference(PlantFixtures::ALPENVEILCHEN));

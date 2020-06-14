@@ -52,6 +52,11 @@ class Userplant
      */
     private $plant;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $WateringCycle;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -165,6 +170,18 @@ class Userplant
         return $this;
     }
 
+    public function getWateringCycle(): ?int
+    {
+        return $this->WateringCycle;
+    }
+
+    public function setWateringCycle(int $WateringCycle): self
+    {
+        $this->WateringCycle = $WateringCycle;
+
+        return $this;
+    }
+
     public function toAssoc(){
         return [
             'id' => $this->id,
@@ -172,8 +189,10 @@ class Userplant
             'location' => $this->location,
             'dateAdded' => $this->dateAdded,
             'dateWatered' => $this->dateWatered,
+            'wateringCycle' => $this->WateringCycle,
             'notes' => $this->notes,
             'plant' => $this->plant->toAssoc()
         ];
     }
+
 }

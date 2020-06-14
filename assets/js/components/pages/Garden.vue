@@ -234,12 +234,8 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                let today = new Date();
                let watering = new Date(wateringDate['date']);
 
-               /*if(watering.getDate() === today.getDate() &&
-                   watering.getMonth() === today.getMonth() &&
-                   watering.getFullYear() === today.getFullYear()) {*/
-
                    // current date plus one week
-                   today.setDate(today.getDate() + 7);
+                   today.setDate(today.getDate() + userplant.wateringCycle);
                    today.setMonth(today.getMonth() +1);
                    let setDate = today.getDate()+'-'+today.getMonth()+'-'+today.getFullYear();
 
@@ -250,7 +246,6 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                        .catch(error => {
                            this.error = error.response.data;
                        });
-              // }
 
            },
 

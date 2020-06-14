@@ -29,6 +29,18 @@
                                 <input type="text" class="form-control" id="userplantLocation" v-model="location" required>
                             </div>
                             <div class="form-group">
+                                <label for="userplantWateringCycle">Gießintervall</label>
+                                <select  class="form-control" id="userplantWateringCycle" v-model="cycle" required>
+                                    <option value="1">jeden Tag</option>
+                                    <option value="2">alle 2 Tage</option>
+                                    <option value="3">alle 3 Tage</option>
+                                    <option value="4">alle 4 Tage</option>
+                                    <option value="5">alle 5 Tage</option>
+                                    <option value="6">alle 6 Tage</option>
+                                    <option value="7">einmal pro Woche</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="userplantNotes">Notizen</label>
                                 <textarea name="Notes" cols="40" rows="5" class="form-control" id="userplantNotes" v-model="notes"></textarea>
                             </div>
@@ -52,6 +64,7 @@
                 plantId: this.plant.id,
                 name: '',
                 location: '',
+                cycle: '',
                 notes: '',
                 error: '',
                 userId: this.user
@@ -70,6 +83,7 @@
                         userId: this.userId,
                         name: this.name,
                         location: this.location,
+                        cycle: this.cycle,
                         notes: this.notes,
                     })
                         .catch(error => {

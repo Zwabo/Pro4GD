@@ -91,6 +91,7 @@ class GardenController extends AbstractController
         }
         $userplant->setDateAdded(new \DateTime("now"));
         $userplant->setDateWatered(new \DateTime("now"));
+        $userplant->setWateringCycle($params["cycle"]);
 
         $userplant->setUser($user);
         $userplant->setPlant($plant);
