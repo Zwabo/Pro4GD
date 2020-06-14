@@ -39,7 +39,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 		c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z
 C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                                    </span> Menge</p>
-                                            <button class="buttonDarkGreenSmall water" @click="water($event, userplant.dateWatered, userplant)"> Gießen</button>
+                                            <button class="buttonDarkGreenSmall water" @click="water($event, userplant)"> Gießen</button>
                                         </div>
 
                                         <img class="col-sm-5 imgTest" v-bind:src="'../' + userplant.plant.icon"  alt="Picture of plant" height="190" >
@@ -74,7 +74,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 		c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z
 C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                                    </span> Menge</p>
-                                            <button class="buttonDarkGreenSmall" @click="water($event, userplant.dateWatered, userplant)"> Gießen</button>
+                                            <button class="buttonDarkGreenSmall" @click="water($event, userplant)"> Gießen</button>
                                         </div>
 
                                         <img class="col-sm-5 imgTest" v-bind:src="'../' + userplant.plant.icon"  alt="Picture of plant" height="190" >
@@ -178,7 +178,8 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                add: false,
                search: '',
                userplantTemp: null,
-               error: ''
+               error: '',
+               weekday: ["Sonntag", "Montag", "Dienstag","Mittwoch", "Donnerstag", "Freitag", "Samstag"]
            }
        },
        mounted: function(){
@@ -226,26 +227,26 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
            newUserplant: function(){
                location.reload(true);
            },
-           
-           water: function (e, wateringDate, userplant) {
+
+           water: function (e, userplant) {
 
                e.preventDefault();
 
                let today = new Date();
-               let watering = new Date(wateringDate['date']);
 
-                   // current date plus one week
-                   today.setDate(today.getDate() + userplant.wateringCycle);
-                   today.setMonth(today.getMonth() +1);
-                   let setDate = today.getDate()+'-'+today.getMonth()+'-'+today.getFullYear();
+               today.setDate(today.getDate() + userplant.wateringCycle);
+               today.setMonth(today.getMonth() +1);
+               let setDate = today.getDate()+'-'+today.getMonth()+'-'+today.getFullYear();
 
-                   this.$http.put('/api/garden/setWateringDate/' + userplant.id, setDate)
-                       .then(response => {
-                           this.userplantTemp = response.data;
-                       })
-                       .catch(error => {
-                           this.error = error.response.data;
-                       });
+               userplant.dateWatered['date'] = today.getFullYear()+'-'+today.getMonth()+'-'+today.getDate() + ' ' + today.getHours()+ ':' + today.getMinutes() +':' + today.getSeconds()+'.' + today.getMilliseconds();
+
+               this.$http.put('/api/garden/setWateringDate/' + userplant.id, setDate)
+                   .then(response => {
+                       this.userplantTemp = response.data;
+                   })
+                   .catch(error => {
+                       this.error = error.response.data;
+                   });
 
            },
 
@@ -254,21 +255,12 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                let today = new Date();
                let watering = new Date(wateringDate['date']);
 
-               let weekday = new Array(7);
-               weekday[0] = "Sonntag";
-               weekday[1] = "Montag";
-               weekday[2] = "Dienstag";
-               weekday[3] = "Mittwoch";
-               weekday[4] = "Donnerstag";
-               weekday[5] = "Freitag";
-               weekday[6] = "Samstag";
-
                if(watering.getDate() === today.getDate() &&
                    watering.getMonth() === today.getMonth() &&
                    watering.getFullYear() === today.getFullYear()) {
                    return 'Heute';
                } else {
-                   return weekday[watering.getDay()];
+                   return this.weekday[watering.getDay()];
                }
 
            }
