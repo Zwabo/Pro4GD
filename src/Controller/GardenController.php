@@ -84,7 +84,11 @@ class GardenController extends AbstractController
 
         $userplant->setName($params["name"]);
         $userplant->setLocation($params["location"]);
-        $userplant->setNotes($params["notes"]);
+        if($params["notes"] == null) {
+            $userplant->setNotes("No Notes added.");
+        } else {
+            $userplant->setNotes($params["notes"]);
+        }
         $userplant->setDateAdded(new \DateTime("now"));
         $userplant->setDateWatered(new \DateTime("now"));
 

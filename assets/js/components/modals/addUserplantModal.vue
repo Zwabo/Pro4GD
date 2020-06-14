@@ -18,21 +18,21 @@
                     </div>
 
                     <div class="modal-body">
-                        <form v-on:submit.prevent="addUserplant">
+                        <form v-on:submit="addUserplant">
                             <p><b>{{plant.name}}</b> ({{plant.genus}})</p>
                             <div class="form-group">
                                 <label for="userplantName">Name</label>
-                                <input type="text" class="form-control" id="userplantName" v-model="name">
+                                <input type="text" class="form-control" id="userplantName" v-model="name" required>
                             </div>
                             <div class="form-group">
                                 <label for="userplantLocation">Standort</label>
-                                <input type="text" class="form-control" id="userplantLocation" v-model="location">
+                                <input type="text" class="form-control" id="userplantLocation" v-model="location" required>
                             </div>
                             <div class="form-group">
                                 <label for="userplantNotes">Notizen</label>
                                 <textarea name="Notes" cols="40" rows="5" class="form-control" id="userplantNotes" v-model="notes"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary" @click="addUserplant" data-dismiss="modal">Speichern</button>
+                            <input type="submit" class="btn btn-primary" value="Speichern">
                         </form>
                     </div>
 
@@ -62,19 +62,24 @@
             user: null
         },
         methods:{
-            addUserplant: function(){
+            addUserplant: function(e){
 
-                this.$http.post('/api/garden/createUserplant/'+ this.plantId, {
-                    userId: this.userId,
-                    name: this.name,
-                    location: this.location,
-                    notes: this.notes
+                if (this.name && this.location) {
+
+                    this.$http.post('/api/garden/createUserplant/'+ this.plantId, {
+                        userId: this.userId,
+                        name: this.name,
+                        location: this.location,
+                        notes: this.notes,
                     })
-                    .catch(error => {
-                        if(error.response.data){
-                            this.error = error.response.data;
-                        }
-                     });
+                        .catch(error => {
+                            if(error.response.data){
+                                this.error = error.response.data;
+                            }
+                        });
+                    this.$emit('newUserplant');
+                }
+                e.preventDefault();
             }
         }
     }

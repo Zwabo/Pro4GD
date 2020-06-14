@@ -27,7 +27,7 @@
                             <div class="col-lg-8"><p class="plantDataPTop">{{ plantData.genus }}</p></div>
                         </div>
                         <div v-if="plantData.specialFeatureIcon != null" class="row">
-                            <div class="col-lg-4"><h5 class="plantDataH5">Kategorie</h5></div>
+                            <div class="col-lg-4"><h5 class="plantDataH5">Besonderheit</h5></div>
                             <div class="col-lg-8"><p class="plantDataPTop">{{ plantData.specialFeatureIcon }}</p></div>
                         </div>
                         <div class="row">
@@ -99,6 +99,12 @@
                         <p>{{ plantData.shortDescription }}</p>
                     </div>
 
+                    <div class="container-fluid">
+                        <h3 class="h3Margin">Pflegetipps</h3>
+                        <div class="greenLine"></div>
+                        <p>{{ plantData.careTips }}</p>
+                    </div>
+
                     <div v-if="plantData.specialFeturesAddinfo != null" class="container-flulid">
                         <h3 class="h3Margin">Besonderheiten</h3>
                         <div class="greenLine"></div>
@@ -145,12 +151,6 @@
                         <h3 class="h3Margin">Blütezeit</h3>
                         <div class="greenLine"></div>
                         <p>{{ plantData.heydayAddinfo }}</p>
-                    </div>
-
-                    <div class="container-fluid">
-                        <h3 class="h3Margin">Pflegetipps</h3>
-                        <div class="greenLine"></div>
-                        <p>{{ plantData.careTips }}</p>
                     </div>
                 </div>
 
