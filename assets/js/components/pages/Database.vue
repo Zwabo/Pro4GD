@@ -85,8 +85,29 @@
         <div v-if="buttonPressed">
 
             <div class="row">
-                <div class="col-6"> Hier stehen alle eingaben magst ds ändern</div>
-                <button type="button" class="close col-2 " aria-label="Close" @click="buttonPressed = false">
+                <input type="text" placeholder="Suche nach Pflanzen.." class="col-3 form-control form-control-sm searchBarDatabase" aria-label="Search" v-model="search">
+                <select class=" col-3 form-control form-control-sm searchBarDatabase DropdownFont" v-model="category">
+                    <option value="" disabled selected>Kathegorie auswählen</option>
+                    <option>Wildpflanze</option>
+                    <option>Heilpflanze</option>
+                    <option>Fleischfressende Pflanze</option>
+                    <option>Kletterpflanze</option>
+                    <option>Palme</option>
+                    <option>Zimmerpflanze</option>
+                    <option>Sonnenpflanze</option>
+                    <option>Frühlingsblüher</option>
+                    <option>Sommerblüher</option>
+                    <option>Herbstblüher</option>
+                    <option>Winterblüher</option>
+                </select>
+                <select class="col-3 form-control form-control-sm searchBarDatabase DropdownFont" v-model="difficulty">
+                    <option value="" disabled selected>Schwierigkeit</option>
+                    <option>gering</option>
+                    <option>mittel</option>
+                    <option>hoch</option>
+                    <option>extrem</option>
+                </select>
+                <button type="button" class="close col" aria-label="Close" @click="buttonPressed = false">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -149,7 +170,8 @@
                 category: '',
                 search: '',
                 difficulty: '',
-                buttonPressed: false
+                buttonPressed: false,
+                results: ''
             }
         },
         mounted: function() {
@@ -174,9 +196,17 @@
                         //&& plant.category.match(this.category) not yet in database
                 });
 
+            },
+
+            searchEntries: function () {
+
+                this.results = this.search + ' ' + this.category + ' ' + this.difficulty;
+
+                return this.results;
             }
 
         },
+
     }
 
 </script>
