@@ -5,7 +5,9 @@
         <div class="col right marginLeftRight">
 
             <div class="row garden">
-                <h1 class="col-sm">Mein Garten<span class="fontLight edit"> edit</span></h1>
+                <h1 class="col-sm">Mein Garten
+                    <span class="fontLight edit" v-if="!edit" @click="edit = true"> edit</span>
+                    <span v-if="edit" class="fontLight edit" @click="edit = false"> close</span></h1>
                 <div class="col-sm text-right add"><span @click="add = true" class="iconGarden">
 
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="path1" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><path class="path2" d="M362.8,227.9c0,14.2-11.4,25.6-25.6,25.6h-85.3v85.3c0,14.2-11.4,25.6-25.6,25.6s-25.6-11.4-25.6-25.6v-85.3
@@ -20,6 +22,7 @@
                 <div class="col">
                     <div v-for="(userplant, index) in garden" >
                         <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
+                            <remove-plant-modal  v-if="edit" :userplant="userplant"></remove-plant-modal>
                             <router-link :to="'/userplant/' + userplant.id">
                                 <div class="container-fluid plantsProfil dropShadow bgWhiteGrey " v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
                                     <div class="row">
@@ -55,6 +58,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                 <div class="col">
                     <div v-for="(userplant, index) in garden">
                         <div v-if="index % 2 !== 0" class="row paddingNormalize">
+                            <remove-plant-modal  v-if="edit" :userplant="userplant"></remove-plant-modal>
                             <router-link :to="'/userplant/' + userplant.id" >
                                 <div class="container-fluid plantsProfil dropShadow bgWhiteGrey" v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
                                     <div class="row">
@@ -167,9 +171,13 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 <script>
 
    import AddUserplantModal from "../modals/addUserplantModal";
+   import removePlantModal from "../modals/removePlantModal";
    export default {
        name: "Garden",
-       components: {AddUserplantModal},
+       components: {
+           'add-userplant-modal': AddUserplantModal,
+           'remove-plant-modal' : removePlantModal
+       },
        data: function(){
            return{
                garden: null,
@@ -178,7 +186,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                add: false,
                search: '',
                userplantTemp: null,
-               error: '',
+               edit: false,
                weekday: ["Sonntag", "Montag", "Dienstag","Mittwoch", "Donnerstag", "Freitag", "Samstag"]
            }
        },
@@ -245,7 +253,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                        this.userplantTemp = response.data;
                    })
                    .catch(error => {
-                       this.error = error.response.data;
+                       alert(error);
                    });
 
            },

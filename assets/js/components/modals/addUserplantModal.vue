@@ -77,22 +77,20 @@
         methods:{
             addUserplant: function(e){
 
-                if (this.name && this.location) {
+                this.$http.post('/api/garden/createUserplant/'+ this.plantId, {
+                    userId: this.userId,
+                    name: this.name,
+                    location: this.location,
+                    cycle: this.cycle,
+                    notes: this.notes,
+                })
+                    .catch(error => {
+                        if(error.response.data){
+                            this.error = error.response.data;
+                        }
+                    });
+                this.$emit('newUserplant');
 
-                    this.$http.post('/api/garden/createUserplant/'+ this.plantId, {
-                        userId: this.userId,
-                        name: this.name,
-                        location: this.location,
-                        cycle: this.cycle,
-                        notes: this.notes,
-                    })
-                        .catch(error => {
-                            if(error.response.data){
-                                this.error = error.response.data;
-                            }
-                        });
-                    this.$emit('newUserplant');
-                }
                 e.preventDefault();
             }
         }
