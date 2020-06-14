@@ -17,20 +17,20 @@
                     </div>
                     <div class="modal-body">
 
-                        <form v-on:submit.prevent="addTippsArticle">
+                        <form v-on:submit="addTippsArticle">
                             <div class="form-group">
                                 <label for="tippsArticleTitle">Titel</label>
-                                <input type="text" class="form-control" id="tippsArticleTitle">
+                                <input type="text" class="form-control" id="tippsArticleTitle" v-model="title" required>
                             </div>
                             <div class="form-group">
                                 <label for="shortText">Kurztext</label>
-                                <textarea name="shortText" cols="40" rows="5" class="form-control" id="shortText"></textarea>
+                                <textarea name="shortText" cols="40" rows="5" class="form-control" id="shortText" v-model="shortText" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="fullText">Artikel</label>
-                                <textarea name="fullText" cols="40" rows="5" class="form-control" id="fullText"></textarea>
+                                <textarea name="fullText" cols="40" rows="5" class="form-control" id="fullText" v-model="long_text" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary" @click="addTippsArticle" data-dismiss="modal">Artikel Speichern</button>
+                            <input type="submit" class="btn btn-primary" @click="addTippsArticle" value="Artikel Speichern">
                         </form>
 
                     </div>
@@ -46,13 +46,34 @@
         data: function(){
             return{
                 modalOpen: false,
+                title: '',
+                shortText: '',
+                long_text: '',
+                error: ''
             }
         },
         methods:{
-            addTippsArticle: function(){
+            addTippsArticle: function(e){
 
+                    if (this.title && this.shortText && this.long_text) {
+
+                        this.$http.post('/api/tipps/createTippsArticle', {
+
+                            title: this.title,
+                            shortText: this.shortText,
+                            long_text: this.long_text,
+                        })
+                            .catch(error => {
+                                if (error.response.data) {
+                                    this.error = error.response.data;
+                                }
+                            });
+                        this.$emit('newTippsArticle');
+                    }
+                    e.preventDefault();
+                }
             }
-        }
+
     }
 </script>
 

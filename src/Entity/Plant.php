@@ -158,6 +158,11 @@ class Plant
      */
     private $WindowIcon;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $category;
+
     public function __construct()
     {
         $this->userplantId = new ArrayCollection();
@@ -553,8 +558,21 @@ class Plant
             'flowerColor' => $this->flowerColor,
             'heydayAddinfo' => $this->heydayAddinfo,
             'careTips' => $this->careTips,
-            'WindowIcon' => $this->WindowIcon
+            'WindowIcon' => $this->WindowIcon,
+            'category' => $this->category
         ];
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?string $category): self
+    {
+        $this->category = $category;
+
+        return $this;
     }
 
 }

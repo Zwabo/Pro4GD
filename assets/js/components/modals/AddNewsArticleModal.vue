@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- Button trigger modal -->
-        <button type="button" class="buttonDarkGreen" data-toggle="modal" data-backdrop="static" data-target="#addNewsArticle" @click="modalOpen = true">
+        <button type="button" class="buttonDarkGreen" data-toggle="modal" data-backdrop="static" data-target="#addNewsArticle"  @click="modalOpen = true">
             Neuer Artikel
         </button>
 
@@ -16,21 +16,20 @@
                         </button>
                     </div>
                     <div class="modal-body">
-
-                        <form v-on:submit.prevent="addNewsArticle">
+                        <form v-on:submit="addNewsArticle">
                             <div class="form-group">
                                 <label for="newsArticleTitle">Titel</label>
-                                <input type="text" class="form-control" id="newsArticleTitle" v-model="title">
+                                <input type="text" class="form-control" id="newsArticleTitle" v-model="title" required>
                             </div>
                             <div class="form-group">
                                 <label for="shortText">Kurztext</label>
-                                <textarea name="shortText" cols="40" rows="5" class="form-control" id="shortText" v-model="shortText"></textarea>
+                                <textarea name="shortText" cols="40" rows="5" class="form-control" id="shortText" v-model="shortText"required></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="fullText">Artikel</label>
-                                <textarea name="fullText" cols="40" rows="5" class="form-control" id="fullText" v-model="long_Text"></textarea>
+                                <textarea name="fullText" cols="40" rows="5" class="form-control" id="fullText" v-model="long_text" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary" @click="addNewsArticle" data-dismiss="modal">Artikel Speichern</button>
+                            <input type="submit" class="btn btn-primary" value="Artikel speichern">
                         </form>
 
                     </div>
@@ -46,27 +45,34 @@
         data: function(){
             return{
                 modalOpen: false,
-                title: this.title,
+                title: '',
                 shortText: '',
-                long_Text: '',
-                date: '',
+                long_text: '',
                 error: ''
             }
         },
-        methods:{
-           addNewsArticle: function(){
-               this.$http.post('/api/news', {
-                  title: this.title,
-                   shortText: this.shortText,
-                   long_Text: this.long_Text,
-                   date: now()
-               })
-                   .catch(error => {
-                       if(error.response.data){
-                           this.error = error.response.data;
-                       }
-                   });
+
+        methods: {
+            addNewsArticle: function (e) {
+
+                if (this.title && this.shortText && this.long_text) {
+
+                    this.$http.post('/api/news/createNewsArticle', {
+
+                        title: this.title,
+                        shortText: this.shortText,
+                        long_text: this.long_text,
+                    })
+                        .catch(error => {
+                            if (error.response.data) {
+                                this.error = error.response.data;
+                            }
+                        });
+                    this.$emit('newArticle');
+                }
+                e.preventDefault();
             }
+
         }
     }
 </script>

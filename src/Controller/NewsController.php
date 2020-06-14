@@ -69,5 +69,32 @@ class NewsController extends AbstractController
         return new JsonResponse($news, Response::HTTP_OK);
     }
 
+    /**
+     * @Route("/api/news/createNewsArticle", name="createNewsArticle", methods={"POST"})
+     */
+    public function createNewsArticle(Request $request, ValidatorInterface $validator): JsonResponse
+    {
+        $news = new News();
+
+        $data = $request->getContent();
+        $params = json_decode($data, true);
+
+        $news->setTitle($params["title"]);
+        $news->setShortText($params["shortText"]);
+        $news->setLongText($params["long_text"]);
+        $news->setDatePosted(new \DateTime("now"));
+
+        $errors = $validator->validate($news);
+        if(count($errors) > 0){
+            return new JsonResponse((string) $errors, Response::HTTP_CONFLICT);
+        }
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($news);
+        $entityManager->flush();
+
+        return new JsonResponse(Response::HTTP_OK);
+    }
+
 
 }
