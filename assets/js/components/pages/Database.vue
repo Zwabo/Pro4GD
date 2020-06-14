@@ -54,7 +54,7 @@
                 <p class="search">Suche</p>
                 <input type="text" placeholder="Suche nach Pflanzen.." class="form-control form-control-sm searchBarDatabase" aria-label="Search" v-model="search">
                 <select class="form-control form-control-sm searchBarDatabase DropdownFont" v-model="category">
-                    <option value="" disabled selected>Kathegorie auswählen</option>
+                    <option value="" selected>Kathegorie auswählen</option>
                     <option>Wildpflanze</option>
                     <option>Heilpflanze</option>
                     <option>Fleischfressende Pflanze</option>
@@ -68,7 +68,7 @@
                     <option>Winterblüher</option>
                 </select>
                 <select class="form-control form-control-sm searchBarDatabase DropdownFont" v-model="difficulty">
-                    <option value="" disabled selected>Schwierigkeit</option>
+                    <option value="" selected>Schwierigkeit</option>
                     <option>gering</option>
                     <option>mittel</option>
                     <option>hoch</option>
@@ -87,7 +87,7 @@
             <div class="row">
                 <input type="text" placeholder="Suche nach Pflanzen.." class="col-3 form-control form-control-sm searchBarDatabase" aria-label="Search" v-model="search">
                 <select class=" col-3 form-control form-control-sm searchBarDatabase DropdownFont" v-model="category">
-                    <option value="" disabled selected>Kathegorie auswählen</option>
+                    <option value="" selected>Kathegorie auswählen</option>
                     <option>Wildpflanze</option>
                     <option>Heilpflanze</option>
                     <option>Fleischfressende Pflanze</option>
@@ -101,7 +101,7 @@
                     <option>Winterblüher</option>
                 </select>
                 <select class="col-3 form-control form-control-sm searchBarDatabase DropdownFont" v-model="difficulty">
-                    <option value="" disabled selected>Schwierigkeit</option>
+                    <option value="" selected>Schwierigkeit</option>
                     <option>gering</option>
                     <option>mittel</option>
                     <option>hoch</option>
@@ -170,8 +170,7 @@
                 category: '',
                 search: '',
                 difficulty: '',
-                buttonPressed: false,
-                results: ''
+                buttonPressed: false
             }
         },
         mounted: function() {
@@ -197,13 +196,6 @@
                 });
 
             },
-
-            searchEntries: function () {
-
-                this.results = this.search + ' ' + this.category + ' ' + this.difficulty;
-
-                return this.results;
-            }
 
         },
 
