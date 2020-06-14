@@ -2,10 +2,13 @@
     <div class="row">
         <div class="col right marginLeftRight">
 
-            <add-tipps-article-modal>
+            <button @click="adding = true">
+            <add-tipps-article-modal
                 :tippsData="tippsData"
-                @addedArticle="addTippsArticle">
+                @newTippsArticle="newTippsArticle">
             </add-tipps-article-modal>
+            </button>
+
             <h1 class="col-sm" id="news">Tipps & Tricks</h1>
             <div class="greenLine"></div>
 
@@ -60,16 +63,8 @@
 
         },
         methods: {
-            addArticle: function(){
-                this.adding = true;
-            },
-            close: function () {
-
-                this.adding = false;
-
-            },
-            addArticle: function(addedArticle){
-                this.tippsData[this.index] = addedArticle;
+            newTippsArticle: function(){
+               location.reload(true);
             }
         }
     }

@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="Pflanzen Formular hinzugefügt">
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="tipps article modal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Plant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Plant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/modals/AddTippsArticleModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/modals/AddTippsArticleModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Garden.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Garden.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/News.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/News.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Tipps.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Tipps.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NewsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TippsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TippsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Tipps.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Tipps.php" afterDir="false" />
     </list>
-    <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
+    <ignored path="$PROJECT_DIR$/node_modules/" />
+    <ignored path="$PROJECT_DIR$/symvue/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/cache/" />
@@ -120,6 +126,8 @@
     <ignored path="$PROJECT_DIR$/vendor/twig/twig/" />
     <ignored path="$PROJECT_DIR$/vendor/webimpress/safe-writer/" />
     <ignored path="$PROJECT_DIR$/vendor/webmozart/assert/" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="composer.lock" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,105 +138,85 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="-1864558712">
+    <session id="-477546479">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="53" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="5" />
-          <entry key="project.open.time.11" value="2" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.13" value="4" />
-          <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.2" value="5" />
-          <entry key="project.open.time.3" value="7" />
-          <entry key="project.open.time.5" value="3" />
-          <entry key="project.open.time.6" value="8" />
-          <entry key="project.open.time.7" value="4" />
-          <entry key="project.open.time.8" value="8" />
-          <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="52" />
+          <entry key="project.closed" value="50" />
+          <entry key="project.open.time.10" value="8" />
+          <entry key="project.open.time.11" value="6" />
+          <entry key="project.open.time.12" value="6" />
+          <entry key="project.open.time.13" value="8" />
+          <entry key="project.open.time.14" value="3" />
+          <entry key="project.open.time.15" value="5" />
+          <entry key="project.open.time.16" value="2" />
+          <entry key="project.open.time.17" value="6" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.open.time.9" value="4" />
+          <entry key="project.opened" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="91" />
-          <entry key="env" value="1" />
-          <entry key="gitignore" value="2" />
-          <entry key="jpg" value="1" />
-          <entry key="js" value="38" />
-          <entry key="json" value="2" />
-          <entry key="md" value="9" />
-          <entry key="php" value="210" />
-          <entry key="rnc" value="1" />
-          <entry key="scss" value="1" />
-          <entry key="svg" value="47" />
-          <entry key="ts" value="1" />
-          <entry key="twig" value="97" />
-          <entry key="vue" value="104" />
-          <entry key="xml" value="1" />
-          <entry key="yaml" value="1" />
+          <entry key="css" value="66" />
+          <entry key="env" value="3" />
+          <entry key="ico" value="1" />
+          <entry key="js" value="24" />
+          <entry key="md" value="1" />
+          <entry key="php" value="200" />
+          <entry key="png" value="1" />
+          <entry key="rnc" value="2" />
+          <entry key="twig" value="50" />
+          <entry key="vue" value="120" />
+          <entry key="yaml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key=".env file" value="1" />
-          <entry key="CSS" value="91" />
-          <entry key="Image" value="1" />
-          <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="38" />
-          <entry key="Markdown" value="9" />
-          <entry key="PHP" value="210" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="RNG Compact" value="1" />
-          <entry key="SCSS" value="1" />
-          <entry key="SVG" value="47" />
-          <entry key="Twig" value="97" />
-          <entry key="TypeScript" value="1" />
-          <entry key="Vue.js" value="104" />
-          <entry key="XML" value="1" />
-          <entry key="YAML" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="css" value="14603" />
-          <entry key="js" value="1979" />
-          <entry key="json" value="26" />
-          <entry key="md" value="198" />
-          <entry key="php" value="18725" />
-          <entry key="svg" value="22" />
-          <entry key="twig" value="20844" />
-          <entry key="txt" value="1561" />
-          <entry key="vue" value="61522" />
-          <entry key="xml" value="11" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="CSS" value="14603" />
-          <entry key="JSON" value="26" />
-          <entry key="JavaScript" value="1980" />
-          <entry key="Markdown" value="198" />
-          <entry key="PHP" value="18725" />
-          <entry key="PLAIN_TEXT" value="1561" />
-          <entry key="SVG" value="22" />
-          <entry key="Twig" value="20844" />
-          <entry key="Vue.js" value="61521" />
-          <entry key="XML" value="11" />
+          <entry key="CSS" value="66" />
+          <entry key="Image" value="2" />
+          <entry key="JavaScript" value="24" />
+          <entry key="Markdown" value="1" />
+          <entry key="PHP" value="200" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="RNG Compact" value="2" />
+          <entry key="Twig" value="50" />
+          <entry key="Vue.js" value="120" />
+          <entry key="YAML" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
-          <entry key="git.branch.checkout.local" value="11" />
-          <entry key="git.branch.create.new" value="3" />
-          <entry key="git.branch.delete.local" value="1" />
-          <entry key="git.branch.rename" value="2" />
+          <entry key="git.branch.checkout.local" value="3" />
+          <entry key="git.branch.checkout.remote" value="5" />
+          <entry key="git.branch.create.new" value="1" />
+          <entry key="git.branch.merge" value="1" />
+          <entry key="git.branch.rename" value="3" />
         </counts>
       </usages-collector>
-      <usages-collector id="statistics.js.language.service.starts">
+      <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="1" />
+          <entry key="css" value="1488" />
+          <entry key="js" value="522" />
+          <entry key="php" value="2678" />
+          <entry key="twig" value="728" />
+          <entry key="txt" value="209" />
+          <entry key="vue" value="6561" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="1488" />
+          <entry key="JavaScript" value="522" />
+          <entry key="PHP" value="2678" />
+          <entry key="PLAIN_TEXT" value="209" />
+          <entry key="Twig" value="728" />
+          <entry key="Vue.js" value="6561" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.php.new.class">
+        <counts>
+          <entry key="PHP Class.type" value="3" />
         </counts>
       </usages-collector>
     </session>
@@ -236,79 +224,97 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
+        <entry file="file://$PROJECT_DIR$/src/Controller/NewsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4004">
-              <caret line="191" column="8" selection-start-line="191" selection-start-column="8" selection-end-line="191" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="109" selection-start-line="109" selection-end-line="109" />
+            <state relative-caret-position="204">
+              <caret line="78" column="39" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#34#99#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Plant.php">
+        <entry file="file://$PROJECT_DIR$/src/Controller/TippsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1193">
-              <caret line="570" column="31" selection-start-line="570" selection-start-column="20" selection-end-line="570" selection-end-column="31" />
+            <state relative-caret-position="236">
+              <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
+              <folding>
+                <element signature="e#34#99#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Garden.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="49" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddTippsArticleModal.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="70" column="38" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/components/pages/News.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php">
+        <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Tipps.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="699" column="51" selection-start-line="699" selection-start-column="51" selection-end-line="699" selection-end-column="51" />
+            <state relative-caret-position="408">
+              <caret line="66" column="13" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Tipps.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="353" column="20" selection-start-line="353" selection-start-column="20" selection-end-line="353" selection-end-column="20" />
-              <folding>
-                <element signature="n#style#0;n#svg#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="276">
+              <caret line="39" column="58" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/layout.css">
+        <entry file="file://$PROJECT_DIR$/src/Entity/News.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+            <state relative-caret-position="231">
+              <caret line="39" column="59" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/color.css">
+        <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="32" />
+            <state relative-caret-position="187">
+              <caret line="59" column="64" selection-start-line="59" selection-start-column="64" selection-end-line="59" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/news.css">
+        <entry file="file://$PROJECT_DIR$/assets/js/components/modals/addUserplantModal.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+            <state relative-caret-position="494">
+              <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -318,110 +324,133 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
-        <option value="CSS File" />
         <option value="Vue Single File Component" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>friend</find>
-      <find>getcomment</find>
-      <find>friendsdata</find>
-      <find>comment.</find>
-      <find>logonav</find>
-      <find>logonavi</find>
-      <find>c</find>
-      <find>comment</find>
-      <find>commentmessage</find>
-      <find>newcommentarray</find>
-      <find>console.log</find>
-      <find>greenline</find>
-      <find>userpic</find>
-      <find>commentMsg</find>
-      <find>save</find>
-      <find>smallwhitegrey</find>
-      <find>item</find>
-      <find>padding</find>
-      <find>kategorie</find>
-      <find>plantcategoryselect</find>
-      <find>helligkeit</find>
-      <find>savecomment</find>
-      <find>textarea</find>
-      <find>substrat</find>
-      <find>gröe</find>
-      <find>alle freund</find>
-      <find>kurzbeschreibung</find>
-      <find>kurzbe</find>
-      <find>category</find>
-      <find>setcategory</find>
+      <find>path(</find>
+      <find>getUser</find>
+      <find>getPlant</find>
+      <find>href</find>
+      <find>v-bind</find>
+      <find>v-for</find>
+      <find>router</find>
+      <find>src</find>
+      <find>createdUser</find>
+      <find>date</find>
+      <find>read</find>
+      <find>readMore</find>
+      <find>userplan</find>
+      <find>addN</find>
+      <find>cre</find>
+      <find>modal</find>
+      <find>addUserplant</find>
+      <find>this.plant</find>
+      <find>added</find>
+      <find>.id</find>
+      <find>router-link</find>
+      <find>newUser</find>
+      <find>newUserplant</find>
+      <find>plant</find>
+      <find>add</find>
+      <find>addNewsArticle</find>
     </findStrings>
+    <dirStrings>
+      <dir>C:\Users\Rita\Desktop\Pro4GD\src\DataFixtures</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="ROOT_SYNC" value="SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="forum" />
       </map>
     </option>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="VueIntegration" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/develop" />
+                <branch-info repo="$PROJECT_DIR$" source="origin/VueIntegration" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/security/login.html.twig" />
-        <option value="$PROJECT_DIR$/templates/registration/register.html.twig" />
-        <option value="$PROJECT_DIR$/public/css/index.css" />
-        <option value="$PROJECT_DIR$/public/css/color.css" />
-        <option value="$PROJECT_DIR$/templates/myGarden.html.twig" />
-        <option value="$PROJECT_DIR$/public/css/garden.css" />
-        <option value="$PROJECT_DIR$/public/css/font.css" />
+        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/public/css/layout.css" />
-        <option value="$PROJECT_DIR$/templates/base.html.twig" />
-        <option value="$PROJECT_DIR$/public/css/profile.css" />
-        <option value="$PROJECT_DIR$/src/DataFixtures/NewsFixture.php" />
-        <option value="$PROJECT_DIR$/templates/news/newsArticle.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/NewsController.php" />
+        <option value="$PROJECT_DIR$/public/css/main.css" />
+        <option value="$PROJECT_DIR$/public/css/news.css" />
+        <option value="$PROJECT_DIR$/src/Controller/UserplantController.php" />
+        <option value="$PROJECT_DIR$/templates/news.html.twig" />
         <option value="$PROJECT_DIR$/templates/news/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/registration/register.html.twig" />
         <option value="$PROJECT_DIR$/templates/newsArticle.html.twig" />
-        <option value="$PROJECT_DIR$/src/Entity/News.php" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Userplant.vue" />
-        <option value="$PROJECT_DIR$/templates/profile.html.twig" />
-        <option value="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" />
-        <option value="$PROJECT_DIR$/src/Controller/PlantController.php" />
-        <option value="$PROJECT_DIR$/templates/plant.html.twig" />
-        <option value="$PROJECT_DIR$/templates/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/HomeController.php" />
-        <option value="$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Kontakt.vue" />
-        <option value="$PROJECT_DIR$/assets/css/font.css" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Datenschutzrichtlinien.vue" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/PrivacyStatement.vue" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Imprint.vue" />
-        <option value="$PROJECT_DIR$/assets/js/routes.js" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/AGB.vue" />
-        <option value="$PROJECT_DIR$/assets/css/index.css" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Home.vue" />
-        <option value="$PROJECT_DIR$/assets/js/components/layout/MainFooter.vue" />
-        <option value="$PROJECT_DIR$/symvue/assets/js/app.js" />
-        <option value="$PROJECT_DIR$/src/Controller/ContactController.php" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Contact.vue" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue" />
-        <option value="$PROJECT_DIR$/assets/css/profile.css" />
-        <option value="$PROJECT_DIR$/src/Entity/ProfileComments.php" />
-        <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" />
-        <option value="$PROJECT_DIR$/assets/css/database.css" />
-        <option value="$PROJECT_DIR$/assets/css/news.css" />
-        <option value="$PROJECT_DIR$/assets/css/layout.css" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Plant.vue" />
-        <option value="$PROJECT_DIR$/src/Entity/Plant.php" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue" />
+        <option value="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" />
+        <option value="$PROJECT_DIR$/src/Entity/News.php" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/Article.vue" />
         <option value="$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php" />
+        <option value="$PROJECT_DIR$/assets/css/tipps.css" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/TippArticle.vue" />
+        <option value="$PROJECT_DIR$/src/DataFixtures/SettingsFixture.php" />
+        <option value="$PROJECT_DIR$/assets/css/news.css" />
+        <option value="$PROJECT_DIR$/assets/js/routes.js" />
+        <option value="$PROJECT_DIR$/assets/css/main.css" />
+        <option value="$PROJECT_DIR$/src/Controller/SettingsController.php" />
+        <option value="$PROJECT_DIR$/assets/css/userplant.css" />
+        <option value="$PROJECT_DIR$/assets/css/settings.css" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/Settings.vue" />
+        <option value="$PROJECT_DIR$/src/DataFixtures/NewsFixture.php" />
+        <option value="$PROJECT_DIR$/src/DataFixtures/TippsFixture.php" />
+        <option value="$PROJECT_DIR$/assets/js/components/modals/addUserplantModal.vue" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/Garden.vue" />
+        <option value="$PROJECT_DIR$/src/Controller/NewsController.php" />
+        <option value="$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue" />
+        <option value="$PROJECT_DIR$/src/Controller/TippsController.php" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/News.vue" />
+        <option value="$PROJECT_DIR$/assets/js/components/modals/AddTippsArticleModal.vue" />
+        <option value="$PROJECT_DIR$/src/Entity/Tipps.php" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/Tipps.vue" />
       </list>
     </option>
   </component>
@@ -442,12 +471,10 @@
   </component>
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
-    <handled-path value="$PROJECT_DIR$/symvue/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
       <path value="$PROJECT_DIR$/package.json" />
-      <path value="$PROJECT_DIR$/symvue/package.json" />
     </packageJsonPaths>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -567,10 +594,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="2580" />
-    <option name="height" value="1410" />
+    <option name="x" value="85" />
+    <option name="width" value="1440" />
+    <option name="height" value="830" />
   </component>
   <component name="ProjectId" id="1aBMjwTOzdV3XHXsdTmLo0udF2h" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -579,7 +605,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -596,12 +621,6 @@
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -610,6 +629,22 @@
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="forms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="modals" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
@@ -622,7 +657,48 @@
             <path>
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="pictures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="plants" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
@@ -636,10 +712,32 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Entity" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -650,28 +748,137 @@
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="commentInput&#9;null&#9;null&#10;greyline&#9;null&#9;null&#10;form-group&#9;null&#9;null&#10;databaselogo&#9;null&#9;null&#10;smallpic&#9;null&#9;null&#10;smalluserpic&#9;null&#9;null&#10;package.json&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/package.json&#10;component&#9;null&#9;null&#10;edituserplantmodal&#9;null&#9;null&#10;entitymanager&#9;null&#9;null&#10;smallUserPic&#9;null&#9;null&#10;security&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/symvue/vendor/sensio/framework-extra-bundle/src/Resources/config/security.xml&#10;we&#9;FILE&#9;file://C:/Users/Verena/Documents/GitHub/Pro4GD/webpack.config.js&#10;HomeCon&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="toAssoc()&#9;null&#9;null&#10;we&#9;FILE&#9;file://C:/Users/Verena/Documents/GitHub/Pro4GD/webpack.config.js&#10;HomeCon&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="F:/FH Hagenberg/MTD BAKK/04_Semester 4/Semesterprojekt 2 - PRO4 - MTD292/Rudisch Beispiele/VueRest" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/composer.lock" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2018.2.5\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\FH_Projekte\Pro4GD\templates" />
-      <recent name="C:\FH_Projekte\Pro4GD\templates\news" />
-      <recent name="C:\FH_Projekte\Pro4GD\templates\security" />
-      <recent name="C:\FH_Projekte\Pro4GD\public\images\icons\index" />
-      <recent name="C:\FH_Projekte\Pro4GD\public" />
+      <recent name="$PROJECT_DIR$/symvue/public/build" />
+      <recent name="$PROJECT_DIR$/src/Migrations" />
+      <recent name="$PROJECT_DIR$/symvue/public" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="C:\Users\Verena\Documents\GitHub\Pro4GD" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\FH_Projekte\Pro4GD\templates" />
-      <recent name="C:\FH_Projekte\Pro4GD\assets\js\components" />
+      <recent name="C:\Users\Rita\Desktop\Pro4GD\templates" />
+      <recent name="$PROJECT_DIR$/public/build" />
       <recent name="$PROJECT_DIR$/templates" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/assets/js/components/pages/Database.vue</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -693,9 +900,6 @@
       <list>
         <item itemvalue="JavaScript Debug.myGarden.html.twig" />
         <item itemvalue="JavaScript Debug.myGarden.html.twig" />
-        <item itemvalue="JavaScript Debug.myGarden.html.twig" />
-        <item itemvalue="JavaScript Debug.myGarden.html.twig" />
-        <item itemvalue="JavaScript Debug.myGarden.html.twig" />
       </list>
     </recent_temporary>
   </component>
@@ -705,7 +909,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="" />
-      <changelist id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
       <created>1585074705072</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -735,407 +938,410 @@
       <workItem from="1587136098746" duration="4588000" />
       <workItem from="1587142107774" duration="45000" />
       <workItem from="1587223128071" duration="4979000" />
-      <workItem from="1587390753572" duration="96000" />
-      <workItem from="1587390865341" duration="792000" />
-      <workItem from="1587399237913" duration="3563000" />
-      <workItem from="1587418456798" duration="104000" />
-      <workItem from="1587474062565" duration="15302000" />
-      <workItem from="1587490108711" duration="15538000" />
-      <workItem from="1587545174123" duration="2817000" />
-      <workItem from="1587557123591" duration="1365000" />
-      <workItem from="1587566906172" duration="12455000" />
-      <workItem from="1587594771107" duration="2211000" />
-      <workItem from="1587629745634" duration="23471000" />
-      <workItem from="1587659349274" duration="10382000" />
-      <workItem from="1587716057293" duration="31006000" />
-      <workItem from="1587747355452" duration="4957000" />
-      <workItem from="1587802680536" duration="11000" />
-      <workItem from="1587806877646" duration="650000" />
-      <workItem from="1587900861111" duration="402000" />
-      <workItem from="1587909011780" duration="10000" />
-      <workItem from="1587922653740" duration="11710000" />
-      <workItem from="1588247163456" duration="7000" />
-      <workItem from="1588772197828" duration="1348000" />
-      <workItem from="1589456144881" duration="626000" />
-      <workItem from="1589618083362" duration="810000" />
-      <workItem from="1589799923261" duration="49910000" />
-      <workItem from="1589968095776" duration="23237000" />
-      <workItem from="1590056577928" duration="6543000" />
-      <workItem from="1590097028556" duration="3309000" />
-      <workItem from="1590100388443" duration="158000" />
-      <workItem from="1590135508254" duration="8001000" />
-      <workItem from="1590144850290" duration="11533000" />
-      <workItem from="1590530329749" duration="16000" />
-      <workItem from="1590534334307" duration="5000" />
-      <workItem from="1590534777822" duration="4000" />
-      <workItem from="1590847826627" duration="240000" />
-      <workItem from="1590848236153" duration="21709000" />
-      <workItem from="1590921852827" duration="1305000" />
-      <workItem from="1590923183548" duration="242000" />
-      <workItem from="1591187836404" duration="13000" />
-      <workItem from="1591544292090" duration="317000" />
-      <workItem from="1591604424167" duration="8773000" />
-      <workItem from="1591634138967" duration="7102000" />
-      <workItem from="1591692282479" duration="75000" />
-      <workItem from="1591692376781" duration="7162000" />
-      <workItem from="1591722008856" duration="3408000" />
-      <workItem from="1591743243626" duration="1898000" />
-      <workItem from="1591788249936" duration="5773000" />
-      <workItem from="1591794607031" duration="3647000" />
-      <workItem from="1591801479728" duration="19272000" />
-      <workItem from="1591875211709" duration="8000" />
-      <workItem from="1591878200454" duration="11000" />
-      <workItem from="1592146844086" duration="205000" />
-      <workItem from="1592147161234" duration="3064000" />
+      <workItem from="1587387984728" duration="999000" />
+      <workItem from="1587389027930" duration="428000" />
+      <workItem from="1587389474960" duration="216000" />
+      <workItem from="1587389734165" duration="862000" />
+      <workItem from="1587998042657" duration="445000" />
+      <workItem from="1587998577812" duration="385000" />
+      <workItem from="1587998999265" duration="1232000" />
+      <workItem from="1588003490627" duration="249000" />
+      <workItem from="1588062485772" duration="1863000" />
+      <workItem from="1588079822669" duration="5760000" />
+      <workItem from="1588087200070" duration="18000" />
+      <workItem from="1588087243000" duration="250000" />
+      <workItem from="1588087593390" duration="2294000" />
+      <workItem from="1588177710875" duration="1526000" />
+      <workItem from="1588179561681" duration="2015000" />
+      <workItem from="1588235588495" duration="2160000" />
+      <workItem from="1588248110512" duration="9943000" />
+      <workItem from="1588791927965" duration="370000" />
+      <workItem from="1589617806858" duration="120000" />
+      <workItem from="1589787080383" duration="149000" />
+      <workItem from="1589890776520" duration="345000" />
+      <workItem from="1589969422082" duration="1632000" />
+      <workItem from="1589971124035" duration="3085000" />
+      <workItem from="1589982024547" duration="3605000" />
+      <workItem from="1589993517046" duration="595000" />
+      <workItem from="1590137847779" duration="7080000" />
+      <workItem from="1590145041709" duration="1207000" />
+      <workItem from="1590147505667" duration="1045000" />
+      <workItem from="1590148582433" duration="2005000" />
+      <workItem from="1590151157835" duration="1167000" />
+      <workItem from="1590246049892" duration="1007000" />
+      <workItem from="1590247104353" duration="6759000" />
+      <workItem from="1590313314759" duration="3726000" />
+      <workItem from="1590325421712" duration="3212000" />
+      <workItem from="1590339233849" duration="396000" />
+      <workItem from="1590344624996" duration="495000" />
+      <workItem from="1590396860244" duration="51000" />
+      <workItem from="1590850316495" duration="1288000" />
+      <workItem from="1591095530878" duration="2861000" />
+      <workItem from="1591110659374" duration="1365000" />
+      <workItem from="1591116204297" duration="1571000" />
+      <workItem from="1591170354969" duration="1713000" />
+      <workItem from="1591173597726" duration="65000" />
+      <workItem from="1591189927804" duration="2583000" />
+      <workItem from="1591350826860" duration="396000" />
+      <workItem from="1591471706963" duration="20000" />
+      <workItem from="1591533820087" duration="5870000" />
+      <workItem from="1591544075261" duration="9724000" />
+      <workItem from="1591557348495" duration="6610000" />
+      <workItem from="1591598143061" duration="282000" />
+      <workItem from="1591598480259" duration="2514000" />
+      <workItem from="1591620030701" duration="6235000" />
+      <workItem from="1591697145112" duration="1817000" />
+      <workItem from="1592135738199" duration="4514000" />
+      <workItem from="1592143570962" duration="9065000" />
     </task>
-    <task id="LOCAL-00014" summary="kleine Anpassungen for-Schleife (profile.twig) / base.twig">
-      <created>1587551177000</created>
+    <task id="LOCAL-00002" summary="Add Symfony">
+      <created>1585846063586</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1585846063586</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Changed README">
+      <created>1585846366419</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1585846366419</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Changed README">
+      <created>1585852916386</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1585852916386</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Changed README">
+      <created>1585852920740</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1585852920740</updated>
+    </task>
+    <task id="LOCAL-00006" summary="myGarden">
+      <created>1587141764611</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587141764611</updated>
+    </task>
+    <task id="LOCAL-00007" summary="myGarden twig">
+      <created>1587142145979</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587142145979</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Made the relation between Userplant and User work">
+      <created>1587320492297</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587320492297</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Made the relation between Userplant and User work">
+      <created>1587389997107</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1587389997108</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Made the relation between Userplant and User work">
+      <created>1587998774647</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1587998774647</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Made the relation between Userplant and User work">
+      <created>1587999415496</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587999415496</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Made the relation between Userplant and User work">
+      <created>1588069990859</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1588069990859</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Made the relation between Userplant and User work">
+      <created>1588080175867</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1588080175867</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Made the relation between Userplant and User work">
+      <created>1588087215759</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1587551177000</updated>
+      <updated>1588087215759</updated>
     </task>
-    <task id="LOCAL-00015" summary="small style sheet correction">
-      <created>1587557488689</created>
+    <task id="LOCAL-00015" summary="news side added">
+      <created>1588087652708</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1587557488689</updated>
+      <updated>1588087652708</updated>
     </task>
-    <task id="LOCAL-00016" summary="reset .plantsProfile correction">
-      <created>1587557790300</created>
+    <task id="LOCAL-00016" summary="news site added">
+      <created>1588237003926</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1587557790300</updated>
+      <updated>1588237003926</updated>
     </task>
-    <task id="LOCAL-00017" summary=".vue connection aus twig.template ausgeklammert">
-      <created>1587574695002</created>
+    <task id="LOCAL-00017" summary="news site added">
+      <created>1588248678693</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1587574695002</updated>
+      <updated>1588248678693</updated>
     </task>
-    <task id="LOCAL-00018" summary="Navigation angepasste/gestyled für Desktopversion">
-      <created>1587586809049</created>
+    <task id="LOCAL-00018" summary="news site added">
+      <created>1588249921279</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1587586809049</updated>
+      <updated>1588249921279</updated>
     </task>
-    <task id="LOCAL-00019" summary="Update Navi">
-      <created>1587596790068</created>
+    <task id="LOCAL-00019" summary="news site added">
+      <created>1588250692493</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1587596790068</updated>
+      <updated>1588250692493</updated>
     </task>
-    <task id="LOCAL-00020" summary="plant fixtures work in progress - vue tests">
-      <created>1587652693292</created>
+    <task id="LOCAL-00020" summary="news site added">
+      <created>1588252342958</created>
       <option name="number" value="00020" />
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1587652693292</updated>
+      <updated>1588252342958</updated>
     </task>
-    <task id="LOCAL-00021" summary="plant fixtures update">
-      <created>1587660544739</created>
+    <task id="LOCAL-00021" summary="news site added">
+      <created>1588252547857</created>
       <option name="number" value="00021" />
       <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
-      <updated>1587660544739</updated>
+      <updated>1588252547857</updated>
     </task>
-    <task id="LOCAL-00022" summary="plantController (started, not finished)">
-      <created>1587664683704</created>
+    <task id="LOCAL-00022" summary="news site added">
+      <created>1588252828500</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1587664683704</updated>
+      <updated>1588252828500</updated>
     </task>
-    <task id="LOCAL-00023" summary="plantController">
-      <created>1587690343835</created>
+    <task id="LOCAL-00023" summary="news site added">
+      <created>1588252858088</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1587690343835</updated>
+      <updated>1588252858088</updated>
     </task>
-    <task id="LOCAL-00024" summary="added starting page and some styles">
-      <created>1587746298282</created>
+    <task id="LOCAL-00024" summary="news site added">
+      <created>1588253161874</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1587746298282</updated>
+      <updated>1588253161874</updated>
     </task>
-    <task id="LOCAL-00025" summary="change PhoneMockup to png">
-      <created>1587746453938</created>
+    <task id="LOCAL-00025" summary="news site added">
+      <created>1588253523402</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1587746453938</updated>
+      <updated>1588253523402</updated>
     </task>
-    <task id="LOCAL-00026" summary="something that didn't got pushed the last time o.O">
-      <created>1587747397499</created>
+    <task id="LOCAL-00026" summary="news site added">
+      <created>1588253815037</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1587747397499</updated>
+      <updated>1588253815037</updated>
     </task>
-    <task id="LOCAL-00027" summary="added browser icon">
-      <created>1587748578784</created>
+    <task id="LOCAL-00027" summary="news component">
+      <created>1589970947629</created>
       <option name="number" value="00027" />
       <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1587748578784</updated>
+      <updated>1589970947629</updated>
     </task>
-    <task id="LOCAL-00028" summary="corrected offer part of landing page">
-      <created>1587752141442</created>
+    <task id="LOCAL-00028" summary="news component">
+      <created>1589985000824</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1587752141442</updated>
+      <updated>1589985000824</updated>
     </task>
-    <task id="LOCAL-00029" summary="added styles">
-      <created>1587901027578</created>
+    <task id="LOCAL-00029" summary="news component">
+      <created>1589985346120</created>
       <option name="number" value="00029" />
       <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
-      <updated>1587901027578</updated>
+      <updated>1589985346120</updated>
     </task>
-    <task id="LOCAL-00030" summary="added styles pt2">
-      <created>1587901136309</created>
+    <task id="LOCAL-00030" summary="news component">
+      <created>1590143725799</created>
       <option name="number" value="00030" />
       <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
-      <updated>1587901136309</updated>
+      <updated>1590143725799</updated>
     </task>
-    <task id="LOCAL-00031" summary="responsive test profile --&gt; Handy braucht 2tes Layout, folgt noch">
-      <created>1587938345307</created>
+    <task id="LOCAL-00031" summary="news component">
+      <created>1590253823186</created>
       <option name="number" value="00031" />
       <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
-      <updated>1587938345307</updated>
+      <updated>1590253823186</updated>
     </task>
-    <task id="LOCAL-00032" summary="Landingpage - nach Login angepasst">
-      <created>1587939939618</created>
+    <task id="LOCAL-00032" summary="news component">
+      <created>1590254270085</created>
       <option name="number" value="00032" />
       <option name="presentableId" value="LOCAL-00032" />
       <option name="project" value="LOCAL" />
-      <updated>1587939939618</updated>
+      <updated>1590254270085</updated>
     </task>
-    <task id="LOCAL-00033" summary="News">
-      <created>1588791786652</created>
+    <task id="LOCAL-00033" summary="news component">
+      <created>1590254457523</created>
       <option name="number" value="00033" />
       <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
-      <updated>1588791786652</updated>
+      <updated>1590254457523</updated>
     </task>
-    <task id="LOCAL-00034" summary="Zwischenstand">
-      <created>1589805402707</created>
+    <task id="LOCAL-00034" summary="news component">
+      <created>1590327612740</created>
       <option name="number" value="00034" />
       <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
-      <updated>1589805402707</updated>
+      <updated>1590327612740</updated>
     </task>
-    <task id="LOCAL-00035" summary="Zwischenstand">
-      <created>1589816696893</created>
+    <task id="LOCAL-00035" summary="news component">
+      <created>1590339618690</created>
       <option name="number" value="00035" />
       <option name="presentableId" value="LOCAL-00035" />
       <option name="project" value="LOCAL" />
-      <updated>1589816696893</updated>
+      <updated>1590339618691</updated>
     </task>
-    <task id="LOCAL-00036" summary="Zwischenstand">
-      <created>1589818500194</created>
+    <task id="LOCAL-00036" summary="news component">
+      <created>1590850970480</created>
       <option name="number" value="00036" />
       <option name="presentableId" value="LOCAL-00036" />
       <option name="project" value="LOCAL" />
-      <updated>1589818500194</updated>
+      <updated>1590850970480</updated>
     </task>
-    <task id="LOCAL-00037" summary="Zwischenstand">
-      <created>1589881747074</created>
+    <task id="LOCAL-00037" summary="news component">
+      <created>1591097614635</created>
       <option name="number" value="00037" />
       <option name="presentableId" value="LOCAL-00037" />
       <option name="project" value="LOCAL" />
-      <updated>1589881747074</updated>
+      <updated>1591097614635</updated>
     </task>
-    <task id="LOCAL-00038" summary="Zwischenstand">
-      <created>1589911985873</created>
+    <task id="LOCAL-00038" summary="tipps seite">
+      <created>1591097847815</created>
       <option name="number" value="00038" />
       <option name="presentableId" value="LOCAL-00038" />
       <option name="project" value="LOCAL" />
-      <updated>1589911985873</updated>
+      <updated>1591097847815</updated>
     </task>
-    <task id="LOCAL-00039" summary="Zwischenstand">
-      <created>1589980931502</created>
+    <task id="LOCAL-00039" summary="news component">
+      <created>1591111422838</created>
       <option name="number" value="00039" />
       <option name="presentableId" value="LOCAL-00039" />
       <option name="project" value="LOCAL" />
-      <updated>1589980931502</updated>
+      <updated>1591111422838</updated>
     </task>
-    <task id="LOCAL-00040" summary="Zwischenstand">
-      <created>1589982096159</created>
+    <task id="LOCAL-00040" summary="tipps component">
+      <created>1591111470988</created>
       <option name="number" value="00040" />
       <option name="presentableId" value="LOCAL-00040" />
       <option name="project" value="LOCAL" />
-      <updated>1589982096159</updated>
+      <updated>1591111470988</updated>
     </task>
-    <task id="LOCAL-00041" summary="Zwischenstand">
-      <created>1589996099684</created>
+    <task id="LOCAL-00041" summary="tippArticle component">
+      <created>1591111856172</created>
       <option name="number" value="00041" />
       <option name="presentableId" value="LOCAL-00041" />
       <option name="project" value="LOCAL" />
-      <updated>1589996099684</updated>
+      <updated>1591111856172</updated>
     </task>
-    <task id="LOCAL-00042" summary="Profil - Userplants yet not working">
-      <created>1590002727467</created>
+    <task id="LOCAL-00042" summary="add news article">
+      <created>1591543897716</created>
       <option name="number" value="00042" />
       <option name="presentableId" value="LOCAL-00042" />
       <option name="project" value="LOCAL" />
-      <updated>1590002727467</updated>
+      <updated>1591543897716</updated>
     </task>
-    <task id="LOCAL-00043" summary="Profil - Zwischenstand">
-      <created>1590064990963</created>
+    <task id="LOCAL-00043" summary="tipps article modal">
+      <created>1591544719293</created>
       <option name="number" value="00043" />
       <option name="presentableId" value="LOCAL-00043" />
       <option name="project" value="LOCAL" />
-      <updated>1590064990963</updated>
+      <updated>1591544719293</updated>
     </task>
-    <task id="LOCAL-00044" summary="Profil - fixed userplants call">
-      <created>1590100519598</created>
+    <task id="LOCAL-00044" summary="settings added">
+      <created>1591555265949</created>
       <option name="number" value="00044" />
       <option name="presentableId" value="LOCAL-00044" />
       <option name="project" value="LOCAL" />
-      <updated>1590100519598</updated>
+      <updated>1591555265949</updated>
     </task>
-    <task id="LOCAL-00045" summary="Plant-Seite">
-      <created>1590164562899</created>
+    <task id="LOCAL-00045" summary="settings css">
+      <created>1591563123294</created>
       <option name="number" value="00045" />
       <option name="presentableId" value="LOCAL-00045" />
       <option name="project" value="LOCAL" />
-      <updated>1590164562899</updated>
+      <updated>1591563123294</updated>
     </task>
-    <task id="LOCAL-00046" summary="Fixed Input Profil&#10;Fixed Landing Page Login">
-      <created>1590852924342</created>
+    <task id="LOCAL-00046" summary="settings css">
+      <created>1591564003970</created>
       <option name="number" value="00046" />
       <option name="presentableId" value="LOCAL-00046" />
       <option name="project" value="LOCAL" />
-      <updated>1590852924343</updated>
+      <updated>1591564003970</updated>
     </task>
-    <task id="LOCAL-00047" summary="Fixed Input Profil&#10;Fixed Landing Page Login">
-      <created>1590852939412</created>
+    <task id="LOCAL-00047" summary="settings css">
+      <created>1591600159209</created>
       <option name="number" value="00047" />
       <option name="presentableId" value="LOCAL-00047" />
       <option name="project" value="LOCAL" />
-      <updated>1590852939412</updated>
+      <updated>1591600159209</updated>
     </task>
-    <task id="LOCAL-00048" summary="Footer Seiten mit (Dummy)Inhalte hinzugefügt. Kontaktformular noch nicht programmiert.">
-      <created>1590882613899</created>
+    <task id="LOCAL-00048" summary="settings toggle buttons">
+      <created>1591622037486</created>
       <option name="number" value="00048" />
       <option name="presentableId" value="LOCAL-00048" />
       <option name="project" value="LOCAL" />
-      <updated>1590882613899</updated>
+      <updated>1591622037486</updated>
     </task>
-    <task id="LOCAL-00049" summary="Infos zu Angebote auf Startseite hinzugefügt. Werden vial click eingeblendet.">
-      <created>1590885271760</created>
+    <task id="LOCAL-00049" summary="settings toggle buttons">
+      <created>1591622267548</created>
       <option name="number" value="00049" />
       <option name="presentableId" value="LOCAL-00049" />
       <option name="project" value="LOCAL" />
-      <updated>1590885271760</updated>
+      <updated>1591622267548</updated>
     </task>
-    <task id="LOCAL-00050" summary="Fixed Plant Image Routes&#10;EMail Client + Contact Formular works now - Emailjs implemented">
-      <created>1591564945848</created>
+    <task id="LOCAL-00050" summary="news/tipps thumbnail paths fixed">
+      <created>1591622621427</created>
       <option name="number" value="00050" />
       <option name="presentableId" value="LOCAL-00050" />
       <option name="project" value="LOCAL" />
-      <updated>1591564945848</updated>
+      <updated>1591622621427</updated>
     </task>
-    <task id="LOCAL-00051" summary="Fixed Plant Image Routes&#10;EMail Client + Contact Formular works now - Emailjs implemented">
-      <created>1591564968970</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1591564968970</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Update Readme">
-      <created>1591565232413</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1591565232413</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Tipps Route hinzugefügt in navi">
-      <created>1591565437975</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1591565437975</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Routen update">
-      <created>1591566832467</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1591566832467</updated>
-    </task>
-    <task id="LOCAL-00055" summary="comments zwischenstand">
-      <created>1591612528745</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1591612528745</updated>
-    </task>
-    <task id="LOCAL-00056" summary="profile zwischenstand">
-      <created>1591725912411</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1591725912412</updated>
-    </task>
-    <task id="LOCAL-00057" summary="profil nix">
-      <created>1591730629248</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1591730629248</updated>
-    </task>
-    <task id="LOCAL-00058" summary="profil nix">
-      <created>1591744957492</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1591744957493</updated>
-    </task>
-    <task id="LOCAL-00059" summary="profil nix">
-      <created>1591790166464</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1591790166465</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Profil update - Besuchernachrichten">
-      <created>1591800019288</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1591800019289</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Profil fixed">
-      <created>1591802846599</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1591802846599</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Pflanzen Formular hinzugefügt">
-      <created>1591820683166</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1591820683166</updated>
-    </task>
-    <option name="localTasksCounter" value="63" />
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="369811000" />
+    <option name="totallyTimeSpent" value="127189000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1147,32 +1353,52 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
+    <frame x="71" y="-7" width="1472" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24825175" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24008499" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4965035" weight="0.32997987" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49787536" weight="0.0" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.498002" weight="0.32997987" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49858356" weight="0.32885906" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.47602397" weight="0.32293764" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.45204794" side_tool="true" visible="true" weight="0.23541248" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.54795206" visible="true" weight="0.23541248" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4995005" weight="0.32997987" />
-      <window_info anchor="bottom" id="TypeScript" order="13" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.47308782" weight="0.32885906" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.45892352" visible="true" weight="0.1852349" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5410765" side_tool="true" weight="0.19597316" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21954674" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="npm" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49929178" weight="0.32885906" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49929178" weight="0.32885906" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49929178" weight="0.32885906" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.39518413" visible="true" weight="0.23489933" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.60481584" side_tool="true" visible="true" weight="0.23489933" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1207,32 +1433,25 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added browser icon" />
-    <MESSAGE value="corrected offer part of landing page" />
-    <MESSAGE value="added styles" />
-    <MESSAGE value="added styles pt2" />
-    <MESSAGE value="responsive test profile --&gt; Handy braucht 2tes Layout, folgt noch" />
-    <MESSAGE value="Landingpage - nach Login angepasst" />
-    <MESSAGE value="News" />
-    <MESSAGE value="Zwischenstand" />
-    <MESSAGE value="Profil - Userplants yet not working" />
-    <MESSAGE value="Profil - Zwischenstand" />
-    <MESSAGE value="Profil - fixed userplants call" />
-    <MESSAGE value="Plant-Seite" />
-    <MESSAGE value="Fixed Input Profil&#10;Fixed Landing Page Login" />
-    <MESSAGE value="Footer Seiten mit (Dummy)Inhalte hinzugefügt. Kontaktformular noch nicht programmiert." />
-    <MESSAGE value="Infos zu Angebote auf Startseite hinzugefügt. Werden vial click eingeblendet." />
-    <MESSAGE value="Fixed Plant Image Routes&#10;EMail Client + Contact Formular works now - Emailjs implemented" />
-    <MESSAGE value="Update Readme" />
-    <MESSAGE value="Tipps Route hinzugefügt in navi" />
-    <MESSAGE value="Routen update" />
-    <MESSAGE value="comments zwischenstand" />
-    <MESSAGE value="profile zwischenstand" />
-    <MESSAGE value="profil nix" />
-    <MESSAGE value="Profil update - Besuchernachrichten" />
-    <MESSAGE value="Profil fixed" />
-    <MESSAGE value="Pflanzen Formular hinzugefügt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pflanzen Formular hinzugefügt" />
+    <MESSAGE value="Delete Laravel" />
+    <MESSAGE value="Add Symfony" />
+    <MESSAGE value="Changed README" />
+    <MESSAGE value="myGarden" />
+    <MESSAGE value="myGarden twig" />
+    <MESSAGE value="Made the relation between Userplant and User work" />
+    <MESSAGE value="news side added" />
+    <MESSAGE value="news site added" />
+    <MESSAGE value="tipps seite" />
+    <MESSAGE value="news component" />
+    <MESSAGE value="tipps component" />
+    <MESSAGE value="tippArticle component" />
+    <MESSAGE value="add news article" />
+    <MESSAGE value="settings added" />
+    <MESSAGE value="tipps article modal" />
+    <MESSAGE value="settings css" />
+    <MESSAGE value="settings toggle buttons" />
+    <MESSAGE value="news/tipps thumbnail paths fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="news/tipps thumbnail paths fixed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
@@ -1257,343 +1476,340 @@
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controller/GardenController.php">
+    <entry file="file://$PROJECT_DIR$/assets/css/register.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/RegistrationController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="76" column="26" lean-forward="true" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Userplant.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-443">
-          <caret line="95" column="80" selection-start-line="95" selection-start-column="71" selection-end-line="95" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/font.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Imprint.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="108" column="70" selection-start-line="108" selection-start-column="54" selection-end-line="108" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/AGB.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/NewsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="12" selection-start-line="12" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="31" column="67" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserplantFixture.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-440">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/layout/MainFooter.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="63" column="39" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="84" column="52" selection-start-line="84" selection-start-column="46" selection-end-line="84" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vue/types/options.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/addUserplantModal.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-132">
-          <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symvue/assets/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ContactController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Contact.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2464">
-          <caret line="112" column="60" selection-start-line="112" selection-start-column="60" selection-end-line="112" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1870">
-            <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
-          </first_editor>
-          <second_editor />
+        <state relative-caret-position="-252">
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/profile.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        <state>
+          <caret column="29" selection-start-column="26" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserFixtures.php">
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/AppFixtures.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="51" column="25" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="25" />
+        <state relative-caret-position="68">
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/ProfileComments.php" />
-    <entry file="file://$PROJECT_DIR$/src/Controller/PlantController.php">
+    <entry file="file://$PROJECT_DIR$/assets/css/tipps.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        <state relative-caret-position="901">
+          <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/routes.js">
+    <entry file="file://$PROJECT_DIR$/assets/js/components/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+        <state relative-caret-position="187">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/FriendRequest.php">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1386" />
+        <state relative-caret-position="-204" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UserplantController.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Article.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="20" column="7" selection-start-line="18" selection-start-column="4" selection-end-line="20" selection-end-column="7" />
+        <state relative-caret-position="765">
+          <caret line="45" column="9" selection-start-line="24" selection-start-column="8" selection-end-line="45" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Friends.vue">
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/SettingsFixture.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="35" column="27" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="27" />
+        <state relative-caret-position="170">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="31" column="61" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/garden.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="25" selection-start-line="25" selection-end-line="30" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/EditUserplantModal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/FriendsController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+        <state relative-caret-position="170">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/SettingsRepository.php" />
+    <entry file="file://$PROJECT_DIR$/src/Entity/Settings.php" />
+    <entry file="file://$PROJECT_DIR$/assets/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Userplant.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        <state>
+          <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/TippArticle.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10340">
-          <caret line="476" column="20" selection-start-line="476" selection-start-column="13" selection-end-line="476" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Home.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2332">
-          <caret line="300" column="47" lean-forward="true" selection-start-line="300" selection-start-column="47" selection-end-line="300" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Database.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/database.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/plantBase/PlantBaseIcon.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-152">
-          <caret line="2177" column="1" selection-start-line="2177" selection-start-column="1" selection-end-line="2177" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4004">
-          <caret line="191" column="8" selection-start-line="191" selection-start-column="8" selection-end-line="191" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/layout.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/color.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/news.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        <state relative-caret-position="544">
+          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="5066">
+          <caret line="298" column="19" selection-start-line="294" selection-start-column="17" selection-end-line="298" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Plant.vue">
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/news.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="95" column="49" selection-start-line="95" selection-start-column="49" selection-end-line="95" selection-end-column="49" />
+        <state relative-caret-position="901">
+          <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Plant.php">
+    <entry file="file://$PROJECT_DIR$/src/Controller/SettingsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1193">
-          <caret line="570" column="31" selection-start-line="570" selection-start-column="20" selection-end-line="570" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="353" column="20" selection-start-line="353" selection-start-column="20" selection-end-line="353" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#svg#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="699" column="51" selection-start-line="699" selection-start-column="51" selection-end-line="699" selection-end-column="51" />
+        <state relative-caret-position="-16259">
+          <caret line="4" selection-start-line="4" selection-end-line="7" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserplantFixture.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/userplant.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="80" column="17" selection-start-line="78" selection-start-column="4" selection-end-line="80" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/block.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="244" column="16" selection-start-line="244" selection-start-column="16" selection-end-line="244" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/settings.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/NewsFixture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-101">
+          <caret line="89" column="44" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/TippsFixture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="26" column="48" lean-forward="true" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Settings.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AddPlantController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="32" column="41" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PlantController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UserplantController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Userplant.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="50" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="134" column="51" selection-start-line="134" selection-start-column="51" selection-end-line="134" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Register.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-900">
+          <caret line="12" column="55" lean-forward="true" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/forms/RegistrationForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="73" column="26" lean-forward="true" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/addUserplantModal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RegistrationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/GardenController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="63" column="41" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/NewsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="78" column="39" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
+          <folding>
+            <element signature="e#34#99#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/TippsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
+          <folding>
+            <element signature="e#34#99#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Garden.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="49" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="59" column="64" selection-start-line="59" selection-start-column="64" selection-end-line="59" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddTippsArticleModal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="70" column="38" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/News.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="39" column="59" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Tipps.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="39" column="58" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/News.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Tipps.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="66" column="13" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
         </state>
       </provider>
     </entry>
