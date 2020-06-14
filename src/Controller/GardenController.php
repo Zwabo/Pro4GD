@@ -110,7 +110,7 @@ class GardenController extends AbstractController
     /**
      * @Route("/api/garden/setWateringDate/{id}", name="setWateringDate", methods={"PUT"})
      */
-    public function setName($id, Request $request){
+    public function setWateringDate($id, Request $request){
         $userplant = $this->getDoctrine()
             ->getRepository(Userplant::class)
             ->find($id);
@@ -120,7 +120,9 @@ class GardenController extends AbstractController
         }
 
         $data = $request->getContent();
-        $userplant->setWateringDate($data);
+        $dateAdded = date_create($data);
+
+        $userplant->setDateWatered($dateAdded);
         $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);

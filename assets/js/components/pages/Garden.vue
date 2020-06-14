@@ -39,7 +39,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 		c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z
 C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                                    </span> Menge</p>
-                                            <button class="buttonDarkGreenSmall water" @click="water(userplant.dateWatered, userplant)"> Gießen</button>
+                                            <button class="buttonDarkGreenSmall water" @click="water($event, userplant.dateWatered, userplant)"> Gießen</button>
                                         </div>
 
                                         <img class="col-sm-5 imgTest" v-bind:src="'../' + userplant.plant.icon"  alt="Picture of plant" height="190" >
@@ -74,7 +74,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 		c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z
 C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                                    </span> Menge</p>
-                                            <button class="buttonDarkGreenSmall" @click="water(userplant.dateWatered, userplant)"> Gießen</button>
+                                            <button class="buttonDarkGreenSmall" @click="water($event, userplant.dateWatered, userplant)"> Gießen</button>
                                         </div>
 
                                         <img class="col-sm-5 imgTest" v-bind:src="'../' + userplant.plant.icon"  alt="Picture of plant" height="190" >
@@ -177,7 +177,8 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                image: '',
                add: false,
                search: '',
-               userplantTemp: null
+               userplantTemp: null,
+               error: ''
            }
        },
        mounted: function(){
@@ -227,19 +228,29 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
            },
            
            water: function (e, wateringDate, userplant) {
+
                e.preventDefault();
 
-               // current date plus one week
+               let today = new Date();
                let watering = new Date(wateringDate['date']);
-               watering.setDay(watering.getDay() + 7);
 
-               this.$http.put('/api/garden/setWateringDate/' + userplant.id, watering)
-                   .then(response => {
-                       this.userplantTemp = response.data;
-                   })
-                   .catch(error => {
-                       alert(error);
-                   });
+               /*if(watering.getDate() === today.getDate() &&
+                   watering.getMonth() === today.getMonth() &&
+                   watering.getFullYear() === today.getFullYear()) {*/
+
+                   // current date plus one week
+                   today.setDate(today.getDate() + 7);
+                   today.setMonth(today.getMonth() +1);
+                   let setDate = today.getDate()+'-'+today.getMonth()+'-'+today.getFullYear();
+
+                   this.$http.put('/api/garden/setWateringDate/' + userplant.id, setDate)
+                       .then(response => {
+                           this.userplantTemp = response.data;
+                       })
+                       .catch(error => {
+                           this.error = error.response.data;
+                       });
+              // }
 
            },
 
