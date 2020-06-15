@@ -5,7 +5,9 @@
         <div class="col right marginLeftRight">
 
             <div class="row garden">
-                <h1 class="col-sm">Mein Garten<span class="fontLight edit"> edit</span></h1>
+                <h1 class="col-sm">Mein Garten
+                    <span class="fontLight edit" v-if="!edit" @click="edit = true"> edit</span>
+                    <span v-if="edit" class="fontLight edit" @click="edit = false"> close</span></h1>
                 <div class="col-sm text-right add"><span @click="add = true" class="iconGarden">
 
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="path1" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><path class="path2" d="M362.8,227.9c0,14.2-11.4,25.6-25.6,25.6h-85.3v85.3c0,14.2-11.4,25.6-25.6,25.6s-25.6-11.4-25.6-25.6v-85.3
@@ -20,6 +22,7 @@
                 <div class="col">
                     <div v-for="(userplant, index) in garden" >
                         <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
+                            <remove-plant-modal  v-if="edit" :userplant="userplant"  @newUserplant="newUserplant"></remove-plant-modal>
                             <router-link :to="'/userplant/' + userplant.id">
                                 <div class="container-fluid plantsProfil dropShadow bgWhiteGrey " v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
                                     <div class="row">
@@ -39,7 +42,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 		c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z
 C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                                    </span> Menge</p>
-                                            <button class="buttonDarkGreenSmall water" @click="water(userplant.dateWatered, userplant)"> Gießen</button>
+                                            <button class="buttonDarkGreenSmall water" @click="water($event, userplant)"> Gießen</button>
                                         </div>
 
                                         <img class="col-sm-5 imgTest" v-bind:src="'../' + userplant.plant.icon"  alt="Picture of plant" height="190" >
@@ -55,6 +58,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                 <div class="col">
                     <div v-for="(userplant, index) in garden">
                         <div v-if="index % 2 !== 0" class="row paddingNormalize">
+                            <remove-plant-modal  v-if="edit" :userplant="userplant" @newUserplant="newUserplant"></remove-plant-modal>
                             <router-link :to="'/userplant/' + userplant.id" >
                                 <div class="container-fluid plantsProfil dropShadow bgWhiteGrey" v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
                                     <div class="row">
@@ -74,7 +78,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 		c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z
 C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                                    </span> Menge</p>
-                                            <button class="buttonDarkGreenSmall" @click="water(userplant.dateWatered, userplant)"> Gießen</button>
+                                            <button class="buttonDarkGreenSmall" @click="water($event, userplant)"> Gießen</button>
                                         </div>
 
                                         <img class="col-sm-5 imgTest" v-bind:src="'../' + userplant.plant.icon"  alt="Picture of plant" height="190" >
@@ -167,9 +171,13 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 <script>
 
    import AddUserplantModal from "../modals/addUserplantModal";
+   import removePlantModal from "../modals/removePlantModal";
    export default {
        name: "Garden",
-       components: {AddUserplantModal},
+       components: {
+           'add-userplant-modal': AddUserplantModal,
+           'remove-plant-modal' : removePlantModal
+       },
        data: function(){
            return{
                garden: null,
@@ -177,7 +185,9 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                image: '',
                add: false,
                search: '',
-               userplantTemp: null
+               userplantTemp: null,
+               edit: false,
+               weekday: ["Sonntag", "Montag", "Dienstag","Mittwoch", "Donnerstag", "Freitag", "Samstag"]
            }
        },
        mounted: function(){
@@ -225,15 +235,20 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
            newUserplant: function(){
                location.reload(true);
            },
-           
-           water: function (e, wateringDate, userplant) {
+
+           water: function (e, userplant) {
+
                e.preventDefault();
 
-               // current date plus one week
-               let watering = new Date(wateringDate['date']);
-               watering.setDay(watering.getDay() + 7);
+               let today = new Date();
 
-               this.$http.put('/api/garden/setWateringDate/' + userplant.id, watering)
+               today.setDate(today.getDate() + userplant.wateringCycle);
+               today.setMonth(today.getMonth() +1);
+               let setDate = today.getDate()+'-'+today.getMonth()+'-'+today.getFullYear();
+
+               userplant.dateWatered['date'] = today.getFullYear()+'-'+today.getMonth()+'-'+today.getDate() + ' ' + today.getHours()+ ':' + today.getMinutes() +':' + today.getSeconds()+'.' + today.getMilliseconds();
+
+               this.$http.put('/api/garden/setWateringDate/' + userplant.id, setDate)
                    .then(response => {
                        this.userplantTemp = response.data;
                    })
@@ -248,21 +263,12 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                let today = new Date();
                let watering = new Date(wateringDate['date']);
 
-               let weekday = new Array(7);
-               weekday[0] = "Sonntag";
-               weekday[1] = "Montag";
-               weekday[2] = "Dienstag";
-               weekday[3] = "Mittwoch";
-               weekday[4] = "Donnerstag";
-               weekday[5] = "Freitag";
-               weekday[6] = "Samstag";
-
                if(watering.getDate() === today.getDate() &&
                    watering.getMonth() === today.getMonth() &&
                    watering.getFullYear() === today.getFullYear()) {
                    return 'Heute';
                } else {
-                   return weekday[watering.getDay()];
+                   return this.weekday[watering.getDay()];
                }
 
            }

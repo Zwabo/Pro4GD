@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Entity\Tipps;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class TippsController extends AbstractController
 {
@@ -63,5 +64,31 @@ class TippsController extends AbstractController
         return new JsonResponse($tippsSite, Response::HTTP_OK);
     }
 
+    /**
+     * @Route("/api/tipps/createTippsArticle", name="createTippsArticle", methods={"POST"})
+     */
+    public function createTippsArticle(Request $request, ValidatorInterface $validator): JsonResponse
+    {
+       $tipps = new Tipps();
+
+        $data = $request->getContent();
+        $params = json_decode($data, true);
+
+        $tipps->setTitle($params["title"]);
+        $tipps->setShortText($params["shortText"]);
+        $tipps->setLongText($params["long_text"]);
+        $tipps->setDatePosted(new \DateTime("now"));
+
+        $errors = $validator->validate($tipps);
+        if(count($errors) > 0){
+            return new JsonResponse((string) $errors, Response::HTTP_CONFLICT);
+        }
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($tipps);
+        $entityManager->flush();
+
+        return new JsonResponse(Response::HTTP_OK);
+    }
 
 }

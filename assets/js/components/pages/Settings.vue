@@ -101,7 +101,7 @@
                                     <div class="row">
                                     <h4 class="col-lg-6 private">Geburtsdatum</h4>
                                     <div class ="col-lg-6">
-                                        <form @change="privacyBirthdayChange">
+                                        <form @change="privacySettingsChange('birthday', privacyBirthday)">
                                             <input class="radioButton" name="birthday" v-model="privacyBirthday" value="all" type="radio" checked data-toggle="toggle" data-style="ios">
                                             <input class="radioButton" name="birthday" v-model="privacyBirthday" value="friends" type="radio" checked data-toggle="toggle" data-style="ios">
                                             <input class="radioButton" name="birthday" v-model="privacyBirthday" value="none" type="radio" checked data-toggle="toggle" data-style="ios">
@@ -137,7 +137,7 @@
                                     <div class="row">
                                     <h4 class="col-lg-6 private">Besuchernachrichten</h4>
                                         <div class ="col-lg-6">
-                                            <form>
+                                            <form @change="privacySettingsChange('comments', privacyComments)">
                                                 <input class="radioButton" name="messages" v-model="privacyComments" value="all" type="radio" checked data-toggle="toggle" data-style="ios">
                                                 <input class="radioButton" name="messages" v-model="privacyComments" value="friends" type="radio" checked data-toggle="toggle" data-style="ios">
                                                 <input class="radioButton" name="messages" v-model="privacyComments" value="none" type="radio" checked data-toggle="toggle" data-style="ios">
@@ -149,7 +149,7 @@
                                     <div class="row">
                                     <h4 class="col-lg-6 private">Freunde</h4>
                                     <div class ="col-lg-6">
-                                        <form>
+                                        <form @change="privacySettingsChange('friends', privacyFriends)">
                                             <input class="radioButton" name="friendlist" v-model="privacyFriends" value="all" type="radio" checked data-toggle="toggle" data-style="ios">
                                             <input class="radioButton" name="friendlist" v-model="privacyFriends" value="friends" type="radio" checked data-toggle="toggle" data-style="ios">
                                             <input class="radioButton" name="friendlist" v-model="privacyFriends" value="none" type="radio" checked data-toggle="toggle" data-style="ios">
@@ -161,7 +161,7 @@
                                         <div class="row">
                                     <h4 class="col-lg-6 private">Garten</h4>
                                         <div class ="col-lg-6">
-                                            <form>
+                                            <form @change="privacySettingsChange('garden', privacyGarden)">
                                                 <input class="radioButton" name="garden" v-model="privacyGarden" value="all" type="radio" checked data-toggle="toggle" data-style="ios">
                                                 <input class="radioButton" name="garden" v-model="privacyGarden" value="friends" type="radio" checked data-toggle="toggle" data-style="ios">
                                                 <input class="radioButton" name="garden" v-model="privacyGarden" value="none" type="radio" checked data-toggle="toggle" data-style="ios">
@@ -173,7 +173,7 @@
                                             <div class="row">
                                     <h4 class="col-lg-6 private">Forenposts</h4>
                                             <div class ="col-lg-6">
-                                                <form>
+                                                <form @change="privacySettingsChange('forum', privacyForum)">
                                                     <input class="radioButton" name="posts" v-model="privacyForum" type="radio" value="all" checked data-toggle="toggle" data-style="ios">
                                                     <input class="radioButton" name="posts" v-model="privacyForum" type="radio" value="friends" checked data-toggle="toggle" data-style="ios">
                                                     <input class="radioButton" name="posts" v-model="privacyForum" type="radio" value="none" checked data-toggle="toggle" data-style="ios">
@@ -215,7 +215,7 @@
         name: "Settings",
         data: function() {
             return {
-                profileUser: null,              // object for user
+                profileUser: null,
                 privacyBirthday: "all",
                 privacyComments: "all",
                 privacyFriends: "all",
@@ -232,8 +232,33 @@
             this.privacyForum = this.profileUser.privacyForum;
         },
         methods:{
-            privacyBirthdayChange: function(){
+            privacySettingsChange: function(type, val){
                 console.log(this.privacyBirthday);
+
+                this.$http.put('/api/settings/changePrivacySettings/' + type + "/" + val)
+                    .then(response => {
+                        switch(type){
+                            case "birthday":
+                                this.profileUser.privacyBirthday = val;
+                                break;
+                            case "comments":
+                                this.profileUser.privacyComments = val;
+                                break;
+                            case "friends":
+                                this.profileUser.privacyFriends = val;
+                                break;
+                            case "garden":
+                                this.profileUser.privacyGarden = val;
+                                break;
+                            case "forum":
+                                this.profileUser.privacyForum = val;
+                                break;
+                        }
+                        localStorage.setItem('user', JSON.stringify(this.profileUser));
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
             }
         }
     }

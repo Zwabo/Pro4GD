@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Forum{% endblock %}
+
+{% block body %}
+
+    {{ dump(thread) }}
+    {{ dump(comments) }}
+
+    {{ form_start(commentForm) }}
+    <div id="commentCreateButton">
+        <button class="btn buttonWhite">Kommentar erstellen</button>
+    </div>
+    {{ form_end(commentForm) }}
+
+{% endblock %}
+
+
