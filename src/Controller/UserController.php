@@ -89,8 +89,8 @@ class UserController extends AbstractController
                 $username = $request->getReceiver()->getUsername();
                 $firstName = $request->getReceiver()->getFirstName();
                 $lastName = $request->getReceiver()->getLastName();
-                $level = $request->getReciever()->getLevel();
-                $userPic = $request->getReciever()->getUserPic();
+                $level = $request->getReceiver()->getLevel();
+                $userPic = $request->getReceiver()->getUserPic();
 
                 $friendData = [
                     'id' => $id,
