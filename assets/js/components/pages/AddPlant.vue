@@ -26,13 +26,30 @@
 
                         <h4 class="addPlantH4">Eckdaten</h4>
 
+                        <div v-if="errors.length" class="errors">
+                            <p>Bitte korrigieren Sie folgende Errors:</p>
+                                <ul>
+                                    <li v-for="error in erros">{{ error }}</li>
+                                </ul>
+                        </div>
+
                         <div class="row form-group">
                             <div class="col-lg-2 col-form-label">
-                                <label for="Name" class="paddingNormalize marginNormalize" required>Name*</label>
+                                <label for="Name" class="paddingNormalize marginNormalize" >Name*</label>
                             </div>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control-sm searchBarDatabase inputPlantForm"
-                                       id="Name" placeholder="Pflanzenname">
+                                <input v-model="name" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
+                                       id="Name" placeholder="Pflanzenname" required>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-lg-2 col-form-label">
+                                <label for="Linkname" class="paddingNormalize marginNormalize" >Link Name*</label>
+                            </div>
+                            <div class="col-lg-10">
+                                <input v-model="linkname" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
+                                       id="Linkname" placeholder="Link Name - z.B. aloeVera (plantBase/plant/aloeVera)" required>
                             </div>
                         </div>
 
@@ -41,18 +58,28 @@
                                 <label for="alNamen" class="paddingNormalize marginNormalize">Alternative Namen</label>
                             </div>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control-sm searchBarDatabase inputPlantForm"
+                                <input v-model="alternativeName" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="alNamen" placeholder="Alternativer Name">
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-lg-2 col-form-label">
-                                <label for="alNamen" class="paddingNormalize marginNormalize" required>Gattung*</label>
+                                <label for="LatinName" class="paddingNormalize marginNormalize">Lateinischer Namen</label>
+                            </div>
+                            <div class="col-sm-10">
+                                <input v-model="latinName" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
+                                       id="LatinName" placeholder="Lateinischer Name">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-lg-2 col-form-label">
+                                <label for="alNamen" class="paddingNormalize marginNormalize" >Gattung*</label>
                             </div>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control-sm searchBarDatabase inputPlantForm"
-                                       id="gattung" placeholder="Pflanzengattung">
+                                <input v-model="genus" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
+                                       id="gattung" placeholder="Pflanzengattung" required>
                             </div>
                         </div>
 
@@ -61,35 +88,35 @@
                                 <label for="feature" class="paddingNormalize marginNormalize">Besonderheit</label>
                             </div>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control-sm searchBarDatabase inputPlantForm"
+                                <input v-model="specialFeatureIcon" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="feature" placeholder="Besonderheit">
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-lg-2 col-form-label">
-                                <label for="plantCategory" class="paddingNormalize marginNormalize">Kategorie</label>
+                                <label for="plantCategory" class="paddingNormalize marginNormalize">Kategorie*</label>
                             </div>
                             <div class="col-lg-10">
-                                <select v-model="plantCategorySelect" class="form-control-sm searchBarDatabase DropdownFont
-                                        selectBoxes inputPlantForm" id="plantCategory" multiple>
-                                    <option value="" disabled selected >Pflegeaufwand wählen</option>
-                                    <option v-for="(category, index) in plantCategorySelectOptions"
-                                            v-bind:key="index">{{category.text}}</option>
+                                <select v-model="categorySelect" class="form-control-sm searchBarDatabase DropdownFont
+                                        selectBoxes inputPlantForm" id="plantCategory" > <!-- multiple-->
+                                    <option v-model="categorySelectOptions" disabled selected >Pflegeaufwand wählen</option>
+                                    <option v-for="(category, index) in categorySelectOptions"
+                                            v-bind:key="index" required>{{category.text}}</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-lg-2 col-form-label">
-                                <label for="plantDfficulty" class="paddingNormalize marginNormalize" required>Pflegeaufwand*</label>
+                                <label for="plantDfficulty" class="paddingNormalize marginNormalize" >Pflegeaufwand*</label>
                             </div>
                             <div class="col-lg-10">
-                                <select v-model="difficultySelect" class="form-control-sm searchBarDatabase DropdownFont
+                                <select v-model="careLevelSelect" class="form-control-sm searchBarDatabase DropdownFont
                                         selectBoxes inputPlantForm" id="plantDfficulty">
-                                    <option value="" disabled selected >Pflegeaufwand wählen</option>
-                                    <option v-for="(difficulty, index) in difficultySelectOptions"
-                                            v-bind:key="index">{{difficulty.text}}</option>
+                                    <option v-model="careLevelSelectOptions" disabled selected >Pflegeaufwand wählen</option>
+                                    <option v-for="(difficulty, index) in careLevelSelectOptions"
+                                            v-bind:key="index" required>{{difficulty.text}}</option>
                                 </select>
                             </div>
                         </div>
@@ -102,51 +129,51 @@
                             <div class="col-lg-5 paddingNormalize marginNormalize">
                                 <div class="container-fluid">
                                     <h6 class="addPlantH6">Sonne</h6>
-                                    <input type="checkbox" name="plantPosition" id="sunny">
+                                    <input v-model="locationIcon" value="sonnig" type="checkbox" id="sunny">
                                     <label for="sunny">sonnig</label>
                                     <br>
-                                    <input type="checkbox" name="palntPosition" id="muchSun">
+                                    <input v-model="locationIcon" value="viel Sonne" type="checkbox" id="muchSun">
                                     <label for="muchSun">viel Sonne</label>
                                     <br>
-                                    <input type="checkbox" name="plantPosition" id="directSun">
+                                    <input v-model="locationIcon" value="direkte Sonneneinstrahlung" type="checkbox" id="directSun">
                                     <label for="directSun">direkte Sonneneinstrahlung</label>
                                     <br>
-                                    <input type="checkbox" name="plantPosition" id="notTooMuchSun">
+                                    <input v-model="locationIcon" value="nicht zu viel direkte Sonneneinstrahlung" type="checkbox" id="notTooMuchSun">
                                     <label for="notTooMuchSun">nicht zu viel direkte Sonneneinstrahlung</label>
                                     <br>
-                                    <input type="checkbox" name="plantPosition" id="noSun">
+                                    <input v-model="locationIcon" value="keine direkte Sonneneinstrahlung" type="checkbox" id="noSun">
                                     <label for="noSun">keine direkte Sonneneinstrahlung</label>
                                     <br>
-                                    <input type="checkbox" name="plantPosition" id="noMiddaySun">
+                                    <input v-model="locationIcon" value="keine Mittagssonne" type="checkbox" id="noMiddaySun">
                                     <label for="noMiddaySun">keine Mittagssonne</label>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="container-fluid">
                                     <h6 class="addPlantH6">Helligkeit / Schatten</h6>
-                                    <input type="checkbox" name="plantPosition" id="bright">
+                                    <input v-model="locationIcon" value="hell" type="checkbox" id="bright">
                                     <label for="bright">hell</label>
                                     <br>
-                                    <input type="checkbox" name="plantPosition" id="veryBright">
+                                    <input v-model="locationIcon" value="sehr hell" type="checkbox" id="veryBright">
                                     <label for="veryBright">sehr hell</label>
                                     <br>
-                                    <input type="checkbox" name="plantPosition" id="shadow">
+                                    <input v-model="locationIcon" value="schattig" type="checkbox" id="shadow">
                                     <label for="shadow">schattig</label>
                                     <br>
-                                    <input type="checkbox" name="plantPosition" id="halfShade">
+                                    <input v-model="locationIcon" value="Halbschatten" type="checkbox" id="halfShade">
                                     <label for="halfShade">Halbschatten</label>
                                     <br>
-                                    <input type="checkbox" name="plantPosition" id="moderateShadow">
+                                    <input v-model="locationIcon" value="mäßig Schatten" type="checkbox" id="moderateShadow">
                                     <label for="moderateShadow">mäßig Schatten</label>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="container-fluid">
                                     <h6 class="addPlantH6">Jahreszeiten</h6>
-                                    <input type="checkbox" name="plantPosition" id="winter-shadow">
+                                    <input v-model="locationIcon" value="Winter: schattig" type="checkbox" id="winter-shadow">
                                     <label for="winter-shadow">Winter: schattig</label>
                                     <br>
-                                    <input type="checkbox" name="plantPosition" id="spring-bright">
+                                    <input v-model="locationIcon" value="Frühjahr: hell" type="checkbox" id="spring-bright">
                                     <label for="spring-bright">Frühjahr: hell</label>
                                 </div>
                             </div>
@@ -154,60 +181,71 @@
 
                         <div class="row form-group">
                             <div class="col-lg-2 col-form-label">
-                                <label for="temperature" class="paddingNormalize marginNormalize" required>
+                                <label for="temperature" class="paddingNormalize marginNormalize" >
                                     <h5 class="addPlantH5">Temperatur*</h5></label>
                             </div>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control-sm searchBarDatabase inputPlantForm"
-                                       id="temperature" placeholder="Temperatur">
+                                <input v-model="temperatureIcon" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
+                                       id="temperature" placeholder="Temperatur" required>
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-lg-2 col-form-label">
-                                <label for="plantSubstrat" class="paddingNormalize marginNormalize" required><h5
+                                <label for="plantSubstrat" class="paddingNormalize marginNormalize" ><h5
                                     class="addPlantH5">Substrat*</h5></label>
                             </div>
                             <div class="col-lg-10">
-                                <select v-model="plantSubstratSelect" class="form-control-sm searchBarDatabase DropdownFont
-                                    selectBoxes inputPlantForm" id="plantSubstrat" multiple>
-                                    <option value="" disabled selected >Substrat wählen</option>
-                                    <option v-for="(substrat, index) in plantSubstratSelectOptions"
-                                        v-bind:key="index">{{substrat.text}}</option>
+                                <select v-model="substrateIconSelect" class="form-control-sm searchBarDatabase DropdownFont
+                                    selectBoxes inputPlantForm" id="plantSubstrat" > <!--multiple-->
+                                    <option v-model="substrateIconSelectOptions" disabled selected >Substrat wählen</option>
+                                    <option v-for="(substrat, index) in substrateIconSelectOptions"
+                                        v-bind:key="index" required>{{substrat.text}}</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-lg-2 col-form-label">
-                                <label for="dung" class="paddingNormalize marginNormalize" required>
+                                <label for="dung" class="paddingNormalize marginNormalize" >
                                     <h5 class="addPlantH5">Dünger*</h5></label>
                             </div>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control-sm searchBarDatabase inputPlantForm"
-                                       id="dung" placeholder="Düngerinterval">
+                                <input v-model="fertiliserIcon" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
+                                       id="dung" placeholder="Düngerinterval" required>
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-lg-2 col-form-label">
-                                <label for="watering" class="paddingNormalize marginNormalize" required>
+                                <label for="watering" class="paddingNormalize marginNormalize" >
                                     <h5 class="addPlantH5">Gießen*</h5></label>
                             </div>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control-sm searchBarDatabase inputPlantForm"
-                                       id="watering" placeholder="Gießintervall">
+                                <input v-model="wateringAmount" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
+                                       id="watering" placeholder="Gießintervall" required>
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-lg-2 col-form-label">
-                                <label for="size" class="paddingNormalize marginNormalize" required>
+                                <label for="size" class="paddingNormalize marginNormalize" >
                                     <h5 class="addPlantH5">Größe*</h5></label>
                             </div>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control-sm searchBarDatabase inputPlantForm"
-                                       id="size" placeholder="Maximale Pflanzengröße">
+                                <input v-model="heightIcon" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
+                                       id="size" placeholder="Maximale Pflanzengröße" required>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-lg-2 col-form-label">
+                                <label for="heyday" class="paddingNormalize marginNormalize">
+                                    <h5 class="addPlantH5">Blütezeit</h5></label>
+                            </div>
+                            <div class="col-lg-10">
+                                <input v-model="heydayIcon" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
+                                       id="heyday" placeholder="Blütezeit der Pflanze">
                             </div>
                         </div>
 
@@ -217,8 +255,8 @@
                                     <h5 class="addPlantH5">Farbe</h5></label>
                             </div>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control-sm searchBarDatabase inputPlantForm"
-                                       id="color" placeholder="Blütenfarben">
+                                <input v-model="flowerColor" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
+                                       id="color" placeholder="Blütenfarben (bitte Eintragen, wenn Blütezeit vorhanden">
                             </div>
                         </div>
 
@@ -227,21 +265,22 @@
 
                         <div class="row form-group">
                             <div class="col-lg-2 col-form-label">
-                                <label for="shortDescription" class="paddingNormalize marginNormalize" required>Kurzbeschreibung*</label>
+                                <label for="shortDescription" class="paddingNormalize marginNormalize" >Kurzbeschreibung*</label>
                             </div>
                             <div class="col-lg-10">
-                                <textarea type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
-                                          id="shortDescription" placeholder="Kurzbeschreibung eingeben"></textarea>
+                                <textarea v-model="shortDescription" type="text"
+                                          class="form-control-sm searchBarDatabase textareaPlantForm"
+                                          id="shortDescription" placeholder="Kurzbeschreibung eingeben" required></textarea>
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-lg-2 col-form-label">
-                                <label for="tippsInfo" class="paddingNormalize marginNormalize" required>Pflegetipps*</label>
+                                <label for="tippsInfo" class="paddingNormalize marginNormalize" >Pflegetipps*</label>
                             </div>
                             <div class="col-lg-10">
-                                <textarea type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
-                                          id="tippsInfo" placeholder="Pflegetipps eingeben"></textarea>
+                                <textarea v-model="careTips" type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
+                                          id="tippsInfo" placeholder="Pflegetipps eingeben" required></textarea>
                             </div>
                         </div>
 
@@ -250,18 +289,19 @@
                                 <label for="specialFeaturesInfo" class="paddingNormalize marginNormalize">Besonderheiten</label>
                             </div>
                             <div class="col-lg-10">
-                                <textarea type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
+                                <textarea v-model="specialFeaturesAddinfo" type="text"
+                                          class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="specialFeaturesInfo" placeholder="Besonderheiten Langbeschreibung"></textarea>
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-lg-2 col-form-label">
-                                <label for="idealLocationInfo" class="paddingNormalize marginNormalize" required>Idealer Standort*</label>
+                                <label for="idealLocationInfo" class="paddingNormalize marginNormalize" >Idealer Standort*</label>
                             </div>
                             <div class="col-lg-10">
-                                <textarea type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
-                                          id="idealLocationInfo" placeholder="Kurzbeschreibung Langbeschreibung"></textarea>
+                                <textarea v-model="locationAddinfo" type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
+                                          id="idealLocationInfo" placeholder="Idealer Standort Langbeschreibung" required></textarea>
                             </div>
                         </div>
 
@@ -270,8 +310,9 @@
                                 <label for="temperatureInfo" class="paddingNormalize marginNormalize">Temperatur</label>
                             </div>
                             <div class="col-lg-10">
-                                <textarea type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
-                                          id="temperatureInfo" placeholder="Besonderheiten Langbeschreibung"></textarea>
+                                <textarea v-model="temperatureAddinfo" type="text"
+                                          class="form-control-sm searchBarDatabase textareaPlantForm"
+                                          id="temperatureInfo" placeholder="Temperatur Langbeschreibung"></textarea>
                             </div>
                         </div>
 
@@ -280,7 +321,7 @@
                                 <label for="potInfo" class="paddingNormalize marginNormalize">Topf</label>
                             </div>
                             <div class="col-lg-10">
-                                <textarea type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
+                                <textarea v-model="pot" type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="potInfo" placeholder="Umsetzung und Aufbewahrung Langbeschreibung"></textarea>
                             </div>
                         </div>
@@ -290,7 +331,8 @@
                                 <label for="wateringInfo" class="paddingNormalize marginNormalize">Wasserbedarf</label>
                             </div>
                             <div class="col-lg-10">
-                                <textarea type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
+                                <textarea v-model="wateringAmountAddinfo" type="text"
+                                          class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="wateringInfo" placeholder="Wasserbedarf Langbeschreibung"></textarea>
                             </div>
                         </div>
@@ -300,7 +342,8 @@
                                 <label for="soilInfo" class="paddingNormalize marginNormalize">Erde</label>
                             </div>
                             <div class="col-lg-10">
-                                <textarea type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
+                                <textarea v-model="substrateAddinfo" type="text"
+                                          class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="soilInfo" placeholder="Erde Langbeschreibung"></textarea>
                             </div>
                         </div>
@@ -310,7 +353,8 @@
                                 <label for="fertilizerInfo" class="paddingNormalize marginNormalize">Dünger</label>
                             </div>
                             <div class="col-lg-10">
-                                <textarea type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
+                                <textarea v-model="fertiliserAddinfo" type="text"
+                                          class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="fertilizerInfo" placeholder="Dünger Langbeschreibung"></textarea>
                             </div>
                         </div>
@@ -320,14 +364,14 @@
                                 <label for="heydayInfo" class="paddingNormalize marginNormalize">Blütezeit</label>
                             </div>
                             <div class="col-lg-10">
-                                <textarea type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
+                                <textarea v-model="heydayAddinfo" type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="heydayInfo" placeholder="Blütezeit Langbeschreibung"></textarea>
                             </div>
                         </div>
 
                         <div class="row float-right">
                             <div class="container-fluid">
-                                <button class="buttonDarkGreen">Hinzufügen</button>
+                                <button @click="addPlantCreateNew" class="buttonDarkGreen">Hinzufügen</button>
                             </div>
                         </div>
                     </form>
@@ -345,10 +389,20 @@
         name: "AddPlant",
         data: function(){
             return{
-                plants: null,
 
-                plantCategorySelect: "",
-                plantCategorySelectOptions: [
+                errors: [],
+
+                // Eckdaten
+
+                name: null,
+                linkname: null,
+                alternativeName: null,
+                latinName: null,
+                genus: null,
+                specialFeatureIcon: null,
+
+                categorySelect: null,                 // category in plant database
+                categorySelectOptions: [
                     {text: 'Farn'},
                     {text: 'Fleischfressende Pflanze'},
                     {text: 'Frühlingsblüher'},
@@ -366,16 +420,21 @@
                     {text: 'Zwiebelgewächse'},
                 ],
 
-                difficultySelect: "",
-                difficultySelectOptions: [
+                careLevelSelect: null,            // careLevel in plant database
+                careLevelSelectOptions: [
                     {text: 'gering'},
                     {text: 'mittel'},
                     {text: 'hoch'},
                     {text: 'extrem'},
                 ],
 
-                plantSubstratSelect: "",
-                plantSubstratSelectOptions: [
+                // Icons
+
+                locationIcon: [],           // Standortbeschreibung
+                temperatureIcon: null,        // Temperatur Beschreibung
+
+                substrateIconSelect: null,            // substratIcon in database     - Erde für die Pflanze
+                substrateIconSelectOptions: [
                     {text: 'Azaleenerde'},
                     {text: 'Blumenerde'},
                     {text: 'Bonsaierde'},
@@ -405,11 +464,77 @@
                     {text: 'ungedüngter Torf, keine Blumenerde'},
                 ],
 
+                fertiliserIcon: null,         // Düngerinterval
+                wateringAmount: null,         // Geißeintervall
+                heightIcon: null,             // Größe der Pflanze
+                heydayIcon: null,             // Blütezeit der Pflanze
+                flowerColor: null,            // Blütenfarbe
 
+                // Beschreibungen
+
+                shortDescription: null,
+                careTips: null,
+                specialFeaturesAddinfo: null,
+                locationAddinfo: null,
+                temperatureAddinfo: null,
+                pot: null,                    // Information zu Tope / Umtopfen
+                wateringAmountAddinfo: null,
+                substrateAddinfo: null,
+                fertiliserAddinfo: null,
+                heydayAddinfo: null,
 
             }
         },
-        mounted: function() {
+        methods: {
+            addPlantCreateNew: function() {
+                this.locationIcon = this.locationIcon.toString();
+
+                if(this.name && this.linkname ) {
+
+                    this.$http.post('/api/addPlant/createNewPlant/', {
+                        name: this.name,
+                        linkName: this.linkname,
+                        alternativeName: this.alternativeName,
+                        latinName: this.latinName,
+                        genus: this.genus,
+                        careLevel: this.careLevelSelect,
+                        wateringAmount: this.wateringAmount,
+                        locationIcon: this.locationIcon,
+                        temperatureIcon: this.temperatureIcon,
+                        fertiliserIcon: this.fertiliserIcon,
+                        substrateIcon: this.substrateIconSelect,
+                        heydayIcon: this.heydayIcon,
+                        heightIcon: this.heightIcon,
+                        specialFeatureIcon: this.specialFeatureIcon,
+                        shortDescription: this.shortDescription,
+                        specialFeaturesAddinfo: this.specialFeaturesAddinfo,
+                        locationAddinfo: this.locationAddinfo,
+                        temperatureAddinfo: this.temperatureAddinfo,
+                        pot: this.pot,
+                        wateringAmountAddinfo: this.wateringAmountAddinfo,
+                        substrateAddinfo: this.substrateAddinfo,
+                        flowerColor: this.flowerColor,
+                        heydayAddinfo: this.heydayAddinfo,
+                        careTips: this.careTips,
+                        category: this.categorySelect,
+
+                        icon: "images/plants/Aloe.png",
+                        windowIcon: "images/plants/AloeBackground.png",
+                    })
+                        .then(response => {
+
+                        })
+                        .catch(error => {
+                            if(error.response.data) {
+                                this.error = error.response.data;
+                            }
+                        });
+                    //this.$emit('newPlant');
+                } else {
+                    alert("Bitte füllen Sie alle Pflichtfelder aus.");
+                }
+                //e.preventDefault();
+            }
 
         }
     }

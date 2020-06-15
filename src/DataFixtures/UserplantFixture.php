@@ -35,7 +35,7 @@ class UserplantFixture extends Fixture implements DependentFixtureInterface
 
         //$userplant->setUserplantCareTips("Blabalbalba");
 
-        //$userplant->category($this->>getReference('category.plant');
+        //$userplant->categorySelect($this->>getReference('categorySelect.plant');
 
 
         $userplant2 = new Userplant();
