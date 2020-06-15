@@ -35,7 +35,7 @@
                             <svg><use href="#birthday"></use></svg>
                             {{ userAge }}
                         </li>
-                        <li>
+                        <li v-if="showBirthday">
                             <svg><use href="#calendar"></use></svg>
                             {{ birthdayString }}
                         </li>
@@ -59,7 +59,7 @@
 
                         </div>
 
-                        <div>
+                        <div v-if="showFriends">
                             <h3 class="h3Margin">Freunde</h3>
                             <div class="greenLine"></div>
 
@@ -102,7 +102,7 @@
                             </div>
                         </div> <!-- freinds part end-->
 
-                        <div id="garden">
+                        <div id="garden" v-if="showGarden">
                             <h3 class="h3Margin">{{ profileUser.username }}s Garten</h3>
                             <div class="greenLine"></div>
                         </div>
@@ -161,7 +161,7 @@
 
                         </div>
 
-                        <div class="container-fluid" id="Besuchernachrichten">
+                        <div class="container-fluid" id="Besuchernachrichten" v-if="showComments">
                             <h3 class="h3Margin">Besuchernachrichten</h3>
                             <div class="greenLine"></div>
                             <div class="row" id="leaveComment">
@@ -203,7 +203,7 @@
                         <p class="rightBoxesPadding">Wird nur gezeigt wenn welche vorhanden sind</p>    <!-- Besuchernachrichten auslesen -->
                     </div>
 
-                    <div class="rightBoxes">
+                    <div class="rightBoxes" v-if="showForum">
                         <h4 class="bgLightGrey rightBoxesPadding h4Box">Forenposts</h4>
                         <p class="rightBoxesPadding">Liste an Forenposts</p> <!-- wird aus dem Forum ausgelesen -->
                     </div>
@@ -304,6 +304,16 @@
 
                 loggedInUserIsFriend: false,
                 loggedInUserIsProfileUser: false,
+                loggedInUserIsStranger: false,
+
+                requestsFinished: false,
+
+                //Bools that determine whether certain components are shown or not
+                showBirthday: false,
+                showComments: false,
+                showFriends: false,
+                showGarden: false,
+                showForum: false,
             }
         },
 
@@ -349,10 +359,14 @@
                     } else {
                         console.log(this.profileUser.comments);
                     }
+                    return this.$http.get('/api/profile/' + this.$route.params.username + '/friends');
+                })
+                //friends
+                .then(response => {
+                    this.profileUserFriends = response.data;
 
-                    //Check relationship between logged in user and profile user
-                    this.checkPrivacy();
-
+                    this.checkRelationshipSelf(); //Check if logged in user is profile user
+                    this.checkRelationshipFriend(); //Check if logged in user is a friend of profile user
                 })
                 .catch(error => {
                     //alert(error);
@@ -368,15 +382,42 @@
                     .catch(error => {
                         this.getError(error);
                 });
+        },
 
-            //freinds
-            this.$http.get('/api/profile/' + this.$route.params.username + '/friends')
-                .then(response => {
-                    this.profileUserFriends = response.data;
-                })
-                .catch(error => {
-                    this.getError(error);
-                });
+        watch: {
+            loggedInUserIsFriend: function(val) {
+                if(this.profileUser.privacyBirthday == "friends" || "all"){
+                    this.showBirthday = true;
+                } if(this.profileUser.privacyComments == "friends" || "all") {
+                    this.showComments = true;
+                } if(this.profileUser.privacyFriends == "friends" || "all") {
+                    this.showFriends = true;
+                } if(this.profileUser.privacyGarden == "friends" || "all") {
+                    this.showGarden = true;
+                } if(this.profileUser.privacyForum == "friends" || "all") {
+                    this.showForum = true;
+                }
+            },
+            loggedInUserIsProfileUser: function(val){
+                if(val){
+                    this.showBirthday = true; this.showComments = true;
+                    this.showFriends = true; this.showGarden = true;
+                    this.showForum = true;
+                }
+            },
+            loggedInUserIsStranger: function(val){
+                if(this.profileUser.privacyBirthday == "all"){
+                    this.showBirthday = true;
+                } if(this.profileUser.privacyComments == "all") {
+                    this.showComments = true;
+                } if(this.profileUser.privacyFriends == "all") {
+                    this.showFriends = true;
+                } if(this.profileUser.privacyGarden == "all") {
+                    this.showGarden = true;
+                } if(this.profileUser.privacyForum == "all") {
+                    this.showForum = true;
+                }
+            }
         },
 
         methods: {
@@ -472,19 +513,20 @@
                 div.appendChild(p2);
             },
 
-            checkPrivacy: function(){
+            checkRelationshipSelf: function(){
                 if(this.profileUser.username == this.loggedInUser.username){
                     this.loggedInUserIsProfileUser = true;
-                    console.log(this.loggedInUserIsProfileUser);
                 }
-                else{
+            },
+            checkRelationshipFriend: function(){
+                if(!this.loggedInUserIsProfileUser){
                     for(let i = 0; i < this.profileUserFriends.length; i++){
                         if(this.profileUserFriends[i].username == this.loggedInUser.username){
                             this.loggedInUserIsFriend = true;
-                            console.log(this.loggedInUserIsFriend);
-                            break;
+                            return;
                         }
                     }
+                    this.loggedInUserIsStranger = true;
                 }
             },
         }
