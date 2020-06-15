@@ -22,7 +22,7 @@
                 <div class="col">
                     <div v-for="(userplant, index) in garden" >
                         <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
-                            <remove-plant-modal  v-if="edit" :userplant="userplant"></remove-plant-modal>
+                            <remove-plant-modal  v-if="edit" :userplant="userplant"  @newUserplant="newUserplant"></remove-plant-modal>
                             <router-link :to="'/userplant/' + userplant.id">
                                 <div class="container-fluid plantsProfil dropShadow bgWhiteGrey " v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
                                     <div class="row">
@@ -58,7 +58,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                 <div class="col">
                     <div v-for="(userplant, index) in garden">
                         <div v-if="index % 2 !== 0" class="row paddingNormalize">
-                            <remove-plant-modal  v-if="edit" :userplant="userplant"></remove-plant-modal>
+                            <remove-plant-modal  v-if="edit" :userplant="userplant" @newUserplant="newUserplant"></remove-plant-modal>
                             <router-link :to="'/userplant/' + userplant.id" >
                                 <div class="container-fluid plantsProfil dropShadow bgWhiteGrey" v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
                                     <div class="row">

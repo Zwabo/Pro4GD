@@ -129,6 +129,25 @@ class GardenController extends AbstractController
         return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);
     }
 
+
+    /**
+     * @Route("/api/garden/removeUserplant/{id}", name="setWateringDate", methods={"DELETE"})
+     */
+    public function sremovePlant($id, Request $request){
+        $userplant = $this->getDoctrine()
+            ->getRepository(Userplant::class)
+            ->find($id);
+
+        if (!$userplant) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $this->getDoctrine()->getManager()->remove($userplant);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse(Response::HTTP_OK);;
+    }
+
 }
 
 

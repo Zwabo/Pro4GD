@@ -18,7 +18,8 @@
                 <div class="modal-body">
                     <form v-on:submit="removeUserplant">
                         <input type="submit" class="btn btn-primary" value="Ja">
-                        <input type="submit" class="btn btn-primary" value="Nein">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" @click="modalOpen = false">
+                            <span aria-hidden="true">Nein</span></button>
                     </form>
                 </div>
 
@@ -34,6 +35,8 @@
         data: function(){
             return{
                 modalOpen: false,
+                plantId: null,
+                error: ''
             }
         },
         props:{
@@ -41,7 +44,19 @@
         },
         methods:{
             removeUserplant: function(e){
-                    //remove plant
+
+                this.$http.delete('/api/garden/removeUserplant/'+ this.userplant.id)
+                    .then((response) => {
+                        this.plantId = response.data;
+                    })
+                    .catch(error => {
+                    if(error.response.data){
+                        this.error = error.response.data;
+                    }
+                 });
+                this.$emit('newUserplant');
+
+                e.preventDefault();
             }
         }
     }
