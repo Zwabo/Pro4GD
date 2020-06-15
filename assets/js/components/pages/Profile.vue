@@ -301,6 +301,9 @@
                 commentArray: "",               // temp array for deleting purpose
 
                 loggedInUser: null,
+
+                loggedInUserIsFriend: false,
+                loggedInUserIsProfileUser: false,
             }
         },
 
@@ -346,6 +349,9 @@
                     } else {
                         console.log(this.profileUser.comments);
                     }
+
+                    //Check relationship between logged in user and profile user
+                    this.checkPrivacy();
 
                 })
                 .catch(error => {
@@ -464,7 +470,23 @@
                 element.appendChild(div);
                 div.appendChild(p1);
                 div.appendChild(p2);
-            }
+            },
+
+            checkPrivacy: function(){
+                if(this.profileUser.username == this.loggedInUser.username){
+                    this.loggedInUserIsProfileUser = true;
+                    console.log(this.loggedInUserIsProfileUser);
+                }
+                else{
+                    for(let i = 0; i < this.profileUserFriends.length; i++){
+                        if(this.profileUserFriends[i].username == this.loggedInUser.username){
+                            this.loggedInUserIsFriend = true;
+                            console.log(this.loggedInUserIsFriend);
+                            break;
+                        }
+                    }
+                }
+            },
         }
     }
 </script>
