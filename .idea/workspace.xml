@@ -4,14 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/src/Controller/AddPlantController.php" line="8" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="Category added - plant.php + fixtures">
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="datenbank name category zurückgesetzt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Database.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Database.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Plant.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Plant.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AddPlantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AddPlantController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserplantFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserplantFixture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Plant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Plant.php" afterDir="false" />
     </list>
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
@@ -135,50 +130,11 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
-  <component name="DockManager">
-    <window id="3">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/Controller/GardenController.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="308">
-                    <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="44" />
-                    <folding>
-                      <element signature="e#34#54#0#PHP" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="556">
-                    <caret line="59" column="45" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="45" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1864558712">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="55" />
+          <entry key="project.closed" value="56" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.11" value="2" />
@@ -189,10 +145,10 @@
           <entry key="project.open.time.3" value="7" />
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="8" />
-          <entry key="project.open.time.7" value="4" />
+          <entry key="project.open.time.7" value="5" />
           <entry key="project.open.time.8" value="8" />
           <entry key="project.open.time.9" value="4" />
-          <entry key="project.opened" value="54" />
+          <entry key="project.opened" value="55" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -210,7 +166,7 @@
           <entry key="svg" value="47" />
           <entry key="ts" value="1" />
           <entry key="twig" value="97" />
-          <entry key="vue" value="122" />
+          <entry key="vue" value="123" />
           <entry key="xml" value="1" />
           <entry key="yaml" value="1" />
         </counts>
@@ -230,7 +186,7 @@
           <entry key="SVG" value="47" />
           <entry key="Twig" value="97" />
           <entry key="TypeScript" value="1" />
-          <entry key="Vue.js" value="122" />
+          <entry key="Vue.js" value="123" />
           <entry key="XML" value="1" />
           <entry key="YAML" value="1" />
         </counts>
@@ -244,8 +200,8 @@
           <entry key="php" value="21219" />
           <entry key="svg" value="22" />
           <entry key="twig" value="20844" />
-          <entry key="txt" value="1607" />
-          <entry key="vue" value="67262" />
+          <entry key="txt" value="1644" />
+          <entry key="vue" value="67270" />
           <entry key="xml" value="11" />
         </counts>
       </usages-collector>
@@ -256,10 +212,10 @@
           <entry key="JavaScript" value="1980" />
           <entry key="Markdown" value="198" />
           <entry key="PHP" value="21219" />
-          <entry key="PLAIN_TEXT" value="1607" />
+          <entry key="PLAIN_TEXT" value="1644" />
           <entry key="SVG" value="22" />
           <entry key="Twig" value="20844" />
-          <entry key="Vue.js" value="67261" />
+          <entry key="Vue.js" value="67269" />
           <entry key="XML" value="11" />
         </counts>
       </usages-collector>
@@ -283,7 +239,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Plant.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
+            <state relative-caret-position="638">
               <caret line="29" column="83" selection-start-line="29" selection-start-column="83" selection-end-line="29" selection-end-column="83" />
             </state>
           </provider>
@@ -292,7 +248,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/AddPlantController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
+            <state relative-caret-position="1254">
               <caret line="65" column="33" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
               <folding>
                 <element signature="e#34#99#0#PHP" expanded="true" />
@@ -301,10 +257,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
+            <state relative-caret-position="2596">
               <caret line="118" column="63" selection-start-line="118" selection-start-column="63" selection-end-line="118" selection-end-column="63" />
               <folding>
                 <element signature="n#style#0;n#svg#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -313,10 +269,19 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Database.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="171" column="24" selection-start-line="171" selection-start-column="24" selection-end-line="171" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-33">
+            <state relative-caret-position="4004">
               <caret line="191" column="8" selection-start-line="191" selection-start-column="8" selection-end-line="191" selection-end-column="8" />
             </state>
           </provider>
@@ -335,7 +300,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>locationicon</find>
       <find>größe</find>
       <find>blüt</find>
       <find>blüh</find>
@@ -361,10 +325,11 @@
       <find>createUser</find>
       <find>api/garden</find>
       <find>substat</find>
-      <find>location</find>
       <find>windowi</find>
       <find>w</find>
       <find>location.reload</find>
+      <find>location</find>
+      <find>category</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -380,7 +345,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/registration/register.html.twig" />
         <option value="$PROJECT_DIR$/public/css/index.css" />
         <option value="$PROJECT_DIR$/public/css/color.css" />
         <option value="$PROJECT_DIR$/templates/myGarden.html.twig" />
@@ -431,6 +395,7 @@
         <option value="$PROJECT_DIR$/src/Entity/Plant.php" />
         <option value="$PROJECT_DIR$/src/Controller/AddPlantController.php" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/Database.vue" />
       </list>
     </option>
   </component>
@@ -576,10 +541,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="2579" />
-    <option name="height" value="1409" />
+    <option name="x" value="966" />
+    <option name="y" value="-29" />
+    <option name="width" value="2580" />
+    <option name="height" value="1410" />
   </component>
   <component name="ProjectId" id="1aBMjwTOzdV3XHXsdTmLo0udF2h" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -806,13 +771,7 @@
       <workItem from="1592147161234" duration="4497000" />
       <workItem from="1592152750211" duration="12486000" />
       <workItem from="1592238696875" duration="5459000" />
-    </task>
-    <task id="LOCAL-00015" summary="small style sheet correction">
-      <created>1587557488689</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1587557488689</updated>
+      <workItem from="1592293493008" duration="246000" />
     </task>
     <task id="LOCAL-00016" summary="reset .plantsProfile correction">
       <created>1587557790300</created>
@@ -1150,11 +1109,18 @@
       <option name="project" value="LOCAL" />
       <updated>1592151365626</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="datenbank name category zurückgesetzt">
+      <created>1592253775609</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1592253775609</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="389189000" />
+    <option name="totallyTimeSpent" value="389620000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1167,9 +1133,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25324675" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25574425" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -1181,10 +1146,10 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.498002" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.47502497" weight="0.32293764" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.47452548" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.08391608" side_tool="true" visible="true" weight="0.09959759" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.91608393" visible="true" weight="0.09959759" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.08491509" side_tool="true" visible="true" weight="0.2615694" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.9150849" visible="true" weight="0.2615694" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4995005" weight="0.32997987" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1226,7 +1191,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="corrected offer part of landing page" />
     <MESSAGE value="added styles" />
     <MESSAGE value="added styles pt2" />
     <MESSAGE value="responsive test profile --&gt; Handy braucht 2tes Layout, folgt noch" />
@@ -1251,7 +1215,8 @@
     <MESSAGE value="Profil fixed" />
     <MESSAGE value="Pflanzen Formular hinzugefügt" />
     <MESSAGE value="Category added - plant.php + fixtures" />
-    <option name="LAST_COMMIT_MESSAGE" value="Category added - plant.php + fixtures" />
+    <MESSAGE value="datenbank name category zurückgesetzt" />
+    <option name="LAST_COMMIT_MESSAGE" value="datenbank name category zurückgesetzt" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
@@ -1442,9 +1407,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Database.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/database.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -1514,13 +1476,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="59" column="45" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Article.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1545,30 +1500,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/GardenController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="44" />
-          <folding>
-            <element signature="e#34#54#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-33">
-          <caret line="191" column="8" selection-start-line="191" selection-start-column="8" selection-end-line="191" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7976">
           <caret line="55" column="34" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1595,14 +1530,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Plant.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
+        <state relative-caret-position="638">
           <caret line="29" column="83" selection-start-line="29" selection-start-column="83" selection-end-line="29" selection-end-column="83" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AddPlantController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
+        <state relative-caret-position="1254">
           <caret line="65" column="33" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
           <folding>
             <element signature="e#34#99#0#PHP" expanded="true" />
@@ -1612,10 +1547,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
+        <state relative-caret-position="2596">
           <caret line="118" column="63" selection-start-line="118" selection-start-column="63" selection-end-line="118" selection-end-column="63" />
           <folding>
             <element signature="n#style#0;n#svg#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4004">
+          <caret line="191" column="8" selection-start-line="191" selection-start-column="8" selection-end-line="191" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Database.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="171" column="24" selection-start-line="171" selection-start-column="24" selection-end-line="171" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/GardenController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="44" />
+          <folding>
+            <element signature="e#34#54#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+          <folding>
+            <element signature="e#782#789#1" expanded="true" />
           </folding>
         </state>
       </provider>

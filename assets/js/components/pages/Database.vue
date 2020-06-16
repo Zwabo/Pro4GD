@@ -167,7 +167,7 @@
         data: function(){
             return{
                 plants: null,
-                categorySelect: '',
+                category: '',
                 search: '',
                 difficulty: '',
                 buttonPressed: false
