@@ -26,6 +26,10 @@
                             <div class="col-lg-4"><h5 class="plantDataH5">Gattung</h5></div>
                             <div class="col-lg-8"><p class="plantDataPTop">{{ plantData.genus }}</p></div>
                         </div>
+                        <div class="row">
+                            <div class="col-lg-4"><h5 class="plantDataH5">Kategorie</h5></div>
+                            <div class="col-lg-8"><p class="plantDataPToop">{{ plantData.categorySelect }}</p></div>
+                        </div>
                         <div v-if="plantData.specialFeatureIcon != null" class="row">
                             <div class="col-lg-4"><h5 class="plantDataH5">Besonderheit</h5></div>
                             <div class="col-lg-8"><p class="plantDataPTop">{{ plantData.specialFeatureIcon }}</p></div>
