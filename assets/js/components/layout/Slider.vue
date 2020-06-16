@@ -1,14 +1,13 @@
 <template>
 <div class="root">
     <transition-group name="fade" tag="div">
-    <div v-for="i in [currentIndex]" :key="i">
-            <div class ="row">
-                <div>
-                  <img src="currentArticle.src">
+         <div v-for="i in [currentIndex]" :key="i">
+                    <h3 class="slider-text">{{currentArticle.title}}</h3>
+                    <p class="slider-text">{{currentArticle.shortText}}</p>
+                    <img v-bind:src="currentArticle.thumbnail">
 
-                </div>
         </div>
-</div>
+
     </transition-group>
     <a class="prev" @click="prev" href="#">&#10094; Previous</a>
     <a class="next" @click="next" href="#">&#10095; Next</a>
@@ -27,7 +26,8 @@
               newsData: [{
                   title:null,
                   shortText:null,
-                  long_text: null
+                  long_text: null,
+                  thumbnail:null
               }],
                 timer: null,
                 currentIndex: 0,
