@@ -14,8 +14,8 @@
 }
 
 #newsThumbnail{
-    width: 30px;
-    height: 100px;
+    height: 378px;
+    width: 100%;
 }
 
 #news{
@@ -69,4 +69,13 @@
     padding-top: 11px;
     padding-bottom: 5px;
 
+}
+
+.articleButtons{
+    background-color: Transparent;
+    outline: none;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
 }
