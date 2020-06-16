@@ -2,12 +2,15 @@
 <div class="root">
     <transition-group name="fade" tag="div">
          <div v-for="i in [currentIndex]" :key="i">
-                    <h3 class="slider-text">{{currentArticle.title}}</h3>
-                    <p class="slider-text">{{currentArticle.shortText}}</p>
-                    <img v-bind:src="currentArticle.thumbnail">
-
+            <div class="row">
+             <img class="col-lg-5"v-bind:src="currentArticle.thumbnail">
+             <div class="col-lg-7"id="bgNewsArticleBox">
+                 <h3 class="slider-title">{{currentArticle.title}}</h3>
+                 <p id="slider-text">{{currentArticle.shortText}}</p>
+                 <router-link class="slider-title"   :to="'/news/' + currentArticle.id"> mehr lesen <b>>> </b></router-link>
+             </div>
+            </div>
         </div>
-
     </transition-group>
     <a class="prev" @click="prev" href="#">&#10094; Previous</a>
     <a class="next" @click="next" href="#">&#10095; Next</a>
@@ -27,7 +30,8 @@
                   title:null,
                   shortText:null,
                   long_text: null,
-                  thumbnail:null
+                  thumbnail:null,
+                  id: null
               }],
                 timer: null,
                 currentIndex: 0,

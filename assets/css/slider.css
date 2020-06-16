@@ -16,7 +16,7 @@
 }
 
 img {
-    height:400px;
+    height:300px;
     width:100%
 }
 
@@ -48,6 +48,16 @@ img {
 }
 
 
-.slider-text{
-    color:black;
+#slider-text{
+    color:#707070;
+}
+
+.slider-title{
+    color:white;
+}
+#bgNewsArticleBox{
+    background-color: #97B753;
+    height: auto;
+    width: auto;
+
 }
