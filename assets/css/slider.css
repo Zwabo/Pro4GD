@@ -1,6 +1,6 @@
 .fade-enter-active,
 .fade-leave-active {
-    transition: all 0.9s ease;
+    transition: all 0.4s ease;
     overflow: hidden;
     visibility: visible;
     position: absolute;
@@ -49,15 +49,24 @@ img {
 
 
 #slider-text{
+    padding-top: 4%;
     color:#707070;
+    font-size:80%;
 }
 
 .slider-title{
+    padding-top: 8%;
     color:white;
+    font-size:100%;
 }
 #bgNewsArticleBox{
     background-color: #97B753;
     height: auto;
     width: auto;
 
+}
+
+#slider-readMore{
+    font-size:80%;
+    margin-left: 80%;
 }

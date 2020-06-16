@@ -7,13 +7,13 @@
              <div class="col-lg-7"id="bgNewsArticleBox">
                  <h3 class="slider-title">{{currentArticle.title}}</h3>
                  <p id="slider-text">{{currentArticle.shortText}}</p>
-                 <router-link class="slider-title"   :to="'/news/' + currentArticle.id"> mehr lesen <b>>> </b></router-link>
+                 <router-link class="slider-title"  id="slider-readMore" :to="'/news/' + currentArticle.id"> mehr lesen <b>>> </b></router-link>
              </div>
             </div>
         </div>
     </transition-group>
-    <a class="prev" @click="prev" href="#">&#10094; Previous</a>
-    <a class="next" @click="next" href="#">&#10095; Next</a>
+    <a class="prev" @click="prev" >&#10094; Previous</a>
+    <a class="next" @click="next" >&#10095; Next</a>
 </div>
 </template>
 
