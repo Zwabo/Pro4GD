@@ -2,12 +2,11 @@
     <div class="row">
         <div class="col right marginLeftRight">
 
-            <button @click="adding = true">
+
             <add-tipps-article-modal
                 :tippsData="tippsData"
                 @newTippsArticle="newTippsArticle">
             </add-tipps-article-modal>
-            </button>
 
             <h1 class="col-sm" id="news">Tipps & Tricks</h1>
             <div class="greenLine"></div>
@@ -45,8 +44,7 @@
         data: function(){
             return {
                 tippsData: null,
-                dateFormat: null,
-                adding: false
+                dateFormat: null
             }
         },
 
