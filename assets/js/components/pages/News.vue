@@ -15,7 +15,7 @@
                 <!-- v-for start-->
                 <div v-for="news in newsData">
                     <div class ="row">
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                         <img id="newsThumbnail"  v-bind:src="news.thumbnail">
                         </div>
                         <div class="col-lg-8">

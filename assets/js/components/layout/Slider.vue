@@ -63,7 +63,7 @@
                 return this.newsData[Math.abs(this.currentIndex) % this.newsData.length];
             }
 
-    }
+        }
     }
 </script>
 
