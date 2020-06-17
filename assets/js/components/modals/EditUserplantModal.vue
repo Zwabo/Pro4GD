@@ -29,6 +29,18 @@
                                     <option v-for="plantName in plantNames">{{plantName}}</option>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="userplantWateringCycle">Gießintervall</label>
+                                <select  class="form-control" id="userplantWateringCycle" v-model="cycle" required>
+                                    <option v-for="val in cycleVals" v-bind:value="val">
+                                        <span v-if="val == 1">Jeden Tag</span>
+                                        <span v-if="val > 1  && val < 7">Alle </span>
+                                        <span v-if="val == 7">Einmal pro Woche</span>
+                                        <span v-if="val != 1 && val != 7">{{val}}</span>
+                                        <span v-if="val > 1 && val < 7"> Tage</span>
+                                    </option>
+                                </select>
+                            </div>
                             <button type="submit" class="btn btn-primary" @click="updateUserplant" data-dismiss="modal">Speichern</button>
                         </form>
 
@@ -48,7 +60,9 @@
                 plantNames: [],
                 plantNameTemp : this.userplant.plant.name,
                 userPlantNameTemp: this.userplant.name,
-                userplantTemp: null
+                userplantTemp: null,
+                cycle: this.userplant.wateringCycle,
+                cycleVals: [1, 2, 3, 4, 5, 6, 7],
             }
         },
         props:{
@@ -80,6 +94,16 @@
 
                 //SET NAME
                 this.$http.put('/api/userplant/setName/' + this.userplant.id, this.userplant.name)
+                    .then(response => {
+                        this.userplantTemp = response.data;
+                        this.$emit('updatedUserplant', this.userplantTemp);
+                    })
+                    .catch(error => {
+                        alert(error);
+                    });
+
+                //SET WATERING CYCLE
+                this.$http.put('/api/userplant/setWateringCycle/' + this.userplant.id, this.cycle)
                     .then(response => {
                         this.userplantTemp = response.data;
                         this.$emit('updatedUserplant', this.userplantTemp);
