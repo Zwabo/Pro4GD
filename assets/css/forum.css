@@ -1,0 +1,10 @@
+#threadRow{
+    width: 700px;
+}
+#threadBox{
+    background-color:#97B753;
+    margin-left:10%;
+    margin-right:10%;
+    width: 100%;
+    border-radius: 12px;
+}
