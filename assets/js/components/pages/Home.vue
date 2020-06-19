@@ -1,4 +1,4 @@
-<template>
+ <template>
     <div id="root">
     <div v-if="userCreated == true">
 
