@@ -72,18 +72,14 @@ class ForumController extends AbstractController
         foreach ($threads as $thread) {
 
             $userId = $thread->getUser();
-            $formatedDate = $thread->getCreated();
 
             $comments = $entityManager->getRepository(Comment::class)->findBy(['thread' => $thread->getId()]);
-            //$user = $entityManager->getRepository(User::class)->find($userId);
-
 
             $rThread[] = [
                 $thread->getHeadline(),
-                $thread->getInputtext(),
                 $thread->getId(),
-                $thread->getUser()->getFirstName() . ' ' . $thread->getUser()->getLastName(),
-                $formatedDate,
+                $thread->getUser()->getUserPic(),
+                $thread->getCreated()->format('d.m.Y, G:i'),
                 count($comments)
             ];
         }
@@ -103,10 +99,15 @@ class ForumController extends AbstractController
 
         $comments = $entityManager->getRepository(Comment::class)->findBy(['thread' => $id]);
 
-        $rThread = [[$thread->getHeadline(), $thread->getInputtext(), $thread->getId()]];
+
+
+
+        /** @var User $user */
+        $user = $thread->getUser();
+        $rThread = [[$thread->getHeadline(), $thread->getInputtext(), $thread->getId(),$thread->getCreated()->format('d.m.Y, G:i') , $user->getFirstName(). ' ' . $user->getLastName(), $user->getUserPic()]];
         /** @var Comment $comment */
         foreach ($comments as $comment) {
-            $rThread[] = [$comment->getId(), $comment->getUser(), $comment->getText(), $comment->getCreated()];
+            $rThread[] = [$comment->getId(), $comment->getText(), $comment->getCreated()->format('d.m.Y, G:i'), $comment->getUser()->getFirstName() . ' ' . $comment->getUser()->getLastName(), $user->getUserPic()];
         }
 
         return new JsonResponse($rThread);
@@ -177,6 +178,8 @@ class ForumController extends AbstractController
      */
     public function addComment(Request $request)
     {
+        return new Response('FOO');
+
         $entityManager = $this->getDoctrine()->getManager();
 
         $content = json_decode($request->getContent());

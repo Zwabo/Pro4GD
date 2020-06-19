@@ -1,8 +1,26 @@
- <template>
+<template>
     <div id="root">
 
-        {{ thread }}
+        <h3>{{ thread[0] }}</h3><br>
+        <div id="commentBox">
+            <p id="commentText">InputText: {{ thread[1] }}</p><br>
+            <p id="commentText">ThreadID: {{ thread[2] }}</p><br>
+            <p id="commentText">Datum: {{ thread[3] }}</p><br>
+            <p id="commentText">User: {{ thread[4] }}</p><br>
+            <img id="commentUserImage" v-bind:src="thread[5]" /><br>
+        </div>
 
+        <div v-for="comment in comments">
+
+            <div id="commentBox">
+                <p id="commentText">KommentarID: {{ comment[0] }}</p><br>
+                <p id="commentText">Kommentartext: {{ comment[1] }}</p><br>
+                <p id="commentText">ErstelltDatum: {{ comment[2] }}</p><br>
+                <p id="commentText">NutzerName: {{ comment[3] }}</p><br>
+                <img id="commentUserImage" v-bind:src="comment[4]" />
+
+            </div>
+        </div>
         <comment-form></comment-form>
 
     </div>
@@ -20,7 +38,8 @@
                 isLoading: false,
                 errorIndex: '',
                 thread: null,
-                comment: null
+                comment: null,
+                comments: null
             }
         },
 
@@ -37,54 +56,15 @@
             console.log(this.loggedUser);
             this.$http.get('/api/thread/' + this.$route.params.id)
                 .then(response => {
-                    this.thread = response.data;
+                    this.thread = response.data.shift();
+                    this.comments = response.data
                 })
                 .catch(error => {
                     alert(error);
                 });
-
-
         },
-
-        methods: {
-            submitFormIndex: function(e){
-                e.preventDefault();
-
-                this.isLoading = true;
-                this.errorIndex = '';
-
-                this.$http
-                    .post('/security/login', {
-                        email: this.emailIndex,
-                        password: this.passwordIndex
-                    })
-                    .then(response => {
-                        console.log(response.data);
-
-                        this.redirect();
-
-                    }).catch(error => {
-                    if(error.response.data){
-                        this.errorIndex = error.response.data.error;
-                    }
-                    console.log(error.response.data);
-                    }).finally(() => {
-                        this.isLoading = false;
-                    })
-            },
-
-            redirect: function() {
-              this.$router.go();
-            },
-        }
     }
 </script>
 
 <style scoped>
-    .rowsIndexBottom { padding-bottom: 5%; }
-
-    .rowsIndexBottom p {
-        font-size: 120%;
-        margin: 0 5%;
-    }
 </style>

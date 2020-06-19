@@ -1,15 +1,9 @@
 <template>
-    <form method="post" @submit="submitForm" id="loginForm">
-        <div v-if="error" class="alert alert-danger">{{error}}</div>
-
-        <div class="mb-3" v-if="user != null">
-            You are logged in as {{user.username}}, <router-link to="/logout">Logout</router-link>
-        </div>
-
+    <form method="post" @submit="submitForm" id="commentForm">
         <div class="container-fluid">
             <div class="row">
-                <label for="inputComment">Comment</label>
-                <input v-model="comment"  placeholder="Kommentar" type="text" value="" name="comment" id="comment" class="form-control" required autofocus>
+                <label for="inputPassword">Kommentar</label>
+                <input v-model="comment"  type="text" name="comment" id="comment" class="form-control" required>
             </div>
         </div>
 
@@ -24,13 +18,14 @@
         name: "CommentForm",
         mounted: function(){
             //Get user from local storage
-          this.user = JSON.parse(localStorage.getItem('user'));
+            this.user = JSON.parse(localStorage.getItem('user'));
         },
         data: function(){
             return{
                 comment: "",
                 isLoading: false,
-                error: ''
+                error: '',
+                threadId: this.$route.params.id,
             }
         },
         methods:{
@@ -43,7 +38,6 @@
                 this.$http
                     .post('/forum/addcomment', {
                         comment: this.comment,
-                        user: this.user,
                         threadId: this.$route.params.id,
                     })
                     .then(response => {

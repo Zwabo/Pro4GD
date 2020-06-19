@@ -1,11 +1,5 @@
 <template>
-    <form method="post" @submit="submitForm" id="loginForm">
-        <div v-if="error" class="alert alert-danger">{{error}}</div>
-
-        <div class="mb-3" v-if="user != null">
-            You are logged in as {{user.username}}, <router-link to="/logout">Logout</router-link>
-        </div>
-
+    <form method="post" @submit="submitForm" id="threadForm">
         <div class="container-fluid">
             <div class="row">
                 <label for="inputEmail">Headline</label>
@@ -60,7 +54,7 @@
                     console.log(error.response.data);
                 }).finally(() => {
                     this.isLoading = false;
-                    this.$router.push('/forum');
+                    this.$router.go();
                 });
 
 
