@@ -1,5 +1,6 @@
 <template>
     <form method="post" @submit="submitForm" id="commentForm">
+
         <div class="container-fluid">
             <div class="row">
                 <label for="inputPassword">Kommentar</label>
@@ -37,6 +38,7 @@
 
                 this.$http
                     .post('/forum/addcomment', {
+                        userId: this.user.id,
                         comment: this.comment,
                         threadId: this.$route.params.id,
                     })
@@ -51,8 +53,6 @@
                     this.isLoading = false;
                     this.$router.go();
                 });
-
-
             }
         }
     }

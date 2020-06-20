@@ -22,7 +22,7 @@ class Comment {
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
      *
      */
     private $user;
