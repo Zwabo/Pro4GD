@@ -41,6 +41,7 @@
 
                 this.$http
                     .post('/forum/addthread', {
+                        userId: this.user.id,
                         headline: this.headline,
                         text: this.text,
                         user: this.user

@@ -157,10 +157,10 @@ class ForumController extends AbstractController
         $content = json_decode($request->getContent());
 
         $thread = new Thread();
-
+        $user = $entityManager->getRepository(User::class)->find($content->userId);
         $thread->setHeadline($content->headline);
         $thread->setInputtext($content->text);
-        $thread->setUser($this->getUser());
+        $thread->setUser($user);
         $thread->setCreated(new \DateTime());
         $thread->setUpdated(new \DateTime());
         $entityManager = $this->getDoctrine()->getManager();
@@ -171,24 +171,21 @@ class ForumController extends AbstractController
         return new Response('Thread erstellt');
     }
 
-
-
     /**
      * @Route("/forum/addcomment")
      */
     public function addComment(Request $request)
     {
-        return new Response('FOO');
-
         $entityManager = $this->getDoctrine()->getManager();
 
         $content = json_decode($request->getContent());
         $comment = new Comment();
         $comment->setText($content->comment);
         $thread = $entityManager->getRepository(Thread::class)->find($content->threadId);
+        $user = $entityManager->getRepository(User::class)->find($content->userId);
         $comment->setThread($thread);
         $comment->setText($content->comment);
-        $comment->setUser($this->getUser());
+        $comment->setUser($user);
         $comment->setCreated(new \DateTime());
         $comment->setUpdated(new \DateTime());
         $entityManager = $this->getDoctrine()->getManager();
