@@ -49,6 +49,11 @@ class Comment {
     private $updated;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $likes;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -142,6 +147,30 @@ class Comment {
     public function setUpdated($updated)
     {
         $this->updated = $updated;
+    }
+
+    public function getLikes(): ?int
+    {
+        return $this->likes;
+    }
+
+    public function setLikes(?int $likes): self
+    {
+        $this->likes = $likes;
+
+        return $this;
+    }
+
+    public function toAssoc() {
+        return [
+          'id' => $this->id,
+          'user' => $this->user,
+          'thread' => $this->thread,
+          'text' => $this->text,
+          'created' => $this->created,
+          'updated' => $this->updated,
+          'likes' => $this->likes
+        ];
     }
 
 

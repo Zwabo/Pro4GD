@@ -571,7 +571,6 @@
 
     .selectBoxes {
         text-align-last: center;
-
     }
 
 </style>

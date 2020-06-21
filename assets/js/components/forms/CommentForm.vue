@@ -3,12 +3,13 @@
 
         <div class="container-fluid">
             <div class="row">
-                <label for="inputPassword">Kommentar</label>
-                <input v-model="comment"  type="text" name="comment" id="comment" class="form-control" required>
+                <label for="comment">Kommentar</label>
+                <textarea v-model="comment"  type="text" name="comment" id="comment" class="form-control" required
+                          placeholder="Dein Kommentar"></textarea>
             </div>
         </div>
 
-        <button class="btn btn-lg btn-primary buttonWhite float-right" type="submit">
+        <button class="btn btn-lg btn-primary buttonDarkGreen float-right" type="submit">
             Kommentar erstellen
         </button>
     </form>
@@ -41,6 +42,7 @@
                         userId: this.user.id,
                         comment: this.comment,
                         threadId: this.$route.params.id,
+                        likes: 0,
                     })
                     .then(response => {
                         console.log(response.data);
@@ -60,4 +62,6 @@
 
 <style scoped>
 
+    .row { margin-top: 3%; margin-bottom: 1%; }
+    #comment { height: 10em; }
 </style>

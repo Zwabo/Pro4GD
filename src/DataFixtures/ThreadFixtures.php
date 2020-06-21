@@ -31,6 +31,8 @@ class ThreadFixtures extends Fixture implements DependentFixtureInterface
         $dateAdded = date_create('2019-05-19 12:30:03');
         $dateAdded->format('Y-m-d h.i.s');
         $thread->setCreated($dateAdded);
+        $thread->setCategory('Pflegetipps');
+        $thread->setLikes('10');
 
         $manager->persist($thread);
         $manager->flush();

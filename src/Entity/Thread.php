@@ -49,6 +49,16 @@ class Thread {
     private $updated;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $category;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $likes;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -142,5 +152,42 @@ class Thread {
     public function setInputtext($inputtext)
     {
         $this->inputtext = $inputtext;
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?string $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getLikes(): ?int
+    {
+        return $this->likes;
+    }
+
+    public function setLikes(?int $likes): self
+    {
+        $this->likes = $likes;
+
+        return $this;
+    }
+
+    public function toAssoc() {
+        return [
+            'id' => $this->id,
+            'user' => $this->user,
+            'headline' => $this->headline,
+            'inputtext' => $this->inputtext,
+            'created' => $this->created,
+            'updated' => $this->updated,
+            'category' => $this->category,
+            'likes' => $this->likes
+        ];
     }
 }
