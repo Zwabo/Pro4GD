@@ -1,6 +1,6 @@
 <template>
 
-    <div class="row" v-if="garden !== null">
+    <div class="row" v-if="plants !== null">
 
         <div class="col right marginLeftRight">
 
