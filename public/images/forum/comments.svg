@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34.556" height="26.57" viewBox="0 0 34.556 26.57">
+  <g id="Gruppe_971" data-name="Gruppe 971" transform="translate(0.5 0.5)">
+    <path id="Vereinigungsmenge_2" data-name="Vereinigungsmenge 2" d="M1.774,25.151A1.561,1.561,0,0,1,1.7,22.945l2.251-2.413A10.763,10.763,0,0,1,0,12.486C0,5.59,7.511,0,16.778,0S33.556,5.59,33.556,12.486,26.043,24.971,16.778,24.971A20.649,20.649,0,0,1,6.509,22.361L3.98,25.073a1.56,1.56,0,0,1-2.206.077Z" transform="translate(0)" fill="#707070" stroke="#707070" stroke-width="1"/>
+    <g id="Ellipse_3" data-name="Ellipse 3" transform="translate(8.168 10.954)" fill="#fff" stroke="#fff" stroke-width="1">
+      <ellipse cx="1.69" cy="1.69" rx="1.69" ry="1.69" stroke="none"/>
+      <ellipse cx="1.69" cy="1.69" rx="1.19" ry="1.19" fill="none"/>
+    </g>
+    <g id="Ellipse_4" data-name="Ellipse 4" transform="translate(14.926 10.954)" fill="#fff" stroke="#fff" stroke-width="1">
+      <ellipse cx="1.69" cy="1.69" rx="1.69" ry="1.69" stroke="none"/>
+      <ellipse cx="1.69" cy="1.69" rx="1.19" ry="1.19" fill="none"/>
+    </g>
+    <g id="Ellipse_5" data-name="Ellipse 5" transform="translate(21.684 10.954)" fill="#fff" stroke="#fff" stroke-width="1">
+      <ellipse cx="1.69" cy="1.69" rx="1.69" ry="1.69" stroke="none"/>
+      <ellipse cx="1.69" cy="1.69" rx="1.19" ry="1.19" fill="none"/>
+    </g>
+  </g>
+</svg>

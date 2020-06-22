@@ -35,6 +35,7 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
         $dateAdded = date_create('2019-05-19 12:30:03');
         $dateAdded->format('Y-m-d h.i.s');
         $comment->setUpdated($dateAdded);
+        $comment->setLikes('5');
 
         $manager->persist($comment);
         $manager->flush();

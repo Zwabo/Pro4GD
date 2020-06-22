@@ -20,7 +20,7 @@
                 <ul>
                     <li>{{userplant.location}}</li>
                     <li id ="watering">{{userplant.plant.wateringAmount}}</li>
-                    <li id="wateringDay">Gießtag</li>
+                    <li id="wateringDay">Alle {{userplant.wateringCycle}} Tage</li>
                 </ul>
             </div>
             <div class="col-lg-4">
@@ -116,7 +116,8 @@
         data: function(){
             return{
                 userplant: null,
-                editing: false
+                editing: false,
+                dateWatered: null,
             }
         },
         mounted: function(){

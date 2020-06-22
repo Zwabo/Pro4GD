@@ -97,6 +97,25 @@ class UserplantController extends AbstractController
     }
 
     /**
+     * @Route("/api/userplant/setWateringCycle/{id}", name="setWateringCycle", methods={"PUT"})
+     */
+    public function setWateringCycle($id, Request $request){
+        $userplant = $this->getDoctrine()
+            ->getRepository(Userplant::class)
+            ->find($id);
+
+        if (!$userplant) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $data = $request->getContent();
+        $userplant->setWateringCycle($data); //Set new watering cycle
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);
+    }
+
+    /**
      * @Route("/createUserplant", name="app_createUserplant")
      */
     public function createUserplant()

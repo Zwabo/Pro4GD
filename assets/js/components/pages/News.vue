@@ -2,12 +2,12 @@
     <div class="row">
         <div class="col right marginLeftRight">
 
-          <button @click="adding = true">
+
             <add-news-article-modal
                     :newsData="newsData"
                 @newArticle="newArticle">
             </add-news-article-modal>
-          </button>
+
 
                 <h1 class="col-sm" id="news"  >Neuigkeiten </h1>
                 <div class="greenLine"></div>
@@ -15,8 +15,10 @@
                 <!-- v-for start-->
                 <div v-for="news in newsData">
                     <div class ="row">
-                        <img class="col-sm-4"id="newsThumbnail"  v-bind:src="news.thumbnail">
-                        <div class="col-sm-8">
+                        <div class="col-lg-4">
+                        <img id="newsThumbnail"  v-bind:src="news.thumbnail">
+                        </div>
+                        <div class="col-lg-8">
                             <h3 id="date">{{ news.date_posted.date.substr(8, 2)
                                 + "." + news.date_posted.date.substr(5, 2)
                                 + "." + news.date_posted.date.substr(0, 4) + "  " + news.date_posted.date.substr(10,6)}}</h3>
@@ -26,12 +28,14 @@
 
                 </div>
 
-                <div class="greyLine"></div>
+
             </div>
+                    <div class="greyLine"></div>
             </div>
                 <!-- v-for end-->
 
             </div>
+
         </div>
 </template>
 
@@ -45,7 +49,6 @@
             return {
                newsData: null,
                 dateFormat: null,
-                adding: false
             }
         },
 

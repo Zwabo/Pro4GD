@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Plant
 {
+    // id der Pflanze
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -18,131 +19,157 @@ class Plant
      */
     private $id;
 
+    // Name des Links (vue)
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $linkName;
 
+    // Name der Pflanze (vue)
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
+    // alternative Namen der Pflanze (vue)
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $alternativeName;
 
+    // lateinischer Name der Pflanze (vue)
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $latinName;
 
+    // Gattung der Pflanze (vue)
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $genus;
 
+    // Schwierigkeit der Pflegung der Pflanze (vue)
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $careLevel;
 
+    // Gießintervall der Pflanze (vue)
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $wateringAmount;
 
+    // Bild für die Pflanze
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $icon;
 
+    // Standort der Pflanze (Beschreibung) (vue)
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $locationIcon;
 
+    // Temperatur für die Pflanze (Beschreibung) (vue)
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $temperatureIcon;
 
+    // Düngerintervall (Beschreibung) (vue)
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $fertiliserIcon;
 
+    // Erde für die Pflanze (Beschreibung) (vue)
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $substrateIcon;
 
+    // Blühzeit der Pflanze (Beschreibung) (vue)
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $heydayIcon;
 
+    // Größe der Pflanze (Beschreibung) (vue)
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $heightIcon;
 
+    // Besonderheit Stichwort (vue)
     /**
      * @ORM\Column(type="string", length=500, nullable=true)
      */
     private $specialFeatureIcon;
 
+    // Kurzbeschreibung (vue)
     /**
      * @ORM\Column(type="string", length=500)
      */
     private $shortDescription;
 
+    // Besonderheiten Langtext (vue)
     /**
      * @ORM\Column(type="string", length=500, nullable=true)
      */
     private $specialFeaturesAddinfo;
 
+    // Idealer Standort Langtext (vue)
     /**
      * @ORM\Column(type="string", length=1000, nullable=true)
      */
     private $locationAddinfo;
 
+    // Temperatur für die Pflanze Langtext (vue)
     /**
      * @ORM\Column(type="string", length=500, nullable=true)
      */
     private $temperatureAddinfo;
 
+    // Topf / Umtopfen Langtext (vue)
     /**
      * @ORM\Column(type="string", length=700, nullable=true)
      */
     private $pot;
 
+    // Wasserbedarf Langtext (vue)
     /**
      * @ORM\Column(type="string", length=1000, nullable=true)
      */
     private $wateringAmountAddinfo;
 
+    // Erde Langtext (vue)
     /**
      * @ORM\Column(type="string", length=700, nullable=true)
      */
     private $substrateAddinfo;
 
+    // Dünger Langtext (vue)
     /**
      * @ORM\Column(type="string", length=500, nullable=true)
      */
     private $fertiliserAddinfo;
 
+    // Blütenfarbe der Pflanze (wenn vorhanden) (vue)
     /**
      * @ORM\Column(type="string", length=500, nullable=true)
      */
     private $flowerColor;
 
+    // Blütezeit Langtext (vue)
     /**
      * @ORM\Column(type="string", length=700, nullable=true)
      */
     private $heydayAddinfo;
 
+    // Pflegetipps (vue)
     /**
      * @ORM\Column(type="string", length=1500)
      */
@@ -158,6 +185,7 @@ class Plant
      */
     private $WindowIcon;
 
+    // Pflanzenkategorie
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -559,7 +587,7 @@ class Plant
             'heydayAddinfo' => $this->heydayAddinfo,
             'careTips' => $this->careTips,
             'WindowIcon' => $this->WindowIcon,
-            'category' => $this->category
+            'categorySelect' => $this->category
         ];
     }
 

@@ -192,7 +192,7 @@
                         || plant.latinName.toLowerCase().match(this.search.toLowerCase()))
                         //|| plant.alternativeName.toLowerCase().match(this.search.toLowerCase()) can be null
                         && plant.careLevel.match(this.difficulty)
-                        && plant.category.match(this.category)
+                        //&& plant.categorySelect.match(this.categorySelect) not yet in database
                 });
 
             },

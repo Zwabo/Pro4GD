@@ -20,6 +20,8 @@ import Register from "./components/pages/Register";
 import Database from "./components/pages/Database";
 import AddPlant from "./components/pages/AddPlant";
 import Settings from "./components/pages/Settings";
+import Forum from "./components/pages/Forum";
+import Thread from "./components/pages/Thread"
 
 Vue.use(VueRouter);
 
@@ -32,6 +34,8 @@ const router = new VueRouter({
         {path:'/logout', name:'logout', component:Logout},
         {path:'/userplant/:id', name:'userplant', component:Userplant},
         {path:'/garden/:id', name:'garden', component:Garden},
+        {path:'/forum', name:'forum', component:Forum},
+        {path:'/forum/:id', name:'thread', component:Thread},
         {path:'/garden', name:'data', component:Garden},
         {path: '/profile/:username', name:'profile', component:Profile},
         {path:'/friends', name:'friends', component:Friends},
@@ -41,7 +45,7 @@ const router = new VueRouter({
         {path: '/contact', name:'contact', component:Contact},
         {path: '/imprint', name:'imprint', component:Imprint},
         {path: '/agb', name:'agb', component:AGB},
-        {path: '/tipps', name:'tipps', component:Tipps},
+        {path: '/tipps', name:'news', component:Tipps},
         {path: '/tipps/:id', name:'tippArticle', component:TippArticle},
         {path: '/database', name:'getPlants', component:Database},
         {path: '/addPlant', name:'addPlants', component:AddPlant},

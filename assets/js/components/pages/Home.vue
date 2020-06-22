@@ -1,4 +1,4 @@
-<template>
+ <template>
     <div id="root">
     <div v-if="userCreated == true">
 
@@ -175,7 +175,7 @@
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
-                                    <p class="pIndex">Erinerungen</p>
+                                    <p class="pIndex">Erinnerungen</p>
                                 </div>
                             </div>
                         </div>
@@ -239,7 +239,7 @@
                             <svg><use href="#indexArrowLeft"></use></svg>
                         </div>
                         <div class="col-lg-10" id="indexNewsSlider">
-                            <p>Newsslider</p>
+                            <Slider></Slider>
                         </div>
                         <div class="col-lg-1 text-right" id="indexArrows">
                             <svg><use href="#indexArrowRight"></use></svg>
@@ -254,6 +254,7 @@
 </template>
 
 <script>
+    import Slider from "../layout/Slider";
     export default {
         name: "Home",
 
@@ -375,6 +376,9 @@
                 console.log(circle);*/
             },
 
+        },
+        components:{
+            Slider
         }
     }
 </script>
