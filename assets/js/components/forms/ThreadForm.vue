@@ -7,7 +7,7 @@
                     <label for="headline">Titel</label>
                 </div>
                 <div class="col-lg-10">
-                    <input v-model="headline"  placeholder="Titel des Trheads" type="text" value="" name="headline"
+                    <input v-model="headline"  placeholder="Titel des Threads" type="text" value="" name="headline"
                            id="headline" class="form-control inputPlantForm" required autofocus>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-lg-10">
                     <textarea v-model="text"  type="text" name="text" id="text" class="form-control inputPlantForm description"
-                              placeholder="Beschreibung Sie den Inhalt ihres Threads"required></textarea>
+                              placeholder="Beschreiben Sie den Inhalt ihres Threads"required></textarea>
                 </div>
             </div>
 
@@ -29,9 +29,9 @@
                 <div class="col-lg-10">
                     <select v-model="categorySelect" class="form-control-sm searchBarDatabase DropdownFont
                                             selectBoxes inputPlantForm" id="plantCategory" > <!-- multiple-->
-                        <option v-model="categorySelectOptions" disabled selected >Kategorie wählen</option>
-                        <option v-for="(category, index) in categorySelectOptions"
-                                v-bind:key="index" required>{{category.text}}</option>
+                        <option v-model="categories" disabled selected >Kategorie wählen</option>
+                        <option v-for="category in categories"
+                                v-bind:value="{ id: category.id}" required>{{category.title}}</option>
                     </select>
                 </div>
             </div>
@@ -52,9 +52,17 @@
 <script>
     export default {
         name: "ThreadForm",
+
         mounted: function(){
+            this.$http.get('/api/forum/categories')
+                .then(response => {
+                    this.categories = response.data;
+                })
+                .catch(error => {
+                    alert(error);
+                });
             //Get user from local storage
-          this.user = JSON.parse(localStorage.getItem('user'));
+            this.user = JSON.parse(localStorage.getItem('user'));
         },
         data: function(){
             return{
@@ -62,21 +70,9 @@
                 text: "",
                 isLoading: false,
                 error: '',
-
+                user: null,
                 categorySelect: null,                 // category in plant database
-                categorySelectOptions: [
-                    {text: 'Meet and Greet'},
-                    {text: 'Neuigkeiten'},
-                    {text: 'Pflegetipps'},
-                    {text: 'Pflanzen: Kletterpflanzen'},
-                    {text: 'Pflanzen: Kräuter'},
-                    {text: 'Pflanzen: Palmen'},
-                    {text: 'Pflanzen: Zierpflanzen'},
-                    {text: 'Pflanzen: Zimmerpflanzen'},
-                    {text: 'Pflanzen: Zuchtpflanzen'},
-                    {text: 'Pflanzenneulinge'},
-                    {text: 'Tipps und Tricks'},
-                ],
+                categories: null,
             }
         },
         methods:{
@@ -90,7 +86,7 @@
                     .post('/forum/addthread', {
                         userId: this.user.id,
                         headline: this.headline,
-                        category: this.categorySelect,
+                        categoryId: this.categorySelect.id,
                         text: this.text,
                         user: this.user,
 

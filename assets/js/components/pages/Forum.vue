@@ -57,7 +57,7 @@
                                         </g>
                                     </svg>
                                 </div>
-                                <div class="col-lg-11"><p>{{thread.category}}</p></div>
+                                <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
                             </div>
                         </div>
 
@@ -134,7 +134,7 @@
                     </g>
                     </svg>
                     </div>
-                    <h3>Pflegeteipps</h3>
+                    <h3>Pflegetipps</h3>
                 </div>
             </div>
             <div class="col-lg-1 svgSortCategories text-right">
@@ -211,6 +211,94 @@
 
             <div v-if="showPlantCategoriesBool == true" class="pflanzenSubCategories container-fluid paddingNormalize">
                 <div class="row subCategories dropShadow pflanzenSub">
+                    <!-- Threaddisplay -->
+                    <div v-for="thread in threads"class="container-fluid">
+                        <div v-if="thread.category.title === 'Pflanzen'">
+                        <a v-bind:href="'/forum/'+ thread.id" class="row thread dropShadow">
+                            <div class="col-lg-11">
+                                <div class="row">
+                                    <h3 class="threadHeadline">{{thread.headline}}</h3>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="threadCategory threadStates col-lg-2">
+                                        <div class="row">
+                                            <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                    <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                        <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                        <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                        <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                        <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="threadStates col-lg-10 paddingNormalize">
+
+                                        <div class="row">
+                                            <div class="svgIcons">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="27.681" height="24.848" viewBox="0 0 27.681 24.848">
+                                                    <path id="heart" d="M23.644,2.236A6.906,6.906,0,0,0,18.508,0a6.461,6.461,0,0,0-4.035,1.393,8.256,8.256,0,0,0-1.631,1.7,8.251,8.251,0,0,0-1.632-1.7A6.46,6.46,0,0,0,7.174,0,6.906,6.906,0,0,0,2.038,2.236,8.027,8.027,0,0,0,0,7.718a9.559,9.559,0,0,0,2.547,6.257,54.314,54.314,0,0,0,6.376,5.985c.883.753,1.885,1.606,2.925,2.516a1.508,1.508,0,0,0,1.985,0c1.04-.909,2.042-1.763,2.926-2.517a54.284,54.284,0,0,0,6.376-5.984,9.558,9.558,0,0,0,2.547-6.257,8.026,8.026,0,0,0-2.037-5.482Zm0,0" transform="translate(1 1)" fill="#dedede" class="svgDarkGrey svgDarkGreyStroke" stroke="#707070" stroke-width="2"/>
+                                                </svg>
+                                            </div>
+                                            <div class="svgIconText">
+                                                <p>{{thread.likes}}</p>
+                                            </div>
+
+                                            <div class="svgIcons">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="34.556" height="26.57" viewBox="0 0 34.556 26.57">
+                                                    <g id="Gruppe_971" data-name="Gruppe 971" transform="translate(0.5 0.5)">
+                                                        <path id="Vereinigungsmenge_2" data-name="Vereinigungsmenge 2" d="M1.774,25.151A1.561,1.561,0,0,1,1.7,22.945l2.251-2.413A10.763,10.763,0,0,1,0,12.486C0,5.59,7.511,0,16.778,0S33.556,5.59,33.556,12.486,26.043,24.971,16.778,24.971A20.649,20.649,0,0,1,6.509,22.361L3.98,25.073a1.56,1.56,0,0,1-2.206.077Z" transform="translate(0)" fill="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke="#707070" stroke-width="1"/>
+                                                        <g id="Ellipse_3" data-name="Ellipse 3" transform="translate(8.168 10.954)" fill="#fff" stroke="#fff" class="svgWhite svgWhiteStroke" stroke-width="1">
+                                                            <ellipse cx="1.69" cy="1.69" rx="1.69" ry="1.69" stroke="none"/>
+                                                            <ellipse cx="1.69" cy="1.69" rx="1.19" ry="1.19" fill="none"/>
+                                                        </g>
+                                                        <g id="Ellipse_4" data-name="Ellipse 4" transform="translate(14.926 10.954)" fill="#fff" stroke="#fff" class="svgWhite svgWhiteStroke" stroke-width="1">
+                                                            <ellipse cx="1.69" cy="1.69" rx="1.69" ry="1.69" stroke="none"/>
+                                                            <ellipse cx="1.69" cy="1.69" rx="1.19" ry="1.19" fill="none"/>
+                                                        </g>
+                                                        <g id="Ellipse_5" data-name="Ellipse 5" transform="translate(21.684 10.954)" fill="#fff" stroke="#fff" class="svgWhite svgWhiteStroke" stroke-width="1">
+                                                            <ellipse cx="1.69" cy="1.69" rx="1.69" ry="1.69" stroke="none"/>
+                                                            <ellipse cx="1.69" cy="1.69" rx="1.19" ry="1.19" fill="none"/>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="svgIconText">
+                                                <p>{{thread.postsMade}}</p>
+                                            </div>
+
+                                            <div class="svgIcons">
+                                                <svg id="calendar" xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29">
+                                                    <path id="Pfad_319" data-name="Pfad 319" d="M64.906,239.5h3.021a.907.907,0,0,0,.906-.906v-3.021a.907.907,0,0,0-.906-.906H64.906a.907.907,0,0,0-.906.906V238.6A.907.907,0,0,0,64.906,239.5Zm0,0" transform="translate(-60.375 -221.376)" fill="#707070" class="svgDarkGrey"/>
+                                                    <path id="Pfad_320" data-name="Pfad 320" d="M64.906,367.5h3.021a.907.907,0,0,0,.906-.906v-3.021a.907.907,0,0,0-.906-.906H64.906a.907.907,0,0,0-.906.906V366.6A.907.907,0,0,0,64.906,367.5Zm0,0" transform="translate(-60.375 -342.126)" fill="#707070" class="svgDarkGrey"/>
+                                                    <path id="Pfad_321" data-name="Pfad 321" d="M214.238,239.5h3.021a.907.907,0,0,0,.906-.906v-3.021a.907.907,0,0,0-.906-.906h-3.021a.907.907,0,0,0-.906.906V238.6A.907.907,0,0,0,214.238,239.5Zm0,0" transform="translate(-201.249 -221.376)" fill="#707070"class="svgDarkGrey"/>
+                                                    <path id="Pfad_322" data-name="Pfad 322" d="M214.238,367.5h3.021a.907.907,0,0,0,.906-.906v-3.021a.907.907,0,0,0-.906-.906h-3.021a.907.907,0,0,0-.906.906V366.6A.907.907,0,0,0,214.238,367.5Zm0,0" transform="translate(-201.249 -342.126)" fill="#707070" class="svgDarkGrey"/>
+                                                    <path id="Pfad_323" data-name="Pfad 323" d="M363.574,239.5H366.6a.907.907,0,0,0,.906-.906v-3.021a.907.907,0,0,0-.906-.906h-3.021a.907.907,0,0,0-.906.906V238.6A.907.907,0,0,0,363.574,239.5Zm0,0" transform="translate(-342.126 -221.376)" fill="#707070"class="svgDarkGrey"/>
+                                                    <path id="Pfad_324" data-name="Pfad 324" d="M25.375,3.625H24.167V1.208A1.209,1.209,0,0,0,22.958,0H21.75a1.209,1.209,0,0,0-1.208,1.208V3.625H8.458V1.208A1.209,1.209,0,0,0,7.25,0H6.042A1.209,1.209,0,0,0,4.833,1.208V3.625H3.625A3.629,3.629,0,0,0,0,7.25V25.375A3.629,3.629,0,0,0,3.625,29h21.75A3.629,3.629,0,0,0,29,25.375V7.25a3.629,3.629,0,0,0-3.625-3.625Zm1.208,21.75a1.21,1.21,0,0,1-1.208,1.208H3.625a1.21,1.21,0,0,1-1.208-1.208V12.132H26.583Zm0,0" transform="translate(0)" fill="#707070" class="svgDarkGrey"/>
+                                                </svg>
+                                            </div>
+                                            <div class="svgIconText">
+                                                <p>{{thread.created}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 text-center">
+                                <img class="forumPics" v-bind:src="thread.userPic">
+                            </div>
+                        </a>
+                        </div>
+                        <div v-else>
+                        </div>
+                    </div>
+                    <!-- Endtrial --><!--
                     <div class="col-lg-11">
                         <div class="row">
                             <h4>Kräuter</h4>
@@ -240,17 +328,10 @@
                         </svg>
                     </div>
                     <div>Anmekrung: Kategorien müssen dynamisch ausgelesen werden</div>
+                    !-->
                 </div>
-
             </div>
-
-
-
-
         </div>
-
-
-
     </div>
 </template>
 
@@ -398,7 +479,7 @@
         border-radius: 10px;
         padding: 1%;
         color: #707070;
-        height: 3em;
+        height: 7em;
         background-color: #dedede;
         margin-bottom: 1%;
     }
