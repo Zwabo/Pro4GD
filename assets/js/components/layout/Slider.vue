@@ -1,9 +1,11 @@
 <template>
     <div class="row">
+
         <div class="col-lg-1 indexArrows">
             <svg><use href="#indexArrowLeft"></use></svg>
             <a class="prev" @click="prev" >Previous</a>
         </div>
+
         <div class="col-lg-10" id="indexNewsSlider">
     <transition-group name="fade" tag="div">
          <div v-for="i in [currentIndex]" :key="i">
@@ -80,24 +82,22 @@
 </script>
 
 <style scoped>
+
     img {
         height:300px;
         width:100%
-    }
-    #indexNewsSlider {
-
     }
     .prev, .next {
         cursor: pointer;
         position: absolute;
         top: 40%;
-        width: auto;
+        width: 100px;
         padding: 16px;
         color: white;
         font-weight: bold;
         font-size: 18px;
         transition: 0.7s ease;
-        border-radius: 0 4px 4px 0;
+        border-radius: 4px 4px 4px 4px;
         text-decoration: none;
         user-select: none;
     }
