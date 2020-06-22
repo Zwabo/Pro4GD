@@ -8,7 +8,7 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Thread;
 use App\Entity\User;
@@ -82,7 +82,7 @@ class ForumController extends AbstractController
                 'userPic' => $thread->getUser()->getUserPic(),
                 'created' => $thread->getCreated()->format('d.m.Y, G:i'),
                 'postsMade' => count($comments),
-                'category' => $thread->getCategory(),
+                'category' => $thread->getCategory()->toAssoc(),
                 'likes' => $thread->getLikes()
             ];
         }
@@ -90,6 +90,24 @@ class ForumController extends AbstractController
         return new JsonResponse($rThread);
     }
 
+    /**
+     * @Route("/api/forum/categories")
+     */
+    public function fetchCategories()
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $categories = $entityManager->getRepository(Category::class)->findAll();
+
+
+        $rCategories = [];
+
+        foreach ($categories as $category) {
+            $rCategories[] = $category->toAssoc();
+        }
+
+        return new JsonResponse($rCategories, Response::HTTP_OK);
+    }
 
     /**
      * @Route("/api/thread/{id}")
@@ -103,8 +121,6 @@ class ForumController extends AbstractController
         $comments = $entityManager->getRepository(Comment::class)->findBy(['thread' => $id]);
 
 
-
-
         /** @var User $user */
         $user = $thread->getUser();
 
@@ -116,7 +132,7 @@ class ForumController extends AbstractController
                 'created' => $thread->getCreated()->format('d.m.Y, G:i') ,
                 'username' => $user->getFirstName(). ' ' . $user->getLastName(),
                 'userPic' => $user->getUserPic(),
-                'category' => $thread->getCategory(),
+                'category' => $thread->getCategory()->toAssoc(),
                 'likes' => $thread->getLikes()
             ]
         ];
@@ -169,9 +185,10 @@ class ForumController extends AbstractController
     }
 
 
+
     /**
- * @Route("/forum/addthread")
- */
+     * @Route("/forum/addthread")
+    */
     public function addThread(Request $request)
     {
         $entityManager = $this->getDoctrine()->getManager();
@@ -181,9 +198,13 @@ class ForumController extends AbstractController
         $thread = new Thread();
 
         $user = $entityManager->getRepository(User::class)->find($content->userId);
-
         if (!$user) {
-            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+            return new JsonResponse('User not found', Response::HTTP_NOT_FOUND);
+        }
+
+        $category = $entityManager->getRepository(Category::class)->find($content->categoryId);
+        if (!$category) {
+            return new JsonResponse('Category not found', Response::HTTP_NOT_FOUND);
         }
 
         $thread->setHeadline($content->headline);
@@ -191,7 +212,7 @@ class ForumController extends AbstractController
         $thread->setUser($user);
         $thread->setCreated(new \DateTime());
         $thread->setUpdated(new \DateTime());
-        $thread->setCategory($content->category);
+        $thread->setCategory($category);
         $thread->setLikes(0);
 
         $entityManager = $this->getDoctrine()->getManager();
@@ -199,8 +220,6 @@ class ForumController extends AbstractController
         $entityManager->flush();
 
         return new JsonResponse($thread->toAssoc(), Response::HTTP_OK);
-
-        //return new Response('Thread erstellt');
     }
 
     /**
