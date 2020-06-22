@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Entity\News;
+use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -28,7 +29,6 @@ class NewsController extends AbstractController
     /**
      * @Route("api/news/{id}", name="article", methods={"GET"})
      */
-
     public function getArticle($id)
     {
         $article = $this->getDoctrine()->getRepository(News::Class)->find($id);
@@ -74,6 +74,7 @@ class NewsController extends AbstractController
      */
     public function createNewsArticle(Request $request, ValidatorInterface $validator): JsonResponse
     {
+
         $news = new News();
 
         $data = $request->getContent();

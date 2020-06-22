@@ -63,9 +63,9 @@
 }
 
 /*news Sllider*/
-#indexArrows svg { width: 50%; fill: #97B753; }
-#indexArrows svg:hover { fill: #B8E269; }
-#indexArrows svg:active { fill: #707070; }
+.indexArrows svg { width: 50%; fill: #97B753; color:BLACK; }
+.indexArrows svg:hover { fill: #B8E269; }
+.indexArrows svg:active { fill: #707070; }
 #indexNewsSlider {
     color: transparent;
     border: 2px solid #97B753;
