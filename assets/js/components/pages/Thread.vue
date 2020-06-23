@@ -155,18 +155,20 @@
                 let heart = document.getElementById("heartFill").getAttribute('fill');
 
                 if (heart === "#dedede") {
-                    // TODO Colorchange doesnt trigger
-                    document.getElementById("heartFill").setAttribute("fill", "#707070");
+
                     this.$http.post('/forum/addThreadLike/' + this.thread.id, {
                         userId: this.loggedUser.id,
                     })
+                    this.$router.go(); // Workaround because statement below is not working
+                    document.getElementById("heartFill").setAttribute("fill", "#707070");
                     this.thread.likes++;
                 } else if (heart === "#707070") {
-                    // TODO Colorchange doesnt trigger
-                    document.getElementById("heartFill").setAttribute("fill", "#dedede");
                     this.$http.post('/forum/removeThreadLike/' + this.thread.id, {
                         userId: this.loggedUser.id,
                     })
+                    this.$router.go(); // Workaround because statement below is not working
+                    document.getElementById("heartFill").setAttribute("fill", "#dedede");
+
                     this.thread.likes--;
                 }
             },
@@ -181,8 +183,9 @@
                         userId: this.loggedUser.id,
                     })
                     // TODO Colorchange doesnt trigger
-                    document.getElementById('heartFill' + id).setAttribute("fill", "#707070");
-
+                    //document.getElementById('heartFill' + id).setAttribute("fill", "#707070");
+                    document.getElementById('heartFill' + id).setAttribute("fill", "#000000");
+                    this.$router.go(); // Workaround because statement below is not working
                     this.comments.forEach(function(comment){
                         if (id == comment.id){
                             comment.likes++;
