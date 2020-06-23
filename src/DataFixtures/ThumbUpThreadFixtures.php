@@ -8,27 +8,26 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Comment;
-use App\Entity\ThumbUp;
+use App\Entity\ThumbUpThread;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class ThumbUpFixtures extends Fixture implements DependentFixtureInterface
+class ThumbUpThreadFixtures extends Fixture implements DependentFixtureInterface
 {
-    public const TESTLIKE = "testlike";
+    public const TESTLIKETHREAD = "testlikethread";
     /**
      * Load data fixtures with the passed EntityManager
      */
     public function load(ObjectManager $manager)
     {
-        $like = new ThumbUp();
+        $like = new ThumbUpThread();
         $like->setUser($this->getReference(UserFixtures::TESTUSER));
-        $like->setComment($this->getReference(CommentFixtures::TESTCOMMENT));
+        $like->setThread($this->getReference(ThreadFixtures::TESTTHREAD));
 
         $manager->persist($like);
         $manager->flush();
-        $this->addReference(self::TESTLIKE, $like);
+        $this->addReference(self::TESTLIKETHREAD, $like);
     }
 
     /**
@@ -41,7 +40,8 @@ class ThumbUpFixtures extends Fixture implements DependentFixtureInterface
     {
        return [
            UserFixtures::class,
-           CommentFixtures::class
+           CommentFixtures::class,
+           ThreadFixtures::class,
        ];
     }
 }

@@ -54,11 +54,6 @@ class Thread {
     private $category;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $likes;
-
-    /**
      * @return mixed
      */
     public function getId()
@@ -166,18 +161,6 @@ class Thread {
         return $this;
     }
 
-    public function getLikes(): ?int
-    {
-        return $this->likes;
-    }
-
-    public function setLikes(?int $likes): self
-    {
-        $this->likes = $likes;
-
-        return $this;
-    }
-
     public function toAssoc() {
         return [
             'id' => $this->id,
@@ -187,7 +170,6 @@ class Thread {
             'created' => $this->created,
             'updated' => $this->updated,
             'category' => $this->category,
-            'likes' => $this->likes
         ];
     }
 }

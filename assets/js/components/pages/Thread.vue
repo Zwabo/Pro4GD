@@ -54,7 +54,7 @@
                         <p class="iconText">seen</p>
 
                         <svg @click="likeIt" xmlns="http://www.w3.org/2000/svg" width="27.681" height="24.848" viewBox="0 0 27.681 24.848" id="heart">
-                            <path id="heartFill" class="heartHover" d="M23.644,2.236A6.906,6.906,0,0,0,18.508,0a6.461,6.461,0,0,0-4.035,1.393,8.256,8.256,0,0,0-1.631,1.7,8.251,8.251,0,0,0-1.632-1.7A6.46,6.46,0,0,0,7.174,0,6.906,6.906,0,0,0,2.038,2.236,8.027,8.027,0,0,0,0,7.718a9.559,9.559,0,0,0,2.547,6.257,54.314,54.314,0,0,0,6.376,5.985c.883.753,1.885,1.606,2.925,2.516a1.508,1.508,0,0,0,1.985,0c1.04-.909,2.042-1.763,2.926-2.517a54.284,54.284,0,0,0,6.376-5.984,9.558,9.558,0,0,0,2.547-6.257,8.026,8.026,0,0,0-2.037-5.482Zm0,0" transform="translate(1 1)" fill="#dedede" stroke="#707070" stroke-width="2"/>
+                            <path id="heartFill" class="heartHover" d="M23.644,2.236A6.906,6.906,0,0,0,18.508,0a6.461,6.461,0,0,0-4.035,1.393,8.256,8.256,0,0,0-1.631,1.7,8.251,8.251,0,0,0-1.632-1.7A6.46,6.46,0,0,0,7.174,0,6.906,6.906,0,0,0,2.038,2.236,8.027,8.027,0,0,0,0,7.718a9.559,9.559,0,0,0,2.547,6.257,54.314,54.314,0,0,0,6.376,5.985c.883.753,1.885,1.606,2.925,2.516a1.508,1.508,0,0,0,1.985,0c1.04-.909,2.042-1.763,2.926-2.517a54.284,54.284,0,0,0,6.376-5.984,9.558,9.558,0,0,0,2.547-6.257,8.026,8.026,0,0,0-2.037-5.482Zm0,0" transform="translate(1 1)" v-bind:fill="[thread.isLiked ? '#707070' : '#dedede']" stroke="#707070" stroke-width="2"/>
                         </svg>
                         <p class="iconText">{{thread.likes}}</p>
                     </div>
@@ -97,7 +97,7 @@
                             <p class="iconText">seen</p>
 
                             <svg @click="likeItId(comment.id)" xmlns="http://www.w3.org/2000/svg" width="27.681" height="24.848" viewBox="0 0 27.681 24.848" id="heart">
-                                <path :id='"heartFill" + comment.id' class="heartHover" d="M23.644,2.236A6.906,6.906,0,0,0,18.508,0a6.461,6.461,0,0,0-4.035,1.393,8.256,8.256,0,0,0-1.631,1.7,8.251,8.251,0,0,0-1.632-1.7A6.46,6.46,0,0,0,7.174,0,6.906,6.906,0,0,0,2.038,2.236,8.027,8.027,0,0,0,0,7.718a9.559,9.559,0,0,0,2.547,6.257,54.314,54.314,0,0,0,6.376,5.985c.883.753,1.885,1.606,2.925,2.516a1.508,1.508,0,0,0,1.985,0c1.04-.909,2.042-1.763,2.926-2.517a54.284,54.284,0,0,0,6.376-5.984,9.558,9.558,0,0,0,2.547-6.257,8.026,8.026,0,0,0-2.037-5.482Zm0,0" transform="translate(1 1)" fill="#dedede" stroke="#707070" stroke-width="2"/>
+                                <path :id='"heartFill" + comment.id' class="heartHover" d="M23.644,2.236A6.906,6.906,0,0,0,18.508,0a6.461,6.461,0,0,0-4.035,1.393,8.256,8.256,0,0,0-1.631,1.7,8.251,8.251,0,0,0-1.632-1.7A6.46,6.46,0,0,0,7.174,0,6.906,6.906,0,0,0,2.038,2.236,8.027,8.027,0,0,0,0,7.718a9.559,9.559,0,0,0,2.547,6.257,54.314,54.314,0,0,0,6.376,5.985c.883.753,1.885,1.606,2.925,2.516a1.508,1.508,0,0,0,1.985,0c1.04-.909,2.042-1.763,2.926-2.517a54.284,54.284,0,0,0,6.376-5.984,9.558,9.558,0,0,0,2.547-6.257,8.026,8.026,0,0,0-2.037-5.482Zm0,0" transform="translate(1 1)" v-bind:fill="[comment.isLiked ? '#707070' : '#dedede']" stroke="#707070" stroke-width="2"/>
                             </svg>
                             <p class="iconText">{{comment.likes}}</p>
                         </div>
@@ -139,11 +139,12 @@
 
         mounted: function() {
             console.log(this.loggedUser);
-            this.$http.get('/api/thread/' + this.$route.params.id)
-                .then(response => {
-                    this.thread = response.data.shift();
-                    this.comments = response.data
-                })
+            this.$http.post('/api/thread/' + this.$route.params.id, {
+                userId: this.loggedUser.id,
+            }).then(response => {
+                this.thread = response.data.shift();
+                this.comments = response.data
+            })
                 .catch(error => {
                     alert(error);
                 });
@@ -154,10 +155,18 @@
                 let heart = document.getElementById("heartFill").getAttribute('fill');
 
                 if (heart === "#dedede") {
+                    // TODO Colorchange doesnt trigger
                     document.getElementById("heartFill").setAttribute("fill", "#707070");
+                    this.$http.post('/forum/addThreadLike/' + this.thread.id, {
+                        userId: this.loggedUser.id,
+                    })
                     this.thread.likes++;
                 } else if (heart === "#707070") {
+                    // TODO Colorchange doesnt trigger
                     document.getElementById("heartFill").setAttribute("fill", "#dedede");
+                    this.$http.post('/forum/removeThreadLike/' + this.thread.id, {
+                        userId: this.loggedUser.id,
+                    })
                     this.thread.likes--;
                 }
             },
@@ -168,9 +177,30 @@
                 console.log(this.comments);
 
                 if (heartID === "#dedede") {
+                    this.$http.post('/forum/addLike/' + id, {
+                        userId: this.loggedUser.id,
+                    })
+                    // TODO Colorchange doesnt trigger
                     document.getElementById('heartFill' + id).setAttribute("fill", "#707070");
+
+                    this.comments.forEach(function(comment){
+                        if (id == comment.id){
+                            comment.likes++;
+                            comment.isliked = true;
+                        }
+                    });
                 } else if (heartID === "#707070") {
+                    this.$http.post('/forum/removeLike/' + id, {
+                        userId: this.loggedUser.id,
+                    })
                     document.getElementById('heartFill' + id).setAttribute("fill", "#dedede");
+
+                    this.comments.forEach(function(comment){
+                        if (id == comment.id){
+                            comment.likes--;
+                            comment.isLiked = false;
+                        }
+                    });
                 }
             },
 

@@ -33,7 +33,6 @@ class ThreadFixtures extends Fixture implements DependentFixtureInterface
         $dateAdded->format('Y-m-d h.i.s');
         $thread->setCreated($dateAdded);
         $thread->setCategory($this->getReference(CategoryFixtures::CATEGORY));
-        $thread->setLikes('10');
 
         $manager->persist($thread);
         $manager->flush();
