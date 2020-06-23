@@ -1,17 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Verena
- * Date: 18.05.2020
- * Time: 12:45
- */
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 /**
- * @ORM\Entity(repositoryClass="App\Repository\LikeRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ThumbUpThreadRepository")
  */
-class ThumpUp {
+class ThumbUpThread {
 
     /**
      * @ORM\Id()
@@ -21,16 +16,15 @@ class ThumpUp {
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="Like")
-     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Comment", inversedBy="Like")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Thread")
      *
      */
-    private $Comment;
+    private $thread;
 
 
     /**
@@ -52,17 +46,17 @@ class ThumpUp {
     /**
      * @return mixed
      */
-    public function getComment()
+    public function getThread()
     {
-        return $this->Comment;
+        return $this->thread;
     }
 
     /**
-     * @param mixed $Comment
+     * @param mixed $thread
      */
-    public function setComment($Comment)
+    public function setThread($Thread)
     {
-        $this->Comment = $Comment;
+        $this->thread = $Thread;
     }
 
     /**
@@ -81,5 +75,13 @@ class ThumpUp {
         $this->user = $user;
     }
 
+    public function toAssoc()
+    {
+        return [
+            'id' => $this->id,
+            'user' => $this->user,
+            'thread' => $this->thread,
+        ];
+    }
 
 }

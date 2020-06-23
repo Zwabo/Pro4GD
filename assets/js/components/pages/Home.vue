@@ -235,15 +235,7 @@
                         <h3 class="h3Index">Plantbase <span class="fontBold">News</span></h3>
                     </div>
                     <div class="row">
-                        <div class="col-lg-1" id="indexArrows">
-                            <svg><use href="#indexArrowLeft"></use></svg>
-                        </div>
-                        <div class="col-lg-10" id="indexNewsSlider">
-                            <Slider></Slider>
-                        </div>
-                        <div class="col-lg-1 text-right" id="indexArrows">
-                            <svg><use href="#indexArrowRight"></use></svg>
-                        </div>
+                        <Slider></Slider>
                     </div>
                 </div>
             </div>

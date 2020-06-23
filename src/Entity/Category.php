@@ -1,18 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Verena
- * Date: 18.05.2020
- * Time: 12:45
- */
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  */
-class Comment {
+class Category {
 
     /**
      * @ORM\Id()
@@ -22,21 +16,9 @@ class Comment {
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
-     *
-     */
-    private $user;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Thread")
-     *
-     */
-    private $thread;
-
-    /**
      * @ORM\Column(type="string", length=480, unique=true)
      */
-    private $text;
+    private $title;
 
     /**
      * @ORM\Column(type="datetime", nullable = true)
@@ -59,7 +41,7 @@ class Comment {
     /**
      * @param mixed $id
      */
-    public function setId($id)
+    public function setId($id): void
     {
         $this->id = $id;
     }
@@ -67,49 +49,17 @@ class Comment {
     /**
      * @return mixed
      */
-    public function getUser()
+    public function getTitle()
     {
-        return $this->user;
+        return $this->title;
     }
 
     /**
-     * @param mixed $user
+     * @param mixed $title
      */
-    public function setUser($user)
+    public function setTitle($title): void
     {
-        $this->user = $user;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getThread()
-    {
-        return $this->thread;
-    }
-
-    /**
-     * @param mixed $thread
-     */
-    public function setThread($thread)
-    {
-        $this->thread = $thread;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getText()
-    {
-        return $this->text;
-    }
-
-    /**
-     * @param mixed $text
-     */
-    public function setText($text)
-    {
-        $this->text = $text;
+        $this->title = $title;
     }
 
     /**
@@ -123,7 +73,7 @@ class Comment {
     /**
      * @param mixed $created
      */
-    public function setCreated($created)
+    public function setCreated($created): void
     {
         $this->created = $created;
     }
@@ -139,19 +89,20 @@ class Comment {
     /**
      * @param mixed $updated
      */
-    public function setUpdated($updated)
+    public function setUpdated($updated): void
     {
         $this->updated = $updated;
     }
 
+    /**
+     * @return array
+     */
     public function toAssoc() {
         return [
           'id' => $this->id,
-          'user' => $this->user,
-          'thread' => $this->thread,
-          'text' => $this->text,
+          'title' => $this->title,
           'created' => $this->created,
-          'updated' => $this->updated
+          'updated' => $this->updated,
         ];
     }
 

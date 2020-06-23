@@ -49,14 +49,9 @@ class Thread {
     private $updated;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category")
      */
     private $category;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $likes;
 
     /**
      * @return mixed
@@ -154,26 +149,14 @@ class Thread {
         $this->inputtext = $inputtext;
     }
 
-    public function getCategory(): ?string
+    public function getCategory()
     {
         return $this->category;
     }
 
-    public function setCategory(?string $category): self
+    public function setCategory($category): self
     {
         $this->category = $category;
-
-        return $this;
-    }
-
-    public function getLikes(): ?int
-    {
-        return $this->likes;
-    }
-
-    public function setLikes(?int $likes): self
-    {
-        $this->likes = $likes;
 
         return $this;
     }
@@ -187,7 +170,6 @@ class Thread {
             'created' => $this->created,
             'updated' => $this->updated,
             'category' => $this->category,
-            'likes' => $this->likes
         ];
     }
 }

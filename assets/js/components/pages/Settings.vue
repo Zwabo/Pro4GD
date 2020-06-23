@@ -265,5 +265,180 @@
 </script>
 
 <style scoped>
+    #settings{
+        text-transform: uppercase;
+        color: #707070;
+        margin-top: 8%;
+        font-size: 120%;
+        font-weight: lighter;
+    }
 
+    #push{
+        font-weight: normal;
+        font-size: 100%;
+        color:#97B753;
+    }
+
+    .bulletPoints{
+        color:#97B753;
+
+        font-size: 88%;
+    }
+    .bulletExplanation{
+        font-weight: lighter;
+        font-size: 75%;
+    }
+    .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+    .toggle.ios .toggle-handle { border-radius: 20px; }
+
+    .greyProfileLine{
+        color: #707070;
+        height: 3px;
+        width: 100%;
+    }
+    .private{
+        color: #707070;
+        font-size: 88%;
+    }
+
+    #privateHeader{
+        font-weight: lighter;
+        font-size: 90%;
+    }
+
+    .radioButton{
+        margin-right: 15%;
+        color: #97B753;
+    }
+
+    .privacyOptions{
+        color: #707070;
+        font-weight: lighter;
+        font-size: 90%;
+
+
+    }
+    #creditBox{
+        background-color: #B8E269;
+        padding:10px;
+        height: 280px;
+        border-radius: 12px;
+
+    }
+
+    #contactBox{
+        background-color:#97B753;
+        margin-left:5%;
+        height: 280px;
+        border-radius: 12px;
+    }
+
+    .creditText{
+        margin-left:5%;
+        margin-right:8%;
+        font-size:70%;
+        color: #707070;
+    }
+    #credit{
+        margin-left:5%;
+        margin-top:10%;
+        font-size:20px;
+        color: #707070;
+    }
+
+    .contactText{
+        margin-right:8%;
+        margin-top:8%;
+        margin-left:5%;
+        font-size:70%;
+        color: #FFFFFF;
+    }
+    #contact{
+        margin-left:5%;
+        margin-top:10%;
+        font-size:20px;
+        color: #FFFFFF;
+    }
+
+    #contactButton{
+        margin-left:5%;
+        margin-top:12%;
+        background-color: #FFFFFF;
+        color:#97B753;
+        border-radius: 12px;
+        font-size:14px;
+        border:  none;
+        padding: 5px 60px;
+
+    }
+
+
+    /* The switch - the box around the slider */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked + .slider {
+        background-color: #97B753;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+        transform: translateX(20px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 14px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+    #rudeSwitch{
+        margin-bottom: -10%;
+
+    }
 </style>

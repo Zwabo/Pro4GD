@@ -14,6 +14,7 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Thread;
 use App\Entity\User;
+use phpDocumentor\Reflection\Types\This;
 
 class ThreadFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -31,8 +32,7 @@ class ThreadFixtures extends Fixture implements DependentFixtureInterface
         $dateAdded = date_create('2019-05-19 12:30:03');
         $dateAdded->format('Y-m-d h.i.s');
         $thread->setCreated($dateAdded);
-        $thread->setCategory('Pflegetipps');
-        $thread->setLikes('10');
+        $thread->setCategory($this->getReference(CategoryFixtures::CATEGORY));
 
         $manager->persist($thread);
         $manager->flush();
@@ -48,7 +48,8 @@ class ThreadFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
-            UserFixtures::class
+            UserFixtures::class,
+            CategoryFixtures::class
         ];
     }
 }

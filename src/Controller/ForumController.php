@@ -8,9 +8,11 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Thread;
+use App\Entity\ThumbUp;
+use App\Entity\ThumbUpThread;
 use App\Entity\User;
 use App\Form\CommentForm;
 use App\Form\ThreadForm;
@@ -22,59 +24,32 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ForumController extends AbstractController
 {
-
     /**
-     * @Route("/forum/thread/{id}", methods={"GET","HEAD"})
-     */
-    public function showThread(Request $request, string $id)
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        /** @var Thread $thread */
-        $thread = $entityManager->getRepository(Thread::class)->find($id);
-
-        $comments = $entityManager->getRepository(Comment::class)->findBy(['thread' => $id]);
-
-        $comment = new Comment();
-        $form = $this->createForm(CommentForm::class, $comment);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $headLine = $form->get('Text')->getData();
-            $comment->setText($headLine);
-            $comment->setThread($thread);
-            $comment->setUser($this->getUser());
-            $timeStamp = $this->generateTimeStamp();
-            $comment->setCreated($timeStamp);
-            $comment->setUpdated($timeStamp);
-            $comment->setLikes(0);
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($comment);
-            $entityManager->flush();
-        }
-
-        return $this->render('forum/thread.html.twig', [
-            'thread' =>$thread,
-            'comments' => $comments,
-            'commentForm' => $form->createView()
-        ]);
-    }
-
-
-      /**
      * @Route("/api/threads")
      */
     public function fetchAllThreads(Request $request)
     {
+        $content = json_decode($request->getContent());
+        $loggedInUserId = $content->userId;
+
         $entityManager = $this->getDoctrine()->getManager();
         /** @var Thread[] $threads */
         $threads = $entityManager->getRepository(Thread::class)->findAll();
 
         $rThread = [];
         foreach ($threads as $thread) {
-            $userId = $thread->getUser();
-
             $comments = $entityManager->getRepository(Comment::class)->findBy(['thread' => $thread->getId()]);
+            $likes = $entityManager->getRepository(ThumbUpThread::class)->findBy(['thread' => $thread->getId()]);
+
+            $isThreadLiked = false;
+
+            foreach ($likes as $like) {
+                /** @var ThumbUpThread $like */
+                if ($loggedInUserId == $like->getUser()->getId()) {
+                    $isThreadLiked = true;
+                    break;
+                }
+            }
 
             $rThread[] = [
                 'headline' => $thread->getHeadline(),
@@ -82,31 +57,59 @@ class ForumController extends AbstractController
                 'userPic' => $thread->getUser()->getUserPic(),
                 'created' => $thread->getCreated()->format('d.m.Y, G:i'),
                 'postsMade' => count($comments),
-                'category' => $thread->getCategory(),
-                'likes' => $thread->getLikes()
+                'category' => $thread->getCategory()->toAssoc(),
+                'likes' => count($likes),
+                'isLiked' => $isThreadLiked,
             ];
         }
 
         return new JsonResponse($rThread);
     }
 
+    /**
+     * @Route("/api/forum/categories")
+     */
+    public function fetchCategories()
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $categories = $entityManager->getRepository(Category::class)->findAll();
+
+
+        $rCategories = [];
+
+        foreach ($categories as $category) {
+            $rCategories[] = $category->toAssoc();
+        }
+
+        return new JsonResponse($rCategories, Response::HTTP_OK);
+    }
 
     /**
      * @Route("/api/thread/{id}")
      */
     public function fetchThreadById(Request $request, string $id)
     {
+        $content = json_decode($request->getContent());
+        $loggedInUserId = $content->userId;
         $entityManager = $this->getDoctrine()->getManager();
         /** @var Thread[] $threads */
         $thread = $entityManager->getRepository(Thread::class)->find($id);
 
         $comments = $entityManager->getRepository(Comment::class)->findBy(['thread' => $id]);
-
-
-
+        $likes = $entityManager->getRepository(ThumbUpThread::class)->findBy(['thread' => $id]);
 
         /** @var User $user */
         $user = $thread->getUser();
+
+        $isThreadLiked = false;
+        foreach ($likes as $like) {
+            /** @var ThumbUp $like */
+            if ($loggedInUserId == $like->getUser()->getId()) {
+                $isThreadLiked = true;
+                break;
+            }
+        }
 
         $rThread = [
             [
@@ -116,62 +119,44 @@ class ForumController extends AbstractController
                 'created' => $thread->getCreated()->format('d.m.Y, G:i') ,
                 'username' => $user->getFirstName(). ' ' . $user->getLastName(),
                 'userPic' => $user->getUserPic(),
-                'category' => $thread->getCategory(),
-                'likes' => $thread->getLikes()
+                'category' => $thread->getCategory()->toAssoc(),
+                'likes' => count($likes),
+                'isLiked' => $isThreadLiked,
             ]
         ];
+
         /** @var Comment $comment */
         foreach ($comments as $comment) {
+            $commentLikes =
+                $entityManager->getRepository(ThumbUp::class)->findBy(['Comment' => $comment->getId()]);
+
+            $isLiked = false;
+
+            foreach ($commentLikes as $like) {
+                /** @var ThumbUp $like */
+                if ($loggedInUserId == $like->getUser()->getId()) {
+                    $isLiked = true;
+                }
+            }
+
             $rThread[] = [
                 'id' => $comment->getId(),
                 'text' => $comment->getText(),
                 'created' => $comment->getCreated()->format('d.m.Y, G:i'),
                 'username' => $comment->getUser()->getFirstName() . ' ' . $comment->getUser()->getLastName(),
                 'userPic' => $user->getUserPic(),
-                'likes' => $comment->getLikes()];
+                'likes' => count($commentLikes),
+                'isLiked' => $isLiked
+            ];
         }
 
         return new JsonResponse($rThread);
     }
 
 
-
     /**
-     * @Route("/forum/threads")
-     */
-    public function showAllThreads(Request $request)
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        /** @var Thread[] $threads */
-        $threads = $entityManager->getRepository(Thread::class)->findAll();
-
-        $thread = new Thread();
-        $form = $this->createForm(ThreadForm::class, $thread);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $headLine = $form->get('headline')->getData();
-            $thread->setHeadline($headLine);
-            $thread->setUser($this->getUser());
-            $timeStamp = $this->generateTimeStamp();
-            $thread->setCreated($timeStamp);
-            $thread->setUpdated($timeStamp);
-            $thread->setLikes(0);
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($thread);
-            $entityManager->flush();
-        }
-
-        return $this->render('forum/forum.html.twig', [
-            'threads' => $threads,
-            'threadForm' => $form->createView()
-        ]);
-    }
-
-
-    /**
- * @Route("/forum/addthread")
- */
+     * @Route("/forum/addthread")
+    */
     public function addThread(Request $request)
     {
         $entityManager = $this->getDoctrine()->getManager();
@@ -181,9 +166,13 @@ class ForumController extends AbstractController
         $thread = new Thread();
 
         $user = $entityManager->getRepository(User::class)->find($content->userId);
-
         if (!$user) {
-            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+            return new JsonResponse('User not found', Response::HTTP_NOT_FOUND);
+        }
+
+        $category = $entityManager->getRepository(Category::class)->find($content->categoryId);
+        if (!$category) {
+            return new JsonResponse('Category not found', Response::HTTP_NOT_FOUND);
         }
 
         $thread->setHeadline($content->headline);
@@ -191,16 +180,13 @@ class ForumController extends AbstractController
         $thread->setUser($user);
         $thread->setCreated(new \DateTime());
         $thread->setUpdated(new \DateTime());
-        $thread->setCategory($content->category);
-        $thread->setLikes(0);
+        $thread->setCategory($category);
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($thread);
         $entityManager->flush();
 
         return new JsonResponse($thread->toAssoc(), Response::HTTP_OK);
-
-        //return new Response('Thread erstellt');
     }
 
     /**
@@ -231,17 +217,107 @@ class ForumController extends AbstractController
         $comment->setUser($user);
         $comment->setCreated(new \DateTime());
         $comment->setUpdated(new \DateTime());
-        $comment->setLikes(0);
 
-        $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($comment);
         $entityManager->flush();
 
         return new JsonResponse($thread->toAssoc(), Response::HTTP_OK);
-
-        //return new Response('Kommentar erstellt');
     }
 
+    /**
+     * @Route("/forum/addLike/{id}")
+     *
+     * @param string $id the comment id given by the vue form
+     */
+    public function addLike(Request $request, string $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $content = json_decode($request->getContent());
+        $user = $entityManager->getRepository(User::class)->find($content->userId);
+        $comment = $entityManager->getRepository(Comment::class)->find($id);
+
+        $thumbUp = new ThumbUp();
+        $thumbUp->setUser($user);
+        $thumbUp->setComment($comment);
+
+        $entityManager->persist($thumbUp);
+        $entityManager->flush();
+        return new JsonResponse('Liked', Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/forum/removeLike/{id}")
+     *
+     * @param string $id the comment id given by the vue form
+     */
+    public function removeLike(Request $request, string $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $content = json_decode($request->getContent());
+
+        $user = $entityManager->getRepository(User::class)->find($content->userId);
+        $thumbUp = $entityManager
+                ->getRepository(ThumbUp::class)
+                ->findOneBy(
+                    ['Comment' => $id, 'user' => $user->getId()]
+                );
+
+        if (!$thumbUp) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+        $entityManager->remove($thumbUp);
+        $entityManager->flush();
+        return new JsonResponse([], Response::HTTP_OK);
+    }
+
+
+    /**
+     * @Route("/forum/addThreadLike/{id}")
+     *
+     * @param string $id the thread id given by the vue form
+     */
+    public function addThreadLike(Request $request, string $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $content = json_decode($request->getContent());
+        $user = $entityManager->getRepository(User::class)->find($content->userId);
+        $thread = $entityManager->getRepository(Thread::class)->find($id);
+
+        $thumbUpThread = new ThumbUpThread();
+        $thumbUpThread->setUser($user);
+        $thumbUpThread->setThread($thread);
+
+        $entityManager->persist($thumbUpThread);
+        $entityManager->flush();
+        return new JsonResponse([], Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/forum/removeThreadLike/{id}")
+     *
+     * @param string $id the comment id given by the vue form
+     */
+    public function removeThreadLike(Request $request, string $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $content = json_decode($request->getContent());
+
+        $user = $entityManager->getRepository(User::class)->find($content->userId);
+        $thumbUpThread = $entityManager
+            ->getRepository(ThumbUpThread::class)
+            ->findOneBy(
+                ['thread' => $id, 'user' => $user->getId()]
+            );
+
+        if (!$thumbUpThread) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+        $entityManager->remove($thumbUpThread);
+        $entityManager->flush();
+        return new JsonResponse([], Response::HTTP_OK);
+    }
 
     private function generateTimeStamp()
     {

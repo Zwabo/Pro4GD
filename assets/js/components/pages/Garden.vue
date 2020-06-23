@@ -1,6 +1,6 @@
 <template>
 
-    <div class="row" v-if="garden !== null">
+    <div class="row" v-if="plants !== null">
 
         <div class="col right marginLeftRight">
 
@@ -28,7 +28,7 @@
                                     <div class="row">
                                         <div class="col-sm-7 plantInfo" >
                                             <p class="text-left gardenPFirst"><b>{{ userplant.name }}</b> ({{ userplant.plant.name }})</p>
-                                            <p>Ist durstig!</p>
+                                            <p>{{thirst(userplant.dateWatered)}}</p>
                                             <div class="list"></div>
                                             <p><span class="location iconGarden"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="path1" d="M256,0C153.755,0,70.573,83.182,70.573,185.426c0,126.888,165.939,313.167,173.004,321.035
 		c6.636,7.391,18.222,7.378,24.846,0c7.065-7.868,173.004-194.147,173.004-321.035C441.425,83.182,358.244,0,256,0z M256,278.719
@@ -41,7 +41,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 		c6.636,7.391,18.222,7.378,24.846,0c7.065-7.868,173.004-194.147,173.004-321.035C441.425,83.182,358.244,0,256,0z M256,278.719
 		c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z
 C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
-                                   </span> Menge</p>
+                                   </span> {{wateringShedule(userplant.wateringCycle)}}</p>
                                             <button class="buttonDarkGreenSmall water" @click="water($event, userplant)"> Gießen</button>
                                         </div>
 
@@ -65,7 +65,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                                     <div class="row">
                                         <div class="col-sm-7 plantInfo">
                                             <p class="text-left gardenPFirst"><b>{{ userplant.name }}</b> ({{ userplant.plant.name }})</p>
-                                            <p>Ist durstig!</p>
+                                            <p>{{thirst(userplant.dateWatered)}}</p>
                                             <div class="list"></div>
                                             <p><span class="location iconGarden"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="path1" d="M256,0C153.755,0,70.573,83.182,70.573,185.426c0,126.888,165.939,313.167,173.004,321.035
 		c6.636,7.391,18.222,7.378,24.846,0c7.065-7.868,173.004-194.147,173.004-321.035C441.425,83.182,358.244,0,256,0z M256,278.719
@@ -78,7 +78,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 		c6.636,7.391,18.222,7.378,24.846,0c7.065-7.868,173.004-194.147,173.004-321.035C441.425,83.182,358.244,0,256,0z M256,278.719
 		c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z
 C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
-                                   </span> Menge</p>
+                                   </span> {{wateringShedule(userplant.wateringCycle)}}</p>
                                             <button class="buttonDarkGreenSmall" @click="water($event, userplant)"> Gießen</button>
                                         </div>
 
@@ -272,7 +272,34 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                    return this.weekday[watering.getDay()];
                }
 
-           }
+           },
+
+           wateringShedule: function (wateringCycle) {
+
+               if(wateringCycle < 7 && wateringCycle > 1) {
+                   return 'Alle ' + wateringCycle + ' Tage';
+               } else if (wateringCycle === 1) {
+                   return 'Jeden Tag';
+               } else {
+                   return 'Jede Woche';
+               }
+
+           },
+
+           thirst: function (wateringDate) {
+
+               let today = new Date();
+               let watering = new Date(wateringDate['date']);
+
+               if(watering.getDate() === today.getDate() &&
+                   watering.getMonth() === today.getMonth() &&
+                   watering.getFullYear() === today.getFullYear()) {
+                   return 'Ist durstig!';
+               } else {
+                   return 'Fühlt sich gut!';
+               }
+
+           },
 
 
        }

@@ -45,7 +45,7 @@ const router = new VueRouter({
         {path: '/contact', name:'contact', component:Contact},
         {path: '/imprint', name:'imprint', component:Imprint},
         {path: '/agb', name:'agb', component:AGB},
-        {path: '/tipps', name:'news', component:Tipps},
+        {path: '/tipps', name:'tipps', component:Tipps},
         {path: '/tipps/:id', name:'tippArticle', component:TippArticle},
         {path: '/database', name:'getPlants', component:Database},
         {path: '/addPlant', name:'addPlants', component:AddPlant},

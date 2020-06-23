@@ -1,20 +1,35 @@
 <template>
-<div class="root">
+    <div class="row">
+
+        <div class="col-lg-1 indexArrows">
+            <svg><use href="#indexArrowLeft"></use></svg>
+            <a class="prev" @click="prev" >Previous</a>
+        </div>
+
+        <div class="col-lg-10" id="indexNewsSlider">
     <transition-group name="fade" tag="div">
          <div v-for="i in [currentIndex]" :key="i">
-            <div class="row">
+            <div  class="row">
              <img class="col-lg-5"v-bind:src="currentArticle.thumbnail">
              <div class="col-lg-7"id="bgNewsArticleBox">
                  <h3 class="slider-title">{{currentArticle.title}}</h3>
                  <p id="slider-text">{{currentArticle.shortText}}</p>
                  <router-link class="slider-title"  id="slider-readMore" :to="'/news/' + currentArticle.id"> mehr lesen <b>>> </b></router-link>
              </div>
+
             </div>
-        </div>
+             </div>
+
     </transition-group>
-    <a class="prev" @click="prev" >&#10094; Previous</a>
-    <a class="next" @click="next" >&#10095; Next</a>
-</div>
+
+        </div>
+        <div class="col-lg-1 text-right indexArrows">
+            <svg><use href="#indexArrowRight"></use></svg>
+            <a class="next" @click="next" > Next</a>
+        </div>
+
+    </div>
+
 </template>
 
 <script>
@@ -50,7 +65,6 @@
 
         },
         methods: {
-
             next: function() {
                 this.currentIndex += 1;
             },
@@ -69,4 +83,58 @@
 
 <style scoped>
 
+    img {
+        height:300px;
+        width:100%
+    }
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 40%;
+        width: 100px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.7s ease;
+        border-radius: 4px 4px 4px 4px;
+        text-decoration: none;
+        user-select: none;
+    }
+
+    .next {
+        right: 0;
+    }
+
+    .prev {
+        left: 0;
+    }
+
+    .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.9);
+    }
+
+
+    #slider-text{
+        padding-top: 4%;
+        color:#707070;
+        font-size:80%;
+    }
+
+    .slider-title{
+        padding-top: 8%;
+        color:white;
+        font-size:100%;
+    }
+    #bgNewsArticleBox{
+        background-color: #97B753;
+        height: auto;
+        width: auto;
+
+    }
+
+    #slider-readMore{
+        font-size:80%;
+        margin-left: 80%;
+    }
 </style>
