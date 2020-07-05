@@ -36,7 +36,7 @@
                 <div class="greenLine"></div>
 
             </div>
-            <div v-for="thread in threads"class="container-fluid">
+            <div v-for="(thread, index) in threads.slice(0,3)" class="container-fluid">
                 <a v-bind:href="'/forum/'+ thread.id" class="row thread dropShadow">
                     <div class="col-lg-11">
                         <div class="row">
