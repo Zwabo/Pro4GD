@@ -5,15 +5,20 @@
                 <div class="row">
                     <div class="col-lg-10"><h1 class="forumH1">Forum</h1></div>
                     <div class="col-lg-2 text-right">
-                    <span class="searchForum"><svg xmlns="http://www.w3.org/2000/svg" width="41.472" height="35.105" viewBox="0 0 41.472 35.105">
-                      <g id="Gruppe_730" data-name="Gruppe 730" transform="translate(0.872)">
-                        <g id="Ellipse_28" data-name="Ellipse 28" transform="translate(12.6)" fill="#fff" stroke="#97b753" class="searchStroke" stroke-width="3">
-                          <circle cx="14" cy="14" r="14" stroke="none"/>
-                          <circle cx="14" cy="14" r="12.5" fill="none"/>
-                        </g>
-                        <line id="Linie_14" data-name="Linie 14" y1="10.93" x2="15.303" transform="translate(0 22.954)" fill="none" stroke="#97b753" class="searchStroke" stroke-width="3"/>
-                      </g>
-                    </svg></span>
+                        <form>
+                            <input type="text" placeholder="Suche nach Thread.." class="form-control form-control-sm searchBarDatabase" aria-label="ShreadSearch" v-model="threadSearch">
+
+                            <span class="searchForum"><svg xmlns="http://www.w3.org/2000/svg" width="41.472" height="35.105" viewBox="0 0 41.472 35.105">
+                                <g id="Gruppe_730" data-name="Gruppe 730" transform="translate(0.872)">
+                                    <g id="Ellipse_28" data-name="Ellipse 28" transform="translate(12.6)" fill="#fff" stroke="#97b753" class="searchStroke" stroke-width="3">
+                                        <circle cx="14" cy="14" r="14" stroke="none"/>
+                                        <circle cx="14" cy="14" r="12.5" fill="none"/>
+                                </g>
+                                <line id="Linie_14" data-name="Linie 14" y1="10.93" x2="15.303" transform="translate(0 22.954)" fill="none" stroke="#97b753" class="searchStroke" stroke-width="3"/>
+                                </g>
+                                </svg>
+                            </span>
+                        </form>
                         <span v-if="addPlantForm==false" class="addThread addIcon" @click="createThread"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="darkGreen" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><path class="path2" d="M362.8,227.9c0,14.2-11.4,25.6-25.6,25.6h-85.3v85.3c0,14.2-11.4,25.6-25.6,25.6s-25.6-11.4-25.6-25.6v-85.3
 	h-85.3c-14.2,0-25.6-11.4-25.6-25.6s11.4-25.6,25.6-25.6h85.3v-85.3c0-14.2,11.4-25.6,25.6-25.6s25.6,11.4,25.6,25.6v85.3h85.3
 	C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg></span>
@@ -32,11 +37,11 @@
                     <thread-form></thread-form>
                 </div>
 
-                <div><h3 class="h3Margin">Neuste Beiträge</h3></div>
+                <div><h3 class="h3Margin">{{ threadHeadline }}</h3></div>
                 <div class="greenLine"></div>
 
             </div>
-            <div v-for="(thread, index) in threads.reverse().slice(0,3)" class="container-fluid">
+            <div v-for="(thread, index) in filteredThreads.slice(0,3)" class="container-fluid">
                 <a v-bind:href="'/forum/'+ thread.id" class="row thread dropShadow">
                     <div class="col-lg-11">
                         <div class="row">
@@ -512,6 +517,8 @@
                 errorIndex: '',
                 threads: null,
                 addPlantForm: false,
+                threadSearch: '',
+                threadHeadline: 'Neuste Threads',
 
                 showPlantCategoriesBool: false,
                 showNewsCategoriesBool: false,
@@ -539,6 +546,23 @@
             }).catch(error => {
                 alert(error);
             });
+        },
+
+        computed: {
+
+            filteredThreads: function () {
+                if (this.threads == null){
+                    return null;
+                }
+                if (this.threadSearch == ""){
+                    return this.threads.reverse();
+                }
+                return this.threads.filter((thread) => {
+                    this.threadHeadline = "Suchergebnisse";
+                    return (thread.headline.toLowerCase().match(this.threadSearch.toLowerCase()));
+                });
+            },
+
         },
 
         methods: {
