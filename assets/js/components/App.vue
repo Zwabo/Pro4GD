@@ -9,8 +9,9 @@
 <script>
     import MainNavigation from "./layout/MainNavigation";
     import MainFooter from "./layout/MainFooter";
+    import Push from 'push.js';
 export default {
-    components: {MainFooter, MainNavigation}
+    components: {MainFooter, MainNavigation},
 };
 </script>
 

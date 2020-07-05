@@ -10,8 +10,7 @@
 import Vue from 'vue';
 import App from './components/App';
 import Routes from './routes.js';
-
-import Axios from 'axios'
+import Axios from 'axios';
 Vue.prototype.$http = Axios;
 
 //CSS Imports

@@ -139,6 +139,11 @@ class User implements UserInterface
      */
     private $privacyForum = "all";
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $notifications = [];
+
     /*---------------userprofile comments-----------------------*/
 
      // @ORM\OneToMany(targetEntity="App\Entity\ProfileComments", mappedBy="user", cascade={"persist", "remove"})
@@ -509,6 +514,7 @@ class User implements UserInterface
             'friends' => $this->friends,
             'userplants' =>$plants,
             'comments' =>$this->comments,
+            'notifications' =>$this->notifications,
             'privacyBirthday' => $this->privacyBirthday,
             'privacyComments' => $this->privacyComments,
             'privacyForum' => $this->privacyForum,
@@ -575,6 +581,28 @@ class User implements UserInterface
         $this->privacyForum = $privacyForum;
 
         return $this;
+    }
+
+    public function getNotifications(): ?array
+    {
+        return $this->notifications;
+    }
+
+    public function setNotifications(?array $notifications): self
+    {
+        $this->notifications = $notifications;
+
+        return $this;
+    }
+
+    public function addNotification(string $title, string $text){
+        $newNotification = [$title, $text];
+        if($this->notifications != null){
+            array_push($this->notifications, $newNotification);
+        }
+        else{
+            $this->setNotifications([[$newNotification]]);
+        }
     }
 
     /*public function getWrittenComments(): ?ProfileComments
