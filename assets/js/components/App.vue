@@ -12,6 +12,35 @@
     import Push from 'push.js';
 export default {
     components: {MainFooter, MainNavigation},
+    created: function(){
+
+        //Get notifications and create push notifications
+        if(localStorage.getItem('user') != null){
+            let user = JSON.parse(localStorage.getItem('user'));
+            this.$http.get('/api/notifications/' + user.id + '/get')
+                .then(response => {
+                    this.notificationData = response.data[0];
+                    console.log(this.notificationData);
+
+                    for(let i = 0; i <= this.notificationData.length; i++){
+                        Push.create(this.notificationData[0][0], {
+                            body: 'A user commented: ' + this.notificationData[0][1],
+                            timeout: 4000,
+                            onClick: function () {
+                                window.focus();
+                                this.close();
+                            }
+                        })
+                    }
+                })
+                .then(() => {
+                    this.$http.post('/api/notifications/' + user.id + '/clear')
+                    .then(response => {
+
+                    });
+                });
+        }
+    },
 };
 </script>
 

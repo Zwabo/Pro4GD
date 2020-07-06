@@ -595,6 +595,10 @@ class User implements UserInterface
         return $this;
     }
 
+    public function clearNotifications(){
+        $this->notifications = null;
+    }
+
     public function addNotification(string $title, string $text){
         $newNotification = [$title, $text];
         if($this->notifications != null){
