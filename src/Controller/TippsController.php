@@ -84,6 +84,12 @@ class TippsController extends AbstractController
             return new JsonResponse((string) $errors, Response::HTTP_CONFLICT);
         }
 
+        //Push notifications that new news-article has been released to all users
+        $users = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        foreach ($users as $user) {
+            $user->addNotification("New Tips posted!", $tipps->getTitle());
+        }
+
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($tipps);
         $entityManager->flush();
