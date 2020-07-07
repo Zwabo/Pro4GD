@@ -171,6 +171,7 @@ class UserController extends AbstractController
         array_push($profileComments, $comment);
 
         $user->setComments($profileComments);
+        $user->addNotification("New Comment on your profile page!", $comment->msg);
         $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
@@ -197,7 +198,32 @@ class UserController extends AbstractController
         return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
     }
 
+    /**
+     * @Route("/api/notifications/{id}/get", name="getNotifications", methods={"GET"})
+     */
+    public function getUserNotifications($id){
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->find($id);
 
+        $notifications = $user->getNotifications();
+
+        return new JsonResponse($notifications, Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/notifications/{id}/clear", name="clearNotifications", methods={"POST"})
+     */
+    public function clearUserNotifications($id){
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->find($id);
+
+        $user->clearNotifications();
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse(Response::HTTP_OK);
+    }
 
 /*
     public function getUserData($username) : JsonResponse {

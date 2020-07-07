@@ -42,6 +42,7 @@ class UserFixtures extends Fixture
         $dateBirth = date_create('2000-02-03 12:30:03');
         $dateBirth->format('Y-m-d h.i.s');
         $user->setDateBirth($dateBirth);
+        $user->setXP(0);
 
         $user->setPassword($this->passwordEncoder->encodePassword($user, "test123"));
 
@@ -78,6 +79,7 @@ class UserFixtures extends Fixture
         $dateBirth = date_create('2000-02-03 12:30:03');
         $dateBirth->format('Y-m-d h.i.s');
         $user2->setDateBirth($dateBirth);
+        $user2->setXP(0);
 
         $user2->setPassword($this->passwordEncoder->encodePassword($user2, "test123"));
 
@@ -118,6 +120,7 @@ class UserFixtures extends Fixture
         $dateBirth = date_create('1997-02-03 12:30:03');
         $dateBirth->format('Y-m-d h.i.s');
         $user3->setDateBirth($dateBirth);
+        $user3->setXP(0);
 
         $user3->setPassword($this->passwordEncoder->encodePassword($user3, "test123"));
 
