@@ -14,7 +14,7 @@
                     <h1>{{ profileUser.firstname}} {{ profileUser.lastname }}</h1>
                     <h2> {{ profileUser.username }}</h2>
                     <p> Rang: {{ profileUser.level }}</p>
-                    <p>Sprössling</p>           <!-- Rang Benennung: aus Lvl berechnet -->
+                    <p>{{getLevel(profileUser.xp)}}</p>
 
                     <button v-if="profileUser==null" id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
                     <button v-else-if="profileUser!=null && editProfile!=true" id="userButton"  v-on:click="changeProfile">Profil bearbeiten</button>
@@ -528,6 +528,24 @@
                     }
                     this.loggedInUserIsStranger = true;
                 }
+            },
+
+            getLevel: function (xp) {
+
+                let level;
+
+                if(xp <= 99){
+                    level = "Sprössling";
+                } else if(xp <= 399) {
+                    level = "Hobbygärtner";
+                } else if(xp <= 999) {
+                    level = "Pflanzenflüsterer";
+                } else {
+                    level = "Goldener Daumen";
+                }
+
+                return level;
+
             },
         }
     }

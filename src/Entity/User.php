@@ -144,6 +144,11 @@ class User implements UserInterface
      */
     private $notifications = [];
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $XP;
+
     /*---------------userprofile comments-----------------------*/
 
      // @ORM\OneToMany(targetEntity="App\Entity\ProfileComments", mappedBy="user", cascade={"persist", "remove"})
@@ -490,39 +495,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function toAssoc()
-    {
-        $plants = [];
-        foreach($this->userplants as $userplant) {
-            $plants = $userplant->toAssoc();
-        }
-
-        return [
-            'id' => $this->id,
-            'email' => $this->email,
-            'username' => $this->username,
-            'firstName' => $this->firstName,
-            'lastName' => $this->lastName,
-            'userPic' => $this->userPic,
-            'dateBirth' => $this->dateBirth,
-            'country' => $this->country,
-            'description' => $this->description,
-            'level' => $this->level,
-            'dateCreated' => $this->created,
-            'roles' => $this->roles,
-            'achievments' => $this->achievements,
-            'friends' => $this->friends,
-            'userplants' =>$plants,
-            'comments' =>$this->comments,
-            'notifications' =>$this->notifications,
-            'privacyBirthday' => $this->privacyBirthday,
-            'privacyComments' => $this->privacyComments,
-            'privacyForum' => $this->privacyForum,
-            'privacyFriends' => $this->privacyFriends,
-            'privacyGarden' => $this->privacyGarden
-        ];
-    }
-
     public function getPrivacyBirthday(): ?string
     {
         return $this->privacyBirthday;
@@ -607,6 +579,52 @@ class User implements UserInterface
         else{
             $this->setNotifications([$newNotification]);
         }
+    }
+
+    public function getXP(): ?int
+    {
+        return $this->XP;
+    }
+
+    public function setXP(int $XP): self
+    {
+        $this->XP = $XP;
+
+        return $this;
+    }
+
+    public function toAssoc()
+    {
+        $plants = [];
+        foreach($this->userplants as $userplant) {
+            $plants = $userplant->toAssoc();
+        }
+
+        return [
+            'id' => $this->id,
+            'email' => $this->email,
+            'username' => $this->username,
+            'firstName' => $this->firstName,
+            'lastName' => $this->lastName,
+            'userPic' => $this->userPic,
+            'dateBirth' => $this->dateBirth,
+            'country' => $this->country,
+            'description' => $this->description,
+            'level' => $this->level,
+            'dateCreated' => $this->created,
+            'roles' => $this->roles,
+            'achievments' => $this->achievements,
+            'friends' => $this->friends,
+            'userplants' =>$plants,
+            'comments' =>$this->comments,
+            'notifications' =>$this->notifications,
+            'privacyBirthday' => $this->privacyBirthday,
+            'privacyComments' => $this->privacyComments,
+            'privacyForum' => $this->privacyForum,
+            'privacyFriends' => $this->privacyFriends,
+            'privacyGarden' => $this->privacyGarden,
+            'xp' => $this->XP,
+        ];
     }
 
     /*public function getWrittenComments(): ?ProfileComments
