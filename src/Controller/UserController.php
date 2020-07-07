@@ -220,6 +220,7 @@ class UserController extends AbstractController
             ->find($id);
 
         $user->clearNotifications();
+        $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse(Response::HTTP_OK);
     }

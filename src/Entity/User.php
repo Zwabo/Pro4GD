@@ -605,7 +605,7 @@ class User implements UserInterface
             array_push($this->notifications, $newNotification);
         }
         else{
-            $this->setNotifications([[$newNotification]]);
+            $this->setNotifications([$newNotification]);
         }
     }
 
