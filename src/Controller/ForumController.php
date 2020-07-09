@@ -182,8 +182,11 @@ class ForumController extends AbstractController
         $thread->setUpdated(new \DateTime());
         $thread->setCategory($category);
 
+        $user->setXP($user->getXP() + 5);
+
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($thread);
+        $entityManager->persist($user);
         $entityManager->flush();
 
         return new JsonResponse($thread->toAssoc(), Response::HTTP_OK);
@@ -218,7 +221,10 @@ class ForumController extends AbstractController
         $comment->setCreated(new \DateTime());
         $comment->setUpdated(new \DateTime());
 
+        $user->setXP($user->getXP() + 3);
+
         $entityManager->persist($comment);
+        $entityManager->persist($user);
         $entityManager->flush();
 
         return new JsonResponse($thread->toAssoc(), Response::HTTP_OK);
@@ -240,7 +246,10 @@ class ForumController extends AbstractController
         $thumbUp->setUser($user);
         $thumbUp->setComment($comment);
 
+        $user->setXP($user->getXP() + 1);
+
         $entityManager->persist($thumbUp);
+        $entityManager->persist($user);
         $entityManager->flush();
         return new JsonResponse('Liked', Response::HTTP_OK);
     }
@@ -266,7 +275,11 @@ class ForumController extends AbstractController
         if (!$thumbUp) {
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
+
+        $user->setXP($user->getXP() - 1);
+
         $entityManager->remove($thumbUp);
+        $entityManager->persist($user);
         $entityManager->flush();
         return new JsonResponse([], Response::HTTP_OK);
     }
@@ -288,7 +301,10 @@ class ForumController extends AbstractController
         $thumbUpThread->setUser($user);
         $thumbUpThread->setThread($thread);
 
+        $user->setXP($user->getXP() + 1);
+
         $entityManager->persist($thumbUpThread);
+        $entityManager->persist($user);
         $entityManager->flush();
         return new JsonResponse([], Response::HTTP_OK);
     }
@@ -314,6 +330,10 @@ class ForumController extends AbstractController
         if (!$thumbUpThread) {
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
+
+        $user->setXP($user->getXP() - 1);
+
+        $entityManager->persist($user);
         $entityManager->remove($thumbUpThread);
         $entityManager->flush();
         return new JsonResponse([], Response::HTTP_OK);

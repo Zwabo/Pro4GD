@@ -133,6 +133,7 @@ class GardenController extends AbstractController
         $user->setXP($user->getXP() + 5);
 
         $this->getDoctrine()->getManager()->persist($user);
+        $this->getDoctrine()->getManager()->persist($userplant);
         $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);
