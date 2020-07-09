@@ -95,8 +95,15 @@ class FriendsController extends AbstractController
             ->find($requestId);
 
         if($request != null) {
+
+            /** @var \App\Entity\User $user */
+            $user = $this->getUser();
+            $user->setXP($user->getXP() + 15);
+
             $request->setConfirmed(true);
+            $this->getDoctrine()->getManager()->persist($user);
             $this->getDoctrine()->getManager()->flush();
+
 
             return new JsonResponse($request->getConfirmed(), Response::HTTP_OK);
         }
