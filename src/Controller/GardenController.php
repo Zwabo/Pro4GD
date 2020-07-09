@@ -101,8 +101,11 @@ class GardenController extends AbstractController
             return new JsonResponse((string) $errors, Response::HTTP_CONFLICT);
         }
 
+        $user->setXP($user->getXP() + 10);
+
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($userplant);
+        $entityManager->persist($user);
         $entityManager->flush();
 
         return new JsonResponse(Response::HTTP_OK);
@@ -124,6 +127,12 @@ class GardenController extends AbstractController
         $dateAdded = date_create($data);
 
         $userplant->setDateWatered($dateAdded);
+
+        /** @var \App\Entity\User $user */
+        $user = $this->getUser();
+        $user->setXP($user->getXP() + 5);
+
+        $this->getDoctrine()->getManager()->persist($user);
         $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse($userplant->toAssoc(), Response::HTTP_OK);

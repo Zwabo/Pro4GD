@@ -57,6 +57,11 @@ class Userplant
      */
     private $WateringCycle;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $XP;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -182,6 +187,18 @@ class Userplant
         return $this;
     }
 
+    public function getXP(): ?int
+    {
+        return $this->XP;
+    }
+
+    public function setXP(int $XP): self
+    {
+        $this->XP = $XP;
+
+        return $this;
+    }
+
     public function toAssoc(){
         return [
             'id' => $this->id,
@@ -191,6 +208,7 @@ class Userplant
             'dateWatered' => $this->dateWatered,
             'wateringCycle' => $this->WateringCycle,
             'notes' => $this->notes,
+            'xp' => $this->XP,
             'plant' => $this->plant->toAssoc()
         ];
     }
