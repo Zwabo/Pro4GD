@@ -121,6 +121,20 @@
                             </div>
                         </div>
 
+                        <div class="greenLineThin"></div>
+                        <h4 class="addPlantH4">Bilder</h4>
+                        <div class="row form-group">
+                            <div class="col-lg-2 col-form-label"><label for="plantPicture">Pflanzenbild</label></div>
+                            <div class="col-lg-10"><input type="file" @change="onPlantFileSelected" name="plantPicture"
+                                                          id="plantPicture"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-2 col-form-label"><label for="plantBackground">Hintergrundbild</label></div>
+                            <div class="col-lg-10"><input type="file" @change="onBackgroundFileSelected" name="plantBackground"
+                                                          id="plantBackground"></div>
+                        </div>
+                        <div><p>Upload jpg or png.</p></div>
+
                         <div class="greyLineThin"></div>
                         <h4 class="addPlantH4">Information (Icons)</h4>
 
@@ -389,7 +403,6 @@
         name: "AddPlant",
         data: function(){
             return{
-
                 errors: [],
 
                 // Eckdaten
@@ -483,13 +496,36 @@
                 fertiliserAddinfo: null,
                 heydayAddinfo: null,
 
+                // Bild Uploads
+
+                selectedPlantFile: null,
+                selectedPlantFileName: null,
+                selectedBackgroundFile: null,
+                selectedBackgroundFileName: null
+
             }
         },
         methods: {
             addPlantCreateNew: function() {
                 this.locationIcon = this.locationIcon.toString();
 
+                let plantFileString = "images/plants/" + this.selectedPlantFileName;
+                let backgroundFileString = "images/plants/" + this.selectedBackgroundFileName;
+
                 if(this.name && this.linkname ) {
+
+                    /*this.$http.post('/api/uploadPlantFile/', {
+                        iconName: this.selectedPlantFileName,
+                        iconElement: this.selectedPlantFile,
+                        windowIconName: this.selectedBackgroundFileName,
+                        windowIconElement: this.selectedBackgroundFile,
+                    })
+                        .then(response => {
+
+                        })
+                        .catch(error=> {
+                            alert(error);
+                        });*/
 
                     this.$http.post('/api/addPlant/createNewPlant/', {
                         name: this.name,
@@ -518,6 +554,9 @@
                         careTips: this.careTips,
                         category: this.categorySelect,
 
+                        iconElement: this.selectedPlantFile,
+                        windowIconElement: this.selectedBackgroundFile,
+
                         icon: "images/plants/Aloe.png",
                         windowIcon: "images/plants/AloeBackground.png",
                     })
@@ -534,8 +573,17 @@
                     alert("Bitte füllen Sie alle Pflichtfelder aus.");
                 }
                 //e.preventDefault();
-            }
+            },
 
+            onPlantFileSelected: function(event) {
+                this.selectedPlantFile = event.target.files[0];
+                this.selectedPlantFileName = event.target.files[0].name;
+            },
+
+            onBackgroundFileSelected: function(event) {
+                this.selectedBackgroundFile = event.target.files[0];
+                this.selectedBackgroundFileName= event.target.files[0].name;
+            }
         }
     }
 
@@ -559,6 +607,7 @@
         font-size: 120%;
         margin-bottom: 2%;
         color: #97B753;
+        margin-top: 4%;
     }
     .addPlantH5 {
         font-size: 100%;

@@ -16,9 +16,9 @@
                     <p> Rang: {{ profileUser.level }}</p>
                     <p>{{getLevel(profileUser.xp)}}</p>
 
-                    <button v-if="profileUser==null" id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
-                    <button v-else-if="profileUser!=null && editProfile!=true" id="userButton"  v-on:click="changeProfile">Profil bearbeiten</button>
-                    <button v-else-if="profileUser!=null && editProfile==true" id="userButton" v-on:click="saveProfile">Profil speichern</button>
+                    <button v-if="loggedInUser.username!==profileUser.username" id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
+                    <button v-else-if="loggedInUser.username===profileUser.username && editProfile!=true" id="userButton"  v-on:click="changeProfile">Profil bearbeiten</button>
+                    <button v-else-if="loggedInUser.username===profileUser.username && editProfile==true" id="userButton" v-on:click="saveProfile">Profil speichern</button>
                 </div>
 
                 <div id="userDataCnt" class="col-lg-3">
@@ -319,6 +319,8 @@
 
         created: function(){
             this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+            console.log("loggedInUser");
+            console.log(this.loggedInUser.username);
 
             //Retrieve user item from local storage in case of login
             this.$root.$on('loggedIn', () => {
@@ -331,6 +333,8 @@
             this.$http.get('/api/profile/' + this.$route.params.username)
                 .then(response => {
                     this.profileUser = response.data;
+                    console.log("profileUser");
+                    console.log(this.profileUser.username);
 
                     /*save the created date as string*/
                     this.createdUserString = this.profileUser.dateCreated.date.substr(8,2)

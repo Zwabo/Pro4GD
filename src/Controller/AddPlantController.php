@@ -14,7 +14,6 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class AddPlantController extends AbstractController
 {
-
     /**
      * @Route("/api/addPlant/", name="addPlants", methods={"GET"})
      */
@@ -35,14 +34,48 @@ class AddPlantController extends AbstractController
     }
 
     /**
+     * upload new plant file images
+     * @Route("/api/uploadPlantFile/", name="uploadPlantFile", methods={"POST"})
+     */
+    public function uploadPlantImage(Request $request) : JsonResponse
+    {
+        $data = $request->getContent();
+        $params = json_decode($data, true);
+
+        $plantPicture = $params["iconElement"];
+        $plantPictureName = $params["iconName"];
+        $plantPictureName = md5(uniqid()).'.'.$plantPicture->guessExtension();
+
+        $plantBackground = $params["windowIconElement"];
+        $plantBackgroundName = $params["windowIconName"];
+        $plantBackgroundName =md5(uniqid()).'.'.$plantBackground->guessExtension();
+
+        $plantPicture->move(
+            /*$this->getParameter('plantPictures_directory'),/*folder*/
+            '.../public/images/plants',
+            $plantPictureName/*pictureName*/
+        );
+
+        $plantBackground->move(
+            '.../public/images/plants',
+            $plantBackgroundName
+        );
+
+        $entityManager=getDoctrine()->getManager();
+
+        return new JsonResponse([], Response::HTTP_OK);
+    }
+
+    /**
      * @Route("/api/addPlant/createNewPlant/", name="addPlant_create")
      */
     public function addPlantCreate(Request $request, ValidatorInterface $validator) : JsonResponse
     {
         $data = $request->getContent();
+
         $params = json_decode($data, true);
 
-        /** @var \App\Entity\Plant $plant */
+            /** @var \App\Entity\Plant $plant */
         $plant = new Plant();
 
         $plant->setName($params["name"]);
@@ -83,7 +116,7 @@ class AddPlantController extends AbstractController
         $entityManager->persist($plant);
         $entityManager->flush();
 
-        return new JsonResponse('Saved new platn with id ' .$plant->getId(), Response::HTTP_OK);
+        return new JsonResponse('Saved new plant with id ' .$plant->getId(), Response::HTTP_OK);
     }
 
 
