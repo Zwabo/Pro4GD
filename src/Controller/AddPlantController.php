@@ -75,6 +75,31 @@ class AddPlantController extends AbstractController
 
         $params = json_decode($data, true);
 
+
+        /*get the file first to send it to the background to save*/
+
+        $plantPicture = $params["iconElement"];         // comes as an array not a file, we need file itself
+        $plantBackground = $params["windowIconElement"];
+
+        /*create a filename so that filename is unique*/
+        //$plantPictureName = $plantPicture.'-'.md5(uniqid()).'.'.$plantPicture->guessExtension();
+
+        $plantPictureName = $params["iconElementName"];
+
+        $plantPictures_directory = $this->getParameter('plantPictures_directory');
+
+        $plantPicture->move($plantPictures_directory, $plantPictureName);
+
+        /*try {
+            $plantPicture->move(
+                $this->getParameter('plantPictures_directory'),
+                $plantPictureName
+            );
+        } catch (FileException $e) {
+            // ... handle exception if something happens during file upload
+        }*/
+
+
             /** @var \App\Entity\Plant $plant */
         $plant = new Plant();
 

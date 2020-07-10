@@ -554,9 +554,14 @@
                         careTips: this.careTips,
                         category: this.categorySelect,
 
+                        // send file to the background
                         iconElement: this.selectedPlantFile,
                         windowIconElement: this.selectedBackgroundFile,
 
+                        iconElementName: this.selectedPlantFileName,
+                        windowIconElementName: this.selectedBackgroundFileName,
+
+                        // this will be set in the background, just dummy code for now
                         icon: "images/plants/Aloe.png",
                         windowIcon: "images/plants/AloeBackground.png",
                     })
@@ -578,11 +583,14 @@
             onPlantFileSelected: function(event) {
                 this.selectedPlantFile = event.target.files[0];
                 this.selectedPlantFileName = event.target.files[0].name;
+                console.log(this.selectedPlantFile);
+                console.log(event.target.files);
             },
 
             onBackgroundFileSelected: function(event) {
                 this.selectedBackgroundFile = event.target.files[0];
                 this.selectedBackgroundFileName= event.target.files[0].name;
+                console.log(this.selectedBackgroundFile);
             }
         }
     }
