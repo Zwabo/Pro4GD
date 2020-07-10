@@ -243,9 +243,9 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 
                e.preventDefault();
 
-               if(!this.watered.includes(userplant.name)) {
+               let today = new Date();
 
-                   let today = new Date();
+               if(!this.watered.includes(userplant.name)) {
 
                    today.setDate(today.getDate() + userplant.wateringCycle);
                    today.setMonth(today.getMonth() +1);
