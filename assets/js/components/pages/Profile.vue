@@ -14,7 +14,9 @@
                     <h1>{{ profileUser.firstname}} {{ profileUser.lastname }}</h1>
                     <h2> {{ profileUser.username }}</h2>
                     <p> Rang: {{ profileUser.level }}</p>
-                    <p>{{getLevel(profileUser.xp)}}</p>
+                    <p>Level: {{getLevel(profileUser.xp)}}</p>
+                    <b-progress :value="profileUser.xp" :max="max" variant="dark" class="w-50 mb-2" height="1.2rem"></b-progress>
+                    <p>{{XPleft(profileUser.xp)}}</p>
 
                     <button v-if="loggedInUser.username!==profileUser.username" id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
                     <button v-else-if="loggedInUser.username===profileUser.username && editProfile!=true" id="userButton"  v-on:click="changeProfile">Profil bearbeiten</button>
@@ -262,6 +264,7 @@
 </template>
 
 <script>
+
     class ProfileComment {
         constructor(msg, username, userid, userpic, date, time) {
             this.msg = msg;
@@ -314,6 +317,8 @@
                 showFriends: false,
                 showGarden: false,
                 showForum: false,
+
+                max: 0,
             }
         },
 
@@ -540,15 +545,36 @@
 
                 if(xp <= 99){
                     level = "Sprössling";
+                    this.max = 100;
                 } else if(xp <= 399) {
                     level = "Hobbygärtner";
+                    this.max = 400;
                 } else if(xp <= 999) {
                     level = "Pflanzenflüsterer";
+                    this.max = 1000;
                 } else {
                     level = "Goldener Daumen";
                 }
 
                 return level;
+
+            },
+
+            XPleft: function (xp) {
+
+                let string;
+
+                if(xp <= 99){
+                    string = xp + "/100XP bis zum Hobbygärtner";
+                } else if(xp <= 399) {
+                    string =  xp + "/400XP bis zum Pflanzenflüsterer";
+                } else if(xp <= 999) {
+                    string =  xp + "/1000XP bis zum Goldener Daumen";
+                } else {
+                    string ='';
+                }
+
+                return string;
 
             },
         }

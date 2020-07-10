@@ -15,7 +15,7 @@
                         <h1>{{ profileUser.firstname}} {{ profileUser.lastname }}</h1>
                         <h2> {{ profileUser.username }}</h2>
                         <p> Rang: {{ profileUser.level }}</p>
-                        <p>Sprössling</p>           <!-- Rang Benennung: aus Lvl berechnet -->
+                        <p>Level: {{getLevel(profileUser.xp)}}</p>
                     </div>
 
                     </div>
@@ -259,7 +259,28 @@
                     .catch(error => {
                         console.log(error);
                     });
-            }
+            },
+
+            getLevel: function (xp) {
+
+                let level;
+
+                if(xp <= 99){
+                    level = "Sprössling";
+                    this.max = 100;
+                } else if(xp <= 399) {
+                    level = "Hobbygärtner";
+                    this.max = 400;
+                } else if(xp <= 999) {
+                    level = "Pflanzenflüsterer";
+                    this.max = 1000;
+                } else {
+                    level = "Goldener Daumen";
+                }
+
+                return level;
+
+            },
         }
     }
 </script>

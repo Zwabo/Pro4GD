@@ -101,7 +101,20 @@ class GardenController extends AbstractController
             return new JsonResponse((string) $errors, Response::HTTP_CONFLICT);
         }
 
-        $user->setXP($user->getXP() + 10);
+        if ($userplant->getPlant()->getCareLevel() === 'gering') {
+            $user->setXP($user->getXP() + 10);
+            $userplant->setXP($userplant->getXP() +10);
+        } else if($userplant->getPlant()->getCareLevel() === 'mittel'){
+            $user->setXP($user->getXP() + 15);
+            $userplant->setXP($userplant->getXP() +15);
+        } else if($userplant->getPlant()->getCareLevel() === 'hoch'){
+            $user->setXP($user->getXP() + 20);
+            $userplant->setXP($userplant->getXP() +20);
+        } else {
+            $user->setXP($user->getXP() + 25);
+            $userplant->setXP($userplant->getXP() +25);
+        }
+
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($userplant);
@@ -130,7 +143,20 @@ class GardenController extends AbstractController
 
         /** @var \App\Entity\User $user */
         $user = $this->getUser();
-        $user->setXP($user->getXP() + 5);
+
+        if ($userplant->getPlant()->getCareLevel() === 'gering') {
+            $user->setXP($user->getXP() + 5);
+            $userplant->setXP($userplant->getXP() +5);
+        } else if($userplant->getPlant()->getCareLevel() === 'mittel'){
+            $user->setXP($user->getXP() + 10);
+            $userplant->setXP($userplant->getXP() +10);
+        } else if($userplant->getPlant()->getCareLevel() === 'hoch'){
+            $user->setXP($user->getXP() + 15);
+            $userplant->setXP($userplant->getXP() +15);
+        } else {
+            $user->setXP($user->getXP() + 20);
+            $userplant->setXP($userplant->getXP() +20);
+        }
 
         $this->getDoctrine()->getManager()->persist($user);
         $this->getDoctrine()->getManager()->persist($userplant);

@@ -188,6 +188,8 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                search: '',
                userplantTemp: null,
                edit: false,
+               watered: [],
+               i: 0,
                weekday: ["Sonntag", "Montag", "Dienstag","Mittwoch", "Donnerstag", "Freitag", "Samstag"]
            }
        },
@@ -243,19 +245,25 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 
                let today = new Date();
 
-               today.setDate(today.getDate() + userplant.wateringCycle);
-               today.setMonth(today.getMonth() +1);
-               let setDate = today.getDate()+'-'+today.getMonth()+'-'+today.getFullYear();
+               if(!this.watered.includes(userplant.name)) {
 
-               userplant.dateWatered['date'] = today.getFullYear()+'-'+today.getMonth()+'-'+today.getDate() + ' ' + today.getHours()+ ':' + today.getMinutes() +':' + today.getSeconds()+'.' + today.getMilliseconds();
+                   today.setDate(today.getDate() + userplant.wateringCycle);
+                   today.setMonth(today.getMonth() +1);
+                   let setDate = today.getDate()+'-'+today.getMonth()+'-'+today.getFullYear();
 
-               this.$http.put('/api/garden/setWateringDate/' + userplant.id, setDate)
-                   .then(response => {
-                       this.userplantTemp = response.data;
-                   })
-                   .catch(error => {
-                       alert(error);
-                   });
+                   userplant.dateWatered['date'] = today.getFullYear()+'-'+today.getMonth()+'-'+today.getDate() + ' ' + today.getHours()+ ':' + today.getMinutes() +':' + today.getSeconds()+'.' + today.getMilliseconds();
+                   this.watered[this.i] = userplant.name;
+                   this.i++;
+
+                   this.$http.put('/api/garden/setWateringDate/' + userplant.id, setDate)
+                       .then(response => {
+                           this.userplantTemp = response.data;
+                       })
+                       .catch(error => {
+                           alert(error);
+                       });
+
+               }
 
            },
 
