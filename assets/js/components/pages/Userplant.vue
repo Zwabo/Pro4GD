@@ -7,7 +7,7 @@
                 </div>
                 <p>Level {{plantLevel(userplant.xp)}}</p>
                 <b-progress :value="userplant.xp" :max="userplant.xp - userplant.xp%100 +100" variant="dark" class="w-25"></b-progress>
-                <p>{{XPleft(userplant.xp)}}</p>
+                <p v-b-tooltip.hover title="Sammle XPs indem du deine Pflanzen gießt">{{XPleft(userplant.xp)}}</p>
 
             </div>
             <div class="col-lg-5">

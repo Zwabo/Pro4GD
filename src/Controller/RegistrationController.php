@@ -82,6 +82,7 @@ class RegistrationController extends AbstractController
             $user->setUsername($params["username"]);
             $user->setFirstName($params["firstName"]);
             $user->setLastName($params["lastName"]);
+            $user->setXP(0);
 
             $user->setLevel(0);
             $user->setRoles(["ROLE_USER"]);

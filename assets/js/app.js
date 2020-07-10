@@ -11,9 +11,9 @@ import Vue from 'vue';
 import App from './components/App';
 import Routes from './routes.js';
 import Axios from 'axios';
-import { ProgressPlugin } from 'bootstrap-vue'
+import { ProgressPlugin, TooltipPlugin } from 'bootstrap-vue'
 Vue.prototype.$http = Axios;
-Vue.use(ProgressPlugin)
+Vue.use(ProgressPlugin, TooltipPlugin);
 
 //CSS Imports
 import 'bootstrap';
