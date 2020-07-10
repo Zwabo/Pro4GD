@@ -18,9 +18,9 @@
                     <b-progress :value="profileUser.xp" :max="max" variant="dark" class="w-50 mb-2" height="1.2rem"></b-progress>
                     <p>{{XPleft(profileUser.xp)}}</p>
 
-                    <button v-if="profileUser==null" id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
-                    <button v-else-if="profileUser!=null && editProfile!=true" id="userButton"  v-on:click="changeProfile">Profil bearbeiten</button>
-                    <button v-else-if="profileUser!=null && editProfile==true" id="userButton" v-on:click="saveProfile">Profil speichern</button>
+                    <button v-if="!(loggedInUser.username == profileUser.username) && loggedInUserIsStranger" id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
+                    <button v-else-if="loggedInUser.username == profileUser.username && editProfile!=true" id="userButton"  v-on:click="changeProfile">Profil bearbeiten</button>
+                    <button v-else-if="loggedInUser.username == profileUser.username && editProfile==true" id="userButton" v-on:click="saveProfile">Profil speichern</button>
                 </div>
 
                 <div id="userDataCnt" class="col-lg-3">
