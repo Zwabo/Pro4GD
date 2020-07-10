@@ -123,7 +123,7 @@
                                                             <ul class="noListStyle">
                                                                 <li>{{ userplant.name }}</li>
                                                                 <li>{{ userplant.location }}</li>
-                                                                <li>level erstellen</li>
+                                                                <li>Level {{plantLevel(userplant.xp)}}</li>
                                                             </ul>
                                                         </div>
                                                         <div class="col-lg-4 plantsProfileImgCol text-right align-self-center">
@@ -146,7 +146,7 @@
                                                             <ul class="noListStyle">
                                                                 <li>{{ userplant.name }}</li>
                                                                 <li>{{ userplant.location }}</li>
-                                                                <li>level erstellen</li>
+                                                                <li>Level {{plantLevel(userplant.xp)}}</li>
                                                             </ul>
                                                         </div>
                                                         <div class="col-lg-4 plantsProfileImgCol text-rigth align-self-center">
@@ -565,13 +565,18 @@
                 } else if(xp <= 399) {
                     string =  xp + "/400XP bis zum Pflanzenflüsterer";
                 } else if(xp <= 999) {
-                    string =  xp + "/1000XP bis zum Goldener Daumen";
+                    string =  xp + "/1000XP bis zum Goldenen Daumen";
                 } else {
                     string ='';
                 }
 
                 return string;
 
+            },
+
+            plantLevel: function (xp) {
+
+                return Math.trunc(xp/100)+1;
             },
         }
     }
