@@ -65,7 +65,7 @@
 
                         <div class="row form-group">
                             <div class="col-lg-2 col-form-label">
-                                <label for="LatinName" class="paddingNormalize marginNormalize">Lateinischer Namen</label>
+                                <label for="LatinName" class="paddingNormalize marginNormalize">Lateinischer Namen*</label>
                             </div>
                             <div class="col-sm-10">
                                 <input v-model="latinName" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
@@ -122,18 +122,18 @@
                         </div>
 
                         <div class="greenLineThin"></div>
-                        <h4 class="addPlantH4">Bilder</h4>
+                        <h4 class="addPlantH4">Bilder*</h4>
+                        <p>Jpg oder png zulässig.</p>
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label"><label for="plantPicture">Pflanzenbild</label></div>
+                            <div class="col-lg-2 col-form-label"><label for="plantPicture">Pflanzenbild*</label></div>
                             <div class="col-lg-10"><input type="file" @change="onPlantFileSelected" name="plantPicture"
                                                           id="plantPicture"></div>
                         </div>
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label"><label for="plantBackground">Hintergrundbild</label></div>
+                            <div class="col-lg-2 col-form-label"><label for="plantBackground">Hintergrundbild*</label></div>
                             <div class="col-lg-10"><input type="file" @change="onBackgroundFileSelected" name="plantBackground"
                                                           id="plantBackground"></div>
                         </div>
-                        <div><p>Upload jpg or png.</p></div>
 
                         <div class="greyLineThin"></div>
                         <h4 class="addPlantH4">Information (Icons)</h4>
@@ -573,7 +573,8 @@
                                 this.error = error.response.data;
                             }
                         });
-                    //this.$emit('newPlant');
+
+
                 } else {
                     alert("Bitte füllen Sie alle Pflichtfelder aus.");
                 }

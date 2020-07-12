@@ -67,6 +67,15 @@ class AddPlantController extends AbstractController
     }
 
     /**
+     * @Route("/api/{plantid}/addPlant/createNewPlant/addPicture", name="addPlantPicture")
+     */
+    public function addPlantPicture($plantid, Request $request) : JsonResponse {
+        $picture = $request->getContent();
+
+
+    }
+
+    /**
      * @Route("/api/addPlant/createNewPlant/", name="addPlant_create")
      */
     public function addPlantCreate(Request $request, ValidatorInterface $validator) : JsonResponse
@@ -88,7 +97,7 @@ class AddPlantController extends AbstractController
 
         $plantPictures_directory = $this->getParameter('plantPictures_directory');
 
-        $plantPicture->move($plantPictures_directory, $plantPictureName);
+        //$plantPicture->move($plantPictures_directory, $plantPictureName);
 
         /*try {
             $plantPicture->move(
