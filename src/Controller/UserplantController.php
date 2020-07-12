@@ -132,6 +132,7 @@ class UserplantController extends AbstractController
         $userplant->setNotes("This plant is dope");
         $userplant->setDateAdded(new \DateTime("now"));
         $userplant->setDateWatered(new \DateTime("now"));
+        $userplant->setXP(0);
 
         $user->addUserplant($userplant);
 

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\FriendRequest;
 use App\Entity\User;
+use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -103,6 +104,48 @@ class FriendsController extends AbstractController
 
             $request->setConfirmed(true);
             $this->getDoctrine()->getManager()->persist($user);
+            $this->getDoctrine()->getManager()->flush();
+
+
+            return new JsonResponse($request->getConfirmed(), Response::HTTP_OK);
+        }
+
+        return new JsonResponse([], Response::HTTP_BAD_REQUEST);
+    }
+
+    /**
+     * @Route("/api/friends/sendRequest/{receiverId}", name="sendRequest", methods={"POST"})
+     */
+    public function sendRequest($receiverId) : JsonResponse
+    {
+        $receiver = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->find($receiverId);
+
+        if($receiver != null) {
+
+            /** @var \App\Entity\User $user */
+            $user = $this->getUser();
+
+            foreach($user->getOutgoingFriendRequests() as $request){
+                if($request->getReceiver() == $receiver){
+                    return new JsonResponse($request->getConfirmed(), Response::HTTP_FORBIDDEN);
+                }
+            }
+
+            foreach($user->getIncomingFriendRequests() as $request){
+                if($request->getReceiver() == $receiver){
+                    return new JsonResponse($request->getConfirmed(), Response::HTTP_FORBIDDEN);
+                }
+            }
+
+            $request = new FriendRequest();
+            $request->setSender($user);
+            $request->setReceiver($receiver);
+            $request->setDate(new \DateTime());
+            $request->setConfirmed(false);
+
+            $this->getDoctrine()->getManager()->persist($request);
             $this->getDoctrine()->getManager()->flush();
 
 

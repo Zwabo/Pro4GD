@@ -5,7 +5,10 @@
                 <div class ="plantPicture">
                     <img v-bind:src="'../' + userplant.plant.icon" alt="Plant Image">
                 </div>
-                <p>Level: </p>
+                <p>Level {{plantLevel(userplant.xp)}}</p>
+                <b-progress :value="userplant.xp" :max="userplant.xp - userplant.xp%100 +100" variant="dark" class="w-25"></b-progress>
+                <p v-b-tooltip.hover title="Sammle XPs indem du deine Pflanzen gießt">{{XPleft(userplant.xp)}}</p>
+
             </div>
             <div class="col-lg-5">
                 <h1>{{userplant.name}}</h1>
@@ -146,7 +149,18 @@
             },
             updateUserplant: function(updatedUserplant){
                 this.userplant = updatedUserplant;
-            }
+            },
+            plantLevel: function (xp) {
+
+                return Math.trunc(xp/100)+1;
+            },
+            XPleft: function (xp) {
+
+                let goal = xp - xp%100 +100;
+
+                return xp + "/" + goal + "XP";
+            },
+
         }
     }
 </script>
