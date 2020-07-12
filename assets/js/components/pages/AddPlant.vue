@@ -506,7 +506,7 @@
             }
         },
         methods: {
-            addPlantCreateNew: function() {
+            addPlantCreateNew: function(e) {
                 this.locationIcon = this.locationIcon.toString();
 
                 let plantFileString = "images/plants/" + this.selectedPlantFileName;
@@ -566,7 +566,7 @@
                         windowIcon: "images/plants/AloeBackground.png",
                     })
                         .then(response => {
-
+                            this.savePlantPicture(response.data, this.selectedPlantFile);
                         })
                         .catch(error => {
                             if(error.response.data) {
@@ -576,9 +576,23 @@
 
 
                 } else {
+                    e.preventDefault();
                     alert("Bitte füllen Sie alle Pflichtfelder aus.");
                 }
-                //e.preventDefault();
+                e.preventDefault();
+            },
+
+            savePlantPicture: function(plantid, file) {
+                console.log(plantid);
+                console.log(file);
+
+                this.$http.get('/api/' + plantid + '/addPlant/createNewPlant/addPicture', file)
+                    .then(response => {
+
+                    })
+                    .catch(error => {
+                       alert(error);
+                    });
             },
 
             onPlantFileSelected: function(event) {

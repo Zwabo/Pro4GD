@@ -71,7 +71,11 @@ class AddPlantController extends AbstractController
      */
     public function addPlantPicture($plantid, Request $request) : JsonResponse {
         $picture = $request->getContent();
+        $picture = json_decode($picture, true);
 
+        $plantPictures_directory = $this->getParameter('plantPictures_directory');
+
+        $picture->move($plantPictures_directory, $picture);
 
     }
 
@@ -150,7 +154,7 @@ class AddPlantController extends AbstractController
         $entityManager->persist($plant);
         $entityManager->flush();
 
-        return new JsonResponse('Saved new plant with id ' .$plant->getId(), Response::HTTP_OK);
+        return new JsonResponse($plant->getId(), Response::HTTP_OK);
     }
 
 
