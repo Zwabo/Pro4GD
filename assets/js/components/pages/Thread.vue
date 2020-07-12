@@ -8,7 +8,8 @@
                         <router-link to="/forum"  id="naviLogo">
                             Forum
                         </router-link>
-                        /{{thread.category.title}}/</h1>
+                        <span v-if="thread.category.parent!=null">/ {{thread.category.parent.title}}</span>
+                        / {{thread.category.title}}</h1>
                 </div>
                 <div class="col-lg-2 text-right">
                     <span class="searchForum"><svg xmlns="http://www.w3.org/2000/svg" width="41.472" height="35.105" viewBox="0 0 41.472 35.105">
