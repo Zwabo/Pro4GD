@@ -26,6 +26,12 @@ class Category {
     private $created;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category")
+     *
+     */
+    private $parent;
+
+    /**
      * @ORM\Column(type="datetime", nullable = true)
      */
     private $updated;
@@ -95,12 +101,31 @@ class Category {
     }
 
     /**
+     * @return mixed
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param mixed $parent
+     */
+    public function setParent($parent): void
+    {
+        $this->parent = $parent;
+    }
+
+
+
+    /**
      * @return array
      */
     public function toAssoc() {
         return [
           'id' => $this->id,
           'title' => $this->title,
+            'parent' => $this->parent != null ? $this->parent->toAssoc() : null,
           'created' => $this->created,
           'updated' => $this->updated,
         ];

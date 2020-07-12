@@ -157,7 +157,7 @@
                 <!-- Threaddisplay -->
                 <div v-for="thread in threads">
                     <div v-if="thread.category.title === 'Pflegetipps'">
-                        <div class="row subCategories dropShadow pflanzenSub">
+                        <div class="row threadBackground dropShadow pflanzenSub">
                             <div class="container-fluid">
                                 <a v-bind:href="'/forum/'+ thread.id" class="row thread dropShadow">
                                     <div class="col-lg-11">
@@ -285,7 +285,7 @@
                 <!-- Threaddisplay -->
                 <div v-for="thread in threads">
                     <div v-if="thread.category.title === 'Neuigkeiten'">
-                        <div class="row subCategories dropShadow pflanzenSub">
+                        <div class="row threadBackground dropShadow pflanzenSub">
                             <div class="container-fluid">
                                 <a v-bind:href="'/forum/'+ thread.id" class="row thread dropShadow">
                                     <div class="col-lg-11">
@@ -405,13 +405,12 @@
                     </svg>
                 </div>
             </div>
-
             <div v-if="showPlantCategoriesBool == true" class="pflanzenSubCategories container-fluid paddingNormalize">
 
                 <!-- Threaddisplay -->
                 <div v-for="thread in threads">
                     <div v-if="thread.category.title === 'Pflanzen'">
-                        <div class="row subCategories dropShadow pflanzenSub">
+                        <div class="row threadBackground dropShadow pflanzenSub">
                             <div class="container-fluid">
                                 <a v-bind:href="'/forum/'+ thread.id" class="row thread dropShadow">
                                     <div class="col-lg-11">
@@ -436,9 +435,7 @@
                                                     <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
                                                 </div>
                                             </div>
-
                                             <div class="threadStates col-lg-10 paddingNormalize">
-
                                                 <div class="row">
                                                     <div class="svgIcons">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="27.681" height="24.848" viewBox="0 0 27.681 24.848">
@@ -448,7 +445,6 @@
                                                     <div class="svgIconText">
                                                         <p>{{thread.likes}}</p>
                                                     </div>
-
                                                     <div class="svgIcons">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="34.556" height="26.57" viewBox="0 0 34.556 26.57">
                                                             <g id="Gruppe_971" data-name="Gruppe 971" transform="translate(0.5 0.5)">
@@ -493,8 +489,8 @@
                                         <img class="forumPics" v-bind:src="thread.userPic">
                                     </div>
                                 </a>
-                            </div>                    </div>
-
+                            </div>
+                        </div>
                     </div>
                     <div v-else>
                     </div>
@@ -523,6 +519,11 @@
                 showPlantCategoriesBool: false,
                 showNewsCategoriesBool: false,
                 showTipsCategoriesBool: false,
+
+                showPalmSubCategoryBool: false,
+                showHerbalSubCategoryBool: false,
+                showVineSubCategoryBool: false,
+                showBreedSubCategoryBool: false,
             }
         },
 
@@ -611,6 +612,54 @@
                     this.showTipsCategoriesBool = false;
                     document.getElementById("tipsArrow").setAttribute("transform", "rotate(0)");
                 }
+            },
+            showPalmSubCategories: function() {
+                let arrow = document.getElementById("palmArrow");
+                console.log(arrow);
+
+                if(this.showPalmSubCategoryBool == false) {
+                    this.showPalmSubCategoryBool = true;
+                    document.getElementById("palmArrow").setAttribute("transform", "rotate(90)");
+                } else {
+                    this.showPalmSubCategoryBool = false;
+                    document.getElementById("palmArrow").setAttribute("transform", "rotate(0)");
+                }
+            },
+            showHerbalSubCategories: function() {
+                let arrow = document.getElementById("herbalArrow");
+                console.log(arrow);
+
+                if(this.showHerbalSubCategoryBool == false) {
+                    this.showHerbalSubCategoryBool = true;
+                    document.getElementById("herbalArrow").setAttribute("transform", "rotate(90)");
+                } else {
+                    this.showHerbalSubCategoryBool = false;
+                    document.getElementById("herbalArrow").setAttribute("transform", "rotate(0)");
+                }
+            },
+            showVineSubCategories: function() {
+                let arrow = document.getElementById("vineArrow");
+                console.log(arrow);
+
+                if(this.showVineSubCategoryBool == false) {
+                    this.showVineSubCategoryBool = true;
+                    document.getElementById("vineArrow").setAttribute("transform", "rotate(90)");
+                } else {
+                    this.showVineSubCategoryBool = false;
+                    document.getElementById("vineArrow").setAttribute("transform", "rotate(0)");
+                }
+            },
+            showBreedSubCategories: function() {
+                let arrow = document.getElementById("breedArrow");
+                console.log(arrow);
+
+                if(this.showBreedSubCategoryBool == false) {
+                    this.showBreedSubCategoryBool = true;
+                    document.getElementById("breedArrow").setAttribute("transform", "rotate(90)");
+                } else {
+                    this.showBreedSubCategoryBool = false;
+                    document.getElementById("breedArrow").setAttribute("transform", "rotate(0)");
+                }
             }
 
         }
@@ -695,9 +744,22 @@
         border-radius: 10px;
         padding: 1%;
         color: #707070;
-        height: 7em;
         background-color: #dedede;
         margin-bottom: 1%;
+        margin-right: 0.5%;
+        margin-left: 0.5%;
+        height: 3em;
+    }
+
+    .threadBackground {
+        border-radius: 10px;
+        padding: 1%;
+        color: #707070;
+        background-color: #dedede;
+        height: 7em;
+        margin-bottom: 1%;
+        margin-right: 1%;
+        margin-left: 1%;
     }
     .subCategories:hover { background-color: #707070; color: white; }
     .subCategories:hover .svgSortSubCategories svg  .svgArrowGreyFill { fill: white; }
