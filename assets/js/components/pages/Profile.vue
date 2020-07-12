@@ -396,7 +396,9 @@
             this.$http.get('/api/profile/' + this.$route.params.username + '/userplants')
                 .then(response => {
                     this.profileUserplants = response.data;
-                    this.checkAwards();
+                    if (this.profileUser.username === this.loggedInUser.username) {
+                        this.checkAwards();
+                    }
                 })
                     .catch(error => {
                         this.getError(error);

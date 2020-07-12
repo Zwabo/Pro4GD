@@ -566,7 +566,7 @@
                         windowIcon: "images/plants/AloeBackground.png",
                     })
                         .then(response => {
-                            this.savePlantPicture(response.data, this.selectedPlantFile);
+                            //this.savePlantPicture(response.data, this.selectedPlantFile);
                         })
                         .catch(error => {
                             if(error.response.data) {
@@ -582,18 +582,19 @@
                 e.preventDefault();
             },
 
-            savePlantPicture: function(plantid, file) {
+            /*savePlantPicture: function(plantid, file) {
                 console.log(plantid);
                 console.log(file);
 
                 this.$http.get('/api/' + plantid + '/addPlant/createNewPlant/addPicture', file)
                     .then(response => {
-
+                        console.log(response.data);
                     })
                     .catch(error => {
                        alert(error);
                     });
-            },
+            },*/
+
 
             onPlantFileSelected: function(event) {
                 this.selectedPlantFile = event.target.files[0];
@@ -611,6 +612,7 @@
     }
 
 </script>
+
 
 <style scoped>
 

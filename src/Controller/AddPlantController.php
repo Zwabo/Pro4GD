@@ -70,8 +70,10 @@ class AddPlantController extends AbstractController
      * @Route("/api/{plantid}/addPlant/createNewPlant/addPicture", name="addPlantPicture")
      */
     public function addPlantPicture($plantid, Request $request) : JsonResponse {
-        $picture = $request->getContent();
-        $picture = json_decode($picture, true);
+        $picture = $request->getContent();                  // string
+        //$picture = json_decode($picture, true);
+
+        $extension = $picture->guessExtension();
 
         $plantPictures_directory = $this->getParameter('plantPictures_directory');
 
@@ -88,30 +90,19 @@ class AddPlantController extends AbstractController
 
         $params = json_decode($data, true);
 
-
         /*get the file first to send it to the background to save*/
 
-        $plantPicture = $params["iconElement"];         // comes as an array not a file, we need file itself
+        $plantPicture = $params["iconElement"];         // comes as an array not a file, we need file itself - file is sent into the background
         $plantBackground = $params["windowIconElement"];
 
-        /*create a filename so that filename is unique*/
-        //$plantPictureName = $plantPicture.'-'.md5(uniqid()).'.'.$plantPicture->guessExtension();
+        $plantPictureName = $params["iconElementName"];     // the name needs to be decoded to afterwards
 
-        $plantPictureName = $params["iconElementName"];
+        /*create a filename so that filename is unique*/
+        //$plantPictureName = $plantPicture.'-'.md5(uniqid()).'.'.$plantPicture->guessExtension();       guessExtension is only possible with files
 
         $plantPictures_directory = $this->getParameter('plantPictures_directory');
 
-        //$plantPicture->move($plantPictures_directory, $plantPictureName);
-
-        /*try {
-            $plantPicture->move(
-                $this->getParameter('plantPictures_directory'),
-                $plantPictureName
-            );
-        } catch (FileException $e) {
-            // ... handle exception if something happens during file upload
-        }*/
-
+        //$plantPicture->move($plantPictures_directory, end($plantPictureName));                        move is only possible with files
 
             /** @var \App\Entity\Plant $plant */
         $plant = new Plant();
