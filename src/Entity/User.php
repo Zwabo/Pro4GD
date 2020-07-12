@@ -149,6 +149,56 @@ class User implements UserInterface
      */
     private $XP;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $awards = [];
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $counterFriends;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $counterPlantsAdded;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $counterPlantsWatered;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $friendsAward;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $livedAward;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $memberAward;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $userplantAward;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $wateredAward;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $lvlAward;
+
     /*---------------userprofile comments-----------------------*/
 
      // @ORM\OneToMany(targetEntity="App\Entity\ProfileComments", mappedBy="user", cascade={"persist", "remove"})
@@ -593,6 +643,128 @@ class User implements UserInterface
         return $this;
     }
 
+    /*awards*/
+    public function getAwards(): ?array
+    {
+        return $this->awards;
+    }
+
+    public function setAwards(?array $awards): self
+    {
+        $this->awards = $awards;
+
+        return $this;
+    }
+
+    public function getCounterFriends(): ?int
+    {
+        return $this->counterFriends;
+    }
+
+    public function setCounterFriends(?int $counterFriends): self
+    {
+        $this->counterFriends = $counterFriends;
+
+        return $this;
+    }
+
+    public function getCounterPlantsAdded(): ?int
+    {
+        return $this->counterPlantsAdded;
+    }
+
+    public function setCounterPlantsAdded(?int $counterPlantsAdded): self
+    {
+        $this->counterPlantsAdded = $counterPlantsAdded;
+
+        return $this;
+    }
+
+    public function getCounterPlantsWatered(): ?int
+    {
+        return $this->counterPlantsWatered;
+    }
+
+    public function setCounterPlantsWatered(?int $counterPlantsWatered): self
+    {
+        $this->counterPlantsWatered = $counterPlantsWatered;
+
+        return $this;
+    }
+
+    public function getFriendsAward(): ?int
+    {
+        return $this->friendsAward;
+    }
+
+    public function setFriendsAward(?int $friendsAward): self
+    {
+        $this->friendsAward = $friendsAward;
+
+        return $this;
+    }
+
+    public function getLivedAward(): ?int
+    {
+        return $this->livedAward;
+    }
+
+    public function setLivedAward(?int $livedAward): self
+    {
+        $this->livedAward = $livedAward;
+
+        return $this;
+    }
+
+    public function getMemberAward(): ?int
+    {
+        return $this->memberAward;
+    }
+
+    public function setMemberAward(?int $memberAward): self
+    {
+        $this->memberAward = $memberAward;
+
+        return $this;
+    }
+
+    public function getUserplantAward(): ?int
+    {
+        return $this->userplantAward;
+    }
+
+    public function setUserplantAward(?int $userplantAward): self
+    {
+        $this->userplantAward = $userplantAward;
+
+        return $this;
+    }
+
+    public function getWateredAward(): ?int
+    {
+        return $this->wateredAward;
+    }
+
+    public function setWateredAward(?int $wateredAward): self
+    {
+        $this->wateredAward = $wateredAward;
+
+        return $this;
+    }
+
+    public function getLvlAward(): ?string
+    {
+        return $this->lvlAward;
+    }
+
+    public function setLvlAward(?string $lvlAward): self
+    {
+        $this->lvlAward = $lvlAward;
+
+        return $this;
+    }
+
+
     public function toAssoc()
     {
         $plants = [];
@@ -624,8 +796,19 @@ class User implements UserInterface
             'privacyFriends' => $this->privacyFriends,
             'privacyGarden' => $this->privacyGarden,
             'xp' => $this->XP,
+            'awards' => $this->awards,
+            'counterFriends' => $this->counterFriends,
+            'counterPlantsAdded' => $this->counterPlantsAdded,
+            'counterPlantsWatered' => $this->counterPlantsWatered,
+            'friendsAward' => $this->friendsAward,
+            'livedAward' => $this->livedAward,
+            'memberAward' => $this->memberAward,
+            'userplantAward' => $this->userplantAward,
+            'wateredAward' => $this->wateredAward,
+            'lvlAward' => $this->lvlAward,
         ];
     }
+
 
     /*public function getWrittenComments(): ?ProfileComments
     {

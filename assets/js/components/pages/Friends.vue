@@ -34,8 +34,18 @@
         name: "Friends",
         data: function(){
             return{
-                friendsData: null
+                friendsData: null,
+                loggedInUser: null
             };
+        },
+
+        created: function() {
+            this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+
+            //Retrieve user item from local storage in case of login
+            this.$root.$on('loggedIn', () => {
+                this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+            });
         },
         mounted: function(){
             this.$http.get('/api/friends/')
@@ -58,6 +68,13 @@
                     .catch(error => {
                         alert(error);
                     });
+
+                console.log(this.loggedInUser.username);
+
+                this.$http.put('api/friends/' + this.loggedInUser.username + '/setCounterFriendsAdded')
+                    .then(response => {console.log(response.data);})
+                    .catch(error => {alert(error);});
+
             }
         }
     }

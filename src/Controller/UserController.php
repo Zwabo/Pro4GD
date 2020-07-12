@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\User;
 use App\Entity\Userplant;
+use App\Entity\Award;
 use Doctrine\ORM\EntityManagerInterface;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -225,27 +226,164 @@ class UserController extends AbstractController
         return new JsonResponse(Response::HTTP_OK);
     }
 
-/*
-    public function getUserData($username) : JsonResponse {
+    /**
+     * @Route("/api/profile/{username}/addNewAward", name="addNewAward", methods={"PUT"})
+     */
+    public function addNewAward($username, Request $request)
+    {
         $user = $this->getDoctrine()
             ->getRepository(User::class)
             ->findOneBy(['username' => $username]);
-
-
-        $rep = $this->getDoctrine()->getRepository(Entry::class);
-        $entries = $rep->findAll($user->id);
-        $userplant = [];
-        foreach ($entries as $entry) {
-            $userplants[] = $entry->toAssoc();
-        }
 
         if (!$user) {
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
 
-        return new JsonResponse(array('user'=>$user,'userplant'=>$userplant)->toAssoc(), Response::HTTP_OK);
-    }*/
+        $data = $request->getContent();
 
+        $award = $this->getDoctrine()
+            ->getRepository(Award::class)
+            ->findOneBy(['name' => $data]);
+
+        if (!$award) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $award = $award->toAssoc();
+        $awardsArray = $user->getAwards();
+        array_push($awardsArray, $award);
+
+        $user->setAwards($awardsArray);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/profile/{username}/setMemberAward", name="setMemberAward", methods={"PUT"})
+     */
+    public function setMemberAwardVar($username, Request $request) : JsonResponse
+    {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $username]);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $memberAward = $request->getContent();
+
+        $user->setMemberAward($memberAward);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/profile/{username}/setFriendsAward", name="setFriendsAward", methods={"PUT"})
+     */
+    public function setFriendsAwardVar($username, Request $request) : JsonResponse
+    {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $username]);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $friendsAward = $request->getContent();
+
+        $user->setFriendsAward($friendsAward);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/profile/{username}/setLivedAward", name="setLivedAward", methods={"PUT"})
+     */
+    public function setLivedAwardVar($username, Request $request) : JsonResponse
+    {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $username]);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $livedAward = $request->getContent();
+
+        $user->setLivedAward($livedAward);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/profile/{username}/setUserplantAddedAward", name="setUserplantAddedAward", methods={"PUT"})
+     */
+    public function setUserplantAddedAwardVar($username, Request $request) : JsonResponse
+    {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $username]);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $userplantAdded = $request->getContent();
+
+        $user->setUserplantAward($userplantAdded);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/profile/{username}/setWateredAward", name="setWateredAward", methods={"PUT"})
+     */
+    public function setWateredAwardVar($username, Request $request) : JsonResponse
+    {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $username]);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $userplantWatered = $request->getContent();
+
+        $user->setWateredAward($userplantWatered);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/profile/{username}/setLvlAward", name="setLvlAward", methods={"PUT"})
+     */
+    public function setLvlAwardVar($username, Request $request) : JsonResponse
+    {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $username]);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $lvlAward = $request->getContent();
+
+        $user->setLvlAward($lvlAward);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
 
 /**
  * @Route("/profile", name="profile")

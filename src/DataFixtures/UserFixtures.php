@@ -46,6 +46,9 @@ class UserFixtures extends Fixture
 
         $user->setPassword($this->passwordEncoder->encodePassword($user, "test123"));
 
+        $user->setCounterPlantsAdded(3);
+        $user->setCounterFriends(1);
+
         $roles[] = 'ROLE_USER';
         $user->setRoles($roles);
 

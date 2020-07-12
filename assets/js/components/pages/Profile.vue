@@ -201,8 +201,14 @@
 
                 <div class="col-lg-4">
                     <div class="rightBoxes">
-                        <h4 class="bgLightGrey rightBoxesPadding h4Box">Erungenschaften</h4>
-                        <p class="rightBoxesPadding">Wird nur gezeigt wenn welche vorhanden sind</p>    <!-- Besuchernachrichten auslesen -->
+                        <h4 class="bgLightGrey rightBoxesPadding h4Box" @click="checkAwards">Erungenschaften</h4>
+                        <p class="rightBoxesPadding">
+                            <span v-for="(award, index) in profileUser.awards">
+                                <img class="awardImage" v-bind:src="'../' + award.awardIcon" v-bind:alt="loggedInUser.username + award.altText">
+                            </span>
+
+
+                        </p>
                     </div>
 
                     <div class="rightBoxes" v-if="showForum">
@@ -304,6 +310,9 @@
                 commentArray: "",               // temp array for deleting purpose
 
                 loggedInUser: null,
+                loggedInUserData: null,
+                loggedInUserDataUserplants: null,
+                loggedInUserDataFriends: null,
 
                 loggedInUserIsFriend: false,
                 loggedInUserIsProfileUser: false,
@@ -324,8 +333,6 @@
 
         created: function(){
             this.loggedInUser = JSON.parse(localStorage.getItem('user'));
-            console.log("loggedInUser");
-            console.log(this.loggedInUser.username);
 
             //Retrieve user item from local storage in case of login
             this.$root.$on('loggedIn', () => {
@@ -335,11 +342,13 @@
 
         mounted: function(){
             //user
+
+            console.log("loggedInUser");
+            console.log(this.loggedInUser);
+
             this.$http.get('/api/profile/' + this.$route.params.username)
                 .then(response => {
                     this.profileUser = response.data;
-                    console.log("profileUser");
-                    console.log(this.profileUser.username);
 
                     /*save the created date as string*/
                     this.createdUserString = this.profileUser.dateCreated.date.substr(8,2)
@@ -362,11 +371,11 @@
                     }
                     this.userAge = age.toString();
 
-                    console.log("start");
+                    //console.log("start");
                     if(this.profileUser.comments == null) {
-                        console.log("it's null");
+                        //console.log("it's null");
                     } else {
-                        console.log(this.profileUser.comments);
+                        //console.log(this.profileUser.comments);
                     }
                     return this.$http.get('/api/profile/' + this.$route.params.username + '/friends');
                 })
@@ -387,12 +396,17 @@
             this.$http.get('/api/profile/' + this.$route.params.username + '/userplants')
                 .then(response => {
                     this.profileUserplants = response.data;
+                    this.checkAwards();
                 })
                     .catch(error => {
                         this.getError(error);
                 });
-        },
 
+            /*---------------------------------------------------awards data-------------------------*/
+
+
+            /*---------------------------------------------------badges data end-------------------------*/
+        },
         watch: {
             loggedInUserIsFriend: function(val) {
                 if(this.profileUser.privacyBirthday == "friends" || "all"){
@@ -426,17 +440,19 @@
                 } if(this.profileUser.privacyForum == "all") {
                     this.showForum = true;
                 }
+            },
+
+            checkAwardsTwo: function() {
+                console.log("here");
             }
+
+
         },
 
         methods: {
 
             changeProfile: function() {
                 this.editProfile = true;
-
-                /*this.$nextTick(function() {
-                    this.$refs.descriptionInput.select();
-                })*/
             },
 
             saveProfile: function() {
@@ -470,13 +486,10 @@
                 this.$http.put('/api/profile/' + this.$route.params.username + '/saveComment', this.newComment)
                     .then(response => {
                         this.profileUser = response.data;
-                        console.log(response.data.comments);
                     })
                     .catch(error => {
                         this.getError(error);
                     });
-
-
                 this.commentMessage = "";
                 this.newComment = "";
             },
@@ -577,6 +590,369 @@
                 return string;
 
             },
+
+            checkAwards: function() {
+                //if user is on it's profile for the first time after registration
+                if (this.loggedInUser.username === this.profileUser.username) {
+
+                    /*----------------------------------member awards----------------------------------------------------*/
+                    let memberAward = null;
+                    let memberAwardVar = null;
+                    let memberAwardMsg = null;
+
+                    if (this.profileUser.memberAward === null) {
+                        memberAward = "memberNew";
+                        memberAwardVar = 1;
+                        memberAwardMsg = "Glückwunsch. Errungenschaft \"Mitglied geworden\" freigeschalten.";
+                    }
+                    else if (this.profileUser.memberAward < 4) {
+                        /*calculate difference between the dates*/
+                        let currentDate = new Date();
+                        let year = Number(this.profileUser.dateCreated.date.substr(0,4));
+                        let month = Number(this.profileUser.dateCreated.date.substr(5,2));
+                        let difference = (currentDate.getUTCFullYear()*12 + currentDate.getUTCMonth()) - (year*12 + month);
+
+                        if (this.profileUser.memberAward === 1 && difference >= 3) {
+                            memberAward = "memberBronce";
+                            memberAwardVar = 2;
+                            memberAwardMsg = "Glückwunsch. Errungenschaft \"Bronze Mitglied\" freigeschalten.";
+                        } else if (this.profileUser.memberAward === 2 && difference >= 6) {
+                            memberAward = "memberSilver";
+                            memberAwardVar = 3;
+                            memberAwardMsg = "Glückwunsch. Errungenschaft \"Silber Mitglied\" freigeschalten.";
+                        } else if (this.profileUser.memberAward === 3 && difference >= 12) {
+                            memberAward = "memberGold";
+                            memberAwardVar = 4;
+                            memberAwardMsg = "Glückwunsch. Errungenschaft \"Gold Mitglied\" freigeschalten.";
+                        }
+                    }
+
+                    if (memberAward !== null || memberAwardMsg !== null) {
+                        this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', memberAward)
+                            .then(response => { this.profileUser = response.data; })
+                            .catch(error => { this.getError(error); });
+
+                        this.$http.put('/api/profile/' + this.profileUser.username + '/setMemberAward', memberAwardVar)
+                            .then(response => { this.profileUser = response.data; })
+                            .catch(error => { this.getError(error); });
+
+                        alert(memberAwardMsg);
+                    }
+
+                    /*----------------------------------friends awards----------------------------------------------------*/
+
+                    if (this.profileUser.friendsAward < 300) {
+                        let friendsAward = null;
+                        let friendsAwardVar = null;
+                        let friendsAwardMsg = null;
+
+                        if (this.profileUser.friendsAward === null && this.profileUser.counterFriends >= 1) {
+                            friendsAward = "friendsOne";
+                            friendsAwardVar = 1;
+                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"Erste Freundschaf geschlossen\" freigeschalten.";
+                        } else if (this.profileUser.friendsAward === 1 && this.profileUser.counterFriends >= 5) {
+                            friendsAward = "friendsFive";
+                            friendsAwardVar = 5;
+                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"Fünf Freundschaften geschlossen\" freigeschalten.";
+                        } else if (this.profileUser.friendsAward === 5 && this.profileUser.counterFriends >= 10) {
+                            friendsAward = "friendsTen";
+                            friendsAwardVar = 10;
+                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"Zehn Freundschaften geschlossen\" freigeschalten.";
+                        } else if (this.profileUser.friendsAward === 10 && this.profileUser.counterFriends >= 20) {
+                            friendsAward = "friendsTwenty";
+                            friendsAwardVar = 20;
+                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"Zwanzig Freundschaften geschlossen\" freigeschalten.";
+                        } else if (this.profileUser.friendsAward === 20 && this.profileUser.counterFriends >= 50) {
+                            friendsAward = "friendsFifty";
+                            friendsAwardVar = 50;
+                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"50 Freundschaften geschlossen\" freigeschalten.";
+                        } else if (this.profileUser.friendsAward === 50 && this.profileUser.counterFriends >= 70) {
+                            friendsAward = "friendsSeventy";
+                            friendsAwardVar = 70;
+                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"70 Freundschaften geschlossen\" freigeschalten.";
+                        } else if (this.profileUser.friendsAward === 70 && this.profileUser.counterFriends >= 100) {
+                            friendsAward = "friendsOnehundret";
+                            friendsAwardVar = 100;
+                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"100 Freundschaften geschlossen\" freigeschalten.";
+                        } else if (this.profileUser.friendsAward === 100 && this.profileUser.counterFriends >= 150) {
+                            friendsAward = "friendsOnehundretfifty";
+                            friendsAwardVar = 150;
+                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"150 Freundschaften geschlossen\" freigeschalten.";
+                        } else if (this.profileUser.firendsAward === 150 && this.profileUser.counterFriends >= 200) {
+                            friendsAward = "friendsTwohundret";
+                            friendsAwardVar = 200;
+                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"200 Freundschaften geschlossen\" freigeschalten.";
+                        } else if (this.profileUser.friendsAward === 200 && this.profileUser.counterFriends >= 250) {
+                            friendsAward = "friendsTwohundretfifty";
+                            friendsAwardVar = 250;
+                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"250 Freundschaften geschlossen\" freigeschalten.";
+                        } else if (this.profileUser.friendsAward === 250 && this.profileUser.counterFriends >= 300) {
+                            friendsAward = "friendsThreehundret";
+                            friendsAwardVar = 300;
+                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"300 Freundschaften geschlossen\" freigeschalten.";
+                        }
+
+                        if (friendsAward !== null || friendsAwardVar !== null) {
+                            this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', friendsAward)
+                                .then(response => { this.profileUser = response.data; })
+                                .catch(error => { this.getError(error); });
+
+                            this.$http.put('/api/profile/' + this.profileUser.username + '/setFriendsAward', friendsAwardVar)
+                                .then(response => { this.profileUser = response.data; })
+                                .catch(error => { this.getError(error); });
+
+                            alert(friendsAwardMsg);
+                        }
+                    }
+
+                    /*----------------------------------plant lived awards----------------------------------------------------*/
+                    if (this.profileUserplants.length > 0 && this.profileUser.livedAward < 12) {
+
+                        let currentDate = new Date;
+                        let difference = 0;
+
+                        // get the longest date out of the userplants created data
+                        for (let i = 0; i < this.profileUserplants.length; i++) {
+                            let currentYear = Number(this.profileUserplants[i].dateAdded.date.substr(0,4));
+                            let currentMonth = Number(this.profileUserplants[i].dateAdded.date.substr(5,2));
+                            let currentDifference = (currentDate.getUTCFullYear()*12 + currentDate.getUTCMonth()) - (currentYear*12 + currentMonth);
+                            if (currentDifference > difference) {
+                                difference = currentDifference;
+                            }
+                        }
+
+                        let livedAward = null;
+                        let livedAwardVar = null;
+                        let livedAwardMsg = null;
+
+                        if (this.profileUser.livedAward === null && difference >= 1) {
+                            livedAward = "livedOneMonth";
+                            livedAwardVar = 1;
+                            livedAwardMsg = "Glückwunsch. Errungenschaft \"Pflanze hat einen Monat überlebt.\" freigeschalten.";
+                        } else if (this.profileUser.livedAward === 1 && difference >= 3) {
+                            livedAward = "livedThreeMonths";
+                            livedAwardVar = 3;
+                            livedAwardMsg = "Glückwunsch. Errungenschaft \"Pflanze hat drei Monate überlebt.\" freigeschalten.";
+                        } else if (this.profileUser.livedAward === 3 && difference >= 6) {
+                            livedAward = "livedSixMonths";
+                            livedAwardVar = 6;
+                            livedAwardMsg = "Glückwunsch. Errungenschaft \"Pflanze hat sechs Monate überlebt.\" freigeschalten.";
+                        } else if (this.profileUser.livedAward === 6 && difference >= 12) {
+                            livedAward ="livedTwelveMonths";
+                            livedAwardVar = 12;
+                            livedAwardMsg = "Glückwunsch. Errungenschaft \"Pflanze hat ein Jahr überlebt.\" freigeschalten.";
+                        }
+
+                        if (livedAward !== null || livedAwardVar !== null) {
+                            this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', livedAward)
+                                .then(response => { this.profileUser = response.data; })
+                                .catch(error => { this.getError(error); });
+
+                            this.$http.put('/api/profile/' + this.profileUser.username + '/setLivedAward', livedAwardVar)
+                                .then(response => { this.profileUser = response.data; })
+                                .catch(error => { this.getError(error); });
+
+                            alert(livedAwardMsg);
+                        }
+                    }
+
+                    /*----------------------------------userplant added awards----------------------------------------------------*/
+
+                    if (this.profileUserplants.length > 0 && this.profileUser.userplantAward < 500) {
+                        let userplantAward = null;
+                        let userplantAwardVar = null;
+                        let userplantAwardMsg = null;
+
+                        if (this.profileUser.userplantAward === null && this.profileUser.counterPlantsAdded >= 1) {
+                            userplantAward = "userplantOne";
+                            userplantAwardVar = 1;
+                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"Eine Pflanze dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                        } else if (this.profileUser.userplantAward === 1 && this.profileUser.counterPlantsAdded >= 5) {
+                            userplantAward = "userplantFive";
+                            userplantAwardVar = 5;
+                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"Fünf Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                        } else if (this.profileUser.userplantAward === 5 && this.profileUser.counterPlantsAdded >= 10) {
+                            userplantAward = "userplantTen";
+                            userplantAwardVar = 10;
+                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"Zehn Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                        } else if (this.profileUser.userplantAward === 10 && this.profileUser.counterPlantsAdded >= 20) {
+                            userplantAward = "userplantTwenty";
+                            userplantAwardVar = 20;
+                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"Zwanzig Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                        } else if (this.profileUser.userplantAward === 20 && this.profileUser.counterPlantsAdded >= 50) {
+                            userplantAward ="userplantFifty";
+                            userplantAwardVar = 50;
+                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"50 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                        } else if (this.profileUser.userplantAward === 50 && this.profileUser.counterPlantsAdded >= 70) {
+                            userplantAward = "userplantSeventy";
+                            userplantAwardVar = 70;
+                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"70 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                        } else if (this.profileUser.userplantAward === 70 && this.profileUser.counterPlantsAdded >= 100) {
+                            userplantAward = "userplantOnehundret";
+                            userplantAwardVar = 100;
+                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"100 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                        } else if (this.profileUser.userplantAward === 100 && this.profileUser.counterPlantsAdded >= 150) {
+                            userplantAward = "userplantOnehundretfifty";
+                            userplantAwardVar = 150;
+                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"150 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                        } else if (this.profileUser.userplantAward === 150 && this.profileUser.counterPlantsAdded >= 200) {
+                            userplantAward = "userplantTwohundret";
+                            userplantAwardVar = 200;
+                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"200 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                        } else if (this.profileUser.userplantAward === 200 && this.profileUser.counterPlantsAdded >= 250) {
+                            userplantAward = "userplantTwohundretfifty";
+                            userplantAwardVar = 250;
+                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"250 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                        } else if (this.profileUser.userplantAward === 250 && this.profileUser.counterPlantsAdded >= 300) {
+                            userplantAward = "userplantThreehundret";
+                            userplantAwardVar = 300;
+                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"300 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                        } else if (this.profileUser.userplantAward === 300 && this.profileUser.counterPlantsAdded >= 350) {
+                            userplantAward = "userplantThreehundretfifty";
+                            userplantAwardVar = 350;
+                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"350 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                        } else if (this.profileUser.userplantAward === 350 && this.profileUser.counterPlantsAdded >= 400) {
+                            userplantAward = "userplantFourhundret";
+                            userplantAwardVar = 400;
+                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"400 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                        } else if (this.profileUser.userplantAward === 400 && this.profileUser.counterPlantsAdded >= 500) {
+                            userplantAward = "userplantFivehundret";
+                            userplantAwardVar = 500;
+                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"500 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                        }
+
+                        if (userplantAward !== null || userplantAwardVar !== null) {
+                            this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', userplantAward)
+                                .then(response => { this.profileUser = response.data; })
+                                .catch(error => { this.getError(error); });
+
+                            this.$http.put('/api/profile/' + this.profileUser.username + '/setUserplantAddedAward', userplantAwardVar)
+                                .then(response => { this.profileUser = response.data; })
+                                .catch(error => { this.getError(error); });
+
+                            alert(userplantAwardMsg);
+                        }
+                    }
+
+                    /*----------------------------------userplant watered awards----------------------------------------------------*/
+
+                    if (this.profileUserplants.length > 0 && this.profileUser.counterPlantsWatered < 500) {
+                        let wateredAward = null;
+                        let wateredAwardVar = null;
+                        let wateredAwardMsg = null;
+
+                        if (this.profileUser.wateredAward === null && this.profileUser.counterPlantsWatered >= 1) {
+                            wateredAward = "wateredOne";
+                            wateredAwardVar = 1;
+                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"Eine Pflanze gegossen.\" freigeschalten.";
+                        } else if (this.profileUser.wateredAward === 1 && this.profileUser.counterPlantsWatered >= 5) {
+                            wateredAward = "wateredFive";
+                            wateredAwardVar = 5;
+                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"Fünf Pflanzen gegossen.\" freigeschalten.";
+                        } else if (this.profileUser.wateredAward === 5 && this.profileUser.counterPlantsWatered >= 10) {
+                            wateredAward = "wateredTen";
+                            wateredAwardVar = 10;
+                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"Zehn Pflanzen gegossen.\" freigeschalten.";
+                        } else if (this.profileUser.wateredAward === 10 && this.profileUser.counterPlantsWatered >= 20) {
+                            wateredAward = "wateredTwenty";
+                            wateredAwardVar = 20;
+                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"Zwanzig Pflanzen gegossen.\" freigeschalten.";
+                        } else if (this.profileUser.wateredAward === 20 && this.profileUser.counterPlantsWatered >= 50) {
+                            wateredAward ="wateredFifty";
+                            wateredAwardVar = 50;
+                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"50 Pflanzen gegossen.\" freigeschalten.";
+                        } else if (this.profileUser.wateredAward === 50 && this.profileUser.counterPlantsWatered >= 70) {
+                            wateredAward = "wateredSeventy";
+                            wateredAwardVar = 70;
+                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"70 Pflanzen gegossen.\" freigeschalten.";
+                        } else if (this.profileUser.wateredAward === 70 && this.profileUser.counterPlantsWatered >= 100) {
+                            wateredAward = "wateredOnehundret";
+                            wateredAwardVar = 100;
+                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"100 Pflanzen gegossen.\" freigeschalten.";
+                        } else if (this.profileUser.wateredAward === 100 && this.profileUser.counterPlantsWatered >= 150) {
+                            wateredAward = "wateredOnehundretfifty";
+                            wateredAwardVar = 150;
+                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"150 Pflanzen gegossen.\" freigeschalten.";
+                        } else if (this.profileUser.wateredAward === 150 && this.profileUser.counterPlantsWatered >= 200) {
+                            wateredAward = "wateredTwohundret";
+                            wateredAwardVar = 200;
+                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"200 Pflanzen gegossen.\" freigeschalten.";
+                        } else if (this.profileUser.wateredAward === 200 && this.profileUser.counterPlantsWatered >= 250) {
+                            wateredAward = "wateredTwohundretfifty";
+                            wateredAwardVar = 250;
+                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"250 Pflanzen gegossen.\" freigeschalten.";
+                        } else if (this.profileUser.wateredAward === 250 && this.profileUser.counterPlantsWatered >= 300) {
+                            wateredAward = "wateredThreehundret";
+                            wateredAwardVar = 300;
+                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"300 Pflanzen gegossen.\" freigeschalten.";
+                        } else if (this.profileUser.wateredAward === 300 && this.profileUser.counterPlantsWatered >= 350) {
+                            wateredAward = "wateredThreehundretfifty";
+                            wateredAwardVar = 350;
+                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"350 Pflanzen gegossen.\" freigeschalten.";
+                        } else if (this.profileUser.wateredAward === 350 && this.profileUser.counterPlantsWatered >= 400) {
+                            wateredAward = "wateredFourhundret";
+                            wateredAwardVar = 400;
+                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"400 Pflanzen gegossen.\" freigeschalten.";
+                        } else if (this.profileUser.wateredAward === 400 && this.profileUser.counterPlantsWatered >= 500) {
+                            wateredAward = "wateredFivehundret";
+                            wateredAwardVar = 500;
+                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"500 Pflanzen gegossen.\" freigeschalten.";
+                        }
+
+                        if (wateredAward !== null || wateredAwardVar !== null) {
+                            this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', wateredAward)
+                                .then(response => { this.profileUser = response.data; console.log(response.data);})
+                                .catch(error => { this.getError(error); });
+
+                            this.$http.put('/api/profile/' + this.profileUser.username + '/setWateredAward', wateredAwardVar)
+                                .then(response => { this.profileUser = response.data; console.log(response.data);})
+                                .catch(error => { this.getError(error); });
+
+                            alert(wateredAwardMsg);
+                        }
+                    }
+
+                    /*----------------------------------xp rang awards----------------------------------------------------*/
+                    let lvlAward = null;
+                    let lvlAwardVar = null;
+                    let lvlAwardMsg = null;
+
+                    console.log(this.profileUser.xp);
+                    console.log(this.profileUser.username);
+
+                    if (this.profileUser.lvlAward !== "GoldenerDaumen") {
+                        if (this.profileUser.xp >= 0 && this.profileUser.lvlAward === null) {
+                            lvlAward = "lvlSproessling";
+                            lvlAwardVar = "Sproessling";
+                            lvlAwardMsg ="Glückwunsch! Sie haben den Rang \"Sprössling\" erreicht!";
+                        } else if (this.profileUser.xp >= 100 && this.profileUser.lvlAward === "Sproessling") {
+                            lvlAward = "lvlHobbygaertner";
+                            lvlAwardVar = "Hobbygaertner";
+                            lvlAwardMsg ="Glückwunsch! Sie haben den Rang \"Hobbygärtner\" erreicht!";
+                        } else if (this.profileUser.xp >= 400 && this.profileUser.lvlAward === "Hobbygaertner") {
+                            lvlAward = "lvlPflanzenfluesterer";
+                            lvlAwardVar = "Pflanzenfluesterer";
+                            lvlAwardMsg = "Glückwunsch! Sie haben den Rang \"Pflanzenflüsterer\" erreicht!";
+                        } else if (this.profileUser.xp >= 1000 && this.profileUser.lvlAward === "Pflanzenfluesterer") {
+                            lvlAward = "lvlGoldenerDaumen";
+                            lvlAwardVar = "GoldenerDaumen";
+                            lvlAwardMsg = "Glückwunsch! Sie haben den Rang \"Goldener Daumen\" erreicht!";
+                        }
+                    }
+
+                    if (lvlAward !== null || lvlAwardVar !== null ){
+                        this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', lvlAward)
+                            .then(response => { this.profileUser = response.data; console.log(response.data);})
+                            .catch(error => { this.getError(error); });
+
+                        this.$http.put('/api/profile/' + this.profileUser.username + '/setLvlAward', lvlAwardVar)
+                            .then(response => { this.profileUser = response.data; console.log(response.data);})
+                            .catch(error => { this.getError(error); });
+
+                        alert(lvlAwardMsg);
+                    }
+                }
+            },
         }
     }
 </script>
@@ -661,5 +1037,11 @@
         background-color: #F5F5F5;
         border-radius: 6px;
         padding: 10px;
+    }
+
+    .awardImage {
+        width: 15%;
+        margin-bottom: 2%;
+        margin-left: 1%;
     }
 </style>

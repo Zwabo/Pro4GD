@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\FriendRequest;
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -109,5 +110,30 @@ class FriendsController extends AbstractController
         }
 
         return new JsonResponse([], Response::HTTP_BAD_REQUEST);
+    }
+
+    /**
+     * @Route("/api/friends/{username}/setCounterFriendsAdded", name="setCounterFriendsAdded", methods={"PUT"})
+     */
+    public function setCounterFriendsAdded($username){
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $username]);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $counterFriendsAdded = $user->getCounterFriends();
+        if ($counterFriendsAdded == null) {
+            $counterFriendsAdded = 1;
+        } else {
+            $counterFriendsAdded++;
+        }
+
+        $user->setCounterFriends($counterFriendsAdded);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
     }
 }
