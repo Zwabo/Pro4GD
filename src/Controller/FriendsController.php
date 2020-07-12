@@ -145,6 +145,9 @@ class FriendsController extends AbstractController
             $request->setDate(new \DateTime());
             $request->setConfirmed(false);
 
+            //Queue Push-Notification
+            $receiver->addNotification("Neue Freundschaftsanfrage erhalten!", "von ".$user->getUsername());
+
             $this->getDoctrine()->getManager()->persist($request);
             $this->getDoctrine()->getManager()->flush();
 

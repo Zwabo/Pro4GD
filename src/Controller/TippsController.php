@@ -87,7 +87,7 @@ class TippsController extends AbstractController
         //Push notifications that new news-article has been released to all users
         $users = $this->getDoctrine()->getRepository(Product::class)->findAll();
         foreach ($users as $user) {
-            $user->addNotification("New Tips posted!", $tipps->getTitle());
+            $user->addNotification("Neuer Tips-Eintrag erschienen!", $tipps->getTitle());
         }
 
         $entityManager = $this->getDoctrine()->getManager();
