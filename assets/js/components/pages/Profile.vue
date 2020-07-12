@@ -18,7 +18,7 @@
                     <b-progress :value="profileUser.xp" :max="max" variant="dark" class="w-50 mb-2" height="1.2rem"></b-progress>
                     <p>{{XPleft(profileUser.xp)}}</p>
 
-                    <button v-if="loggedInUser.username!==profileUser.username" id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
+                    <button v-if="!(loggedInUser.username == profileUser.username) && loggedInUserIsStranger" @click="sendFriendRequest()" id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
                     <button v-else-if="loggedInUser.username===profileUser.username && editProfile!=true" id="userButton"  v-on:click="changeProfile">Profil bearbeiten</button>
                     <button v-else-if="loggedInUser.username===profileUser.username && editProfile==true" id="userButton" v-on:click="saveProfile">Profil speichern</button>
                 </div>
@@ -589,6 +589,21 @@
 
                 return string;
 
+            },
+
+            sendFriendRequest: function(){
+                this.$http.post('/api/friends/sendRequest/' + this.profileUser.id)
+                    .then(response => {
+                        return this.$http.get('/api/profile/' + this.$route.params.username + '/friends');
+                    })
+                    .then(response => {
+                        this.profileUserFriends = response.data;
+                        this.checkRelationshipSelf(); //Check if logged in user is profile user
+                        this.checkRelationshipFriend(); //Check if logged in user is a friend of profile user
+                    })
+                    .catch(error => {
+                        this.getError(error);
+                    });
             },
 
             checkAwards: function() {
