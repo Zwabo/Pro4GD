@@ -10,9 +10,16 @@ use App\Entity\Plant;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
+
+/**
+ * @IsGranted("ROLE_USER")
+ */
 
 class DatabaseController extends AbstractController
 {
+
 
     /**
      * @Route("/api/database/", name="getPlants", methods={"GET"})

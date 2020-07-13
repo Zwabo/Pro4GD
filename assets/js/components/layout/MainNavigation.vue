@@ -15,24 +15,27 @@
                         <a class="nav-link" href="#" id="datenbankDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Datenbank</a>
                         <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="datenbankDropdown">
                             <router-link class="dropdown-item" :to="'/database/'">In Datenbank Suchen</router-link>
-                            <router-link class="dropdown-item" :to="'/addPlant/'">Neue Pflanze hinufügen</router-link>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown selfAlignCenter">
-                        <a class="nav-link" href="#" id="communityDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Community</a>
-                        <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="communityDropdown">
-                            <a class="dropdown-item" href="/forum">Forum</a>
-                            <router-link class="dropdown-item" :to="'/tipps/'">Tipps</router-link>
-                            <router-link class="dropdown-item" :to="'/news/'">Neuigkeiten</router-link>
-                        </div>
-                    </li>
-                    <li class="nav-item selfAlignCenter" v-if="navigationUser">
-                        <router-link class="nav-link" :to="'/garden/' + navigationUser.id">Mein Garten</router-link>
-                    </li>
-                    <li class="nav-item dropdown selfAlignCenter" id="naviUser" v-if="navigationUser">
-                        <a class="nav-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{navigationUser.username}} <img id="naviImg" v-bind:src="navigationUser.userPic"></a>
-                        <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="userDropdown">
-                            <router-link :to="'/profile/' + navigationUser.username" class="dropdown-item">          <!-- change to dynamic -->
+                            <!-- hides drop down item addPlant for standard user -->
+                            <!--      <div  v-show="checkRole()"id ="addPlant-dropDown" >-->
+                                  <router-link  class="dropdown-item" :to="'/addPlant/'">Neue Pflanze hinufügen</router-link>
+                            <!--   </div>-->
+                         </div>
+                     </li>
+                     <li class="nav-item dropdown selfAlignCenter">
+                         <a class="nav-link" href="#" id="communityDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Community</a>
+                         <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="communityDropdown">
+                             <a class="dropdown-item" href="/forum">Forum</a>
+                             <router-link class="dropdown-item" :to="'/tipps/'">Tipps</router-link>
+                             <router-link class="dropdown-item" :to="'/news/'">Neuigkeiten</router-link>
+                         </div>
+                     </li>
+                     <li class="nav-item selfAlignCenter" v-if="navigationUser">
+                         <router-link class="nav-link" :to="'/garden/' + navigationUser.id">Mein Garten</router-link>
+                     </li>
+                     <li class="nav-item dropdown selfAlignCenter" id="naviUser" v-if="navigationUser">
+                         <a class="nav-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{navigationUser.username}} <img id="naviImg" v-bind:src="navigationUser.userPic"></a>
+                         <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="userDropdown">
+                             <router-link :to="'/profile/' + navigationUser.username" class="dropdown-item">          <!-- change to dynamic -->
                                 Profil
                             </router-link>
                             <router-link to="/friends" class="dropdown-item">          <!-- change to dynamic -->
@@ -57,8 +60,17 @@
         name: "MainNavigation",
         data: function(){
             return{
-                navigationUser: null
+                navigationUser: null,
+                loggedInUser: {}
             }
+        },
+        created: function() {
+            this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+
+            //Retrieve user item from local storage in case of login
+            this.$root.$on('loggedIn', () => {
+                this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+            });
         },
         mounted: function(){
             this.navigationUser = JSON.parse(localStorage.getItem('user'));
@@ -67,7 +79,22 @@
             this.$root.$on('loggedIn', () => {
                 this.navigationUser = JSON.parse(localStorage.getItem('user'));
             });
-        }
+        },
+        // hides drop down item add plant in database
+      /**  methods: {
+            checkRole: function () {
+                if (this.loggedInUser === null ||this.loggedInUser.roles === 'ROLE_USER' ) {
+                    // redirect auf login einfügen
+                    let dropDown = document.getElementById('addPlant-dropDown');
+                    dropDown.style.display='none';
+                    return true;
+                } else {
+
+                    return false;
+
+                }
+            }
+    }**/
     }
 </script>
 

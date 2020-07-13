@@ -1,5 +1,5 @@
 <template>
-    <div class="row database">
+    <div class="row database" v-if="">
 
         <div class="col-5 selfAlignCenter text-center">
              <span class="Databaselogo">
@@ -48,9 +48,10 @@
              </span>
             <h1 class="font-weight-light">Datenbank</h1>
         </div>
-        <div class="col-lg-1 whiteLineVert"></div>
+        <div class="col-lg-1 whiteLineVert" ></div>
+
         <div class="col-5 text-center" v-if="!buttonPressed">
-            <form>
+            <form >
                 <p class="search">Suche</p>
                 <input type="text" placeholder="Suche nach Pflanzen.." class="form-control form-control-sm searchBarDatabase" aria-label="Search" v-model="search">
                 <select class="form-control form-control-sm searchBarDatabase DropdownFont" v-model="category">
@@ -170,8 +171,17 @@
                 category: '',
                 search: '',
                 difficulty: '',
-                buttonPressed: false
+                buttonPressed: false,
+                loggedInUser:{}
             }
+        },
+        created: function() {
+            this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+
+            //Retrieve user item from local storage in case of login
+            this.$root.$on('loggedIn', () => {
+                this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+            });
         },
         mounted: function() {
             this.$http.get('/api/database/')
@@ -183,23 +193,33 @@
                 });
         },
 
-        computed: {
+        methods: {
+            checkRole: function () {
+                if (this.loggedInUser.roles !== null) {
+                    // redirect auf login einfügen
+                    return true;
+                } else {
+                    return false;
 
-            filteredPlants: function () {
-                return this.plants.filter((plant) => {
-                    return (plant.name.toLowerCase().match(this.search.toLowerCase())
-                        || plant.genus.toLowerCase().match(this.search.toLowerCase())
-                        || plant.latinName.toLowerCase().match(this.search.toLowerCase()))
-                        //|| plant.alternativeName.toLowerCase().match(this.search.toLowerCase()) can be null
-                        && plant.careLevel.match(this.difficulty)
-                        //&& plant.categorySelect.match(this.categorySelect) not yet in database
-                });
-
+                }
             },
+            computed: {
 
-        },
+                filteredPlants: function () {
+                    return this.plants.filter((plant) => {
+                        return (plant.name.toLowerCase().match(this.search.toLowerCase())
+                            || plant.genus.toLowerCase().match(this.search.toLowerCase())
+                            || plant.latinName.toLowerCase().match(this.search.toLowerCase()))
+                            //|| plant.alternativeName.toLowerCase().match(this.search.toLowerCase()) can be null
+                            && plant.careLevel.match(this.difficulty)
+                        //&& plant.categorySelect.match(this.categorySelect) not yet in database
+                    });
 
-    }
+                }
+
+            }
+        }}
+
 
 </script>
 
