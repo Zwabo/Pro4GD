@@ -212,7 +212,7 @@
                             || plant.latinName.toLowerCase().match(this.search.toLowerCase()))
                             //|| plant.alternativeName.toLowerCase().match(this.search.toLowerCase()) can be null
                             && plant.careLevel.match(this.difficulty)
-                        //&& plant.categorySelect.match(this.categorySelect) not yet in database
+                            && plant.categorySelect.match(this.categorySelect)
                     });
 
                 }

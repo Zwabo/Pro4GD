@@ -165,6 +165,7 @@ class UserFixtures extends Fixture
         $dateBirth = date_create('2000-02-03 12:30:03');
         $dateBirth->format('Y-m-d h.i.s');
         $user4->setDateBirth($dateBirth);
+        $user4->setXP(0);
 
         $user4->setPassword($this->passwordEncoder->encodePassword($user4, "test"));
 
