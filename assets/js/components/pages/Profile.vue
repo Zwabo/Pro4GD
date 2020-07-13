@@ -123,7 +123,7 @@
                                                             <ul class="noListStyle">
                                                                 <li>{{ userplant.name }}</li>
                                                                 <li>{{ userplant.location }}</li>
-                                                                <li>level erstellen</li>
+                                                                <li>Level {{plantLevel(userplant.xp)}}</li>
                                                             </ul>
                                                         </div>
                                                         <div class="col-lg-4 plantsProfileImgCol text-right align-self-center">
@@ -146,7 +146,7 @@
                                                             <ul class="noListStyle">
                                                                 <li>{{ userplant.name }}</li>
                                                                 <li>{{ userplant.location }}</li>
-                                                                <li>level erstellen</li>
+                                                                <li>Level {{plantLevel(userplant.xp)}}</li>
                                                             </ul>
                                                         </div>
                                                         <div class="col-lg-4 plantsProfileImgCol text-rigth align-self-center">
@@ -591,6 +591,11 @@
 
                 return string;
 
+            },
+
+            plantLevel: function (xp) {
+
+                return Math.trunc(xp/100)+1;
             },
 
             sendFriendRequest: function(){
