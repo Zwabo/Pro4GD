@@ -69,8 +69,9 @@
                             }
                         });
                     this.$emit('newArticle');
+                    e.preventDefault();
                 }
-                e.preventDefault();
+
             }
 
         }

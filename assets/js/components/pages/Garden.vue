@@ -269,9 +269,9 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                let today = new Date();
                let watering = new Date(wateringDate['date']);
 
-               if(watering.getDate() === today.getDate() &&
-                   watering.getMonth() === today.getMonth() &&
-                   watering.getFullYear() === today.getFullYear()) {
+               if(watering.getDate() <= today.getDate() &&
+                   watering.getMonth() <= today.getMonth() &&
+                   watering.getFullYear() <= today.getFullYear()) {
                    return 'Heute';
                } else {
                    return this.weekday[watering.getDay()];
@@ -296,9 +296,9 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                let today = new Date();
                let watering = new Date(wateringDate['date']);
 
-               if(watering.getDate() === today.getDate() &&
-                   watering.getMonth() === today.getMonth() &&
-                   watering.getFullYear() === today.getFullYear()) {
+               if(watering.getDate() <= today.getDate() &&
+                   watering.getMonth() <= today.getMonth() &&
+                   watering.getFullYear() <= today.getFullYear()) {
                    return 'Ist durstig!';
                } else {
                    return 'Fühlt sich gut!';

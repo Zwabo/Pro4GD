@@ -11,6 +11,7 @@ use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class NewsController extends AbstractController
 {
@@ -70,6 +71,10 @@ class NewsController extends AbstractController
     }
 
     /**
+     * @Security("is_granted('ROLE_ADMIN') and is_granted('ROLE_SUPPORT_USER')")
+     */
+
+    /**
      * @Route("/api/news/createNewsArticle", name="createNewsArticle", methods={"POST"})
      */
     public function createNewsArticle(Request $request, ValidatorInterface $validator): JsonResponse
@@ -93,7 +98,7 @@ class NewsController extends AbstractController
         //Push notifications that new news-article has been released to all users
         $users = $this->getDoctrine()->getRepository(Product::class)->findAll();
         foreach ($users as $user) {
-            $user->addNotification("New News-Article posted!", $news->getTitle());
+            $user->addNotification("Neuer News-Eintrag erschienen!", $news->getTitle());
         }
 
         $entityManager = $this->getDoctrine()->getManager();
@@ -101,6 +106,54 @@ class NewsController extends AbstractController
         $entityManager->flush();
 
         return new JsonResponse(Response::HTTP_OK);
+    }
+
+    /**
+     * upload new plant file images
+     * @Route("/api/uploadNewsFile/", name="uploadNewsFile", methods={"POST"})
+     */
+    public function uploadPlantImage(Request $request) : JsonResponse
+    {
+        $data = $request->getContent();
+        $params = json_decode($data, true);
+
+        $plantPicture = $params["iconElement"];
+        $plantPictureName = $params["iconName"];
+        $plantPictureName = md5(uniqid()).'.'.$plantPicture->guessExtension();
+
+        $plantBackground = $params["windowIconElement"];
+        $plantBackgroundName = $params["windowIconName"];
+        $plantBackgroundName =md5(uniqid()).'.'.$plantBackground->guessExtension();
+
+        $plantPicture->move(
+        /*$this->getParameter('plantPictures_directory'),/*folder*/
+            '.../public/images/plants',
+            $plantPictureName/*pictureName*/
+        );
+
+        $plantBackground->move(
+            '.../public/images/plants',
+            $plantBackgroundName
+        );
+
+        $entityManager=getDoctrine()->getManager();
+
+        return new JsonResponse([], Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/{plantid}/addPlant/createNewPlant/addPicture", name="addPlantPicture")
+     */
+    public function addPlantPicture($plantid, Request $request) : JsonResponse {
+        $picture = $request->getContent();                  // string
+        //$picture = json_decode($picture, true);
+
+        $extension = $picture->guessExtension();
+
+        $plantPictures_directory = $this->getParameter('plantPictures_directory');
+
+        $picture->move($plantPictures_directory, $picture);
+
     }
 
 

@@ -387,9 +387,7 @@ class ForumController extends AbstractController
     }
 
     /**
-     * @Route("/forum/removeThreadLike/{id}")
-     *
-     * @param string $id the comment id given by the vue form
+     * @Route("api/forum/removeThreadLike/{id}")
      */
     public function removeThreadLike(Request $request, string $id)
     {
@@ -412,6 +410,35 @@ class ForumController extends AbstractController
 
         $entityManager->persist($user);
         $entityManager->remove($thumbUpThread);
+        $entityManager->flush();
+        return new JsonResponse([], Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("api/forum/removeThread/{id}")
+     *
+     */
+    public function removeThread(Request $request, string $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $content = json_decode($request->getContent());
+
+        $user = $entityManager->getRepository(User::class)->find($content->userId);
+        $thread = $entityManager
+            ->getRepository(Thread::class)
+            ->findOneBy(
+                ['thread' => $id, 'user' => $user->getId()]
+            );
+
+        if (!$thread) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $user->setXP($user->getXP() - 1);
+
+        $entityManager->persist($user);
+        $entityManager->remove($thread);
         $entityManager->flush();
         return new JsonResponse([], Response::HTTP_OK);
     }
