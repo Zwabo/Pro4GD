@@ -172,7 +172,7 @@ class UserController extends AbstractController
         array_push($profileComments, $comment);
 
         $user->setComments($profileComments);
-        $user->addNotification("New Comment on your profile page!", $comment->msg);
+        $user->addNotification("Neuer Kommentar auf deiner Profil-Seite!", $comment->msg);
         $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse($user->toAssoc(), Response::HTTP_OK);

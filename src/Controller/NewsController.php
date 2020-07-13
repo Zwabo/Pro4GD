@@ -98,7 +98,7 @@ class NewsController extends AbstractController
         //Push notifications that new news-article has been released to all users
         $users = $this->getDoctrine()->getRepository(Product::class)->findAll();
         foreach ($users as $user) {
-            $user->addNotification("New News-Article posted!", $news->getTitle());
+            $user->addNotification("Neuer News-Eintrag erschienen!", $news->getTitle());
         }
 
         $entityManager = $this->getDoctrine()->getManager();
