@@ -16,11 +16,11 @@
                 </div>
                 <div class="col-lg-7 text-left"><h1 class="font-weight-light"><span class="font-weight-bolder text-uppercase">Plant</span><span class="text-uppercase">Base</span> <br>Datenbank</h1></div>
             </div>
-            <div v-show="!checkRole()">SUPPORT USER</div>
-            <div class="row" >
-                <div class="container-fluid marginLeftRight">
 
-                    <form v-show="checkRole()">
+            <div class="row" >
+                <div class="container-fluid marginLeftRight" >
+
+                    <form >
                         <h3 class="h3Margin search">Neue Pflanze hinzufügen</h3>
                         <div class="greenLine"></div>
 
@@ -406,7 +406,7 @@
                 errors: [],
 
                 // Eckdaten
-                loggedInUser: {},
+                loggedInUser: {roles:''},
                 name: null,
                 linkname: null,
                 alternativeName: null,
@@ -515,7 +515,7 @@
         },
         methods: {
             checkRole: function () {
-                if (this.loggedInUser.roles === 'ROLE_ADMIN' || this.loggedInUser.roles === 'ROLE_SUPPORT_USER') {
+                if (this.loggedInUser.roles === 'ROLE_ADMIN' || this.loggedInUser.roles === 'ROLE_SUPPORT_USER' ) {
                     return true;
                 } else {
                     return false;

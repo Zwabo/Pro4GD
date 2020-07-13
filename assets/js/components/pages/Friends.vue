@@ -81,5 +81,75 @@
 </script>
 
 <style scoped>
+    .bgLightGrey { background-color: #DEDEDE; }
 
+    .marginLeftRight { margin-left: 5%; margin-right: 5%; }
+    .h3Margin {
+        margin-top: 50px;
+        color: #97B753;
+    }
+    .greenLine {
+        width: 100%;
+        height: 2px;
+        background: #97B753;
+        margin-bottom: 4%;
+    }
+    .smallUserPics {
+        max-width: 100px;
+        min-width: 50px;
+        width: 80%;
+        border-radius: 100px;
+    }
+    /*to align pictures to the center*/
+    .selfAlignCenter {
+        align-self: center;
+    }
+    /*ul class for no list style*/
+    .noListStyle {
+        list-style-type: none;
+        margin-bottom: 0px;
+        padding: 0px;
+    }
+    .rightBoxes {
+        background-color: white;
+        border: 2px solid #DEDEDE;
+        border-radius: 10px;
+        margin-bottom: 50px;
+    }
+    .rightBoxes:first-of-type {
+        margin-top: 50px;
+    }
+    /*right side floating boxes*/
+    .rightBoxesPadding { padding: 20px; }
+
+    .buttonDarkGreenMini{
+        background-color: #97B753;
+        padding: 5px 8px;
+        margin-left: 10px;
+        color: white;
+        border: 2px solid #97B753;
+        border-radius: 10px;
+        font-size: 10pt;
+    }
+
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
+        .marginLeftRight { margin-left: 4%; margin-right: 4%; }
+
+        .smallUserPics { width: 80%; }
+    }
+
+    /* Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
+        .smallUserPics { width: 60%; }
+    }
+
+    @media (max-width: 767.98px) {
+        .h4Box { font-size: 120%; }
+    }
+
+    /* Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+        .marginLeftRight { margin-left: 2%; margin-right: 2%; }
+    }
 </style>
