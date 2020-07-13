@@ -7,8 +7,8 @@
         </div>
 
         <div class="col-lg-10" id="indexNewsSlider">
-    <transition-group name="fade" tag="div">
-         <div v-for="i in [currentIndex]" :key="i">
+
+         <div v-for="i in [currentIndex]" :key="i" >
             <div  class="row">
              <img class="col-lg-5"v-bind:src="currentArticle.thumbnail">
              <div class="col-lg-7"id="bgNewsArticleBox">
@@ -16,12 +16,8 @@
                  <p id="slider-text">{{currentArticle.shortText}}</p>
                  <router-link class="slider-title"  id="slider-readMore" :to="'/news/' + currentArticle.id"> mehr lesen <b>>> </b></router-link>
              </div>
-
-            </div>
              </div>
-
-    </transition-group>
-
+         </div>
         </div>
         <div class="col-lg-1 text-right indexArrows">
             <svg><use href="#indexArrowRight"></use></svg>
@@ -53,6 +49,8 @@
             }
         },
         mounted: function(){
+            this.startSlide(),
+
             this.$http.get('/api/news')
                 .then(response => {
                     this.newsData = response.data;
@@ -70,7 +68,10 @@
             },
             prev: function() {
                 this.currentIndex -= 1;
-            }
+            },
+            startSlide: function() {
+                this.timer = setInterval(this.next, 5000);
+            },
         },
         computed: {
             currentArticle: function() {

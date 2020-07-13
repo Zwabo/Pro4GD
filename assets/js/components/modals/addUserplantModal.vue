@@ -67,12 +67,21 @@
                 cycle: '',
                 notes: '',
                 error: '',
-                userId: this.user
+                userId: this.user,
+                loggedInUser: null,
             }
         },
         props:{
             plant: null,
             user: null
+        },
+        created: function(){
+            this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+
+            //Retrieve user item from local storage in case of login
+            this.$root.$on('loggedIn', () => {
+                this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+            });
         },
         methods:{
             addUserplant: function(e){
@@ -89,9 +98,16 @@
                             this.error = error.response.data;
                         }
                     });
+
                 this.$emit('newUserplant');
 
                 e.preventDefault();
+
+                console.log(this.loggedInUser.username);
+
+                this.$http.put('/api/garden/' + this.loggedInUser.username + '/setCounterPlant')
+                    .then(response => { console.log(response.data) })
+                    .catch(error => { alert(error); });
             }
         }
     }

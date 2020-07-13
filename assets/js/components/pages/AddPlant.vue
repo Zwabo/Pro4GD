@@ -16,11 +16,11 @@
                 </div>
                 <div class="col-lg-7 text-left"><h1 class="font-weight-light"><span class="font-weight-bolder text-uppercase">Plant</span><span class="text-uppercase">Base</span> <br>Datenbank</h1></div>
             </div>
-
-            <div class="row">
+            <div v-show="!checkRole()">SUPPORT USER</div>
+            <div class="row" >
                 <div class="container-fluid marginLeftRight">
 
-                    <form>
+                    <form v-show="checkRole()">
                         <h3 class="h3Margin search">Neue Pflanze hinzufügen</h3>
                         <div class="greenLine"></div>
 
@@ -65,7 +65,7 @@
 
                         <div class="row form-group">
                             <div class="col-lg-2 col-form-label">
-                                <label for="LatinName" class="paddingNormalize marginNormalize">Lateinischer Namen</label>
+                                <label for="LatinName" class="paddingNormalize marginNormalize">Lateinischer Namen*</label>
                             </div>
                             <div class="col-sm-10">
                                 <input v-model="latinName" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
@@ -119,6 +119,20 @@
                                             v-bind:key="index" required>{{difficulty.text}}</option>
                                 </select>
                             </div>
+                        </div>
+
+                        <div class="greenLineThin"></div>
+                        <h4 class="addPlantH4">Bilder*</h4>
+                        <p>Jpg oder png zulässig.</p>
+                        <div class="row form-group">
+                            <div class="col-lg-2 col-form-label"><label for="plantPicture">Pflanzenbild*</label></div>
+                            <div class="col-lg-10"><input type="file" @change="onPlantFileSelected" name="plantPicture"
+                                                          id="plantPicture"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-2 col-form-label"><label for="plantBackground">Hintergrundbild*</label></div>
+                            <div class="col-lg-10"><input type="file" @change="onBackgroundFileSelected" name="plantBackground"
+                                                          id="plantBackground"></div>
                         </div>
 
                         <div class="greyLineThin"></div>
@@ -389,11 +403,10 @@
         name: "AddPlant",
         data: function(){
             return{
-
                 errors: [],
 
                 // Eckdaten
-
+                loggedInUser: {},
                 name: null,
                 linkname: null,
                 alternativeName: null,
@@ -483,13 +496,51 @@
                 fertiliserAddinfo: null,
                 heydayAddinfo: null,
 
+                // Bild Uploads
+
+                selectedPlantFile: null,
+                selectedPlantFileName: null,
+                selectedBackgroundFile: null,
+                selectedBackgroundFileName: null
+
             }
         },
+        created: function(){
+            this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+
+            //Retrieve user item from local storage in case of login
+            this.$root.$on('loggedIn', () => {
+                this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+            });
+        },
         methods: {
-            addPlantCreateNew: function() {
+            checkRole: function () {
+                if (this.loggedInUser.roles === 'ROLE_ADMIN' || this.loggedInUser.roles === 'ROLE_SUPPORT_USER') {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            addPlantCreateNew: function(e) {
                 this.locationIcon = this.locationIcon.toString();
 
+                let plantFileString = "images/plants/" + this.selectedPlantFileName;
+                let backgroundFileString = "images/plants/" + this.selectedBackgroundFileName;
+
                 if(this.name && this.linkname ) {
+
+                    /*this.$http.post('/api/uploadPlantFile/', {
+                        iconName: this.selectedPlantFileName,
+                        iconElement: this.selectedPlantFile,
+                        windowIconName: this.selectedBackgroundFileName,
+                        windowIconElement: this.selectedBackgroundFile,
+                    })
+                        .then(response => {
+
+                        })
+                        .catch(error=> {
+                            alert(error);
+                        });*/
 
                     this.$http.post('/api/addPlant/createNewPlant/', {
                         name: this.name,
@@ -518,28 +569,65 @@
                         careTips: this.careTips,
                         category: this.categorySelect,
 
+                        // send file to the background
+                        iconElement: this.selectedPlantFile,
+                        windowIconElement: this.selectedBackgroundFile,
+
+                        iconElementName: this.selectedPlantFileName,
+                        windowIconElementName: this.selectedBackgroundFileName,
+
+                        // this will be set in the background, just dummy code for now
                         icon: "images/plants/Aloe.png",
                         windowIcon: "images/plants/AloeBackground.png",
                     })
                         .then(response => {
-
+                            //this.savePlantPicture(response.data, this.selectedPlantFile);
                         })
                         .catch(error => {
                             if(error.response.data) {
                                 this.error = error.response.data;
                             }
                         });
-                    //this.$emit('newPlant');
+
+
                 } else {
+                    e.preventDefault();
                     alert("Bitte füllen Sie alle Pflichtfelder aus.");
                 }
-                //e.preventDefault();
-            }
+                e.preventDefault();
+            },
 
+            /*savePlantPicture: function(plantid, file) {
+                console.log(plantid);
+                console.log(file);
+
+                this.$http.get('/api/' + plantid + '/addPlant/createNewPlant/addPicture', file)
+                    .then(response => {
+                        console.log(response.data);
+                    })
+                    .catch(error => {
+                       alert(error);
+                    });
+            },*/
+
+
+            onPlantFileSelected: function(event) {
+                this.selectedPlantFile = event.target.files[0];
+                this.selectedPlantFileName = event.target.files[0].name;
+                console.log(this.selectedPlantFile);
+                console.log(event.target.files);
+            },
+
+            onBackgroundFileSelected: function(event) {
+                this.selectedBackgroundFile = event.target.files[0];
+                this.selectedBackgroundFileName= event.target.files[0].name;
+                console.log(this.selectedBackgroundFile);
+            }
         }
     }
 
 </script>
+
 
 <style scoped>
 
@@ -559,6 +647,7 @@
         font-size: 120%;
         margin-bottom: 2%;
         color: #97B753;
+        margin-top: 4%;
     }
     .addPlantH5 {
         font-size: 100%;

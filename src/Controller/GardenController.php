@@ -185,6 +185,31 @@ class GardenController extends AbstractController
         return new JsonResponse(Response::HTTP_OK);
     }
 
+    /**
+     * @Route("/api/garden/{id}/setCounterWatered", name="setCounterWatered", methods={"PUT"})
+     */
+    public function setCounterWatered($id){
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->find($id);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $counterWatered = $user->getCounterPlantsWatered();
+        if ($counterWatered == null) {
+            $counterWatered = 1;
+        } else {
+            $counterWatered++;
+        }
+
+        $user->setCounterPlantsWatered($counterWatered);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
+
 }
 
 

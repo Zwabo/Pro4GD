@@ -11,6 +11,7 @@ use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class NewsController extends AbstractController
 {
@@ -68,6 +69,10 @@ class NewsController extends AbstractController
 
         return new JsonResponse($news, Response::HTTP_OK);
     }
+
+    /**
+     * @Security("is_granted('ROLE_ADMIN') and is_granted('ROLE_SUPPORT_USER')")
+     */
 
     /**
      * @Route("/api/news/createNewsArticle", name="createNewsArticle", methods={"POST"})

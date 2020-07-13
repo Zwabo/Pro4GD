@@ -40,8 +40,8 @@
                     <h3 class="h3Margin">Verwendete Symbole</h3>
                     <div class="greenLine"></div>
 
-                    <ul>
-                        <li><span class="fontBold">Warning</span>, Flaticon, <a href="https://www.flaticon.com/">www.flaticon.com</a>, <a href="https://www.flaticon.com/">Flaticon Basic License</a> Flaticon Basic License</li>
+                    <ul class="noListStyle">
+                        <li><span class="bold">Warning</span>, Flaticon, <a href="https://www.flaticon.com/">www.flaticon.com</a>, <a href="https://www.flaticon.com/">Flaticon Basic License</a> Flaticon Basic License</li>
                         <li><span class="bold">Fertilizer</span>, Pixelmeetup, <a href="https://www.flaticon.com/">www.flaticon.com</a>, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
                         <li><span class="bold">Reply</span>, Those Icons, <a href="https://www.flaticon.com/">www.flaticon.com</a>, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
                         <li><span class="bold">Image</span>, Pixel perfect, <a href="https://www.flaticon.com/">www.flaticon.com</a>, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
@@ -63,18 +63,35 @@
                         <li><span class="bold">Plant</span>, Freepik, <a href="https://www.flaticon.com/">www.flaticon.com</a>, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
                         <li><span class="bold">Watering Can</span>, Freepik, <a href="https://www.flaticon.com/">www.flaticon.com</a>, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
                         <li><span class="bold">Visibility</span>, Google, <a href="https://www.flaticon.com/">www.flaticon.com</a>, <a href="https://www.flaticon.com/">CC BY 3.0</a></li>
+                        <li><span class="bold">Shield symbols or badges set of nine</span>, starline, <a href="https://www.freepik.com/">Freepik Basic License</a></li>
+                        <li><span class="bold">Set of golden shields and laurel wreaths</span>, freepik, <a hreff="https://www.freepik.com/">Freepik Basic License</a></li>
+                        <li><span class="bold">Golden decorative elements</span>, vectorwins, <a href="https://www.freepik.com/">Freepik Basic License</a></li>
+                        <li><span class="bold">Plant</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Water</span>, Smashicons, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Team</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Water</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Water Lily</span>, Smashicons, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Plant</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Plant Pot</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Sapling</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Appreciation</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Farming</span>, ultimateam, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Plant</span>, Good Ware, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Love</span>, Vector Market, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Flower</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Leaves</span>, Pixel perfect, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
                     </ul>
                 </div>
 
                 <div class="row">
-                    <div class="container-fluid">
+                    <div class="container-fluid paddingNormalize">
                         <h3 class="h3Margin">Grundlegende Richtung</h3>
                         <div class="greenLine"></div>
                         <p>Die Angaben auf dieser Webseite dienen lediglich der allgemeinen Information.</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="container-fluid">
+                    <div class="container-fluid paddingNormalize">
                         <h3 class="h3Margin">Haftung</h3>
                         <div class="greenLine"></div>
                         <p>Der Autor dieser Webseiten ist bestrebt, die hier angebotenen Informationen nach bestem Wissen und Gewissen vollständig und richtig darzustellen und aktuell zu halten. Dennoch kann er keinerlei Haftung für Schäden übernehmen, die sich aus der Nutzung der angebotenen Informationen ergeben können – auch wenn diese auf die Nutzung von allenfalls unvollständigen bzw. fehlerhaften Informationen zurückzuführen sind.</p>
@@ -83,7 +100,7 @@
                 </div>
 
                 <div class="row copyRight">
-                    <div class="container-fluid">
+                    <div class="container-fluid paddingNormalize">
                         <h3 class="h3Margin">Urheberrecht</h3>
                         <div class="greenLine"></div>
                         <p>Die vom Autor selbst erstellten Inhalte (Texte und Bilder) dieser Seiten sind urheberrechtlich geschützt. Die Informationen sind nur für die persönliche Verwendung bestimmt. Jede den Bestimmungen des Urheberrechtsgesetzes widersprechende Verwendung jeglicher Inhalte dieser Webseiten – insbesondere die weitergehende Nutzung wie beispielsweise die Veröffentlichung, Vervielfältigung und jede Form von gewerblicher Nutzung sowie die Weitergabe an Dritte – auch in Teilen oder in überarbeiteter Form – ohne ausdrückliche Zustimmung des Autors ist untersagt.</p>
@@ -91,7 +108,7 @@
                 </div>
 
                 <div class="row information">
-                    <div class="container-fluid">
+                    <div class="container-fluid paddingNormalize">
                         <h3 class="h3Margin">Informationsgehalt</h3>
                         <div class="greenLine"></div>
                         <p>Die Informationen dieser Webseiten können ohne vorherige Ankündigung geändert, entfernt oder ergänzt werden. Der Autor kann daher keine Garantie für die Korrektheit, Vollständigkeit, Qualität oder Aktualität der bereitgestellten Informationen geben.</p>
@@ -99,7 +116,7 @@
                 </div>
 
                 <div class="row validity">
-                    <div class="container-fluid">
+                    <div class="container-fluid paddingNormalize">
                         <h3 class="h3Margin">Rechtswirksamkeit</h3>
                         <div class="greenLine"></div>
                         <p>Durch Nutzung dieser Webseiten unterliegt der Nutzer den gegenständlichen Nutzungsbedingungen. Diese sind Teil des WWW-Angebotes. Sofern Teile oder einzelne Formulierungen der Nutzungsbedingungen der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen sollten, bleiben die übrigen Teile der Nutzungsbedingungen in ihrem Inhalt und ihrer Gültigkeit davon unberührt.</p>
@@ -107,7 +124,7 @@
                 </div>
 
                 <div class="row privacyStatement" id="privacyStatement">
-                    <div class="container-fluid">
+                    <div class="container-fluid paddingNormalize">
                         <h3 class="h3Margin">Datenschutzerklärung</h3>
                         <div class="greenLine"></div>
                         <p>Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, BDSG). In diesen Datenschutzinformationen informieren wir Sie über die wichtigsten Aspekte der Datenverarbeitung im Rahmen unserer Website.</p>
@@ -163,5 +180,8 @@
 </script>
 
 <style scoped>
-
+    .bold {
+        font-weight: bolder;
+        color: #97B753;
+    }
 </style>

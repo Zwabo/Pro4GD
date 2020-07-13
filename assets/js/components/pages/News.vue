@@ -49,8 +49,6 @@
         data: function(){
             return {
                newsData: {},
-                profileUser: { roles:['ROLE_ADMIN']},
-                isAdmin: false,
                 loggedInUser: {}
             }
         },
@@ -80,13 +78,19 @@
             },
 
             checkRole: function(){
-                if(this.loggedInUser.roles == 'ROLE_ADMIN'){
+                if(this.loggedInUser.roles === 'ROLE_ADMIN' || this.loggedInUser.roles === 'ROLE_SUPPORT_USER' ){
                     return true;
                 } else {
                     return false;
                 }
 
             }
+
+            /*filters: {
+                reverse(items) {
+                    return items.slice().reverse()
+                }
+            }*/
 
     }
 

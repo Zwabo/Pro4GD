@@ -38,14 +38,12 @@
                             <router-link to="/friends" class="dropdown-item">          <!-- change to dynamic -->
                                 Freunde
                             </router-link>
-                            <a class="dropdown-item" href="#">Statistik</a>
                             <router-link class="dropdown-item" :to="'/settings/'">Einstellungen</router-link>
                             <router-link class="dropdown-item" to="/logout">Ausloggen</router-link>
                         </div>
                     </li>
                     <li class="nav-item selfAlignCenter" v-if="navigationUser == null">
                         <router-link class="nav-link" to="/login">Login</router-link>
-
                     </li>
 
                 </ul>

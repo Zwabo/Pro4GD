@@ -145,6 +145,9 @@ class FriendsController extends AbstractController
             $request->setDate(new \DateTime());
             $request->setConfirmed(false);
 
+            //Queue Push-Notification
+            $receiver->addNotification("Neue Freundschaftsanfrage erhalten!", "von ".$user->getUsername());
+
             $this->getDoctrine()->getManager()->persist($request);
             $this->getDoctrine()->getManager()->flush();
 
@@ -153,5 +156,30 @@ class FriendsController extends AbstractController
         }
 
         return new JsonResponse([], Response::HTTP_BAD_REQUEST);
+    }
+
+    /**
+     * @Route("/api/friends/{username}/setCounterFriendsAdded", name="setCounterFriendsAdded", methods={"PUT"})
+     */
+    public function setCounterFriendsAdded($username){
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $username]);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $counterFriendsAdded = $user->getCounterFriends();
+        if ($counterFriendsAdded == null) {
+            $counterFriendsAdded = 1;
+        } else {
+            $counterFriendsAdded++;
+        }
+
+        $user->setCounterFriends($counterFriendsAdded);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
     }
 }

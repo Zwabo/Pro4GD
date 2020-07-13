@@ -208,8 +208,6 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                .catch(error => {
                    alert(error);
                });
-
-
        },
 
        computed: {
@@ -221,7 +219,6 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                        || plant.latinName.toLowerCase().match(this.search.toLowerCase())
                        //|| plant.alternativeName.toLowerCase().match(this.search.toLowerCase()) can be null
                });
-
            },
 
        },
@@ -229,9 +226,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
        methods:{
 
            replaceImage: function (image) {
-
                this.image= image;
-
            },
 
            newUserplant: function(){
@@ -262,6 +257,9 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                            alert(error);
                        });
 
+                   this.$http.put('/api/garden/' + this.$route.params.id + '/setCounterWatered')
+                       .then(response => { console.log(response.data) })
+                       .catch(error => { alert(error); });
                }
 
            },
@@ -305,7 +303,6 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                } else {
                    return 'Fühlt sich gut!';
                }
-
            },
 
 

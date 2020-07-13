@@ -11,10 +11,14 @@ use App\Entity\Plant;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
+/**
+ * @IsGranted({"ROLE_ADMIN", "ROLE_SUPPORT_USER"})
+ */
 class AddPlantController extends AbstractController
 {
-
     /**
      * @Route("/api/addPlant/", name="addPlants", methods={"GET"})
      */
@@ -35,14 +39,77 @@ class AddPlantController extends AbstractController
     }
 
     /**
+     * upload new plant file images
+     * @Route("/api/uploadPlantFile/", name="uploadPlantFile", methods={"POST"})
+     */
+    public function uploadPlantImage(Request $request) : JsonResponse
+    {
+        $data = $request->getContent();
+        $params = json_decode($data, true);
+
+        $plantPicture = $params["iconElement"];
+        $plantPictureName = $params["iconName"];
+        $plantPictureName = md5(uniqid()).'.'.$plantPicture->guessExtension();
+
+        $plantBackground = $params["windowIconElement"];
+        $plantBackgroundName = $params["windowIconName"];
+        $plantBackgroundName =md5(uniqid()).'.'.$plantBackground->guessExtension();
+
+        $plantPicture->move(
+            /*$this->getParameter('plantPictures_directory'),/*folder*/
+            '.../public/images/plants',
+            $plantPictureName/*pictureName*/
+        );
+
+        $plantBackground->move(
+            '.../public/images/plants',
+            $plantBackgroundName
+        );
+
+        $entityManager=getDoctrine()->getManager();
+
+        return new JsonResponse([], Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/{plantid}/addPlant/createNewPlant/addPicture", name="addPlantPicture")
+     */
+    public function addPlantPicture($plantid, Request $request) : JsonResponse {
+        $picture = $request->getContent();                  // string
+        //$picture = json_decode($picture, true);
+
+        $extension = $picture->guessExtension();
+
+        $plantPictures_directory = $this->getParameter('plantPictures_directory');
+
+        $picture->move($plantPictures_directory, $picture);
+
+    }
+
+    /**
      * @Route("/api/addPlant/createNewPlant/", name="addPlant_create")
      */
     public function addPlantCreate(Request $request, ValidatorInterface $validator) : JsonResponse
     {
         $data = $request->getContent();
+
         $params = json_decode($data, true);
 
-        /** @var \App\Entity\Plant $plant */
+        /*get the file first to send it to the background to save*/
+
+        $plantPicture = $params["iconElement"];         // comes as an array not a file, we need file itself - file is sent into the background
+        $plantBackground = $params["windowIconElement"];
+
+        $plantPictureName = $params["iconElementName"];     // the name needs to be decoded to afterwards
+
+        /*create a filename so that filename is unique*/
+        //$plantPictureName = $plantPicture.'-'.md5(uniqid()).'.'.$plantPicture->guessExtension();       guessExtension is only possible with files
+
+        $plantPictures_directory = $this->getParameter('plantPictures_directory');
+
+        //$plantPicture->move($plantPictures_directory, end($plantPictureName));                        move is only possible with files
+
+            /** @var \App\Entity\Plant $plant */
         $plant = new Plant();
 
         $plant->setName($params["name"]);
@@ -83,7 +150,7 @@ class AddPlantController extends AbstractController
         $entityManager->persist($plant);
         $entityManager->flush();
 
-        return new JsonResponse('Saved new platn with id ' .$plant->getId(), Response::HTTP_OK);
+        return new JsonResponse($plant->getId(), Response::HTTP_OK);
     }
 
 

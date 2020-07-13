@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\Userplant;
 use App\Entity\Plant;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -139,6 +140,31 @@ class UserplantController extends AbstractController
         $entityManager->flush();
 
         return new Response('Saved new userplant with id '.$userplant->getId());
+    }
+
+    /**
+     * @Route("/api/garden/{username}/setCounterPlant", name="v", methods={"PUT"})
+     */
+    public function setCounterPlant($username){
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $username]);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $counterPlant = $user->getCounterPlantsAdded();
+        if ($counterPlant == null) {
+            $counterPlant = 1;
+        } else {
+            $counterPlant++;
+        }
+
+        $user->setCounterPlantsAdded($counterPlant);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
     }
 }
 

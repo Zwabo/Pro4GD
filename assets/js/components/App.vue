@@ -25,7 +25,7 @@ export default {
                     let i = 0;
                     while(i < this.notificationData.length){
                         Push.create(this.notificationData[i][0], {
-                            body: 'A user commented: ' + this.notificationData[i][1],
+                            body: this.notificationData[i][1],
                             timeout: 4000,
                             onClick: function () {
                                 window.focus();

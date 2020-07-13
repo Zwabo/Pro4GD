@@ -3,14 +3,19 @@
 
         <div class="container-fluid paddingLeftRight">
             <div class="row marginTopOnSite">
+
                 <div class="col-lg-10 paddingNormalize">
                     <h1 class="forumH1">
                         <router-link to="/forum"  id="naviLogo">
                             Forum
                         </router-link>
-                        /{{thread.category.title}}/</h1>
+                        <span v-if="thread.category.parent!=null">/ {{thread.category.parent.title}}</span>
+                        / {{thread.category.title}}</h1>
                 </div>
-                <div class="col-lg-2 text-right">
+
+
+                <div class="col-lg-1 text-right">
+
                     <span class="searchForum"><svg xmlns="http://www.w3.org/2000/svg" width="41.472" height="35.105" viewBox="0 0 41.472 35.105">
                       <g id="Gruppe_730" data-name="Gruppe 730" transform="translate(0.872)">
                         <g id="Ellipse_28" data-name="Ellipse 28" transform="translate(12.6)" fill="#fff" stroke="#97b753" class="searchStroke" stroke-width="3">
@@ -20,7 +25,15 @@
                         <line id="Linie_14" data-name="Linie 14" y1="10.93" x2="15.303" transform="translate(0 22.954)" fill="none" stroke="#97b753" class="searchStroke" stroke-width="3"/>
                       </g>
                     </svg></span>
+
                 </div>
+
+                <!-- Button zum löschen von Threads für admins und supporting users -->
+                <button v-show="checkRole()" type="button" class="buttonDarkGreen col-lg-2" @click="removeThread">
+                    Thread löschen
+                    <!-- Comment  <router-link :to="'/forum'" ></router-link>-->
+                </button>
+
             </div>
             <div class="row greenLine paddingNormalize lineUnderHL"></div>
 
@@ -101,6 +114,10 @@
                             </svg>
                             <p class="iconText">{{comment.likes}}</p>
                         </div>
+                        <!-- Button zum löschen von Comments für admins und supporting users -->
+                        <button v-if="checkRole()" type="button" class="buttonDarkGreen col-lg-2" @click="removeThread()">
+                            Thread löschen
+                        </button>
                     </div>
                 </div>
                 <div class="greyLine commentLine"></div>
@@ -123,6 +140,7 @@
                 thread: null,
                 comment: null,
                 comments: null,
+                loggedUser: {},
 
                 commentCounter: 0
             }
@@ -151,7 +169,7 @@
         },
 
         methods: {
-            likeIt: function() {
+            likeIt: function () {
                 let heart = document.getElementById("heartFill").getAttribute('fill');
 
                 if (heart === "#dedede") {
@@ -172,10 +190,10 @@
                     this.thread.likes--;
                 }
             },
-            likeItId: function(id) {
+            likeItId: function (id) {
                 let heartID = document.getElementById('heartFill' + id).getAttribute('fill');
 
-                let commentId = id-1;
+                let commentId = id - 1;
                 console.log(this.comments);
 
                 if (heartID === "#dedede") {
@@ -186,8 +204,8 @@
                     //document.getElementById('heartFill' + id).setAttribute("fill", "#707070");
                     document.getElementById('heartFill' + id).setAttribute("fill", "#000000");
                     this.$router.go(); // Workaround because statement below is not working
-                    this.comments.forEach(function(comment){
-                        if (id == comment.id){
+                    this.comments.forEach(function (comment) {
+                        if (id == comment.id) {
                             comment.likes++;
                             comment.isliked = true;
                         }
@@ -198,8 +216,8 @@
                     })
                     document.getElementById('heartFill' + id).setAttribute("fill", "#dedede");
 
-                    this.comments.forEach(function(comment){
-                        if (id == comment.id){
+                    this.comments.forEach(function (comment) {
+                        if (id == comment.id) {
                             comment.likes--;
                             comment.isLiked = false;
                         }
@@ -207,14 +225,33 @@
                 }
             },
 
-            commentNr: function(id) {
-                return id+1;
-            }
-        },
+            commentNr: function (id) {
+                return id + 1;
+            },
+            removeThread: function () {
+                this.$http.delete('/api/forum/removeThread/' + this.thread.id)
+                    .then(response => {
+                        this.thread = response.data;
+                    })
+                    .catch(error => {
+                        alert(error);
+                    }).finally(() => {
+                    this.isLoading = false;
+                    this.$router.push('/forum/');
+    });
+            },
+            checkRole: function () {
+                if (this.loggedUser.roles === 'ROLE_ADMIN') {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
 
-        filters: {
-            reverse(items) {
-                return items.slice().reverse()
+            filters: {
+                reverse(items) {
+                    return items.slice().reverse()
+                }
             }
         }
     }
