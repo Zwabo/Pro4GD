@@ -108,5 +108,53 @@ class NewsController extends AbstractController
         return new JsonResponse(Response::HTTP_OK);
     }
 
+    /**
+     * upload new plant file images
+     * @Route("/api/uploadNewsFile/", name="uploadNewsFile", methods={"POST"})
+     */
+    public function uploadPlantImage(Request $request) : JsonResponse
+    {
+        $data = $request->getContent();
+        $params = json_decode($data, true);
+
+        $plantPicture = $params["iconElement"];
+        $plantPictureName = $params["iconName"];
+        $plantPictureName = md5(uniqid()).'.'.$plantPicture->guessExtension();
+
+        $plantBackground = $params["windowIconElement"];
+        $plantBackgroundName = $params["windowIconName"];
+        $plantBackgroundName =md5(uniqid()).'.'.$plantBackground->guessExtension();
+
+        $plantPicture->move(
+        /*$this->getParameter('plantPictures_directory'),/*folder*/
+            '.../public/images/plants',
+            $plantPictureName/*pictureName*/
+        );
+
+        $plantBackground->move(
+            '.../public/images/plants',
+            $plantBackgroundName
+        );
+
+        $entityManager=getDoctrine()->getManager();
+
+        return new JsonResponse([], Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/{plantid}/addPlant/createNewPlant/addPicture", name="addPlantPicture")
+     */
+    public function addPlantPicture($plantid, Request $request) : JsonResponse {
+        $picture = $request->getContent();                  // string
+        //$picture = json_decode($picture, true);
+
+        $extension = $picture->guessExtension();
+
+        $plantPictures_directory = $this->getParameter('plantPictures_directory');
+
+        $picture->move($plantPictures_directory, $picture);
+
+    }
+
 
 }

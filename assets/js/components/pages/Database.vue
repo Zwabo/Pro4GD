@@ -49,9 +49,9 @@
             <h1 class="font-weight-light">Datenbank</h1>
         </div>
         <div class="col-lg-1 whiteLineVert" ></div>
-        <div v-show="!checkRole()">DU MUSST EINGELOGGT SEIN FÜR DIE DB!!</div>
+
         <div class="col-5 text-center" v-if="!buttonPressed">
-            <form v-show="checkRole()">
+            <form >
                 <p class="search">Suche</p>
                 <input type="text" placeholder="Suche nach Pflanzen.." class="form-control form-control-sm searchBarDatabase" aria-label="Search" v-model="search">
                 <select class="form-control form-control-sm searchBarDatabase DropdownFont" v-model="category">

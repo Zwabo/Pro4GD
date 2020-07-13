@@ -86,7 +86,7 @@ class UserFixtures extends Fixture
 
         $user2->setPassword($this->passwordEncoder->encodePassword($user2, "test123"));
 
-        $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_SUPPORT_USER';
         $user2->setRoles($roles);
 
         $user2->setFriends(["Milan", "Markus", "Kita", "Marie"]);
