@@ -284,16 +284,93 @@ class ForumController extends AbstractController
         return new JsonResponse([], Response::HTTP_OK);
     }
 
+    /**
+     * @Route("/forum/likedStatus/{threadid}", name="likedStatus", methods={"POST"})
+     */
+    public function likedStatus($threadid, Request $request) : JsonResponse
+    {
+        $data = $request->getContent();
+        $data = json_decode($data, true);
+        $userid = $data["userId"];
+
+        $liked = null;
+
+        $thread = $this->getDoctrine()
+            ->getRepository(ThumbUpThread::class)
+            ->findOneBy(
+                ['thread' => $threadid, 'user' => $userid]
+            );
+
+        if (!$thread) {
+            $liked = false;
+        } else {
+            $liked = true;
+        }
+
+        return new JsonResponse($liked, Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("forum/commentsLikedStatus/{threadid}", name="commentsLikedStatus", methods={"POST"})
+     */
+    public function commentsLikedStatus($threadid, Request $request) : JsonResponse
+    {
+        $data = $request->getContent();
+        $data = json_decode($data, true);
+        $userid = $data["userId"];
+
+        $commentsall = $this->getDoctrine()
+            ->getRepository(Comment::class)
+            ->findAll(["user" => $userid]);
+
+        $comments = [];
+
+        foreach($commentsall as $element) {
+            $thread = $element->getThread();
+            $elementid = $thread->getId();
+
+            if ($elementid == $threadid) {
+                array_push($comments, $element);
+            }
+        }
+
+        /*$test2 = [];
+        foreach ($test as $comment) {
+            $comment = $comment->toAssoc();
+            array_push($test, $comment);
+        }*/
+
+        $commentsLiked = [];
+
+        foreach($comments as $comment) {
+            $id = $comment->getId();
+
+            $likedComment = $this->getDoctrine()
+                ->getRepository(ThumbUp::class)
+                ->findOneBy(
+                    ['Comment' => $id]
+                );
+
+            if ($likedComment) {
+                array_push(
+                    $commentsLiked, $likedComment->getComment()->getId());
+            }
+        }
+
+        return new JsonResponse($commentsLiked, Response::HTTP_OK);
+    }
+
 
     /**
      * @Route("/forum/addThreadLike/{id}")
      *
      * @param string $id the thread id given by the vue form
      */
-    public function addThreadLike(Request $request, string $id)
+    public function addThreadLike(Request $request, string $id) : JsonResponse
     {
         $entityManager = $this->getDoctrine()->getManager();
         $content = json_decode($request->getContent());
+
         $user = $entityManager->getRepository(User::class)->find($content->userId);
         $thread = $entityManager->getRepository(Thread::class)->find($id);
 

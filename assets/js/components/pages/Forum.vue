@@ -19,7 +19,7 @@
                                 </svg>
                             </span>
                         </form>
-                        <span v-if="addPlantForm==false" class="addThread addIcon" @click="createThread"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="darkGreen" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><path class="path2" d="M362.8,227.9c0,14.2-11.4,25.6-25.6,25.6h-85.3v85.3c0,14.2-11.4,25.6-25.6,25.6s-25.6-11.4-25.6-25.6v-85.3
+                        <span v-if="addPlantForm===false" class="addThread addIcon" @click="createThread"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="darkGreen" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><path class="path2" d="M362.8,227.9c0,14.2-11.4,25.6-25.6,25.6h-85.3v85.3c0,14.2-11.4,25.6-25.6,25.6s-25.6-11.4-25.6-25.6v-85.3
 	h-85.3c-14.2,0-25.6-11.4-25.6-25.6s11.4-25.6,25.6-25.6h85.3v-85.3c0-14.2,11.4-25.6,25.6-25.6s25.6,11.4,25.6,25.6v85.3h85.3
 	C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg></span>
                         <span v-if="addPlantForm==true" class="addThread addIcon" @click="createThread"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -32,7 +32,7 @@
                 </div>
                 <div class="greenLine lineUnderHL"></div>
 
-                <div v-if="addPlantForm == true" class="createThread paddingNormalize">
+                <div v-if="addPlantForm === true" class="createThread paddingNormalize">
                     <h5 class="newThread">Neuen Thread erstellen</h5>
                     <thread-form></thread-form>
                 </div>
@@ -42,7 +42,7 @@
 
             </div>
             <div v-for="(thread, index) in filteredThreads.slice(0,3)" class="container-fluid">
-                <a v-bind:href="'/forum/'+ thread.id" class="row thread dropShadow">
+                <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                     <div class="col-lg-11">
                         <div class="row">
                             <h3 class="threadHeadline">{{thread.headline}}</h3>
@@ -121,7 +121,7 @@
                     <div class="col-lg-1 text-center">
                         <img class="forumPics" v-bind:src="thread.userPic">
                     </div>
-                </a>
+                </router-link>
             </div>
 
 
@@ -152,14 +152,15 @@
                 </div>
             </div>
 
-            <div v-if="showTipsCategoriesBool == true" class="pflanzenSubCategories container-fluid paddingNormalize">
+            <div v-if="showTipsCategoriesBool === true" class="pflanzenSubCategories container-fluid paddingNormalize">
 
                 <!-- Threaddisplay -->
                 <div v-for="thread in threads">
                     <div v-if="thread.category.title === 'Pflegetipps'">
                         <div class="row threadBackground dropShadow pflanzenSub">
                             <div class="container-fluid">
-                                <a v-bind:href="'/forum/'+ thread.id" class="row thread dropShadow">
+
+                                <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                     <div class="col-lg-11">
                                         <div class="row">
                                             <h3 class="threadHeadline">{{thread.headline}}</h3>
@@ -238,7 +239,7 @@
                                     <div class="col-lg-1 text-center">
                                         <img class="forumPics" v-bind:src="thread.userPic">
                                     </div>
-                                </a>
+                                </router-link>
                             </div>
 
                         </div>
@@ -280,14 +281,14 @@
                 </div>
             </div>
 
-            <div v-if="showNewsCategoriesBool == true" class="pflanzenSubCategories container-fluid paddingNormalize">
+            <div v-if="showNewsCategoriesBool === true" class="pflanzenSubCategories container-fluid paddingNormalize">
 
                 <!-- Threaddisplay -->
                 <div v-for="thread in threads">
                     <div v-if="thread.category.title === 'Neuigkeiten'">
                         <div class="row threadBackground dropShadow pflanzenSub">
                             <div class="container-fluid">
-                                <a v-bind:href="'/forum/'+ thread.id" class="row thread dropShadow">
+                                <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                     <div class="col-lg-11">
                                         <div class="row">
                                             <h3 class="threadHeadline">{{thread.headline}}</h3>
@@ -366,7 +367,7 @@
                                     <div class="col-lg-1 text-center">
                                         <img class="forumPics" v-bind:src="thread.userPic">
                                     </div>
-                                </a>
+                                </router-link>
                             </div>
 
                         </div>
@@ -407,7 +408,7 @@
             </div>
 
             <!-- Start Subcategorydisplay !-->
-            <div v-if="showPlantCategoriesBool == true" class="pflanzenSubCategories container-fluid paddingNormalize" @click="showPalmSubCategories">
+            <div v-if="showPlantCategoriesBool === true" class="pflanzenSubCategories container-fluid paddingNormalize" @click="showPalmSubCategories">
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
@@ -423,14 +424,14 @@
                         </svg>
                     </div>
                 </div>
-                <div v-if="showPalmSubCategoryBool == true" class="pflanzenSubCategories container-fluid paddingNormalize">
+                <div v-if="showPalmSubCategoryBool === true" class="pflanzenSubCategories container-fluid paddingNormalize">
 
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Palmen'">
                             <div class="row threadBackground dropShadow pflanzenSub">
                                 <div class="container-fluid">
-                                    <a v-bind:href="'/forum/'+ thread.id" class="row thread dropShadow">
+                                    <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
                                             <div class="row">
                                                 <h3 class="threadHeadline">{{thread.headline}}</h3>
@@ -506,7 +507,7 @@
                                         <div class="col-lg-1 text-center">
                                             <img class="forumPics" v-bind:src="thread.userPic">
                                         </div>
-                                    </a>
+                                    </router-link>
                                 </div>
                             </div>
                         </div>
@@ -517,7 +518,7 @@
 
             </div>
 
-            <div v-if="showPlantCategoriesBool == true" class="pflanzenSubCategories container-fluid paddingNormalize" @click="showHerbalSubCategories">
+            <div v-if="showPlantCategoriesBool === true" class="pflanzenSubCategories container-fluid paddingNormalize" @click="showHerbalSubCategories">
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
@@ -533,14 +534,14 @@
                         </svg>
                     </div>
                 </div>
-                <div v-if="showHerbalSubCategoryBool == true" class="pflanzenSubCategories container-fluid paddingNormalize">
+                <div v-if="showHerbalSubCategoryBool === true" class="pflanzenSubCategories container-fluid paddingNormalize">
 
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Kräuter'">
                             <div class="row threadBackground dropShadow pflanzenSub">
                                 <div class="container-fluid">
-                                    <a v-bind:href="'/forum/'+ thread.id" class="row thread dropShadow">
+                                    <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
                                             <div class="row">
                                                 <h3 class="threadHeadline">{{thread.headline}}</h3>
@@ -616,7 +617,7 @@
                                         <div class="col-lg-1 text-center">
                                             <img class="forumPics" v-bind:src="thread.userPic">
                                         </div>
-                                    </a>
+                                    </router-link>
                                 </div>
                             </div>
                         </div>
@@ -627,7 +628,7 @@
 
             </div>
 
-            <div v-if="showPlantCategoriesBool == true" class="pflanzenSubCategories container-fluid paddingNormalize" @click="showVineSubCategories">
+            <div v-if="showPlantCategoriesBool === true" class="pflanzenSubCategories container-fluid paddingNormalize" @click="showVineSubCategories">
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
@@ -643,14 +644,14 @@
                         </svg>
                     </div>
                 </div>
-                <div v-if="showVineSubCategoryBool == true" class="pflanzenSubCategories container-fluid paddingNormalize">
+                <div v-if="showVineSubCategoryBool === true" class="pflanzenSubCategories container-fluid paddingNormalize">
 
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Kletterpflanzen'">
                             <div class="row threadBackground dropShadow pflanzenSub">
                                 <div class="container-fluid">
-                                    <a v-bind:href="'/forum/'+ thread.id" class="row thread dropShadow">
+                                    <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
                                             <div class="row">
                                                 <h3 class="threadHeadline">{{thread.headline}}</h3>
@@ -726,7 +727,7 @@
                                         <div class="col-lg-1 text-center">
                                             <img class="forumPics" v-bind:src="thread.userPic">
                                         </div>
-                                    </a>
+                                    </router-link>
                                 </div>
                             </div>
                         </div>
@@ -737,7 +738,7 @@
 
             </div>
 
-            <div v-if="showPlantCategoriesBool == true" class="pflanzenSubCategories container-fluid paddingNormalize" @click="showBreedSubCategories">
+            <div v-if="showPlantCategoriesBool === true" class="pflanzenSubCategories container-fluid paddingNormalize" @click="showBreedSubCategories">
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
@@ -753,14 +754,14 @@
                         </svg>
                     </div>
                 </div>
-                <div v-if="showBreedSubCategoryBool == true" class="pflanzenSubCategories container-fluid paddingNormalize">
+                <div v-if="showBreedSubCategoryBool === true" class="pflanzenSubCategories container-fluid paddingNormalize">
 
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Zuchtpflanzen'">
                             <div class="row threadBackground dropShadow pflanzenSub">
                                 <div class="container-fluid">
-                                    <a v-bind:href="'/forum/'+ thread.id" class="row thread dropShadow">
+                                    <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
                                             <div class="row">
                                                 <h3 class="threadHeadline">{{thread.headline}}</h3>
@@ -836,7 +837,7 @@
                                         <div class="col-lg-1 text-center">
                                             <img class="forumPics" v-bind:src="thread.userPic">
                                         </div>
-                                    </a>
+                                    </router-link>
                                 </div>
                             </div>
                         </div>
@@ -849,14 +850,14 @@
 
             <!-- End Subcategorydisplay!-->
 
-        <div v-if="showPlantCategoriesBool == true" class="pflanzenSubCategories container-fluid paddingNormalize">
+        <div v-if="showPlantCategoriesBool === true" class="pflanzenSubCategories container-fluid paddingNormalize">
 
                 <!-- Threaddisplay -->
                 <div v-for="thread in threads">
                     <div v-if="thread.category.title === 'Pflanzen'">
                         <div class="row threadBackground dropShadow pflanzenSub">
                             <div class="container-fluid">
-                                <a v-bind:href="'/forum/'+ thread.id" class="row thread dropShadow">
+                                <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                     <div class="col-lg-11">
                                         <div class="row">
                                             <h3 class="threadHeadline">{{thread.headline}}</h3>
@@ -932,7 +933,7 @@
                                     <div class="col-lg-1 text-center">
                                         <img class="forumPics" v-bind:src="thread.userPic">
                                     </div>
-                                </a>
+                                </router-link>
                             </div>
                         </div>
                     </div>
@@ -999,7 +1000,7 @@
                 if (this.threads == null){
                     return null;
                 }
-                if (this.threadSearch == ""){
+                if (this.threadSearch === ""){
                     return this.threads.reverse();
                 }
                 return this.threads.filter((thread) => {
@@ -1012,7 +1013,7 @@
 
         methods: {
             createThread: function() {
-                if (this.addPlantForm == false) {
+                if (this.addPlantForm === false) {
                     this.addPlantForm = true;
                 } else {
                     this.addPlantForm = false;
@@ -1025,7 +1026,7 @@
                 console.log(arrow);
 
 
-                if(this.showPlantCategoriesBool == false) {
+                if(this.showPlantCategoriesBool === false) {
                     this.showPlantCategoriesBool = true;
                     document.getElementById("pflanzenArrow").setAttribute("transform", "rotate(90)");
                 } else {
@@ -1037,7 +1038,7 @@
                 let arrow = document.getElementById("newsArrow");
                 console.log(arrow);
 
-                if(this.showNewsCategoriesBool == false) {
+                if(this.showNewsCategoriesBool === false) {
                     this.showNewsCategoriesBool = true;
                     document.getElementById("newsArrow").setAttribute("transform", "rotate(90)");
                 } else {
@@ -1049,7 +1050,7 @@
                 let arrow = document.getElementById("tipsArrow");
                 console.log(arrow);
 
-                if(this.showTipsCategoriesBool == false) {
+                if(this.showTipsCategoriesBool === false) {
                     this.showTipsCategoriesBool = true;
                     document.getElementById("tipsArrow").setAttribute("transform", "rotate(90)");
                 } else {
@@ -1061,7 +1062,7 @@
                 let arrow = document.getElementById("palmArrow");
                 console.log(arrow);
 
-                if(this.showPalmSubCategoryBool == false) {
+                if(this.showPalmSubCategoryBool === false) {
                     this.showPalmSubCategoryBool = true;
                     document.getElementById("palmArrow").setAttribute("transform", "rotate(90)");
                 } else {
@@ -1073,7 +1074,7 @@
                 let arrow = document.getElementById("herbalArrow");
                 console.log(arrow);
 
-                if(this.showHerbalSubCategoryBool == false) {
+                if(this.showHerbalSubCategoryBool === false) {
                     this.showHerbalSubCategoryBool = true;
                     document.getElementById("herbalArrow").setAttribute("transform", "rotate(90)");
                 } else {
@@ -1085,7 +1086,7 @@
                 let arrow = document.getElementById("vineArrow");
                 console.log(arrow);
 
-                if(this.showVineSubCategoryBool == false) {
+                if(this.showVineSubCategoryBool === false) {
                     this.showVineSubCategoryBool = true;
                     document.getElementById("vineArrow").setAttribute("transform", "rotate(90)");
                 } else {
@@ -1097,7 +1098,7 @@
                 let arrow = document.getElementById("breedArrow");
                 console.log(arrow);
 
-                if(this.showBreedSubCategoryBool == false) {
+                if(this.showBreedSubCategoryBool === false) {
                     this.showBreedSubCategoryBool = true;
                     document.getElementById("breedArrow").setAttribute("transform", "rotate(90)");
                 } else {
