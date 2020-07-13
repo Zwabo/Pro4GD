@@ -11,7 +11,12 @@ use App\Entity\Plant;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
+/**
+ * @IsGranted({"ROLE_ADMIN", "ROLE_SUPPORT_USER"})
+ */
 class AddPlantController extends AbstractController
 {
     /**
