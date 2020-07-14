@@ -639,12 +639,7 @@
 
             getFriendXP(friendname) {
                 console.log("friendname: " + friendname);
-                this.$http.get('/api/profile/profilefriendxp/',{
-                    friendname: 'friendname',
-                },{
-                    'Content-Type': 'application/json;charset=UTF-8',
-                        "Access-Control-Allow-Origin": "*",
-                })
+                this.$http.get('/api/profile/profilefriendxp/' + friendname + '/')
                     .then(response => {
                         console.log(response.data);
                     })
