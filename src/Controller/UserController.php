@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
 use App\Entity\Userplant;
 use App\Entity\Award;
+use App\Entity\Plant;
 use Doctrine\ORM\EntityManagerInterface;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -105,6 +106,7 @@ class UserController extends AbstractController
                 $lastName = $request->getReceiver()->getLastName();
                 $level = $request->getReceiver()->getLevel();
                 $userPic = $request->getReceiver()->getUserPic();
+                //$xp = $request->getReciever()->getXP();
 
                 $friendData = [
                     'id' => $id,
@@ -112,7 +114,8 @@ class UserController extends AbstractController
                     'firstName' => $firstName,
                     'lastName' => $lastName,
                     'level' => $level,
-                    'userPic' => $userPic
+                    'userPic' => $userPic,
+                    //'xp' => $xp
                 ];
                 array_push($friends, $friendData);
             }
@@ -125,6 +128,7 @@ class UserController extends AbstractController
                 $lastName = $request->getSender()->getLastName();
                 $level = $request->getSender()->getLevel();
                 $userPic = $request->getSender()->getUserPic();
+                //$xp = $request->getSender()->getXP();
 
                 $friendData = [
                     'id' => $id,
@@ -132,7 +136,8 @@ class UserController extends AbstractController
                     'firstName' => $firstName,
                     'lastName' => $lastName,
                     'level' => $level,
-                    'userPic' => $userPic
+                    'userPic' => $userPic,
+                    //'xp' => $xp
                 ];
                 array_push($friends, $friendData);
             }
@@ -396,6 +401,25 @@ class UserController extends AbstractController
         $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/profile/profilefreindxp", name="profilefreindxp", methods={"POST"})
+     */
+    public function profilefriendxp(Request $request) : JsonResponse
+    {
+        $friendname = $request->getContent();
+        $friendname = $friendname["friendname"];
+
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $friendname]);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        return new JsonResponse($user->getXP(), Response::HTTP_OK);
     }
 
 /**

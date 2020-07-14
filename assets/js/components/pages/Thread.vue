@@ -165,6 +165,7 @@
             })
                 .then(response => {
                     this.isLiked = response.data;
+                    console.log("created likedStatus");
                     console.log(response.data);
                     if (this.isLiked === true) {
                         this.likeHeartFill = '#707070';
@@ -201,6 +202,8 @@
         },
 
         methods: {
+            //---------------------------threads-------------------------------------
+            //likeIt for threads
             likeIt: function() {
                 this.$http.post('/forum/likedStatus/' + this.thread.id, {
                     userId: this.loggedUser.id,
@@ -234,12 +237,17 @@
                     this.thread.likes--;
                 }
             },*/
+            //setHearts for threads
             setHearts: function(liked, threadID) {
+                console.log(liked);
+                console.log(this.thread.id);
+                console.log(threadID);
                 if (liked === false) {
-                    this.$http.post('/forum/addThreadLike/' + threadID, {
+                    this.$http.post('/forum/addThreadLike/'+ threadID, {
                         userId: this.loggedUser.id,
                     })
                         .then(response => {
+                            console.log("addThreadLike setHearts false");
                             console.log(response.data);
                         })
                         .catch(error => {
@@ -254,6 +262,7 @@
                         userId: this.loggedUser.id,
                     })
                         .then(response => {
+                            console.log("addThreadLike setHearts true");
                             console.log(response.data);
                         })
                         .catch(error =>  {
@@ -267,14 +276,7 @@
 
                 console.log(this.isLiked);
             },
-
-            setHeartsComments: function(like) {
-                if (like === true) {
-                    return '#707070';
-                } else {
-                    return '#dedede';
-                }
-            },
+            //check for threads
             checkLiked: function(commentId) {
                 console.log("checkeLiked");
                 console.log(commentId);
@@ -311,6 +313,7 @@
                         userId: this.loggedUser.id,
                     })
                         .then(response => {
+                            console.log("addLike likeItId");
                             console.log(response.data)
                         })
                         .catch(error => {
@@ -333,6 +336,7 @@
                         userId: this.loggedUser.id,
                     })
                         .then(response => {
+                            console.log("removeLike likeItId")
                             console.log(response.data)
                         })
                         .catch(error => {
@@ -347,6 +351,13 @@
                         }
                     });
                     //return '#dedede';
+                }
+            },
+            setHeartsComments: function(like) {
+                if (like === true) {
+                    return '#707070';
+                } else {
+                    return '#dedede';
                 }
             },
             /*likeItId: function(id) {

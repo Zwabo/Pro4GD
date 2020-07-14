@@ -1,4 +1,4 @@
-/*----------------------------------------------------*/
+/*-----------------------formular styles-----------------------------*/
 /*formulars plantbase style*/
 .textareaPlantForm {
     width: 100%;
@@ -17,27 +17,40 @@
     background-color: #F5F5F5;
 }
 
-/*----------------------------------------------------*/
+/*-------------------------------normalize styles---------------------*/
 /*normalize padding & margin*/
 .paddingNormalize { padding: 0;}
 .marginNormalize { margin: 0; }
 
+/*------------------------------------------special style to use for having all spaces similar-------------------------------*/
 /* side padding of all rows so that they are not stucking to the left and right edges*/
-.rowIntent {
-    padding: 0 40px;
-}
+.rowIntent { padding: 0 40px; }
 
 /* distance between two cols so that they are not stucking together too much*/
 .left { width: 94%; }
 
-/*to align pictures to the center*/
-.selfAlignCenter {
-    align-self: center;
-}
-.placeContentCenter {
-    place-content: center;
+/*container for fluid & not-fluid objects --> use @media here to get the basic sizes done*/
+#baseContainer {
+    padding-right: 0;
+    padding-left: 0;
 }
 
+.marginLeftRight { margin-left: 5%; margin-right: 5%; }
+.paddingLeftRight { padding-left: 7%; padding-right: 7%; }
+.siteMarinTop { margin-top: 7%; }
+.siteMarginBottom { margin-bottom: 7%; }
+.sitePaddingTop { padding-top: 7%; }
+.sitePaddingBottom { padding-bottom: 7%; }
+
+/*---------------------------------------------Ausrichtungen--------------------------------*/
+/*to align pictures to the center*/
+.selfAlignCenter { align-self: center; }
+.placeContentCenter { place-content: center; }
+
+/*right side floating boxes*/
+.rightBoxesPadding { padding: 20px; }
+
+/*--------------------------------------------Userbild Styling für Profil / Forum / Freunde-----------------------------*/
 /*small user pictures for profile and forum*/
 .smallUserPics {
     max-width: 100px;
@@ -46,6 +59,7 @@
     border-radius: 100px;
 }
 
+/*--------------------------------------------Linien----------------------------------------------------------*/
 /*green hr line underneath the h2 of sections, lay class on a div container to get the green line*/
 .greenLine {
     width: 100%;
@@ -61,10 +75,19 @@
     background: white;
 }
 
-.whiteLineVert {
-    border-left: 1px solid white;
+/*weiße Linie senkrecht*/
+.whiteLineVert { border-left: 1px solid white; }
+
+/*schmale graue linie*/
+.smallWhiteGreyLine {
+    width: 100%;
+    height: 1px;
+    background: #DEDEDE;
+    margin-bottom: 4%;
+    margin-top: 2%;
 }
 
+/*------------------------------------------Spezielle Effekte-----------------------------------------*/
 /*dropshadow*/
 .dropShadow {
     -webkit-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.19);
@@ -72,26 +95,15 @@
     box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.19);
 }
 
-/*right side floating boxes*/
-.rightBoxesPadding { padding: 20px; }
-
-/*basic border radius for elements and boxes*/
+/*makes the pictures to a circle -basic border radius for elements and boxes*/
 .borderRad10{
     border-radius: 10px;
 }
 
-/*container for fluid & not-fluid objects --> use @media here to get the basic sizes done*/
-#baseContainer {
-    padding-right: 0;
-    padding-left: 0;
-}
 
-.marginLeftRight { margin-left: 5%; margin-right: 5%; }
-.paddingLeftRight { padding-left: 7%; padding-right: 7%; }
-.siteMarinTop { margin-top: 7%; }
-.siteMarginBottom { margin-bottom: 7%; }
-.sitePaddingTop { padding-top: 7%; }
-.sitePaddingBottom { padding-bottom: 7%; }
+
+
+/*----------------------------------------------------Media Queries------------------------------------*/
 
 /*Large devices (desktops, less than 1200px)*/
 @media (max-width: 1199.98px) {

@@ -13,8 +13,7 @@
                 <div id="userCnt" class="col-lg-5">
                     <h1>{{ profileUser.firstname}} {{ profileUser.lastname }}</h1>
                     <h2> {{ profileUser.username }}</h2>
-                    <p> Rang: {{ profileUser.level }}</p>
-                    <p>Level: {{getLevel(profileUser.xp)}}</p>
+                    <p>{{getLevel(profileUser.xp)}}</p>
                     <b-progress :value="profileUser.xp" :max="max" variant="dark" class="w-50 mb-2" height="1.2rem"></b-progress>
                     <p>{{XPleft(profileUser.xp)}}</p>
 
@@ -76,17 +75,21 @@
 
                                     <div class="col-lg-6 friendsInfo selfAlignCenter">
                                         <ul class="noListStyle">
-                                            <li>{{ friend.firstName }} {{ friend.lastname }}</li> <!-- {{ profileUser.username }}-->
-                                            <li>{{ friend.username }}</li>
-                                            <li>Rang: {{ friend.level }}</li> <!-- Rang Benennung: aus Lvl berechnet -->
+                                            <li class="friendUsernameHL">{{ friend.username }}</li>
+                                            <li class="friendWholeName">{{ friend.firstName }} {{ friend.lastname }}</li> <!-- {{ profileUser.username }}-->
+                                            <li class="friendLevel"><b-progress :value="friend.xp" :max="friend.xp - friend.xp%100 +100" variant="dark" class="w-25"></b-progress></li>
+                                            <li>{{getFriendXP(friend.username)}}</li>
+                                            <li class="friendTitle">{{getLevel(friend.xp)}}</li> <!-- Rang Benennung: aus Lvl berechnet -->
                                         </ul>
                                     </div>
 
                                     <div class="col-lg-4 text-right selfAlignCenter friendsButtons justify-content-center">
+                                        <a :href="'/profile/' + friend.username">
                                         <span class="userProfileButton">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve">
 <path class="path1" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><g><g><path class="path2" d="M229,16.7c-61.1,0-110.9,49.8-110.9,110.9S167.9,238.5,229,238.5s110.9-49.8,110.9-110.9S290.1,16.7,229,16.7z"/></g></g><path class="path2" d="M366,304.9c-30.4-30.8-70.6-47.8-113.3-47.8h-49.3c-42.7,0-83,17-113.3,47.8c-26,26.4-42,60.2-45.9,96.5c1.9,1.9,3.8,3.7,5.8,5.3c68.3,56.9,285.9,56.9,355.6,0c2.2-1.8,4.3-3.7,6.3-5.9C407.8,364.8,391.9,331.2,366,304.9z"/></svg>
                                         </span>
+                                        </a>
                                         <span class="addUserButton">
                                             <span class="addUserButton">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="path1" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><path class="path2" d="M362.8,227.9c0,14.2-11.4,25.6-25.6,25.6h-85.3v85.3c0,14.2-11.4,25.6-25.6,25.6s-25.6-11.4-25.6-25.6v-85.3
@@ -110,20 +113,39 @@
                         </div>
 
 
-                        <div class="container-fluid">
+                        <div class="container-fluid paddingNormalize">
                             <div class="row">
 
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 paddingNormalize">
                                     <div v-for="(userplant, index) in profileUserplants" class="container-fluid">
-                                        <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
+                                        <div v-if="(index % 2 == 0 || index == 0) && index < 4" class="row paddingNormalize">
                                             <router-link :to="'/userplant/' + userplant.id" class="container-fluid">
                                                 <div class="container-fluid plantsProfile dropShadow bgWhiteGrey ">
                                                     <div class="row">
                                                         <div class="col-lg-8 selfAlignCenter plantsProfileInfoCol">
                                                             <ul class="noListStyle">
-                                                                <li>{{ userplant.name }}</li>
-                                                                <li>{{ userplant.location }}</li>
-                                                                <li>Level {{plantLevel(userplant.xp)}}</li>
+                                                                <li class="userplantGardenHL">{{ userplant.name }} ({{userplant.plant.name}})</li>
+                                                                <li class="userplantGardenLocation">{{ userplant.location }}</li>
+                                                                <li class="userplantGardenXPBar"><b-progress :value="userplant.xp" :max="userplant.xp - userplant.xp%100 +100" variant="dark" class="w-25"></b-progress></li>
+                                                                <li class="userplantGardenLevel">Level {{plantLevel(userplant.xp)}}</li>
+                                                                <li class="userplantGardenAge">
+                                                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 469.333 469.333" style="enable-background:new 0 0 469.333 469.333;" xml:space="preserve" fill="#97B753">
+		<g>
+			<path d="M234.56,128c23.573,0,42.667-19.093,42.667-42.667c0-8-2.24-15.573-6.08-21.973L234.56,0l-36.587,63.36
+				c-3.84,6.4-6.08,13.973-6.08,21.973C191.893,108.907,210.987,128,234.56,128z"/>
+			<path d="M362.56,192L362.56,192H255.893v-42.667h-42.667V192H106.56c-35.307,0-64,28.693-64,64v32.853
+				c0,23.04,18.773,41.813,41.813,41.813c11.2,0,21.653-4.373,29.547-12.267l45.653-45.547l45.547,45.44
+				c15.787,15.787,43.307,15.787,59.093,0l45.653-45.44l45.547,45.44c7.893,7.893,18.347,12.267,29.547,12.267
+				c23.04,0,41.813-18.773,41.813-41.813V256C426.56,220.693,397.867,192,362.56,192z"/>
+			<path d="M332.587,341.013L332.587,341.013l-22.933-22.933l-23.04,22.933c-27.84,27.84-76.48,27.84-104.32,0L159.36,318.08
+				l-23.04,22.933c-13.76,13.973-32.213,21.653-51.947,21.653c-15.467,0-29.867-4.907-41.813-13.12V448
+				c0,11.733,9.6,21.333,21.333,21.333h341.333c11.733,0,21.333-9.6,21.333-21.333v-98.453c-11.947,8.213-26.24,13.12-41.813,13.12
+				C365.013,362.667,346.56,354.987,332.587,341.013z"/>
+		</g>
+</svg>
+                                                                    <p>{{getUserplantLived(userplant.dateAdded)}}</p>
+                                                                </li>
                                                             </ul>
                                                         </div>
                                                         <div class="col-lg-4 plantsProfileImgCol text-right align-self-center">
@@ -136,20 +158,39 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 paddingNormalize">
                                     <div v-for="(userplant, index) in profileUserplants" class="container-fluid">
-                                        <div v-if="index % 2 !== 0" class="row paddingNormalize">
+                                        <div v-if="index % 2 !== 0 && index < 4" class="row paddingNormalize">
                                             <router-link :to="'/userplant/' + userplant.id" class="container-fluid">
                                                 <div class="container-fluid plantsProfile dropShadow bgWhiteGrey">
                                                     <div class="row">
                                                         <div class="col-lg-8 selfAlignCenter plantsProfileInfoCol">
                                                             <ul class="noListStyle">
-                                                                <li>{{ userplant.name }}</li>
-                                                                <li>{{ userplant.location }}</li>
-                                                                <li>Level {{plantLevel(userplant.xp)}}</li>
+                                                                <li class="userplantGardenHL">{{ userplant.name }} ({{userplant.plant.name}})</li>
+                                                                <li class="userplantGardenLocation">{{ userplant.location }}</li>
+                                                                <li class="userplantGardenXPBar"><b-progress :value="userplant.xp" :max="userplant.xp - userplant.xp%100 +100" variant="dark" class="w-25"></b-progress></li>
+                                                                <li class="userplantGardenLevel">Level {{plantLevel(userplant.xp)}}</li>
+                                                                <li class="userplantGardenAge">
+                                                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 469.333 469.333" style="enable-background:new 0 0 469.333 469.333;" xml:space="preserve" fill="#97B753">
+		<g>
+			<path d="M234.56,128c23.573,0,42.667-19.093,42.667-42.667c0-8-2.24-15.573-6.08-21.973L234.56,0l-36.587,63.36
+				c-3.84,6.4-6.08,13.973-6.08,21.973C191.893,108.907,210.987,128,234.56,128z"/>
+			<path d="M362.56,192L362.56,192H255.893v-42.667h-42.667V192H106.56c-35.307,0-64,28.693-64,64v32.853
+				c0,23.04,18.773,41.813,41.813,41.813c11.2,0,21.653-4.373,29.547-12.267l45.653-45.547l45.547,45.44
+				c15.787,15.787,43.307,15.787,59.093,0l45.653-45.44l45.547,45.44c7.893,7.893,18.347,12.267,29.547,12.267
+				c23.04,0,41.813-18.773,41.813-41.813V256C426.56,220.693,397.867,192,362.56,192z"/>
+			<path d="M332.587,341.013L332.587,341.013l-22.933-22.933l-23.04,22.933c-27.84,27.84-76.48,27.84-104.32,0L159.36,318.08
+				l-23.04,22.933c-13.76,13.973-32.213,21.653-51.947,21.653c-15.467,0-29.867-4.907-41.813-13.12V448
+				c0,11.733,9.6,21.333,21.333,21.333h341.333c11.733,0,21.333-9.6,21.333-21.333v-98.453c-11.947,8.213-26.24,13.12-41.813,13.12
+				C365.013,362.667,346.56,354.987,332.587,341.013z"/>
+		</g>
+</svg>
+                                                                    <p>{{getUserplantLived(userplant.dateAdded)}}</p>
+                                                                </li>
                                                             </ul>
                                                         </div>
-                                                        <div class="col-lg-4 plantsProfileImgCol text-rigth align-self-center">
+                                                        <div class="col-lg-4 plantsProfileImgCol text-rigth align-self-center imgBoxRight">
                                                             <img class="plantsProfileImg" v-bind:src="'../' + userplant.plant.icon">
                                                         </div>
                                                     </div>
@@ -447,8 +488,6 @@
             checkAwardsTwo: function() {
                 console.log("here");
             }
-
-
         },
 
         methods: {
@@ -598,6 +637,19 @@
                 return Math.trunc(xp/100)+1;
             },
 
+            getFriendXP(friendname) {
+                console.log("friendname: " + friendname);
+                this.$http.post('/api/profile/profilefreindxp/', {
+                    friendname: friendname,
+                })
+                    .then(response => {
+                        console.log(response.data);
+                    })
+                    .catch(error => {
+                        this.getError(error);
+                    });
+            },
+
             sendFriendRequest: function(){
                 this.$http.post('/api/friends/sendRequest/' + this.profileUser.id)
                     .then(response => {
@@ -611,6 +663,48 @@
                     .catch(error => {
                         this.getError(error);
                     });
+            },
+
+            getUserplantLived: function(dateCreated) {
+                let currentDate = new Date();
+
+                let currentDay = currentDate.getDay();
+                let currentMonth = currentDate.getMonth();
+                let currentYear = currentDate.getFullYear();
+
+                let createdDay = Number(dateCreated.date.substr(8,2));
+                let createdMonth = Number(dateCreated.date.substr(5,2));
+                let createdYear = Number(dateCreated.date.substr(0,4));
+
+                let year = currentYear - createdYear;
+
+                let month = null;
+                if (createdMonth < currentMonth) {
+                    year--;
+                    month = 12 - currentMonth - createdMonth;
+                } else {
+                    month = createdMonth - currentMonth;
+                }
+
+                let day = null;
+                if (createdDay < currentDay) {
+                    month--;
+                    day = 30 - currentDay - createdMonth;
+                } else {
+                    day = createdDay - currentDay;
+                }
+
+                let string;
+
+                if (year === 0 && month === 0) {
+                    string = day.toString() + " Tage";
+                } else if (year === 0) {
+                    string = month.toString() + " Monate, " + day.toString() + " Tage";
+                } else {
+                    string = year.toString() + " Jahre, " + month.toString() + " Monate";
+                }
+
+                return string;
             },
 
             checkAwards: function() {
@@ -982,6 +1076,180 @@
 <style scoped>
     .edit { display: none; }
 
+    /* ----------------------------Spezielle Fonts für UserArea------------------------------*/
+    #userCnt h1 {
+        font-size: 180%;
+        color: #B8E269;
+    }
+    #userCnt h2 { font-size: 140%; }
+
+    /*-----------------------------Container Styles Profil---------------------------------*/
+    /*Containerbreite*/
+    #userInfoCnt{ padding: 40px 50px; }
+
+    #userPicCnt {
+        text-align-last: center;
+        align-self: center;}
+
+    #userDataCnt { align-self: center; }
+    #userDataCnt ul { font-size: 110%; }
+
+    #userDataCnt ul li svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 3%;
+        fill: #B8E269;
+    }
+
+    /*-------------------------------Styling for plants im Abschnitt Garten------------------------*/
+    /*userPlants garden on profile*/
+    .plantsProfile {
+        margin-bottom: 20px;
+        border-radius: 10px;
+        padding: 10px 10px 10px 30px;
+        width: 97%;
+    }
+    .plantsProfile:hover {
+        background-color: #707070;
+        color: white;
+    }
+    .plantsProfile:active {
+        background-color: #DEDEDE;
+        color: #707070;
+    }
+    .plantsProfileImg {
+        width: 50%;
+        margin-right: 2%;
+    }
+    .plantsProfileLeftGrid { float: left; }
+    .plantsProfileRightGrid { flaot: right; }
+
+    /*rechte Boxen*/
+    .rightBoxes {
+        background-color: white;
+        border: 2px solid #DEDEDE;
+        border-radius: 10px;
+        margin-bottom: 50px;
+    }
+    .rightBoxes:first-of-type {
+        margin-top: 50px;
+    }
+    .imgBoxRight { text-align: right; }
+
+    /*styling schrift und elemente*/
+    .userplantGardenHL {
+        font-size: 120%;
+        font-weight: bold;
+    }
+    .userplantGardenLocation {
+        font-size: 90%;
+        font-style: italic;
+        margin-bottom: 5%;
+    }
+    .userplantGardenXPBar {
+        width: 300%;
+    }
+    .userplantGardenLevel {
+        font-size: 95%;
+        margin-bottom: 5%;
+    }
+    .userplantGardenAge svg {
+        width: 10%;
+        padding-bottom: 5%;
+    }
+    .userplantGardenAge p {
+        display: inline-block;
+        padding-left: 3%;
+    }
+
+    /* Profile Picture ---------------------Bild in Graubereich---------------------------*/
+    .userPicture {
+        width: 150px;
+        height: 150px;
+        border-radius: 100px;
+    }
+
+    /* UserButton ----------------------"Profil Bearbeiten / Hinzufügen+"------------------------*/
+    #userButton {
+        background-color: #97B753;
+        padding: 10px 20px;
+        color: white;
+        border: 2px solid #97B753;
+        border-radius: 0px 50px 50px 0px;
+        font-size: 120%;
+    }
+    #userButton svg {
+        fill: white;
+        width: 15px;
+        height: 15px;
+        margin-left: 10px;
+    }
+    #userButton:hover {
+        background-color: #B8E269;
+        border: 2px solid #B8E269;
+        color: #707070;
+    }
+    #userButton:hover svg { fill: #707070; }
+    #userButton:active {
+        background-color: #97B753;
+        border: 2px solid #97B753;
+        color: white;
+    }
+    #userButton:active svg { fill: white; }
+
+
+    /* picture in Buttons +*/
+    .userProfileButton svg{ width: 20%; fill: white; }
+    .userProfileButton svg .path1 { fill: #707070; }
+    .firends:hover .userProfileButton svg { fill: white; }
+    .friends:hover .userProfileButton svg .path1 {  fill: #97B753; }
+    .friends:hover .userProfileButton svg:hover .path1 { fill: #B8E269; }
+    .friends:active .userProfileButton svg:active { fill: #B8E269; }
+    .friends:active .userProfileButton svg:active .path1 { fill: #000000;}
+
+    .addUserButton svg { width: 20%; fill: white; }
+    .addUserButton svg .path1 { fill: #707070; }
+    .friends:hover .addUserButton svg { fill: white; }
+    .friends:hover .addUserButton svg .path1 {  fill: #97B753; }
+    .friends:hover .addUserButton svg:hover .path1 { fill: #B8E269; }
+    .friends:active .addUserButton svg:active { fill: #B8E269; }
+    .friends:active .addUserButton svg:active .path1 { fill: #000000;}
+
+    /*---------------------------------------------friends list styling-------------------------*/
+    /*Friends Container*/
+    .friends {
+        padding: 10px 0;
+        margin-bottom: 10px;
+    }
+
+    .friends:hover {
+        background-color: #707070;
+        color: white;
+    }
+    .friends:active {
+        background-color: #DEDEDE;
+        color: #707070;
+    }
+
+    /*styling schrift und elemente für friends*/
+    .friendUsernameHL {
+        font-size: 120%;
+        font-weight: bold;
+    }
+    .friendWholeName {
+        font-size: 90%;
+        font-style: italic;
+        margin-bottom: 5%;
+    }
+    .friendLevel {
+        width: 500%;
+    }
+    .friendTitle {
+        font-size: 95%;
+        margin-bottom: 5%;
+    }
+
+    /*-------------------------------Besuchernachrichten---------------------------------------*/
     /* trigger fields with class editProfile*/
     .smallInput {
         display: block;
@@ -993,12 +1261,14 @@
     #leaveComment{
         margin-bottom: 3%;
     }
+    /*picture for comments*/
     .commentPics {
         max-width: 100px;
         min-width: 50px;
         width: 80%;
         border-radius: 100px;
     }
+    /*input field for comments*/
     .commentInput {
         width: 100%;
         height: 100%;
@@ -1006,6 +1276,7 @@
         border-radius: 4px;
         background-color: #F5F5F5;
     }
+    /*button for save comment*/
     .buttonComments {
         background-color: #97B753;
         padding: 1%;
@@ -1027,6 +1298,7 @@
         color: white;
     }
 
+    /*deleteButton --> for deleting a comment in bearbeiten*/
     .deleteButton {
         background-color: #97B753;
         padding: 1%;
@@ -1047,23 +1319,113 @@
         color: white;
     }
 
-    .smallWhiteGreyLine {
-        width: 100%;
-        height: 1px;
-        background: #DEDEDE;
-        margin-bottom: 4%;
-        margin-top: 2%;
-    }
-
+    /*anzeige msg wenn gespeichert*/
     .commentMsg {
         background-color: #F5F5F5;
         border-radius: 6px;
         padding: 10px;
     }
 
+    /*---------------------------------------Awards anzeige im Errungenschaften Bereich------------------------------*/
     .awardImage {
         width: 15%;
         margin-bottom: 2%;
         margin-left: 1%;
+    }
+
+    /*---------------------------------------Media Queries-----------------------------------------------*/
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
+        .userProfileButton svg { width: 20%; }
+        .addUserButton svg { width: 20%; }
+
+        #userPicCnt { width: 20%; }
+        #userCnt { width: 50%; }
+        #userDataCnt { width: 30%; }
+
+        #userCnt h1 { font-size: 160%; }
+        #userCnt h2 { font-size: 120%; }
+
+        #userButton {
+            padding: 7px 15px;
+            font-size: 100%;
+        }
+        #userButton svg {
+            width: 10px;
+            height: 10px;
+            margin-left: 7px;
+        }
+
+        #userDataCnt ul { font-size: 90%; }
+        #userDataCnt ul li svg {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    /* Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
+        .friends .friendsPicture { width: 20%; }
+        .friends .friendsInfo {width: 50%; }
+        .friends .friendsButtons { width: 30%; }
+
+        .plantsProfileInfoCol { width: 60%; }
+        .plantsProfileImgCol { width: 40%; align-self: center; }
+        .plantsProfileImg { width: 30%; }
+
+        .plantsProfile {
+            width: 100%;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .userPicture {
+            width: 120px;
+            height: 120px;
+            border-radius: 100px;
+        }
+
+        #userCnt { padding-left: 4%; }
+        #userCnt h1 { font-size: 140%; }
+        #userCnt h2 {
+            font-size: 100%;
+            margin-bottom: 1%;
+        }
+        #userCnt p { font-size: 80%; }
+
+        #userButton {
+            padding: 5px 10px;
+            font-size: 80%;
+        }
+        #userButton svg {
+            width: 7px;
+            height: 7px;
+            margin-left: 5px;
+        }
+
+        #userDataCnt ul { font-size: 80%; }
+        #userDataCnt ul li svg {
+            width: 12px;
+            height: 12px;
+        }
+    }
+
+    /*Small devices (landscape phones, less than 768px)*/
+    @media (max-width: 767.98px) {
+        .userProfileButton svg { width: 22%; }
+        .addUserButton svg { width: 22%; }
+
+        #userPicCnt { width: 30%; }
+        #userCnt { width: 70%; align-self: center; }
+        #userDataCnt { display: none; width: 0%; }
+
+        #userCnt p { display: none; }
+        #userButton { display: none; }
+    }
+
+    /* Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+        .userProfileButton svg { width: 40%; }
+        .addUserButton svg { width: 40%; }
     }
 </style>
