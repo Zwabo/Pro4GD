@@ -76,7 +76,7 @@
                                     <div class="col-lg-6 friendsInfo selfAlignCenter">
                                         <ul class="noListStyle">
                                             <li class="friendUsernameHL">{{ friend.username }}</li>
-                                            <li class="friendWholeName">{{ friend.firstName }} {{ friend.lastname }}</li> <!-- {{ profileUser.username }}-->
+                                            <li class="friendWholeName">{{ friend.firstName }} {{ friend.lastName }}</li> <!-- {{ profileUser.username }}-->
                                             <li class="friendLevel"><b-progress :value="friend.xp" :max="friend.xp - friend.xp%100 +100" variant="dark" class="w-25"></b-progress></li>
                                             <li>{{getFriendXP(friend.username)}}</li>
                                             <li class="friendTitle">{{getLevel(friend.xp)}}</li> <!-- Rang Benennung: aus Lvl berechnet -->
