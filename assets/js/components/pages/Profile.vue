@@ -639,8 +639,11 @@
 
             getFriendXP(friendname) {
                 console.log("friendname: " + friendname);
-                this.$http.post('/api/profile/profilefreindxp/', {
-                    friendname: friendname,
+                this.$http.get('/api/profile/profilefriendxp/',{
+                    friendname: 'friendname',
+                },{
+                    'Content-Type': 'application/json;charset=UTF-8',
+                        "Access-Control-Allow-Origin": "*",
                 })
                     .then(response => {
                         console.log(response.data);

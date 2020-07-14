@@ -404,7 +404,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/api/profile/profilefreindxp", name="profilefreindxp", methods={"POST"})
+     * @Route("/api/profile/profilefriendxp", name="profilefriendxp", methods={"GET"})
      */
     public function profilefriendxp(Request $request) : JsonResponse
     {
@@ -419,7 +419,7 @@ class UserController extends AbstractController
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
 
-        return new JsonResponse($user->getXP(), Response::HTTP_OK);
+        return new JsonResponse("test", Response::HTTP_OK);
     }
 
 /**
