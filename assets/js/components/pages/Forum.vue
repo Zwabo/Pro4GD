@@ -978,7 +978,7 @@
             this.$root.$on('loggedIn', () => {
                 this.loggedUser = JSON.parse(localStorage.getItem('user'));
             });
-            if(this.loggedInUser === null){
+            if(this.loggedUser === null){
                 this.$router.push('/login');
             }
         },
