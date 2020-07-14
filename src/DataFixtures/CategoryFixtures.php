@@ -72,5 +72,77 @@ class CategoryFixtures extends Fixture
         $category7->setUpdated($dateAdded);
         $manager->persist($category7);
         $manager->flush();
+
+        $category8 = new Category();
+        $category8->setTitle('Wildpflanze');
+        $category8->setParent($category3);
+        $category8->setCreated($dateAdded);
+        $category8->setUpdated($dateAdded);
+        $manager->persist($category8);
+        $manager->flush();
+
+        $category9 = new Category();
+        $category9->setTitle('Heilpflanze');
+        $category9->setParent($category3);
+        $category9->setCreated($dateAdded);
+        $category9->setUpdated($dateAdded);
+        $manager->persist($category9);
+        $manager->flush();
+
+        $category10 = new Category();
+        $category10->setTitle('Fleischfressende Pflanze');
+        $category10->setParent($category3);
+        $category10->setCreated($dateAdded);
+        $category10->setUpdated($dateAdded);
+        $manager->persist($category10);
+        $manager->flush();
+
+        $category11 = new Category();
+        $category11->setTitle('Zimmerpflanze');
+        $category11->setParent($category3);
+        $category11->setCreated($dateAdded);
+        $category11->setUpdated($dateAdded);
+        $manager->persist($category11);
+        $manager->flush();
+
+        $category12 = new Category();
+        $category12->setTitle('Sonnenpflanze');
+        $category12->setParent($category3);
+        $category12->setCreated($dateAdded);
+        $category12->setUpdated($dateAdded);
+        $manager->persist($category12);
+        $manager->flush();
+
+        $category13 = new Category();
+        $category13->setTitle('Frühlingsblüher');
+        $category13->setParent($category3);
+        $category13->setCreated($dateAdded);
+        $category13->setUpdated($dateAdded);
+        $manager->persist($category13);
+        $manager->flush();
+
+        $category14 = new Category();
+        $category14->setTitle('Sommerblüher');
+        $category14->setParent($category3);
+        $category14->setCreated($dateAdded);
+        $category14->setUpdated($dateAdded);
+        $manager->persist($category14);
+        $manager->flush();
+
+        $category15 = new Category();
+        $category15->setTitle('Herbstblüher');
+        $category15->setParent($category3);
+        $category15->setCreated($dateAdded);
+        $category15->setUpdated($dateAdded);
+        $manager->persist($category15);
+        $manager->flush();
+
+        $category16 = new Category();
+        $category16->setTitle('Winterblüher');
+        $category16->setParent($category3);
+        $category16->setCreated($dateAdded);
+        $category16->setUpdated($dateAdded);
+        $manager->persist($category16);
+        $manager->flush();
     }
 }
