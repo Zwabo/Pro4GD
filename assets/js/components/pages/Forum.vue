@@ -978,6 +978,9 @@
             this.$root.$on('loggedIn', () => {
                 this.loggedUser = JSON.parse(localStorage.getItem('user'));
             });
+            if(this.loggedInUser === null){
+                this.$router.push('/login');
+            }
         },
 
         mounted: function() {
