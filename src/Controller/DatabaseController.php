@@ -19,13 +19,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class DatabaseController extends AbstractController
 {
-
-
     /**
      * @Route("/api/database/", name="getPlants", methods={"GET"})
      */
     public function getPlants() : JsonResponse
     {
+
+
         $plants = $this->getDoctrine()->getRepository(Plant::class)->findAll();
 
         if (!$plants) {

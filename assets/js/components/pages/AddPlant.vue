@@ -20,7 +20,7 @@
             <div class="row" >
                 <div class="container-fluid marginLeftRight" >
 
-                    <form >
+                    <form v-if="checkRole()">
                         <h3 class="h3Margin search">Neue Pflanze hinzufügen</h3>
                         <div class="greenLine"></div>
 
@@ -406,7 +406,7 @@
                 errors: [],
 
                 // Eckdaten
-                loggedInUser: {roles:''},
+                loggedInUser: {},
                 name: null,
                 linkname: null,
                 alternativeName: null,
@@ -512,10 +512,13 @@
             this.$root.$on('loggedIn', () => {
                 this.loggedInUser = JSON.parse(localStorage.getItem('user'));
             });
+                if(this.loggedInUser == null){
+                    this.$router.push('/login');
+                }
         },
         methods: {
             checkRole: function () {
-                if (this.loggedInUser.roles === 'ROLE_ADMIN' || this.loggedInUser.roles === 'ROLE_SUPPORT_USER' ) {
+                if ((this.loggedInUser.roles =='ROLE_ADMIN') || (this.loggedInUser.roles == 'ROLES_SUPPORT_USER') ) {
                     return true;
                 } else {
                     return false;

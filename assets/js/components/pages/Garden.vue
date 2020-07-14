@@ -181,6 +181,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
        },
        data: function(){
            return{
+               loggedInUser: {},
                garden: null,
                plants: null,
                image: '',
@@ -191,6 +192,17 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                watered: [],
                i: 0,
                weekday: ["Sonntag", "Montag", "Dienstag","Mittwoch", "Donnerstag", "Freitag", "Samstag"]
+           }
+       },
+       created: function(){
+           this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+
+           //Retrieve user item from local storage in case of login
+           this.$root.$on('loggedIn', () => {
+               this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+           });
+           if(this.loggedInUser == null){
+               this.$router.push('/login');
            }
        },
        mounted: function(){

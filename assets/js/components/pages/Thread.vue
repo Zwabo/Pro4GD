@@ -114,11 +114,12 @@
                             </svg>
                             <p class="iconText">{{comment.likes}}</p>
                         </div>
-                        <!-- Button zum löschen von Comments für admins und supporting users -->
-                        <button v-if="checkRole()" type="button" class="buttonDarkGreen col-lg-2" @click="removeThread()">
-                            Thread löschen
-                        </button>
+
                     </div>
+                    <!-- Button zum löschen von Comments für admins und supporting users -->
+                    <button v-if="checkRole()" type="button" class="buttonDarkGreen col-lg-2" @click="removeThread()">
+                        Kommentar löschen
+                    </button>
                 </div>
                 <div class="greyLine commentLine"></div>
             </div>
@@ -399,7 +400,7 @@
     });
             },
             checkRole: function () {
-                if (this.loggedUser.roles === 'ROLE_ADMIN') {
+                if(this.loggedUser.roles == 'ROLE_ADMIN') {
                     return true;
                 } else {
                     return false;
