@@ -404,19 +404,16 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/api/profile/profilefriendxp", name="profilefriendxp", methods={"GET"})
+     * @Route("/api/profile/profilefriendxp/{friendname}", name="profilefriendxp", methods={"GET"})
      */
-    public function profilefriendxp(Request $request) : JsonResponse
+    public function profilefriendxp($friendname, Request $request) : JsonResponse
     {
-        $friendname = $request->getContent();
-        $friendname = $friendname["friendname"];
-
         $user = $this->getDoctrine()
             ->getRepository(User::class)
             ->findOneBy(['username' => $friendname]);
 
         if (!$user) {
-            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+            return new JsonResponse([], Response::HTTP_FORBIDDEN);
         }
 
         return new JsonResponse("test", Response::HTTP_OK);
