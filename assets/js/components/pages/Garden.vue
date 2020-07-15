@@ -42,7 +42,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 		c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z
 C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                                    </span> {{wateringShedule(userplant.wateringCycle)}}</p>
-                                            <button class="buttonDarkGreenSmall water" @click="water($event, userplant)"> Gießen</button>
+                                            <button v-b-modal.modal-center class="buttonDarkGreenSmall water" @click="water($event, userplant)"> Gießen</button>
                                         </div>
 
                                         <img class="col-sm-5 imgTest" v-bind:src="'../' + userplant.plant.icon"  alt="Picture of plant" height="190" >
@@ -79,7 +79,7 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
 		c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z
 C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                                    </span> {{wateringShedule(userplant.wateringCycle)}}</p>
-                                            <button class="buttonDarkGreenSmall" @click="water($event, userplant)"> Gießen</button>
+                                            <button v-b-modal.modal-center class="buttonDarkGreenSmall" @click="water($event, userplant)"> Gießen</button>
                                         </div>
 
                                         <img class="col-sm-5 imgTest" v-bind:src="'../' + userplant.plant.icon"  alt="Picture of plant" height="190" >
@@ -95,6 +95,12 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
             </div>
 
         </div>
+
+        <b-modal id="modal-center" centered title="Pflanze gegossen!" ok-only>
+            <p v-if="!LevelUp" class="my-4">Noch {{(MissingXPs(currentPlantXP))}} XP bis zum nächsten Level</p>
+            <b-progress v-if="!LevelUp" :value="currentPlantXP" :max="currentPlantXP - currentPlantXP%100 +100" variant="dark" class="w-50"></b-progress>
+            <p v-else class="my-4">Level Up! Pflanze ist jetzt Level {{plantLevel(currentPlantXP)}}</p>
+        </b-modal>
 
         <div class="col" v-if="add">
 
@@ -181,6 +187,8 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
        },
        data: function(){
            return{
+               currentPlantXP: null,
+               LevelUp: false,
                garden: null,
                plants: null,
                image: '',
@@ -236,6 +244,28 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
            water: function (e, userplant) {
 
                e.preventDefault();
+
+               if( userplant.plant.careLevel  === 'gering') {
+                   this.currentPlantXP = userplant.xp+5;
+                   if(this.currentPlantXP >= (userplant.xp- userplant.xp%100 +100)) {
+                       this.LevelUp = true;
+                   }
+               } else if(userplant.plant.careLevel  === 'mittel') {
+                   this.currentPlantXP = userplant.xp+10;
+                   if(this.currentPlantXP >= (userplant.xp- userplant.xp%100 +100)) {
+                       this.LevelUp = true;
+                   }
+               } else if(userplant.plant.careLevel  === 'hoch') {
+                   this.currentPlantXP = userplant.xp+15;
+                   if(this.currentPlantXP >= (userplant.xp- userplant.xp%100 +100)) {
+                       this.LevelUp = true;
+                   }
+               } else {
+                   this.currentPlantXP = userplant.xp+20;
+                   if(this.currentPlantXP >= (userplant.xp- userplant.xp%100 +100)) {
+                       this.LevelUp = true;
+                   }
+               }
 
                let today = new Date();
 
@@ -305,7 +335,14 @@ C351.4,202.3,362.8,213.7,362.8,227.9z"/></svg>
                }
            },
 
+           MissingXPs:function (xp) {
+               return (xp - xp%100 +100) - xp;
+           },
 
+           plantLevel: function (xp) {
+
+               return Math.trunc(xp/100)+1;
+           },
        }
 
    }

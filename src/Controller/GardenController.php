@@ -116,7 +116,6 @@ class GardenController extends AbstractController
             $userplant->setXP($userplant->getXP() +25);
         }
 
-
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($userplant);
         $entityManager->persist($user);

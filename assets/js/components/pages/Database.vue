@@ -50,7 +50,7 @@
         </div>
         <div class="col-lg-1 whiteLineVert" ></div>
 
-        <div class="col-5 text-center" v-if="!buttonPressed">
+        <div class="col-5 text-center" v-if="!buttonPressed && !findRandomPlant">
             <form >
                 <p class="search">Suche</p>
                 <input type="text" placeholder="Suche nach Pflanzen.." class="form-control form-control-sm searchBarDatabase" aria-label="Search" v-model="search">
@@ -76,9 +76,7 @@
                     <option>extrem</option>
                 </select>
                 <button class="buttonWhiteSearch" v-on:click="buttonPressed = true">Suche starten</button>
-                <button class="col-lg-10 selfAlignCenter buttonWhiteExplore">
-                    Pflanzen entdecken
-                </button>
+                <button class="col-lg-10 selfAlignCenter buttonWhiteExplore" v-on:click="findRandomPlant= true" @mouseup="chooseRandom()" > Pflanzen entdecken </button>
             </form>
 
         </div>
@@ -159,6 +157,32 @@
         </div>
         </div>
 
+        <div v-if="findRandomPlant">
+            <div class="row">
+                <button type="button" class="close left" aria-label="Close" @click="findRandomPlant= false">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="row searchPlants">
+                    <div class="col-lg-10">
+                <div class="container-fluid plantProfil dropShadow bgWhiteGrey">
+                    <div class="row">
+                       <div class="col plantInfo">
+                            <p class="text-left gardenPFirst"><b>{{ randomPlant.name }}</b></p>
+                            <p>{{randomPlant.genus}}</p>
+                            <router-link :to="'/plant/' + randomPlant.linkName">
+                                <button class="buttonDarkGreenSmall">Zum Eintrag</button>
+                            </router-link>
+
+                        </div>
+                        <img class="col imgTest" v-bind:src="'../' + randomPlant.icon"  alt="Picture of plant" height="100" >
+                    </div>
+                    </div>
+                <button class="col-lg-10 selfAlignCenter buttonWhiteExplore" v-on:click="chooseRandom()">Weitere Pflanzen entdecken </button>
+            </div>
+            </div>
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -172,7 +196,9 @@
                 search: '',
                 difficulty: '',
                 buttonPressed: false,
-                loggedInUser:{}
+                findRandomPlant: false,
+                loggedInUser:{},
+                randomPlant: null
             }
         },
         created: function() {
@@ -193,6 +219,22 @@
                 });
         },
 
+        computed: {
+
+            filteredPlants: function () {
+                return this.plants.filter((plant) => {
+                    return (plant.name.toLowerCase().match(this.search.toLowerCase())
+                        || plant.genus.toLowerCase().match(this.search.toLowerCase())
+                        || plant.latinName.toLowerCase().match(this.search.toLowerCase()))
+                        //|| plant.alternativeName.toLowerCase().match(this.search.toLowerCase()) can be null
+                        && plant.careLevel.match(this.difficulty)
+                        && plant.categorySelect.match(this.category)
+                });
+
+            }
+
+        },
+
         methods: {
             checkRole: function () {
                 if (this.loggedInUser.roles !== null) {
@@ -203,20 +245,8 @@
 
                 }
             },
-            computed: {
-
-                filteredPlants: function () {
-                    return this.plants.filter((plant) => {
-                        return (plant.name.toLowerCase().match(this.search.toLowerCase())
-                            || plant.genus.toLowerCase().match(this.search.toLowerCase())
-                            || plant.latinName.toLowerCase().match(this.search.toLowerCase()))
-                            //|| plant.alternativeName.toLowerCase().match(this.search.toLowerCase()) can be null
-                            && plant.careLevel.match(this.difficulty)
-                            && plant.categorySelect.match(this.category)
-                    });
-
-                }
-
+            chooseRandom: function () {
+                this.randomPlant = this.plants[Math.round(Math.random() * (this.plants.length))];
             }
         }}
 
