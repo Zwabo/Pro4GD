@@ -416,7 +416,9 @@ class UserController extends AbstractController
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
         }
 
-        return new JsonResponse("test", Response::HTTP_OK);
+        $xp = $user->getXP();
+
+        return new JsonResponse($xp, Response::HTTP_OK);
     }
 
 /**

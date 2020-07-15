@@ -77,9 +77,9 @@
                                         <ul class="noListStyle">
                                             <li class="friendUsernameHL">{{ friend.username }}</li>
                                             <li class="friendWholeName">{{ friend.firstName }} {{ friend.lastName }}</li> <!-- {{ profileUser.username }}-->
-                                            <li class="friendLevel"><b-progress :value="friend.xp" :max="friend.xp - friend.xp%100 +100" variant="dark" class="w-25"></b-progress></li>
                                             <li>{{getFriendXP(friend.username)}}</li>
-                                            <li class="friendTitle">{{getLevel(friend.xp)}}</li> <!-- Rang Benennung: aus Lvl berechnet -->
+                                            <li class="friendLevel"><b-progress :value="friendXP" :max="friendXP- friendXP%100 +100" variant="dark" class="w-25"></b-progress></li>
+                                            <li class="friendTitle">{{getLevel(friendXP)}}</li> <!-- Rang Benennung: aus Lvl berechnet -->
                                         </ul>
                                     </div>
 
@@ -369,6 +369,8 @@
                 showForum: false,
 
                 max: 0,
+
+                friendXP: null,
             }
         },
 
@@ -641,7 +643,8 @@
                 console.log("friendname: " + friendname);
                 this.$http.get('/api/profile/profilefriendxp/' + friendname + '/')
                     .then(response => {
-                        console.log(response.data);
+                        console.log(this.friendXP);
+                        this.friendXP = response.data;
                     })
                     .catch(error => {
                         this.getError(error);
