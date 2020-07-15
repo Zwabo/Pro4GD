@@ -2,12 +2,12 @@
     <div class="row">
         <div class="col right marginLeftRight">
 
-            <div v-if="checkRole()">
+
             <add-news-article-modal
                     :newsData="newsData"
-                @newArticle="newArticle" >
+                @newArticle="newArticle" v-if="checkRole()" >
             </add-news-article-modal>
-            </div>
+
 
 
                 <h1 class="col-sm" id="news"  >Neuigkeiten </h1>
@@ -59,6 +59,9 @@
             this.$root.$on('loggedIn', () => {
                 this.loggedInUser = JSON.parse(localStorage.getItem('user'));
             });
+            if(this.loggedInUser == null){
+                this.$router.push('/login');
+            }
         },
     mounted: function(){
         this.$http.get('/api/news')
@@ -78,12 +81,20 @@
             },
 
             checkRole: function(){
-                if(this.loggedInUser.roles === 'ROLE_ADMIN' || this.loggedInUser.roles === 'ROLE_SUPPORT_USER' ){
+                if(this.loggedInUser.roles == 'ROLE_ADMIN'){
                     return true;
                 } else {
                     return false;
                 }
+            },
 
+            checkLogin: function(){
+                if(this.loggedInUser.roles == 'ROLE_USER'){
+                    return true;
+                } else {
+                    this.$router.push('/login');
+                    return false;
+                }
             }
 
             /*filters: {

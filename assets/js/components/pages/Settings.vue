@@ -223,6 +223,17 @@
                 privacyForum: "all"
             }
         },
+        created: function(){
+            this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+
+            //Retrieve user item from local storage in case of login
+            this.$root.$on('loggedIn', () => {
+                this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+            });
+            if(this.loggedInUser == null){
+                this.$router.push('/login');
+            }
+        },
         mounted: function (){
             this.profileUser = JSON.parse(localStorage.getItem('user'));
             this.privacyBirthday = this.profileUser.privacyBirthday;

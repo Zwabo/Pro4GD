@@ -54,7 +54,7 @@
                         <p class="commentNr">#0</p>
                     </div>
                     <div class="row threadIcons">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="41.215" height="28.101" viewBox="0 0 41.215 28.101">
+                        <!--<svg xmlns="http://www.w3.org/2000/svg" width="41.215" height="28.101" viewBox="0 0 41.215 28.101">
                             <g id="eye" transform="translate(0 -74.667)">
                                 <g id="Gruppe_987" data-name="Gruppe 987" transform="translate(0 74.667)">
                                     <g id="Gruppe_986" data-name="Gruppe 986" transform="translate(0 0)">
@@ -64,10 +64,10 @@
                                 </g>
                             </g>
                         </svg>
-                        <p class="iconText">seen</p>
+                        <p class="iconText">seen</p>-->
 
                         <svg @click="likeIt" xmlns="http://www.w3.org/2000/svg" width="27.681" height="24.848" viewBox="0 0 27.681 24.848" id="heart">
-                            <path id="heartFill" class="heartHover" d="M23.644,2.236A6.906,6.906,0,0,0,18.508,0a6.461,6.461,0,0,0-4.035,1.393,8.256,8.256,0,0,0-1.631,1.7,8.251,8.251,0,0,0-1.632-1.7A6.46,6.46,0,0,0,7.174,0,6.906,6.906,0,0,0,2.038,2.236,8.027,8.027,0,0,0,0,7.718a9.559,9.559,0,0,0,2.547,6.257,54.314,54.314,0,0,0,6.376,5.985c.883.753,1.885,1.606,2.925,2.516a1.508,1.508,0,0,0,1.985,0c1.04-.909,2.042-1.763,2.926-2.517a54.284,54.284,0,0,0,6.376-5.984,9.558,9.558,0,0,0,2.547-6.257,8.026,8.026,0,0,0-2.037-5.482Zm0,0" transform="translate(1 1)" v-bind:fill="[thread.isLiked ? '#707070' : '#dedede']" stroke="#707070" stroke-width="2"/>
+                            <path id="heartFill" class="heartHover" d="M23.644,2.236A6.906,6.906,0,0,0,18.508,0a6.461,6.461,0,0,0-4.035,1.393,8.256,8.256,0,0,0-1.631,1.7,8.251,8.251,0,0,0-1.632-1.7A6.46,6.46,0,0,0,7.174,0,6.906,6.906,0,0,0,2.038,2.236,8.027,8.027,0,0,0,0,7.718a9.559,9.559,0,0,0,2.547,6.257,54.314,54.314,0,0,0,6.376,5.985c.883.753,1.885,1.606,2.925,2.516a1.508,1.508,0,0,0,1.985,0c1.04-.909,2.042-1.763,2.926-2.517a54.284,54.284,0,0,0,6.376-5.984,9.558,9.558,0,0,0,2.547-6.257,8.026,8.026,0,0,0-2.037-5.482Zm0,0" transform="translate(1 1)" v-bind:fill="likeHeartFill" stroke="#707070" stroke-width="2"/>
                         </svg>
                         <p class="iconText">{{thread.likes}}</p>
                     </div>
@@ -97,7 +97,7 @@
                             <p class="commentNr">#{{commentNr(comment.id)}}</p>
                         </div>
                         <div class="row threadIcons">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="41.215" height="28.101" viewBox="0 0 41.215 28.101">
+                            <!--<svg xmlns="http://www.w3.org/2000/svg" width="41.215" height="28.101" viewBox="0 0 41.215 28.101">
                                 <g id="eye" transform="translate(0 -74.667)">
                                     <g id="Gruppe_987" data-name="Gruppe 987" transform="translate(0 74.667)">
                                         <g id="Gruppe_986" data-name="Gruppe 986" transform="translate(0 0)">
@@ -107,18 +107,19 @@
                                     </g>
                                 </g>
                             </svg>
-                            <p class="iconText">seen</p>
+                            <p class="iconText">seen</p>-->
 
                             <svg @click="likeItId(comment.id)" xmlns="http://www.w3.org/2000/svg" width="27.681" height="24.848" viewBox="0 0 27.681 24.848" id="heart">
-                                <path :id='"heartFill" + comment.id' class="heartHover" d="M23.644,2.236A6.906,6.906,0,0,0,18.508,0a6.461,6.461,0,0,0-4.035,1.393,8.256,8.256,0,0,0-1.631,1.7,8.251,8.251,0,0,0-1.632-1.7A6.46,6.46,0,0,0,7.174,0,6.906,6.906,0,0,0,2.038,2.236,8.027,8.027,0,0,0,0,7.718a9.559,9.559,0,0,0,2.547,6.257,54.314,54.314,0,0,0,6.376,5.985c.883.753,1.885,1.606,2.925,2.516a1.508,1.508,0,0,0,1.985,0c1.04-.909,2.042-1.763,2.926-2.517a54.284,54.284,0,0,0,6.376-5.984,9.558,9.558,0,0,0,2.547-6.257,8.026,8.026,0,0,0-2.037-5.482Zm0,0" transform="translate(1 1)" v-bind:fill="[comment.isLiked ? '#707070' : '#dedede']" stroke="#707070" stroke-width="2"/>
+                                <path :id='"heartFill" + comment.id' class="heartHover" d="M23.644,2.236A6.906,6.906,0,0,0,18.508,0a6.461,6.461,0,0,0-4.035,1.393,8.256,8.256,0,0,0-1.631,1.7,8.251,8.251,0,0,0-1.632-1.7A6.46,6.46,0,0,0,7.174,0,6.906,6.906,0,0,0,2.038,2.236,8.027,8.027,0,0,0,0,7.718a9.559,9.559,0,0,0,2.547,6.257,54.314,54.314,0,0,0,6.376,5.985c.883.753,1.885,1.606,2.925,2.516a1.508,1.508,0,0,0,1.985,0c1.04-.909,2.042-1.763,2.926-2.517a54.284,54.284,0,0,0,6.376-5.984,9.558,9.558,0,0,0,2.547-6.257,8.026,8.026,0,0,0-2.037-5.482Zm0,0" transform="translate(1 1)" v-bind:fill="setHeartsComments(comment.id)" stroke="#707070" stroke-width="2"/>
                             </svg>
                             <p class="iconText">{{comment.likes}}</p>
                         </div>
-                        <!-- Button zum löschen von Comments für admins und supporting users -->
-                        <button v-if="checkRole()" type="button" class="buttonDarkGreen col-lg-2" @click="removeThread()">
-                            Thread löschen
-                        </button>
+
                     </div>
+                    <!-- Button zum löschen von Comments für admins und supporting users -->
+                    <button v-if="checkRole()" type="button" class="buttonDarkGreen col-lg-2" @click="removeThread()">
+                        Kommentar löschen
+                    </button>
                 </div>
                 <div class="greyLine commentLine"></div>
             </div>
@@ -142,7 +143,12 @@
                 comments: null,
                 loggedUser: {},
 
-                commentCounter: 0
+                commentCounter: 0,
+
+                isLiked: null,
+                likeHeartFill: null,
+
+                likedComments: [],
             }
         },
 
@@ -153,10 +159,40 @@
             this.$root.$on('loggedIn', () => {
                 this.loggedUser = JSON.parse(localStorage.getItem('user'));
             });
+
+            this.$http.post('/forum/likedStatus/' + this.$route.params.id, {
+                userId: this.loggedUser.id,
+            })
+                .then(response => {
+                    this.isLiked = response.data;
+                    //console.log("created likedStatus");
+                    //console.log(response.data);
+                    if (this.isLiked === true) {
+                        this.likeHeartFill = '#707070';
+                    } else {
+                        this.likeHeartFill = '#dedede';
+                    }
+                })
+                .catch(error => {
+                    alert(error);
+                });
+
+            this.$http.post('/forum/commentsLikedStatus/' + this.$route.params.id, {
+                userId: this.loggedUser.id,
+            })
+                .then(response => {
+                    console.log("this.likedComments  created");
+                    console.log(response.data);
+                    this.likedComments = response.data;
+
+                })
+                .catch(error => {
+                    alert(error);
+                });
         },
 
         mounted: function() {
-            console.log(this.loggedUser);
+            //console.log(this.loggedUser);
             this.$http.post('/api/thread/' + this.$route.params.id, {
                 userId: this.loggedUser.id,
             }).then(response => {
@@ -169,62 +205,141 @@
         },
 
         methods: {
-            likeIt: function () {
-                let heart = document.getElementById("heartFill").getAttribute('fill');
-
-                if (heart === "#dedede") {
-
-                    this.$http.post('/forum/addThreadLike/' + this.thread.id, {
+            //--------------------------------------THREADS LIKES + HILFSMETHODEN-------------------------------
+            //likeIt for threads
+            likeIt: function() {
+                this.$http.post('/forum/likedStatus/' + this.thread.id, {
+                    userId: this.loggedUser.id,
+                })
+                    .then(response => {
+                        this.isLiked = response.data;
+                        this.setHearts(this.isLiked, this.thread.id);
+                    })
+                    .catch(error => {
+                        alert(error);
+                    });
+            },
+            //setHearts for threads
+            setHearts: function(liked, threadID) {
+                if (liked === false) {
+                    this.$http.post('/api/forum/addThreadLike/'+ threadID, {
                         userId: this.loggedUser.id,
                     })
-                    this.$router.go(); // Workaround because statement below is not working
-                    document.getElementById("heartFill").setAttribute("fill", "#707070");
+                        .then(response => {
+                        })
+                        .catch(error => {
+                            alert(error);
+                        });
+
+                    this.likeHeartFill = "#707070";
+                    this.isLiked = false;
                     this.thread.likes++;
-                } else if (heart === "#707070") {
-                    this.$http.post('/forum/removeThreadLike/' + this.thread.id, {
+                } else {
+                    this.$http.post('/api/forum/removeThreadLike/' + threadID, {
                         userId: this.loggedUser.id,
                     })
-                    this.$router.go(); // Workaround because statement below is not working
-                    document.getElementById("heartFill").setAttribute("fill", "#dedede");
+                        .then(response => {
+                        })
+                        .catch(error =>  {
+                            alert(error);
+                        });
 
+                    this.likeHeartFill = "#dedede";
+                    this.isLiked = true;
                     this.thread.likes--;
                 }
+
+                //console.log(this.isLiked);
             },
-            likeItId: function (id) {
-                let heartID = document.getElementById('heartFill' + id).getAttribute('fill');
+            //check for threads
+            checkLiked: function(commentId) {
+                let isLiked = false;
+                for (let i = 0; i < this.likedComments.length; i++) {
+                    if (this.likedComments[i] === commentId) {
+                        isLiked = true;
+                        return '#707070';
+                    } else {
+                        return '#dedede';
+                    }
+                }
+            },
 
-                let commentId = id - 1;
-                console.log(this.comments);
+            //--------------------------------------COMMENTS LIKES + HILFSMETHODEN-------------------------------
+            likeItId: function(commentid) {
+                let commentId = commentid - 1;
+                let isLiked = false;
+                let idArray = null;
 
-                if (heartID === "#dedede") {
-                    this.$http.post('/forum/addLike/' + id, {
+                for (let i = 0; i < this.likedComments.length; i++) {
+                    if (this.likedComments[i] === commentid) {
+                        isLiked = true;
+                        idArray = i;
+                    }
+                }
+
+                if (isLiked === false) {
+                    this.$http.post('/forum/addLike/' + commentid, {
                         userId: this.loggedUser.id,
                     })
-                    // TODO Colorchange doesnt trigger
-                    //document.getElementById('heartFill' + id).setAttribute("fill", "#707070");
-                    document.getElementById('heartFill' + id).setAttribute("fill", "#000000");
-                    this.$router.go(); // Workaround because statement below is not working
+                        .then(response => { })
+                        .catch(error => { console.log(error); });
+
                     this.comments.forEach(function (comment) {
-                        if (id == comment.id) {
+                        if (commentid === comment.id) {
                             comment.likes++;
                             comment.isliked = true;
                         }
                     });
-                } else if (heartID === "#707070") {
-                    this.$http.post('/forum/removeLike/' + id, {
+
+                    this.$http.post('/forum/commentsLikedStatus/' + this.$route.params.id, {
                         userId: this.loggedUser.id,
                     })
-                    document.getElementById('heartFill' + id).setAttribute("fill", "#dedede");
+                        .then(response => { this.likedComments = response.data; })
+                        .catch(error => { console.log(error); });
+
+                    console.log("added at like for id " + commentid);
+                    console.log(this.likedComments);
+
+                } else {
+                    this.$http.post('/forum/removeLike/' + commentid, {
+                        userId: this.loggedUser.id,
+                    })
+                        .then(response => { })
+                        .catch(error => { console.log(error); });
 
                     this.comments.forEach(function (comment) {
-                        if (id == comment.id) {
+                        if (commentid === comment.id) {
                             comment.likes--;
                             comment.isLiked = false;
                         }
                     });
+
+                    this.$http.post('/forum/commentsLikedStatus/' + this.$route.params.id, {
+                        userId: this.loggedUser.id,
+                    })
+                        .then(response => {
+                            this.likedComments = response.data;
+                        })
+                        .catch(error => { console.log(error); });
+
+                    console.log("removed at id " + idArray);
+                    console.log(this.likedComments);
                 }
             },
-
+            setHeartsComments: function(commentId) {
+                let like = false;
+                for(let i = 0; i < this.likedComments.length; i++) {
+                    if (commentId === this.likedComments[i]) {
+                        like = true;
+                    }
+                }
+                if (like === true) {
+                    return '#707070';
+                } else {
+                    return '#dedede';
+                }
+            },
+            /*----------------comments---------------*/
             commentNr: function (id) {
                 return id + 1;
             },
@@ -241,7 +356,7 @@
     });
             },
             checkRole: function () {
-                if (this.loggedUser.roles === 'ROLE_ADMIN') {
+                if(this.loggedUser.roles == 'ROLE_ADMIN') {
                     return true;
                 } else {
                     return false;

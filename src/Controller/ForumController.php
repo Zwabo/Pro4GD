@@ -193,7 +193,7 @@ class ForumController extends AbstractController
     }
 
     /**
-     * @Route("/forum/addcomment")
+     * @Route("/forum/addcomment", name="addcomment", methods={"POST"})
      */
     public function addComment(Request $request)
     {
@@ -284,16 +284,108 @@ class ForumController extends AbstractController
         return new JsonResponse([], Response::HTTP_OK);
     }
 
+    /**
+     * @Route("/forum/likedStatus/{threadid}", name="likedStatus", methods={"POST"})
+     */
+    public function likedStatus($threadid, Request $request) : JsonResponse
+    {
+        $data = $request->getContent();
+        $data = json_decode($data, true);
+        $userid = $data["userId"];
+
+        $liked = null;
+
+        $thread = $this->getDoctrine()
+            ->getRepository(ThumbUpThread::class)
+            ->findOneBy(
+                ['thread' => $threadid, 'user' => $userid]
+            );
+
+        if (!$thread) {
+            $liked = false;
+        } else {
+            $liked = true;
+        }
+
+        return new JsonResponse($liked, Response::HTTP_OK);
+    }
 
     /**
-     * @Route("/forum/addThreadLike/{id}")
+     * @Route("/forum/commentsLikedStatus/{threadid}", name="commentsLikedStatus", methods={"POST"})
+     */
+    public function commentsLikedStatus($threadid, Request $request) : JsonResponse
+    {
+        $data = $request->getContent();
+        $data = json_decode($data, true);
+        $userid = $data["userId"];
+
+        //find all comments from the specific thread
+        $threadComments = $this->getDoctrine()
+            ->getRepository(Comment::class)
+            ->findAll(["thread" => $threadid]);
+
+
+        $test = [];
+        foreach($threadComments as $comment) {
+            $comment = $comment->toAssoc();
+            array_push($test, $comment);
+        }
+
+        //find all comments from the user in that thread
+        $commentsUser = [];
+        foreach($threadComments as $comment) {
+            $commentUserid = $comment->getUser()->getId();
+
+            if ($commentUserid === $userid) {
+                array_push($commentsUser, $comment);
+            }
+        }
+
+        $test2 = [];
+        foreach($commentsUser as $comment) {
+            $comment = $comment->toAssoc();
+            array_push($test2, $comment);
+        }
+
+        //get all liked threads of the user
+        $commentsLiked = [];
+        $test3 = null;
+        foreach($commentsUser as $comment) {
+            $id = $comment->getId();
+
+            $likedComment = $this->getDoctrine()
+                ->getRepository(ThumbUp::class)
+                ->findOneBy( ['Comment' => $id, 'user' => $userid] );
+
+            if ($likedComment) {
+                array_push($commentsLiked, $likedComment->getId()); }
+        }
+
+        $commentIds = [];
+        $test4 = null;
+        foreach($commentsLiked as $comment) {
+            $ids = $this->getDoctrine()
+                ->getRepository(ThumbUp::class)
+                ->find($comment);
+
+            array_push($commentIds, $ids->getComment()->getId());
+            $test4 = $ids->getComment()->getId();
+        }
+
+        return new JsonResponse($commentIds, Response::HTTP_OK);
+    }
+
+
+    /**
+     * @Route("/api/forum/addThreadLike/{id}", name = "addThreadLike", methods="POST")
      *
      * @param string $id the thread id given by the vue form
      */
-    public function addThreadLike(Request $request, string $id)
+    public function addThreadLike(Request $request, string $id) : JsonResponse
     {
         $entityManager = $this->getDoctrine()->getManager();
         $content = json_decode($request->getContent());
+
         $user = $entityManager->getRepository(User::class)->find($content->userId);
         $thread = $entityManager->getRepository(Thread::class)->find($id);
 
@@ -310,7 +402,7 @@ class ForumController extends AbstractController
     }
 
     /**
-     * @Route("api/forum/removeThreadLike/{id}")
+     * @Route("/api/forum/removeThreadLike/{id}", name = "removeThreadLIke", methods="POST")
      */
     public function removeThreadLike(Request $request, string $id)
     {
@@ -326,7 +418,7 @@ class ForumController extends AbstractController
             );
 
         if (!$thumbUpThread) {
-            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+            return new JsonResponse($thumbUpThread->toAssoc(), Response::HTTP_NOT_FOUND);
         }
 
         $user->setXP($user->getXP() - 1);

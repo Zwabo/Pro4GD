@@ -55,6 +55,9 @@
             this.$root.$on('loggedIn', () => {
                 this.loggedInUser = JSON.parse(localStorage.getItem('user'));
             });
+            if(this.loggedInUser == null){
+                this.$router.push('/login');
+            }
         },
         mounted: function(){
             this.$http.get('/api/tipps')

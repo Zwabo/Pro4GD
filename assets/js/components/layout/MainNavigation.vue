@@ -16,9 +16,8 @@
                         <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="datenbankDropdown">
                             <router-link class="dropdown-item" :to="'/database/'">In Datenbank Suchen</router-link>
                             <!-- hides drop down item addPlant for standard user -->
-                            <!--      <div  v-show="checkRole()"id ="addPlant-dropDown" >-->
-                                  <router-link  class="dropdown-item" :to="'/addPlant/'">Neue Pflanze hinufügen</router-link>
-                            <!--   </div>-->
+                            <router-link id ="addPlant-dropDown" class="dropdown-item" :to="'/addPlant/'">Neue Pflanze hinufügen</router-link>
+
                          </div>
                      </li>
                      <li class="nav-item dropdown selfAlignCenter">
@@ -35,9 +34,9 @@
                      <li class="nav-item dropdown selfAlignCenter" id="naviUser" v-if="navigationUser">
                          <a class="nav-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{navigationUser.username}} <img id="naviImg" v-bind:src="navigationUser.userPic"></a>
                          <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="userDropdown">
-                             <router-link :to="'/profile/' + navigationUser.username" class="dropdown-item">          <!-- change to dynamic -->
+                             <a :href="'/profile/' + navigationUser.username" class="dropdown-item">          <!-- change to dynamic -->
                                 Profil
-                            </router-link>
+                            </a>
                             <router-link to="/friends" class="dropdown-item">          <!-- change to dynamic -->
                                 Freunde
                             </router-link>
@@ -64,14 +63,7 @@
                 loggedInUser: {}
             }
         },
-        created: function() {
-            this.loggedInUser = JSON.parse(localStorage.getItem('user'));
 
-            //Retrieve user item from local storage in case of login
-            this.$root.$on('loggedIn', () => {
-                this.loggedInUser = JSON.parse(localStorage.getItem('user'));
-            });
-        },
         mounted: function(){
             this.navigationUser = JSON.parse(localStorage.getItem('user'));
 
@@ -81,9 +73,9 @@
             });
         },
         // hides drop down item add plant in database
-      /**  methods: {
+       methods: {
             checkRole: function () {
-                if (this.loggedInUser === null ||this.loggedInUser.roles === 'ROLE_USER' ) {
+                if ((this.loggedInUser == null) ||(this.loggedInUser.roles == 'ROLE_USER') ) {
                     // redirect auf login einfügen
                     let dropDown = document.getElementById('addPlant-dropDown');
                     dropDown.style.display='none';
@@ -94,7 +86,7 @@
 
                 }
             }
-    }**/
+    }
     }
 </script>
 
