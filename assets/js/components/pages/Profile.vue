@@ -277,7 +277,7 @@
                             <hr class="threadCommentsPaddingLR threadCommentsHr">
                             <div class="threadsCommentsInfo">
                                 <p v-for="(comment, id) in writtenComments" v-if="id < 3" class="threadCommentsPaddingLR threadList">
-                                    <span class="commentsHL">{{comment.thread}}</span>
+                                    <span class="commentsHL">{{comment.thread.headline}}</span>
                                     <span class="commentCreated">{{getDateString(comment.created)}}</span>
                                     <span>{{getThreadToComment(comment.id)}}</span>
                                 </p>
