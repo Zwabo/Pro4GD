@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="reload likes workaround implementiert">
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="zwischenstand">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AddPlantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AddPlantController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ForumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ForumController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
     </list>
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
@@ -130,6 +129,28 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="804">
+                    <caret line="456" column="28" selection-start-line="456" selection-start-column="28" selection-end-line="456" selection-end-column="28" />
+                    <folding>
+                      <element signature="e#34#56#0#PHP" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1864558712">
       <usages-collector id="statistics.lifecycle.project">
@@ -159,10 +180,10 @@
           <entry key="env" value="1" />
           <entry key="gitignore" value="2" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="43" />
+          <entry key="js" value="44" />
           <entry key="json" value="2" />
           <entry key="md" value="9" />
-          <entry key="php" value="366" />
+          <entry key="php" value="374" />
           <entry key="rnc" value="1" />
           <entry key="scss" value="1" />
           <entry key="svg" value="68" />
@@ -179,9 +200,9 @@
           <entry key="CSS" value="104" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="43" />
+          <entry key="JavaScript" value="44" />
           <entry key="Markdown" value="9" />
-          <entry key="PHP" value="366" />
+          <entry key="PHP" value="374" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="RNG Compact" value="1" />
           <entry key="SCSS" value="1" />
@@ -200,11 +221,11 @@
           <entry key="js" value="1979" />
           <entry key="json" value="26" />
           <entry key="md" value="198" />
-          <entry key="php" value="44808" />
+          <entry key="php" value="47230" />
           <entry key="svg" value="26" />
           <entry key="twig" value="20844" />
-          <entry key="txt" value="2664" />
-          <entry key="vue" value="111736" />
+          <entry key="txt" value="2677" />
+          <entry key="vue" value="115146" />
           <entry key="xml" value="11" />
           <entry key="yaml" value="138" />
         </counts>
@@ -215,11 +236,11 @@
           <entry key="JSON" value="26" />
           <entry key="JavaScript" value="1980" />
           <entry key="Markdown" value="198" />
-          <entry key="PHP" value="44808" />
-          <entry key="PLAIN_TEXT" value="2689" />
+          <entry key="PHP" value="47230" />
+          <entry key="PLAIN_TEXT" value="2702" />
           <entry key="SVG" value="26" />
           <entry key="Twig" value="20844" />
-          <entry key="Vue.js" value="111735" />
+          <entry key="Vue.js" value="115145" />
           <entry key="XML" value="11" />
           <entry key="YAML" value="138" />
         </counts>
@@ -244,17 +265,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="730" column="22" lean-forward="true" selection-start-line="730" selection-start-column="22" selection-end-line="730" selection-end-column="22" />
+            <state relative-caret-position="628">
+              <caret line="776" column="26" selection-start-line="776" selection-start-column="26" selection-end-line="776" selection-end-column="26" />
               <folding>
                 <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ForumController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="36" column="72" selection-start-line="36" selection-start-column="65" selection-end-line="36" selection-end-column="72" />
+              <folding>
+                <element signature="e#117#141#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="754" column="31" selection-start-line="754" selection-start-column="20" selection-end-line="754" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Comment.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1545">
+              <caret line="85" column="29" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Category.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="533">
+              <caret line="127" column="12" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="37" column="40" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -272,36 +341,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>friend</find>
-      <find>profileuserfriends</find>
-      <find>delete</find>
-      <find>friends</find>
-      <find>friendLevel</find>
-      <find>friendlevel</find>
-      <find>getFriendXPget</find>
-      <find>getfriend</find>
-      <find>show</find>
-      <find>getfriendxp</find>
-      <find>addthreadlike</find>
-      <find>checkliked</find>
+      <find>rightBoxesPadding</find>
+      <find>rightboxes</find>
+      <find>birthdaystring</find>
+      <find>threadcommentsHL</find>
+      <find>threadhl</find>
+      <find>threadcommentshl</find>
+      <find>threadCommentsHr</find>
+      <find>threadcommentshr</find>
+      <find>thread</find>
+      <find>id</find>
+      <find>this.createdthreads</find>
+      <find>createdthreads</find>
+      <find>getcreatedthread</find>
+      <find>getcreated</find>
+      <find>getthread</find>
+      <find>getwrittenc</find>
+      <find>getThreadToComment</find>
+      <find>comment</find>
+      <find>commentArray</find>
+      <find>getdatestring</find>
+      <find>getfriendXP</find>
+      <find>friendXP</find>
+      <find>friendxp</find>
+      <find>lvl</find>
+      <find>writtencomments</find>
+      <find>awards</find>
+      <find>checkawards</find>
+      <find>getcreatedthreads</find>
       <find>console.log</find>
-      <find>getuser</find>
-      <find>setheartscomments</find>
-      <find>likedcommentids</find>
-      <find>getcomm</find>
-      <find>comments</find>
-      <find>commentnr</find>
-      <find>newcomment</find>
-      <find>addcomment</find>
-      <find>error</find>
-      <find>methods:</find>
-      <find>garten</find>
-      <find>gotogarden</find>
-      <find>addplant</find>
-      <find>computed</find>
-      <find>alle</find>
-      <find>heckawards</find>
-      <find>onplantfileselected</find>
+      <find>findall</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -355,19 +424,19 @@
         <option value="$PROJECT_DIR$/assets/js/components/pages/Friends.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Forum.vue" />
         <option value="$PROJECT_DIR$/src/DataFixtures/CategoryFixtures.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Category.php" />
         <option value="$PROJECT_DIR$/assets/css/layout.css" />
         <option value="$PROJECT_DIR$/assets/css/profile.css" />
         <option value="$PROJECT_DIR$/assets/css/main.css" />
         <option value="$PROJECT_DIR$/src/Controller/FriendsController.php" />
         <option value="$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue" />
-        <option value="$PROJECT_DIR$/src/Controller/ForumController.php" />
         <option value="$PROJECT_DIR$/assets/js/components/forms/CommentForm.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Thread.vue" />
         <option value="$PROJECT_DIR$/src/Controller/AddPlantController.php" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue" />
+        <option value="$PROJECT_DIR$/src/Entity/Category.php" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" />
         <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue" />
+        <option value="$PROJECT_DIR$/src/Controller/ForumController.php" />
       </list>
     </option>
   </component>
@@ -784,14 +853,7 @@
       <workItem from="1594671949984" duration="191000" />
       <workItem from="1594720304271" duration="20753000" />
       <workItem from="1594801322968" duration="17969000" />
-      <workItem from="1594893044123" duration="2268000" />
-    </task>
-    <task id="LOCAL-00033" summary="News">
-      <created>1588791786652</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1588791786652</updated>
+      <workItem from="1594893044123" duration="16010000" />
     </task>
     <task id="LOCAL-00034" summary="Zwischenstand">
       <created>1589805402707</created>
@@ -1129,11 +1191,18 @@
       <option name="project" value="LOCAL" />
       <updated>1594821524268</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="zwischenstand">
+      <created>1594898007502</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1594898007502</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="593278000" />
+    <option name="totallyTimeSpent" value="607020000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1160,12 +1229,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4975025" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.46053946" weight="0.32293764" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.46003997" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.45854145" side_tool="true" visible="true" weight="0.27565393" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.19430569" side_tool="true" visible="true" weight="0.42152917" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4995005" weight="0.32997987" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.54145855" visible="true" weight="0.27565393" />
+      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.8056943" visible="true" weight="0.42152917" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1228,9 +1297,9 @@
     <MESSAGE value="picture upload part1" />
     <MESSAGE value="zwischenstand likes" />
     <MESSAGE value="added profile requests, styles zwischenstand" />
-    <MESSAGE value="zwischenstand" />
     <MESSAGE value="reload likes workaround implementiert" />
-    <option name="LAST_COMMIT_MESSAGE" value="reload likes workaround implementiert" />
+    <MESSAGE value="zwischenstand" />
+    <option name="LAST_COMMIT_MESSAGE" value="zwischenstand" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
@@ -1255,13 +1324,6 @@
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/css/font.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="610">
@@ -1362,13 +1424,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/GardenController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3938">
-          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Garden.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1634">
@@ -1394,13 +1449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -1443,13 +1491,6 @@
     <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-124" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="633" column="25" selection-start-line="633" selection-start-column="20" selection-end-line="633" selection-end-column="25" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/FriendsController.php">
@@ -1497,13 +1538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Forum.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-52467">
@@ -1522,13 +1556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2926">
           <caret line="133" column="8" selection-start-line="133" selection-start-column="8" selection-end-line="134" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="46" column="50" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -1552,20 +1579,50 @@
     <entry file="file://$PROJECT_DIR$/src/Entity/Thread.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ForumController.php">
+    <entry file="file://$PROJECT_DIR$/src/Entity/Category.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="195" column="68" selection-start-line="195" selection-start-column="68" selection-end-line="195" selection-end-column="68" />
-          <folding>
-            <element signature="e#117#141#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="533">
+          <caret line="127" column="12" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="37" column="40" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/CommentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1545">
+          <caret line="85" column="29" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="754" column="31" selection-start-line="754" selection-start-column="20" selection-end-line="754" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/GardenController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="45" column="76" selection-start-line="45" selection-start-column="69" selection-end-line="45" selection-end-column="76" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="679">
-          <caret line="439" selection-start-line="439" selection-end-line="439" />
+        <state relative-caret-position="804">
+          <caret line="456" column="28" selection-start-line="456" selection-start-column="28" selection-end-line="456" selection-end-column="28" />
           <folding>
             <element signature="e#34#56#0#PHP" expanded="true" />
           </folding>
@@ -1574,13 +1631,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="730" column="22" lean-forward="true" selection-start-line="730" selection-start-column="22" selection-end-line="730" selection-end-column="22" />
+        <state relative-caret-position="628">
+          <caret line="776" column="26" selection-start-line="776" selection-start-column="26" selection-end-line="776" selection-end-column="26" />
           <folding>
             <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ForumController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="36" column="72" selection-start-line="36" selection-start-column="65" selection-end-line="36" selection-end-column="72" />
+          <folding>
+            <element signature="e#117#141#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

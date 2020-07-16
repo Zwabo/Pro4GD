@@ -77,9 +77,9 @@
                                         <ul class="noListStyle">
                                             <li class="friendUsernameHL">{{ friend.username }}</li>
                                             <li class="friendWholeName">{{ friend.firstName }} {{ friend.lastName }}</li> <!-- {{ profileUser.username }}-->
-                                            <li>{{getFriendXP(friend.username)}}</li>
-                                            <li class="friendLevel"><b-progress :value="friendXP" :max="friendXP- friendXP%100 +100" variant="dark" class="w-25"></b-progress></li>
-                                            <li class="friendTitle">{{getLevel(friendXP)}}</li> <!-- Rang Benennung: aus Lvl berechnet -->
+                                            <li class="friendLevel"><b-progress :value="friend.xp" :max="friend.xp- friend.xp%100 +100" variant="dark" class="w-25"></b-progress></li>
+                                            <li v-if="friend.lvlAward === null" class="friendTitle">Sprössling</li>
+                                            <li v-else class="friendTitle">{{friend.lvlAward}}</li>
                                         </ul>
                                     </div>
 
@@ -247,18 +247,42 @@
                 <div class="col-lg-4">
                     <div class="rightBoxes">
                         <h4 class="bgLightGrey rightBoxesPadding h4Box" @click="checkAwards">Erungenschaften</h4>
-                        <p class="rightBoxesPadding">
+                        <p v-if="profileUser.awards.length === 0">{{profileUser.username}} hat noch keine Errungeschaften freigeschalten.</p>
+                        <p v-else class="rightBoxesPadding">
                             <span v-for="(award, index) in profileUser.awards">
                                 <img class="awardImage" v-bind:src="'../' + award.awardIcon" v-bind:alt="loggedInUser.username + award.altText">
                             </span>
-
-
                         </p>
                     </div>
 
-                    <div class="rightBoxes" v-if="showForum">
-                        <h4 class="bgLightGrey rightBoxesPadding h4Box">Forenposts</h4>
-                        <p class="rightBoxesPadding">Liste an Forenposts</p> <!-- wird aus dem Forum ausgelesen -->
+                    <div class="rightBoxes" v-if="createdThreads !== null || writtenComments !== null">
+                        <h4 class="bgLightGrey rightBoxesPadding h4Box">Forum</h4>
+
+                        <div class="paddingNormalize" v-if="createdThreads !== null">
+                            <h5 class="threadCommentsHL">Eröffnete Threads</h5> <!-- wird aus dem Forum ausgelesen -->
+                            <hr class="threadCommentsPaddingLR threadCommentsHr">
+                            <div class="threadCommentsInfo">
+                                <p v-for="(thread, id) in createdThreads" v-if="id < 3" class="threadCommentsPaddingLR threadList">
+                                    <router-link :to="'/forum/' + thread.id">
+                                    <span class="threadHL">{{thread.headline}}</span>
+                                    <span class="threadCreated">{{getDateString(thread.created)}}</span>
+                                    </router-link>
+                                </p>
+                                <!--<p>{{thread.inputtext}}</p>-->
+                            </div>
+                        </div>
+
+                        <div class="paddingNormalize" v-if="writtenComments !== null">
+                            <h5 class="threadCommentsHL">Kommentierte Threads</h5>
+                            <hr class="threadCommentsPaddingLR threadCommentsHr">
+                            <div class="threadsCommentsInfo">
+                                <p v-for="(comment, id) in writtenComments" v-if="id < 3" class="threadCommentsPaddingLR threadList">
+                                    <span class="commentsHL">{{comment.thread}}</span>
+                                    <span class="commentCreated">{{getDateString(comment.created)}}</span>
+                                    <span>{{getThreadToComment(comment.id)}}</span>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -373,7 +397,10 @@
 
                 max: 0,
 
-                friendXP: null,
+                friendXP: [],
+
+                createdThreads: null,
+                writtenComments: null,
             }
         },
 
@@ -423,11 +450,16 @@
                     } else {
                         //console.log(this.profileUser.comments);
                     }
+
+                    this.getCreatedThreads();
+                    this.getWrittenComments();
                     return this.$http.get('/api/profile/' + this.$route.params.username + '/friends');
                 })
                 //friends
                 .then(response => {
                     this.profileUserFriends = response.data;
+                    console.log("here");
+                    console.log(response.data);
 
                     this.checkRelationshipSelf(); //Check if logged in user is profile user
                     this.checkRelationshipFriend(); //Check if logged in user is a friend of profile user
@@ -645,15 +677,14 @@
             },
 
             plantLevel: function (xp) {
-
                 return Math.trunc(xp/100)+1;
             },
 
             getFriendXP(friendname) {
-                console.log("friendname: " + friendname);
-                this.$http.get('/api/profile/profilefriendxp/' + friendname + '/')
+                //console.log("friendname: " + friendname);
+                this.$http.get('/api/profile/getFriendXP/' + friendname + '/')
                     .then(response => {
-                        console.log(this.friendXP);
+                        //console.log(this.friendXP);
                         this.friendXP = response.data;
                     })
                     .catch(error => {
@@ -719,29 +750,52 @@
             },
 
             getCreatedThreads: function() {
-                this.$http.get('/api/profile/getCreatedThreads/', {
-                    profileUserId: this.profileUser.id
-                })
+                console.log(this.profileUser.id);
+                this.$http.get('/api/profile/getCreatedThreads/' + this.profileUser.id)
                     .then(response => {
+                        /*console.log("getCreatedThreads");
                         console.log(response.data);
+                        console.log(response.data[0].created);
+                        console.log(response.data[0].headline);
+                        console.log(response.data[0].id);
+                        console.log(response.data[0].inputtext);*/
+                        this.createdThreads = response.data;
                     })
                     .catch(error => {
-                        console.log("getCreatedThreads");
+                        //console.log("getCreatedThreads");
+                        console.log(error);
+                    });
+            },
+
+            getWrittenComments: function() {
+                this.$http.get('/api/profile/getWrittenComments/' + this.profileUser.id)
+                    .then(response => {
+                        //console.log(response.data);
+                        this.writtenComments = response.data;
+                    })
+                    .catch(error => {
+                        //console.log("getWrittenComments");
                         console.log(error);
                     })
             },
 
-            getWrittenComments: function() {
-                this.$http.get('/api/profile/getWrittenComments/', {
-                    profileUserId: this.profileUser.id
-                })
-                    .then(response => {
-                        console.log(response.data);
-                    })
-                    .catch(error => {
-                        console.log("getWrittenComments");
-                        console.log(error);
-                    })
+            getThreadToComment: function(commentId) {
+              this.$http.get('/api/profile/getThreadToComment/' + commentId)
+                  .then(response => {
+                      //console.log("getThreadToComment with commentid: " + commentId);
+                      //console.log(response.data);
+                  })
+                  .catch(error => {
+                      console.log(error);
+                  })
+            },
+
+            getDateString: function(date) {
+                return date.date.substr(8,2)
+                    + "." + date.date.substr(5,2)
+                    + "." + date.date.substr(0,4)
+                    + ", " + date.date.substr(11,2)
+                    + ":" + date.date.substr(14,2);
             },
 
             checkAwards: function() {
@@ -1070,8 +1124,8 @@
                     let lvlAwardVar = null;
                     let lvlAwardMsg = null;
 
-                    console.log(this.profileUser.xp);
-                    console.log(this.profileUser.username);
+                    //console.log(this.profileUser.xp);
+                    //console.log(this.profileUser.username);
 
                     if (this.profileUser.lvlAward !== "GoldenerDaumen") {
                         if (this.profileUser.xp >= 0 && this.profileUser.lvlAward === null) {
@@ -1161,6 +1215,8 @@
     .plantsProfileLeftGrid { float: left; }
     .plantsProfileRightGrid { flaot: right; }
 
+    /*------------------------------Anzeige der rechten Boxen--------------*/
+
     /*rechte Boxen*/
     .rightBoxes {
         background-color: white;
@@ -1171,6 +1227,25 @@
     .rightBoxes:first-of-type {
         margin-top: 50px;
     }
+
+    .threadCommentsPaddingLR {
+        margin-left: 4%;
+        margin-right: 4%;
+    }
+    .threadCommentsHL {
+        margin: 6% 4% 2% 4%;
+        font-weight: normal;
+        color: #97B753;
+    }
+    .threadCommentsHr { margin-top: 1%; }
+
+    .threadHL { font-weight: bold; }
+    .threadCreated { float: right; }
+    .threadList { margin-bottom: 1%; }
+    .threadList:last-of-type { margin-bottom: 5%; }
+
+
+    /*--------------------------------userplants garten-----------------------*/
     .imgBoxRight { text-align: right; }
 
     /*styling schrift und elemente*/

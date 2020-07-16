@@ -322,7 +322,7 @@ class ForumController extends AbstractController
         //find all comments from the specific thread
         $threadComments = $this->getDoctrine()
             ->getRepository(Comment::class)
-            ->findAll(["thread" => $threadid]);
+            ->findBy(["thread" => $threadid]);
 
 
         $test = [];

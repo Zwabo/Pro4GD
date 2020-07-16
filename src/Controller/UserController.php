@@ -12,6 +12,7 @@ use App\Entity\Userplant;
 use App\Entity\Award;
 use App\Entity\Plant;
 use App\Entity\Threads;
+use App\Entity\Comment;
 use Doctrine\ORM\EntityManagerInterface;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -108,7 +109,8 @@ class UserController extends AbstractController
                 $lastName = $request->getReceiver()->getLastName();
                 $level = $request->getReceiver()->getLevel();
                 $userPic = $request->getReceiver()->getUserPic();
-                //$xp = $request->getReciever()->getXP();
+                $xp = $request->getReceiver()->getXP();
+                $lvlAward = $request->getReceiver()->getLvlAward();
 
                 $friendData = [
                     'id' => $id,
@@ -117,7 +119,8 @@ class UserController extends AbstractController
                     'lastName' => $lastName,
                     'level' => $level,
                     'userPic' => $userPic,
-                    //'xp' => $xp
+                    'xp' => $xp,
+                    'lvlAward' => $lvlAward,
                 ];
                 array_push($friends, $friendData);
             }
@@ -130,7 +133,8 @@ class UserController extends AbstractController
                 $lastName = $request->getSender()->getLastName();
                 $level = $request->getSender()->getLevel();
                 $userPic = $request->getSender()->getUserPic();
-                //$xp = $request->getSender()->getXP();
+                $xp = $request->getSender()->getXP();
+                $lvlAward = $request->getSender()->getLvlAward();
 
                 $friendData = [
                     'id' => $id,
@@ -139,7 +143,8 @@ class UserController extends AbstractController
                     'lastName' => $lastName,
                     'level' => $level,
                     'userPic' => $userPic,
-                    //'xp' => $xp
+                    'xp' => $xp,
+                    'lvlAward' => $lvlAward,
                 ];
                 array_push($friends, $friendData);
             }
@@ -406,9 +411,9 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/api/profile/profilefriendxp/{friendname}", name="profilefriendxp", methods={"GET"})
+     * @Route("/api/profile/getFriendXP/{friendname}", name="getFriendXP", methods={"GET"})
      */
-    public function profilefriendxp($friendname, Request $request) : JsonResponse
+    public function getFriendXP($friendname, Request $request) : JsonResponse
     {
         $user = $this->getDoctrine()
             ->getRepository(User::class)
@@ -424,72 +429,58 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/api/profile/getCreatedThreads", name="getCreatedThreads", methods={"GET"})
+     * @Route("/api/profile/getCreatedThreads/{userId}", name="getCreatedThreads", methods={"GET"})
      *
      **/
-    public function getCreatedThreads(Request $request) : JsonResponse
+    public function getCreatedThreads($userId, Request $request) : JsonResponse
     {
-        $userid = $request->getContent()["profileUserId"];
-
         $threads = $this->getDoctrine()
             ->getRepository(Thread::class)
-            ->findAll(['user' => $userid]);
+            ->findBy(['user' => $userId]);
 
         $threadAssoc = [];
         foreach($threads as $thread) {
-
+            $thread = $thread->toAssoc();
+            array_push($threadAssoc, $thread);
         }
 
+        return new JsonResponse($threadAssoc, Response::HTTP_OK);
     }
 
     /**
-     * @Route("/api/profile/getWrittenComments", name="getWrittenComments", methods={"GET"})
+     * @Route("/api/profile/getWrittenComments/{userId}", name="getWrittenComments", methods={"GET"})
      */
-    public function getWrittenComments(Request $request) : JsonResponse
+    public function getWrittenComments($userId, Request $request) : JsonResponse
     {
+        $comments =  $this->getDoctrine()
+            ->getRepository(Comment::class)
+            ->findBy(['user' => $userId]);
 
+        $commentsAssoc = [];
+        foreach($comments as $comment) {
+            $comment = $comment->toAssoc();
+            array_push($commentsAssoc, $comment);
+        }
+
+        return new JsonResponse($commentsAssoc, Response::HTTP_OK);
     }
 
-/**
- * @Route("/profile", name="profile")
- */
-    /*public function profile()
-    {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
-        /* @var \App\Entity\User $user */
-        /*$user = $this->getUser();
-
-        return $this->render('profile.html.twig', [
-            'controller_name' => 'UserController', 'user' => $user
-        ]);
-    }
     /**
-     * @Route("/profile/friends", name="profile_friends")
+     * @Route("/api/profile/getThreadToComment/{commentId}", name="getThreadToComment", methods={"GET"})
      */
-   /* public function friends()
+    public function getThreadToComment($commentId, Request $request) : JsonResponse
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $comment =  $this->getDoctrine()
+            ->getRepository(Comment::class)
+            ->find($commentId);
 
-        /* @var \App\Entity\User $user */
-  /*      $user = $this->getUser();
-
-        $friends = array();
-        foreach($user->getOutgoingFriendRequests() as $request){
-            if($request->getConfirmed()){
-                array_push($friends, $request->getReceiver());
-            }
-        }
-        foreach($user->getIncomingFriendRequests() as $request){
-            if($request->getConfirmed()){
-                array_push($friends, $request->getSender());
-            }
+        if(!$comment) {
+            new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
 
-        return $this->render('friends.html.twig', [
-            'controller_name' => 'UserController',
-            'user' => $user,
-            'friends' => $friends
-        ]);
-    }*/
+        $thread = $comment->getThread();
+
+        return new JsonResponse($thread, Response::HTTP_OK);
+    }
 }
