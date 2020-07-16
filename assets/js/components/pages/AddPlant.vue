@@ -582,7 +582,11 @@
                         // this will be set in the background, just dummy code for now
                         icon: "images/plants/Aloe.png",
                         windowIcon: "images/plants/AloeBackground.png",
-                    })
+                    }), {
+                        headers: {
+                            'Contnet-Type': 'multipart/form-data'
+                        }
+                    }
                         .then(response => {
                             //this.savePlantPicture(response.data, this.selectedPlantFile);
                         })

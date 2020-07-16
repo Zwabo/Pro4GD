@@ -60,7 +60,7 @@
 
                         </div>
 
-                        <div v-if="showFriends">
+                        <div v-if="profileUserFriends !== null">
                             <h3 class="h3Margin">Freunde</h3>
                             <div class="greenLine"></div>
 
@@ -101,7 +101,7 @@
                                 </div> <!--v-for ends here-->
 
                                 <div class="row d-flex justify-content-end">
-                                    <button class="buttonDarkGreen">Alle Freunde</button>
+                                    <button class="buttonDarkGreen" @click="goToFriends">Alle Freunde</button>
                                 </div>
 
                             </div>
@@ -202,6 +202,10 @@
 
                             </div>
 
+                        </div>
+
+                        <div class="row d-flex justify-content-end">
+                            <button class="buttonDarkGreen plantButton" @click="goToGarden">Zum Garten</button>
                         </div>
 
                         <div class="container-fluid" id="Besuchernachrichten" v-if="showComments">
@@ -330,7 +334,6 @@
         get commentUserpic() { return this.userpic; }
     }
 
-
     export default {
         name: "Profile",
         data: function() {
@@ -431,7 +434,7 @@
                 })
                 .catch(error => {
                     //alert(error);
-                    this.getError(error);
+                    console.log(error);
                 });
 
 
@@ -439,12 +442,12 @@
             this.$http.get('/api/profile/' + this.$route.params.username + '/userplants')
                 .then(response => {
                     this.profileUserplants = response.data;
-                    if (this.profileUser.username === this.loggedInUser.username) {
+                    if (this.profileUser !== null && this.profileUser.username === this.loggedInUser.username) {
                         this.checkAwards();
                     }
                 })
                     .catch(error => {
-                        this.getError(error);
+                        console.log(error);
                 });
 
             /*---------------------------------------------------awards data-------------------------*/
@@ -493,6 +496,13 @@
         },
 
         methods: {
+            goToFriends: function() {
+                this.$router.push({path: '/friends'});
+            },
+
+            goToGarden: function() {
+              this.$router.push({path: '/garden/' + this.profileUser.id})
+            },
 
             changeProfile: function() {
                 this.editProfile = true;
@@ -504,7 +514,7 @@
                         this.profileUser.descriptioin = response.data;
                     })
                     .catch(error => {
-                        getError(error);
+                        console.log(error);
                     });
 
                 this.editProfile = false;
@@ -531,7 +541,7 @@
                         this.profileUser = response.data;
                     })
                     .catch(error => {
-                        this.getError(error);
+                        console.log(error);
                     });
                 this.commentMessage = "";
                 this.newComment = "";
@@ -557,7 +567,7 @@
                         console.log(response.data);
                     })
                     .catch(error => {
-                        this.getError(error);
+                        console.log(error);
                     });
             },
 
@@ -647,7 +657,7 @@
                         this.friendXP = response.data;
                     })
                     .catch(error => {
-                        this.getError(error);
+                        console.log(error);
                     });
             },
 
@@ -662,7 +672,7 @@
                         this.checkRelationshipFriend(); //Check if logged in user is a friend of profile user
                     })
                     .catch(error => {
-                        this.getError(error);
+                        console.log(error);
                     });
             },
 
@@ -708,6 +718,32 @@
                 return string;
             },
 
+            getCreatedThreads: function() {
+                this.$http.get('/api/profile/getCreatedThreads/', {
+                    profileUserId: this.profileUser.id
+                })
+                    .then(response => {
+                        console.log(response.data);
+                    })
+                    .catch(error => {
+                        console.log("getCreatedThreads");
+                        console.log(error);
+                    })
+            },
+
+            getWrittenComments: function() {
+                this.$http.get('/api/profile/getWrittenComments/', {
+                    profileUserId: this.profileUser.id
+                })
+                    .then(response => {
+                        console.log(response.data);
+                    })
+                    .catch(error => {
+                        console.log("getWrittenComments");
+                        console.log(error);
+                    })
+            },
+
             checkAwards: function() {
                 //if user is on it's profile for the first time after registration
                 if (this.loggedInUser.username === this.profileUser.username) {
@@ -747,11 +783,11 @@
                     if (memberAward !== null || memberAwardMsg !== null) {
                         this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', memberAward)
                             .then(response => { this.profileUser = response.data; })
-                            .catch(error => { this.getError(error); });
+                            .catch(error => { console.log(error); });
 
                         this.$http.put('/api/profile/' + this.profileUser.username + '/setMemberAward', memberAwardVar)
                             .then(response => { this.profileUser = response.data; })
-                            .catch(error => { this.getError(error); });
+                            .catch(error => { console.log(error); });
 
                         alert(memberAwardMsg);
                     }
@@ -812,11 +848,11 @@
                         if (friendsAward !== null || friendsAwardVar !== null) {
                             this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', friendsAward)
                                 .then(response => { this.profileUser = response.data; })
-                                .catch(error => { this.getError(error); });
+                                .catch(error => { console.log(error); });
 
                             this.$http.put('/api/profile/' + this.profileUser.username + '/setFriendsAward', friendsAwardVar)
                                 .then(response => { this.profileUser = response.data; })
-                                .catch(error => { this.getError(error); });
+                                .catch(error => { console.log(error); });
 
                             alert(friendsAwardMsg);
                         }
@@ -863,11 +899,11 @@
                         if (livedAward !== null || livedAwardVar !== null) {
                             this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', livedAward)
                                 .then(response => { this.profileUser = response.data; })
-                                .catch(error => { this.getError(error); });
+                                .catch(error => { console.log(error); });
 
                             this.$http.put('/api/profile/' + this.profileUser.username + '/setLivedAward', livedAwardVar)
                                 .then(response => { this.profileUser = response.data; })
-                                .catch(error => { this.getError(error); });
+                                .catch(error => { console.log(error); });
 
                             alert(livedAwardMsg);
                         }
@@ -941,11 +977,11 @@
                         if (userplantAward !== null || userplantAwardVar !== null) {
                             this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', userplantAward)
                                 .then(response => { this.profileUser = response.data; })
-                                .catch(error => { this.getError(error); });
+                                .catch(error => { console.log(error); });
 
                             this.$http.put('/api/profile/' + this.profileUser.username + '/setUserplantAddedAward', userplantAwardVar)
                                 .then(response => { this.profileUser = response.data; })
-                                .catch(error => { this.getError(error); });
+                                .catch(error => { console.log(error); });
 
                             alert(userplantAwardMsg);
                         }
@@ -1019,11 +1055,11 @@
                         if (wateredAward !== null || wateredAwardVar !== null) {
                             this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', wateredAward)
                                 .then(response => { this.profileUser = response.data; console.log(response.data);})
-                                .catch(error => { this.getError(error); });
+                                .catch(error => { console.log(error); });
 
                             this.$http.put('/api/profile/' + this.profileUser.username + '/setWateredAward', wateredAwardVar)
                                 .then(response => { this.profileUser = response.data; console.log(response.data);})
-                                .catch(error => { this.getError(error); });
+                                .catch(error => { console.log(error); });
 
                             alert(wateredAwardMsg);
                         }
@@ -1060,11 +1096,11 @@
                     if (lvlAward !== null || lvlAwardVar !== null ){
                         this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', lvlAward)
                             .then(response => { this.profileUser = response.data; console.log(response.data);})
-                            .catch(error => { this.getError(error); });
+                            .catch(error => { console.log(error); });
 
                         this.$http.put('/api/profile/' + this.profileUser.username + '/setLvlAward', lvlAwardVar)
                             .then(response => { this.profileUser = response.data; console.log(response.data);})
-                            .catch(error => { this.getError(error); });
+                            .catch(error => { console.log(error); });
 
                         alert(lvlAwardMsg);
                     }
@@ -1161,6 +1197,11 @@
     .userplantGardenAge p {
         display: inline-block;
         padding-left: 3%;
+    }
+
+    .plantButton {
+        margin-top: 1%;
+        margin-right: 2%;
     }
 
     /* Profile Picture ---------------------Bild in Graubereich---------------------------*/

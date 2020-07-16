@@ -97,7 +97,7 @@ class AddPlantController extends AbstractController
 
         /*get the file first to send it to the background to save*/
 
-        $plantPicture = $params["iconElement"];         // comes as an array not a file, we need file itself - file is sent into the background
+        /*$plantPicture = $params["iconElement"];         // comes as an array not a file, we need file itself - file is sent into the background
         $plantBackground = $params["windowIconElement"];
 
         $plantPictureName = $params["iconElementName"];     // the name needs to be decoded to afterwards
@@ -105,7 +105,7 @@ class AddPlantController extends AbstractController
         /*create a filename so that filename is unique*/
         //$plantPictureName = $plantPicture.'-'.md5(uniqid()).'.'.$plantPicture->guessExtension();       guessExtension is only possible with files
 
-        $plantPictures_directory = $this->getParameter('plantPictures_directory');
+        /*$plantPictures_directory = $this->getParameter('plantPictures_directory');
 
         //$plantPicture->move($plantPictures_directory, end($plantPictureName));                        move is only possible with files
 

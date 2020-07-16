@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Thread;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,6 +11,7 @@ use App\Entity\User;
 use App\Entity\Userplant;
 use App\Entity\Award;
 use App\Entity\Plant;
+use App\Entity\Threads;
 use Doctrine\ORM\EntityManagerInterface;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -419,6 +421,33 @@ class UserController extends AbstractController
         $xp = $user->getXP();
 
         return new JsonResponse($xp, Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/profile/getCreatedThreads", name="getCreatedThreads", methods={"GET"})
+     *
+     **/
+    public function getCreatedThreads(Request $request) : JsonResponse
+    {
+        $userid = $request->getContent()["profileUserId"];
+
+        $threads = $this->getDoctrine()
+            ->getRepository(Thread::class)
+            ->findAll(['user' => $userid]);
+
+        $threadAssoc = [];
+        foreach($threads as $thread) {
+
+        }
+
+    }
+
+    /**
+     * @Route("/api/profile/getWrittenComments", name="getWrittenComments", methods={"GET"})
+     */
+    public function getWrittenComments(Request $request) : JsonResponse
+    {
+
     }
 
 /**
