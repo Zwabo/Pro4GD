@@ -80,7 +80,7 @@ class UserController extends AbstractController
 
         $plants = $this->getDoctrine()
             ->getRepository(Userplant::class)
-            ->findAll();
+            ->findBy(['user' => $userid]);
 
         $userplantsProfile = [];
 

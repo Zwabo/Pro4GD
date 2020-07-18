@@ -83,7 +83,7 @@
 
             <div class="greyLine commentLine"></div>
             <div v-for="comment in comments">
-                <div class="row threadText text-center startPost">
+                <div class="row threadText text-center startPost" :id="'comment' + comment.id">
                     <div class="col-lg-2">
                         <img class="smallUserPics" v-bind:src="comment.userPic" /><br>
                         <p>{{comment.username}}</p>

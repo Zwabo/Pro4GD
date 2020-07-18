@@ -169,7 +169,7 @@ class Thread {
             'inputtext' => $this->inputtext,
             'created' => $this->created,
             'updated' => $this->updated,
-            'category' => $this->category,
+            'category' => $this->category->toAssoc(),
         ];
     }
 }

@@ -1,6 +1,6 @@
 <template>
     <div id="root">
-    <div v-if="profileUser != null && createdUserString != null && loggedInUser != null">
+    <div v-if="profileUser !== null && createdUserString !== null && loggedInUser !== null && profileUserFriends !== null">
 
         <div class="container-fluid">
 
@@ -60,11 +60,35 @@
 
                         </div>
 
-                        <div v-if="profileUserFriends !== null">
-                            <h3 class="h3Margin">Freunde</h3>
-                            <div class="greenLine"></div>
+                        <div v-if="showFriends && profileUserFriends.length > 0">
+                            <div class="row h3Margin desktop">
+                                <div class="col-lg-8">
+                                    <h4>Freunde</h4>
+                                </div>
+                                <div class="col-lg-4 rightBoxesLink desktop">
+                                    <router-link :to="'/friends'" class="routerText">
+                                        Alle Freunde
+                                        <svg class="forthSvg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 41 49" style="enable-background:new 0 0 41 49;" xml:space="preserve">
+<g id="Polygon_98" transform="translate(41) rotate(90)">
+	<path class="st0" d="M41.9,38H7c-1.1,0-2.1-0.6-2.6-1.5c-0.5-0.9-0.5-2.1,0-3L21.8,4.3c0.5-0.9,1.5-1.5,2.6-1.5s2,0.5,2.6,1.5
+		l17.4,29.2c0.6,0.9,0.6,2.1,0,3C43.9,37.4,42.9,38,41.9,38z"/>
+	<path class="st0" d="M24.4,3.8c-0.3,0-1.2,0.1-1.7,1L5.2,34c-0.5,0.9-0.2,1.7,0,2c0.2,0.3,0.7,1,1.7,1h35c1.1,0,1.6-0.7,1.7-1
+		c0.2-0.3,0.5-1.1,0-2L26.1,4.8C25.6,3.9,24.7,3.8,24.4,3.8 M24.4,1.8c1.3,0,2.7,0.6,3.4,1.9L45.3,33c1.6,2.6-0.3,6-3.4,6H7
+		c-3.1,0-5-3.4-3.4-6.1L21,3.7C21.7,2.4,23.1,1.8,24.4,1.8z"/>
+</g>
+</svg>
+                                    </router-link>
+                                </div>
+                            </div>
+                            <!--<div class="row">
+                                <div class="col-lg-8"><h3 class="h3Margin">Freunde</h3></div>
+                                <div class="col-lg-4">Alle Freunde</div>
+                            </div>-->
 
-                            <div class="containerfluid">
+
+                            <div class="greenLine"></div>
+                            <div class="container-fluid">
 
                                 <div v-for="(friend, index) in profileUserFriends" class="row friends bgWhiteGrey dropShadow borderRad10">
 
@@ -100,15 +124,39 @@
                                     </div>
                                 </div> <!--v-for ends here-->
 
-                                <div class="row d-flex justify-content-end">
+                                <div class="row d-flex justify-content-end phone">
                                     <button class="buttonDarkGreen" @click="goToFriends">Alle Freunde</button>
                                 </div>
 
                             </div>
                         </div> <!-- freinds part end-->
 
-                        <div id="garden" v-if="showGarden">
-                            <h3 class="h3Margin">{{ profileUser.username }}s Garten</h3>
+                        <div class="container-fluid paddingNormalize" v-if="showGarden && profileUserplants !== null">
+
+                        <div id="garden">
+                            <!--<h3 class="h3Margin">{{ profileUser.username }}s Garten</h3>-->
+
+                            <div class="row h3Margin desktop">
+                                <div class="col-lg-8">
+                                    <h4>Freunde</h4>
+                                </div>
+                                <div class="col-lg-4 rightBoxesLink desktop">
+                                    <router-link :to="'/garden/' + profileUser.id" class="routerText">
+                                        Zum Garten
+                                        <svg class="forthSvg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 41 49" style="enable-background:new 0 0 41 49;" xml:space="preserve">
+<g id="Polygon_98" transform="translate(41) rotate(90)">
+	<path class="st0" d="M41.9,38H7c-1.1,0-2.1-0.6-2.6-1.5c-0.5-0.9-0.5-2.1,0-3L21.8,4.3c0.5-0.9,1.5-1.5,2.6-1.5s2,0.5,2.6,1.5
+		l17.4,29.2c0.6,0.9,0.6,2.1,0,3C43.9,37.4,42.9,38,41.9,38z"/>
+	<path class="st0" d="M24.4,3.8c-0.3,0-1.2,0.1-1.7,1L5.2,34c-0.5,0.9-0.2,1.7,0,2c0.2,0.3,0.7,1,1.7,1h35c1.1,0,1.6-0.7,1.7-1
+		c0.2-0.3,0.5-1.1,0-2L26.1,4.8C25.6,3.9,24.7,3.8,24.4,3.8 M24.4,1.8c1.3,0,2.7,0.6,3.4,1.9L45.3,33c1.6,2.6-0.3,6-3.4,6H7
+		c-3.1,0-5-3.4-3.4-6.1L21,3.7C21.7,2.4,23.1,1.8,24.4,1.8z"/>
+</g>
+</svg>
+                                    </router-link>
+                                </div>
+                            </div>
+
                             <div class="greenLine"></div>
                         </div>
 
@@ -207,6 +255,7 @@
                         <div class="row d-flex justify-content-end">
                             <button class="buttonDarkGreen plantButton" @click="goToGarden">Zum Garten</button>
                         </div>
+                        </div>
 
                         <div class="container-fluid" id="Besuchernachrichten" v-if="showComments">
                             <h3 class="h3Margin">Besuchernachrichten</h3>
@@ -246,17 +295,40 @@
 
                 <div class="col-lg-4">
                     <div class="rightBoxes">
-                        <h4 class="bgLightGrey rightBoxesPadding h4Box" @click="checkAwards">Erungenschaften</h4>
-                        <p v-if="profileUser.awards.length === 0">{{profileUser.username}} hat noch keine Errungeschaften freigeschalten.</p>
+                        <!--<h4 class="bgLightGrey rightBoxesPadding h4Box" @click="checkAwards">Erungenschaften</h4>-->
+                        <div class="bgLightGrey rightBoxesPadding h4Box">
+                            <div class="row rightBoxesRow">
+                                <div class="col-lg-8 paddingNormalize">
+                                    <h4>Errungenschaften</h4>
+                                </div>
+                                <div class="col-lg-4 paddingNormalize rightBoxesLink">
+                                    <router-link :to="'/profile/' + profileUser.username + '/awards'">
+                                        Alle anzeigen
+                                    </router-link>
+                                </div>
+                            </div>
+                        </div>
+                        <p v-if="profileUser.awards.length === 0" class="rightBoxesPadding">{{profileUser.username}} hat noch keine Errungeschaften freigeschalten.</p>
                         <p v-else class="rightBoxesPadding">
                             <span v-for="(award, index) in profileUser.awards">
-                                <img class="awardImage" v-bind:src="'../' + award.awardIcon" v-bind:alt="loggedInUser.username + award.altText">
+                                <img class="awardImage" v-bind:src="'../' + award.awardIcon" v-bind:alt="loggedInUser.username + award.altText" v-b-tooltip.hover :title="loggedInUser.username + award.altText">
                             </span>
                         </p>
                     </div>
 
                     <div class="rightBoxes" v-if="createdThreads !== null || writtenComments !== null">
-                        <h4 class="bgLightGrey rightBoxesPadding h4Box">Forum</h4>
+                        <div class="bgLightGrey rightBoxesPadding h4Box">
+                        <div class="row rightBoxesRow">
+                            <div class="col-lg-8 paddingNormalize">
+                                <h4>Forum</h4>
+                            </div>
+                            <div class="col-lg-4 paddingNormalize rightBoxesLink">
+                                <router-link :to="'/profile/' + profileUser.username + '/Forum'">
+                                    Alle anzeigen
+                                </router-link>
+                            </div>
+                        </div>
+                        </div>
 
                         <div class="paddingNormalize" v-if="createdThreads !== null">
                             <h5 class="threadCommentsHL">Eröffnete Threads</h5> <!-- wird aus dem Forum ausgelesen -->
@@ -264,8 +336,8 @@
                             <div class="threadCommentsInfo">
                                 <p v-for="(thread, id) in createdThreads" v-if="id < 3" class="threadCommentsPaddingLR threadList">
                                     <router-link :to="'/forum/' + thread.id">
-                                    <span class="threadHL">{{thread.headline}}</span>
-                                    <span class="threadCreated">{{getDateString(thread.created)}}</span>
+                                        <span class="threadHL">{{thread.headline}}</span>
+                                        <span class="threadCreated">{{getDateString(thread.created)}}</span>
                                     </router-link>
                                 </p>
                                 <!--<p>{{thread.inputtext}}</p>-->
@@ -276,10 +348,16 @@
                             <h5 class="threadCommentsHL">Kommentierte Threads</h5>
                             <hr class="threadCommentsPaddingLR threadCommentsHr">
                             <div class="threadsCommentsInfo">
-                                <p v-for="(comment, id) in writtenComments" v-if="id < 3" class="threadCommentsPaddingLR threadList">
-                                    <span class="commentsHL">{{comment.thread.headline}}</span>
-                                    <span class="commentCreated">{{getDateString(comment.created)}}</span>
-                                    <span>{{getThreadToComment(comment.id)}}</span>
+                                <p v-for="(comment, index) in writtenComments" v-if="index < 3" class="threadCommentsPaddingLR threadList">
+                                    <router-link :to="'/forum/' + comment.thread.id + '#comment' + comment.id">
+                                        <div class="paddingNormalize">
+                                            <span class="commentHL">{{comment.thread.headline}}</span>
+                                            <span class="commentCreated">{{getDateString(comment.created)}}</span>
+                                        </div>
+                                        <div class="paddingNormalize commentText">
+                                            <span>{{shortenString(comment.text)}}</span>
+                                        </div>
+                                    </router-link>
                                 </p>
                             </div>
                         </div>
@@ -290,6 +368,26 @@
 
         </div>
 
+
+        <div class="modal" tabindex="-1" role="dialog" id="awardModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{awardModalTitle}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times</span>
+                        </button>
+                        <div class="modal-body">
+                            {{awardModalImg}}
+                            {{awardModalText}}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="bt bt-secondary" data-dismiss="moda">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div style="display: none;">
             <!-- plus symbole -->
@@ -401,6 +499,10 @@
 
                 createdThreads: null,
                 writtenComments: null,
+
+                awardModalTitle: null,
+                awardModalImg: null,
+                awardModalText: null,
             }
         },
 
@@ -458,8 +560,6 @@
                 //friends
                 .then(response => {
                     this.profileUserFriends = response.data;
-                    console.log("here");
-                    console.log(response.data);
 
                     this.checkRelationshipSelf(); //Check if logged in user is profile user
                     this.checkRelationshipFriend(); //Check if logged in user is a friend of profile user
@@ -473,7 +573,13 @@
             //userplants
             this.$http.get('/api/profile/' + this.$route.params.username + '/userplants')
                 .then(response => {
-                    this.profileUserplants = response.data;
+
+                    if (response.data.length === 0) {
+                        this.profileUserplants = null;
+                    } else {
+                        this.profileUserplants = response.data;
+                    }
+
                     if (this.profileUser !== null && this.profileUser.username === this.loggedInUser.username) {
                         this.checkAwards();
                     }
@@ -521,10 +627,6 @@
                     this.showForum = true;
                 }
             },
-
-            checkAwardsTwo: function() {
-                console.log("here");
-            }
         },
 
         methods: {
@@ -534,6 +636,14 @@
 
             goToGarden: function() {
               this.$router.push({path: '/garden/' + this.profileUser.id})
+            },
+
+            shortenString: function(string) {
+                if (string.length > 47) {
+                    string = string.substring(0,47);
+                    string = string + "...";
+                }
+                return string;
             },
 
             changeProfile: function() {
@@ -759,7 +869,11 @@
                         console.log(response.data[0].headline);
                         console.log(response.data[0].id);
                         console.log(response.data[0].inputtext);*/
-                        this.createdThreads = response.data;
+                        if (response.data.length === 0) {
+                            this.createdThreads = null;
+                        } else {
+                            this.createdThreads = response.data;
+                        }
                     })
                     .catch(error => {
                         //console.log("getCreatedThreads");
@@ -770,8 +884,15 @@
             getWrittenComments: function() {
                 this.$http.get('/api/profile/getWrittenComments/' + this.profileUser.id)
                     .then(response => {
-                        //console.log(response.data);
-                        this.writtenComments = response.data;
+                        /*console.log("writtencomments");
+                        console.log(response.data);
+                        console.log(response.data.length);*/
+
+                        if (response.data.length === 0) {
+                            this.writtenComments = null;
+                        } else {
+                            this.writtenComments = response.data;
+                        }
                     })
                     .catch(error => {
                         //console.log("getWrittenComments");
@@ -1030,14 +1151,22 @@
 
                         if (userplantAward !== null || userplantAwardVar !== null) {
                             this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', userplantAward)
-                                .then(response => { this.profileUser = response.data; })
+                                .then(response => {
+                                    this.profileUser = response.data;
+
+                                    this.awardModalText = userplantAwardMsg;
+                                    this.awardModalTitle = userplantAward;
+                                    this.awardModalImg = this.profileUser.awards[this.profileUser.awards.length - 1].awardIcon;
+                                })
                                 .catch(error => { console.log(error); });
 
                             this.$http.put('/api/profile/' + this.profileUser.username + '/setUserplantAddedAward', userplantAwardVar)
                                 .then(response => { this.profileUser = response.data; })
                                 .catch(error => { console.log(error); });
 
-                            alert(userplantAwardMsg);
+                            $('#awardModal').modal('show');
+
+                            //alert(userplantAwardMsg);
                         }
                     }
 
@@ -1108,14 +1237,29 @@
 
                         if (wateredAward !== null || wateredAwardVar !== null) {
                             this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', wateredAward)
-                                .then(response => { this.profileUser = response.data; console.log(response.data);})
+                                .then(response => {
+                                    this.profileUser = response.data;
+                                    console.log(response.data);
+
+                                    this.awardModalText = wateredAwardMsg;
+                                    this.awardModalTitle = wateredAward;
+                                    this.awardModalImg = this.profileUser.awards[this.profileUser.awards.length - 1].awardIcon;
+
+                                    $('#awardModal').modal('show');
+                                })
                                 .catch(error => { console.log(error); });
 
                             this.$http.put('/api/profile/' + this.profileUser.username + '/setWateredAward', wateredAwardVar)
                                 .then(response => { this.profileUser = response.data; console.log(response.data);})
                                 .catch(error => { console.log(error); });
 
-                            alert(wateredAwardMsg);
+
+
+
+
+
+
+                            //alert(wateredAwardMsg);
                         }
                     }
 
@@ -1174,6 +1318,18 @@
     }
     #userCnt h2 { font-size: 140%; }
 
+    .routerText:hover { color: #97B753; }
+    .routerText:active { color: #B8E269; }
+
+    .forthSvg {
+        width: 20px;
+        height: 20px;
+        fill: #97B753;
+        padding-left: 2%;
+    }
+    .routerText:hover .forthSvg { fill: #B8E269; }
+    .routerText:active .forthSvg { fill: #707070; }
+
     /*-----------------------------Container Styles Profil---------------------------------*/
     /*Containerbreite*/
     #userInfoCnt{ padding: 40px 50px; }
@@ -1228,6 +1384,15 @@
         margin-top: 50px;
     }
 
+    .rightBoxesRow {
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+    .rightBoxesLink {
+        text-align-last: right;
+        align-self: center;
+    }
+
     .threadCommentsPaddingLR {
         margin-left: 4%;
         margin-right: 4%;
@@ -1239,10 +1404,15 @@
     }
     .threadCommentsHr { margin-top: 1%; }
 
-    .threadHL { font-weight: bold; }
-    .threadCreated { float: right; }
+    .threadHL, .commentHL { font-weight: bold; }
+    .threadCreated, .commentCreated { float: right; }
     .threadList { margin-bottom: 1%; }
     .threadList:last-of-type { margin-bottom: 5%; }
+    .commentText {
+        color: grey;
+        margin-bottom: 2%;
+        font-style: italic;
+    }
 
 
     /*--------------------------------userplants garten-----------------------*/

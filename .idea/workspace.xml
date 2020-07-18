@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="zwischenstand">
+      <change afterPath="$PROJECT_DIR$/assets/js/components/pages/ProfileAwards.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/pages/ProfileForum.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/pages/ProfileHeader.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ForumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ForumController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Thread.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Thread.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Thread.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Thread.php" afterDir="false" />
     </list>
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
@@ -130,6 +135,21 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/Entity/Award.php">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="-132" />
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
     <window id="1">
       <content type="file-editors">
         <state>
@@ -137,8 +157,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="804">
-                    <caret line="456" column="28" selection-start-line="456" selection-start-column="28" selection-end-line="456" selection-end-column="28" />
+                  <state relative-caret-position="430">
+                    <caret line="79" selection-start-line="79" selection-end-line="79" />
                     <folding>
                       <element signature="e#34#56#0#PHP" expanded="true" />
                     </folding>
@@ -155,11 +175,11 @@
     <session id="-1864558712">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="88" />
+          <entry key="project.closed" value="90" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.10" value="2" />
-          <entry key="project.open.time.11" value="4" />
+          <entry key="project.open.time.11" value="5" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.13" value="8" />
           <entry key="project.open.time.15" value="1" />
@@ -169,27 +189,27 @@
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="12" />
           <entry key="project.open.time.7" value="13" />
-          <entry key="project.open.time.8" value="13" />
+          <entry key="project.open.time.8" value="14" />
           <entry key="project.open.time.9" value="8" />
-          <entry key="project.opened" value="88" />
+          <entry key="project.opened" value="90" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="104" />
+          <entry key="css" value="105" />
           <entry key="env" value="1" />
           <entry key="gitignore" value="2" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="44" />
+          <entry key="js" value="46" />
           <entry key="json" value="2" />
           <entry key="md" value="9" />
-          <entry key="php" value="374" />
+          <entry key="php" value="392" />
           <entry key="rnc" value="1" />
           <entry key="scss" value="1" />
-          <entry key="svg" value="68" />
+          <entry key="svg" value="71" />
           <entry key="ts" value="2" />
           <entry key="twig" value="97" />
-          <entry key="vue" value="197" />
+          <entry key="vue" value="218" />
           <entry key="xml" value="1" />
           <entry key="yaml" value="3" />
         </counts>
@@ -197,19 +217,19 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="1" />
-          <entry key="CSS" value="104" />
+          <entry key="CSS" value="105" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="44" />
+          <entry key="JavaScript" value="46" />
           <entry key="Markdown" value="9" />
-          <entry key="PHP" value="374" />
+          <entry key="PHP" value="392" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="RNG Compact" value="1" />
           <entry key="SCSS" value="1" />
-          <entry key="SVG" value="68" />
+          <entry key="SVG" value="71" />
           <entry key="Twig" value="97" />
           <entry key="TypeScript" value="2" />
-          <entry key="Vue.js" value="197" />
+          <entry key="Vue.js" value="218" />
           <entry key="XML" value="1" />
           <entry key="YAML" value="3" />
         </counts>
@@ -218,14 +238,14 @@
         <counts>
           <entry key="css" value="15552" />
           <entry key="dummy" value="25" />
-          <entry key="js" value="1979" />
+          <entry key="js" value="2280" />
           <entry key="json" value="26" />
           <entry key="md" value="198" />
-          <entry key="php" value="47230" />
+          <entry key="php" value="47629" />
           <entry key="svg" value="26" />
           <entry key="twig" value="20844" />
-          <entry key="txt" value="2677" />
-          <entry key="vue" value="115146" />
+          <entry key="txt" value="2690" />
+          <entry key="vue" value="125115" />
           <entry key="xml" value="11" />
           <entry key="yaml" value="138" />
         </counts>
@@ -234,13 +254,13 @@
         <counts>
           <entry key="CSS" value="15552" />
           <entry key="JSON" value="26" />
-          <entry key="JavaScript" value="1980" />
+          <entry key="JavaScript" value="2281" />
           <entry key="Markdown" value="198" />
-          <entry key="PHP" value="47230" />
-          <entry key="PLAIN_TEXT" value="2702" />
+          <entry key="PHP" value="47629" />
+          <entry key="PLAIN_TEXT" value="2715" />
           <entry key="SVG" value="26" />
           <entry key="Twig" value="20844" />
-          <entry key="Vue.js" value="115145" />
+          <entry key="Vue.js" value="125114" />
           <entry key="XML" value="11" />
           <entry key="YAML" value="138" />
         </counts>
@@ -265,65 +285,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
-              <caret line="776" column="26" selection-start-line="776" selection-start-column="26" selection-end-line="776" selection-end-column="26" />
+            <state relative-caret-position="254">
+              <caret line="1245" column="70" lean-forward="true" selection-start-line="1245" selection-start-column="70" selection-end-line="1245" selection-end-column="70" />
               <folding>
-                <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#svg#0;n#router-link#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#svg#0;n#router-link#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ForumController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="36" column="72" selection-start-line="36" selection-start-column="65" selection-end-line="36" selection-end-column="72" />
-              <folding>
-                <element signature="e#117#141#0#PHP" expanded="true" />
+                <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+        <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Garden.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="754" column="31" selection-start-line="754" selection-start-column="20" selection-end-line="754" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Comment.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1545">
-              <caret line="85" column="29" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Category.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="127" column="12" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="37" column="40" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="40" />
+            <state relative-caret-position="210">
+              <caret line="44" column="148" selection-start-line="44" selection-start-column="145" selection-end-line="44" selection-end-column="148" />
             </state>
           </provider>
         </entry>
@@ -341,36 +323,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rightBoxesPadding</find>
-      <find>rightboxes</find>
-      <find>birthdaystring</find>
-      <find>threadcommentsHL</find>
-      <find>threadhl</find>
-      <find>threadcommentshl</find>
-      <find>threadCommentsHr</find>
-      <find>threadcommentshr</find>
-      <find>thread</find>
-      <find>id</find>
-      <find>this.createdthreads</find>
-      <find>createdthreads</find>
-      <find>getcreatedthread</find>
-      <find>getcreated</find>
-      <find>getthread</find>
-      <find>getwrittenc</find>
-      <find>getThreadToComment</find>
-      <find>comment</find>
-      <find>commentArray</find>
-      <find>getdatestring</find>
-      <find>getfriendXP</find>
-      <find>friendXP</find>
-      <find>friendxp</find>
-      <find>lvl</find>
+      <find>erungenschaft</find>
+      <find>commentform</find>
+      <find>date</find>
+      <find>checa</find>
+      <find>errungenschaften</find>
+      <find>award</find>
+      <find>datetime</find>
+      <find>erungenschaften</find>
+      <find>commentarray</find>
+      <find>erung</find>
+      <find>erungensch</find>
+      <find>errun</find>
+      <find>null</find>
+      <find>getwritten</find>
+      <find>&gt; 0</find>
       <find>writtencomments</find>
-      <find>awards</find>
+      <find>createdthreads</find>
+      <find>profileuserfriends</find>
+      <find>written</find>
+      <find>zurück</find>
+      <find>profileuserplants</find>
+      <find>backsvg</find>
+      <find>freunde</find>
+      <find>gießen</find>
       <find>checkawards</find>
-      <find>getcreatedthreads</find>
-      <find>console.log</find>
-      <find>findall</find>
+      <find>modal</find>
+      <find>gie</find>
+      <find>watered</find>
+      <find>userplant</find>
+      <find>awardModal</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -386,11 +368,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Home.vue" />
-        <option value="$PROJECT_DIR$/assets/js/components/layout/MainFooter.vue" />
-        <option value="$PROJECT_DIR$/symvue/assets/js/app.js" />
-        <option value="$PROJECT_DIR$/src/Controller/ContactController.php" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Contact.vue" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/Entity/ProfileComments.php" />
         <option value="$PROJECT_DIR$/assets/css/database.css" />
@@ -403,7 +380,6 @@
         <option value="$PROJECT_DIR$/assets/css/color.css" />
         <option value="$PROJECT_DIR$/public/images/icons/index/idea_comments.svg" />
         <option value="$PROJECT_DIR$/assets/js/components/forms/ThreadForm.vue" />
-        <option value="$PROJECT_DIR$/src/Entity/Thread.php" />
         <option value="$PROJECT_DIR$/src/Entity/Comment.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/ThreadFixtures.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/CommentFixtures.php" />
@@ -415,7 +391,6 @@
         <option value="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Imprint.vue" />
         <option value="$PROJECT_DIR$/src/DataFixtures/AwardsFixtures.php" />
-        <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Userplant.vue" />
         <option value="$PROJECT_DIR$/src/Controller/GardenController.php" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Garden.vue" />
@@ -430,13 +405,20 @@
         <option value="$PROJECT_DIR$/src/Controller/FriendsController.php" />
         <option value="$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/forms/CommentForm.vue" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Thread.vue" />
         <option value="$PROJECT_DIR$/src/Controller/AddPlantController.php" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue" />
         <option value="$PROJECT_DIR$/src/Entity/Category.php" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" />
-        <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/src/Controller/ForumController.php" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/Thread.vue" />
+        <option value="$PROJECT_DIR$/src/Entity/Thread.php" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/ProfileHeader.vue" />
+        <option value="$PROJECT_DIR$/assets/js/routes.js" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/ProfileForum.vue" />
+        <option value="$PROJECT_DIR$/src/Entity/User.php" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/ProfileAwards.vue" />
+        <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
+        <option value="$PROJECT_DIR$/assets/js/components/modals/AwardsModal.vue" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" />
       </list>
     </option>
   </component>
@@ -610,6 +592,12 @@
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -618,22 +606,6 @@
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="forms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
@@ -642,11 +614,6 @@
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
@@ -690,11 +657,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\FH_Projekte\Pro4GD\assets\js\components\modals" />
+      <recent name="C:\FH_Projekte\Pro4GD\assets\js\components\pages" />
       <recent name="C:\FH_Projekte\Pro4GD\public\images\badges" />
       <recent name="C:\FH_Projekte\Pro4GD\src\DataFixtures" />
       <recent name="C:\FH_Projekte\Pro4GD\templates" />
-      <recent name="C:\FH_Projekte\Pro4GD\assets\js\components" />
-      <recent name="$PROJECT_DIR$/templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\FH_Projekte\Pro4GD\public\images\forum" />
@@ -853,14 +820,9 @@
       <workItem from="1594671949984" duration="191000" />
       <workItem from="1594720304271" duration="20753000" />
       <workItem from="1594801322968" duration="17969000" />
-      <workItem from="1594893044123" duration="16010000" />
-    </task>
-    <task id="LOCAL-00034" summary="Zwischenstand">
-      <created>1589805402707</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1589805402707</updated>
+      <workItem from="1594893044123" duration="16389000" />
+      <workItem from="1594976615615" duration="20645000" />
+      <workItem from="1595064681194" duration="6945000" />
     </task>
     <task id="LOCAL-00035" summary="Zwischenstand">
       <created>1589816696893</created>
@@ -1198,11 +1160,18 @@
       <option name="project" value="LOCAL" />
       <updated>1594898007502</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="zwischenstand">
+      <created>1594915221435</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1594915221435</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="607020000" />
+    <option name="totallyTimeSpent" value="634989000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1217,7 +1186,7 @@
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.2032967" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.2072927" />
       <window_info id="Structure" order="1" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
       <window_info id="npm" order="2" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
       <window_info id="Favorites" order="3" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
@@ -1229,12 +1198,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4975025" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.46003997" weight="0.32293764" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.45904097" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.19430569" side_tool="true" visible="true" weight="0.42152917" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.19530469" side_tool="true" visible="true" weight="0.28873238" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4995005" weight="0.32997987" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.8056943" visible="true" weight="0.42152917" />
+      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.8046953" visible="true" weight="0.28873238" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1324,55 +1293,6 @@
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Home.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="44" column="44" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/badges/watered300.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Award.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="789">
-          <caret line="79" column="10" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Plant.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6820">
-          <caret line="11" column="48" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/node/async_hooks.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3344">
-          <caret line="150" column="10" selection-start-line="150" selection-start-column="10" selection-end-line="150" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SettingsController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-974" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/modals/EditUserplantModal.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-990" />
@@ -1421,13 +1341,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
           <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Garden.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1634">
-          <caret line="173" column="10" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -1500,29 +1413,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/color.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="31" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/images/icons/birthday.svg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Userplant.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="135" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Userplant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="31" column="22" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="22" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -1545,27 +1437,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/forms/CommentForm.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Thread.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2926">
-          <caret line="133" column="8" selection-start-line="133" selection-start-column="8" selection-end-line="134" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AddPlantController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="104" column="51" selection-start-line="104" selection-start-column="51" selection-end-line="104" selection-end-column="51" />
-          <folding>
-            <element signature="e#34#99#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1576,40 +1451,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Thread.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="127" column="12" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="37" column="40" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/CommentController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-132" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1545">
-          <caret line="85" column="29" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="754" column="31" selection-start-line="754" selection-start-column="20" selection-end-line="754" selection-end-column="31" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/GardenController.php">
@@ -1619,35 +1463,178 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="127" column="12" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Thread.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="171" column="52" selection-start-line="171" selection-start-column="52" selection-end-line="171" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1368">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/forms/CommentForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/ProfileHeader.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1694">
+          <caret line="127" column="37" selection-start-line="127" selection-start-column="37" selection-end-line="127" selection-end-column="37" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/forum/arrow_grey.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/icons/arrow_back.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Thread.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1430">
+          <caret line="130" column="22" selection-start-line="130" selection-start-column="11" selection-end-line="130" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Plant.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="43" column="75" selection-start-line="43" selection-start-column="75" selection-end-line="43" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/ProfileForum.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#svg#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/color.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Userplant.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ForumController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="295" column="21" selection-start-line="295" selection-start-column="17" selection-end-line="295" selection-end-column="21" />
+          <folding>
+            <element signature="e#117#141#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Userplant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="31" column="22" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1108">
+          <caret line="798" column="37" selection-start-line="798" selection-start-column="37" selection-end-line="798" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/ProfileAwards.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="219" column="4" selection-start-line="219" selection-start-column="4" selection-end-line="219" selection-end-column="48" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#svg#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/icons/arrow_forth.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="804">
-          <caret line="456" column="28" selection-start-line="456" selection-start-column="28" selection-end-line="456" selection-end-column="28" />
+        <state relative-caret-position="430">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
           <folding>
             <element signature="e#34#56#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
+    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AwardsModal.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="776" column="26" selection-start-line="776" selection-start-column="26" selection-end-line="776" selection-end-column="26" />
-          <folding>
-            <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="220">
+          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ForumController.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Garden.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="36" column="72" selection-start-line="36" selection-start-column="65" selection-end-line="36" selection-end-column="72" />
+        <state relative-caret-position="210">
+          <caret line="44" column="148" selection-start-line="44" selection-start-column="145" selection-end-line="44" selection-end-column="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Award.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="1245" column="70" lean-forward="true" selection-start-line="1245" selection-start-column="70" selection-end-line="1245" selection-end-column="70" />
           <folding>
-            <element signature="e#117#141#0#PHP" expanded="true" />
+            <element signature="n#style#0;n#svg#0;n#router-link#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#svg#0;n#router-link#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
