@@ -2,9 +2,11 @@
     <div v-if="profileUser != null" id="root" style="margin:0" >
         <profile-header></profile-header>
 
+        <div class="firstAfterHeader"></div>
+
         <div class="privacy paddingNormalize marginLeftRight">
             <div class="container-fluid paddingNormalize">
-                <div class="row marginTopOnSite h3Margin">
+                <div class="row h3Margin">
                     <h3 class="col-lg-8">Errungenschaften von {{profileUser.username}}</h3>
                     <div class="col-lg-4">
                         <div class="backLinkDiv">
@@ -105,6 +107,8 @@
 </svg>
 
         </div>
+
+        <div class="lastBeforeFooter"></div>
     </div>
 </template>
 
@@ -218,8 +222,4 @@
     .backLink:hover .backSvg { fill: #B8E269; }
     .backLink:active { color: #707070; }
     .backLink:active .backSvg { fill: #707070; }
-
-    .awards:last-of-type {
-        margin-bottom: 10%;
-    }
 </style>

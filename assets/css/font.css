@@ -22,6 +22,12 @@ body {
 
 .alignTextCenter { text-align: center; }
 
+h1 { font-size: 200%; }
+h4 {
+    font-size: 140%;
+    margin-top: 5%;
+}
+
 .h3Margin {
     margin-top: 50px;
     color: #97B753;

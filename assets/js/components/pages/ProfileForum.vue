@@ -2,14 +2,16 @@
     <div v-if="profileUser != null && writtenCommentsFilled === true && createdThreadsFilled === true" id="root" style="margin:0" >
         <profile-header></profile-header>
 
+        <div class="firstAfterHeader"></div>
+
             <div class="privacy paddingNormalize marginLeftRight">
                 <div class="container-fluid paddingNormalize">
-                    <div class="row marginTopOnSite h3Margin">
-                        <h3 class="col-lg-8">Forumeinträge {{profileUser.username}}</h3>
-                        <div class="col-lg-4">
+                    <div class="row h3Margin">
+                        <h3 class="col-lg-8 siteHL">Forumeinträge <span class="desktop">{{profileUser.username}}</span></h3>
+                        <div class="col-lg-4 siteBack">
                             <div class="backLinkDiv">
                                 <router-link class="backLink" :to="'/profile/' + profileUser.username">
-                                    <svg class="backSvg"><use href="#backIcon"></use></svg>Zurück
+                                    <svg class="backSvg"><use href="#backIcon"></use></svg><span class="desktop">Zurück</span>
                                 </router-link>
                             </div>
 
@@ -31,16 +33,18 @@
                                     <h4 class="threadCommentsHL">Kommentierte Threads</h4>
                                     <hr>
                                     <div class="threadsCommentsInfo">
-                                        <p v-for="(comment, index) in writtenComments" class=" threadList">
-                                            <router-link :to="'/forum/' + comment.thread.id + '#comment' + comment.id">
-                                                <div class="paddingNormalize">
-                                                    <span class="commentHL">{{comment.thread.headline}}</span>
-                                                    <span class="commentCategory">{{comment.thread.category.title}}</span>
+                                        <p v-for="(comment, index) in writtenComments" class="threadList">
+                                            <router-link :to="'/forum/' + comment.thread.id + '#comment' + comment.id" class="routerLink">
+                                                <div class="paddingNormalize row divHeader">
+                                                    <div class="col-lg-9 title"><span class="commentHL">{{comment.thread.headline}}</span></div>
+                                                    <div class="col-lg-3 text-right category">
+                                                        <span class="commentCategory">{{comment.thread.category.title}}</span>
+                                                    </div>
                                                 </div>
-                                                <div class="paddingNormalize commentText">
+                                                <div class="paddingNormalize commentText bgWhiteGrey dropShadow">
                                                     <span>{{comment.text}}</span>
                                                 </div>
-                                                <div class="paddingNormalize commentCreated">
+                                                <div class="paddingNormalize commentCreated text-right">
                                                     <span>{{getDateString(comment.created)}}</span>
                                                 </div>
                                             </router-link>
@@ -51,19 +55,23 @@
                         </div>
 
                         <div class="col-lg-6">
-                            <div class="container-fluid paddingNormalize right">
+                            <div class="container-fluid paddingNormalize marginNormalize left">
                                 <div class="paddingNormalize" v-if="createdThreads !== null">
-                                    <h4 class="threadCommentsHL">Eröffnete Threads</h4> <!-- wird aus dem Forum ausgelesen -->
+                                    <h4 class="threadCommentsHL">Eröffnete Threads</h4>
                                     <hr>
-                                    <div class="threadCommentsInfo">
+                                    <div class="threadsCommentsInfo">
                                         <p v-for="(thread, index) in createdThreads" class="threadList">
-                                            <router-link :to="'/forum/' + thread.id">
-                                                <div class="paddingNormalize">
-                                                    <span class="threadHL">{{thread.headline}}</span>
-                                                    <span class="threadCategory">{{thread.category.title}}</span>
+                                            <router-link :to="'/forum/' + thread.id" class="routerLink">
+                                                <div class="paddingNormalize row divHeader">
+                                                    <div class="col-lg-12 text-right threadCategory">
+                                                        <span class="commentCategory">{{thread.category.title}}</span>
+                                                    </div>
                                                 </div>
-                                                <div class="paddingNormalize">
-                                                    <span class="threadCreated">{{getDateString(thread.created)}}</span>
+                                                <div class="paddingNormalize threadText bgWhiteGrey dropShadow">
+                                                    <span>{{thread.headline}}</span>
+                                                </div>
+                                                <div class="paddingNormalize threadCreated text-right">
+                                                    <span>{{getDateString(thread.created)}}</span>
                                                 </div>
                                             </router-link>
                                         </p>
@@ -90,6 +98,9 @@
 </svg>
 
         </div>
+
+        <div class="lastBeforeFooter"></div>
+
     </div>
 </template>
 
@@ -124,8 +135,6 @@
             this.$http.get('/api/profile/' + this.$route.params.username)
                 .then(response => {
                     this.profileUser = response.data;
-                    console.log("get /api/profile/username");
-                    console.log(response.data);
 
                     this.getCreatedThreads();
                     this.getWrittenComments();
@@ -143,8 +152,6 @@
                     .then(response => {
                         this.createdThreads = response.data;
                         this.createdThreadsFilled = true;
-                        console.log('get /api/profile/getCreatedThreads/userid');
-                        console.log(response.data);
                     })
                     .catch(error => {
                         console.log('get /api/profile/getCreatedThreads/userid error');
@@ -157,8 +164,6 @@
                     .then(response => {
                         this.writtenCommentsFilled = true;
                         this.writtenComments = response.data;
-                        console.log("get /api/profile/getWrittenComments/userid");
-                        console.log(response.data);
                     })
                     .catch(error => {
                         console.log("get /api/profile/getWrittenComments/userid error");
@@ -178,20 +183,57 @@
 </script>
 
 <style scoped>
-    /*.left { margin-right: 2%; }
-    .right { margin-left: 2%; }*/
-    .backSvg {
-        width: 20px;
-        height: 20px;
-        fill: #97B753;
+    /*-----------------------allgemein------------------*/
+    .divHeader {
+        font-weight: bolder;
+        font-size: 100%;
+        padding: 1% 2%;
+        color: #707070;
+    }
+    .divHeader .title { color: #97B753; }
+
+    /*-----------------------comment/thread------------------*/
+    .commentText, .threadText {
+        padding: 2%;
+        border-radius: 10px;
+        margin-bottom: 1%;
+    }
+    .commentCreated, .threadCreated {
+        font-size: 95%;
+        font-style: italic;
         padding-right: 2%;
     }
-    .backLinkDiv {
-        text-align: right;
-        padding-right: 1%;
+    .routerLink:hover, .routerLink:hover .divHeader { color: #97B753; }
+    .routerLink:hover .commentText, .routerLink:hover .threadText {
+        background-color: #707070;
+        color: white;
     }
-    .backLink:hover { color: #97B753; }
-    .backLink:hover .backSvg { fill: #B8E269; }
-    .backLink:active { color: #707070; }
-    .backLink:active .backSvg { fill: #707070; }
+
+    /*----------------------------media queries--------------------*/
+    /*---------------------------------------Media Queries-----------------------------------------------*/
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
+    }
+
+    /* Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
+        .divHeader .title { width: 70%; }
+        .divHeader .category { width: 30%; }
+
+        .siteHL { width: 70%; }
+        .siteBack { width: 30%; }
+    }
+
+    /*Small devices (landscape phones, less than 768px)*/
+    @media (max-width: 767.98px) {
+    }
+
+    /* Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+        .desktop { display: none; }
+    }
+
+
+
+
 </style>

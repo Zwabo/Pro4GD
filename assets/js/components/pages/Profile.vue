@@ -1253,12 +1253,6 @@
                                 .then(response => { this.profileUser = response.data; console.log(response.data);})
                                 .catch(error => { console.log(error); });
 
-
-
-
-
-
-
                             //alert(wateredAwardMsg);
                         }
                     }

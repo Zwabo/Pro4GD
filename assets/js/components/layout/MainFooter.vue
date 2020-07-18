@@ -3,10 +3,10 @@
         <footer class="page-footer font-small bgDarkGreen fontWhite">
             <div class="footer-copyright text-center py-3">
 
-                <router-link to="/imprint" fragment="#privacyStatement">Datenschutzbestimmungen</router-link> •
-                <router-link to="/agb">AGB</router-link> •
-                <router-link to="/imprint">Impressum</router-link> •
-                <router-link to="/contact">Kontakt</router-link>
+                <router-link to="/imprint" fragment="#privacyStatement" class="footerLink">Datenschutzbestimmungen</router-link> •
+                <router-link to="/agb" class="footerLink">AGB</router-link> •
+                <router-link to="/imprint" class="footerLink">Impressum</router-link> •
+                <router-link to="/contact" class="footerLink">Kontakt</router-link>
 
             </div>
         </footer>
@@ -67,7 +67,7 @@
 </script>
 
 <style scoped>
-    .page-footer {
-        margin-top: 50px;
-    }
+    .footerLink { color: white; }
+    .footerLink:hover { color: #B8E269; }
+    .footerLink:active { color: #707070; }
 </style>

@@ -1,9 +1,10 @@
 <template>
     <div id="root">
         <div class="container-fluid ">
-
+            <div class="firstAfterMenue"></div>
             <div class="imprint marginLeftRight">
-                <h1 class="marginTopOnSite">Impressum</h1>
+
+                <h1>Impressum</h1>
 
                 <div class="row anschrift">
 
@@ -170,6 +171,7 @@
             </div>
 
         </div>
+        <div class="lastBeforeFooter"></div>
     </div>
 </template>
 
