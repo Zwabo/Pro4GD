@@ -77,11 +77,14 @@
             },
 
             checkRole: function(){
-                if(this.loggedInUser.roles == 'ROLE_ADMIN'){
-                    return true;
-                } else {
-                    return false;
-                }
+                let role = this.loggedInUser.roles;
+
+                for(let i = 0; i < this.loggedInUser.roles.length; i++) {
+                    console.log(this.loggedInUser.roles);
+                    if ((role[i] =='ROLE_ADMIN')) {
+                        return true;
+                    }
+                };
 
             }
         }
