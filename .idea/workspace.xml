@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="styling hinzugefügt&#10;- navigation">
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="- styles added&#10;&#10;responsive styles finished till now:&#10;- Impressum&#10;- AGB&#10;- Kontakt&#10;- ProfileForum&#10;- Main Footer&#10;- Profile Awards&#10;- Login / LoginForm&#10;- Register / RegisterForm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Home.vue" afterDir="false" />
     </list>
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
@@ -153,10 +153,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="121" />
+          <entry key="css" value="117" />
           <entry key="env" value="1" />
           <entry key="gitignore" value="2" />
-          <entry key="html" value="1" />
           <entry key="jpg" value="1" />
           <entry key="js" value="46" />
           <entry key="json" value="2" />
@@ -164,10 +163,10 @@
           <entry key="php" value="392" />
           <entry key="rnc" value="1" />
           <entry key="scss" value="1" />
-          <entry key="svg" value="76" />
+          <entry key="svg" value="73" />
           <entry key="ts" value="2" />
           <entry key="twig" value="97" />
-          <entry key="vue" value="254" />
+          <entry key="vue" value="250" />
           <entry key="xml" value="1" />
           <entry key="yaml" value="3" />
         </counts>
@@ -175,8 +174,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="1" />
-          <entry key="CSS" value="121" />
-          <entry key="HTML" value="1" />
+          <entry key="CSS" value="117" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="46" />
@@ -185,41 +183,41 @@
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="RNG Compact" value="1" />
           <entry key="SCSS" value="1" />
-          <entry key="SVG" value="76" />
+          <entry key="SVG" value="73" />
           <entry key="Twig" value="97" />
           <entry key="TypeScript" value="2" />
-          <entry key="Vue.js" value="254" />
+          <entry key="Vue.js" value="250" />
           <entry key="XML" value="1" />
           <entry key="YAML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="15950" />
+          <entry key="css" value="15948" />
           <entry key="dummy" value="25" />
           <entry key="js" value="2280" />
           <entry key="json" value="26" />
-          <entry key="md" value="255" />
+          <entry key="md" value="237" />
           <entry key="php" value="47629" />
           <entry key="svg" value="26" />
           <entry key="twig" value="20844" />
-          <entry key="txt" value="3006" />
-          <entry key="vue" value="139092" />
+          <entry key="txt" value="2971" />
+          <entry key="vue" value="136137" />
           <entry key="xml" value="11" />
           <entry key="yaml" value="138" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="15950" />
+          <entry key="CSS" value="15948" />
           <entry key="JSON" value="26" />
           <entry key="JavaScript" value="2281" />
-          <entry key="Markdown" value="255" />
+          <entry key="Markdown" value="237" />
           <entry key="PHP" value="47629" />
-          <entry key="PLAIN_TEXT" value="3031" />
+          <entry key="PLAIN_TEXT" value="2996" />
           <entry key="SVG" value="26" />
           <entry key="Twig" value="20844" />
-          <entry key="Vue.js" value="139091" />
+          <entry key="Vue.js" value="136136" />
           <entry key="XML" value="11" />
           <entry key="YAML" value="138" />
         </counts>
@@ -227,7 +225,7 @@
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
           <entry key="git.branch.checkout.local" value="12" />
-          <entry key="git.branch.create.new" value="4" />
+          <entry key="git.branch.create.new" value="3" />
           <entry key="git.branch.delete.local" value="1" />
           <entry key="git.branch.rename" value="2" />
         </counts>
@@ -256,50 +254,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Home.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="445" lean-forward="true" selection-start-line="445" selection-end-line="445" />
+            <state relative-caret-position="408">
+              <caret line="426" column="41" selection-start-line="426" selection-start-column="41" selection-end-line="426" selection-end-column="41" />
               <folding>
-                <element signature="n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#g#0;n#svg#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#svg#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#g#0;n#svg#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#g#0;n#svg#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#svg#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#div#5;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#div#6;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#div#7;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#script#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/images/plantBase/PlantBaseSchrift.svg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="313" selection-start-line="313" selection-end-line="313" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/components/App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-              <folding>
-                <element signature="e#222#275#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -335,6 +305,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>footer</find>
+      <find>impressum</find>
       <find>gie</find>
       <find>lastbefor</find>
       <find>vorname</find>
@@ -351,20 +323,18 @@
       <find>login</find>
       <find>loginRegisterh1</find>
       <find>text-align</find>
-      <find>datenbankDropdown</find>
-      <find>addPlant-</find>
-      <find>nav</find>
-      <find>datenbank</find>
-      <find>navilogosmall</find>
-      <find>rowsindex</find>
-      <find>lg</find>
-      <find>.id</find>
-      <find>buttonmenu</find>
-      <find>svgMenu</find>
-      <find>logoindex</find>
-      <find>indexlogo</find>
-      <find>welcomeRow</find>
       <find>rowsindexwelcome</find>
+      <find>loggedinindex</find>
+      <find>loginIndexInput</find>
+      <find>indexlogo</find>
+      <find>buttonwhiteindex</find>
+      <find>unser</find>
+      <find>community</find>
+      <find>indexicon</find>
+      <find>indexiconrotation</find>
+      <find>rowsindexbottom</find>
+      <find>water</find>
+      <find>else</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -380,6 +350,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/Entity/Comment.php" />
+        <option value="$PROJECT_DIR$/src/DataFixtures/ThreadFixtures.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/CommentFixtures.php" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/DataFixtures/BadgesFixtures.php" />
@@ -412,6 +384,7 @@
         <option value="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/layout/MainFooter.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/AGB.vue" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/Imprint.vue" />
         <option value="$PROJECT_DIR$/assets/css/font.css" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/ProfileAwards.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/ProfileForum.vue" />
@@ -419,17 +392,14 @@
         <option value="$PROJECT_DIR$/assets/css/color.css" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Contact.vue" />
         <option value="$PROJECT_DIR$/assets/css/layout.css" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/Login.vue" />
         <option value="$PROJECT_DIR$/assets/css/register.css" />
+        <option value="$PROJECT_DIR$/assets/css/main.css" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/Register.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/forms/RegistrationForm.vue" />
-        <option value="$PROJECT_DIR$/assets/css/index.css" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Login.vue" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Register.vue" />
-        <option value="$PROJECT_DIR$/assets/css/navi.css" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Imprint.vue" />
-        <option value="$PROJECT_DIR$/assets/css/main.css" />
-        <option value="$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Home.vue" />
       </list>
     </option>
@@ -630,35 +600,7 @@
             <path>
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="icons" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="plantBase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -674,7 +616,7 @@
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="logoindex&#9;null&#9;null&#10;buttondarkgreensmall&#9;null&#9;null&#10;friends&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/src/Controller/FriendsController.php&#10;userpicture&#9;null&#9;null&#10;commentform&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/assets/js/components/forms/CommentForm.vue&#10;addlike&#9;null&#9;null&#10;threadid&#9;null&#9;null&#10;likedstatus&#9;null&#9;null&#10;threadID&#9;null&#9;null&#10;array_push&#9;null&#9;null&#10;removethreadlike&#9;null&#9;null&#10;setcounterfriendsadded&#9;null&#9;null&#10;setcounterfriends&#9;null&#9;null&#10;setuserplantadded&#9;null&#9;null&#10;createuserplant&#9;null&#9;null&#10;confirmRequest&#9;null&#9;null&#10;setxp&#9;null&#9;null&#10;xp&#9;null&#9;null&#10;localstorage&#9;null&#9;null&#10;loggedinuserisprofileuser&#9;null&#9;null&#10;loggedinuserisprof&#9;null&#9;null&#10;yaml&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/config/services.yaml&#10;kernel&#9;null&#9;null&#10;services.yaml&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/config/services.yaml&#10;h3margin&#9;null&#9;null&#10;.git/config&#9;null&#9;null&#10;commentform.vue&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/assets/js/components/forms/CommentForm.vue&#10;icongarden&#9;null&#9;null&#10;smalluserpics&#9;null&#9;null&#10;forum/add&#9;null&#9;null&#10;thread-form&#9;null&#9;null&#10;api/threads&#9;null&#9;null&#10;setText&#9;null&#9;null&#10;commenttext&#9;null&#9;null&#10;newUserplant: function()&#9;null&#9;null&#10;commentInput&#9;null&#9;null&#10;greyline&#9;null&#9;null&#10;form-group&#9;null&#9;null&#10;databaselogo&#9;null&#9;null&#10;smallpic&#9;null&#9;null&#10;smalluserpic&#9;null&#9;null&#10;package.json&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/package.json&#10;component&#9;null&#9;null&#10;edituserplantmodal&#9;null&#9;null&#10;entitymanager&#9;null&#9;null&#10;smallUserPic&#9;null&#9;null&#10;security&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/symvue/vendor/sensio/framework-extra-bundle/src/Resources/config/security.xml&#10;we&#9;FILE&#9;file://C:/Users/Verena/Documents/GitHub/Pro4GD/webpack.config.js&#10;HomeCon&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="buttondarkgreensmall&#9;null&#9;null&#10;friends&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/src/Controller/FriendsController.php&#10;userpicture&#9;null&#9;null&#10;commentform&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/assets/js/components/forms/CommentForm.vue&#10;addlike&#9;null&#9;null&#10;threadid&#9;null&#9;null&#10;likedstatus&#9;null&#9;null&#10;threadID&#9;null&#9;null&#10;array_push&#9;null&#9;null&#10;removethreadlike&#9;null&#9;null&#10;setcounterfriendsadded&#9;null&#9;null&#10;setcounterfriends&#9;null&#9;null&#10;setuserplantadded&#9;null&#9;null&#10;createuserplant&#9;null&#9;null&#10;confirmRequest&#9;null&#9;null&#10;setxp&#9;null&#9;null&#10;xp&#9;null&#9;null&#10;localstorage&#9;null&#9;null&#10;loggedinuserisprofileuser&#9;null&#9;null&#10;loggedinuserisprof&#9;null&#9;null&#10;yaml&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/config/services.yaml&#10;kernel&#9;null&#9;null&#10;services.yaml&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/config/services.yaml&#10;h3margin&#9;null&#9;null&#10;.git/config&#9;null&#9;null&#10;commentform.vue&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/assets/js/components/forms/CommentForm.vue&#10;icongarden&#9;null&#9;null&#10;smalluserpics&#9;null&#9;null&#10;forum/add&#9;null&#9;null&#10;thread-form&#9;null&#9;null&#10;api/threads&#9;null&#9;null&#10;setText&#9;null&#9;null&#10;commenttext&#9;null&#9;null&#10;newUserplant: function()&#9;null&#9;null&#10;commentInput&#9;null&#9;null&#10;greyline&#9;null&#9;null&#10;form-group&#9;null&#9;null&#10;databaselogo&#9;null&#9;null&#10;smallpic&#9;null&#9;null&#10;smalluserpic&#9;null&#9;null&#10;package.json&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/package.json&#10;component&#9;null&#9;null&#10;edituserplantmodal&#9;null&#9;null&#10;entitymanager&#9;null&#9;null&#10;smallUserPic&#9;null&#9;null&#10;security&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/symvue/vendor/sensio/framework-extra-bundle/src/Resources/config/security.xml&#10;we&#9;FILE&#9;file://C:/Users/Verena/Documents/GitHub/Pro4GD/webpack.config.js&#10;HomeCon&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="F:/FH Hagenberg/MTD BAKK/04_Semester 4/Semesterprojekt 2 - PRO4 - MTD292/Rudisch Beispiele/VueRest" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -685,11 +627,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\FH_Projekte\Pro4GD\public\images\icons" />
       <recent name="C:\FH_Projekte\Pro4GD\public\images\forum" />
       <recent name="C:\FH_Projekte\Pro4GD\templates" />
       <recent name="C:\FH_Projekte\Pro4GD\templates\news" />
       <recent name="C:\FH_Projekte\Pro4GD\templates\security" />
+      <recent name="C:\FH_Projekte\Pro4GD\public\images\icons\index" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\FH_Projekte\Pro4GD\assets\js\components\modals" />
@@ -852,7 +794,21 @@
       <workItem from="1594976615615" duration="20645000" />
       <workItem from="1595064681194" duration="13411000" />
       <workItem from="1595089471677" duration="3356000" />
-      <workItem from="1595156348541" duration="26666000" />
+      <workItem from="1595156348541" duration="6738000" />
+    </task>
+    <task id="LOCAL-00038" summary="Zwischenstand">
+      <created>1589911985873</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1589911985873</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Zwischenstand">
+      <created>1589980931502</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1589980931502</updated>
     </task>
     <task id="LOCAL-00040" summary="Zwischenstand">
       <created>1589982096159</created>
@@ -1183,25 +1139,11 @@
       <option name="project" value="LOCAL" />
       <updated>1595163055222</updated>
     </task>
-    <task id="LOCAL-00087" summary="- styles added&#10;&#10;responsive styles finished till now:&#10;- Impressum&#10;- AGB&#10;- Kontakt&#10;- ProfileForum&#10;- Main Footer&#10;- Profile Awards&#10;- Login / LoginForm&#10;- Register / RegisterForm">
-      <created>1595163093883</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1595163093883</updated>
-    </task>
-    <task id="LOCAL-00088" summary="styling hinzugefügt&#10;- navigation">
-      <created>1595186241979</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1595186241979</updated>
-    </task>
-    <option name="localTasksCounter" value="89" />
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="671477000" />
+    <option name="totallyTimeSpent" value="660688000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1228,12 +1170,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4975025" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.45704296" visible="true" weight="0.32293764" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.45754245" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.54295707" side_tool="true" visible="true" weight="0.32293764" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.32767233" side_tool="true" visible="true" weight="0.28873238" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4995005" weight="0.32997987" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.8021978" weight="0.28873238" />
+      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.6723277" visible="true" weight="0.28873238" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1273,6 +1215,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update Readme" />
     <MESSAGE value="Tipps Route hinzugefügt in navi" />
     <MESSAGE value="Routen update" />
     <MESSAGE value="comments zwischenstand" />
@@ -1297,8 +1240,7 @@
     <MESSAGE value="- unterseiten hinzugefügt von profil details&#10;- bug fixes&#10;- zurück und weiter button" />
     <MESSAGE value="- styles added" />
     <MESSAGE value="- styles added&#10;&#10;responsive styles finished till now:&#10;- Impressum&#10;- AGB&#10;- Kontakt&#10;- ProfileForum&#10;- Main Footer&#10;- Profile Awards&#10;- Login / LoginForm&#10;- Register / RegisterForm" />
-    <MESSAGE value="styling hinzugefügt&#10;- navigation" />
-    <option name="LAST_COMMIT_MESSAGE" value="styling hinzugefügt&#10;- navigation" />
+    <option name="LAST_COMMIT_MESSAGE" value="- styles added&#10;&#10;responsive styles finished till now:&#10;- Impressum&#10;- AGB&#10;- Kontakt&#10;- ProfileForum&#10;- Main Footer&#10;- Profile Awards&#10;- Login / LoginForm&#10;- Register / RegisterForm" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
@@ -1323,6 +1265,49 @@
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Entity/Plant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="216" column="27" selection-start-line="216" selection-start-column="20" selection-end-line="216" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-124" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/FriendsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="86" column="58" selection-start-line="86" selection-start-column="58" selection-end-line="86" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/icons/birthday.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/ThumbUp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-369">
+          <caret line="54" column="30" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Forum.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-52467">
+          <caret line="457" column="62" selection-start-line="457" selection-start-column="62" selection-end-line="457" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AddPlantController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="104" column="51" selection-start-line="104" selection-start-column="51" selection-end-line="104" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/AddPlant.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1421,9 +1406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="295" column="21" selection-start-line="295" selection-start-column="17" selection-end-line="295" selection-end-column="21" />
-          <folding>
-            <element signature="e#117#141#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1472,9 +1454,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="222" column="4" selection-start-line="222" selection-start-column="4" selection-end-line="222" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1498,6 +1477,13 @@
     <entry file="file://$PROJECT_DIR$/src/Entity/Award.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Imprint.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4888">
+          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/AGB.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1500">
@@ -1505,12 +1491,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/register.css">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Contact.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="163" column="4" selection-start-line="163" selection-start-column="4" selection-end-line="163" selection-end-column="107" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/login.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/register.css" />
+    <entry file="file://$PROJECT_DIR$/assets/css/login.css" />
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11198">
@@ -1524,6 +1513,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4092">
+          <caret line="191" selection-start-line="191" selection-end-line="191" />
+          <folding>
+            <element signature="n#style#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Register.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1408">
+          <caret line="104" column="4" selection-start-line="104" selection-start-column="4" selection-end-line="109" selection-end-column="5" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/forms/RegistrationForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3300">
+          <caret line="150" column="9" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4070">
+          <caret line="182" column="45" selection-start-line="182" selection-start-column="45" selection-end-line="182" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3388">
+          <caret line="154" column="5" selection-start-line="154" selection-start-column="5" selection-end-line="154" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/color.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2574">
@@ -1531,114 +1561,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/forms/RegistrationForm.vue">
+    <entry file="file://$PROJECT_DIR$/assets/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="150" column="9" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="182" column="45" selection-start-line="182" selection-start-column="45" selection-end-line="182" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/layout.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="154" column="5" selection-start-line="154" selection-start-column="5" selection-end-line="154" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Register.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="167" column="5" selection-start-line="167" selection-start-column="5" selection-end-line="167" selection-end-column="5" />
-          <folding>
-            <element signature="n#style#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#symbol#0;n#svg#0;n#div#4;n#div#0;n#template#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Imprint.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="83" column="60" selection-start-line="83" selection-start-column="60" selection-end-line="83" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/FH Hagenberg/MTD BAKK/02_Semester 1/Hypermedia 1 -HM1-/UB -MTD115-/Projekte_Abgaben/S1810238002_Aigner_MTD115_04/css/main.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://F:/FH Hagenberg/MTD BAKK/02_Semester 1/Hypermedia 1 -HM1-/UB -MTD115-/Projekte_Abgaben/S1810238002_Aigner_MTD115_04/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/FH Hagenberg/MTD BAKK/02_Semester 1/Hypermedia 1 -HM1-/UB -MTD115-/Projekte_Abgaben/S1810238002_Aigner_MTD115_04/css/layout_rest.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="50" column="16" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="16" />
+        <state relative-caret-position="88">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
+        <state relative-caret-position="198">
           <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
           <folding>
             <element signature="e#222#275#0" expanded="true" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/icons/menu.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/plantBase/PlantBaseIcon.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/navi.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/icons/arrow_forth.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Contact.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="164" column="3" lean-forward="true" selection-start-line="164" selection-start-column="3" selection-end-line="185" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="313" selection-start-line="313" selection-end-line="313" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/index.css">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -1650,32 +1588,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/main.css">
+    <entry file="file://$PROJECT_DIR$/public/images/plantBase/PlantBaseSchrift.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="408">
+          <caret line="104" column="50" selection-start-line="104" selection-start-column="50" selection-end-line="104" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/plantBase/PlantBaseSchrift.svg">
+    <entry file="file://$PROJECT_DIR$/public/images/icons/arrow_forth.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="445" lean-forward="true" selection-start-line="445" selection-end-line="445" />
+        <state relative-caret-position="408">
+          <caret line="426" column="41" selection-start-line="426" selection-start-column="41" selection-end-line="426" selection-end-column="41" />
           <folding>
-            <element signature="n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#g#0;n#svg#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#svg#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#g#0;n#svg#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#g#0;n#svg#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#svg#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#div#5;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#div#6;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#div#7;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#script#0;n#!!top" />
           </folding>
         </state>
       </provider>

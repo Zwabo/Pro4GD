@@ -102,7 +102,7 @@
                         </li>
 
                         <!------------------------------Garten----------------------------------------------------->
-                        <li v-if="navigationUser" v-else class="nav-item directLink">
+                        <li v-if="navigationUser" class="nav-item directLink">
                             <button class="navbar-toggler upperMenu" data-toggle="collapse" data-target="#login">
                                 <router-link class="nav-link" :to="'/garden/' + navigationUser.id">Mein Garten</router-link>
                             </button>
@@ -337,6 +337,7 @@
     .mobileNavSpacing { margin-bottom: 3%; }
 
 
+    /*---------------------------------------------Media Queries----------------------------*/
     /*Large devices (desktops, less than 1200px)*/
     @media (max-width: 1199.98px) {
     }
