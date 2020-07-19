@@ -96,6 +96,11 @@
 </script>
 
 <style scoped>
+
+    .rowsIndex {
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
     /*-------------------RIGHT PART---------------*/
     .loginRegisterh1 {
         font-size: 140%;

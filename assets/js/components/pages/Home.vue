@@ -4,7 +4,9 @@
 
         <div class="container-fluid">
 
-            <div class="row bgDarkGreen fontWhite rowsIndexWelcome">
+            <div class="whiteLine"></div>
+
+            <div class="row bgDarkGreen fontWhite rowsIndexWelcome" id="welcomeRow">
                 <div class="container-fluid">
                     <div class="row" >
                         <div><svg id="indexLogo"><use href="#logoIndex"></use></svg></div>
@@ -376,10 +378,142 @@
 </script>
 
 <style scoped>
+    /*---------------------------------welcome row----------------------*/
+    /* mit login, wilkommen und app download*/
+    .welcomeRow {
+
+    }
+
+
+    #indexLogo {
+        padding-left: 35px;
+        fill: white;
+        height: 100px;
+        margin-bottom: 20%;
+    }
+
+    .rowsIndex {
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+
+    .rowsIndexWelcome {
+        padding-top: 5%;
+        padding-bottom: 9%;
+    }
+
+    /*fonts landing page*/
+    #h1Start {
+        font-size: 430%;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 10%;
+    }
+
+    #pIndexDownload { margin-bottom: 20%; }
+
+    .h3Index {
+        font-size: 40px;
+        margin-bottom: 3%;
+        text-transform: uppercase;
+        font-weight: lighter;
+    }
+    .pIndex {
+        font-size: 110%;
+        font-weight: lighter;
+        line-height: 1.8;
+    }
+
+    /*login form*/
+    #loginIndex label {
+        width: 20%;
+        font-size: 180%;
+        text-align: right;
+        margin-right: 2%;
+    }
+    #loginIndex input {
+        width: 65%;
+        margin-bottom: 4%;
+        color: #707070;
+        height: 90%;
+        border-radius: 10px;
+    }
+    #loginIndex button { margin-right: 13%; }
+    #handyImg { width: 90%; }
+    #indexAloe { width: 70%; }
+
+    /* offering part */
+    .indexIcon svg {
+        width:90%;
+        margin-bottom: 15%;
+        margin-top: 10%;
+    }
+
+    /*news Sllider*/
+    .indexArrows svg { width: 50%; fill: #97B753; color:BLACK; }
+    .indexArrows svg:hover { fill: #B8E269; }
+    .indexArrows svg:active { fill: #707070; }
+    #indexNewsSlider {
+        color: transparent;
+        border: 2px solid #97B753;
+        border-radius: 10px;
+    }
+
+    /*hover Animations*/
+    .indexIconRotation:hover {
+        transform: rotateY(360deg);
+        transition: transform 1s;
+    }
+
+    /*fillings of the icons*/
+    #indexWateringCan svg .circle { fill: white; }
+    #indexWateringCan svg .grey { fill: #707070; }
+    #indexWateringCan svg .green { fill: #97B753 }
+
+    #indexWateringCan svg:active .circle { fill: #707070; }
+    #indexWateringCan svg:active .grey { fill: #B8E269; }
+    #indexWateringCan svg:active .green { fill: white; }
+
+    #indexIdea svg .circle { fill: white; }
+    #indexIdea svg .grey { fill: #707070; }
+    #indexIdea svg .green { fill: #97B753 }
+
+    #indexIdea svg:active .circle { fill: #707070; }
+    #indexIdea svg:active .grey { fill: #B8E269; }
+    #indexIdea svg:active .green { fill: white; }
+
+    #indexPlant svg .circle { fill: white; }
+    #indexPlant svg .green { fill: #97B753; stroke: #B8E269; }
+    #indexPlant svg .grey { fill: #707070; }
+
+    #indexPlant svg:active .circle { fill: #707070; }
+    #indexPlant svg:active .green { fill: white; stroke: #DEDEDE; }
+    #indexPlant svg:active .grey { fill: #B8E269; }
+
+    #indexBell svg .circle { fill: white; }
+    #indexBell svg .green { fill: #97B753; }
+    #indexBell svg .grey { fill: #707070; }
+
+    #indexBell svg:active .circle { fill: #707070; }
+    #indexBell svg:active .green { fill: white; }
+    #indexBell svg:active .grey { fill: #B8E269; }
+
+    #indexCommunity svg .circle { fill: white; }
+    #indexCommunity svg .green { fill: #97B753; }
+    #indexCommunity svg .grey { fill: #707070; }
+
+    #indexCommunity svg:active .circle { fill: #707070; }
+    #indexCommunity svg:active .green { fill: white; }
+    #indexCommunity svg:active .grey { fill: #B8E269; }
+
+
     .rowsIndexBottom { padding-bottom: 5%; }
 
     .rowsIndexBottom p {
         font-size: 120%;
         margin: 0 5%;
     }
+
+
+
 </style>

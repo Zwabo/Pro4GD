@@ -162,6 +162,11 @@
         margin-right: 13%;
     }
 
+    .rowsIndex {
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+
 
     /*---------------------------------------Media Queries-----------------------------------------------*/
     /*Large devices (desktops, less than 1200px)*/

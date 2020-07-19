@@ -8,6 +8,7 @@ Responsive Styles Finished
 - Profile Awards
 - Login / LoginForm
 - Register / RegisterForm
+- Navigation
 
 ---
 ---

@@ -81,6 +81,7 @@
                         <li><span class="bold">Love</span>, Vector Market, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
                         <li><span class="bold">Flower</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
                         <li><span class="bold">Leaves</span>, Pixel perfect, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">List</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
                     </ul>
                 </div>
 
