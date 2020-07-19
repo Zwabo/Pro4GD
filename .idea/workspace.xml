@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="zwischenstand">
-      <change afterPath="$PROJECT_DIR$/assets/js/components/pages/ProfileAwards.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/pages/ProfileForum.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/pages/ProfileHeader.vue" afterDir="false" />
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="- unterseiten hinzugefügt von profil details&#10;- bug fixes&#10;- zurück und weiter button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Thread.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Thread.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Thread.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Thread.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/color.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/color.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/ProfileAwards.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/ProfileAwards.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/ProfileForum.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/ProfileForum.vue" afterDir="false" />
     </list>
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
@@ -138,12 +136,10 @@
     <window id="2">
       <content type="file-editors">
         <state>
-          <leaf>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/Entity/Award.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-132" />
-                </provider>
+                <provider selected="true" editor-type-id="text-editor" />
               </entry>
             </file>
           </leaf>
@@ -153,7 +149,7 @@
     <window id="1">
       <content type="file-editors">
         <state>
-          <leaf>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
                 <provider selected="true" editor-type-id="text-editor">
@@ -175,7 +171,7 @@
     <session id="-1864558712">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="90" />
+          <entry key="project.closed" value="91" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.10" value="2" />
@@ -189,14 +185,14 @@
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="12" />
           <entry key="project.open.time.7" value="13" />
-          <entry key="project.open.time.8" value="14" />
+          <entry key="project.open.time.8" value="15" />
           <entry key="project.open.time.9" value="8" />
-          <entry key="project.opened" value="90" />
+          <entry key="project.opened" value="91" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="105" />
+          <entry key="css" value="111" />
           <entry key="env" value="1" />
           <entry key="gitignore" value="2" />
           <entry key="jpg" value="1" />
@@ -209,7 +205,7 @@
           <entry key="svg" value="71" />
           <entry key="ts" value="2" />
           <entry key="twig" value="97" />
-          <entry key="vue" value="218" />
+          <entry key="vue" value="234" />
           <entry key="xml" value="1" />
           <entry key="yaml" value="3" />
         </counts>
@@ -217,7 +213,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="1" />
-          <entry key="CSS" value="105" />
+          <entry key="CSS" value="111" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="46" />
@@ -229,14 +225,14 @@
           <entry key="SVG" value="71" />
           <entry key="Twig" value="97" />
           <entry key="TypeScript" value="2" />
-          <entry key="Vue.js" value="218" />
+          <entry key="Vue.js" value="234" />
           <entry key="XML" value="1" />
           <entry key="YAML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="15552" />
+          <entry key="css" value="15946" />
           <entry key="dummy" value="25" />
           <entry key="js" value="2280" />
           <entry key="json" value="26" />
@@ -244,23 +240,23 @@
           <entry key="php" value="47629" />
           <entry key="svg" value="26" />
           <entry key="twig" value="20844" />
-          <entry key="txt" value="2690" />
-          <entry key="vue" value="125115" />
+          <entry key="txt" value="2781" />
+          <entry key="vue" value="129350" />
           <entry key="xml" value="11" />
           <entry key="yaml" value="138" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="15552" />
+          <entry key="CSS" value="15946" />
           <entry key="JSON" value="26" />
           <entry key="JavaScript" value="2281" />
           <entry key="Markdown" value="198" />
           <entry key="PHP" value="47629" />
-          <entry key="PLAIN_TEXT" value="2715" />
+          <entry key="PLAIN_TEXT" value="2806" />
           <entry key="SVG" value="26" />
           <entry key="Twig" value="20844" />
-          <entry key="Vue.js" value="125114" />
+          <entry key="Vue.js" value="129349" />
           <entry key="XML" value="11" />
           <entry key="YAML" value="138" />
         </counts>
@@ -285,16 +281,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="1245" column="70" lean-forward="true" selection-start-line="1245" selection-start-column="70" selection-end-line="1245" selection-end-column="70" />
+            <state relative-caret-position="1310">
+              <caret line="508" column="8" selection-start-line="508" selection-start-column="8" selection-end-line="515" selection-end-column="10" />
               <folding>
                 <element signature="n#style#0;n#svg#0;n#router-link#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#svg#0;n#router-link#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -302,10 +297,45 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Garden.vue">
+        <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Login.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="44" column="148" selection-start-line="44" selection-start-column="145" selection-end-line="44" selection-end-column="148" />
+            <state relative-caret-position="528">
+              <caret line="80" column="18" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+              <folding>
+                <element signature="n#svg#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="99" column="24" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/login.css">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/layout.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="114" column="1" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/color.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="117" column="1" selection-start-line="97" selection-end-line="117" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -323,17 +353,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>erungenschaft</find>
-      <find>commentform</find>
-      <find>date</find>
-      <find>checa</find>
-      <find>errungenschaften</find>
-      <find>award</find>
-      <find>datetime</find>
-      <find>erungenschaften</find>
-      <find>commentarray</find>
-      <find>erung</find>
-      <find>erungensch</find>
       <find>errun</find>
       <find>null</find>
       <find>getwritten</find>
@@ -349,10 +368,21 @@
       <find>gießen</find>
       <find>checkawards</find>
       <find>modal</find>
-      <find>gie</find>
       <find>watered</find>
       <find>userplant</find>
+      <find>footer</find>
+      <find>impressum</find>
+      <find>gie</find>
+      <find>lastbefor</find>
+      <find>vorname</find>
+      <find>commenttext</find>
+      <find>lastbefore</find>
+      <find>router-link</find>
       <find>awardModal</find>
+      <find>siteback</find>
+      <find>sitehl</find>
+      <find>goto</find>
+      <find>you are</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -368,28 +398,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/Entity/ProfileComments.php" />
-        <option value="$PROJECT_DIR$/assets/css/database.css" />
-        <option value="$PROJECT_DIR$/assets/css/news.css" />
-        <option value="$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Plant.vue" />
         <option value="$PROJECT_DIR$/src/Entity/Plant.php" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Database.vue" />
         <option value="$PROJECT_DIR$/assets/css/forum.css" />
-        <option value="$PROJECT_DIR$/assets/css/color.css" />
         <option value="$PROJECT_DIR$/public/images/icons/index/idea_comments.svg" />
         <option value="$PROJECT_DIR$/assets/js/components/forms/ThreadForm.vue" />
         <option value="$PROJECT_DIR$/src/Entity/Comment.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/ThreadFixtures.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/CommentFixtures.php" />
-        <option value="$PROJECT_DIR$/assets/css/font.css" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/DataFixtures/BadgesFixtures.php" />
         <option value="$PROJECT_DIR$/src/Entity/Badge.php" />
         <option value="$PROJECT_DIR$/src/Entity/Award.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Imprint.vue" />
         <option value="$PROJECT_DIR$/src/DataFixtures/AwardsFixtures.php" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Userplant.vue" />
         <option value="$PROJECT_DIR$/src/Controller/GardenController.php" />
@@ -399,7 +420,6 @@
         <option value="$PROJECT_DIR$/assets/js/components/pages/Friends.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Forum.vue" />
         <option value="$PROJECT_DIR$/src/DataFixtures/CategoryFixtures.php" />
-        <option value="$PROJECT_DIR$/assets/css/layout.css" />
         <option value="$PROJECT_DIR$/assets/css/profile.css" />
         <option value="$PROJECT_DIR$/assets/css/main.css" />
         <option value="$PROJECT_DIR$/src/Controller/FriendsController.php" />
@@ -413,12 +433,22 @@
         <option value="$PROJECT_DIR$/src/Entity/Thread.php" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/ProfileHeader.vue" />
         <option value="$PROJECT_DIR$/assets/js/routes.js" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/ProfileForum.vue" />
         <option value="$PROJECT_DIR$/src/Entity/User.php" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/ProfileAwards.vue" />
         <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/assets/js/components/modals/AwardsModal.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" />
+        <option value="$PROJECT_DIR$/assets/js/components/layout/MainFooter.vue" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/AGB.vue" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/Imprint.vue" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/Contact.vue" />
+        <option value="$PROJECT_DIR$/assets/css/layout.css" />
+        <option value="$PROJECT_DIR$/assets/css/font.css" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/ProfileAwards.vue" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/ProfileForum.vue" />
+        <option value="$PROJECT_DIR$/assets/css/login.css" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/Login.vue" />
+        <option value="$PROJECT_DIR$/assets/css/color.css" />
+        <option value="$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue" />
       </list>
     </option>
   </component>
@@ -613,6 +643,22 @@
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="forms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -646,7 +692,7 @@
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="friends&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/src/Controller/FriendsController.php&#10;userpicture&#9;null&#9;null&#10;commentform&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/assets/js/components/forms/CommentForm.vue&#10;addlike&#9;null&#9;null&#10;threadid&#9;null&#9;null&#10;likedstatus&#9;null&#9;null&#10;threadID&#9;null&#9;null&#10;array_push&#9;null&#9;null&#10;removethreadlike&#9;null&#9;null&#10;setcounterfriendsadded&#9;null&#9;null&#10;setcounterfriends&#9;null&#9;null&#10;setuserplantadded&#9;null&#9;null&#10;createuserplant&#9;null&#9;null&#10;confirmRequest&#9;null&#9;null&#10;setxp&#9;null&#9;null&#10;xp&#9;null&#9;null&#10;localstorage&#9;null&#9;null&#10;loggedinuserisprofileuser&#9;null&#9;null&#10;loggedinuserisprof&#9;null&#9;null&#10;yaml&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/config/services.yaml&#10;kernel&#9;null&#9;null&#10;services.yaml&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/config/services.yaml&#10;h3margin&#9;null&#9;null&#10;.git/config&#9;null&#9;null&#10;commentform.vue&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/assets/js/components/forms/CommentForm.vue&#10;icongarden&#9;null&#9;null&#10;smalluserpics&#9;null&#9;null&#10;forum/add&#9;null&#9;null&#10;thread-form&#9;null&#9;null&#10;api/threads&#9;null&#9;null&#10;setText&#9;null&#9;null&#10;commenttext&#9;null&#9;null&#10;newUserplant: function()&#9;null&#9;null&#10;commentInput&#9;null&#9;null&#10;greyline&#9;null&#9;null&#10;form-group&#9;null&#9;null&#10;databaselogo&#9;null&#9;null&#10;smallpic&#9;null&#9;null&#10;smalluserpic&#9;null&#9;null&#10;package.json&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/package.json&#10;component&#9;null&#9;null&#10;edituserplantmodal&#9;null&#9;null&#10;entitymanager&#9;null&#9;null&#10;smallUserPic&#9;null&#9;null&#10;security&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/symvue/vendor/sensio/framework-extra-bundle/src/Resources/config/security.xml&#10;we&#9;FILE&#9;file://C:/Users/Verena/Documents/GitHub/Pro4GD/webpack.config.js&#10;HomeCon&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="buttondarkgreensmall&#9;null&#9;null&#10;friends&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/src/Controller/FriendsController.php&#10;userpicture&#9;null&#9;null&#10;commentform&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/assets/js/components/forms/CommentForm.vue&#10;addlike&#9;null&#9;null&#10;threadid&#9;null&#9;null&#10;likedstatus&#9;null&#9;null&#10;threadID&#9;null&#9;null&#10;array_push&#9;null&#9;null&#10;removethreadlike&#9;null&#9;null&#10;setcounterfriendsadded&#9;null&#9;null&#10;setcounterfriends&#9;null&#9;null&#10;setuserplantadded&#9;null&#9;null&#10;createuserplant&#9;null&#9;null&#10;confirmRequest&#9;null&#9;null&#10;setxp&#9;null&#9;null&#10;xp&#9;null&#9;null&#10;localstorage&#9;null&#9;null&#10;loggedinuserisprofileuser&#9;null&#9;null&#10;loggedinuserisprof&#9;null&#9;null&#10;yaml&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/config/services.yaml&#10;kernel&#9;null&#9;null&#10;services.yaml&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/config/services.yaml&#10;h3margin&#9;null&#9;null&#10;.git/config&#9;null&#9;null&#10;commentform.vue&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/assets/js/components/forms/CommentForm.vue&#10;icongarden&#9;null&#9;null&#10;smalluserpics&#9;null&#9;null&#10;forum/add&#9;null&#9;null&#10;thread-form&#9;null&#9;null&#10;api/threads&#9;null&#9;null&#10;setText&#9;null&#9;null&#10;commenttext&#9;null&#9;null&#10;newUserplant: function()&#9;null&#9;null&#10;commentInput&#9;null&#9;null&#10;greyline&#9;null&#9;null&#10;form-group&#9;null&#9;null&#10;databaselogo&#9;null&#9;null&#10;smallpic&#9;null&#9;null&#10;smalluserpic&#9;null&#9;null&#10;package.json&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/package.json&#10;component&#9;null&#9;null&#10;edituserplantmodal&#9;null&#9;null&#10;entitymanager&#9;null&#9;null&#10;smallUserPic&#9;null&#9;null&#10;security&#9;FILE&#9;file://C:/FH_Projekte/Pro4GD/symvue/vendor/sensio/framework-extra-bundle/src/Resources/config/security.xml&#10;we&#9;FILE&#9;file://C:/Users/Verena/Documents/GitHub/Pro4GD/webpack.config.js&#10;HomeCon&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="F:/FH Hagenberg/MTD BAKK/04_Semester 4/Semesterprojekt 2 - PRO4 - MTD292/Rudisch Beispiele/VueRest" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -822,14 +868,8 @@
       <workItem from="1594801322968" duration="17969000" />
       <workItem from="1594893044123" duration="16389000" />
       <workItem from="1594976615615" duration="20645000" />
-      <workItem from="1595064681194" duration="6945000" />
-    </task>
-    <task id="LOCAL-00035" summary="Zwischenstand">
-      <created>1589816696893</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1589816696893</updated>
+      <workItem from="1595064681194" duration="13411000" />
+      <workItem from="1595089471677" duration="3356000" />
     </task>
     <task id="LOCAL-00036" summary="Zwischenstand">
       <created>1589818500194</created>
@@ -1167,11 +1207,18 @@
       <option name="project" value="LOCAL" />
       <updated>1594915221435</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="- unterseiten hinzugefügt von profil details&#10;- bug fixes&#10;- zurück und weiter button">
+      <created>1595071692702</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1595071692703</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="634989000" />
+    <option name="totallyTimeSpent" value="644811000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1184,9 +1231,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.2072927" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.20929071" />
       <window_info id="Structure" order="1" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
       <window_info id="npm" order="2" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
       <window_info id="Favorites" order="3" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
@@ -1198,12 +1244,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4975025" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.45904097" weight="0.32293764" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.45854145" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.19530469" side_tool="true" visible="true" weight="0.28873238" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.1963037" side_tool="true" visible="true" weight="0.28873238" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4995005" weight="0.32997987" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.8046953" visible="true" weight="0.28873238" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="13" sideWeight="0.8036963" visible="true" weight="0.28873238" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1243,7 +1289,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Footer Seiten mit (Dummy)Inhalte hinzugefügt. Kontaktformular noch nicht programmiert." />
     <MESSAGE value="Infos zu Angebote auf Startseite hinzugefügt. Werden vial click eingeblendet." />
     <MESSAGE value="Fixed Plant Image Routes&#10;EMail Client + Contact Formular works now - Emailjs implemented" />
     <MESSAGE value="Update Readme" />
@@ -1268,7 +1313,8 @@
     <MESSAGE value="added profile requests, styles zwischenstand" />
     <MESSAGE value="reload likes workaround implementiert" />
     <MESSAGE value="zwischenstand" />
-    <option name="LAST_COMMIT_MESSAGE" value="zwischenstand" />
+    <MESSAGE value="- unterseiten hinzugefügt von profil details&#10;- bug fixes&#10;- zurück und weiter button" />
+    <option name="LAST_COMMIT_MESSAGE" value="- unterseiten hinzugefügt von profil details&#10;- bug fixes&#10;- zurück und weiter button" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
@@ -1293,64 +1339,6 @@
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/EditUserplantModal.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-990" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/TippsController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/badges/lived12months.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/AwardsFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="481" column="46" selection-start-line="481" selection-start-column="46" selection-end-line="481" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Imprint.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="79" column="122" selection-start-line="79" selection-start-column="122" selection-end-line="79" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-528" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/addUserplantModal.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="104" selection-start-line="104" selection-end-line="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Friends.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_8.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="1027" column="3" lean-forward="true" selection-start-line="1027" selection-start-column="3" selection-end-line="1027" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/ThumbUpThread.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1496">
@@ -1376,13 +1364,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="102" column="8" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/layout.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="80" column="23" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1531,25 +1512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/ProfileForum.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#svg#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/color.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Userplant.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1581,20 +1543,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/ProfileAwards.vue">
+    <entry file="file://$PROJECT_DIR$/public/images/icons/arrow_forth.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AwardsModal.vue" />
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="219" column="4" selection-start-line="219" selection-start-column="4" selection-end-line="219" selection-end-column="48" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#svg#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="-6798">
+          <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/icons/arrow_forth.svg">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/assets/js/components/layout/MainFooter.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="71" column="41" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Garden.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="44" column="148" selection-start-line="44" selection-start-column="145" selection-end-line="44" selection-end-column="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Imprint.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/App.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/AGB.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1478">
+          <caret line="4" column="66" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Contact.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="163" column="4" lean-forward="true" selection-start-line="163" selection-start-column="4" selection-end-line="188" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Award.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1606,36 +1605,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AwardsModal.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Garden.vue">
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/ProfileForum.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="44" column="148" selection-start-line="44" selection-start-column="145" selection-end-line="44" selection-end-column="148" />
+          <caret line="193" column="32" selection-start-line="193" selection-start-column="32" selection-end-line="193" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#svg#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Award.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/ProfileAwards.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-132" />
+        <state relative-caret-position="342">
+          <caret line="222" column="4" selection-start-line="222" selection-start-column="4" selection-end-line="222" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/font.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/login.css">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="1245" column="70" lean-forward="true" selection-start-line="1245" selection-start-column="70" selection-end-line="1245" selection-end-column="70" />
+        <state relative-caret-position="1310">
+          <caret line="508" column="8" selection-start-line="508" selection-start-column="8" selection-end-line="515" selection-end-column="10" />
           <folding>
             <element signature="n#style#0;n#svg#0;n#router-link#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#svg#0;n#router-link#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#style#0;n#svg#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="80" column="18" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+          <folding>
+            <element signature="n#svg#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="114" column="1" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/color.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="117" column="1" selection-start-line="97" selection-end-line="117" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="99" column="24" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="24" />
         </state>
       </provider>
     </entry>

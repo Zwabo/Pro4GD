@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="col-lg-6">
-                            <div class="container-fluid paddingNormalize marginNormalize left">
+                            <div class="container-fluid paddingNormalize marginNormalize right">
                                 <div class="paddingNormalize" v-if="createdThreads !== null">
                                     <h4 class="threadCommentsHL">Eröffnete Threads</h4>
                                     <hr>
@@ -183,6 +183,15 @@
 </script>
 
 <style scoped>
+    .left {
+        width: 100%;
+        margin-right: 2%;
+    }
+    .right {
+        width: 100%;
+        margin-left: 2%;
+    }
+    .siteHL { font-size: 140%; }
     /*-----------------------allgemein------------------*/
     .divHeader {
         font-weight: bolder;
@@ -209,7 +218,6 @@
         color: white;
     }
 
-    /*----------------------------media queries--------------------*/
     /*---------------------------------------Media Queries-----------------------------------------------*/
     /*Large devices (desktops, less than 1200px)*/
     @media (max-width: 1199.98px) {

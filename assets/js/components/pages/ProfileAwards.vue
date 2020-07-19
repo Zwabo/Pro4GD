@@ -7,11 +7,11 @@
         <div class="privacy paddingNormalize marginLeftRight">
             <div class="container-fluid paddingNormalize">
                 <div class="row h3Margin">
-                    <h3 class="col-lg-8">Errungenschaften von {{profileUser.username}}</h3>
-                    <div class="col-lg-4">
+                    <h3 class="col-lg-8 siteHL">Errungenschaften <span class="desktop displaySmall">von {{profileUser.username}}</span></h3>
+                    <div class="col-lg-4 siteBack">
                         <div class="backLinkDiv">
                             <router-link class="backLink" :to="'/profile/' + profileUser.username">
-                                <svg class="backSvg"><use href="#backIcon"></use></svg>Zurück
+                                <svg class="backSvg"><use href="#backIcon"></use></svg><span class="desktop">Zurück</span>
                             </router-link>
                         </div>
 
@@ -28,13 +28,13 @@
             <div v-else class="container-fluid paddingNormalize">
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="container-fluid paddingNormalize">
+                        <div class="container-fluid paddingNormalize left">
                             <div v-if="memberAwards.length > 0">
                                 <h4>Mitglied Errungenschaften</h4>
                                 <hr>
                                 <div class="awards" v-for="(award, index) in memberAwards">
-                                    <img class="awardImage" v-bind:src="'../' + award.awardIcon" v-bind:alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
-                                    <span>{{award.altText}}</span>
+                                    <img class="awardImage" v-bind:src="'/../' + award.awardIcon" v-bind:alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
+                                    <span>{{profileUser.username}} {{award.altText}}</span>
                                 </div>
                             </div>
 
@@ -42,8 +42,8 @@
                                 <h4 >Rang Errungenschaften</h4>
                                 <hr>
                                 <div class="awards" v-for="(award, index) in lvlAwards">
-                                    <img class="awardImage" v-bind:src="'../' + award.awardIcon" :alt="profileUser.username + award.altText">
-                                    <span>{{award.altText}}</span>
+                                    <img class="awardImage" v-bind:src="'/../' + award.awardIcon" :alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
+                                    <span>{{profileUser.username}} {{award.altText}}</span>
                                 </div>
                             </div>
 
@@ -51,21 +51,21 @@
                                 <h4>Freundschaften Errungenschaften</h4>
                                 <hr>
                                 <div class="awards" v-for="(award, index) in friendsAwards">
-                                    <img class="awardImage" v-bind:src="'../' + award.awardIcon" :alt="profileUser.username + award.altText">
-                                    <span>{{award.altText}}</span>
+                                    <img class="awardImage" v-bind:src="'/../' + award.awardIcon" :alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
+                                    <span>{{profileUser.username}} {{award.altText}}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
-                        <div class="container-fluid paddingNormalize">
+                        <div class="container-fluid paddingNormalize right">
                             <div v-if="livedAwards.length > 0">
                                 <h4>Pflanzen Überlebt Errungenschaften</h4>
                                 <hr>
                                 <div class="awards" v-for="(award, index) in livedAwards">
-                                    <img class="awardImage" v-bind:src="'../' + award.awardIcon" :alt="profileUser.username + award.altText">
-                                    <span>{{award.altText}}</span>
+                                    <img class="awardImage" v-bind:src="'/../' + award.awardIcon" :alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
+                                    <span>{{profileUser.username}} {{award.altText}}</span>
                                 </div>
                             </div>
 
@@ -73,8 +73,8 @@
                                 <h4>Pflanzen hinzugefügt Errungenschaften</h4>
                                 <hr>
                                 <div class="awards" v-for="(award, index) in userplantAwards">
-                                    <img class="awardImage" v-bind:src="'../' + award.awardIcon" :alt="profileUser.username + award.altText">
-                                    <span>{{award.altText}}</span>
+                                    <img class="awardImage" v-bind:src="'/../' + award.awardIcon" :alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
+                                    <span>{{profileUser.username}} {{award.altText}}</span>
                                 </div>
                             </div>
 
@@ -82,8 +82,8 @@
                                 <h4>Pflanzen gewässert Errungenschaften</h4>
                                 <hr>
                                 <div class="awards" v-for="(award, index) in wateredAwards">
-                                    <img class="awardImage" v-bind:src="'../' + award.awardIcon" :alt="profileUser.username + award.altText">
-                                    <span>{{award.altText}}</span>
+                                    <img class="awardImage" v-bind:src="'/../' + award.awardIcon" :alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
+                                    <span>{{profileUser.username}} {{award.altText}}</span>
                                 </div>
                             </div>
                         </div>
@@ -206,20 +206,42 @@
 </script>
 
 <style scoped>
-    /*.left { margin-right: 2%; }
-    .right { margin-left: 2%; }*/
-    .backSvg {
-        width: 20px;
-        height: 20px;
-        fill: #97B753;
-        padding-right: 2%;
+    .awardImage {
+        width: 5%;
+        margin-bottom: 1%;
     }
-    .backLinkDiv {
-        text-align: right;
-        padding-right: 1%;
+
+    .left {
+        width: 100%;
+        margin-right: 3%;
     }
-    .backLink:hover { color: #97B753; }
-    .backLink:hover .backSvg { fill: #B8E269; }
-    .backLink:active { color: #707070; }
-    .backLink:active .backSvg { fill: #707070; }
+    .right {
+        width: 100%;
+        margin-left: 3%;
+    }
+
+    .siteHL { font-size: 140%; }
+
+    /*---------------------------------------Media Queries-----------------------------------------------*/
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
+    }
+
+    /* Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
+        .siteHL { width: 70%; }
+        .siteBack { width: 30%; }
+    }
+
+    /*Small devices (landscape phones, less than 768px)*/
+    @media (max-width: 767.98px) {
+        .siteHL { width: 80%; }
+        .siteBack { width: 20%; }
+        .displaySmall { display: none; }
+    }
+
+    /* Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+        .desktop { display: none; }
+    }
 </style>

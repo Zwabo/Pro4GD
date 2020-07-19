@@ -1,5 +1,6 @@
 <template>
     <div class="container-fluid">
+        <div class="whiteLine"></div>
         <div class="row bgDarkGreen fontWhite rowsIndex paddingLeftRight">
             <div class="container-fluid">
                 <div class="row">
@@ -69,16 +70,17 @@
             </div>
         </div>
 
-        <div class="row paddingLeftRight rowsIndex">
+        <div v-if="loggedInUser === null" class="row paddingLeftRight rowsIndex">
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <h3>Noch kein Mitglied?</h3>
                 </div>
                 <div class="row justify-content-center">
-                    <button class="buttonDarkGreen">Jetzt Registrieren</button>
+                    <button class="buttonDarkGreen" @click="goToRegister">Jetzt Registrieren</button>
                 </div>
             </div>
         </div>
+        <div v-else class="whiteLine"></div>
     </div>
 </template>
 
@@ -86,10 +88,58 @@
     import LoginForm from "../forms/LoginForm";
     export default {
         name: "Login",
-        components: {LoginForm}
+        components: {LoginForm},
+
+        data: function() {
+            return {
+                loggedInUser: null
+            }
+        },
+
+        created: function(){
+            this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+
+            //Retrieve user item from local storage in case of login
+            this.$root.$on('loggedIn', () => {
+                this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+            });
+        },
+
+        methods: {
+            goToRegister: function() {
+                this.$router.push({path: '/register'});
+            }
+        }
     }
 </script>
 
 <style scoped>
+    .loginLogo svg {
+        fill: white;
+        height: 200px;
+    }
 
+    .h1Logo {
+        font-size: 350%;
+        text-transform: uppercase;
+    }
+
+    /*Formular*/
+
+    #loginForm label {
+        width: 25%;
+        font-size: 130%;
+        text-align: left;
+        margin-right: 2%;
+    }
+    #loginForm input {
+        width: 61%;
+        margin-bottom: 2%;
+        color: #707070;
+        height: 80%;
+        border-radius: 10px;
+    }
+    #loginForm button {
+        margin-right: 13%;
+    }
 </style>
