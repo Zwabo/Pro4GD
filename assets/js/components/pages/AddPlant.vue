@@ -16,7 +16,13 @@
                 </div>
                 <div class="col-lg-7 text-left"><h1 class="font-weight-light"><span class="font-weight-bolder text-uppercase">Plant</span><span class="text-uppercase">Base</span> <br>Datenbank</h1></div>
             </div>
-
+            <div class="row" v-if="!checkRole()">
+                <div id="creditBox" class="col-lg-12">
+                    <h3 id="credit">Tut uns Leid!</h3>
+                    <p class="creditText">Du musst Administrator oder unterstützender Nutzer sein um Pflanzen in die Datenbank einfügen zu können!
+                    </p>
+                </div>
+            </div>
             <div class="row" >
                 <div class="container-fluid marginLeftRight" >
 
@@ -406,7 +412,7 @@
                 errors: [],
 
                 // Eckdaten
-                loggedInUser: {},
+                loggedInUser: {roles:[]},
                 name: null,
                 linkname: null,
                 alternativeName: null,
@@ -515,13 +521,19 @@
                 if(this.loggedInUser == null){
                     this.$router.push('/login');
                 }
+
+
         },
+
         methods: {
             checkRole: function () {
-                if ((this.loggedInUser.roles =='ROLE_ADMIN') || (this.loggedInUser.roles == 'ROLES_SUPPORT_USER') ) {
-                    return true;
-                } else {
-                    return false;
+                let role = this.loggedInUser.roles;
+
+                for(let i = 0; i < this.loggedInUser.roles.length; i++) {
+                    console.log(this.loggedInUser.roles);
+                    if ((role[i] =='ROLE_ADMIN') || (role[i] == 'ROLE_SUPPORT_USER') ) {
+                        return true;
+                    }
                 }
             },
             addPlantCreateNew: function(e) {
