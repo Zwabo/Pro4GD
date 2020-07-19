@@ -4,16 +4,52 @@
         <div class="row bgDarkGreen fontWhite rowsIndex paddingLeftRight">
             <div class="container-fluid">
                 <div class="row">
-
-                    <div class="col-lg-6 selfAlignCenter">
+                    <div class="col-lg-6 selfAlignCenter left">
                         <div class="container-fluid">
                             <div class="row justify-content-center">
                                 <h2 class="h1Logo">Willkommen bei</h2>
                             </div>
                             <div class="row justify-content-center">
                                 <div class="loginLogo">
-                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                         viewBox="0 0 385 284.4" style="enable-background:new 0 0 385 284.4;" xml:space="preserve">
+                                    <svg><use href="#plantBaseLogo"></use></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="col-lg-1 whiteLineVert twoColumns"></div>-->
+                    <div class="whiteLine oneColumn"></div>
+
+                    <div class="col-lg-6 selfAlignCenter right">
+                        <div class="container-fluid">
+                            <div class="vertLine"></div>
+
+                            <div class="paddingNormalize">
+                            <login-form></login-form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="loggedInUser === null" class="row paddingLeftRight rowsIndex registerPart">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <h3>Noch kein Mitglied?</h3>
+                </div>
+                <div class="row justify-content-center">
+                    <button class="buttonDarkGreen" @click="goToRegister">Jetzt Registrieren</button>
+                </div>
+            </div>
+        </div>
+        <div v-else class="whiteLine"></div>
+
+        <div style="display:none;">
+            <svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                           xml:space="preserve">
+                    <symbol id="plantBaseLogo" viewBox="0 0 385 284.4">
 <path d="M189.9,8.3c-55.8,0-101.1,45.3-101.1,101.1c0,55.8,45.3,101.1,101.1,101.1c55.8,0,101.1-45.3,101.1-101.1
 	C291,53.6,245.7,8.3,189.9,8.3z M155.5,147.5c-4.9,4.9-19.9,3.1-33-6.9c-15.3-11.6-17.8-32.7-15.9-42c9.3-1.9,30.9,1,42.5,16.3
 	C159.1,127.9,160.9,142.1,155.5,147.5z M208.5,108.7c-2.2,23.6-11,40-18.6,40c-7,0-16.3-17.3-18.5-40.9
@@ -51,36 +87,9 @@
 		c-1.5-0.5-2.9-1-4.3-1.5c-1.4-0.6-2.6-1.3-3.7-2.2c-1.1-0.9-2-2-2.7-3.3s-1-3-1-5c0-1.6,0.3-3.1,0.9-4.5c0.6-1.4,1.5-2.7,2.6-3.8
 		c1.1-1.1,2.6-2,4.2-2.7c1.7-0.7,3.6-1,5.7-1c2.4,0,4.6,0.4,6.5,1.2c1.9,0.8,3.7,1.9,5.3,3.5L329.8,235.1z"/>
                                         <path d="M369.6,229.5v2.8h-24.5v18.8h20.4v2.7h-20.4v19.4h24.5v2.8h-27.9v-46.5H369.6z"/></g>
-                            </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-1 whiteLineVert"></div>
-
-                    <div class="col-lg-5 selfAlignCenter">
-                        <div class="container-fluid">
-
-                            <login-form></login-form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    </symbol>
+                                        </svg>
         </div>
-
-        <div v-if="loggedInUser === null" class="row paddingLeftRight rowsIndex">
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <h3>Noch kein Mitglied?</h3>
-                </div>
-                <div class="row justify-content-center">
-                    <button class="buttonDarkGreen" @click="goToRegister">Jetzt Registrieren</button>
-                </div>
-            </div>
-        </div>
-        <div v-else class="whiteLine"></div>
     </div>
 </template>
 
@@ -116,13 +125,23 @@
 <style scoped>
     .loginLogo svg {
         fill: white;
-        height: 200px;
+        width: 100%;
+        height: 100%;
     }
 
     .h1Logo {
-        font-size: 350%;
+        font-size: 300%;
         text-transform: uppercase;
     }
+
+    .left { width: 50%; }
+    .twoColumns { width: 5%; }
+    .right {
+        width: 45%;
+        border-left: 1px solid white;
+    }
+
+    .oneColumn { display: none; }
 
     /*Formular*/
 
@@ -141,5 +160,44 @@
     }
     #loginForm button {
         margin-right: 13%;
+    }
+
+
+    /*---------------------------------------Media Queries-----------------------------------------------*/
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
+        .right { width: 120%; }
+    }
+
+    /* Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
+        .oneColumn {
+            display: block;
+            margin: 5% 0%;
+        }
+        .left { width: 100%; }
+        .right {
+            width: 100%;
+            border-left: none;
+        }
+    }
+
+    /*Small devices (landscape phones, less than 768px)*/
+    @media (max-width: 767.98px) {
+
+    }
+
+    /* Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+        .h1Logo {
+            font-size: 200%;
+            margin-top: 4%;
+        }
+        .loginLogo svg {
+            width: 50%;
+            /*height: 70%;*/
+        }
+        .loginLogo { text-align: center; }
+
     }
 </style>

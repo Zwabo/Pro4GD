@@ -182,9 +182,6 @@
 
     /* Extra small devices (portrait phones, less than 576px)*/
     @media (max-width: 575.98px) {
-        .paddingLeftRight {
-            padding-left: 5%;
-            padding-right: 5%;
-        }
+
     }
 </style>
