@@ -1,3 +1,17 @@
+Responsive Styles Finished
+
+- Impressum
+- AGB
+- Kontakt
+- ProfileForum
+- Main Footer
+- Profile Awards
+- Login / LoginForm
+- Register / RegisterForm
+
+---
+---
+
 
 Hey Pro4GD:
 

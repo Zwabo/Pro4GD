@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="- styles added">
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="- styles added&#10;&#10;responsive styles finished till now:&#10;- Impressum&#10;- AGB&#10;- Kontakt&#10;- ProfileForum&#10;- Main Footer&#10;- Profile Awards&#10;- Login / LoginForm&#10;- Register / RegisterForm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/register.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/forms/RegistrationForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/forms/RegistrationForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Contact.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Contact.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
@@ -165,7 +158,7 @@
           <entry key="jpg" value="1" />
           <entry key="js" value="46" />
           <entry key="json" value="2" />
-          <entry key="md" value="9" />
+          <entry key="md" value="10" />
           <entry key="php" value="392" />
           <entry key="rnc" value="1" />
           <entry key="scss" value="1" />
@@ -184,7 +177,7 @@
           <entry key="Image" value="1" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="46" />
-          <entry key="Markdown" value="9" />
+          <entry key="Markdown" value="10" />
           <entry key="PHP" value="392" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="RNG Compact" value="1" />
@@ -203,11 +196,11 @@
           <entry key="dummy" value="25" />
           <entry key="js" value="2280" />
           <entry key="json" value="26" />
-          <entry key="md" value="198" />
+          <entry key="md" value="237" />
           <entry key="php" value="47629" />
           <entry key="svg" value="26" />
           <entry key="twig" value="20844" />
-          <entry key="txt" value="2795" />
+          <entry key="txt" value="2971" />
           <entry key="vue" value="131925" />
           <entry key="xml" value="11" />
           <entry key="yaml" value="138" />
@@ -218,9 +211,9 @@
           <entry key="CSS" value="15948" />
           <entry key="JSON" value="26" />
           <entry key="JavaScript" value="2281" />
-          <entry key="Markdown" value="198" />
+          <entry key="Markdown" value="237" />
           <entry key="PHP" value="47629" />
-          <entry key="PLAIN_TEXT" value="2820" />
+          <entry key="PLAIN_TEXT" value="2996" />
           <entry key="SVG" value="26" />
           <entry key="Twig" value="20844" />
           <entry key="Vue.js" value="131924" />
@@ -288,11 +281,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/components/forms/RegistrationForm.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
-              <caret line="150" column="9" lean-forward="true" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
+              <caret line="150" column="9" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="198">
+                <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -391,7 +396,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/images/icons/index/idea_comments.svg" />
         <option value="$PROJECT_DIR$/assets/js/components/forms/ThreadForm.vue" />
         <option value="$PROJECT_DIR$/src/Entity/Comment.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/ThreadFixtures.php" />
@@ -442,6 +446,7 @@
         <option value="$PROJECT_DIR$/assets/js/components/pages/Register.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/forms/LoginForm.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/forms/RegistrationForm.vue" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -863,14 +868,7 @@
       <workItem from="1594976615615" duration="20645000" />
       <workItem from="1595064681194" duration="13411000" />
       <workItem from="1595089471677" duration="3356000" />
-      <workItem from="1595156348541" duration="6640000" />
-    </task>
-    <task id="LOCAL-00037" summary="Zwischenstand">
-      <created>1589881747074</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1589881747074</updated>
+      <workItem from="1595156348541" duration="6738000" />
     </task>
     <task id="LOCAL-00038" summary="Zwischenstand">
       <created>1589911985873</created>
@@ -1208,11 +1206,18 @@
       <option name="project" value="LOCAL" />
       <updated>1595156381030</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="- styles added&#10;&#10;responsive styles finished till now:&#10;- Impressum&#10;- AGB&#10;- Kontakt&#10;- ProfileForum&#10;- Main Footer&#10;- Profile Awards&#10;- Login / LoginForm&#10;- Register / RegisterForm">
+      <created>1595163055222</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1595163055222</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="651451000" />
+    <option name="totallyTimeSpent" value="651549000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1284,7 +1289,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed Plant Image Routes&#10;EMail Client + Contact Formular works now - Emailjs implemented" />
     <MESSAGE value="Update Readme" />
     <MESSAGE value="Tipps Route hinzugefügt in navi" />
     <MESSAGE value="Routen update" />
@@ -1309,7 +1313,8 @@
     <MESSAGE value="zwischenstand" />
     <MESSAGE value="- unterseiten hinzugefügt von profil details&#10;- bug fixes&#10;- zurück und weiter button" />
     <MESSAGE value="- styles added" />
-    <option name="LAST_COMMIT_MESSAGE" value="- styles added" />
+    <MESSAGE value="- styles added&#10;&#10;responsive styles finished till now:&#10;- Impressum&#10;- AGB&#10;- Kontakt&#10;- ProfileForum&#10;- Main Footer&#10;- Profile Awards&#10;- Login / LoginForm&#10;- Register / RegisterForm" />
+    <option name="LAST_COMMIT_MESSAGE" value="- styles added&#10;&#10;responsive styles finished till now:&#10;- Impressum&#10;- AGB&#10;- Kontakt&#10;- ProfileForum&#10;- Main Footer&#10;- Profile Awards&#10;- Login / LoginForm&#10;- Register / RegisterForm" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
@@ -1334,13 +1339,6 @@
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controller/NewsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="102" column="8" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/profile.css" />
     <entry file="file://$PROJECT_DIR$/src/Entity/Plant.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1672,7 +1670,17 @@
     <entry file="file://$PROJECT_DIR$/assets/js/components/forms/RegistrationForm.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
-          <caret line="150" column="9" lean-forward="true" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
+          <caret line="150" column="9" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="198">
+            <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
