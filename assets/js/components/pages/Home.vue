@@ -6,17 +6,24 @@
 
             <div class="whiteLine"></div>
 
-            <div class="row bgDarkGreen fontWhite rowsIndexWelcome" id="welcomeRow">
+            <div class="row bgDarkGreen fontWhite rowsIndexWelcome">
                 <div class="container-fluid">
-                    <div class="row" >
+
+                    <!-----------------------großes Logo ---------------------------------------->
+                    <div v-if="loggedUser  === null" class="row" >
                         <div><svg id="indexLogo"><use href="#logoIndex"></use></svg></div>
                     </div>
-                    <div class="row paddingLeftRight">
+
+                    <!-----------------------------------wilkommen handy download----------------------->
+                    <div class="row paddingLeftRight" id="welcomeRow">
+
+                        <!----------------------------------------links - Willkommen/Login----------------------->
                         <div class="col-lg-6 selfAlignCenter">
 
                             <h1 id="h1Start">Willkommen</h1>
-                            <div v-if="loggedUser == null">
 
+                            <!-------------------------------------Login formular----------------------------->
+                            <div v-if="loggedUser == null">
                                 <form method="post" @submit="submitFormIndex" id="loginIndex">
 
                                     <div v-if="errorIndex" class="alert alert-danger">{{ errorIndex }}</div>
@@ -27,24 +34,26 @@
 
                                     <div class="container-fluid">
                                         <div class="row">
-                                            <label for="inputEmail">Email</label>
-                                            <input v-model="emailIndex" placeholder="email@plantbase.com" type="email" value="" name="email" id="inputEmail" class="form-control" required autofocus>
+                                            <label for="inputEmail" class="loginindexLabel">Email</label>
+                                            <input v-model="emailIndex" placeholder="email@plantbase.com" type="email"
+                                                   value="" name="email" id="inputEmail" class="form-control loginIndexInput" required autofocus>
                                         </div>
                                         <div class="row">
-                                            <label for="inputPassword">Password</label>
-                                            <input v-model="passwordIndex" placeholder="************" type="password" name="password" id="inputPassword" class="form-control" required>
+                                            <label for="inputPassword" class="loginIndexLabel">Password</label>
+                                            <input v-model="passwordIndex" placeholder="************" type="password" name="password"
+                                                   id="inputPassword" class="form-control loginIndexInput" required>
                                         </div>
                                     </div>
 
-                                    <button class="btn btn-lg btn-primary buttonWhiteIndex float-right" type="submit">
+                                    <button class="btn btn-lg btn-primary buttonWhiteIndex float-right loginIndexButton" type="submit">
                                         Einloggen
                                     </button>
                                 </form>
                             </div>
 
-                            <div v-else>
+                            <div v-else class="loggedInIndex">
                                 <p class="text-center">{{ loggedUser.username }}
-                                <router-link to="/logout"  id="naviLogo">
+                                <router-link to="/logout"  id="naviLogo" class="logoutLink">
                                     Logout
                                 </router-link>
                                 </p>
@@ -52,6 +61,7 @@
 
                         </div>
 
+                        <!---------------------------------------download app------------------------------>
                         <div class="col-lg-1 whiteLineVert"></div>
 
                         <div class ="col-lg-3 selfAlignCenter">
@@ -244,6 +254,53 @@
         </div>
     </div>
 
+        <div style="display: none;">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	  enable-background="new 0 0 723.1 205.5" xml:space="preserve">
+                <symbol id="logoIndex" viewBox="0 0 723.1 205.5">
+                    <path d="M104.4,2C48.5,2,3.3,47.3,3.3,103.1c0,55.8,45.3,101.1,101.1,101.1c55.8,0,101.1-45.3,101.1-101.1
+                        C205.5,47.3,160.2,2,104.4,2z M70,141.2c-4.9,4.9-19.9,3.1-33-6.9c-15.3-11.6-17.8-32.7-15.9-42c9.3-1.9,30.9,1,42.5,16.3
+                        C73.6,121.6,75.3,135.8,70,141.2z M122.9,102.5c-2.2,23.6-11,40-18.6,40c-7,0-16.3-17.3-18.5-40.9c-2.6-27.6,10.5-51.8,18.5-59.4
+                        C112.3,49.8,125.5,74.9,122.9,102.5z M171.4,134.7c-13.1,10-27.3,11.7-32.6,6.4c-4.9-4.9-3.1-19.9,6.9-33
+                        c11.6-15.3,32.7-17.8,42-15.9C189.6,101.5,186.7,123.1,171.4,134.7z"/>
+                    <g>
+                        <path d="M269.2,111.8v21.5h-11.4V72.2h19.9c4.1,0,7.6,0.5,10.6,1.4c3,1,5.5,2.3,7.4,4c1.9,1.7,3.4,3.8,4.3,6.2
+                            c0.9,2.4,1.4,5,1.4,7.9c0,3-0.5,5.7-1.5,8.1c-1,2.5-2.5,4.6-4.4,6.4c-2,1.8-4.4,3.2-7.4,4.1c-3,1-6.4,1.5-10.4,1.5H269.2z
+                             M269.2,103h8.5c2.1,0,3.9-0.3,5.5-0.8c1.5-0.5,2.8-1.3,3.8-2.2c1-1,1.8-2.2,2.3-3.6c0.5-1.4,0.8-3,0.8-4.7c0-1.6-0.3-3.1-0.8-4.4
+                            c-0.5-1.3-1.3-2.5-2.3-3.4c-1-0.9-2.3-1.6-3.8-2.1c-1.6-0.5-3.4-0.7-5.5-0.7h-8.5V103z"/>
+                        <path d="M321.7,124h24.5v9.4h-35.9V72.2h11.4V124z"/>
+                        <path d="M407.8,133.4H399c-1,0-1.8-0.2-2.4-0.7c-0.6-0.5-1.1-1.1-1.4-1.8l-4.6-12.5h-25.3l-4.6,12.5c-0.2,0.6-0.7,1.2-1.3,1.8
+                            c-0.7,0.5-1.5,0.8-2.4,0.8h-8.8l24-61.1h11.6L407.8,133.4z M368.2,110.3h19.5l-7.4-20.3c-0.3-0.9-0.7-2-1.1-3.2
+                            c-0.4-1.2-0.8-2.6-1.2-4c-0.4,1.4-0.8,2.8-1.2,4c-0.4,1.2-0.8,2.3-1.1,3.3L368.2,110.3z"/>
+                        <path d="M421.4,72.3c0.3,0,0.6,0.1,0.9,0.3c0.3,0.1,0.5,0.3,0.8,0.5c0.3,0.2,0.5,0.6,0.8,1l32.1,40.9c-0.1-1-0.2-2-0.2-2.9
+                            c0-0.9-0.1-1.8-0.1-2.6V72.2h10v61.1h-5.9c-0.9,0-1.6-0.1-2.2-0.4c-0.6-0.3-1.2-0.8-1.7-1.5l-32-40.7c0.1,0.9,0.1,1.8,0.2,2.7
+                            s0.1,1.7,0.1,2.4v37.6h-10V72.2h6C420.6,72.2,421,72.2,421.4,72.3z"/>
+                        <path d="M521.2,72.2v9.3h-18.4v51.8h-11.4V81.6h-18.5v-9.3H521.2z"/>
+                        <path d="M531.1,133.4V73.5h17.2c3.4,0,6.4,0.3,8.9,1c2.5,0.7,4.6,1.7,6.2,3c1.6,1.3,2.9,2.9,3.7,4.8c0.8,1.9,1.2,4,1.2,6.4
+                            c0,1.6-0.3,3.1-0.8,4.6c-0.5,1.5-1.3,2.8-2.4,4.1c-1,1.2-2.3,2.3-3.8,3.2c-1.5,0.9-3.2,1.6-5.2,2.1c4.7,0.7,8.3,2.3,10.9,4.7
+                            c2.5,2.4,3.8,5.6,3.8,9.6c0,2.5-0.5,4.8-1.4,6.9c-0.9,2-2.2,3.7-3.9,5.2c-1.7,1.4-3.8,2.5-6.3,3.2c-2.5,0.7-5.4,1.1-8.5,1.1H531.1z
+                             M535.4,101.5h13c2.8,0,5.1-0.4,7.1-1.1c2-0.7,3.6-1.6,4.8-2.8c1.3-1.2,2.2-2.5,2.8-3.9c0.6-1.5,0.9-3,0.9-4.5c0-4-1.3-7.1-3.8-9.2
+                            c-2.6-2.1-6.5-3.1-11.8-3.1h-12.9V101.5z M535.4,104.7v25.2h15c5.3,0,9.2-1.1,11.9-3.4c2.7-2.3,4-5.5,4-9.6c0-1.9-0.4-3.6-1.1-5.1
+                            c-0.7-1.5-1.8-2.8-3.1-3.8c-1.4-1.1-3-1.9-5-2.4c-2-0.6-4.2-0.8-6.7-0.8H535.4z"/>
+                        <path d="M630.4,133.4H627c-0.4,0-0.7-0.1-1-0.3c-0.3-0.2-0.5-0.5-0.6-0.8l-7.1-17.4H589l-7,17.4c-0.1,0.3-0.3,0.6-0.6,0.8
+                            c-0.3,0.2-0.6,0.3-1,0.3h-3.3l24.5-59.8h4.3L630.4,133.4z M590.3,111.6h26.8l-12.2-30.2c-0.2-0.5-0.4-1-0.6-1.6
+                            c-0.2-0.6-0.4-1.2-0.6-1.9c-0.2,0.7-0.4,1.3-0.6,1.9c-0.2,0.6-0.4,1.2-0.6,1.7L590.3,111.6z"/>
+                        <path d="M668.8,80.8c-0.3,0.5-0.6,0.7-1.1,0.7c-0.4,0-0.8-0.3-1.4-0.8c-0.6-0.5-1.4-1.1-2.4-1.7c-1-0.6-2.2-1.2-3.7-1.8
+                            c-1.5-0.5-3.3-0.8-5.5-0.8c-2.2,0-4.1,0.3-5.7,0.9c-1.7,0.6-3,1.5-4.2,2.5c-1.1,1.1-2,2.3-2.5,3.7c-0.6,1.4-0.9,2.9-0.9,4.4
+                            c0,2,0.4,3.7,1.3,5c0.9,1.3,2,2.5,3.4,3.4c1.4,0.9,3,1.7,4.8,2.3c1.8,0.6,3.6,1.3,5.5,1.9c1.9,0.6,3.7,1.3,5.5,2.1
+                            c1.8,0.7,3.4,1.7,4.8,2.8c1.4,1.1,2.5,2.5,3.4,4.2c0.9,1.6,1.3,3.7,1.3,6.2c0,2.5-0.4,4.9-1.3,7.1c-0.9,2.2-2.1,4.1-3.7,5.8
+                            c-1.6,1.6-3.6,2.9-6,3.9c-2.4,0.9-5.1,1.4-8.1,1.4c-3.9,0-7.3-0.7-10.2-2.1c-2.8-1.4-5.3-3.3-7.5-5.7l1.2-1.9
+                            c0.3-0.4,0.7-0.6,1.2-0.6c0.3,0,0.6,0.2,1,0.5c0.4,0.3,0.9,0.8,1.4,1.2c0.6,0.5,1.2,1,2,1.6s1.7,1.1,2.8,1.6c1,0.5,2.2,0.9,3.6,1.2
+                            c1.4,0.3,2.9,0.5,4.6,0.5c2.4,0,4.5-0.4,6.4-1.1c1.9-0.7,3.4-1.7,4.7-2.9c1.3-1.2,2.3-2.7,2.9-4.4c0.7-1.7,1-3.5,1-5.5
+                            c0-2.1-0.4-3.9-1.3-5.2c-0.9-1.4-2-2.5-3.4-3.4c-1.4-0.9-3-1.7-4.8-2.3c-1.8-0.6-3.6-1.2-5.5-1.8c-1.9-0.6-3.7-1.3-5.5-2
+                            c-1.8-0.7-3.4-1.7-4.8-2.8c-1.4-1.1-2.5-2.6-3.4-4.3c-0.9-1.7-1.3-3.8-1.3-6.4c0-2,0.4-3.9,1.1-5.8c0.8-1.9,1.9-3.5,3.3-4.9
+                            c1.5-1.4,3.3-2.6,5.4-3.4c2.2-0.9,4.6-1.3,7.4-1.3c3.1,0,5.9,0.5,8.4,1.5c2.5,1,4.7,2.5,6.8,4.5L668.8,80.8z"/>
+                        <path d="M719.9,73.5v3.6h-31.5v24.2h26.2v3.5h-26.2v25h31.5v3.6H684V73.5H719.9z"/>
+                    </g>
+                    </symbol>
+            </svg>
+        </div>
+
     </div>
 </template>
 
@@ -378,19 +435,14 @@
 </script>
 
 <style scoped>
-    /*---------------------------------welcome row----------------------*/
-    /* mit login, wilkommen und app download*/
-    .welcomeRow {
-
-    }
-
-
     #indexLogo {
         padding-left: 35px;
         fill: white;
-        height: 100px;
+        width: 150%;
         margin-bottom: 20%;
     }
+
+    /*---------------------------------allgemein---------------------*/
 
     .rowsIndex {
         padding-top: 5%;
@@ -401,6 +453,19 @@
         padding-top: 5%;
         padding-bottom: 9%;
     }
+
+
+    /*---------------------------------welcome row----------------------*/
+    /* mit login, wilkommen und app download*/
+    #welcomeRow {
+
+    }
+
+
+
+
+
+
 
     /*fonts landing page*/
     #h1Start {
