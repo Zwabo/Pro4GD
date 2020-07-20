@@ -57,7 +57,7 @@ class ForumController extends AbstractController
                 'userPic' => $thread->getUser()->getUserPic(),
                 'created' => $thread->getCreated()->format('d.m.Y, G:i'),
                 'postsMade' => count($comments),
-                'category' => $thread->getCategory()->toAssoc(),
+                'category' => $this->formatCategory($thread->getCategory()),
                 'likes' => count($likes),
                 'isLiked' => $isThreadLiked,
             ];
@@ -119,7 +119,7 @@ class ForumController extends AbstractController
                 'created' => $thread->getCreated()->format('d.m.Y, G:i') ,
                 'username' => $user->getFirstName(). ' ' . $user->getLastName(),
                 'userPic' => $user->getUserPic(),
-                'category' => $thread->getCategory()->toAssoc(),
+                'category' => $this->formatCategory($thread->getCategory()),
                 'likes' => count($likes),
                 'isLiked' => $isThreadLiked,
             ]
@@ -462,5 +462,25 @@ class ForumController extends AbstractController
     {
         $dateAdded = date_create();
         return $dateAdded->format('Y-m-d h.i.s');
+    }
+
+    private function formatCategory($category)
+    {
+        $categoryString = $category->toAssoc();
+        if ($categoryString['parent'] !== '') {
+            $parent = $this->getParentCategory($category);
+            $categoryString['parent'] = $this->formatCategory($parent);//$parent === null ? $this->formatCategory($parent) : null;
+        }
+        return $categoryString;
+    }
+
+    private function getParentCategory($category)
+    {
+        if ($category->getParent() === null) {
+            return null;
+        }
+        return $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findOneBy( ['title' => $category->getParent()]);
     }
 }
