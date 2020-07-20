@@ -236,7 +236,9 @@
                                                             </ul>
                                                         </div>
                                                         <div class="col-lg-4 plantsProfileImgCol text-right align-self-center">
+                                                            <div class="plantsProfileImgDiv">
                                                             <img class="plantsProfileImg" v-bind:src="'../' + userplant.plant.icon">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1472,10 +1474,10 @@
 
     /*plant img*/
      #profileGarden .plantsProfileImg {
-        width: 50%;
+        height: 150px;
         margin-right: 2%;
     }
-    #profileGarden.gardenRight .imgBoxRight { text-align: right; }
+    #profileGarden .gardenRight .imgBoxRight { text-align: right; }
 
     /*styling schrift und elemente*/
     #profileGarden .plantsProfileInfoCol .userplantGardenHL {

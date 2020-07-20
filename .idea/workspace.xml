@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="- styles hinzugefügt (ProfilHeader, Profil Zwischensatnd)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="userplant bilder gleiche höhe">
       <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/plants/Aloe.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/plants/Aloe.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/plants/Alpenveilchen.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/plants/Alpenveilchen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/plants/Begonie.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/plants/Begonie.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/plants/Calla.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/plants/Calla.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/plants/Aloe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/plants/AloeBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/plants/Alpenveilchen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/plants/AlpenveilchenBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/plants/Begonie.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/plants/BegonieBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/plants/Calla.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/plants/CallaBackground.png" beforeDir="false" />
     </list>
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
@@ -154,7 +157,7 @@
     <session id="-1864558712">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="93" />
+          <entry key="project.closed" value="94" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.10" value="3" />
@@ -224,8 +227,8 @@
           <entry key="php" value="47629" />
           <entry key="svg" value="26" />
           <entry key="twig" value="20844" />
-          <entry key="txt" value="3093" />
-          <entry key="vue" value="144614" />
+          <entry key="txt" value="3128" />
+          <entry key="vue" value="144661" />
           <entry key="xml" value="11" />
           <entry key="yaml" value="138" />
         </counts>
@@ -237,10 +240,10 @@
           <entry key="JavaScript" value="2281" />
           <entry key="Markdown" value="275" />
           <entry key="PHP" value="47629" />
-          <entry key="PLAIN_TEXT" value="3118" />
+          <entry key="PLAIN_TEXT" value="3153" />
           <entry key="SVG" value="26" />
           <entry key="Twig" value="20844" />
-          <entry key="Vue.js" value="144613" />
+          <entry key="Vue.js" value="144660" />
           <entry key="XML" value="11" />
           <entry key="YAML" value="138" />
         </counts>
@@ -268,11 +271,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="1727" column="62" lean-forward="true" selection-start-line="1727" selection-start-column="62" selection-end-line="1727" selection-end-column="62" />
+            <state relative-caret-position="188">
+              <caret line="216" column="41" selection-start-line="216" selection-start-column="41" selection-end-line="216" selection-end-column="41" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#style#0;n#svg#0;n#router-link#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
@@ -321,7 +323,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>login</find>
       <find>loginRegisterh1</find>
       <find>text-align</find>
       <find>rowsindexwelcome</find>
@@ -351,6 +352,7 @@
       <find>desktop</find>
       <find>profilegarden</find>
       <find>plantbutton</find>
+      <find>garden</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -594,27 +596,6 @@
             <path>
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -830,14 +811,7 @@
       <workItem from="1595089471677" duration="3356000" />
       <workItem from="1595156348541" duration="6738000" />
       <workItem from="1595248687968" duration="17564000" />
-      <workItem from="1595274036346" duration="353000" />
-    </task>
-    <task id="LOCAL-00042" summary="Profil - Userplants yet not working">
-      <created>1590002727467</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1590002727467</updated>
+      <workItem from="1595274036346" duration="1728000" />
     </task>
     <task id="LOCAL-00043" summary="Profil - Zwischenstand">
       <created>1590064990963</created>
@@ -1175,11 +1149,18 @@
       <option name="project" value="LOCAL" />
       <updated>1595260592903</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="userplant bilder gleiche höhe">
+      <created>1595274414026</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1595274414027</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="678854000" />
+    <option name="totallyTimeSpent" value="680229000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1192,7 +1173,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.21528472" />
       <window_info id="Structure" order="1" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
@@ -1206,12 +1186,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4975025" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.45554444" weight="0.32293764" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.45504496" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.32967034" side_tool="true" visible="true" weight="0.28873238" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.33016983" side_tool="true" visible="true" weight="0.28873238" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4995005" weight="0.32997987" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="13" sideWeight="0.6703297" visible="true" weight="0.28873238" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="13" sideWeight="0.66983014" visible="true" weight="0.28873238" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1251,7 +1231,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="comments zwischenstand" />
     <MESSAGE value="profile zwischenstand" />
     <MESSAGE value="profil nix" />
     <MESSAGE value="Profil update - Besuchernachrichten" />
@@ -1276,7 +1255,8 @@
     <MESSAGE value="zwischenstand&#10;&#10;landing page styling" />
     <MESSAGE value="- styles hinzugefügt - home.vue (-rita slider)" />
     <MESSAGE value="- styles hinzugefügt (ProfilHeader, Profil Zwischensatnd)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- styles hinzugefügt (ProfilHeader, Profil Zwischensatnd)" />
+    <MESSAGE value="userplant bilder gleiche höhe" />
+    <option name="LAST_COMMIT_MESSAGE" value="userplant bilder gleiche höhe" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
@@ -1613,11 +1593,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="1727" column="62" lean-forward="true" selection-start-line="1727" selection-start-column="62" selection-end-line="1727" selection-end-column="62" />
+        <state relative-caret-position="188">
+          <caret line="216" column="41" selection-start-line="216" selection-start-column="41" selection-end-line="216" selection-end-column="41" />
           <folding>
             <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#style#0;n#svg#0;n#router-link#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
