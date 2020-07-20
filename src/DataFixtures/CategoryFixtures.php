@@ -43,7 +43,7 @@ class CategoryFixtures extends Fixture
 
         $category4 = new Category();
         $category4->setTitle('Kräuter');
-        $category4->setParent($category3);
+        $category4->setParent('Pflanzen');
         $category4->setCreated($dateAdded);
         $category4->setUpdated($dateAdded);
         $manager->persist($category4);
@@ -51,7 +51,7 @@ class CategoryFixtures extends Fixture
 
         $category5 = new Category();
         $category5->setTitle('Palmen');
-        $category5->setParent($category3);
+        $category5->setParent('Pflanzen');
         $category5->setCreated($dateAdded);
         $category5->setUpdated($dateAdded);
         $manager->persist($category5);
@@ -59,7 +59,7 @@ class CategoryFixtures extends Fixture
 
         $category6 = new Category();
         $category6->setTitle('Kletterpflanzen');
-        $category6->setParent($category3);
+        $category6->setParent('Pflanzen');
         $category6->setCreated($dateAdded);
         $category6->setUpdated($dateAdded);
         $manager->persist($category6);
@@ -67,47 +67,47 @@ class CategoryFixtures extends Fixture
 
         $category7 = new Category();
         $category7->setTitle('Zuchtpflanzen');
-        $category7->setParent($category3);
+        $category7->setParent('Pflanzen');
         $category7->setCreated($dateAdded);
         $category7->setUpdated($dateAdded);
         $manager->persist($category7);
         $manager->flush();
 
         $category8 = new Category();
-        $category8->setTitle('Wildpflanze');
-        $category8->setParent($category3);
+        $category8->setTitle('Wildpflanzen');
+        $category8->setParent('Pflanzen');
         $category8->setCreated($dateAdded);
         $category8->setUpdated($dateAdded);
         $manager->persist($category8);
         $manager->flush();
 
         $category9 = new Category();
-        $category9->setTitle('Heilpflanze');
-        $category9->setParent($category3);
+        $category9->setTitle('Heilpflanzen');
+        $category9->setParent('Pflanzen');
         $category9->setCreated($dateAdded);
         $category9->setUpdated($dateAdded);
         $manager->persist($category9);
         $manager->flush();
 
         $category10 = new Category();
-        $category10->setTitle('Fleischfressende Pflanze');
-        $category10->setParent($category3);
+        $category10->setTitle('Fleischfressende Pflanzen');
+        $category10->setParent('Pflanzen');
         $category10->setCreated($dateAdded);
         $category10->setUpdated($dateAdded);
         $manager->persist($category10);
         $manager->flush();
 
         $category11 = new Category();
-        $category11->setTitle('Zimmerpflanze');
-        $category11->setParent($category3);
+        $category11->setTitle('Zimmerpflanzen');
+        $category11->setParent('Pflanzen');
         $category11->setCreated($dateAdded);
         $category11->setUpdated($dateAdded);
         $manager->persist($category11);
         $manager->flush();
 
         $category12 = new Category();
-        $category12->setTitle('Sonnenpflanze');
-        $category12->setParent($category3);
+        $category12->setTitle('Sonnenpflanzen');
+        $category12->setParent('Pflanzen');
         $category12->setCreated($dateAdded);
         $category12->setUpdated($dateAdded);
         $manager->persist($category12);
@@ -115,7 +115,7 @@ class CategoryFixtures extends Fixture
 
         $category13 = new Category();
         $category13->setTitle('Frühlingsblüher');
-        $category13->setParent($category3);
+        $category13->setParent('Pflanzen');
         $category13->setCreated($dateAdded);
         $category13->setUpdated($dateAdded);
         $manager->persist($category13);
@@ -123,7 +123,7 @@ class CategoryFixtures extends Fixture
 
         $category14 = new Category();
         $category14->setTitle('Sommerblüher');
-        $category14->setParent($category3);
+        $category14->setParent('Pflanzen');
         $category14->setCreated($dateAdded);
         $category14->setUpdated($dateAdded);
         $manager->persist($category14);
@@ -131,7 +131,7 @@ class CategoryFixtures extends Fixture
 
         $category15 = new Category();
         $category15->setTitle('Herbstblüher');
-        $category15->setParent($category3);
+        $category15->setParent('Pflanzen');
         $category15->setCreated($dateAdded);
         $category15->setUpdated($dateAdded);
         $manager->persist($category15);
@@ -139,7 +139,7 @@ class CategoryFixtures extends Fixture
 
         $category16 = new Category();
         $category16->setTitle('Winterblüher');
-        $category16->setParent($category3);
+        $category16->setParent('Pflanzen');
         $category16->setCreated($dateAdded);
         $category16->setUpdated($dateAdded);
         $manager->persist($category16);

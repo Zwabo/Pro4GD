@@ -412,7 +412,7 @@
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
-                            <h4>Palmen</h4>
+                            <h4 class="subCategoryHeadline">Palmen</h4>
                         </div>
                     </div>
                     <div class="col-lg-1 svgSortSubCategories text-right">
@@ -522,7 +522,7 @@
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
-                            <h4>Kräuter</h4>
+                            <h4 class="subCategoryHeadline">Kräuter</h4>
                         </div>
                     </div>
                     <div class="col-lg-1 svgSortSubCategories text-right">
@@ -632,7 +632,7 @@
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
-                            <h4>Kletterpflanzen</h4>
+                            <h4 class="subCategoryHeadline">Kletterpflanzen</h4>
                         </div>
                     </div>
                     <div class="col-lg-1 svgSortSubCategories text-right">
@@ -742,7 +742,7 @@
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
-                            <h4>Zuchtpflanzen</h4>
+                            <h4 class="subCategoryHeadline">Zuchtpflanzen</h4>
                         </div>
                     </div>
                     <div class="col-lg-1 svgSortSubCategories text-right">
@@ -852,7 +852,7 @@
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
-                            <h4>Wildpflanzen</h4>
+                            <h4 class="subCategoryHeadline">Wildpflanzen</h4>
                         </div>
                     </div>
                     <div class="col-lg-1 svgSortSubCategories text-right">
@@ -962,7 +962,7 @@
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
-                            <h4>Heilpflanzen</h4>
+                            <h4 class="subCategoryHeadline">Heilpflanzen</h4>
                         </div>
                     </div>
                     <div class="col-lg-1 svgSortSubCategories text-right">
@@ -1072,7 +1072,7 @@
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
-                            <h4>Fleischfressende Pflanze</h4>
+                            <h4 class="subCategoryHeadline">Fleischfressende Pflanzen</h4>
                         </div>
                     </div>
                     <div class="col-lg-1 svgSortSubCategories text-right">
@@ -1088,7 +1088,7 @@
 
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
-                        <div v-if="thread.category.title === 'Fleischfressende Pflanze'">
+                        <div v-if="thread.category.title === 'Fleischfressende Pflanzen'">
                             <div class="row threadBackground dropShadow pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
@@ -1182,7 +1182,7 @@
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
-                            <h4>Zimmerpflanze</h4>
+                            <h4 class="subCategoryHeadline">Zimmerpflanzen</h4>
                         </div>
                     </div>
                     <div class="col-lg-1 svgSortSubCategories text-right">
@@ -1198,7 +1198,7 @@
 
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
-                        <div v-if="thread.category.title === 'Zimmerpflanze'">
+                        <div v-if="thread.category.title === 'Zimmerpflanzen'">
                             <div class="row threadBackground dropShadow pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
@@ -1292,7 +1292,7 @@
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
-                            <h4>Sonnenpflanze</h4>
+                            <h4 class="subCategoryHeadline">Sonnenpflanzen</h4>
                         </div>
                     </div>
                     <div class="col-lg-1 svgSortSubCategories text-right">
@@ -1308,7 +1308,7 @@
 
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
-                        <div v-if="thread.category.title === 'Sonnenpflanze'">
+                        <div v-if="thread.category.title === 'Sonnenpflanzen'">
                             <div class="row threadBackground dropShadow pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
@@ -1402,7 +1402,7 @@
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
-                            <h4>Frühlingsblüher</h4>
+                            <h4 class="subCategoryHeadline">Frühlingsblüher</h4>
                         </div>
                     </div>
                     <div class="col-lg-1 svgSortSubCategories text-right">
@@ -1512,7 +1512,7 @@
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
-                            <h4>Sommerblüher</h4>
+                            <h4 class="subCategoryHeadline">Sommerblüher</h4>
                         </div>
                     </div>
                     <div class="col-lg-1 svgSortSubCategories text-right">
@@ -1622,7 +1622,7 @@
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
-                            <h4>Herbstblüher</h4>
+                            <h4 class="subCategoryHeadline">Herbstblüher</h4>
                         </div>
                     </div>
                     <div class="col-lg-1 svgSortSubCategories text-right">
@@ -1732,7 +1732,7 @@
                 <div class="row subCategories dropShadow pflanzenSub">
                     <div class="col-lg-11">
                         <div class="row">
-                            <h4>Winterblüher</h4>
+                            <h4 class="subCategoryHeadline">Winterblüher</h4>
                         </div>
                     </div>
                     <div class="col-lg-1 svgSortSubCategories text-right">
@@ -2316,6 +2316,8 @@
         margin-right: 1%;
         margin-left: 1%;
     }
+    
+    .subCategoryHeadline {margin-top: 0px}
     .subCategories:hover { background-color: #707070; color: white; }
     .subCategories:hover .svgSortSubCategories svg  .svgArrowGreyFill { fill: white; }
     .subCategories:active { background-color: #B8E269; color: #707070; }

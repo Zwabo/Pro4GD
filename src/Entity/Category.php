@@ -26,8 +26,7 @@ class Category {
     private $created;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category")
-     *
+     * @ORM\Column(type="string", nullable = true)
      */
     private $parent;
 
@@ -125,7 +124,7 @@ class Category {
         return [
           'id' => $this->id,
           'title' => $this->title,
-            'parent' => $this->parent != null ? $this->parent->toAssoc() : null,
+            'parent' => $this->parent === null ? ''  : $this->parent,
           'created' => $this->created,
           'updated' => $this->updated,
         ];
