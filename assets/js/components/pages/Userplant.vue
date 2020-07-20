@@ -166,5 +166,114 @@
 </script>
 
 <style scoped>
+    #basicInfos{
+        margin-top:50px;
+    }
+    #basicInfos h1{
+        font-size: 2.5rem;
+    }
+    #basicInfos h2{
+        font-size: 1.25rem;
+    }
+    #basicInfos h3{
+        font-size: 0.75rem;
+    }
+    .plantPicture {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        border: 2px solid #97B753;
+        border-radius: 50%;
+    }
+    .plantPicture img{
+        width: 50%;
+        height: auto;
+    }
+    #InfoWidgetContainerBasic{
+        color: #ffffff;
+    }
+    #InfoWidgetContainerSpecial{
+        margin-top:25px;
+        color: #ffffff;
+    }
+    .infoWidget{
+        width:50%;
+    }
+    .infoWidget.dung{
+        background-color: #5eb5e0;
+    }
+    .infoWidget.location{
+        background-color: #97B753;
+    }
+    .infoWidget.substrate{
+        background-color: #000000;
+    }
+    .infoWidget.temperature{
+        background-color: #718C00;
+    }
+    .infoWidget.bloom{
+        background-color: #5eb5e0;
+    }
+    .infoWidget.uniqueness{
+        background-color: #718C00;
+    }
 
+    .infoWidget ul{
+        list-style: none;
+        margin-left: 0;
+        margin-bottom: 0;
+        padding:5px;
+
+        text-align:center;
+    }
+    .infoWidget ul li:first-child{
+        font-size: 1.25rem;
+    }
+    .infoWidget ul li{
+        margin-bottom: 10px;
+    }
+    .infoWidget ul li:last-child{
+        margin-bottom: 0;
+    }
+    #notes{
+        color: #ffffff;
+        background-color: #97B753;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        border-radius: 10px;
+    }
+    #notes .heading{
+        background-color: #718C00;
+        border-bottom:2px #222222 solid;
+        padding:10px;
+    }
+    #notes .body{
+        padding:10px;
+    }
+    #notes button{
+        background-color: #97B753;
+        padding: 5px 8px;
+        margin-left: 10px;
+        color: white;
+        border: 2px solid #97B753;
+        border-radius: 10px;
+        font-size: 10pt;
+    }
+    #notes button {
+        background-color: #B8E269;
+        border: 2px solid #B8E269;
+        color: #707070;
+    }
+    #notes button {
+        background-color: #97B753;
+        border: 2px solid #97B753;
+        color: white;
+    }
+    .greenLine {
+        width: 100%;
+        height: 2px;
+        background: #97B753;
+        margin-bottom: 4%;
+    }
 </style>
