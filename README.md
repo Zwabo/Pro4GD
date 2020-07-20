@@ -10,6 +10,7 @@ Responsive Styles Finished
 - Register / RegisterForm
 - Navigation
 - Home (- Rita Slider)
+- ProfilHeader
 
 ---
 ---
