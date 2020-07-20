@@ -54,29 +54,54 @@
             </div>
 
             <!--------------------------------- lower profile part ------------------------------------------------------------->
-            <div class="row marginLeftRight">
+            <div class="row marginLeftRight" id="lowerProfile">
+
+                <!-----description, awards, forum for small devices----------------------------->
+                <div class="mobileDevice marginLeftRight">
+
+                    <!---------------------------description---------------------------->
+                    <div id="description">
+                        <h3 class="h3Margin">Über {{ profileUser.username }} </h3>
+                        <div class="greenLine"></div>
+
+                        <p v-if="editProfile">
+                            <textarea class="smallInput" @blur="saveProfile" v-model="profileUser.description"></textarea>
+                        </p>
+                        <p v-if="!editProfile">
+                            {{ profileUser.description }}
+                        </p>
+                    </div>
+                </div>
+
+                <!------------------------------------------------------------------------------->
                 <div class="col-lg-8">
+
+                    <!------------------------------------left part------------------------------>
                     <div class="left">
-                        <div id="description">
+
+                        <!--------------------------------profile description desktop-------------------->
+                        <div id="description" class="desktop">
                             <h3 class="h3Margin">Über {{ profileUser.username }} </h3>
                             <div class="greenLine"></div>
+
                             <p v-if="editProfile">
                                 <textarea class="smallInput" @blur="saveProfile" v-model="profileUser.description"></textarea>
                             </p>
                             <p v-if="!editProfile">
                                 {{ profileUser.description }}
                             </p>
-
                         </div>
 
-                        <div v-if="showFriends && profileUserFriends.length > 0">
+                        <!--------------------------------friends-------------------------------->
+                        <div v-if="showFriends && profileUserFriends.length > 0" id="profileFriends">
+                            <!-----desktop------>
                             <div class="row h3Margin desktop">
-                                <div class="col-lg-8">
+                                <div class="col-lg-8 desktopHL desktop">
                                     <h4>Freunde</h4>
                                 </div>
-                                <div class="col-lg-4 rightBoxesLink desktop">
-                                    <router-link :to="'/friends'" class="routerText">
-                                        Alle Freunde
+                                <div class="col-lg-4 rightBoxesLink desktopLink ">
+                                    <router-link :to="'/friends'" class="routerText desktop">
+                                        <span>Alle Freunde</span>
                                         <svg class="forthSvg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 41 49" style="enable-background:new 0 0 41 49;" xml:space="preserve">
 <g id="Polygon_98" transform="translate(41) rotate(90)">
@@ -90,17 +115,17 @@
                                     </router-link>
                                 </div>
                             </div>
-                            <!--<div class="row">
+                            <!-----mobile------>
+                            <div class="row mobileDevice">
                                 <div class="col-lg-8"><h3 class="h3Margin">Freunde</h3></div>
-                                <div class="col-lg-4">Alle Freunde</div>
-                            </div>-->
-
+                            </div>
 
                             <div class="greenLine"></div>
-                            <div class="container-fluid">
 
-                                <div v-for="(friend, index) in profileUserFriends" class="row friends bgWhiteGrey dropShadow borderRad10">
+                            <!-------------------------------freunde auflistung----------------------->
+                            <div class="container-fluid" id="profileFriendsList">
 
+                                <div v-for="(friend, index) in profileUserFriends" class="row friends bgWhiteGrey dropShadow borderRad10" @click="goToFriend(friend.username)">
                                     <div class="col-lg-2 friendsPicture text-center justify-content-center">
                                         <!-- change to friends.userPic when friends are implemented correctly-->
                                         <img class="smallUserPics" v-bind:src="friend.userPic">
@@ -131,27 +156,28 @@
                             </span>
                                         </span>
                                     </div>
-                                </div> <!--v-for ends here-->
+                                </div>
 
-                                <div class="row d-flex justify-content-end phone">
-                                    <button class="buttonDarkGreen" @click="goToFriends">Alle Freunde</button>
+                                <div class="row d-flex justify-content-end buttonDesktop">
+                                    <button class="buttonDarkGreen mobileDevice" @click="goToFriends">Alle Freunde</button>
                                 </div>
 
                             </div>
-                        </div> <!-- freinds part end-->
+                        </div>
 
+
+                        <!---------------------------------Garden----------------------------------------->
                         <div class="container-fluid paddingNormalize" v-if="showGarden && profileUserplants !== null">
 
                         <div id="garden">
-                            <!--<h3 class="h3Margin">{{ profileUser.username }}s Garten</h3>-->
-
+                            <!-----desktop------>
                             <div class="row h3Margin desktop">
-                                <div class="col-lg-8">
-                                    <h4>Freunde</h4>
+                                <div class="col-lg-8 desktopHL desktop">
+                                    <h4>Mein Garten</h4>
                                 </div>
-                                <div class="col-lg-4 rightBoxesLink desktop">
-                                    <router-link :to="'/garden/' + profileUser.id" class="routerText">
-                                        Zum Garten
+                                <div class="col-lg-4 rightBoxesLink desktopLink ">
+                                    <router-link :to="'/garden' + profileUser.id" class="routerText desktop">
+                                        <span>Zum Garten</span>
                                         <svg class="forthSvg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 41 49" style="enable-background:new 0 0 41 49;" xml:space="preserve">
 <g id="Polygon_98" transform="translate(41) rotate(90)">
@@ -165,15 +191,19 @@
                                     </router-link>
                                 </div>
                             </div>
+                            <!-----mobile------>
+                            <div class="row mobileDevice">
+                                <div class="col-lg-8"><h3 class="h3Margin">Zum Garten</h3></div>
+                            </div>
 
                             <div class="greenLine"></div>
                         </div>
 
 
-                        <div class="container-fluid paddingNormalize">
+                        <div class="container-fluid paddingNormalize" id="profileGarden">
                             <div class="row">
 
-                                <div class="col-lg-6 paddingNormalize">
+                                <div class="col-lg-6 paddingNormalize gardenLeft">
                                     <div v-for="(userplant, index) in profileUserplants" class="container-fluid">
                                         <div v-if="(index % 2 == 0 || index == 0) && index < 4" class="row paddingNormalize">
                                             <router-link :to="'/userplant/' + userplant.id" class="container-fluid">
@@ -215,7 +245,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6 paddingNormalize">
+                                <div class="col-lg-6 paddingNormalize gardenRight">
                                     <div v-for="(userplant, index) in profileUserplants" class="container-fluid">
                                         <div v-if="index % 2 !== 0 && index < 4" class="row paddingNormalize">
                                             <router-link :to="'/userplant/' + userplant.id" class="container-fluid">
@@ -262,7 +292,7 @@
                         </div>
 
                         <div class="row d-flex justify-content-end">
-                            <button class="buttonDarkGreen plantButton" @click="goToGarden">Zum Garten</button>
+                            <button class="buttonDarkGreen plantButton mobileDevice" @click="goToGarden">Zum Garten</button>
                         </div>
                         </div>
 
@@ -644,6 +674,10 @@
         methods: {
             goToFriends: function() {
                 this.$router.push({path: '/friends'});
+            },
+            goToFriend: function(username) {
+                this.$router.push({path: '/profile/' + username});
+                this.$router.go;
             },
 
             goToGarden: function() {
@@ -1315,6 +1349,15 @@
 </script>
 
 <style scoped>
+    /*-------------------------------allgemein-------------------------------*/
+    .mobileDevice { display: none; }
+    .desktopHL h4 { font-size: 30px; }
+
+    .plantButton {
+        margin-top: 1%;
+        margin-right: 2%;
+    }
+
     /*-------------------------------upper profile part - header -------------------------------*/
 
     #userHeader { padding: 40px 50px; }
@@ -1345,6 +1388,120 @@
         fill: #B8E269;
     }
 
+    /*------------------------------profile lower part---------------------------------------*/
+
+    /*------------------------------descriptpion------------------------------------*/
+
+    /*------------------------------friends----------------------------------------*/
+
+    /*friend container*/
+    #profileFriends #profileFriendsList .friends {
+        padding: 10px 0;
+        margin-bottom: 10px;
+    }
+    #profileFriends #profileFriendsList .friends:hover {
+        background-color: #707070;
+        color: white;
+    }
+    #profileFriends #profileFriendsList .friends:active {
+        background-color: #DEDEDE;
+        color: #707070;
+    }
+
+    /*styling schrift und elemente für friends*/
+    #profileFriends #profileFriendsList .friendsInfo .friendUsernameHL {
+        font-size: 120%;
+        font-weight: bold;
+    }
+    #profileFriends #profileFriendsList .friendsInfo .friendWholeName {
+        font-size: 90%;
+        font-style: italic;
+        margin-bottom: 5%;
+    }
+    #profileFriends #profileFriendsList .friendsInfo .friendLevel { width: 500%; }
+    #profileFriends #profileFriendsList .friendsInfo .friendTitle {
+        font-size: 95%;
+        margin-bottom: 5%;
+    }
+
+    /*friends pictures*/
+    #profileFriends #profileFriendsList .friends .friendsPicture {
+        width: 20%;
+        align-self: center;
+    }
+    #profileFriends #profileFriendsList .friends .friendsInfo { width: 50%; }
+    #profileFriends #profileFriendsList .friends .friendsButtons { width: 30%; }
+
+    /* picture in Buttons +*/
+    #profileFriends .userProfileButton svg{ width: 20%; fill: white; }
+    #profileFriends .userProfileButton svg .path1 { fill: #707070; }
+    #profileFriends .firends:hover .userProfileButton svg { fill: white; }
+    #profileFriends .friends:hover .userProfileButton svg .path1 {  fill: #97B753; }
+    #profileFriends .friends:hover .userProfileButton svg:hover .path1 { fill: #B8E269; }
+    #profileFriends .friends:active .userProfileButton svg:active { fill: #B8E269; }
+    #profileFriends .friends:active .userProfileButton svg:active .path1 { fill: #000000;}
+
+    #profileFriends .addUserButton svg { width: 20%; fill: white; }
+    #profileFriends .addUserButton svg .path1 { fill: #707070; }
+    #profileFriends .friends:hover .addUserButton svg { fill: white; }
+    #profileFriends .friends:hover .addUserButton svg .path1 {  fill: #97B753; }
+    #profileFriends .friends:hover .addUserButton svg:hover .path1 { fill: #B8E269; }
+    #profileFriends .friends:active .addUserButton svg:active { fill: #B8E269; }
+    #profileFriends .friends:active .addUserButton svg:active .path1 { fill: #000000;}
+
+
+    /*------------------------------garden----------------------------------------*/
+
+    /* left and right the same*/
+
+    /*main container*/
+    #profileGarden .plantsProfile {
+        margin-bottom: 20px;
+        border-radius: 10px;
+        padding: 10px 10px 10px 30px;
+        width: 97%;
+    }
+    #profileGarden .plantsProfile:hover {
+        background-color: #707070;
+        color: white;
+    }
+    #profileGarden .plantsProfile:active {
+        background-color: #DEDEDE;
+        color: #707070;
+    }
+
+    /*plant img*/
+     #profileGarden .plantsProfileImg {
+        width: 50%;
+        margin-right: 2%;
+    }
+    #profileGarden.gardenRight .imgBoxRight { text-align: right; }
+
+    /*styling schrift und elemente*/
+    #profileGarden .plantsProfileInfoCol .userplantGardenHL {
+        font-size: 120%;
+        font-weight: bold;
+    }
+    #profileGarden .plantsProfileInfoCol .userplantGardenLocation {
+        font-size: 90%;
+        font-style: italic;
+        margin-bottom: 5%;
+    }
+    #profileGarden .plantsProfileInfoCol .userplantGardenXPBar div { width: 100% !important; }
+    #profileGarden .plantsProfileInfoCol .userplantGardenLevel {
+        font-size: 95%;
+        margin-bottom: 5%;
+    }
+    #profileGarden .plantsProfileInfoCol .userplantGardenAge svg {
+        width: 10%;
+        padding-bottom: 5%;
+    }
+    #profileGarden .plantsProfileInfoCol .userplantGardenAge p {
+        display: inline-block;
+        padding-left: 3%;
+    }
+
+
 
 
     /* ----------------------------Spezielle Fonts für UserArea------------------------------*/
@@ -1362,32 +1519,6 @@
     .routerText:hover .forthSvg { fill: #B8E269; }
     .routerText:active .forthSvg { fill: #707070; }
 
-    /*-----------------------------Container Styles Profil---------------------------------*/
-    /*Containerbreite*/
-
-
-    /*-------------------------------Styling for plants im Abschnitt Garten------------------------*/
-    /*userPlants garden on profile*/
-    .plantsProfile {
-        margin-bottom: 20px;
-        border-radius: 10px;
-        padding: 10px 10px 10px 30px;
-        width: 97%;
-    }
-    .plantsProfile:hover {
-        background-color: #707070;
-        color: white;
-    }
-    .plantsProfile:active {
-        background-color: #DEDEDE;
-        color: #707070;
-    }
-    .plantsProfileImg {
-        width: 50%;
-        margin-right: 2%;
-    }
-    .plantsProfileLeftGrid { float: left; }
-    .plantsProfileRightGrid { flaot: right; }
 
     /*------------------------------Anzeige der rechten Boxen--------------*/
 
@@ -1433,39 +1564,6 @@
     }
 
 
-    /*--------------------------------userplants garten-----------------------*/
-    .imgBoxRight { text-align: right; }
-
-    /*styling schrift und elemente*/
-    .userplantGardenHL {
-        font-size: 120%;
-        font-weight: bold;
-    }
-    .userplantGardenLocation {
-        font-size: 90%;
-        font-style: italic;
-        margin-bottom: 5%;
-    }
-    .userplantGardenXPBar {
-        width: 300%;
-    }
-    .userplantGardenLevel {
-        font-size: 95%;
-        margin-bottom: 5%;
-    }
-    .userplantGardenAge svg {
-        width: 10%;
-        padding-bottom: 5%;
-    }
-    .userplantGardenAge p {
-        display: inline-block;
-        padding-left: 3%;
-    }
-
-    .plantButton {
-        margin-top: 1%;
-        margin-right: 2%;
-    }
 
 
     /* UserButton ----------------------"Profil Bearbeiten / Hinzufügen+"------------------------*/
@@ -1496,57 +1594,6 @@
     }
     #userButton:active svg { fill: white; }
 
-
-    /* picture in Buttons +*/
-    .userProfileButton svg{ width: 20%; fill: white; }
-    .userProfileButton svg .path1 { fill: #707070; }
-    .firends:hover .userProfileButton svg { fill: white; }
-    .friends:hover .userProfileButton svg .path1 {  fill: #97B753; }
-    .friends:hover .userProfileButton svg:hover .path1 { fill: #B8E269; }
-    .friends:active .userProfileButton svg:active { fill: #B8E269; }
-    .friends:active .userProfileButton svg:active .path1 { fill: #000000;}
-
-    .addUserButton svg { width: 20%; fill: white; }
-    .addUserButton svg .path1 { fill: #707070; }
-    .friends:hover .addUserButton svg { fill: white; }
-    .friends:hover .addUserButton svg .path1 {  fill: #97B753; }
-    .friends:hover .addUserButton svg:hover .path1 { fill: #B8E269; }
-    .friends:active .addUserButton svg:active { fill: #B8E269; }
-    .friends:active .addUserButton svg:active .path1 { fill: #000000;}
-
-    /*---------------------------------------------friends list styling-------------------------*/
-    /*Friends Container*/
-    .friends {
-        padding: 10px 0;
-        margin-bottom: 10px;
-    }
-
-    .friends:hover {
-        background-color: #707070;
-        color: white;
-    }
-    .friends:active {
-        background-color: #DEDEDE;
-        color: #707070;
-    }
-
-    /*styling schrift und elemente für friends*/
-    .friendUsernameHL {
-        font-size: 120%;
-        font-weight: bold;
-    }
-    .friendWholeName {
-        font-size: 90%;
-        font-style: italic;
-        margin-bottom: 5%;
-    }
-    .friendLevel {
-        width: 500%;
-    }
-    .friendTitle {
-        font-size: 95%;
-        margin-bottom: 5%;
-    }
 
     /*-------------------------------Besuchernachrichten---------------------------------------*/
     /* trigger fields with class editProfile*/
@@ -1632,26 +1679,23 @@
         margin-left: 1%;
     }
 
-    /*---------------------------------------Media Queries-----------------------------------------------*/
+    /*---------------------------------------Media Queries---------------------------------------------------------*/
+    @media (max-width: 1450px) {
+        #profileGarden .gardenLeft {
+            width: 100%;
+            display: contents;
+        }
+        #profileGarden .gardenRight {
+            width: 100%;
+            display: contents;
+        }
+    }
+
+
+    /*-------------------------------------------------------------------------------------------------*/
     /*Large devices (desktops, less than 1200px)*/
     @media (max-width: 1199.98px) {
-        .userProfileButton svg { width: 20%; }
-        .addUserButton svg { width: 20%; }
-
-        #userHeader #userPicCnt { width: 20%; }
-
-        #userHeader #userCnt { width: 50%; }
-        #userHeader #userCnt .userCntH1 { font-size: 160%; }
-        #userHeader #userCnt .userCntH2 { font-size: 120%; }
-
-        #userHeader #userDataCnt { width: 30%; }
-        #userHeader #userDataCnt li {
-            margin-bottom: 2%;
-            font-size: 90%;
-        }
-
-
-
+        /*-----------------------------------allgemein----------------------------------*/
         #userButton {
             padding: 7px 15px;
             font-size: 100%;
@@ -1662,15 +1706,57 @@
             margin-left: 7px;
         }
 
-        #userDataCnt ul { font-size: 90%; }
-        #userDataCnt ul li svg {
+        /*-----------------------------------profile header----------------------------*/
+        #userHeader #userPicCnt { width: 20%; }
+
+        #userHeader #userCnt { width: 50%; }
+        #userHeader #userCnt .userCntH1 { font-size: 160%; }
+        #userHeader #userCnt .userCntH2 { font-size: 120%; }
+
+         #userDataCnt { width: 30%; }
+        #userHeader #userDataCnt li {
+            margin-bottom: 2%;
+            font-size: 90%;
+        }
+        #userHeader #userDataCnt ul { font-size: 90%; }
+        #userHeader #userDataCnt ul li svg {
             width: 15px;
             height: 15px;
         }
+
+        /*-----------------------------------friends----------------------------*/
+        #profileFriends .userProfileButton svg { width: 20%; }
+        #profileFriends .addUserButton svg { width: 20%; }
+
+        /*-----------------------------------garden----------------------------*/
+
+
+
+
+
+
+
+
     }
 
+    /*-------------------------------------------------------------------------------------------------*/
     /* Medium devices (tablets, less than 992px)*/
     @media (max-width: 991.98px) {
+        /*-----------------------------------allgemein---------------------------------*/
+        .desktopHL { width: 50%; }
+        .desktopLink { width: 50%; }
+
+        #userButton {
+            padding: 5px 10px;
+            font-size: 80%;
+        }
+        #userButton svg {
+            width: 7px;
+            height: 7px;
+            margin-left: 5px;
+        }
+
+        /*-----------------------------------profile header----------------------------*/
         #userHeader #userPicCnt .userPicture {
             width: 120px;
             height: 120px;
@@ -1684,15 +1770,18 @@
         }
         #userHeader #userCnt p { font-size: 80%; }
         #userHeader #userCnt .userCntLevelbar { width: 150%; }
+        #userHeader #userDataCnt ul { font-size: 80%; }
+        #userHeader #userDataCnt ul li svg {
+            width: 12px;
+            height: 12px;
+        }
 
         #userHeader #userDataCnt li { font-size: 80%; }
 
+        /*-----------------------------------friends----------------------------*/
 
+        /*-----------------------------------garden----------------------------*/
 
-
-        .friends .friendsPicture { width: 20%; }
-        .friends .friendsInfo {width: 50%; }
-        .friends .friendsButtons { width: 30%; }
 
         .plantsProfileInfoCol { width: 60%; }
         .plantsProfileImgCol { width: 40%; align-self: center; }
@@ -1708,28 +1797,24 @@
 
 
 
-        #userButton {
-            padding: 5px 10px;
-            font-size: 80%;
-        }
-        #userButton svg {
-            width: 7px;
-            height: 7px;
-            margin-left: 5px;
-        }
 
-        #userDataCnt ul { font-size: 80%; }
-        #userDataCnt ul li svg {
-            width: 12px;
-            height: 12px;
-        }
+
+
     }
 
+    /*-------------------------------------------------------------------------------------------------*/
     /*Small devices (landscape phones, less than 768px)*/
     @media (max-width: 767.98px) {
-        .userProfileButton svg { width: 22%; }
-        .addUserButton svg { width: 22%; }
+        /*-----------------------------------allgemein---------------------------------*/
+        .desktopHL { width: 60%; }
+        .desktopHL h4 { font-size: 105%; }
 
+        .desktopLink {
+            width: 40%;
+            font-size: 80%;
+        }
+
+        /*-----------------------------------profile header----------------------------*/
         #userHeader #userPicCnt { width: 30%; }
         #userHeader #userPicCnt .userPicture {
             float: left;
@@ -1750,13 +1835,32 @@
             float: left;
             width: 180px;
         }
+
+        /*-----------------------------------friends----------------------------*/
+        #profileFriends .userProfileButton svg { width: 22%; }
+        #profileFriends .addUserButton svg { width: 22%; }
+
+        #profileFriends #profileFriendsList .friends .friendsPicture { width: 30%; }
+
+        #profileFriends #profileFriendsList .friends .friendsInfo { width: 70%; }
+        #profileFriends #profileFriendsList .friends .friendsInfo .friendLevel { width: 100%; }
+        #profileFriends #profileFriendsList .friends .friendsInfo .friendLevel div { width: 90% !important; }
+
+        #profileFriends #profileFriendsList .friendsButtons { display: none; }
+        #profileFriends #profileFriendsList .buttonDesktop { margin-bottom: 5%; }
+
+        /*-----------------------------------garden----------------------------*/
+
     }
 
+    /*-------------------------------------------------------------------------------------------------*/
     /* Extra small devices (portrait phones, less than 576px)*/
     @media (max-width: 575.98px) {
-        .userProfileButton svg { width: 40%; }
-        .addUserButton svg { width: 40%; }
+        /*-----------------------------------allgemein----------------------------*/
+        .desktop { display: none; }
+        .mobileDevice { display: block; }
 
+        /*-----------------------------------profile header----------------------------*/
         #userHeader #userPicCnt { width: 40%; }
         #userHeader #userPicCnt .userPicture {
             width: 100px;
@@ -1771,10 +1875,19 @@
         }
         #userHeader #userDataCnt .floatSmall {float: none; }
         #userHeader #userDataCnt li { font-size: 80%; }
+
+        /*-----------------------------------friends----------------------------*/
+        #profileFriends .userProfileButton svg { width: 40%; }
+        #profileFriends .addUserButton svg { width: 40%; }
+
+        /*-----------------------------------garden----------------------------*/
+
     }
 
+    /*-------------------------------------------------------------------------------------------------*/
     /* eigener Query */
     @media (max-width: 430px) {
+        /*-----------------------------------profile header----------------------------*/
         #userHeader #userPicCnt { width: 50%; }
         #userHeader #userPicCnt .userPicture {
             width: 80px;
@@ -1807,5 +1920,10 @@
             float: left;
             width: 150px;
         }
+
+        /*-----------------------------------friends----------------------------*/
+
+        /*-----------------------------------garden----------------------------*/
+
     }
 </style>
