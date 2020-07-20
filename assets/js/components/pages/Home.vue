@@ -47,10 +47,16 @@
                             </div>
 
                             <div v-else class="loggedInIndex">
-                                <p class="text-center">{{ loggedUser.username }}
-                                <router-link to="/logout"  id="naviLogo" class="logoutLink">
-                                    Logout
-                                </router-link>
+                                <p class="text-center">
+                                    <span id="loginText">
+                                        Sie sind als
+                                        <router-link :to="'/profile/' + loggedUser.username" class="profileLink">
+                                            {{loggedUser.username}} </router-link>
+                                        eingeloggt.
+                                    </span>
+                                    <span id="logoutTextLink">
+                                        <router-link to="/logout"  id="naviLogo" class="logoutButton">Ausloggen</router-link>
+                                    </span>
                                 </p>
                             </div>
                         </div>
@@ -502,6 +508,30 @@
         text-align: center;
         margin-bottom: 10%;
     }
+    #welcomeRow .profileLink { color: #707070; }
+    #welcomeRow .profileLink:hover { color: #B8E269; }
+    #welcomeRow .profileLink:active { color: #707070; }
+
+    #welcomeRow .logoutButton {
+        background-color: white;
+        padding: 1% 2%;
+        color: #97B753;;
+        border: 2px solid #97B753;
+        border-radius: 10px;
+        font-size: 90%;
+        margin-left: 2%;
+    }
+    #welcomeRow .logoutButton:hover {
+        background-color: #B8E269;
+        color: #707070;
+        border: 2px solid #B8E269;
+    }
+    #welcomeRow .logoutButton:active {
+        background-color: white;
+        color: #97B753;;
+        border: 2px solid white;
+    }
+
 
     /*login form*/
     #welcomeRow #loginIndex label {
@@ -615,13 +645,6 @@
         border-radius: 10px;
     }
 
-
-
-
-
-
-
-
     /*---------------------------------------------Media Queries----------------------------*/
     /*Large devices (desktops, less than 1200px)*/
     @media (max-width: 1199.98px) {
@@ -652,7 +675,10 @@
         #welcomeRow #loginIndex input { width: 70%; }
         #welcomeRow #loginIndex button { margin-right: 8%; }
         #welcomeRow .oneColumn { display: block; }
-        #welcomeRow #h1Start { font-size: 200%; }
+        #welcomeRow #h1Start {
+            font-size: 200%;
+            margin-bottom: 5%;
+        }
 
         #welcomeRow #phoneImg {
             border: none;
@@ -686,6 +712,24 @@
     @media (max-width: 575.98px) {
         #indexLogo svg { width: 70% }
 
+        #welcomeRow #h1Start { margin-bottom: 7%; }
+        #welcomeRow #loginText { display: block; }
+        #welcomeRow #logoutTextLink {
+            display: block;
+            width: 100%;
+            margin-top: 8%;
+        }
+        #welcomeRow #logoutTextLink .logoutButton {
+            background-color: white;
+            padding: 5px 14px;
+            color: #97B753;;
+            border: 2px solid white;
+            border-radius: 10px;
+            font-size: 110%;
+            margin: 2% 0%;
+            font-weight: bold;
+        }
+
         #welcomeRow #loginIndex label {
             width: 100%;
             text-align-last: left;
@@ -699,7 +743,10 @@
         #welcomeRow .phoneAppDownload { width: 100%; }
         #welcomeRow #pIndexDownload { margin-bottom: 5%; }
 
-        #offerRowElements .wateringHelp { width: 100%; }
+        #offerRowElements .wateringHelp {
+            width: 100%;
+            margin-top: 3%;
+        }
         #offerRowElements .tipsTricks { width: 100%; }
         #offerRowElements .userGarden { width: 100%; }
         #offerRowElements .userReminder { width: 100%; }
