@@ -231,17 +231,26 @@
     @media (max-width: 991.98px) {
         .siteHL { width: 70%; }
         .siteBack { width: 30%; }
+        .left { margin-right: 0; }
+        .right { margin-left: 0; }
+        h4 { margin-top: 5%; }
     }
 
     /*Small devices (landscape phones, less than 768px)*/
     @media (max-width: 767.98px) {
-        .siteHL { width: 80%; }
-        .siteBack { width: 20%; }
+        .siteHL { width: 70%; }
+        .siteBack { width: 30%; }
         .displaySmall { display: none; }
+        h4 { margin-top: 7%; }
     }
 
     /* Extra small devices (portrait phones, less than 576px)*/
     @media (max-width: 575.98px) {
         .desktop { display: none; }
+        h4 { margin-top: 8%; }
+        .left, .right {
+            margin-left: 2%;
+            margin-right: 2%;
+        }
     }
 </style>

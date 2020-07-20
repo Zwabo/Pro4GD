@@ -4,47 +4,56 @@
 
         <div class="container-fluid">
 
-            <!-- upper profile part -->
-            <div class="row bgDarkGrey fontWhite" id="userInfoCnt">
+            <!--------------------------------- upper profile part - HEADER ------------------------------------------------------------->
+            <div class="row bgDarkGrey fontWhite" id="userHeader">
+
+                <!---------------------------user pictuer------------------------->
                 <div class="col-lg-4" id="userPicCnt">
                     <img class="userPicture" v-bind:src="profileUser.userPic">
                 </div>
+                <div class="smallMobile">
+                    <h2 class="userCntH2"> {{ profileUser.username }}</h2>
+                    <p class="userCntRang">{{getLevel(profileUser.xp)}}</p>
+                </div>
 
+                <!---------------------------user name / info------------------------->
                 <div id="userCnt" class="col-lg-5">
-                    <h1>{{ profileUser.firstname}} {{ profileUser.lastname }}</h1>
-                    <h2> {{ profileUser.username }}</h2>
-                    <p>{{getLevel(profileUser.xp)}}</p>
-                    <b-progress :value="profileUser.xp" :max="max" variant="dark" class="w-50 mb-2" height="1.2rem"></b-progress>
-                    <p>{{XPleft(profileUser.xp)}}</p>
+                    <h1 class="userCntH1 biggerMobile">{{ profileUser.firstname}} {{ profileUser.lastname }}</h1>
+                    <h2 class="userCntH2 biggerMobile"> {{ profileUser.username }}</h2>
+                    <p class="userCntRang biggerMobile">{{getLevel(profileUser.xp)}}</p>
+                    <p class="userCntLevelbar"><b-progress :value="profileUser.xp" :max="max" variant="dark" class="w-50 mb-2" height="1.2rem"></b-progress></p>
+                    <p class="userCntXPLeft">{{XPleft(profileUser.xp)}}</p>
 
+                    <!---------------------------changable button------------------------>
                     <button v-if="!(loggedInUser.username == profileUser.username) && loggedInUserIsStranger" @click="sendFriendRequest()" id="userButton">Hinzufügen <svg><use href="#plusOnly"></use></svg></button>
                     <button v-else-if="loggedInUser.username===profileUser.username && editProfile!=true" id="userButton"  v-on:click="changeProfile">Profil bearbeiten</button>
                     <button v-else-if="loggedInUser.username===profileUser.username && editProfile==true" id="userButton" v-on:click="saveProfile">Profil speichern</button>
                 </div>
 
+                <!------------------------------------user info---------------------------->
                 <div id="userDataCnt" class="col-lg-3">
                     <ul class="noListStyle">
-                        <li>
+                        <li id="userDataCntCreated" class="floatSmall">
                             <svg><use href="#profile"></use></svg>
                             seit {{ createdUserString }} Mitglied
                         </li>
-                        <li>
+                        <li id="userDataCntLocation">
                             <svg><use href="#locationPin"></use></svg>
                             {{ profileUser.country }}
                         </li>
-                        <li>
-                            <svg><use href="#birthday"></use></svg>
-                            {{ userAge }}
-                        </li>
-                        <li v-if="showBirthday">
+                        <li v-if="showBirthday" id="userDataCntBirthday" class="floatSmall">
                             <svg><use href="#calendar"></use></svg>
                             {{ birthdayString }}
+                        </li>
+                        <li v-if="showBirthday" id="userDataCntAge">
+                            <svg><use href="#birthday"></use></svg>
+                            {{ userAge }}
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <!--lower profile part-->
+            <!--------------------------------- lower profile part ------------------------------------------------------------->
             <div class="row marginLeftRight">
                 <div class="col-lg-8">
                     <div class="left">
@@ -1306,14 +1315,40 @@
 </script>
 
 <style scoped>
-    .edit { display: none; }
+    /*-------------------------------upper profile part - header -------------------------------*/
 
-    /* ----------------------------Spezielle Fonts für UserArea------------------------------*/
-    #userCnt h1 {
+    #userHeader { padding: 40px 50px; }
+    #userHeader .smallMobile { display: none; }
+
+    #userHeader #userPicCnt {
+        text-align-last: center;
+        align-self: center;
+    }
+    #userHeader #userPicCnt .userPicture {
+        width: 150px;
+        height: 150px;
+        border-radius: 100px;
+    }
+    #userHeader #userCnt .userCntH1 {
         font-size: 180%;
         color: #B8E269;
     }
-    #userCnt h2 { font-size: 140%; }
+    #userHeader #userCnt .userCntH2 { font-size: 140%; }
+
+    #userHeader #userDataCnt { align-self: center; }
+    #userHeader #userDataCnt ul { font-size: 110%; }
+
+    #userDataCnt ul li svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 3%;
+        fill: #B8E269;
+    }
+
+
+
+    /* ----------------------------Spezielle Fonts für UserArea------------------------------*/
+
 
     .routerText:hover { color: #97B753; }
     .routerText:active { color: #B8E269; }
@@ -1329,21 +1364,7 @@
 
     /*-----------------------------Container Styles Profil---------------------------------*/
     /*Containerbreite*/
-    #userInfoCnt{ padding: 40px 50px; }
 
-    #userPicCnt {
-        text-align-last: center;
-        align-self: center;}
-
-    #userDataCnt { align-self: center; }
-    #userDataCnt ul { font-size: 110%; }
-
-    #userDataCnt ul li svg {
-        width: 18px;
-        height: 18px;
-        margin-right: 3%;
-        fill: #B8E269;
-    }
 
     /*-------------------------------Styling for plants im Abschnitt Garten------------------------*/
     /*userPlants garden on profile*/
@@ -1446,12 +1467,6 @@
         margin-right: 2%;
     }
 
-    /* Profile Picture ---------------------Bild in Graubereich---------------------------*/
-    .userPicture {
-        width: 150px;
-        height: 150px;
-        border-radius: 100px;
-    }
 
     /* UserButton ----------------------"Profil Bearbeiten / Hinzufügen+"------------------------*/
     #userButton {
@@ -1623,12 +1638,19 @@
         .userProfileButton svg { width: 20%; }
         .addUserButton svg { width: 20%; }
 
-        #userPicCnt { width: 20%; }
-        #userCnt { width: 50%; }
-        #userDataCnt { width: 30%; }
+        #userHeader #userPicCnt { width: 20%; }
 
-        #userCnt h1 { font-size: 160%; }
-        #userCnt h2 { font-size: 120%; }
+        #userHeader #userCnt { width: 50%; }
+        #userHeader #userCnt .userCntH1 { font-size: 160%; }
+        #userHeader #userCnt .userCntH2 { font-size: 120%; }
+
+        #userHeader #userDataCnt { width: 30%; }
+        #userHeader #userDataCnt li {
+            margin-bottom: 2%;
+            font-size: 90%;
+        }
+
+
 
         #userButton {
             padding: 7px 15px;
@@ -1649,6 +1671,25 @@
 
     /* Medium devices (tablets, less than 992px)*/
     @media (max-width: 991.98px) {
+        #userHeader #userPicCnt .userPicture {
+            width: 120px;
+            height: 120px;
+            border-radius: 100px;
+        }
+        #userHeader #userCnt { padding-left: 4%; }
+        #userHeader #userCnt .userCntH1 { font-size: 140%; }
+        #userHeader #userCnt .userCntH2 {
+            font-size: 100%;
+            margin-bottom: 1%;
+        }
+        #userHeader #userCnt p { font-size: 80%; }
+        #userHeader #userCnt .userCntLevelbar { width: 150%; }
+
+        #userHeader #userDataCnt li { font-size: 80%; }
+
+
+
+
         .friends .friendsPicture { width: 20%; }
         .friends .friendsInfo {width: 50%; }
         .friends .friendsButtons { width: 30%; }
@@ -1663,19 +1704,9 @@
             margin-right: 0px;
         }
 
-        .userPicture {
-            width: 120px;
-            height: 120px;
-            border-radius: 100px;
-        }
 
-        #userCnt { padding-left: 4%; }
-        #userCnt h1 { font-size: 140%; }
-        #userCnt h2 {
-            font-size: 100%;
-            margin-bottom: 1%;
-        }
-        #userCnt p { font-size: 80%; }
+
+
 
         #userButton {
             padding: 5px 10px;
@@ -1699,17 +1730,82 @@
         .userProfileButton svg { width: 22%; }
         .addUserButton svg { width: 22%; }
 
-        #userPicCnt { width: 30%; }
-        #userCnt { width: 70%; align-self: center; }
-        #userDataCnt { display: none; width: 0%; }
+        #userHeader #userPicCnt { width: 30%; }
+        #userHeader #userPicCnt .userPicture {
+            float: left;
+        }
 
-        #userCnt p { display: none; }
-        #userButton { display: none; }
+        #userHeader #userCnt { width: 70%; align-self: center; }
+        #userHeader #userCnt .userCntH1 { font-size: 120%; }
+        #userHeader #usercnt .userCntH2 { font-size: 110%; }
+        #userHeader #userCnt .userCntLevelbar { margin-bottom: 2%; }
+
+        #userHeader #userDataCnt {
+            width: 100%;
+            margin-left: 31%;
+            margin-top: 6%;
+        }
+        #userHeader #userDataCnt li { margin-bottom: 1%; }
+        #userHeader #userDataCnt .floatSmall {
+            float: left;
+            width: 180px;
+        }
     }
 
     /* Extra small devices (portrait phones, less than 576px)*/
     @media (max-width: 575.98px) {
         .userProfileButton svg { width: 40%; }
         .addUserButton svg { width: 40%; }
+
+        #userHeader #userPicCnt { width: 40%; }
+        #userHeader #userPicCnt .userPicture {
+            width: 100px;
+            height: 100px;
+        }
+        #userHeader #userCnt { width: 60%; }
+        #userHeader #userCnt .userCntLevelbar { width: 200%; }
+
+        #userHeader #userDataCnt {
+            width: 100%;
+            margin-left: 39%;
+        }
+        #userHeader #userDataCnt .floatSmall {float: none; }
+        #userHeader #userDataCnt li { font-size: 80%; }
+    }
+
+    /* eigener Query */
+    @media (max-width: 430px) {
+        #userHeader #userPicCnt { width: 50%; }
+        #userHeader #userPicCnt .userPicture {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10%;
+        }
+
+        #userHeader .biggerMobile { display: none; }
+        #userHeader .smallMobile {
+            display: block;
+            align-self: center;
+        }
+        #userHeader .smallMobile .userCntH2 {
+            font-size: 120%;
+            margin-bottom: 1%;
+        }
+        #userHeader .smallMobile .userCntRang { font-size: 100%; }
+
+        #userHeader #userCnt {
+            width: 100%;
+            font-size: 110%;
+        }
+        #userHeader #userButton { font-size: 80%; }
+
+        #userHeader #userDataCnt {
+            width: 100%;
+            margin-left: 0;
+        }
+        #userHeader #userDataCnt .floatSmall {
+            float: left;
+            width: 150px;
+        }
     }
 </style>

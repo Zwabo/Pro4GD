@@ -4,37 +4,45 @@
 
         <div class="container-fluid">
 
-            <!-- upper profile part -->
-            <div class="row bgDarkGrey fontWhite" id="userInfoCnt">
+            <!--------------------------------- upper profile part - HEADER ---------------------------->
+            <div class="row bgDarkGrey fontWhite" id="userHeader">
+
+                <!---------------------------user pictuer------------------------->
                 <div class="col-lg-4" id="userPicCnt">
                     <img class="userPicture" v-bind:src="profileUser.userPic">
                 </div>
-
-                <div id="userCnt" class="col-lg-5">
-                    <h1>{{ profileUser.firstname}} {{ profileUser.lastname }}</h1>
-                    <h2> {{ profileUser.username }}</h2>
-                    <p>{{getLevel(profileUser.xp)}}</p>
-                    <b-progress :value="profileUser.xp" :max="max" variant="dark" class="w-50 mb-2" height="1.2rem"></b-progress>
-                    <p>{{XPleft(profileUser.xp)}}</p>
+                <div class="smallMobile">
+                    <h2 class="userCntH2"> {{ profileUser.username }}</h2>
+                    <p class="userCntRang">{{getLevel(profileUser.xp)}}</p>
                 </div>
 
+                <!---------------------------user name / info------------------------->
+                <div id="userCnt" class="col-lg-5">
+                    <h1 class="userCntH1 biggerMobile">{{ profileUser.firstname}} {{ profileUser.lastname }}</h1>
+                    <h2 class="userCntH2 biggerMobile"> {{ profileUser.username }}</h2>
+                    <p class="userCntRang biggerMobile">{{getLevel(profileUser.xp)}}</p>
+                    <p class="userCntLevelbar"><b-progress :value="profileUser.xp" :max="max" variant="dark" class="w-50 mb-2" height="1.2rem"></b-progress></p>
+                    <p class="userCntXPLeft">{{XPleft(profileUser.xp)}}</p>
+                </div>
+
+                <!------------------------------------user info---------------------------->
                 <div id="userDataCnt" class="col-lg-3">
                     <ul class="noListStyle">
-                        <li>
+                        <li id="userDataCntCreated" class="floatSmall">
                             <svg><use href="#profile"></use></svg>
                             seit {{ createdUserString }} Mitglied
                         </li>
-                        <li>
+                        <li id="userDataCntLocation">
                             <svg><use href="#locationPin"></use></svg>
                             {{ profileUser.country }}
                         </li>
-                        <li>
-                            <svg><use href="#birthday"></use></svg>
-                            {{ userAge }}
-                        </li>
-                        <li v-if="showBirthday">
+                        <li v-if="showBirthday" id="userDataCntBirthday" class="floatSmall">
                             <svg><use href="#calendar"></use></svg>
                             {{ birthdayString }}
+                        </li>
+                        <li id="userDataCntAge" v-if="showBirthday">
+                            <svg><use href="#birthday"></use></svg>
+                            {{ userAge }}
                         </li>
                     </ul>
                 </div>
@@ -334,25 +342,26 @@
 </script>
 
 <style scoped>
-    .edit { display: none; }
+    #userHeader { padding: 40px 50px; }
+    #userHeader .smallMobile { display: none; }
 
-    /* ----------------------------Spezielle Fonts für UserArea------------------------------*/
-    #userCnt h1 {
+    #userHeader #userPicCnt {
+        text-align-last: center;
+        align-self: center;
+    }
+    #userHeader #userPicCnt .userPicture {
+        width: 150px;
+        height: 150px;
+        border-radius: 100px;
+    }
+    #userHeader #userCnt .userCntH1 {
         font-size: 180%;
         color: #B8E269;
     }
-    #userCnt h2 { font-size: 140%; }
+    #userHeader #userCnt .userCntH2 { font-size: 140%; }
 
-    /*-----------------------------Container Styles Profil---------------------------------*/
-    /*Containerbreite*/
-    #userInfoCnt{ padding: 40px 50px; }
-
-    #userPicCnt {
-        text-align-last: center;
-        align-self: center;}
-
-    #userDataCnt { align-self: center; }
-    #userDataCnt ul { font-size: 110%; }
+    #userHeader #userDataCnt { align-self: center; }
+    #userHeader #userDataCnt ul { font-size: 110%; }
 
     #userDataCnt ul li svg {
         width: 18px;
@@ -361,93 +370,6 @@
         fill: #B8E269;
     }
 
-    /*-------------------------------Styling for plants im Abschnitt Garten------------------------*/
-    /*userPlants garden on profile*/
-    .plantsProfile {
-        margin-bottom: 20px;
-        border-radius: 10px;
-        padding: 10px 10px 10px 30px;
-        width: 97%;
-    }
-    .plantsProfile:hover {
-        background-color: #707070;
-        color: white;
-    }
-    .plantsProfile:active {
-        background-color: #DEDEDE;
-        color: #707070;
-    }
-    .plantsProfileImg {
-        width: 50%;
-        margin-right: 2%;
-    }
-    .plantsProfileLeftGrid { float: left; }
-    .plantsProfileRightGrid { flaot: right; }
-
-    /*------------------------------Anzeige der rechten Boxen--------------*/
-
-    /*rechte Boxen*/
-    .rightBoxes {
-        background-color: white;
-        border: 2px solid #DEDEDE;
-        border-radius: 10px;
-        margin-bottom: 50px;
-    }
-    .rightBoxes:first-of-type {
-        margin-top: 50px;
-    }
-
-    .rightBoxesRow {
-        margin-left: 1px;
-        margin-right: 1px;
-    }
-    .rightBoxesLink {
-        text-align-last: right;
-        align-self: center;
-    }
-
-    .threadCommentsPaddingLR {
-        margin-left: 4%;
-        margin-right: 4%;
-    }
-    .threadCommentsHL {
-        margin: 6% 4% 2% 4%;
-        font-weight: normal;
-        color: #97B753;
-    }
-    .threadCommentsHr { margin-top: 1%; }
-
-    .threadHL, .commentHL { font-weight: bold; }
-    .threadCreated, .commentCreated { float: right; }
-    .threadList { margin-bottom: 1%; }
-    .threadList:last-of-type { margin-bottom: 5%; }
-    .commentText {
-        color: grey;
-        margin-bottom: 2%;
-        font-style: italic;
-    }
-
-
-    /*--------------------------------userplants garten-----------------------*/
-    .imgBoxRight { text-align: right; }
-
-    /*styling schrift und elemente*/
-    .userplantGardenHL {
-        font-size: 120%;
-        font-weight: bold;
-    }
-    .userplantGardenLocation {
-        font-size: 90%;
-        font-style: italic;
-        margin-bottom: 5%;
-    }
-    .userplantGardenXPBar {
-        width: 300%;
-    }
-    .userplantGardenLevel {
-        font-size: 95%;
-        margin-bottom: 5%;
-    }
     .userplantGardenAge svg {
         width: 10%;
         padding-bottom: 5%;
@@ -457,44 +379,13 @@
         padding-left: 3%;
     }
 
-    .plantButton {
-        margin-top: 1%;
-        margin-right: 2%;
-    }
-
-    /* Profile Picture ---------------------Bild in Graubereich---------------------------*/
-    .userPicture {
-        width: 150px;
-        height: 150px;
-        border-radius: 100px;
-    }
-
-    /* UserButton ----------------------"Profil Bearbeiten / Hinzufügen+"------------------------*/
-    #userButton {
-        background-color: #97B753;
-        padding: 10px 20px;
-        color: white;
-        border: 2px solid #97B753;
-        border-radius: 0px 50px 50px 0px;
-        font-size: 120%;
-    }
     #userButton svg {
         fill: white;
         width: 15px;
         height: 15px;
         margin-left: 10px;
     }
-    #userButton:hover {
-        background-color: #B8E269;
-        border: 2px solid #B8E269;
-        color: #707070;
-    }
     #userButton:hover svg { fill: #707070; }
-    #userButton:active {
-        background-color: #97B753;
-        border: 2px solid #97B753;
-        color: white;
-    }
     #userButton:active svg { fill: white; }
 
 
@@ -515,199 +406,43 @@
     .friends:active .addUserButton svg:active { fill: #B8E269; }
     .friends:active .addUserButton svg:active .path1 { fill: #000000;}
 
-    /*---------------------------------------------friends list styling-------------------------*/
-    /*Friends Container*/
-    .friends {
-        padding: 10px 0;
-        margin-bottom: 10px;
-    }
-
-    .friends:hover {
-        background-color: #707070;
-        color: white;
-    }
-    .friends:active {
-        background-color: #DEDEDE;
-        color: #707070;
-    }
-
-    /*styling schrift und elemente für friends*/
-    .friendUsernameHL {
-        font-size: 120%;
-        font-weight: bold;
-    }
-    .friendWholeName {
-        font-size: 90%;
-        font-style: italic;
-        margin-bottom: 5%;
-    }
-    .friendLevel {
-        width: 500%;
-    }
-    .friendTitle {
-        font-size: 95%;
-        margin-bottom: 5%;
-    }
-
-    /*-------------------------------Besuchernachrichten---------------------------------------*/
-    /* trigger fields with class editProfile*/
-    .smallInput {
-        display: block;
-        width: 100%;
-        height: 200px;
-        border: 1px solid #97B753;
-        background-color: #F5F5F5;
-    }
-    #leaveComment{
-        margin-bottom: 3%;
-    }
-    /*picture for comments*/
-    .commentPics {
-        max-width: 100px;
-        min-width: 50px;
-        width: 80%;
-        border-radius: 100px;
-    }
-    /*input field for comments*/
-    .commentInput {
-        width: 100%;
-        height: 100%;
-        border: 1px solid #97B753;
-        border-radius: 4px;
-        background-color: #F5F5F5;
-    }
-    /*button for save comment*/
-    .buttonComments {
-        background-color: #97B753;
-        padding: 1%;
-        color: white;
-        border: 2px solid #97B753;
-        border-radius: 10px;
-        font-size: 80%;
-        margin-bottom: 2%;
-        margin-top: 1%;
-    }
-    .buttonComments:hover {
-        background-color: #B8E269;
-        border: 2px solid #B8E269;
-        color: #707070;
-    }
-    .buttonComments:active {
-        background-color: #97B753;
-        border: 2px solid #97B753;
-        color: white;
-    }
-
-    /*deleteButton --> for deleting a comment in bearbeiten*/
-    .deleteButton {
-        background-color: #97B753;
-        padding: 1%;
-        color: white;
-        border: 2px solid #97B753;
-        border-radius: 10px;
-        font-size: 80%;
-        margin-top: 1%;
-    }
-    .deleteButton:hover {
-        background-color: #B8E269;
-        border: 2px solid #B8E269;
-        color: #707070;
-    }
-    .deleteButton:active {
-        background-color: #97B753;
-        border: 2px solid #97B753;
-        color: white;
-    }
-
-    /*anzeige msg wenn gespeichert*/
-    .commentMsg {
-        background-color: #F5F5F5;
-        border-radius: 6px;
-        padding: 10px;
-    }
-
-    /*---------------------------------------Awards anzeige im Errungenschaften Bereich------------------------------*/
-    .awardImage {
-        width: 15%;
-        margin-bottom: 2%;
-        margin-left: 1%;
-    }
-
     /*---------------------------------------Media Queries-----------------------------------------------*/
     /*Large devices (desktops, less than 1200px)*/
     @media (max-width: 1199.98px) {
         .userProfileButton svg { width: 20%; }
         .addUserButton svg { width: 20%; }
 
-        #userPicCnt { width: 20%; }
-        #userCnt { width: 50%; }
-        #userDataCnt { width: 30%; }
+        #userHeader #userPicCnt { width: 20%; }
 
-        #userCnt h1 { font-size: 160%; }
-        #userCnt h2 { font-size: 120%; }
+        #userHeader #userCnt { width: 50%; }
+        #userHeader #userCnt .userCntH1 { font-size: 160%; }
+        #userHeader #userCnt .userCntH2 { font-size: 120%; }
 
-        #userButton {
-            padding: 7px 15px;
-            font-size: 100%;
-        }
-        #userButton svg {
-            width: 10px;
-            height: 10px;
-            margin-left: 7px;
-        }
-
-        #userDataCnt ul { font-size: 90%; }
-        #userDataCnt ul li svg {
-            width: 15px;
-            height: 15px;
+        #userHeader #userDataCnt { width: 30%; }
+        #userHeader #userDataCnt li {
+            margin-bottom: 2%;
+            font-size: 90%;
         }
     }
 
     /* Medium devices (tablets, less than 992px)*/
     @media (max-width: 991.98px) {
-        .friends .friendsPicture { width: 20%; }
-        .friends .friendsInfo {width: 50%; }
-        .friends .friendsButtons { width: 30%; }
-
-        .plantsProfileInfoCol { width: 60%; }
-        .plantsProfileImgCol { width: 40%; align-self: center; }
-        .plantsProfileImg { width: 30%; }
-
-        .plantsProfile {
-            width: 100%;
-            margin-left: 0px;
-            margin-right: 0px;
-        }
-
-        .userPicture {
+        #userHeader #userPicCnt .userPicture {
             width: 120px;
             height: 120px;
             border-radius: 100px;
         }
-
-        #userCnt { padding-left: 4%; }
-        #userCnt h1 { font-size: 140%; }
-        #userCnt h2 {
+        #userHeader #userCnt { padding-left: 4%; }
+        #userHeader #userCnt .userCntH1 { font-size: 140%; }
+        #userHeader #userCnt .userCntH2 {
             font-size: 100%;
             margin-bottom: 1%;
         }
-        #userCnt p { font-size: 80%; }
+        #userHeader #userCnt p { font-size: 80%; }
+        #userHeader #userCnt .userCntLevelbar { width: 150%; }
 
-        #userButton {
-            padding: 5px 10px;
-            font-size: 80%;
-        }
-        #userButton svg {
-            width: 7px;
-            height: 7px;
-            margin-left: 5px;
-        }
+        #userHeader #userDataCnt li { font-size: 80%; }
 
-        #userDataCnt ul { font-size: 80%; }
-        #userDataCnt ul li svg {
-            width: 12px;
-            height: 12px;
-        }
     }
 
     /*Small devices (landscape phones, less than 768px)*/
@@ -715,17 +450,96 @@
         .userProfileButton svg { width: 22%; }
         .addUserButton svg { width: 22%; }
 
-        #userPicCnt { width: 30%; }
-        #userCnt { width: 70%; align-self: center; }
-        #userDataCnt { display: none; width: 0%; }
+        #userHeader #userPicCnt { width: 30%; }
+        #userHeader #userPicCnt .userPicture {
+            float: left;
+        }
 
-        #userCnt p { display: none; }
-        #userButton { display: none; }
+        #userHeader #userCnt { width: 70%; align-self: center; }
+        #userHeader #userCnt .userCntH1 { font-size: 120%; }
+        #userHeader #usercnt .userCntH2 { font-size: 110%; }
+        #userHeader #userCnt .userCntLevelbar { margin-bottom: 2%; }
+
+        #userHeader #userDataCnt {
+            width: 100%;
+            margin-left: 31%;
+            margin-top: 6%;
+        }
+        #userHeader #userDataCnt li { margin-bottom: 1%; }
+        #userHeader #userDataCnt .floatSmall {
+            float: left;
+            width: 180px;
+        }
     }
 
     /* Extra small devices (portrait phones, less than 576px)*/
     @media (max-width: 575.98px) {
         .userProfileButton svg { width: 40%; }
         .addUserButton svg { width: 40%; }
+
+        #userHeader #userPicCnt { width: 40%; }
+        #userHeader #userPicCnt .userPicture {
+            width: 100px;
+            height: 100px;
+        }
+        #userHeader #userCnt { width: 60%; }
+        #userHeader #userCnt .userCntLevelbar { width: 200%; }
+
+        #userHeader #userDataCnt {
+            width: 100%;
+            margin-left: 39%;
+        }
+        #userHeader #userDataCnt .floatSmall {float: none; }
+        #userHeader #userDataCnt li { font-size: 80%; }
+    }
+
+    /* eigener Query */
+    @media (max-width: 430px) {
+        #userHeader #userPicCnt {
+            width: 50%;
+        }
+
+        #userHeader #userPicCnt .userPicture {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10%;
+        }
+
+        #userHeader .biggerMobile {
+            display: none;
+        }
+
+        #userHeader .smallMobile {
+            display: block;
+            align-self: center;
+        }
+
+        #userHeader .smallMobile .userCntH2 {
+            font-size: 120%;
+            margin-bottom: 1%;
+        }
+
+        #userHeader .smallMobile .userCntRang {
+            font-size: 100%;
+        }
+
+        #userHeader #userCnt {
+            width: 100%;
+            font-size: 110%;
+        }
+
+        #userHeader #userButton {
+            font-size: 80%;
+        }
+
+        #userHeader #userDataCnt {
+            width: 100%;
+            margin-left: 0;
+        }
+
+        #userHeader #userDataCnt .floatSmall {
+            float: left;
+            width: 150px;
+        }
     }
 </style>
