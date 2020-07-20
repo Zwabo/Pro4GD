@@ -9,6 +9,7 @@ Responsive Styles Finished
 - Login / LoginForm
 - Register / RegisterForm
 - Navigation
+- Home (- Rita Slider)
 
 ---
 ---
