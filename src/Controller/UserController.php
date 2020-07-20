@@ -483,4 +483,38 @@ class UserController extends AbstractController
 
         return new JsonResponse($thread, Response::HTTP_OK);
     }
+
+    /**
+     * @Route("/api/profile/setProfilePic/{userId}", name="setProfilePic", methods={"POST"})
+     */
+    public function setProfilePic($userId, Request $request) : JsonResponse
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        /** @var \App\Entity\User $user */
+        $user = $this->getUser();
+
+        $requestUser =  $this->getDoctrine()
+            ->getRepository(Comment::class)
+            ->find($userId);
+
+        if($requestUser != $user){
+            new JsonResponse([], Response::HTTP_FORBIDDEN);
+        }
+
+        $file = $request->files->get('file');
+
+        if (empty($file))
+        {
+            return new JsonResponse("No file specified",
+                Response::HTTP_UNPROCESSABLE_ENTITY, ['content-type' => 'text/plain']);
+        }
+
+        $fileName = $user->getUsername().'.'.$file->guessExtension();
+        $file->move($this->getParameter('userPictures_directory'), $fileName);
+        $user->setUserPic('/images/pictures/'.$fileName);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse("File uploaded",  Response::HTTP_OK,
+            ['content-type' => 'text/plain']);
+    }
 }
