@@ -9,7 +9,14 @@
 
                 <!---------------------------user pictuer------------------------->
                 <div class="col-lg-4" id="userPicCnt">
-                    <img class="userPicture" v-bind:src="profileUser.userPic">
+                    <img class="userPicture" v-bind:src="profileUser.userPic + '?' + new Date().getTime()" v-if="!editProfile">
+                    <div v-if="editProfile">
+                        <label class="imageUpload">
+                            <input accept="image/jpeg, image/png" type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
+                            <img src="/images/icons/edit_profile.png">
+                        </label>
+                            <img class="userPicture" v-bind:src="previewUserPic">
+                    </div>
                 </div>
                 <div class="smallMobile">
                     <h2 class="userCntH2"> {{ profileUser.username }}</h2>
@@ -50,15 +57,6 @@
                             {{ userAge }}
                         </li>
                     </ul>
-                </div>
-
-                <div class="container">
-                    <div>
-                        <label>File
-                            <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
-                        </label>
-                        <button v-on:click="submitFile()">Submit</button>
-                    </div>
                 </div>
 
 
@@ -555,6 +553,8 @@
                 awardModalTitle: null,
                 awardModalImg: null,
                 awardModalText: null,
+
+                previewUserPic: null,
             }
         },
 
@@ -579,6 +579,7 @@
             this.$http.get('/api/profile/' + this.$route.params.username)
                 .then(response => {
                     this.profileUser = response.data;
+                    this.previewUserPic = this.profileUser.userPic;
 
                     /*save the created date as string*/
                     this.createdUserString = this.profileUser.dateCreated.date.substr(8,2)
@@ -712,13 +713,12 @@
             saveProfile: function() {
                 this.$http.put('/api/profile/' + this.$route.params.username + '/setDescription', this.profileUser.description)
                     .then(response => {
-                        this.profileUser.descriptioin = response.data;
+                        this.editProfile = false;
+                        this.submitFile();
                     })
                     .catch(error => {
                         console.log(error);
                     });
-
-                this.editProfile = false;
             },
 
             saveComment: function() {
@@ -1357,40 +1357,27 @@
                     }
                 }
             },
-            submitFile(){
-                /*
-                        Initialize the form data
-                    */
+            submitFile: function(){
                 let formData = new FormData();
-
-                /*
-                    Add the form data we need to submit
-                */
                 formData.append('file', this.file);
-
-                /*
-                  Make the request to the POST /single-file URL
-                */
-                this.$http.post( '/api/profile/setProfilePic/' + this.profileUser.id,
+                return this.$http.post( '/api/profile/setProfilePic/' + this.profileUser.id,
                     formData,
                     {
                         headers: {
                             'Content-Type': 'multipart/form-data'
                         }
                     }
-                ).then(function(){
+                ).then(response => {
                     console.log('SUCCESS!!');
+                    this.profileUser = response.data;
                 })
                     .catch(function(){
                         console.log('FAILURE!!');
                     });
             },
-
-            /*
-              Handles a change on the file upload
-            */
-            handleFileUpload(){
+            handleFileUpload: function(){
                 this.file = this.$refs.file.files[0];
+                this.previewUserPic = URL.createObjectURL(this.file);
             }
         }
     }
@@ -1434,6 +1421,17 @@
         height: 18px;
         margin-right: 3%;
         fill: #B8E269;
+    }
+
+    /*-----------------------------------change user pic----------------------------*/
+    .imageUpload input[type="file"] {
+        display: none;
+    }
+
+    .imageUpload{
+        position: absolute;
+        padding: 6px 12px;
+        cursor: pointer;
     }
 
     /*------------------------------profile lower part---------------------------------------*/
@@ -1810,6 +1808,7 @@
             height: 120px;
             border-radius: 100px;
         }
+        .imageUpload img{ width: 120px; }
         #userHeader #userCnt { padding-left: 4%; }
         #userHeader #userCnt .userCntH1 { font-size: 140%; }
         #userHeader #userCnt .userCntH2 {
@@ -1914,6 +1913,7 @@
             width: 100px;
             height: 100px;
         }
+        .imageUpload img{ width: 100px; }
         #userHeader #userCnt { width: 60%; }
         #userHeader #userCnt .userCntLevelbar { width: 200%; }
 
@@ -1942,6 +1942,7 @@
             height: 80px;
             margin-bottom: 10%;
         }
+        .imageUpload img{ width: 80px; }
 
         #userHeader .biggerMobile { display: none; }
         #userHeader .smallMobile {
@@ -1972,6 +1973,5 @@
         /*-----------------------------------friends----------------------------*/
 
         /*-----------------------------------garden----------------------------*/
-
     }
 </style>

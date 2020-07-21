@@ -514,7 +514,6 @@ class UserController extends AbstractController
         $user->setUserPic('/images/pictures/'.$fileName);
         $this->getDoctrine()->getManager()->flush();
 
-        return new JsonResponse("File uploaded",  Response::HTTP_OK,
-            ['content-type' => 'text/plain']);
+        return new JsonResponse($user->toAssoc(),  Response::HTTP_OK);
     }
 }

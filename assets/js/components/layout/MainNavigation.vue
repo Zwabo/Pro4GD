@@ -34,7 +34,7 @@
                         <router-link class="nav-link" :to="'/garden/' + navigationUser.id">Mein Garten</router-link>
                     </li>
                     <li class="nav-item dropdown selfAlignCenter" id="naviUser" v-if="navigationUser">
-                        <a class="nav-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{navigationUser.username}} <img id="naviImg" v-bind:src="navigationUser.userPic"></a>
+                        <a class="nav-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{navigationUser.username}} <img id="naviImg" v-bind:src="navigationUser.userPic  + '?' + new Date().getTime()"></a>
                         <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="userDropdown">
                             <a :href="'/profile/' + navigationUser.username" class="dropdown-item">          <!-- change to dynamic -->
                                 Profil
