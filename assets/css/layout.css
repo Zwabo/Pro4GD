@@ -53,7 +53,7 @@
 .placeContentCenter { place-content: center; }
 
 /*right side floating boxes*/
-.rightBoxesPadding { padding: 20px; }
+.rightBoxesPadding { padding: 20px; margin-bottom: 1%; }
 
 /*--------------------------------------------Userbild Styling für Profil / Forum / Freunde-----------------------------*/
 /*small user pictures for profile and forum*/

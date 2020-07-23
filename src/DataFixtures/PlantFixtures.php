@@ -46,7 +46,7 @@ class PlantFixtures extends Fixture implements OrderedFixtureInterface
         $plant->setGenus("Aloen");
         $plant->setCareLevel("gering");
         $plant->setWateringAmount("500ml");
-        $plant->setIcon("images/plants/Aloe.png");
+        $plant->setIcon("images/plants/AloeQuad.png");
         $plant->setWindowIcon("images/plants/AloeBackground.png");
         $plant->setLocationIcon("sonnig, auch direkte Sonneneinstrahlung");
         $plant->setTemperatureIcon("20-25°");
@@ -120,7 +120,7 @@ Gießwasser darf nicht im Untersetzer oder Übertopf belassen werden. Es ist von
 
         $alpenveilchen->setCategory("Wildpflanze");
 
-        $alpenveilchen->setIcon("images/plants/Alpenveilchen.png");
+        $alpenveilchen->setIcon("images/plants/AlpenveilchenQuad.png");
         $alpenveilchen->setWindowIcon("images/plants/AlpenveilchenBackground.png");
 
         $manager->persist($alpenveilchen);
@@ -187,7 +187,7 @@ genügend Helligkeit sorgt."
 
         $begonie->setCategory("Zimmerpflanze");
 
-        $begonie->setIcon("images/plants/Begonie.png");
+        $begonie->setIcon("images/plants/BegonieQuad.png");
         $begonie->setWindowIcon("images/plants/BegonieBackground.png");
 
         $manager->persist($begonie);
@@ -252,7 +252,7 @@ genügend Helligkeit sorgt."
 
         $blattbegonie->setCategory("Zimmerpflanze");
 
-        $blattbegonie->setIcon("images/plants/Begonie.png");
+        $blattbegonie->setIcon("images/plants/BegonieQuad.png");
         $blattbegonie->setWindowIcon("images/plants/BegonieBackground.png");
 
         $manager->persist($blattbegonie);
@@ -316,7 +316,7 @@ genügend Helligkeit sorgt."
 
         $koenigsbegonie->setCategory("Zimmerpflanze");
 
-        $koenigsbegonie->setIcon("images/plants/Begonie.png");
+        $koenigsbegonie->setIcon("images/plants/BegonieQuad.png");
         $koenigsbegonie->setWindowIcon("images/plants/BegonieBackground.png");
 
         $manager->persist($koenigsbegonie);
@@ -385,7 +385,7 @@ genügend Helligkeit sorgt."
 
         $wimpernbegonie->setCategory("Zimmerpflanze");
 
-        $wimpernbegonie->setIcon("images/plants/Begonie.png");
+        $wimpernbegonie->setIcon("images/plants/BegonieQuad.png");
         $wimpernbegonie->setWindowIcon("images/plants/BegonieBackground.png");
 
         $manager->persist($wimpernbegonie);
@@ -441,7 +441,7 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
 
         $zimmercalla->setCategory("Zierpflanze");
 
-        $zimmercalla->setIcon("images/plants/Calla.png");
+        $zimmercalla->setIcon("images/plants/CallaQuad.png");
         $zimmercalla->setWindowIcon("images/plants/CallaBackground.png");
 
         $manager->persist($zimmercalla);
@@ -499,7 +499,7 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
 
         $geranie->setCategory("Zierpflanze");
 
-        $geranie->setIcon("images/plants/Aloe.png");
+        $geranie->setIcon("images/plants/AloeQuad.png");
         $geranie->setWindowIcon("images/plants/AloeBackground.png");
 
         $manager->persist($geranie);
@@ -555,7 +555,7 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
 
         $edelgeranie->setCategory("Zierpflanze");
 
-        $edelgeranie->setIcon("images/plants/Aloe.png");
+        $edelgeranie->setIcon("images/plants/AloeQuad.png");
         $edelgeranie->setWindowIcon("images/plants/AloeBackground.png");
 
         $manager->persist($edelgeranie);
@@ -616,7 +616,7 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
 
         $schmetterlingsgeranie->setCategory("Zierpflanze");
 
-        $schmetterlingsgeranie->setIcon("images/plants/Aloe.png");
+        $schmetterlingsgeranie->setIcon("images/plants/AloeQuad.png");
         $schmetterlingsgeranie->setWindowIcon("images/plants/AloeBackground.png");
 
         $manager->persist($schmetterlingsgeranie);
@@ -657,7 +657,7 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
 
         $gluecksfeder->setCategory("Zimmerpflanze");
 
-        $gluecksfeder->setIcon("images/plants/Aloe.png");
+        $gluecksfeder->setIcon("images/plants/AloeQuad.png");
         $gluecksfeder->setWindowIcon("images/plants/AloeBackground.png");
 
         $manager->persist($gluecksfeder);
@@ -699,7 +699,7 @@ In der Ruhepause nach der Blütezeit darf die Calla nicht mehr gegossen und ged�
 
         $chinroseneibisch->setCategory("Zierpflanze");
 
-        $chinroseneibisch->setIcon("images/plants/Aloe.png");
+        $chinroseneibisch->setIcon("images/plants/AloeQuad.png");
         $chinroseneibisch->setWindowIcon("images/plants/AloeBackground.png");
 
         $manager->persist($chinroseneibisch);
@@ -734,7 +734,7 @@ Licht als im Sommer. Während sie in der kalten Jahreszeit einen sehr hellen Sta
         $hawaipalme->setCareTips("Pflegetipps??");
 
         $hawaipalme->setCategory("Palme");
-        $hawaipalme->setIcon("images/plants/Aloe.png");
+        $hawaipalme->setIcon("images/plants/AloeQuad.png");
         $hawaipalme->setWindowIcon("images/plants/AloeBackground.png");
 
         $manager->persist($hawaipalme);
@@ -766,7 +766,7 @@ Licht als im Sommer. Während sie in der kalten Jahreszeit einen sehr hellen Sta
 
         $katzengras->setCategory("Gräser");
 
-        $katzengras->setIcon("images/plants/Aloe.png");
+        $katzengras->setIcon("images/plants/AloeQuad.png");
         $katzengras->setWindowIcon("images/plants/AloeBackground.png");
 
         $manager->persist($katzengras);
@@ -798,7 +798,7 @@ Licht als im Sommer. Während sie in der kalten Jahreszeit einen sehr hellen Sta
 
         $venusfliegenfalle->setCategory("Fleischfressende Pflanze");
 
-        $venusfliegenfalle->setIcon("images/plants/Aloe.png");
+        $venusfliegenfalle->setIcon("images/plants/AloeQuad.png");
         $venusfliegenfalle->setWindowIcon("images/plants/AloeBackground.png");
 
         $manager->persist($venusfliegenfalle);
@@ -849,7 +849,7 @@ Wichtig ist die Stängel nach der Blütenzeit zu stutzen, aber die Blätter noch
 
         $narzisse->setCategory("Zwiebelgewächse");
 
-        $narzisse->setIcon("images/plants/Aloe.png");
+        $narzisse->setIcon("images/plants/AloeQuad.png");
         $narzisse->setWindowIcon("images/plants/AloeBackground.png");
 
         $manager->persist($narzisse);
@@ -897,7 +897,7 @@ Es ist ratsam, eine Gartenschere zu verwenden. Die Orchidee ist nämlich sehr em
 
         $orchidee->setCategory("Zierpflanze");
 
-        $orchidee->setIcon("images/plants/Aloe.png");
+        $orchidee->setIcon("images/plants/AloeQuad.png");
         $orchidee->setWindowIcon("images/plants/AloeBackground.png");
 
         $manager->persist($orchidee);
@@ -938,7 +938,7 @@ Die Eigenschaft, dass die Blütenbildung beim Weihnachtsstern durch eine maximal
 
         $weihnachtsstern->setCategory("Zierpflanze");
 
-        $weihnachtsstern->setIcon("images/plants/Aloe.png");
+        $weihnachtsstern->setIcon("images/plants/AloeQuad.png");
         $weihnachtsstern->setWindowIcon("images/plants/AloeBackground.png");
 
         $manager->persist($weihnachtsstern);
@@ -978,7 +978,7 @@ Yuccas sollten alle 2 – 3 Jahre umgetopft werden, nämlich immer dann, wenn de
 
         $yuccapalme->setCategory("Palme");
 
-        $yuccapalme->setIcon("images/plants/Aloe.png");
+        $yuccapalme->setIcon("images/plants/AloeQuad.png");
         $yuccapalme->setWindowIcon("images/plants/AloeBackground.png");
 
         $manager->persist($yuccapalme);
@@ -1012,7 +1012,7 @@ Yuccas sollten alle 2 – 3 Jahre umgetopft werden, nämlich immer dann, wenn de
 
         $schwertfarn->setCategory("Farn");
 
-        $schwertfarn->setIcon("images/plants/Aloe.png");
+        $schwertfarn->setIcon("images/plants/AloeQuad.png");
         $schwertfarn->setWindowIcon("images/plants/AloeBackground.png");
 
         $manager->persist($schwertfarn);

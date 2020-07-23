@@ -65,32 +65,16 @@
             <!--------------------------------- lower profile part ------------------------------------------------------------->
             <div class="row marginLeftRight" id="lowerProfile">
 
-                <!-----description, awards, forum for small devices----------------------------->
-                <div class="mobileDevice marginLeftRight">
-
-                    <!---------------------------description---------------------------->
-                    <div id="description">
-                        <h3 class="h3Margin">Über {{ profileUser.username }} </h3>
-                        <div class="greenLine"></div>
-
-                        <p v-if="editProfile">
-                            <textarea class="smallInput" @blur="saveProfile" v-model="profileUser.description"></textarea>
-                        </p>
-                        <p v-if="!editProfile">
-                            {{ profileUser.description }}
-                        </p>
-                    </div>
-                </div>
-
                 <!------------------------------------------------------------------------------->
-                <div class="col-lg-8">
+                <div class="col-lg-8 leftCol">
 
                     <!------------------------------------left part------------------------------>
                     <div class="left">
 
                         <!--------------------------------profile description desktop-------------------->
-                        <div id="description" class="desktop">
-                            <h3 class="h3Margin">Über {{ profileUser.username }} </h3>
+                        <div id="description">
+                            <h3 v-if="loggedInUser.username === profileUser.username" class="h3Margin">Über mich</h3>
+                            <h3 v-else class="h3Margin">Über {{ profileUser.username }}</h3>
                             <div class="greenLine"></div>
 
                             <p v-if="editProfile">
@@ -182,10 +166,11 @@
                             <!-----desktop------>
                             <div class="row h3Margin desktop">
                                 <div class="col-lg-8 desktopHL desktop">
-                                    <h4>Mein Garten</h4>
+                                    <h4  v-if="loggedInUser.username === profileUser.username">Mein Garten</h4>
+                                    <h4 v-else>{{profileUser.username}}s Garten</h4>
                                 </div>
                                 <div class="col-lg-4 rightBoxesLink desktopLink ">
-                                    <router-link :to="'/garden' + profileUser.id" class="routerText desktop">
+                                    <router-link :to="'/garden/' + profileUser.id" class="routerText desktop">
                                         <span>Zum Garten</span>
                                         <svg class="forthSvg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 41 49" style="enable-background:new 0 0 41 49;" xml:space="preserve">
@@ -207,7 +192,6 @@
 
                             <div class="greenLine"></div>
                         </div>
-
 
                         <div class="container-fluid paddingNormalize" id="profileGarden">
                             <div class="row">
@@ -246,7 +230,7 @@
                                                         </div>
                                                         <div class="col-lg-4 plantsProfileImgCol text-right align-self-center">
                                                             <div class="plantsProfileImgDiv">
-                                                            <img class="plantsProfileImg" v-bind:src="'../' + userplant.plant.icon">
+                                                                <img class="plantsProfileImg" v-bind:src="'../' + userplant.plant.icon">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -307,32 +291,173 @@
                         </div>
                         </div>
 
-                        <div class="container-fluid" id="Besuchernachrichten" v-if="showComments">
-                            <h3 class="h3Margin">Besuchernachrichten</h3>
-                            <div class="greenLine"></div>
-                            <div class="row" id="leaveComment">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-lg-2"><img class="commentPics" v-bind:src="profileUser.userPic"></div>
-                                        <div class="col-lg-10"><textarea v-model="commentMessage" class="commentInput" type="text" placeholder="Nachricht hinterlassen"></textarea></div>
+                        <!---------------------------------Awards & Forum Einspaltig--------------------------------->
+                        <div class="oneColumn rightToLeft">
+
+                            <!-----------------------------------------Awards One Column-------------------------------->
+                            <div id="awardOneColumn" v-if="profileUser.awards.length > 0">
+                                <!-----desktop------>
+                                <div class="row h3Margin desktop">
+                                    <div class="col-lg-8 desktopHL desktop">
+                                        <h4>Auszeichnungen</h4>
                                     </div>
-                                    <div class="text-right"><button v-on:click="saveComment" class="buttonComments">Nachricht speichern</button></div>
+                                    <div class="col-lg-4 rightBoxesLink desktopLink ">
+                                        <router-link :to="'/profile/' + profileUser.username + '/awards'" class="routerText desktop">
+                                            <span>Alle anzeigen</span>
+                                            <svg class="forthSvg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 41 49" style="enable-background:new 0 0 41 49;" xml:space="preserve">
+    <g id="Polygon_98" transform="translate(41) rotate(90)">
+        <path class="st0" d="M41.9,38H7c-1.1,0-2.1-0.6-2.6-1.5c-0.5-0.9-0.5-2.1,0-3L21.8,4.3c0.5-0.9,1.5-1.5,2.6-1.5s2,0.5,2.6,1.5
+            l17.4,29.2c0.6,0.9,0.6,2.1,0,3C43.9,37.4,42.9,38,41.9,38z"/>
+        <path class="st0" d="M24.4,3.8c-0.3,0-1.2,0.1-1.7,1L5.2,34c-0.5,0.9-0.2,1.7,0,2c0.2,0.3,0.7,1,1.7,1h35c1.1,0,1.6-0.7,1.7-1
+            c0.2-0.3,0.5-1.1,0-2L26.1,4.8C25.6,3.9,24.7,3.8,24.4,3.8 M24.4,1.8c1.3,0,2.7,0.6,3.4,1.9L45.3,33c1.6,2.6-0.3,6-3.4,6H7
+            c-3.1,0-5-3.4-3.4-6.1L21,3.7C21.7,2.4,23.1,1.8,24.4,1.8z"/>
+    </g>
+    </svg>
+                                        </router-link>
+                                    </div>
+                                </div>
+                                <!-----mobile------>
+                                <div class="row mobileDevice">
+                                    <div class="col-lg-8">
+                                        <h3 class="h3Margin">Auszeichnungen</h3>
+                                    </div>
+                                </div>
+
+                                <div class="greenLine"></div>
+
+                                <div class="awardTextDiv desktop">
+                                    <p v-for="(award, index) in profileUser.awards" v-if="index < 3">
+                                        <img class="awardImage" v-bind:src="'../' + award.awardIcon" v-bind:alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
+                                        <span class="awardText"> {{profileUser.username}} {{award.altText}}</span>
+                                    </p>
+                                </div>
+
+                                <div class="awardTextDiv mobileDevice">
+                                    <span v-for="(award, index) in profileUser.awards" v-if="index < 14">
+                                <img class="awardImage" v-bind:src="'../' + award.awardIcon" v-bind:alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
+                            </span>
+                                </div>
+
+                                <div class="row d-flex justify-content-end">
+                                    <button class="buttonDarkGreen plantButton mobileDevice" @click="goToAwards">Alle Anzeigen</button>
                                 </div>
                             </div>
 
-                            <div v-if="profileUser.comments == null" id="commentInfo">Keine Besuchernachrichten vorhanden</div>
-                            <div v-else v-for="(profileComment, index) in profileUser.comments" class="container-fluid">
-                                <div class="row">
-                                    <div class="col-lg-1 paddingNormalize"><img class="commentPics" v-bind:src="profileComment.userpic"></div>
-                                    <div class="col-lg-11 commentMsg container-fluid">{{profileComment.msg}}</div>
+                            <!-----------------------------------------Forum One Column-------------------------------->
+                            <div id="forumOneColumn" v-if="createdThreads !== null || writtenComments !== null">
+                                <!-----desktop------>
+                                <div class="row h3Margin desktop">
+                                    <div class="col-lg-8 desktopHL desktop">
+                                        <h4>Forum</h4>
+                                    </div>
+                                    <div class="col-lg-4 rightBoxesLink desktopLink ">
+                                        <router-link :to="'/profile/' + profileUser.username + '/forum'" class="routerText desktop">
+                                            <span>Alle anzeigen</span>
+                                            <svg class="forthSvg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 41 49" style="enable-background:new 0 0 41 49;" xml:space="preserve">
+    <g id="Polygon_98" transform="translate(41) rotate(90)">
+        <path class="st0" d="M41.9,38H7c-1.1,0-2.1-0.6-2.6-1.5c-0.5-0.9-0.5-2.1,0-3L21.8,4.3c0.5-0.9,1.5-1.5,2.6-1.5s2,0.5,2.6,1.5
+            l17.4,29.2c0.6,0.9,0.6,2.1,0,3C43.9,37.4,42.9,38,41.9,38z"/>
+        <path class="st0" d="M24.4,3.8c-0.3,0-1.2,0.1-1.7,1L5.2,34c-0.5,0.9-0.2,1.7,0,2c0.2,0.3,0.7,1,1.7,1h35c1.1,0,1.6-0.7,1.7-1
+            c0.2-0.3,0.5-1.1,0-2L26.1,4.8C25.6,3.9,24.7,3.8,24.4,3.8 M24.4,1.8c1.3,0,2.7,0.6,3.4,1.9L45.3,33c1.6,2.6-0.3,6-3.4,6H7
+            c-3.1,0-5-3.4-3.4-6.1L21,3.7C21.7,2.4,23.1,1.8,24.4,1.8z"/>
+    </g>
+    </svg>
+                                        </router-link>
+                                    </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-5 paddingNormalize">{{profileComment.username}}</div>
-                                    <div class="col-lg-6 paddingNormalize text-right">{{profileComment.date}},  {{profileComment.time}}</div>
+                                <!-----mobile------>
+                                <div class="row mobileDevice">
+                                    <div class="col-lg-8">
+                                        <h3 class="h3Margin">Forum</h3>
+                                    </div>
                                 </div>
-                                <div class="row">
-                                    <div class="container-fluid text-right paddingNormalize">
+
+                                <div class="greenLine"></div>
+
+                                <div class="paddingNormalize threadComments" v-if="createdThreads !== null">
+                                    <h5 class="threadCommentsHL">Eröffnete Threads</h5> <!-- wird aus dem Forum ausgelesen -->
+                                    <hr class="threadCommentsPaddingLR threadCommentsHr">
+                                    <div class="threadCommentsInfo">
+                                        <p v-for="(thread, id) in createdThreads" v-if="id < 3" class="threadCommentsPaddingLR threadList">
+                                            <router-link :to="'/forum/' + thread.id">
+                                                <span class="threadHL">{{thread.headline}}</span>
+                                                <span class="threadCreated">{{getDateString(thread.created)}}</span>
+                                            </router-link>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="paddingNormalize threadComments" v-if="writtenComments !== null">
+                                    <h5 class="threadCommentsHL">Kommentierte Threads</h5>
+                                    <hr class="threadCommentsPaddingLR threadCommentsHr">
+                                    <div class="threadsCommentsInfo">
+                                        <p v-for="(comment, index) in writtenComments" v-if="index < 3" class="threadCommentsPaddingLR threadList">
+                                            <router-link :to="'/forum/' + comment.thread.id + '#comment' + comment.id">
+                                                <div class="paddingNormalize">
+                                                    <span class="commentHL">{{comment.thread.headline}}</span>
+                                                    <span class="commentCreated">{{getDateString(comment.created)}}</span>
+                                                </div>
+                                                <div class="paddingNormalize commentText">
+                                                    <span>{{shortenString(comment.text)}}</span>
+                                                </div>
+                                            </router-link>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row d-flex justify-content-end">
+                                    <button class="buttonDarkGreen plantButton mobileDevice" @click="goToProfileForum">Alle Anzeigen</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!---------------------------------Besuchernachrichten----------------------------------------->
+                        <div class="container-fluid" id="visitorComments" v-if="showComments">
+                            <h3 class="h3Margin">Besuchernachrichten</h3>
+                            <div class="greenLine"></div>
+
+                            <div v-if="profileUser.comments.length === 0" id="commentInfo">Keine Besuchernachrichten vorhanden</div>
+
+                            <div class="row" id="leaveComment">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-2 commentPicDiv"><img class="commentPic" v-bind:src="profileUser.userPic"></div>
+                                        <div class="col-lg-10 commentInputDiv"><textarea v-model="commentMessage" class="commentInput" type="text" placeholder="Nachricht hinterlassen"></textarea></div>
+                                    </div>
+                                    <div class="text-right buttonCommentDiv"><button v-on:click="saveComment" class="buttonComment">Nachricht speichern</button></div>
+                                </div>
+                            </div>
+
+
+                            <div v-if="profileUser.comments.length !== 0" v-for="(profileComment, index) in profileUser.comments" class="container-fluid" id="commentEntries">
+                                <div class="row commentRow">
+                                    <div class="col-lg-1 paddingNormalize commentPicDiv"><img class="commentPic" v-bind:src="profileComment.userpic"></div>
+                                    <div class="col-lg-11 commentEntry paddingNormalize container-fluid">
+                                        <div class="container-fluid ">
+                                            <div class="row commentMsgDiv">
+                                                <div class="container-fluid paddingNormalize">
+                                                    <div class="commentMsg">
+                                                        <p class="paddingNormalize">{{profileComment.msg}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row commentTextRow">
+                                                <div class="col-lg-6 paddingNormalize commentUsernameDiv">
+                                                    <p class="commentUsername">{{profileComment.username}}</p>
+                                                </div>
+                                                <div class="col-lg-6 paddingNormalize text-right commentStatsDiv">
+                                                    <p class="commentStats">{{profileComment.date}},  {{profileComment.time}}</p></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row deleteRow">
+                                    <div class="container-fluid text-right paddingNormalize deleteButtonDiv">
                                         <button v-if="profileUser!=null && editProfile==true" class="deleteButton" @click="deleteComment(index)">Löschen</button>
                                     </div>
                                 </div>
@@ -343,44 +468,50 @@
 
                 </div>
 
-                <div class="col-lg-4">
-                    <div class="rightBoxes">
-                        <!--<h4 class="bgLightGrey rightBoxesPadding h4Box" @click="checkAwards">Erungenschaften</h4>-->
+                <!------------------------------------right part------------------------------>
+
+                <div class="col-lg-4 rightCol twoColumns">
+
+                    <!------------------------------------errungenschaften------------------------------>
+                    <div class="rightBoxes" id="awardBox">
                         <div class="bgLightGrey rightBoxesPadding h4Box">
                             <div class="row rightBoxesRow">
-                                <div class="col-lg-8 paddingNormalize">
-                                    <h4>Errungenschaften</h4>
+                                <div class="col-lg-7 paddingNormalize rightBoxesH4Div">
+                                    <h4 class="rightBoxesH4">Auszeichnungen</h4>
                                 </div>
-                                <div class="col-lg-4 paddingNormalize rightBoxesLink">
+                                <div class="col-lg-5 paddingNormalize rightBoxesLink">
                                     <router-link :to="'/profile/' + profileUser.username + '/awards'">
                                         Alle anzeigen
                                     </router-link>
                                 </div>
                             </div>
                         </div>
-                        <p v-if="profileUser.awards.length === 0" class="rightBoxesPadding">{{profileUser.username}} hat noch keine Errungeschaften freigeschalten.</p>
+                        <p v-if="profileUser.awards.length === 0" class="rightBoxesPadding">
+                            {{profileUser.username}} hat noch keine Errungeschaften freigeschalten.
+                        </p>
                         <p v-else class="rightBoxesPadding">
-                            <span v-for="(award, index) in profileUser.awards">
-                                <img class="awardImage" v-bind:src="'../' + award.awardIcon" v-bind:alt="loggedInUser.username + award.altText" v-b-tooltip.hover :title="loggedInUser.username + award.altText">
+                            <span v-for="(award, index) in profileUser.awards" v-if="index < 12">
+                                <img class="awardImage" v-bind:src="'../' + award.awardIcon" v-bind:alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
                             </span>
                         </p>
                     </div>
 
-                    <div class="rightBoxes" v-if="createdThreads !== null || writtenComments !== null">
+                    <!------------------------------------forum------------------------------>
+                    <div class="rightBoxes" id="forumBox" v-if="createdThreads !== null || writtenComments !== null">
                         <div class="bgLightGrey rightBoxesPadding h4Box">
                         <div class="row rightBoxesRow">
-                            <div class="col-lg-8 paddingNormalize">
-                                <h4>Forum</h4>
+                            <div class="col-lg-7 paddingNormalize rightBoxesH4Div">
+                                <h4 class="rightBoxesH4">Forum</h4>
                             </div>
-                            <div class="col-lg-4 paddingNormalize rightBoxesLink">
-                                <router-link :to="'/profile/' + profileUser.username + '/Forum'">
+                            <div class="col-lg-5 paddingNormalize rightBoxesLink">
+                                <router-link :to="'/profile/' + profileUser.username + '/forum'">
                                     Alle anzeigen
                                 </router-link>
                             </div>
                         </div>
                         </div>
 
-                        <div class="paddingNormalize" v-if="createdThreads !== null">
+                        <div class="paddingNormalize threadComments" v-if="createdThreads !== null">
                             <h5 class="threadCommentsHL">Eröffnete Threads</h5> <!-- wird aus dem Forum ausgelesen -->
                             <hr class="threadCommentsPaddingLR threadCommentsHr">
                             <div class="threadCommentsInfo">
@@ -390,11 +521,10 @@
                                         <span class="threadCreated">{{getDateString(thread.created)}}</span>
                                     </router-link>
                                 </p>
-                                <!--<p>{{thread.inputtext}}</p>-->
                             </div>
                         </div>
 
-                        <div class="paddingNormalize" v-if="writtenComments !== null">
+                        <div class="paddingNormalize threadComments" v-if="writtenComments !== null">
                             <h5 class="threadCommentsHL">Kommentierte Threads</h5>
                             <hr class="threadCommentsPaddingLR threadCommentsHr">
                             <div class="threadsCommentsInfo">
@@ -483,7 +613,11 @@
         </div>
 
     </div>
+    <div class="lastBeforeFooter"></div>
+
     </div>
+
+
 </template>
 
 <script>
@@ -696,6 +830,14 @@
 
             goToGarden: function() {
               this.$router.push({path: '/garden/' + this.profileUser.id})
+            },
+
+            goToAwards: function() {
+                this.$router.push({path: '/profile/' + this.profileUser.username + '/awards'})
+            },
+
+            goToProfileForum: function() {
+                this.$router.push({path: '/profile/' + this.profileUser.username + '/forum'})
             },
 
             shortenString: function(string) {
@@ -1386,6 +1528,7 @@
 <style scoped>
     /*-------------------------------allgemein-------------------------------*/
     .mobileDevice { display: none; }
+    .oneColumn { display: none; }
     .desktopHL h4 { font-size: 30px; }
 
     .plantButton {
@@ -1393,9 +1536,43 @@
         margin-right: 2%;
     }
 
-    /*-------------------------------upper profile part - header -------------------------------*/
+    /* trigger fields with class editProfile*/
+    .smallInput {
+        display: block;
+        width: 100%;
+        height: 200px;
+        border: 1px solid #97B753;
+        background-color: #F5F5F5;
+        font-size: 100%;
+        padding: 1% 2%;
+    }
 
+    /*linke seite weiter zu den unterseiten*/
+    .rightBoxesLink {
+        text-align-last: right;
+        align-self: center;
+    }
+
+    /*weiter desktop*/
+    .routerText:hover { color: #97B753; }
+    .routerText:active { color: #B8E269; }
+    .forthSvg {
+        width: 20px;
+        height: 20px;
+        fill: #97B753;
+        padding-left: 2%;
+    }
+    .routerText:hover .forthSvg { fill: #B8E269; }
+    .routerText:active .forthSvg { fill: #707070; }
+
+    /*rechte boxen centered*/
+    .rightToLeft { padding-left: 2%; padding-right: 2%; }
+
+
+    /*-------------------------------upper profile part - header -------------------------------*/
     #userHeader { padding: 40px 50px; }
+
+    #userHeader {padding: 40px 50px; }
     #userHeader .smallMobile { display: none; }
 
     #userHeader #userPicCnt {
@@ -1427,7 +1604,6 @@
     .imageUpload input[type="file"] {
         display: none;
     }
-
     .imageUpload{
         position: absolute;
         padding: 6px 12px;
@@ -1495,9 +1671,7 @@
     #profileFriends .friends:active .addUserButton svg:active { fill: #B8E269; }
     #profileFriends .friends:active .addUserButton svg:active .path1 { fill: #000000;}
 
-
     /*------------------------------garden----------------------------------------*/
-
     /* left and right the same*/
 
     /*main container*/
@@ -1518,8 +1692,8 @@
 
     /*plant img*/
      #profileGarden .plantsProfileImg {
-        height: 150px;
-        margin-right: 2%;
+         height: 120px;
+         width: 120px;
     }
     #profileGarden .gardenRight .imgBoxRight { text-align: right; }
 
@@ -1545,72 +1719,137 @@
     #profileGarden .plantsProfileInfoCol .userplantGardenAge p {
         display: inline-block;
         padding-left: 3%;
+        margin-bottom: 2%;
     }
 
+    /*------------------------------Besuchernachrichten----------------------------------------*/
+    #visitorComments #commentInfo { margin-bottom: 4%; }
 
-
-
-    /* ----------------------------Spezielle Fonts für UserArea------------------------------*/
-
-
-    .routerText:hover { color: #97B753; }
-    .routerText:active { color: #B8E269; }
-
-    .forthSvg {
-        width: 20px;
-        height: 20px;
-        fill: #97B753;
-        padding-left: 2%;
+    /*Bild Allgemein*/
+    #visitorComments .commentPic {
+        max-width: 100px;
+        min-width: 50px;
+        width: 80%;
+        border-radius: 100px;
     }
-    .routerText:hover .forthSvg { fill: #B8E269; }
-    .routerText:active .forthSvg { fill: #707070; }
 
+    /*Eingabebereich Besuchernachrichten*/
+    #visitorComments #leaveComment .commentInputDiv .commentInput {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #97B753;
+        border-radius: 4px;
+        background-color: #F5F5F5;
+        font-size: 100%;
+        padding: 1% 2%;
+    }
+    #visitorComments #leaveComment .buttonCommentDiv .buttonComment {
+        background-color: #97B753;
+        padding: 1%;
+        color: white;
+        border: 2px solid #97B753;
+        border-radius: 10px;
+        font-size: 80%;
+        margin-bottom: 2%;
+        margin-top: 1%;
+    }
+    #visitorComments #leaveComment .commentButtonDiv .buttonComment:hover {
+        background-color: #B8E269;
+        border: 2px solid #B8E269;
+        color: #707070;
+    }
+    #visitorComments #leaveComment .commentButtonDiv .buttonComment:active {
+        background-color: #97B753;
+        border: 2px solid #97B753;
+        color: white;
+    }
 
-    /*------------------------------Anzeige der rechten Boxen--------------*/
+    /*anzeige msg wenn gespeichert*/
+    #visitorComments .commentRow { margin-top: 3%; }
+    #visitorComments .commentRow .commentMsgDiv { padding-left: 3%; }
+    #visitorComments .commentRow .commentMsgDiv .commentMsg {
+        background-color: #F5F5F5;
+        border-radius: 10px;
+        padding: 1% 2%;
+        margin-bottom: 0;
+    }
+    #visitorComments .commentRow p { margin-bottom: 0;}
+    #visitorComments .commentRow .commentTextRow {
+        font-size: 80%;
+        padding: 1% 0% 0% 3%;
+    }
 
-    /*rechte Boxen*/
+    /*deleteButton --> for deleting a comment in bearbeiten*/
+    #visitorComments .deleteRow .deleteButtonDiv .deleteButton {
+        background-color: #97B753;
+        padding: 1%;
+        color: white;
+        border: 2px solid #97B753;
+        border-radius: 10px;
+        font-size: 80%;
+        margin-top: 1%;
+    }
+    #visitorComments .deleteRow .deleteButtonDiv .deleteButton:hover {
+        background-color: #B8E269;
+        border: 2px solid #B8E269;
+        color: #707070;
+    }
+    #visitorComments .deleteRow .deleteButtonDiv .deleteButton:active {
+        background-color: #97B753;
+        border: 2px solid #97B753;
+        color: white;
+    }
+
+    /*------------------------------Right Boxes----------------------------------------*/
     .rightBoxes {
         background-color: white;
         border: 2px solid #DEDEDE;
         border-radius: 10px;
         margin-bottom: 50px;
     }
-    .rightBoxes:first-of-type {
-        margin-top: 50px;
-    }
+    .rightBoxes:first-of-type { margin-top: 50px; }
+    .rightBoxes .rightBoxesRow { margin-left: 1%; margin-right: 1%; }
 
-    .rightBoxesRow {
-        margin-left: 1px;
-        margin-right: 1px;
-    }
-    .rightBoxesLink {
+    .rightBoxes .h4Box .rightBoxesH4Div .rightBoxesH4 { font-size: 110%; }
+    .rightBoxes .h4Box .rightBoxesLink {
         text-align-last: right;
         align-self: center;
+        font-size: 90%;
     }
+    .rightBoxes .h4Box .rightBoxesLink a:hover { color: #97B753; }
+    .rightBoxes .h4Box .rightBoxesLink a:active { color: #B8E269; }
 
-    .threadCommentsPaddingLR {
+    /*------------------------------Awards----------------------------------------*/
+    #awardBox .awardImage {
+        width: 15%;
+        margin-bottom: 2%;
+        margin-left: 1%;
+    }
+    #awardOneColumn .awardImage { width: 5%; }
+    #awardOneColumn .awardTextDiv p { margin-bottom: 2%; }
+
+    /*------------------------------Forum----------------------------------------*/
+
+    #forumBox .threadComments .threadCommentsPaddingLR {
         margin-left: 4%;
         margin-right: 4%;
     }
-    .threadCommentsHL {
+    #forumBox .threadComments .threadCommentsHL {
         margin: 6% 4% 2% 4%;
         font-weight: normal;
         color: #97B753;
+        font-size: 100%;
     }
-    .threadCommentsHr { margin-top: 1%; }
-
-    .threadHL, .commentHL { font-weight: bold; }
-    .threadCreated, .commentCreated { float: right; }
-    .threadList { margin-bottom: 1%; }
-    .threadList:last-of-type { margin-bottom: 5%; }
-    .commentText {
+    #forumBox .threadComments .threadCommentsHr { margin-top: 1%; }
+    #forumBox .threadComments .threadHL, #forumBox .threadComments .commentHL { font-weight: bold; font-size: 100%; }
+    #forumBox .threadComments .threadCreated, #forumBox .threadComments .commentCreated { float: right; }
+    #forumBox .threadComments .threadList { margin-bottom: 1%; font-size: 90%; }
+    #forumBox .threadComments .threadList:last-of-type { margin-bottom: 5%; }
+    #forumBox .threadComments .commentText {
         color: grey;
         margin-bottom: 2%;
         font-style: italic;
     }
-
-
-
 
     /* UserButton ----------------------"Profil Bearbeiten / Hinzufügen+"------------------------*/
     #userButton {
@@ -1641,92 +1880,11 @@
     #userButton:active svg { fill: white; }
 
 
-    /*-------------------------------Besuchernachrichten---------------------------------------*/
-    /* trigger fields with class editProfile*/
-    .smallInput {
-        display: block;
-        width: 100%;
-        height: 200px;
-        border: 1px solid #97B753;
-        background-color: #F5F5F5;
-    }
-    #leaveComment{
-        margin-bottom: 3%;
-    }
-    /*picture for comments*/
-    .commentPics {
-        max-width: 100px;
-        min-width: 50px;
-        width: 80%;
-        border-radius: 100px;
-    }
-    /*input field for comments*/
-    .commentInput {
-        width: 100%;
-        height: 100%;
-        border: 1px solid #97B753;
-        border-radius: 4px;
-        background-color: #F5F5F5;
-    }
-    /*button for save comment*/
-    .buttonComments {
-        background-color: #97B753;
-        padding: 1%;
-        color: white;
-        border: 2px solid #97B753;
-        border-radius: 10px;
-        font-size: 80%;
-        margin-bottom: 2%;
-        margin-top: 1%;
-    }
-    .buttonComments:hover {
-        background-color: #B8E269;
-        border: 2px solid #B8E269;
-        color: #707070;
-    }
-    .buttonComments:active {
-        background-color: #97B753;
-        border: 2px solid #97B753;
-        color: white;
-    }
-
-    /*deleteButton --> for deleting a comment in bearbeiten*/
-    .deleteButton {
-        background-color: #97B753;
-        padding: 1%;
-        color: white;
-        border: 2px solid #97B753;
-        border-radius: 10px;
-        font-size: 80%;
-        margin-top: 1%;
-    }
-    .deleteButton:hover {
-        background-color: #B8E269;
-        border: 2px solid #B8E269;
-        color: #707070;
-    }
-    .deleteButton:active {
-        background-color: #97B753;
-        border: 2px solid #97B753;
-        color: white;
-    }
-
-    /*anzeige msg wenn gespeichert*/
-    .commentMsg {
-        background-color: #F5F5F5;
-        border-radius: 6px;
-        padding: 10px;
-    }
-
-    /*---------------------------------------Awards anzeige im Errungenschaften Bereich------------------------------*/
-    .awardImage {
-        width: 15%;
-        margin-bottom: 2%;
-        margin-left: 1%;
-    }
-
     /*---------------------------------------Media Queries---------------------------------------------------------*/
-    @media (max-width: 1450px) {
+    @media (max-width: 1600px) {
+        /*-----------------------------------allgemein 1600px----------------------------------*/
+
+        /*-----------------------------------garden 1600px----------------------------------*/
         #profileGarden .gardenLeft {
             width: 100%;
             display: contents;
@@ -1735,13 +1893,21 @@
             width: 100%;
             display: contents;
         }
+        #profileGarden .plantsProfileImg {
+            height: 160px;
+            width: 160px;
+        }
+        #profileGarden .plantsProfileInfoCol .userplantGardenLocation { margin-bottom: 2%; }
+        #profileGarden .plantsProfileInfoCol .userplantGardenLevel { margin-bottom: 2%; }
+        #profileGarden .plantsProfileInfoCol .userplantGardenAge { font-size: 95%; }
+        #profileGarden .plantsProfileInfoCol .userplantGardenAge svg { width: 5%; padding: 0; margin-bottom: 2%; }
     }
 
 
     /*-------------------------------------------------------------------------------------------------*/
     /*Large devices (desktops, less than 1200px)*/
     @media (max-width: 1199.98px) {
-        /*-----------------------------------allgemein----------------------------------*/
+        /*-----------------------------------allgemein 1199.98px----------------------------------*/
         #userButton {
             padding: 7px 15px;
             font-size: 100%;
@@ -1752,14 +1918,14 @@
             margin-left: 7px;
         }
 
-        /*-----------------------------------profile header----------------------------*/
+        /*-----------------------------------profile header 1199.98px----------------------------*/
         #userHeader #userPicCnt { width: 20%; }
 
         #userHeader #userCnt { width: 50%; }
         #userHeader #userCnt .userCntH1 { font-size: 160%; }
         #userHeader #userCnt .userCntH2 { font-size: 120%; }
 
-         #userDataCnt { width: 30%; }
+        #userDataCnt { width: 30%; }
         #userHeader #userDataCnt li {
             margin-bottom: 2%;
             font-size: 90%;
@@ -1770,27 +1936,47 @@
             height: 15px;
         }
 
-        /*-----------------------------------friends----------------------------*/
+        /*-----------------------------------friends 1199.98px----------------------------*/
         #profileFriends .userProfileButton svg { width: 20%; }
         #profileFriends .addUserButton svg { width: 20%; }
 
-        /*-----------------------------------garden----------------------------*/
+        /*-----------------------------------garden 1199.98px----------------------------*/
+        #profileGarden .plantsProfileImg {
+            height: 110px;
+            width: 110px;
+        }
+        #profileGarden .plantsProfileInfoCol .userplantGardenXPBar div { width: 110% !important; }
 
+        /*-----------------------------------Besuchernachrichten 1199.98px----------------------------*/
 
+        #visitorComments .commentRow .commentMsgDiv { padding-left: 6%; }
+        #visitorComments .commentRow .commentTextRow { font-size: 90%; padding-left: 6%; }
 
+        /*------------------------------Right Boxes----------------------------------------*/
 
+        .rightBoxes .h4Box .rightBoxesH4Div .rightBoxesH4 { font-size: 100%; }
+        .rightBoxes .h4Box .rightBoxesLink { font-size: 80%; }
 
-
-
-
+        /*------------------------------Forum----------------------------------------*/
+        #forumBox .threadComments .threadCommentsHL { font-size: 90%; }
+        #forumBox .threadComments .threadHL, #forumBox .threadComments .commentHL { font-size: 100%; }
+        #forumBox .threadComments .threadList { font-size: 90%; }
+        #forumBox .threadComments .commentText {  font-size: 90%; }
+        #forumBox .threadComments .threadCommentsHr { margin-bottom: 1%; }
     }
 
     /*-------------------------------------------------------------------------------------------------*/
     /* Medium devices (tablets, less than 992px)*/
     @media (max-width: 991.98px) {
-        /*-----------------------------------allgemein---------------------------------*/
+        /*-----------------------------------allgemein 992px---------------------------------*/
+        .twoColumns { display: none; }
+        .oneColumn { display: block; }
+
         .desktopHL { width: 50%; }
         .desktopLink { width: 50%; }
+
+        #lowerProfile .leftCol { width: 100%; }
+        #lowerProfile .rightCol { width: 100%; }
 
         #userButton {
             padding: 5px 10px;
@@ -1802,7 +1988,7 @@
             margin-left: 5px;
         }
 
-        /*-----------------------------------profile header----------------------------*/
+        /*-----------------------------------profile header 992px----------------------------*/
         #userHeader #userPicCnt .userPicture {
             width: 120px;
             height: 120px;
@@ -1825,34 +2011,62 @@
 
         #userHeader #userDataCnt li { font-size: 80%; }
 
-        /*-----------------------------------friends----------------------------*/
+        /*-----------------------------------friends 992px----------------------------*/
 
-        /*-----------------------------------garden----------------------------*/
-
-
-        .plantsProfileInfoCol { width: 60%; }
-        .plantsProfileImgCol { width: 40%; align-self: center; }
-        .plantsProfileImg { width: 30%; }
-
-        .plantsProfile {
+        /*-----------------------------------garden 992px----------------------------*/
+        #profileGarden .plantsProfile {
             width: 100%;
             margin-left: 0px;
             margin-right: 0px;
         }
+        #profileGarden .plantsProfile .plantsProfileInfoCol { width: 60%; }
+        #profileGarden .plantsProfile .plantsProfileImgCol { width: 40%; align-self: center; }
+        #profileGarden .plantsProfileImg { height: 130px; width: 130px; }
+        #profileGarden .plantsProfileInfoCol .userplantGardenXPBar div { width: 120% !important; }
 
+        /*-----------------------------------Besuchernachrichten 992px----------------------------*/
+        #visitorComments #leaveComment .commentPicDiv { width: 20%; }
+        #visitorComments #leaveComment .commentInputDiv { width: 80%; padding-left: 0; }
 
+        #visitorComments #commentEntries .commentRow .commentPicDiv { width: 12%; }
 
+        #visitorComments #commentEntries .commentRow .commentEntry { width: 88%; }
+        #visitorComments #commentEntries .commentRow .commentEntry .commentMsgDiv { padding-left: 3%; }
+        #visitorComments #commentEntries .commentRow .commentEntry .commentTextRow { padding-left: 3%; }
+        #visitorComments #commentEntries .commentRow .commentEntry .commentTextRow .commentUsernameDiv { width: 50%; }
+        #visitorComments #commentEntries .commentRow .commentEntry .commentTextRow .commentStatsDiv { width: 50%; }
 
+        /*-----------------------------------forum 992px----------------------------*/
+        /*one column*/
+        #forumOneColumn .threadComments .threadList a:hover { color: #97B753; }
+        #forumOneColumn .threadComments .threadList a:active { color: #B8E269; }
 
+        #forumOneColumn .threadList a:hover { color: #97B753; }
+        #forumOneColumn .threadList a:active { color: #B8E269; }
 
-
-
+        #forumOneColumn .threadComments { font-size: 120%; }
+        #forumOneColumn .threadComments .threadCommentsHL {
+            margin: 6% 0% 2% 0%;
+            font-weight: normal;
+            color: #97B753;
+            font-size: 95%;
+        }
+        #forumOneColumn .threadCommentsHr { margin-top: 1%; }
+        #forumOneColumn .threadHL, #forumOneColumn .commentHL { font-weight: bold; font-size: 100%; }
+        #forumOneColumn .threadCreated, #forumOneColumn .commentCreated { float: right; }
+        #forumOneColumn .threadList { margin-bottom: 1%; font-size: 90%; }
+        #forumOneColumn .threadList:last-of-type { margin-bottom: 5%; }
+        #forumOneColumn .commentText {
+            color: grey;
+            margin-bottom: 2%;
+            font-style: italic;
+        }
     }
 
     /*-------------------------------------------------------------------------------------------------*/
     /*Small devices (landscape phones, less than 768px)*/
     @media (max-width: 767.98px) {
-        /*-----------------------------------allgemein---------------------------------*/
+        /*-----------------------------------allgemein 768px---------------------------------*/
         .desktopHL { width: 60%; }
         .desktopHL h4 { font-size: 105%; }
 
@@ -1861,7 +2075,7 @@
             font-size: 80%;
         }
 
-        /*-----------------------------------profile header----------------------------*/
+        /*-----------------------------------profile header 768px----------------------------*/
         #userHeader #userPicCnt { width: 30%; }
         #userHeader #userPicCnt .userPicture {
             float: left;
@@ -1883,7 +2097,7 @@
             width: 180px;
         }
 
-        /*-----------------------------------friends----------------------------*/
+        /*-----------------------------------friends 768px----------------------------*/
         #profileFriends .userProfileButton svg { width: 22%; }
         #profileFriends .addUserButton svg { width: 22%; }
 
@@ -1896,18 +2110,24 @@
         #profileFriends #profileFriendsList .friendsButtons { display: none; }
         #profileFriends #profileFriendsList .buttonDesktop { margin-bottom: 5%; }
 
-        /*-----------------------------------garden----------------------------*/
+        /*-----------------------------------garden 768px----------------------------*/
+        #profileGarden .plantsProfileImg {
+            height: 110px;
+            width: 110px;
+        }
 
+        #profileGarden .plantsProfileInfoCol .userplantGardenLocation { margin-bottom: 4%; }
+        #profileGarden .plantsProfileInfoCol .userplantGardenLevel { margin-bottom: 4%; }
     }
 
     /*-------------------------------------------------------------------------------------------------*/
     /* Extra small devices (portrait phones, less than 576px)*/
     @media (max-width: 575.98px) {
-        /*-----------------------------------allgemein----------------------------*/
+        /*-----------------------------------allgemein 576px----------------------------*/
         .desktop { display: none; }
         .mobileDevice { display: block; }
 
-        /*-----------------------------------profile header----------------------------*/
+        /*-----------------------------------profile header 576px----------------------------*/
         #userHeader #userPicCnt { width: 40%; }
         #userHeader #userPicCnt .userPicture {
             width: 100px;
@@ -1924,18 +2144,55 @@
         #userHeader #userDataCnt .floatSmall {float: none; }
         #userHeader #userDataCnt li { font-size: 80%; }
 
-        /*-----------------------------------friends----------------------------*/
+        /*-----------------------------------friends 576px----------------------------*/
         #profileFriends .userProfileButton svg { width: 40%; }
         #profileFriends .addUserButton svg { width: 40%; }
 
-        /*-----------------------------------garden----------------------------*/
+        /*-----------------------------------garden 576px----------------------------*/
+        #profileGarden .plantsProfileImg {
+            height: 90px;
+            width: 90px;
+        }
+        #profileGarden .plantsProfileInfoCol .userplantGardenHL { font-size: 120%; }
+        #profileGarden .plantsProfileInfoCol .userplantGardenLevel { font-size: 110%; }
+        #profileGarden .plantsProfileInfoCol .userplantGardenAge { font-size: 110%; }
+        #profileGarden .plantsProfileInfoCol .userplantGardenAge svg { width: 7%; margin-bottom: 3%; }
 
+        /*-----------------------------------Besuchernachrichten 576px----------------------------*/
+
+        #visitorComments #commentEntries .commentRow .commentPicDiv { display: none; }
+        #visitorComments #commentEntries .commentRow .commentEntry { width: 100%; }
+        #visitorComments #commentEntries .commentRow .commentEntry .commentMsgDiv { padding-left: 0 !important; font-size: 110%; }
+        #visitorComments #commentEntries .commentRow .commentEntry .commentMsgDiv .commentMsg { padding: 2% 3%; }
+        #visitorComments #commentEntries .commentRow .commentEntry .commentTextRow { padding-left: 0; font-size: 110%; }
+
+        #visitorComments #leaveComment .buttonCommentDiv .buttonComment {
+            font-size: 100%;
+            padding: 2% 3%;
+            margin-bottom: 4%;
+            margin-top: 3%;
+        }
+
+        /*-----------------------------------award und forum one column 576px----------------------------*/
+        #awardOneColumn .awardImage {
+            width: 13%;
+            margin-bottom: 2%;
+            margin-left: 1%;
+        }
+    }
+
+    /*-------------------------------------------------------------------------------------------------*/
+    /* eigener Query */
+    @media (max-width: 520px) {
+        /*-----------------------------------Besuchernachrichten 520px----------------------------*/
+        #visitorComments #leaveComment .commentPicDiv { display: none; }
+        #visitorComments #leaveComment .commentInputDiv { width: 100%; padding-left: 3%; }
     }
 
     /*-------------------------------------------------------------------------------------------------*/
     /* eigener Query */
     @media (max-width: 430px) {
-        /*-----------------------------------profile header----------------------------*/
+        /*-----------------------------------profile header 430px----------------------------*/
         #userHeader #userPicCnt { width: 50%; }
         #userHeader #userPicCnt .userPicture {
             width: 80px;
@@ -1970,8 +2227,15 @@
             width: 150px;
         }
 
-        /*-----------------------------------friends----------------------------*/
+        /*-----------------------------------friends 430px----------------------------*/
 
-        /*-----------------------------------garden----------------------------*/
+        /*-----------------------------------garden 430px----------------------------*/
+        #profileGarden .plantsProfileImg { display: none; }
+        #profileGarden .plantsProfileInfoCol { width: 100% !important; }
+        #profileGarden .plantsProfileInfoCol .userplantGardenXPBar div { width: 90% !important; }
+
+        /*-----------------------------------forum 430px----------------------------*/
+        #forumOneColumn .threadHL, #forumOneColumn .commentHL { width: 100%; }
+        #forumOneColumn .threadCreated, #forumOneColumn .commentCreated { display: none; }
     }
 </style>
