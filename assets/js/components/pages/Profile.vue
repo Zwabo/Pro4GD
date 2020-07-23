@@ -548,25 +548,17 @@
 
         </div>
 
-
-        <div class="modal" tabindex="-1" role="dialog" id="awardModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">{{awardModalTitle}}</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times</span>
-                        </button>
-                        <div class="modal-body">
-                            {{awardModalImg}}
-                            {{awardModalText}}
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="bt bt-secondary" data-dismiss="moda">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!------------------------------------modal for awards------------------------------>
+        <div>
+            <b-modal id="modal-award" centered :title="awardModalTitle" ok-only>
+                <p class="my-4">
+                    <span class="modalImg"><img class="awardImage"
+                                                v-bind:src="'../' + awardModalImg"
+                                                v-bind:alt="awardModalText"
+                                                v-b-tooltip.hover :title="awardModalText"></span>
+                    <span class="modalHL">Glückwunsch!</span>
+                    <span class="modalText">{{awardModalText}}</span></p>
+            </b-modal>
         </div>
 
         <div style="display: none;">
@@ -825,7 +817,7 @@
             },
             goToFriend: function(username) {
                 this.$router.push({path: '/profile/' + username});
-                this.$router.go;
+                location.reload(true);
             },
 
             goToGarden: function() {
@@ -1127,12 +1119,14 @@
                     /*----------------------------------member awards----------------------------------------------------*/
                     let memberAward = null;
                     let memberAwardVar = null;
-                    let memberAwardMsg = null;
+                    let modalTitle = null;
+                    let modalMsg = null;
 
                     if (this.profileUser.memberAward === null) {
                         memberAward = "memberNew";
                         memberAwardVar = 1;
-                        memberAwardMsg = "Glückwunsch. Errungenschaft \"Mitglied geworden\" freigeschalten.";
+                        modalMsg = "Sie haben Errungenschaft \"Mitglied geworden\" freigeschalten.";
+                        modalTitle = "Mitglied geworden";
                     }
                     else if (this.profileUser.memberAward < 4) {
                         /*calculate difference between the dates*/
@@ -1144,28 +1138,37 @@
                         if (this.profileUser.memberAward === 1 && difference >= 3) {
                             memberAward = "memberBronce";
                             memberAwardVar = 2;
-                            memberAwardMsg = "Glückwunsch. Errungenschaft \"Bronze Mitglied\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Bronze Mitglied\" freigeschalten.";
+                            modalTitle = "Bronze Mitgliedschaft";
                         } else if (this.profileUser.memberAward === 2 && difference >= 6) {
                             memberAward = "memberSilver";
                             memberAwardVar = 3;
-                            memberAwardMsg = "Glückwunsch. Errungenschaft \"Silber Mitglied\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Silber Mitglied\" freigeschalten.";
+                            modalTitle = "Silber Mitgliedschaft";
                         } else if (this.profileUser.memberAward === 3 && difference >= 12) {
                             memberAward = "memberGold";
                             memberAwardVar = 4;
-                            memberAwardMsg = "Glückwunsch. Errungenschaft \"Gold Mitglied\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Gold Mitglied\" freigeschalten.";
+                            modalTitle = "Goldene Mitgliedschaft";
                         }
                     }
 
-                    if (memberAward !== null || memberAwardMsg !== null) {
+                    if (memberAward !== null || modalMsg !== null) {
                         this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', memberAward)
-                            .then(response => { this.profileUser = response.data; })
+                            .then(response => {
+                                this.profileUser = response.data;
+
+                                this.awardModalText = modalMsg;
+                                this.awardModalTitle = modalTitle;
+                                this.awardModalImg = this.profileUser.awards[this.profileUser.awards.length - 1].awardIcon;
+
+                                this.$bvModal.show('modal-award');
+                            })
                             .catch(error => { console.log(error); });
 
                         this.$http.put('/api/profile/' + this.profileUser.username + '/setMemberAward', memberAwardVar)
                             .then(response => { this.profileUser = response.data; })
                             .catch(error => { console.log(error); });
-
-                        alert(memberAwardMsg);
                     }
 
                     /*----------------------------------friends awards----------------------------------------------------*/
@@ -1173,64 +1176,82 @@
                     if (this.profileUser.friendsAward < 300) {
                         let friendsAward = null;
                         let friendsAwardVar = null;
-                        let friendsAwardMsg = null;
+                        let modalMsg = null;
+                        let modalTitle
 
                         if (this.profileUser.friendsAward === null && this.profileUser.counterFriends >= 1) {
                             friendsAward = "friendsOne";
                             friendsAwardVar = 1;
-                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"Erste Freundschaf geschlossen\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Erste Freundschaf geschlossen\" freigeschalten.";
+                            modalTitle = "Erse Freundschaft geschlossen";
                         } else if (this.profileUser.friendsAward === 1 && this.profileUser.counterFriends >= 5) {
                             friendsAward = "friendsFive";
                             friendsAwardVar = 5;
-                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"Fünf Freundschaften geschlossen\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Fünf Freundschaften geschlossen\" freigeschalten.";
+                            modalTitle = "Fünf Freundschaften geschlsosen";
                         } else if (this.profileUser.friendsAward === 5 && this.profileUser.counterFriends >= 10) {
                             friendsAward = "friendsTen";
                             friendsAwardVar = 10;
-                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"Zehn Freundschaften geschlossen\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Zehn Freundschaften geschlossen\" freigeschalten.";
+                            modalTitle = "Zehn Freundschaften geschlossen";
                         } else if (this.profileUser.friendsAward === 10 && this.profileUser.counterFriends >= 20) {
                             friendsAward = "friendsTwenty";
                             friendsAwardVar = 20;
-                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"Zwanzig Freundschaften geschlossen\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Zwanzig Freundschaften geschlossen\" freigeschalten.";
+                            modalTitle = "Zwanzig Freundschaften geschlossen";
                         } else if (this.profileUser.friendsAward === 20 && this.profileUser.counterFriends >= 50) {
                             friendsAward = "friendsFifty";
                             friendsAwardVar = 50;
-                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"50 Freundschaften geschlossen\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"50 Freundschaften geschlossen\" freigeschalten.";
+                            modalTitle ="50 Freundschaften geschlossen";
                         } else if (this.profileUser.friendsAward === 50 && this.profileUser.counterFriends >= 70) {
                             friendsAward = "friendsSeventy";
                             friendsAwardVar = 70;
-                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"70 Freundschaften geschlossen\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"70 Freundschaften geschlossen\" freigeschalten.";
+                            modalTitle = "70 Freundschaften geschlossen";
                         } else if (this.profileUser.friendsAward === 70 && this.profileUser.counterFriends >= 100) {
                             friendsAward = "friendsOnehundret";
                             friendsAwardVar = 100;
-                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"100 Freundschaften geschlossen\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"100 Freundschaften geschlossen\" freigeschalten.";
+                            modalTitle = "100 Freundschaften geschlossen";
                         } else if (this.profileUser.friendsAward === 100 && this.profileUser.counterFriends >= 150) {
                             friendsAward = "friendsOnehundretfifty";
                             friendsAwardVar = 150;
-                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"150 Freundschaften geschlossen\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"150 Freundschaften geschlossen\" freigeschalten.";
+                            modalTitle = "150 Freundschaften geschlossen";
                         } else if (this.profileUser.firendsAward === 150 && this.profileUser.counterFriends >= 200) {
                             friendsAward = "friendsTwohundret";
                             friendsAwardVar = 200;
-                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"200 Freundschaften geschlossen\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"200 Freundschaften geschlossen\" freigeschalten.";
+                            modalTitle = "200 Freundschaften geschlossen";
                         } else if (this.profileUser.friendsAward === 200 && this.profileUser.counterFriends >= 250) {
                             friendsAward = "friendsTwohundretfifty";
                             friendsAwardVar = 250;
-                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"250 Freundschaften geschlossen\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"250 Freundschaften geschlossen\" freigeschalten.";
+                            modalTitle = "250 Freundschaften geschlossen";
                         } else if (this.profileUser.friendsAward === 250 && this.profileUser.counterFriends >= 300) {
                             friendsAward = "friendsThreehundret";
                             friendsAwardVar = 300;
-                            friendsAwardMsg = "Glückwunsch. Errungenschaft \"300 Freundschaften geschlossen\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"300 Freundschaften geschlossen\" freigeschalten.";
+                            modalTitle = "300 Freundschaften geschlossen";
                         }
 
                         if (friendsAward !== null || friendsAwardVar !== null) {
                             this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', friendsAward)
-                                .then(response => { this.profileUser = response.data; })
+                                .then(response => {
+                                    this.profileUser = response.data;
+
+                                    this.awardModalText = modalMsg;
+                                    this.awardModalTitle = modalTitle;
+                                    this.awardModalImg = this.profileUser.awards[this.profileUser.awards.length - 1].awardIcon;
+
+                                    this.$bvModal.show('modal-award');
+                                })
                                 .catch(error => { console.log(error); });
 
                             this.$http.put('/api/profile/' + this.profileUser.username + '/setFriendsAward', friendsAwardVar)
                                 .then(response => { this.profileUser = response.data; })
                                 .catch(error => { console.log(error); });
-
-                            alert(friendsAwardMsg);
                         }
                     }
 
@@ -1252,36 +1273,47 @@
 
                         let livedAward = null;
                         let livedAwardVar = null;
-                        let livedAwardMsg = null;
+                        let modalMsg = null;
+                        let modalTitle = null;
 
                         if (this.profileUser.livedAward === null && difference >= 1) {
                             livedAward = "livedOneMonth";
                             livedAwardVar = 1;
-                            livedAwardMsg = "Glückwunsch. Errungenschaft \"Pflanze hat einen Monat überlebt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Pflanze hat einen Monat überlebt.\" freigeschalten.";
+                            modalTitle = "Ein Monat überlebt";
                         } else if (this.profileUser.livedAward === 1 && difference >= 3) {
                             livedAward = "livedThreeMonths";
                             livedAwardVar = 3;
-                            livedAwardMsg = "Glückwunsch. Errungenschaft \"Pflanze hat drei Monate überlebt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Pflanze hat drei Monate überlebt.\" freigeschalten.";
+                            modalTitle = "Drei Monate überlebt";
                         } else if (this.profileUser.livedAward === 3 && difference >= 6) {
                             livedAward = "livedSixMonths";
                             livedAwardVar = 6;
-                            livedAwardMsg = "Glückwunsch. Errungenschaft \"Pflanze hat sechs Monate überlebt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Pflanze hat sechs Monate überlebt.\" freigeschalten.";
+                            modalTitle = "Sechs Monate überlebt";
                         } else if (this.profileUser.livedAward === 6 && difference >= 12) {
                             livedAward ="livedTwelveMonths";
                             livedAwardVar = 12;
-                            livedAwardMsg = "Glückwunsch. Errungenschaft \"Pflanze hat ein Jahr überlebt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Pflanze hat ein Jahr überlebt.\" freigeschalten.";
+                            modalTitle = "Ein Jahr überlebt";
                         }
 
                         if (livedAward !== null || livedAwardVar !== null) {
                             this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', livedAward)
-                                .then(response => { this.profileUser = response.data; })
+                                .then(response => {
+                                    this.profileUser = response.data;
+
+                                    this.awardModalText = modalMsg;
+                                    this.awardModalTitle = modalTitle;
+                                    this.awardModalImg = this.profileUser.awards[this.profileUser.awards.length - 1].awardIcon;
+
+                                    this.$bvModal.show('modal-award');
+                                })
                                 .catch(error => { console.log(error); });
 
                             this.$http.put('/api/profile/' + this.profileUser.username + '/setLivedAward', livedAwardVar)
                                 .then(response => { this.profileUser = response.data; })
                                 .catch(error => { console.log(error); });
-
-                            alert(livedAwardMsg);
                         }
                     }
 
@@ -1290,64 +1322,79 @@
                     if (this.profileUserplants.length > 0 && this.profileUser.userplantAward < 500) {
                         let userplantAward = null;
                         let userplantAwardVar = null;
-                        let userplantAwardMsg = null;
+                        let modalMsg = null;
+                        let modalTitle = null;
 
                         if (this.profileUser.userplantAward === null && this.profileUser.counterPlantsAdded >= 1) {
                             userplantAward = "userplantOne";
                             userplantAwardVar = 1;
-                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"Eine Pflanze dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Eine Pflanze dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalTitle = "Erste Pflanzen zum Garten hinzugefügt";
                         } else if (this.profileUser.userplantAward === 1 && this.profileUser.counterPlantsAdded >= 5) {
                             userplantAward = "userplantFive";
                             userplantAwardVar = 5;
-                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"Fünf Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Fünf Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalTitle = "Fünf Pflanzen zum Garten hinzugefügt";
                         } else if (this.profileUser.userplantAward === 5 && this.profileUser.counterPlantsAdded >= 10) {
                             userplantAward = "userplantTen";
                             userplantAwardVar = 10;
-                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"Zehn Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Zehn Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalTitle = "Zehn Pflanzen zum Garten hinzugefügt";
                         } else if (this.profileUser.userplantAward === 10 && this.profileUser.counterPlantsAdded >= 20) {
                             userplantAward = "userplantTwenty";
                             userplantAwardVar = 20;
-                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"Zwanzig Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"Zwanzig Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalTitle = "Zwanzig Pflanzen zum Garten hinzugefügt";
                         } else if (this.profileUser.userplantAward === 20 && this.profileUser.counterPlantsAdded >= 50) {
                             userplantAward ="userplantFifty";
                             userplantAwardVar = 50;
-                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"50 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"50 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalTitle = "50 Pflanzen zum Garten hinzugefügt";
                         } else if (this.profileUser.userplantAward === 50 && this.profileUser.counterPlantsAdded >= 70) {
                             userplantAward = "userplantSeventy";
                             userplantAwardVar = 70;
-                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"70 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"70 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalTitle = "70 Pflanzen zum Garten hinzugefügt";
                         } else if (this.profileUser.userplantAward === 70 && this.profileUser.counterPlantsAdded >= 100) {
                             userplantAward = "userplantOnehundret";
                             userplantAwardVar = 100;
-                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"100 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"100 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalTitle = "100 Pflanzen zum Garten hinzugefügt.";
                         } else if (this.profileUser.userplantAward === 100 && this.profileUser.counterPlantsAdded >= 150) {
                             userplantAward = "userplantOnehundretfifty";
                             userplantAwardVar = 150;
-                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"150 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"150 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalTitle = "150 Pflanzen zum Garten hinzugefügt";
                         } else if (this.profileUser.userplantAward === 150 && this.profileUser.counterPlantsAdded >= 200) {
                             userplantAward = "userplantTwohundret";
                             userplantAwardVar = 200;
-                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"200 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"200 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalTitle = "200 Pflanzen zum Garten hinzugefügt";
                         } else if (this.profileUser.userplantAward === 200 && this.profileUser.counterPlantsAdded >= 250) {
                             userplantAward = "userplantTwohundretfifty";
                             userplantAwardVar = 250;
-                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"250 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"250 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalTitle = "250 Pflanzen zum Garten hinzugefügt";
                         } else if (this.profileUser.userplantAward === 250 && this.profileUser.counterPlantsAdded >= 300) {
                             userplantAward = "userplantThreehundret";
                             userplantAwardVar = 300;
-                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"300 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"300 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalTitle = "300 Pflanzen zum Garten hinzugefügt";
                         } else if (this.profileUser.userplantAward === 300 && this.profileUser.counterPlantsAdded >= 350) {
                             userplantAward = "userplantThreehundretfifty";
                             userplantAwardVar = 350;
-                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"350 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"350 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalTitle = "350 Pflanzen zum Garten hinzugefügt";
                         } else if (this.profileUser.userplantAward === 350 && this.profileUser.counterPlantsAdded >= 400) {
                             userplantAward = "userplantFourhundret";
                             userplantAwardVar = 400;
-                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"400 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"400 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalTitle = "400 Pflanzen zum Garten hinzugefügt";
                         } else if (this.profileUser.userplantAward === 400 && this.profileUser.counterPlantsAdded >= 500) {
                             userplantAward = "userplantFivehundret";
                             userplantAwardVar = 500;
-                            userplantAwardMsg = "Glückwunsch. Errungenschaft \"500 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalMsg = "Sie haben die Errungenschaft \"500 Pflanzen dem eigenen Garten hinzugefügt.\" freigeschalten.";
+                            modalTitle = "500 Pflanzen zum Garten hinzugefügt";
                         }
 
                         if (userplantAward !== null || userplantAwardVar !== null) {
@@ -1355,19 +1402,17 @@
                                 .then(response => {
                                     this.profileUser = response.data;
 
-                                    this.awardModalText = userplantAwardMsg;
-                                    this.awardModalTitle = userplantAward;
+                                    this.awardModalText = modalMsg;
+                                    this.awardModalTitle = modalTitle;
                                     this.awardModalImg = this.profileUser.awards[this.profileUser.awards.length - 1].awardIcon;
+
+                                    this.$bvModal.show('modal-award');
                                 })
                                 .catch(error => { console.log(error); });
 
                             this.$http.put('/api/profile/' + this.profileUser.username + '/setUserplantAddedAward', userplantAwardVar)
                                 .then(response => { this.profileUser = response.data; })
                                 .catch(error => { console.log(error); });
-
-                            $('#awardModal').modal('show');
-
-                            //alert(userplantAwardMsg);
                         }
                     }
 
@@ -1376,64 +1421,79 @@
                     if (this.profileUserplants.length > 0 && this.profileUser.counterPlantsWatered < 500) {
                         let wateredAward = null;
                         let wateredAwardVar = null;
-                        let wateredAwardMsg = null;
+                        let modalMsg = null;
+                        let modalTitle = null;
 
                         if (this.profileUser.wateredAward === null && this.profileUser.counterPlantsWatered >= 1) {
                             wateredAward = "wateredOne";
                             wateredAwardVar = 1;
-                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"Eine Pflanze gegossen.\" freigeschalten.";
+                            modalTitle = "Eine Pflanze gegossen.";
+                            modalMsg = "Sie haben die Errungenschaft \"Eine Pflanze gegossen\" freigechalten.";
                         } else if (this.profileUser.wateredAward === 1 && this.profileUser.counterPlantsWatered >= 5) {
                             wateredAward = "wateredFive";
                             wateredAwardVar = 5;
-                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"Fünf Pflanzen gegossen.\" freigeschalten.";
+                            modalTitle = "Fünf Pflanzen gegossen.";
+                            modalMsg = "Sie haben die Errungenschaft \"Fünf Pflanzen gegossen\" freigechalten.";
                         } else if (this.profileUser.wateredAward === 5 && this.profileUser.counterPlantsWatered >= 10) {
                             wateredAward = "wateredTen";
                             wateredAwardVar = 10;
-                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"Zehn Pflanzen gegossen.\" freigeschalten.";
+                            modalTitle = "Zehn Pflanzen gegossen.";
+                            modalMsg = "Sie haben die Errungenschaft \"Zehn Pflanzen gegossen\" freigechalten.";
                         } else if (this.profileUser.wateredAward === 10 && this.profileUser.counterPlantsWatered >= 20) {
                             wateredAward = "wateredTwenty";
                             wateredAwardVar = 20;
-                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"Zwanzig Pflanzen gegossen.\" freigeschalten.";
+                            modalTitle = "Zwanzig Pflanzen gegossen.";
+                            modalMsg = "Sie haben die Errungenschaft \"Zwanzig Pflanzen gegossen\" freigechalten.";
                         } else if (this.profileUser.wateredAward === 20 && this.profileUser.counterPlantsWatered >= 50) {
                             wateredAward ="wateredFifty";
                             wateredAwardVar = 50;
-                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"50 Pflanzen gegossen.\" freigeschalten.";
+                            modalTitle = "50 Pflanzen gegossen.";
+                            modalMsg = "Sie haben die Errungenschaft \"50 Pflanzen gegossen\" freigechalten.";
                         } else if (this.profileUser.wateredAward === 50 && this.profileUser.counterPlantsWatered >= 70) {
                             wateredAward = "wateredSeventy";
                             wateredAwardVar = 70;
-                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"70 Pflanzen gegossen.\" freigeschalten.";
+                            modalTitle = "70 Pflanzen gegossen.";
+                            modalMsg = "Sie haben die Errungenschaft \"70 Pflanzen gegossen\" freigechalten.";
                         } else if (this.profileUser.wateredAward === 70 && this.profileUser.counterPlantsWatered >= 100) {
                             wateredAward = "wateredOnehundret";
                             wateredAwardVar = 100;
-                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"100 Pflanzen gegossen.\" freigeschalten.";
+                            modalTitle = "100 Pflanzen gegossen.";
+                            modalMsg = "Sie haben die Errungenschaft \"100 Pflanzen gegossen\" freigechalten.";
                         } else if (this.profileUser.wateredAward === 100 && this.profileUser.counterPlantsWatered >= 150) {
                             wateredAward = "wateredOnehundretfifty";
                             wateredAwardVar = 150;
-                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"150 Pflanzen gegossen.\" freigeschalten.";
+                            modalTitle = "150 Pflanzen gegossen.";
+                            modalMsg = "Sie haben die Errungenschaft \"150 Pflanzen gegossen\" freigechalten.";
                         } else if (this.profileUser.wateredAward === 150 && this.profileUser.counterPlantsWatered >= 200) {
                             wateredAward = "wateredTwohundret";
                             wateredAwardVar = 200;
-                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"200 Pflanzen gegossen.\" freigeschalten.";
+                            modalTitle = "200 Pflanzen gegossen.";
+                            modalMsg = "Sie haben die Errungenschaft \"200 Pflanzen gegossen\" freigechalten.";
                         } else if (this.profileUser.wateredAward === 200 && this.profileUser.counterPlantsWatered >= 250) {
                             wateredAward = "wateredTwohundretfifty";
                             wateredAwardVar = 250;
-                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"250 Pflanzen gegossen.\" freigeschalten.";
+                            modalTitle = "250 Pflanzen gegossen.";
+                            modalMsg = "Sie haben die Errungenschaft \"250 Pflanzen gegossen\" freigechalten.";
                         } else if (this.profileUser.wateredAward === 250 && this.profileUser.counterPlantsWatered >= 300) {
                             wateredAward = "wateredThreehundret";
                             wateredAwardVar = 300;
-                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"300 Pflanzen gegossen.\" freigeschalten.";
+                            modalTitle = "300 Pflanzen gegossen.";
+                            modalMsg = "Sie haben die Errungenschaft \"300 Pflanzen gegossen\" freigechalten.";
                         } else if (this.profileUser.wateredAward === 300 && this.profileUser.counterPlantsWatered >= 350) {
                             wateredAward = "wateredThreehundretfifty";
                             wateredAwardVar = 350;
-                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"350 Pflanzen gegossen.\" freigeschalten.";
+                            modalTitle = "350 Pflanzen gegossen.";
+                            modalMsg = "Sie haben die Errungenschaft \"350 Pflanzen gegossen\" freigechalten.";
                         } else if (this.profileUser.wateredAward === 350 && this.profileUser.counterPlantsWatered >= 400) {
                             wateredAward = "wateredFourhundret";
                             wateredAwardVar = 400;
-                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"400 Pflanzen gegossen.\" freigeschalten.";
+                            modalTitle = "400 Pflanzen gegossen.";
+                            modalMsg = "Sie haben die Errungenschaft \"400 Pflanzen gegossen\" freigechalten.";
                         } else if (this.profileUser.wateredAward === 400 && this.profileUser.counterPlantsWatered >= 500) {
                             wateredAward = "wateredFivehundret";
                             wateredAwardVar = 500;
-                            wateredAwardMsg = "Glückwunsch. Errungenschaft \"500 Pflanzen gegossen.\" freigeschalten.";
+                            modalTitle = "500 Pflanzen gegossen.";
+                            modalMsg = "Sie haben die Errungenschaft \"500 Pflanzen gegossen\" freigechalten.";
                         }
 
                         if (wateredAward !== null || wateredAwardVar !== null) {
@@ -1442,60 +1502,68 @@
                                     this.profileUser = response.data;
                                     console.log(response.data);
 
-                                    this.awardModalText = wateredAwardMsg;
-                                    this.awardModalTitle = wateredAward;
+                                    this.awardModalText = modalMsg;
+                                    this.awardModalTitle = modalTitle;
                                     this.awardModalImg = this.profileUser.awards[this.profileUser.awards.length - 1].awardIcon;
 
-                                    $('#awardModal').modal('show');
+                                    this.$bvModal.show('modal-award');
                                 })
                                 .catch(error => { console.log(error); });
 
                             this.$http.put('/api/profile/' + this.profileUser.username + '/setWateredAward', wateredAwardVar)
                                 .then(response => { this.profileUser = response.data; console.log(response.data);})
                                 .catch(error => { console.log(error); });
-
-                            //alert(wateredAwardMsg);
                         }
                     }
 
                     /*----------------------------------xp rang awards----------------------------------------------------*/
-                    let lvlAward = null;
-                    let lvlAwardVar = null;
-                    let lvlAwardMsg = null;
-
-                    //console.log(this.profileUser.xp);
-                    //console.log(this.profileUser.username);
-
                     if (this.profileUser.lvlAward !== "GoldenerDaumen") {
+                        let lvlAward = null;
+                        let lvlAwardVar = null;
+                        let modalMsg = null;
+                        let modalTitle = null;
+
                         if (this.profileUser.xp >= 0 && this.profileUser.lvlAward === null) {
                             lvlAward = "lvlSproessling";
                             lvlAwardVar = "Sproessling";
-                            lvlAwardMsg ="Glückwunsch! Sie haben den Rang \"Sprössling\" erreicht!";
+                            modalMsg ="Sie haben den Rang \"Sprössling\" erreicht!";
+                            modalTitle = "Sprössling";
                         } else if (this.profileUser.xp >= 100 && this.profileUser.lvlAward === "Sproessling") {
                             lvlAward = "lvlHobbygaertner";
                             lvlAwardVar = "Hobbygaertner";
-                            lvlAwardMsg ="Glückwunsch! Sie haben den Rang \"Hobbygärtner\" erreicht!";
+                            modalMsg ="Sie haben den Rang \"Hobbygärtner\" erreicht!";
+                            modalTitle = "Hobbygärtner";
                         } else if (this.profileUser.xp >= 400 && this.profileUser.lvlAward === "Hobbygaertner") {
                             lvlAward = "lvlPflanzenfluesterer";
                             lvlAwardVar = "Pflanzenfluesterer";
-                            lvlAwardMsg = "Glückwunsch! Sie haben den Rang \"Pflanzenflüsterer\" erreicht!";
+                            modalMsg = "Sie haben den Rang \"Pflanzenflüsterer\" erreicht!";
+                            modalTitle = "Pflanzenflüsterer";
                         } else if (this.profileUser.xp >= 1000 && this.profileUser.lvlAward === "Pflanzenfluesterer") {
                             lvlAward = "lvlGoldenerDaumen";
                             lvlAwardVar = "GoldenerDaumen";
-                            lvlAwardMsg = "Glückwunsch! Sie haben den Rang \"Goldener Daumen\" erreicht!";
+                            modalMsg = "Sie haben den Rang \"Goldener Daumen\" erreicht!";
+                            modalTitle = "Goldener Daumen";
                         }
-                    }
 
-                    if (lvlAward !== null || lvlAwardVar !== null ){
-                        this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', lvlAward)
-                            .then(response => { this.profileUser = response.data; console.log(response.data);})
-                            .catch(error => { console.log(error); });
+                        if (lvlAward !== null || lvlAwardVar !== null ){
+                            this.$http.put('/api/profile/' + this.profileUser.username + '/addNewAward', lvlAward)
+                                .then(response => {
+                                    this.profileUser = response.data;
+                                    console.log(response.data);
 
-                        this.$http.put('/api/profile/' + this.profileUser.username + '/setLvlAward', lvlAwardVar)
-                            .then(response => { this.profileUser = response.data; console.log(response.data);})
-                            .catch(error => { console.log(error); });
+                                    this.awardModalText = modalMsg;
+                                    this.awardModalTitle = modalTitle;
+                                    this.awardModalImg = this.profileUser.awards[this.profileUser.awards.length - 1].awardIcon;
 
-                        alert(lvlAwardMsg);
+                                    this.$bvModal.show('modal-award');
+
+                                })
+                                .catch(error => { console.log(error); });
+
+                            this.$http.put('/api/profile/' + this.profileUser.username + '/setLvlAward', lvlAwardVar)
+                                .then(response => { this.profileUser = response.data; console.log(response.data);})
+                                .catch(error => { console.log(error); });
+                        }
                     }
                 }
             },
@@ -1567,6 +1635,25 @@
 
     /*rechte boxen centered*/
     .rightToLeft { padding-left: 2%; padding-right: 2%; }
+
+    /*modal style*/
+    .modal-header {
+        color: #97B753;
+        text-transform: uppercase;
+    }
+    .modal-body { padding: 3% 6%; }
+    .modal-footer .btn {
+        background-color: #97B753;
+        color: white;
+    }
+    .modal-footer .btn:hover {
+        background-color: #B8E269;
+        color: #707070;
+    }
+    .modal-footer .btn:active {
+        background-color: #707070;
+        color: white;
+    }
 
 
     /*-------------------------------upper profile part - header -------------------------------*/
@@ -1827,6 +1914,30 @@
     }
     #awardOneColumn .awardImage { width: 5%; }
     #awardOneColumn .awardTextDiv p { margin-bottom: 2%; }
+
+    /*modal*/
+    .modalImg {
+        display: block;
+        /*text-align: center !important;*/
+        text-align: -webkit-center !important;
+        margin-bottom: 10%;
+    }
+    .modalImg .awardImage {
+        display: block;
+        width: 40%;
+    }
+    .modalText {
+        display: block;
+        text-align: center;
+    }
+    .modalHL {
+        display: block;
+        font-weight: bolder;
+        color: #97B753;
+        text-align-last: center;
+        margin-bottom: 3%;
+        font-size: 130%;
+    }
 
     /*------------------------------Forum----------------------------------------*/
 
