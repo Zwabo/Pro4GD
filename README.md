@@ -13,6 +13,7 @@ Responsive Styles Finished
 - ProfilHeader
 - Profil
 - Plant
+- AddPlant
 
 ---
 ---
