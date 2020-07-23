@@ -4,7 +4,7 @@
             <div class="whiteLine"></div>
 
             <div class="row bgDarkGreen fontWhite addPlantTop">
-                <div class="col-lg-5 text-right">
+                <div class="col-lg-5 text-right logoCol">
                     <span id="dataSearchLogo">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 209.1 205.5" style="enable-background:new 0 0 209.1 205.5;" xml:space="preserve">
@@ -15,7 +15,7 @@
                         </svg>
                     </span>
                 </div>
-                <div class="col-lg-7 text-left"><h1 class="font-weight-light"><span class="font-weight-bolder text-uppercase">Plant</span><span class="text-uppercase">Base</span> <br>Datenbank</h1></div>
+                <div class="col-lg-7 text-left textCol"><h1 class="font-weight-light"><span class="font-weight-bolder text-uppercase">Plant</span><span class="text-uppercase">Base</span> <br>Datenbank</h1></div>
             </div>
             <div class="row" v-if="!checkRole()">
                 <div id="creditBox" class="col-lg-12">
@@ -747,9 +747,19 @@
             margin-top: -5%;
             margin-bottom: 3%;
         }
-
         .selectInputOne label, .selectInputTwo label, .selectInputThree label { font-size: 90%; }
         .selectInputOne .addPlantH6, .selectInputTwo .addPlantH6, .selectInputThree .addPlantH6 { font-size: 90%; }
+
+        .logoCol {
+            width: 100%;
+            text-align-last: center;
+        }
+        .textCol {
+            width: 100%;
+            text-align-last: center;
+        }
+
+        #dataSearchLogo svg { width: 10%; }
 
     }
 
@@ -757,6 +767,9 @@
     @media (max-width: 767.98px) {
         .fieldName { min-width: 30%; max-width: 30%; }
         .fieldInput { max-width: 70%; }
+
+        #dataSearchLogo svg { width: 12%; }
+        .textCol h1 { font-size: 180% !important; }
     }
 
     /* Extra small devices (portrait phones, less than 576px)*/
