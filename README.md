@@ -11,6 +11,8 @@ Responsive Styles Finished
 - Navigation
 - Home (- Rita Slider)
 - ProfilHeader
+- Profil
+- Plant
 
 ---
 ---

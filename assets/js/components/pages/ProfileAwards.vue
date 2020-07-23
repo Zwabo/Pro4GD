@@ -7,7 +7,7 @@
         <div class="privacy paddingNormalize marginLeftRight">
             <div class="container-fluid paddingNormalize">
                 <div class="row h3Margin">
-                    <h3 class="col-lg-8 siteHL">Errungenschaften <span class="desktop displaySmall">von {{profileUser.username}}</span></h3>
+                    <h3 class="col-lg-8 siteHL">Auszeichnungen <span class="desktop displaySmall">von {{profileUser.username}}</span></h3>
                     <div class="col-lg-4 siteBack">
                         <div class="backLinkDiv">
                             <router-link class="backLink" :to="'/profile/' + profileUser.username">
@@ -30,7 +30,7 @@
                     <div class="col-lg-6">
                         <div class="container-fluid paddingNormalize left">
                             <div v-if="memberAwards.length > 0">
-                                <h4>Mitglied Errungenschaften</h4>
+                                <h4>Mitglied Auszeichnungen</h4>
                                 <hr>
                                 <div class="awards" v-for="(award, index) in memberAwards">
                                     <img class="awardImage" v-bind:src="'/../' + award.awardIcon" v-bind:alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
@@ -39,7 +39,7 @@
                             </div>
 
                             <div v-if="lvlAwards.length > 0">
-                                <h4 >Rang Errungenschaften</h4>
+                                <h4 >Rang Auszeichnungen</h4>
                                 <hr>
                                 <div class="awards" v-for="(award, index) in lvlAwards">
                                     <img class="awardImage" v-bind:src="'/../' + award.awardIcon" :alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
@@ -48,7 +48,7 @@
                             </div>
 
                             <div v-if="friendsAwards.length > 0">
-                                <h4>Freundschaften Errungenschaften</h4>
+                                <h4>Freundschaften Auszeichnungen</h4>
                                 <hr>
                                 <div class="awards" v-for="(award, index) in friendsAwards">
                                     <img class="awardImage" v-bind:src="'/../' + award.awardIcon" :alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
@@ -61,7 +61,7 @@
                     <div class="col-lg-6">
                         <div class="container-fluid paddingNormalize right">
                             <div v-if="livedAwards.length > 0">
-                                <h4>Pflanzen Überlebt Errungenschaften</h4>
+                                <h4>Pflanzen Überlebt Auszeichnungen</h4>
                                 <hr>
                                 <div class="awards" v-for="(award, index) in livedAwards">
                                     <img class="awardImage" v-bind:src="'/../' + award.awardIcon" :alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
@@ -70,7 +70,7 @@
                             </div>
 
                             <div v-if="userplantAwards.length > 0">
-                                <h4>Pflanzen hinzugefügt Errungenschaften</h4>
+                                <h4>Pflanzen hinzugefügt Auszeichnungen</h4>
                                 <hr>
                                 <div class="awards" v-for="(award, index) in userplantAwards">
                                     <img class="awardImage" v-bind:src="'/../' + award.awardIcon" :alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
@@ -79,7 +79,7 @@
                             </div>
 
                             <div v-if="wateredAwards.length > 0">
-                                <h4>Pflanzen gewässert Errungenschaften</h4>
+                                <h4>Pflanzen gewässert Auszeichnungen</h4>
                                 <hr>
                                 <div class="awards" v-for="(award, index) in wateredAwards">
                                     <img class="awardImage" v-bind:src="'/../' + award.awardIcon" :alt="profileUser.username + award.altText" v-b-tooltip.hover :title="profileUser.username + award.altText">
