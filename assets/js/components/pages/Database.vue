@@ -299,12 +299,13 @@
 
         methods: {
             checkRole: function () {
-                if (this.loggedInUser.roles !== null) {
-                    // redirect auf login einfügen
-                    return true;
-                } else {
-                    return false;
+                let role = this.loggedInUser.roles;
 
+                for(let i = 0; i < this.loggedInUser.roles.length; i++) {
+                    console.log(this.loggedInUser.roles);
+                    if ((role[i] !=null)) {
+                        return true;
+                    }
                 }
             },
             chooseRandom: function () {

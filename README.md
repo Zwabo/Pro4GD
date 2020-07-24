@@ -1,3 +1,23 @@
+Responsive Styles Finished
+
+- Impressum
+- AGB
+- Kontakt
+- ProfileForum
+- Main Footer
+- Profile Awards
+- Login / LoginForm
+- Register / RegisterForm
+- Navigation
+- Home (- Rita Slider)
+- ProfilHeader
+- Profil
+- Plant
+- AddPlant
+
+---
+---
+
 
 Hey Pro4GD:
 

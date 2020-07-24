@@ -95,6 +95,28 @@ body {
     border: 2px solid white;
 }
 
+.buttonWhiteSmall {
+    background-color: white;
+    padding: 10px 14px;
+    color: #97B753;;
+    border: 2px solid #97B753;
+    border-radius: 10px;
+    font-size: 10pt;
+    margin-bottom: 2%;
+    margin-top: 15%;
+    padding: 3%;
+}
+.buttonWhiteSmall:hover {
+    background-color: #B8E269;
+    color: #707070;
+    border: 2px solid #B8E269;
+}
+.buttonWhiteSmall:active {
+    background-color: white;
+    color: #97B753;;
+    border: 2px solid white;
+}
+
 /*smaller Buttons*/
 .buttonIndexDarkGreen {
     background-color: #97B753;

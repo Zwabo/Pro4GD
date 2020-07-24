@@ -1,9 +1,10 @@
 <template>
     <div id="root">
         <div class="container-fluid ">
-
+            <div class="firstAfterMenue"></div>
             <div class="imprint marginLeftRight">
-                <h1 class="marginTopOnSite">Impressum</h1>
+
+                <h1>Impressum</h1>
 
                 <div class="row anschrift">
 
@@ -80,6 +81,7 @@
                         <li><span class="bold">Love</span>, Vector Market, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
                         <li><span class="bold">Flower</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
                         <li><span class="bold">Leaves</span>, Pixel perfect, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">List</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
                     </ul>
                 </div>
 
@@ -170,6 +172,7 @@
             </div>
 
         </div>
+        <div class="lastBeforeFooter"></div>
     </div>
 </template>
 

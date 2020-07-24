@@ -5,7 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     plantPictures_directory: '%kernel.project_dir%/public/images/plants'
-    userPictures_dicrectory: '%kernel.project_dir%/public/images/pictures'
+    userPictures_directory: '%kernel.project_dir%/public/images/pictures'
 
 services:
     # default configuration for services in *this* file

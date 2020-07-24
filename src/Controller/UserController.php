@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Thread;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,6 +11,8 @@ use App\Entity\User;
 use App\Entity\Userplant;
 use App\Entity\Award;
 use App\Entity\Plant;
+use App\Entity\Threads;
+use App\Entity\Comment;
 use Doctrine\ORM\EntityManagerInterface;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -77,7 +80,7 @@ class UserController extends AbstractController
 
         $plants = $this->getDoctrine()
             ->getRepository(Userplant::class)
-            ->findAll();
+            ->findBy(['user' => $userid]);
 
         $userplantsProfile = [];
 
@@ -106,7 +109,8 @@ class UserController extends AbstractController
                 $lastName = $request->getReceiver()->getLastName();
                 $level = $request->getReceiver()->getLevel();
                 $userPic = $request->getReceiver()->getUserPic();
-                //$xp = $request->getReciever()->getXP();
+                $xp = $request->getReceiver()->getXP();
+                $lvlAward = $request->getReceiver()->getLvlAward();
 
                 $friendData = [
                     'id' => $id,
@@ -115,7 +119,8 @@ class UserController extends AbstractController
                     'lastName' => $lastName,
                     'level' => $level,
                     'userPic' => $userPic,
-                    //'xp' => $xp
+                    'xp' => $xp,
+                    'lvlAward' => $lvlAward,
                 ];
                 array_push($friends, $friendData);
             }
@@ -128,7 +133,8 @@ class UserController extends AbstractController
                 $lastName = $request->getSender()->getLastName();
                 $level = $request->getSender()->getLevel();
                 $userPic = $request->getSender()->getUserPic();
-                //$xp = $request->getSender()->getXP();
+                $xp = $request->getSender()->getXP();
+                $lvlAward = $request->getSender()->getLvlAward();
 
                 $friendData = [
                     'id' => $id,
@@ -137,7 +143,8 @@ class UserController extends AbstractController
                     'lastName' => $lastName,
                     'level' => $level,
                     'userPic' => $userPic,
-                    //'xp' => $xp
+                    'xp' => $xp,
+                    'lvlAward' => $lvlAward,
                 ];
                 array_push($friends, $friendData);
             }
@@ -404,9 +411,9 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/api/profile/profilefriendxp/{friendname}", name="profilefriendxp", methods={"GET"})
+     * @Route("/api/profile/getFriendXP/{friendname}", name="getFriendXP", methods={"GET"})
      */
-    public function profilefriendxp($friendname, Request $request) : JsonResponse
+    public function getFriendXP($friendname, Request $request) : JsonResponse
     {
         $user = $this->getDoctrine()
             ->getRepository(User::class)
@@ -421,46 +428,92 @@ class UserController extends AbstractController
         return new JsonResponse($xp, Response::HTTP_OK);
     }
 
-/**
- * @Route("/profile", name="profile")
- */
-    /*public function profile()
-    {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-
-        /* @var \App\Entity\User $user */
-        /*$user = $this->getUser();
-
-        return $this->render('profile.html.twig', [
-            'controller_name' => 'UserController', 'user' => $user
-        ]);
-    }
     /**
-     * @Route("/profile/friends", name="profile_friends")
+     * @Route("/api/profile/getCreatedThreads/{userId}", name="getCreatedThreads", methods={"GET"})
+     *
+     **/
+    public function getCreatedThreads($userId, Request $request) : JsonResponse
+    {
+        $threads = $this->getDoctrine()
+            ->getRepository(Thread::class)
+            ->findBy(['user' => $userId]);
+
+        $threadAssoc = [];
+        foreach($threads as $thread) {
+            $thread = $thread->toAssoc();
+            array_push($threadAssoc, $thread);
+        }
+
+        return new JsonResponse($threadAssoc, Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/profile/getWrittenComments/{userId}", name="getWrittenComments", methods={"GET"})
      */
-   /* public function friends()
+    public function getWrittenComments($userId, Request $request) : JsonResponse
+    {
+        $comments =  $this->getDoctrine()
+            ->getRepository(Comment::class)
+            ->findBy(['user' => $userId]);
+
+        $commentsAssoc = [];
+        foreach($comments as $comment) {
+            $comment = $comment->toAssoc();
+            array_push($commentsAssoc, $comment);
+        }
+
+        return new JsonResponse($commentsAssoc, Response::HTTP_OK);
+    }
+
+
+    /**
+     * @Route("/api/profile/getThreadToComment/{commentId}", name="getThreadToComment", methods={"GET"})
+     */
+    public function getThreadToComment($commentId, Request $request) : JsonResponse
+    {
+        $comment =  $this->getDoctrine()
+            ->getRepository(Comment::class)
+            ->find($commentId);
+
+        if(!$comment) {
+            new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $thread = $comment->getThread();
+
+        return new JsonResponse($thread, Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/api/profile/setProfilePic/{userId}", name="setProfilePic", methods={"POST"})
+     */
+    public function setProfilePic($userId, Request $request) : JsonResponse
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        /** @var \App\Entity\User $user */
+        $user = $this->getUser();
 
-        /* @var \App\Entity\User $user */
-  /*      $user = $this->getUser();
+        $requestUser =  $this->getDoctrine()
+            ->getRepository(Comment::class)
+            ->find($userId);
 
-        $friends = array();
-        foreach($user->getOutgoingFriendRequests() as $request){
-            if($request->getConfirmed()){
-                array_push($friends, $request->getReceiver());
-            }
-        }
-        foreach($user->getIncomingFriendRequests() as $request){
-            if($request->getConfirmed()){
-                array_push($friends, $request->getSender());
-            }
+        if($requestUser != $user){
+            new JsonResponse([], Response::HTTP_FORBIDDEN);
         }
 
-        return $this->render('friends.html.twig', [
-            'controller_name' => 'UserController',
-            'user' => $user,
-            'friends' => $friends
-        ]);
-    }*/
+        $file = $request->files->get('file');
+
+        if (empty($file))
+        {
+            return new JsonResponse("No file specified",
+                Response::HTTP_UNPROCESSABLE_ENTITY, ['content-type' => 'text/plain']);
+        }
+
+        $fileName = $user->getUsername().'.'.$file->guessExtension();
+        $file->move($this->getParameter('userPictures_directory'), $fileName);
+        $user->setUserPic('/images/pictures/'.$fileName);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(),  Response::HTTP_OK);
+    }
 }

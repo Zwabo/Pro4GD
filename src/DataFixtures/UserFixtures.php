@@ -60,7 +60,7 @@ class UserFixtures extends Fixture
         $manager->persist($user);
 
         $this->addReference(self::TESTUSER, $user);
-
+        $manager->flush();
 
         $user2 = new User();
 
@@ -102,6 +102,7 @@ class UserFixtures extends Fixture
 
         $manager->persist($user2);
 
+        $manager->flush();
 
         $user3 = new User();
 

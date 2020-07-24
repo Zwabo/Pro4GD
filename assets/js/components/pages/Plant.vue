@@ -1,79 +1,83 @@
 <template>
     <div id="root">
         <div v-if="plantData != null" class="marginLeftRight">
+            <!-------------HL---------------->
             <div class="container-fluid">
-                <div class=" row">
+                <div class="row hlBig">
                     <h1 id="plantDataH1">{{ plantData.name }}</h1>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-3 paddingNormalize">
+                <!---------------------Plant Picture & Eckdaten------------------------>
+                <div class="row" id="baseInfo">
+
+                    <div class="col-lg-3 paddingNormalize" id="plantImgCol">
                         <div id="plantDataImg" class="container-fluid">
-                            <div><img :src="'../' + plantData.icon" /></div>
+                            <div><img :src="'../' + plantData.icon" :tilte="plantData.name" v-b-tooltip.hover :alt="plantData.name" /></div>
                         </div>
                     </div>
+                    <div class="hlSmall"><h1 id="plantDataH1">{{ plantData.name }}</h1></div>
 
-                    <div class="col-lg-9 selfAlignCenter">
+                    <div class="col-lg-9 selfAlignCenter" id="baseInfoCnt">
                         <div class="row">
-                            <div class="col-lg-4"><h5 class="plantDataH5">Lateinischer Name</h5></div>
-                            <div class="col-lg-8"><p class="plantDataPTop">{{ plantData.latinName}}</p></div>
+                            <div class="col-lg-4 baseInfoHL"><h5 class="plantDataH5">Lateinischer Name</h5></div>
+                            <div class="col-lg-8 baseInfoText"><p class="plantDataPTop">{{ plantData.latinName}}</p></div>
                         </div>
                         <div v-if="plantData.alternativeName != null" class="row">
-                            <div class="col-lg-4"><h5 class="plantDataH5">Alternative Namen</h5></div>
-                            <div class="col-lg-8"><p class="plantDataPTop">{{ plantData.alternativeName }}</p></div>
+                            <div class="col-lg-4 baseInfoHL"><h5 class="plantDataH5">Alternative Namen</h5></div>
+                            <div class="col-lg-8 baseInfoText"><p class="plantDataPTop">{{ plantData.alternativeName }}</p></div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4"><h5 class="plantDataH5">Gattung</h5></div>
-                            <div class="col-lg-8"><p class="plantDataPTop">{{ plantData.genus }}</p></div>
+                            <div class="col-lg-4 baseInfoHL"><h5 class="plantDataH5">Gattung</h5></div>
+                            <div class="col-lg-8 baseInfoText"><p class="plantDataPTop">{{ plantData.genus }}</p></div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4"><h5 class="plantDataH5">Kategorie</h5></div>
-                            <div class="col-lg-8"><p class="plantDataPToop">{{ plantData.categorySelect }}</p></div>
+                            <div class="col-lg-4 baseInfoHL"><h5 class="plantDataH5">Kategorie</h5></div>
+                            <div class="col-lg-8 baseInfoText"><p class="plantDataPTop">{{ plantData.categorySelect }}</p></div>
                         </div>
                         <div v-if="plantData.specialFeatureIcon != null" class="row">
-                            <div class="col-lg-4"><h5 class="plantDataH5">Besonderheit</h5></div>
-                            <div class="col-lg-8"><p class="plantDataPTop">{{ plantData.specialFeatureIcon }}</p></div>
+                            <div class="col-lg-4 baseInfoHL"><h5 class="plantDataH5">Besonderheit</h5></div>
+                            <div class="col-lg-8 baseInfoText"><p class="plantDataPTop">{{ plantData.specialFeatureIcon }}</p></div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4"><h5 class="plantDataH5">Pflegeaufwand</h5></div>
-                            <div class="col-lg-8"><p class="plantDataPTop">{{ plantData.careLevel }}</p></div>
+                            <div class="col-lg-4 baseInfoHL"><h5 class="plantDataH5">Pflegeaufwand</h5></div>
+                            <div class="col-lg-8 baseInfoText"><p class="plantDataPTop">{{ plantData.careLevel }}</p></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row" id="plantDataEckdaten">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" id="plantDataEckdantenLeft">
                         <div class="row">
                             <div class="col-lg-1 plantDataEckdatenIcons">
                                 <svg><use href="#locationIcon"></use></svg>
                             </div>
-                            <div class="col-lg-11 selfAlignCenter">{{ plantData.locationIcon }}</div>
+                            <div class="col-lg-11 selfAlignCenter plantDataEckdatenText">{{ plantData.locationIcon }}</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-1 plantDataEckdatenIcons">
                                 <svg><use href="#substratIcon"></use></svg>
                             </div>
-                            <div class="col-lg-11 selfAlignCenter">{{ plantData.substrateIcon }}</div>
+                            <div class="col-lg-11 selfAlignCenter plantDataEckdatenText">{{ plantData.substrateIcon }}</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-1 plantDataEckdatenIcons">
                                 <svg><use href="#wateringAmountIcon"></use></svg>
                             </div>
-                            <div class="col-lg-11 selfAlignCenter">{{ plantData.wateringAmout }}</div>
+                            <div class="col-lg-11 selfAlignCenter plantDataEckdatenText">{{ plantData.wateringAmount }}</div>
                         </div>
                         <div v-if="plantData.flowerColor != null" class="row">
                             <div class="col-lg-1 plantDataEckdatenIcons">
-                                <svg><use href="#flowerColorIcon"></use></svg>
+                                <svg><use href="#flowerColorIcon "></use></svg>
                             </div>
-                            <div class="col-lg-11 selfAlignCenter">{{ plantData.flowerColor }}</div>
+                            <div class="col-lg-11 selfAlignCenter plantDataEckdatenText">{{ plantData.flowerColor }}</div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" id="plantDataEckdatenRight">
                         <div class="row">
                             <div class="col-lg-1 plantDataEckdatenIcons selfAlignCenter">
                                 <svg><use href="#temperatureIcon"></use></svg>
                             </div>
-                            <div class="col-lg-11 selfAlignCenter">
+                            <div class="col-lg-11 selfAlignCenter plantDataEckdatenText">
                                 {{ plantData.temperatureIcon }}
                             </div>
                         </div>
@@ -81,7 +85,7 @@
                             <div class="col-lg-1 plantDataEckdatenIcons selfAlignCenter">
                                 <svg><use href="#fertiliserIcon"></use></svg>
                             </div>
-                            <div class="col-lg-11 selfAlignCenter">
+                            <div class="col-lg-11 selfAlignCenter plantDataEckdatenText">
                                 {{ plantData.fertiliserIcon }}
                             </div>
                         </div>
@@ -89,7 +93,7 @@
                             <div class="col-lg-1 plantDataEckdatenIcons selfAlignCenter">
                                 <svg><use href="#heightIcon"></use></svg>
                             </div>
-                            <div class="col-lg-11 selfAlignCenter">
+                            <div class="col-lg-11 selfAlignCenter plantDataEckdatenText">
                                 {{ plantData.heightIcon }}
                             </div>
                         </div>
@@ -323,6 +327,12 @@
 </script>
 
 <style scoped>
+    .h3Margin {
+        margin-top: 0.5em;
+    }
+    .hlSmall { display: none; }
+
+    /*Pflanzennamen*/
     #plantDataH1 {
         color: #707070;
         font-size: 130%;
@@ -333,6 +343,7 @@
         padding-left: 0.6em;
     }
 
+    /*allgemein*/
     .plantDataH5 {
         font-size: 100%;
         color: #97B753;
@@ -344,6 +355,7 @@
         padding: 0;
     }
 
+    /*plantimage*/
     #plantDataImg div {
         display: inline-block;
         border: 1px solid #707070;
@@ -356,6 +368,7 @@
         padding: 4%;
     }
 
+    /*icondaten*/
     #plantDataEckdaten, #plantDataDetails {
         margin-top: 2em;
     }
@@ -367,14 +380,102 @@
     #plantDataEckdaten .row {
         margin-bottom: 1em;
     }
-
     .plantDataEckdatenIcons svg {
         width: 2em;
         height: 2em;
         fill: #97B753;
     }
 
-    .h3Margin {
-        margin-top: 0.5em;
+    /*---------------------------------------Media Queries-----------------------------------------------*/
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
+
     }
+
+    /* Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
+        #plantImgCol { width: 30%; }
+        #baseInfoCnt { width: 70%; }
+
+        .baseInfoHL { width: 40%; }
+        .baseInfoText { width: 60%; }
+
+        .plantDataEckdatenIcons { width: 7%; }
+        .plantDataEckdatenText { width: 93%; }
+    }
+
+    /*Small devices (landscape phones, less than 768px)*/
+    @media (max-width: 767.98px) {
+        /*plantimage*/
+        #plantDataImg div { width: 7em; }
+        #plantDataImg img { height: 7em; }
+
+        #plantImgCol { width: 25%; }
+        #baseInfoCnt { width: 75%; }
+
+        .baseInfoHL {
+            width: 45%;
+            font-size: 90%;
+        }
+        .baseInfoText {
+            width: 55%;
+            font-size: 90%;
+        }
+    }
+
+    /* Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+        .hlSmall {
+            display: block;
+            margin-top: 7em;
+        }
+        .hlBig { display: none; }
+
+        #plantImgCol {
+            width: 45%;
+            margin-top: 4em;
+            margin-bottom: 2em;
+        }
+        #baseInfoCnt { width: 100%; }
+
+        #plantDataImg div { width: 10em; }
+        #plantDataImg img { height: 10em; }
+        #plantDataImg { margin-bottom: 4%; }
+
+        .baseInfoHL {
+            width: 45%;
+            font-size: 110%;
+            margin-bottom: 1%;
+        }
+        .baseInfoText {
+            width: 55%;
+            font-size: 110%;
+        }
+        .plantDataEckdatenIcons { width: 10%; }
+        .plantDataEckdatenText { width: 90%; }
+
+        #plantDataDetails {
+            padding-left: 3%;
+            padding-right: 3%;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .hlSmall { display: none; }
+        .hlBig { display: block; }
+
+        #plantImgCol {
+            width: 100%;
+            margin-top: 0;
+        }
+
+        .baseInfoHL { width: 100%; }
+        .baseInfoHL .plantDataH5 { margin-bottom: 0; }
+        .baseInfoText {
+            width: 100%;
+            margin-bottom: 1%;
+        }
+        .baseInfoText .plantDataPTop { margin-bottom: 4%; }
+    }
+
 </style>

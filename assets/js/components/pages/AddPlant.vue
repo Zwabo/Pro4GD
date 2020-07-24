@@ -2,8 +2,9 @@
     <div>
         <div class="container-fluid">
             <div class="whiteLine"></div>
+
             <div class="row bgDarkGreen fontWhite addPlantTop">
-                <div class="col-lg-5 text-right">
+                <div class="col-lg-5 text-right logoCol">
                     <span id="dataSearchLogo">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 209.1 205.5" style="enable-background:new 0 0 209.1 205.5;" xml:space="preserve">
@@ -14,13 +15,22 @@
                         </svg>
                     </span>
                 </div>
-                <div class="col-lg-7 text-left"><h1 class="font-weight-light"><span class="font-weight-bolder text-uppercase">Plant</span><span class="text-uppercase">Base</span> <br>Datenbank</h1></div>
+                <div class="col-lg-7 text-left textCol"><h1 class="font-weight-light"><span class="font-weight-bolder text-uppercase">Plant</span><span class="text-uppercase">Base</span> <br>Datenbank</h1></div>
             </div>
+            <div class="row" v-if="!checkRole()">
+                <div id="creditBox" class="col-lg-12">
+                    <h3 id="credit">Tut uns Leid!</h3>
+                    <p class="creditText">Du musst Administrator oder unterstützender Nutzer sein um Pflanzen in die Datenbank einfügen zu können!
+                    </p>
+                </div>
+            </div>
+
+            <div class="firstAfterHeader"></div>
 
             <div class="row" >
                 <div class="container-fluid marginLeftRight" >
 
-                    <form v-if="checkRole()">
+                    <form v-if="checkRole()" class="container-fluid paddingNormalize">
                         <h3 class="h3Margin search">Neue Pflanze hinzufügen</h3>
                         <div class="greenLine"></div>
 
@@ -34,70 +44,70 @@
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="Name" class="paddingNormalize marginNormalize" >Name*</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <input v-model="name" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="Name" placeholder="Pflanzenname" required>
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="Linkname" class="paddingNormalize marginNormalize" >Link Name*</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <input v-model="linkname" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="Linkname" placeholder="Link Name - z.B. aloeVera (plantBase/plant/aloeVera)" required>
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="alNamen" class="paddingNormalize marginNormalize">Alternative Namen</label>
                             </div>
-                            <div class="col-sm-10">
+                            <div class="col-sm-10 fieldInput">
                                 <input v-model="alternativeName" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="alNamen" placeholder="Alternativer Name">
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="LatinName" class="paddingNormalize marginNormalize">Lateinischer Namen*</label>
                             </div>
-                            <div class="col-sm-10">
+                            <div class="col-sm-10 fieldInput">
                                 <input v-model="latinName" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="LatinName" placeholder="Lateinischer Name">
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="alNamen" class="paddingNormalize marginNormalize" >Gattung*</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <input v-model="genus" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="gattung" placeholder="Pflanzengattung" required>
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="feature" class="paddingNormalize marginNormalize">Besonderheit</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <input v-model="specialFeatureIcon" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="feature" placeholder="Besonderheit">
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="plantCategory" class="paddingNormalize marginNormalize">Kategorie*</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <select v-model="categorySelect" class="form-control-sm searchBarDatabase DropdownFont
                                         selectBoxes inputPlantForm" id="plantCategory" > <!-- multiple-->
                                     <option v-model="categorySelectOptions" disabled selected >Pflegeaufwand wählen</option>
@@ -108,10 +118,10 @@
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="plantDfficulty" class="paddingNormalize marginNormalize" >Pflegeaufwand*</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <select v-model="careLevelSelect" class="form-control-sm searchBarDatabase DropdownFont
                                         selectBoxes inputPlantForm" id="plantDfficulty">
                                     <option v-model="careLevelSelectOptions" disabled selected >Pflegeaufwand wählen</option>
@@ -121,26 +131,35 @@
                             </div>
                         </div>
 
-                        <div class="greenLineThin"></div>
+                        <hr>
+
                         <h4 class="addPlantH4">Bilder*</h4>
                         <p>Jpg oder png zulässig.</p>
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label"><label for="plantPicture">Pflanzenbild*</label></div>
-                            <div class="col-lg-10"><input type="file" @change="onPlantFileSelected" name="plantPicture"
-                                                          id="plantPicture"></div>
+                            <div class="col-lg-2 col-form-label fieldName">
+                                <label for="plantPicture">Pflanzenbild*</label>
+                            </div>
+                            <div class="col-lg-10 fieldInput">
+                                <input class="inputPicture" type="file" @change="onPlantFileSelected" name="plantPicture" id="plantPicture">
+                            </div>
                         </div>
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label"><label for="plantBackground">Hintergrundbild*</label></div>
-                            <div class="col-lg-10"><input type="file" @change="onBackgroundFileSelected" name="plantBackground"
-                                                          id="plantBackground"></div>
+                            <div class="col-lg-2 col-form-label fieldName">
+                                <label for="plantBackground">Hintergrundbild*</label>
+                            </div>
+                            <div class="col-lg-10 fieldInput">
+                                <input class="inputPicture" type="file" @change="onBackgroundFileSelected"
+                                       name="plantBackground" id="plantBackground">
+                            </div>
                         </div>
 
-                        <div class="greyLineThin"></div>
+                        <hr>
+
                         <h4 class="addPlantH4">Information (Icons)</h4>
 
-                        <h5 class="addPlantH5">Standort*</h5>
+                        <h5 class="addPlantH5 standortH5">Standort*</h5>
                         <div class="row form-group">
-                            <div class="col-lg-5 paddingNormalize marginNormalize">
+                            <div class="col-lg-5 paddingNormalize marginNormalize selectInputOne">
                                 <div class="container-fluid">
                                     <h6 class="addPlantH6">Sonne</h6>
                                     <input v-model="locationIcon" value="sonnig" type="checkbox" id="sunny">
@@ -162,7 +181,7 @@
                                     <label for="noMiddaySun">keine Mittagssonne</label>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 selectInputTwo">
                                 <div class="container-fluid">
                                     <h6 class="addPlantH6">Helligkeit / Schatten</h6>
                                     <input v-model="locationIcon" value="hell" type="checkbox" id="bright">
@@ -181,7 +200,7 @@
                                     <label for="moderateShadow">mäßig Schatten</label>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-4 selectInputThree">
                                 <div class="container-fluid">
                                     <h6 class="addPlantH6">Jahreszeiten</h6>
                                     <input v-model="locationIcon" value="Winter: schattig" type="checkbox" id="winter-shadow">
@@ -194,22 +213,22 @@
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="temperature" class="paddingNormalize marginNormalize" >
                                     <h5 class="addPlantH5">Temperatur*</h5></label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <input v-model="temperatureIcon" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="temperature" placeholder="Temperatur" required>
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="plantSubstrat" class="paddingNormalize marginNormalize" ><h5
                                     class="addPlantH5">Substrat*</h5></label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <select v-model="substrateIconSelect" class="form-control-sm searchBarDatabase DropdownFont
                                     selectBoxes inputPlantForm" id="plantSubstrat" > <!--multiple-->
                                     <option v-model="substrateIconSelectOptions" disabled selected >Substrat wählen</option>
@@ -220,68 +239,69 @@
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="dung" class="paddingNormalize marginNormalize" >
                                     <h5 class="addPlantH5">Dünger*</h5></label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <input v-model="fertiliserIcon" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="dung" placeholder="Düngerinterval" required>
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="watering" class="paddingNormalize marginNormalize" >
                                     <h5 class="addPlantH5">Gießen*</h5></label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <input v-model="wateringAmount" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="watering" placeholder="Gießintervall" required>
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="size" class="paddingNormalize marginNormalize" >
                                     <h5 class="addPlantH5">Größe*</h5></label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <input v-model="heightIcon" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="size" placeholder="Maximale Pflanzengröße" required>
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="heyday" class="paddingNormalize marginNormalize">
                                     <h5 class="addPlantH5">Blütezeit</h5></label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <input v-model="heydayIcon" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="heyday" placeholder="Blütezeit der Pflanze">
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="color" class="paddingNormalize marginNormalize">
                                     <h5 class="addPlantH5">Farbe</h5></label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <input v-model="flowerColor" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="color" placeholder="Blütenfarben (bitte Eintragen, wenn Blütezeit vorhanden">
                             </div>
                         </div>
 
-                        <div class="greyLineThin"></div>
+                        <hr>
+
                         <h4 class="addPlantH4">Beschreibungen</h4>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="shortDescription" class="paddingNormalize marginNormalize" >Kurzbeschreibung*</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <textarea v-model="shortDescription" type="text"
                                           class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="shortDescription" placeholder="Kurzbeschreibung eingeben" required></textarea>
@@ -289,20 +309,20 @@
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="tippsInfo" class="paddingNormalize marginNormalize" >Pflegetipps*</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <textarea v-model="careTips" type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="tippsInfo" placeholder="Pflegetipps eingeben" required></textarea>
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="specialFeaturesInfo" class="paddingNormalize marginNormalize">Besonderheiten</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <textarea v-model="specialFeaturesAddinfo" type="text"
                                           class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="specialFeaturesInfo" placeholder="Besonderheiten Langbeschreibung"></textarea>
@@ -310,20 +330,20 @@
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="idealLocationInfo" class="paddingNormalize marginNormalize" >Idealer Standort*</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <textarea v-model="locationAddinfo" type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="idealLocationInfo" placeholder="Idealer Standort Langbeschreibung" required></textarea>
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="temperatureInfo" class="paddingNormalize marginNormalize">Temperatur</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <textarea v-model="temperatureAddinfo" type="text"
                                           class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="temperatureInfo" placeholder="Temperatur Langbeschreibung"></textarea>
@@ -331,20 +351,20 @@
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="potInfo" class="paddingNormalize marginNormalize">Topf</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <textarea v-model="pot" type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="potInfo" placeholder="Umsetzung und Aufbewahrung Langbeschreibung"></textarea>
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="wateringInfo" class="paddingNormalize marginNormalize">Wasserbedarf</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <textarea v-model="wateringAmountAddinfo" type="text"
                                           class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="wateringInfo" placeholder="Wasserbedarf Langbeschreibung"></textarea>
@@ -352,10 +372,10 @@
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="soilInfo" class="paddingNormalize marginNormalize">Erde</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <textarea v-model="substrateAddinfo" type="text"
                                           class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="soilInfo" placeholder="Erde Langbeschreibung"></textarea>
@@ -363,10 +383,10 @@
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="fertilizerInfo" class="paddingNormalize marginNormalize">Dünger</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <textarea v-model="fertiliserAddinfo" type="text"
                                           class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="fertilizerInfo" placeholder="Dünger Langbeschreibung"></textarea>
@@ -374,10 +394,10 @@
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-lg-2 col-form-label">
+                            <div class="col-lg-2 col-form-label fieldName">
                                 <label for="heydayInfo" class="paddingNormalize marginNormalize">Blütezeit</label>
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 fieldInput">
                                 <textarea v-model="heydayAddinfo" type="text" class="form-control-sm searchBarDatabase textareaPlantForm"
                                           id="heydayInfo" placeholder="Blütezeit Langbeschreibung"></textarea>
                             </div>
@@ -394,6 +414,7 @@
             </div>
 
         </div>
+        <div class="lastBeforeFooter"></div>
     </div>
 
 </template>
@@ -406,7 +427,7 @@
                 errors: [],
 
                 // Eckdaten
-                loggedInUser: {},
+                loggedInUser: {roles:[]},
                 name: null,
                 linkname: null,
                 alternativeName: null,
@@ -515,13 +536,19 @@
                 if(this.loggedInUser == null){
                     this.$router.push('/login');
                 }
+
+
         },
+
         methods: {
             checkRole: function () {
-                if ((this.loggedInUser.roles =='ROLE_ADMIN') || (this.loggedInUser.roles == 'ROLES_SUPPORT_USER') ) {
-                    return true;
-                } else {
-                    return false;
+                let role = this.loggedInUser.roles;
+
+                for(let i = 0; i < this.loggedInUser.roles.length; i++) {
+                    console.log(this.loggedInUser.roles);
+                    if ((role[i] =='ROLE_ADMIN') || (role[i] == 'ROLE_SUPPORT_USER') ) {
+                        return true;
+                    }
                 }
             },
             addPlantCreateNew: function(e) {
@@ -582,7 +609,11 @@
                         // this will be set in the background, just dummy code for now
                         icon: "images/plants/Aloe.png",
                         windowIcon: "images/plants/AloeBackground.png",
-                    })
+                    }), {
+                        headers: {
+                            'Contnet-Type': 'multipart/form-data'
+                        }
+                    }
                         .then(response => {
                             //this.savePlantPicture(response.data, this.selectedPlantFile);
                         })
@@ -633,6 +664,7 @@
 
 
 <style scoped>
+    .firstAfterHeader { margin-top: 4%; }
 
     #dataSearchLogo svg {
         width: 20%;
@@ -663,6 +695,105 @@
 
     .selectBoxes {
         text-align-last: center;
+    }
+
+    /*info box für nicht administratoren*/
+    #creditBox {
+        background-color: white;
+        padding: 10px;
+        border-radius: 0;
+    }
+    #creditBox .creditText{
+        margin-left:5%;
+        margin-right:8%;
+        font-size:90%;
+        color: #707070;
+    }
+    #creditBox #credit{
+        margin-left:5%;
+        margin-top:7%;
+        font-size: 120%;
+        color: #707070;
+    }
+
+    /*select boxes area*/
+    .selectInputOne {
+        margin-bottom: 3%;
+    }
+    .standortH5 { margin-top: 5%; }
+
+
+    /*---------------------------------------Media Queries-----------------------------------------------*/
+    @media (max-width: 1350px) {
+        .fieldName { min-width: 23%; }
+        .fieldInput { max-width: 77%; }
+    }
+
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
+        .fieldName { min-width: 23%; }
+        .fieldInput { max-width: 77%; }
+    }
+
+    /* Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
+        .fieldName { min-width: 27%; max-width: 27%; }
+        .fieldInput { max-width: 73%; }
+
+        .selectInputOne { width: 60%; }
+        .selectInputTwo { width: 40%; }
+        .selectInputThree {
+            padding-left: 62%;
+            margin-top: -5%;
+            margin-bottom: 3%;
+        }
+        .selectInputOne label, .selectInputTwo label, .selectInputThree label { font-size: 90%; }
+        .selectInputOne .addPlantH6, .selectInputTwo .addPlantH6, .selectInputThree .addPlantH6 { font-size: 90%; }
+
+        .logoCol {
+            width: 100%;
+            text-align-last: center;
+        }
+        .textCol {
+            width: 100%;
+            text-align-last: center;
+        }
+
+        #dataSearchLogo svg { width: 10%; }
+
+    }
+
+    /*Small devices (landscape phones, less than 768px)*/
+    @media (max-width: 767.98px) {
+        .fieldName { min-width: 30%; max-width: 30%; }
+        .fieldInput { max-width: 70%; }
+
+        #dataSearchLogo svg { width: 12%; }
+        .textCol h1 { font-size: 180% !important; }
+    }
+
+    /* Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+        .fieldName {
+            min-width: 100%;
+            max-width: 100%;
+            font-size: 120%;
+        }
+        .fieldInput { max-width: 100%; }
+
+        .selectInputOne { width: 100%; }
+        .selectInputTwo {
+            width: 100%;
+            padding-left: 0;
+            margin-bottom: 3%;
+        }
+        .selectInputThree {
+            width: 100%;
+            padding-left: 0;
+            margin-top: 0;
+        }
+        .selectInputOne label, .selectInputTwo label, .selectInputThree label { font-size: 100%; }
+        .selectInputOne .addPlantH6, .selectInputTwo .addPlantH6, .selectInputThree .addPlantH6 { font-size: 100%; }
     }
 
 </style>

@@ -7,6 +7,8 @@ import Logout from './components/pages/Logout';
 import Userplant from "./components/pages/Userplant";
 import Garden from "./components/pages/Garden";
 import Profile from "./components/pages/Profile";
+import ProfileForum from "./components/pages/ProfileForum";
+import ProfileAwards from "./components/pages/ProfileAwards";
 import Friends from "./components/pages/Friends";
 import Plant from "./components/pages/Plant";
 import News from "./components/pages/News";
@@ -38,6 +40,8 @@ const router = new VueRouter({
         {path:'/forum/:id', name:'thread', component:Thread},
         {path:'/garden', name:'data', component:Garden},
         {path: '/profile/:username', name:'profile', component:Profile},
+        {path: '/profile/:username/forum', name:'profileForum', component:ProfileForum},
+        {path: '/profile/:username/awards', name:'profileAwards', component:ProfileAwards},
         {path:'/friends', name:'friends', component:Friends},
         {path: '/plant/:linkname', name:'plantData', component:Plant},
         {path: '/news', name:'news', component:News},

@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use \Datetime;
 
 class RegistrationController extends AbstractController
 {
@@ -83,10 +84,13 @@ class RegistrationController extends AbstractController
             $user->setFirstName($params["firstName"]);
             $user->setLastName($params["lastName"]);
             $user->setXP(0);
-
+            $user->setUserPic("/images/pictures/defaultImg.jpg");
             $user->setLevel(0);
             $user->setRoles(["ROLE_USER"]);
 
+            $timeCreated = new DateTime('NOW');
+            $user->setCreated($timeCreated);
+            $user->setDateBirth($timeCreated);
             $errors = $validator->validate($user);
             if(count($errors) > 0){
                 return new JsonResponse((string) $errors, Response::HTTP_CONFLICT);

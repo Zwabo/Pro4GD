@@ -1,8 +1,9 @@
 <template>
     <div id="root" style="margin: 0;">
+        <div class="firstAfterHeader"></div>
         <div class="container-fluid paddingLeftRight">
             <div class="contact container-fluid paddingNormalize ">
-                <h1 class="marginTopOnSite">Kontakt</h1>
+                <h1>Kontakt</h1>
 
                 <h3 class="h3Margin">Anschrift</h3>
                 <div class="greenLine"></div>
@@ -24,23 +25,23 @@
                     <div v-if="sent == true" class="paddingNormalize">Ihre Nachricht wurde vesendet.</div>
                     <div type="hidden" name="contactNr"></div>
                     <div class="row">
-                        <div class="col-lg-1 paddingNormalize"><label for="firstname">Vorname</label></div>
-                        <div class="col-lg-11 paddingNormalize"><input class="inputFields" type="text" id="firstname" name="firstname" placeholder="Vorname" required></div>
+                        <div class="col-lg-2 paddingNormalize left"><label for="firstname">Vorname</label></div>
+                        <div class="col-lg-10 paddingNormalize right"><input class="inputFields" type="text" id="firstname" name="firstname" placeholder="Vorname" required></div>
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-1 paddingNormalize"><label for="lastname">Nachname</label></div>
-                        <div class="col-lg-11 paddingNormalize"><input class="inputFields" type="text" id="lastname" name="lastname" placeholder="Nachname" required></div>
+                        <div class="col-lg-2 paddingNormalize left"><label for="lastname">Nachname</label></div>
+                        <div class="col-lg-10 paddingNormalize right"><input class="inputFields" type="text" id="lastname" name="lastname" placeholder="Nachname" required></div>
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-1 paddingNormalize"><label for="email">EMail</label></div>
-                        <div class="col-lg-11 paddingNormalize"><input class="inputFields" type="email" id="email" name="email" placeholder="EMail" required></div>
+                        <div class="col-lg-2 paddingNormalize left"><label for="email">EMail</label></div>
+                        <div class="col-lg-10 paddingNormalize right"><input class="inputFields" type="email" id="email" name="email" placeholder="EMail" required></div>
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-1 paddingNormalize"><label for="country">Land</label></div>
-                        <div class="col-lg-11 paddingNormalize">
+                        <div class="col-lg-2 paddingNormalize left"><label for="country">Land</label></div>
+                        <div class="col-lg-10 paddingNormalize right">
                             <select id="country" class="dropDowns" name="country">
                                 <option value="---">---</option>
                                 <option value="Österreich">Österreich</option>
@@ -50,8 +51,8 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-1 paddingNormalize"><label for="subject">Betreff</label></div>
-                        <div class="col-lg-11 paddingNormalize">
+                        <div class="col-lg-2 paddingNormalize left"><label for="subject">Betreff</label></div>
+                        <div class="col-lg-10 paddingNormalize right">
                             <select id="subject" class="dropDowns" name="subject">
                                 <option value="---">---</option>
                                 <option value="Probleme beim Einloggen">Probleme beim Einloggen</option>
@@ -62,11 +63,13 @@
                         </div>
                     </div>
 
-                    <div class="row"><label for="message">Nachricht</label></div>
+                    <div class="row"><label for="message" class="labelMailMessage">Nachricht</label></div>
                     <div class="row "><textarea required id="message" class="mailMessage" name="message" placeholder="Nachricht schreiben"></textarea></div>
 
-                    <div class="row">
-                        <input id="submit" type="submit" value="Senden">
+                    <div class="row float-right">
+                        <div class="submitDiv">
+                            <input id="submit" type="submit" value="Senden" class="buttonDarkGreen">
+                        </div>
                         <!--<button type="submit">Senden</button>-->
                     </div>
 
@@ -74,6 +77,7 @@
             </div>
 
         </div>
+        <div class="lastBeforeFooter clearfix"></div>
     </div>
 </template>
 
@@ -133,6 +137,10 @@
         padding: 0.5%;
         margin-bottom: 2%;
     }
+    .labelMailMessage {
+        margin-top: 2%;
+        margin-bottom: 1%;
+    }
 
     .inputFields {
         width: 40%;
@@ -151,8 +159,29 @@
         background-color: #F5F5F5;
     }
 
-    #submit {
+    .right input, .right select { padding: 1% 2%; }
+
+    /*---------------------------------------Media Queries-----------------------------------------------*/
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
+        .left { width: 30%; }
+        .right { width: 70%; }
+        .right input { width: 80%; }
+        .right select { width: 80%; }
+    }
+
+    /* Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
 
     }
 
+    /*Small devices (landscape phones, less than 768px)*/
+    @media (max-width: 767.98px) {
+
+    }
+
+    /* Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+
+    }
 </style>

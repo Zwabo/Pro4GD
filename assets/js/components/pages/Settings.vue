@@ -6,7 +6,7 @@
             <div class="container-fluid">
 
                 <!-- upper profile part -->
-                <div class="row bgDarkGrey fontWhite" id="userInfoCnt">
+                <div class="row bgDarkGrey fontWhite" id="userHeader">
                     <div class="col-lg-4" id="userPicCnt">
                         <img class="userPicture" v-bind:src="profileUser.userPic">
                     </div>

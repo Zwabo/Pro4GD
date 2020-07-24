@@ -4,76 +4,87 @@
 
         <div class="container-fluid">
 
+            <div class="whiteLine"></div>
+
             <div class="row bgDarkGreen fontWhite rowsIndexWelcome">
                 <div class="container-fluid">
-                    <div class="row" >
-                        <div><svg id="indexLogo"><use href="#logoIndex"></use></svg></div>
+                    <!-----------------------großes Logo ---------------------------------------->
+                    <div v-if="loggedUser  === null" class="row" id="indexLogo">
+                        <div><svg><use href="#logoIndex"></use></svg></div>
                     </div>
-                    <div class="row paddingLeftRight">
+
+                    <!-----------------------------------wilkommen handy download----------------------->
+                    <div class="row paddingLeftRight" id="welcomeRow">
+
+                        <!----------------------------------------links - Willkommen/Login----------------------->
                         <div class="col-lg-6 selfAlignCenter">
 
                             <h1 id="h1Start">Willkommen</h1>
-                            <div v-if="loggedUser == null">
 
+                            <!-------------------------------------Login formular----------------------------->
+                            <div v-if="loggedUser == null">
                                 <form method="post" @submit="submitFormIndex" id="loginIndex">
 
                                     <div v-if="errorIndex" class="alert alert-danger">{{ errorIndex }}</div>
 
-                                    <div class="mb-3">
-                                        <p>Du bist nicht eingelogged.</p>
-                                    </div>
-
                                     <div class="container-fluid">
                                         <div class="row">
-                                            <label for="inputEmail">Email</label>
-                                            <input v-model="emailIndex" placeholder="email@plantbase.com" type="email" value="" name="email" id="inputEmail" class="form-control" required autofocus>
+                                            <label for="inputEmail" class="loginindexLabel">Email</label>
+                                            <input v-model="emailIndex" placeholder="email@plantbase.com" type="email"
+                                                   value="" name="email" id="inputEmail" class="form-control loginIndexInput" required autofocus>
                                         </div>
                                         <div class="row">
-                                            <label for="inputPassword">Password</label>
-                                            <input v-model="passwordIndex" placeholder="************" type="password" name="password" id="inputPassword" class="form-control" required>
+                                            <label for="inputPassword" class="loginIndexLabel">Password</label>
+                                            <input v-model="passwordIndex" placeholder="************" type="password" name="password"
+                                                   id="inputPassword" class="form-control loginIndexInput" required>
                                         </div>
                                     </div>
 
-                                    <button class="btn btn-lg btn-primary buttonWhiteIndex float-right" type="submit">
+                                    <button class="btn btn-lg btn-primary buttonWhiteIndex float-right loginIndexButton" type="submit">
                                         Einloggen
                                     </button>
                                 </form>
                             </div>
 
-                            <div v-else>
-                                <p class="text-center">{{ loggedUser.username }}
-                                <router-link to="/logout"  id="naviLogo">
-                                    Logout
-                                </router-link>
+                            <div v-else class="loggedInIndex">
+                                <p class="text-center">
+                                    <span id="loginText">
+                                        Sie sind als
+                                        <router-link :to="'/profile/' + loggedUser.username" class="profileLink">
+                                            {{loggedUser.username}} </router-link>
+                                        eingeloggt.
+                                    </span>
+                                    <span id="logoutTextLink">
+                                        <router-link to="/logout"  id="naviLogo" class="logoutButton">Ausloggen</router-link>
+                                    </span>
                                 </p>
                             </div>
-
                         </div>
 
-                        <div class="col-lg-1 whiteLineVert"></div>
+                        <div class="whiteLine oneColumn"></div>
 
-                        <div class ="col-lg-3 selfAlignCenter">
-
+                        <!---------------------------------------download app------------------------------>
+                        <div class ="col-lg-3 selfAlignCenter" id="phoneImg">
                             <div><img id="handyImg" src="/images/plantBase/PhoneMockup.png"></div>
                         </div>
 
-                        <div class="col-lg-2 text-center selfAlignCenter">
-                            <h3>Downloade JETZT!</h3>
+                        <div class="col-lg-3 text-center selfAlignCenter phoneAppDownload">
+                            <h3 id="dowloadNow">Downloade JETZT!</h3>
                             <p id="pIndexDownload">Lade dir PlantBase jetzt auf dein Handy!</p>
                             <button class="buttonWhiteIndex">Download</button>
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <div class="row paddingLeftRight rowsIndex">
+            <!-----------------------------------über plantbase----------------------->
+            <div class="row paddingLeftRight rowsIndex" id="plantbaseInfo">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-2 selfAlignCenter">
+                        <div class="col-lg-3 selfAlignCenter aloePicture">
                             <img id="indexAloe" src="/images/plants/Aloe.png">
                         </div>
-                        <div class="col-lg-10">
+                        <div class="col-lg-9 selfAlignCenter plantbaseInfoText">
                             <div class="container-fluid">
                                 <h3 class="h3Index fontDarkGreen text-center">Über <span class="fontBold">Plant</span>Base</h3>
                                 <p class="text-center pIndex">Mit <span class="fontUpperCase">PlantBase</span> soll eine Seite angeboten werden, die allen Pflanzenliebhabern und -haltern, oder denen die es gern noch werden möchten, eine Unterstützung bieten. Hierbei wird großes Augenmerk auf unsere Angebote gelegt, welches den Nutzern von <span class="fontUpperCase">PlantBase</span> eine aktive Hilfe - mit Erinnerungsfunktionen, Tipps und Tricks, täglichen Neuigkeiten und vieles mehr - bieten kann. Darüber hinaus bietet <span class="fontUpperCase">PlantBase</span> für ihre Community auch eine geeignete Plattform, um sich gegenseitig Auszutauschen, zu Helfen und Anzuspornen. Die ganzen Funktionen von <span class="fontUpperCase">PlantBase</span> können auch ganz einfach über die App von zuhause aus verwendet werden.</p>
@@ -83,16 +94,18 @@
                 </div>
             </div>
 
-            <div class="row paddingLeftRight bgDarkGreen fontWhite rowsIndex">
+            <!-----------------------------------angebot----------------------->
+            <div class="row paddingLeftRight bgDarkGreen fontWhite rowsIndex" id="offerRowHL">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <h3 class="h3Index">Unser <span class="fontBold">Angebot</span></h3>
                     </div>
 
-                    <div class="row justify-content-center">
-                        <div class="col-lg-2">
+                    <div class="row justify-content-center" id="offerRowElements">
+                        <!-------------------------Bewässerungshilfe------------------------>
+                        <div class="col-lg-2 wateringHelp" @click="waterClick">
                             <div class="container-fluid" >
-                                <div class="row">
+                                <div class="row offerIcon">
                                     <div class="indexIconRotation">
                                         <div id="indexWateringCan" class="indexIcon text-center">
                                             <svg @click="waterClick" xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
@@ -105,14 +118,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row justify-content-center">
+                                <div class="row text-center offerText">
                                     <p class="pIndex">Bewässerungshilfe</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2">
+
+                        <!-------------------------Tipps und Tricks------------------------>
+                        <div class="col-lg-2 tipsTricks" @click="tippsClick">
                             <div class="container-fluid">
-                                <div class="row">
+                                <div class="row offerIcon">
                                     <div class="indexIconRotation">
                                         <div id="indexIdea" class="indexIcon text-center">
                                             <svg @click="tippsClick" xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
@@ -127,14 +142,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row justify-content-center">
+                                <div class="row text-center offerText">
                                     <p class="pIndex">Tipps und Tricks</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2">
+
+                        <!-------------------------Eigener Garten------------------------>
+                        <div class="col-lg-2 userGarden" @click="gardenClick">
                             <div class="container-fluid">
-                                <div class="row">
+                                <div class="row offerIcon">
                                     <div class="indexIconRotation">
                                         <div id="indexPlant" class="indexIcon text-center">
                                             <svg @click="gardenClick" xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
@@ -153,14 +170,16 @@
 
                                     </div>
                                 </div>
-                                <div class="row justify-content-center">
+                                <div class="row text-center offerText">
                                     <p class="pIndex">Eigener Garten</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2">
-                            <div class="container-fluid" id="indexOffer">
-                                <div class="row">
+
+                        <!-------------------------Erinnerungen------------------------>
+                        <div class="col-lg-2 userReminder" @click="reminderClick">
+                            <div class="container-fluid">
+                                <div class="row offerIcon">
                                     <div class="indexIconRotation">
                                         <div id="indexBell" class="indexIcon text-center">
                                             <svg @click="reminderClick" xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
@@ -174,14 +193,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row justify-content-center">
+                                <div class="row text-center offerText">
                                     <p class="pIndex">Erinnerungen</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2">
-                            <div class="container-fluid" id="indexOffer">
-                                <div class="row">
+
+                        <!-------------------------Community------------------------>
+                        <div class="col-lg-2 community" @click="communityClick" >
+                            <div class="container-fluid">
+                                <div class="row offerIcon">
                                     <div class="indexIconRotation">
                                         <div id="indexCommunity" class="indexIcon text-center">
                                             <svg @click="communityClick" id="communitySvg" xmlns="http://www.w3.org/2000/svg" width="205" height="205" viewBox="0 0 205 205">
@@ -193,7 +214,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row justify-content-center">
+                                <div class="row text-center offerText">
                                     <p class="pIndex">Community</p>
                                 </div>
                             </div>
@@ -202,13 +223,18 @@
                 </div>
             </div>
 
-            <div v-if="waterInfo==true || tippsInfo==true || gardenInfo==true || reminderInfo==true || communityInfo==true"
-                 class="row paddingLeftRight bgDarkGreen fontWhite rowsIndexBottom">
-                <p v-if="waterInfo == true" class="text-center">Nützen Sie mit unserer App oder auf unserer Homepage unsere Bewässerungs-Erinnerungshilfe und erhalten Sie Push-Up Benachrichtigungen und/oder EMails immer dann, wenn ihre lieben Pflanzen versorgt werden müssen.</p>
-                <p v-if="tippsInfo == true" class="text-center">Mit unseren vielseitigen Tipps und Tricks erhalten Sie Anregungen und Informationen zur Pflege, Standort, Umsetzung, Überwinterung, Düngen u.ä., damit Ihre Lieblinge bestimmt gesund und fröhlich durch das Jahr kommen.</p>
-                <p v-if="gardenInfo == true" class="text-center">Fügen Sie in Ihrem Online Garten Ihre Lieblinge hinzu und haben so immer einen Überblick über den Status und das Befinden Ihrer lieben Pflanzen.</p>
-                <p v-if="reminderInfo == true" class="text-center">Stellen Sie sich Erinnerungshilfen, nicht nur für Bewässerung, sondern auch für andere vielseitige Bedürfnisse Ihrer Pflanzen.</p>
-                <p v-if="communityInfo == true" class="text-center">Nutzen Sie unsere Community um sich mit Gleichgesinnten auszutauschen, neue Freunde zu finden und Hilfe zu erhalten. Die große Community and Pflanzenliebhabern hilft immer gerne.</p>
+            <div v-if="waterInfo===true || tippsInfo===true || gardenInfo===true || reminderInfo===true || communityInfo===true"
+                 class="row paddingLeftRight bgDarkGreen fontWhite rowsIndexBottom justify-content-center">
+                <div class="paddingNormalize text-center"><h4 v-if="waterInfo === true" class="h4Offer">Bewässerungshilfe</h4></div>
+                <p v-if="waterInfo === true" class="text-center">Nützen Sie mit unserer App oder auf unserer Homepage unsere Bewässerungs-Erinnerungshilfe und erhalten Sie Push-Up Benachrichtigungen und/oder EMails immer dann, wenn ihre lieben Pflanzen versorgt werden müssen.</p>
+                <h4 v-if="tippsInfo === true" class="h4Offer">Tipps und Tricks</h4>
+                <p v-if="tippsInfo === true" class="text-center">Mit unseren vielseitigen Tipps und Tricks erhalten Sie Anregungen und Informationen zur Pflege, Standort, Umsetzung, Überwinterung, Düngen u.ä., damit Ihre Lieblinge bestimmt gesund und fröhlich durch das Jahr kommen.</p>
+                <h4 v-if="gardenInfo === true" class="h4Offer text-center">Eigener Garten</h4>
+                <p v-if="gardenInfo === true" class="text-center">Fügen Sie in Ihrem Online Garten Ihre Lieblinge hinzu und haben so immer einen Überblick über den Status und das Befinden Ihrer lieben Pflanzen.</p>
+                <h4 v-if="reminderInfo === true" class="h4Offer text-center">Erinnerungen</h4>
+                <p v-if="reminderInfo === true" class="text-center">Stellen Sie sich Erinnerungshilfen, nicht nur für Bewässerung, sondern auch für andere vielseitige Bedürfnisse Ihrer Pflanzen.</p>
+                <h4 v-if="communityInfo === true" class="h4Offer text-center">Community</h4>
+                <p v-if="communityInfo === true" class="text-center">Nutzen Sie unsere Community um sich mit Gleichgesinnten auszutauschen, neue Freunde zu finden und Hilfe zu erhalten. Die große Community and Pflanzenliebhabern hilft immer gerne.</p>
             </div>
 
 
@@ -241,6 +267,53 @@
             </div>
         </div>
     </div>
+
+        <div style="display: none;">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	  enable-background="new 0 0 723.1 205.5" xml:space="preserve">
+                <symbol id="logoIndex" viewBox="0 0 723.1 205.5">
+                    <path d="M104.4,2C48.5,2,3.3,47.3,3.3,103.1c0,55.8,45.3,101.1,101.1,101.1c55.8,0,101.1-45.3,101.1-101.1
+                        C205.5,47.3,160.2,2,104.4,2z M70,141.2c-4.9,4.9-19.9,3.1-33-6.9c-15.3-11.6-17.8-32.7-15.9-42c9.3-1.9,30.9,1,42.5,16.3
+                        C73.6,121.6,75.3,135.8,70,141.2z M122.9,102.5c-2.2,23.6-11,40-18.6,40c-7,0-16.3-17.3-18.5-40.9c-2.6-27.6,10.5-51.8,18.5-59.4
+                        C112.3,49.8,125.5,74.9,122.9,102.5z M171.4,134.7c-13.1,10-27.3,11.7-32.6,6.4c-4.9-4.9-3.1-19.9,6.9-33
+                        c11.6-15.3,32.7-17.8,42-15.9C189.6,101.5,186.7,123.1,171.4,134.7z"/>
+                    <g>
+                        <path d="M269.2,111.8v21.5h-11.4V72.2h19.9c4.1,0,7.6,0.5,10.6,1.4c3,1,5.5,2.3,7.4,4c1.9,1.7,3.4,3.8,4.3,6.2
+                            c0.9,2.4,1.4,5,1.4,7.9c0,3-0.5,5.7-1.5,8.1c-1,2.5-2.5,4.6-4.4,6.4c-2,1.8-4.4,3.2-7.4,4.1c-3,1-6.4,1.5-10.4,1.5H269.2z
+                             M269.2,103h8.5c2.1,0,3.9-0.3,5.5-0.8c1.5-0.5,2.8-1.3,3.8-2.2c1-1,1.8-2.2,2.3-3.6c0.5-1.4,0.8-3,0.8-4.7c0-1.6-0.3-3.1-0.8-4.4
+                            c-0.5-1.3-1.3-2.5-2.3-3.4c-1-0.9-2.3-1.6-3.8-2.1c-1.6-0.5-3.4-0.7-5.5-0.7h-8.5V103z"/>
+                        <path d="M321.7,124h24.5v9.4h-35.9V72.2h11.4V124z"/>
+                        <path d="M407.8,133.4H399c-1,0-1.8-0.2-2.4-0.7c-0.6-0.5-1.1-1.1-1.4-1.8l-4.6-12.5h-25.3l-4.6,12.5c-0.2,0.6-0.7,1.2-1.3,1.8
+                            c-0.7,0.5-1.5,0.8-2.4,0.8h-8.8l24-61.1h11.6L407.8,133.4z M368.2,110.3h19.5l-7.4-20.3c-0.3-0.9-0.7-2-1.1-3.2
+                            c-0.4-1.2-0.8-2.6-1.2-4c-0.4,1.4-0.8,2.8-1.2,4c-0.4,1.2-0.8,2.3-1.1,3.3L368.2,110.3z"/>
+                        <path d="M421.4,72.3c0.3,0,0.6,0.1,0.9,0.3c0.3,0.1,0.5,0.3,0.8,0.5c0.3,0.2,0.5,0.6,0.8,1l32.1,40.9c-0.1-1-0.2-2-0.2-2.9
+                            c0-0.9-0.1-1.8-0.1-2.6V72.2h10v61.1h-5.9c-0.9,0-1.6-0.1-2.2-0.4c-0.6-0.3-1.2-0.8-1.7-1.5l-32-40.7c0.1,0.9,0.1,1.8,0.2,2.7
+                            s0.1,1.7,0.1,2.4v37.6h-10V72.2h6C420.6,72.2,421,72.2,421.4,72.3z"/>
+                        <path d="M521.2,72.2v9.3h-18.4v51.8h-11.4V81.6h-18.5v-9.3H521.2z"/>
+                        <path d="M531.1,133.4V73.5h17.2c3.4,0,6.4,0.3,8.9,1c2.5,0.7,4.6,1.7,6.2,3c1.6,1.3,2.9,2.9,3.7,4.8c0.8,1.9,1.2,4,1.2,6.4
+                            c0,1.6-0.3,3.1-0.8,4.6c-0.5,1.5-1.3,2.8-2.4,4.1c-1,1.2-2.3,2.3-3.8,3.2c-1.5,0.9-3.2,1.6-5.2,2.1c4.7,0.7,8.3,2.3,10.9,4.7
+                            c2.5,2.4,3.8,5.6,3.8,9.6c0,2.5-0.5,4.8-1.4,6.9c-0.9,2-2.2,3.7-3.9,5.2c-1.7,1.4-3.8,2.5-6.3,3.2c-2.5,0.7-5.4,1.1-8.5,1.1H531.1z
+                             M535.4,101.5h13c2.8,0,5.1-0.4,7.1-1.1c2-0.7,3.6-1.6,4.8-2.8c1.3-1.2,2.2-2.5,2.8-3.9c0.6-1.5,0.9-3,0.9-4.5c0-4-1.3-7.1-3.8-9.2
+                            c-2.6-2.1-6.5-3.1-11.8-3.1h-12.9V101.5z M535.4,104.7v25.2h15c5.3,0,9.2-1.1,11.9-3.4c2.7-2.3,4-5.5,4-9.6c0-1.9-0.4-3.6-1.1-5.1
+                            c-0.7-1.5-1.8-2.8-3.1-3.8c-1.4-1.1-3-1.9-5-2.4c-2-0.6-4.2-0.8-6.7-0.8H535.4z"/>
+                        <path d="M630.4,133.4H627c-0.4,0-0.7-0.1-1-0.3c-0.3-0.2-0.5-0.5-0.6-0.8l-7.1-17.4H589l-7,17.4c-0.1,0.3-0.3,0.6-0.6,0.8
+                            c-0.3,0.2-0.6,0.3-1,0.3h-3.3l24.5-59.8h4.3L630.4,133.4z M590.3,111.6h26.8l-12.2-30.2c-0.2-0.5-0.4-1-0.6-1.6
+                            c-0.2-0.6-0.4-1.2-0.6-1.9c-0.2,0.7-0.4,1.3-0.6,1.9c-0.2,0.6-0.4,1.2-0.6,1.7L590.3,111.6z"/>
+                        <path d="M668.8,80.8c-0.3,0.5-0.6,0.7-1.1,0.7c-0.4,0-0.8-0.3-1.4-0.8c-0.6-0.5-1.4-1.1-2.4-1.7c-1-0.6-2.2-1.2-3.7-1.8
+                            c-1.5-0.5-3.3-0.8-5.5-0.8c-2.2,0-4.1,0.3-5.7,0.9c-1.7,0.6-3,1.5-4.2,2.5c-1.1,1.1-2,2.3-2.5,3.7c-0.6,1.4-0.9,2.9-0.9,4.4
+                            c0,2,0.4,3.7,1.3,5c0.9,1.3,2,2.5,3.4,3.4c1.4,0.9,3,1.7,4.8,2.3c1.8,0.6,3.6,1.3,5.5,1.9c1.9,0.6,3.7,1.3,5.5,2.1
+                            c1.8,0.7,3.4,1.7,4.8,2.8c1.4,1.1,2.5,2.5,3.4,4.2c0.9,1.6,1.3,3.7,1.3,6.2c0,2.5-0.4,4.9-1.3,7.1c-0.9,2.2-2.1,4.1-3.7,5.8
+                            c-1.6,1.6-3.6,2.9-6,3.9c-2.4,0.9-5.1,1.4-8.1,1.4c-3.9,0-7.3-0.7-10.2-2.1c-2.8-1.4-5.3-3.3-7.5-5.7l1.2-1.9
+                            c0.3-0.4,0.7-0.6,1.2-0.6c0.3,0,0.6,0.2,1,0.5c0.4,0.3,0.9,0.8,1.4,1.2c0.6,0.5,1.2,1,2,1.6s1.7,1.1,2.8,1.6c1,0.5,2.2,0.9,3.6,1.2
+                            c1.4,0.3,2.9,0.5,4.6,0.5c2.4,0,4.5-0.4,6.4-1.1c1.9-0.7,3.4-1.7,4.7-2.9c1.3-1.2,2.3-2.7,2.9-4.4c0.7-1.7,1-3.5,1-5.5
+                            c0-2.1-0.4-3.9-1.3-5.2c-0.9-1.4-2-2.5-3.4-3.4c-1.4-0.9-3-1.7-4.8-2.3c-1.8-0.6-3.6-1.2-5.5-1.8c-1.9-0.6-3.7-1.3-5.5-2
+                            c-1.8-0.7-3.4-1.7-4.8-2.8c-1.4-1.1-2.5-2.6-3.4-4.3c-0.9-1.7-1.3-3.8-1.3-6.4c0-2,0.4-3.9,1.1-5.8c0.8-1.9,1.9-3.5,3.3-4.9
+                            c1.5-1.4,3.3-2.6,5.4-3.4c2.2-0.9,4.6-1.3,7.4-1.3c3.1,0,5.9,0.5,8.4,1.5c2.5,1,4.7,2.5,6.8,4.5L668.8,80.8z"/>
+                        <path d="M719.9,73.5v3.6h-31.5v24.2h26.2v3.5h-26.2v25h31.5v3.6H684V73.5H719.9z"/>
+                    </g>
+                    </symbol>
+            </svg>
+        </div>
 
     </div>
 </template>
@@ -327,7 +400,12 @@
                 this.gardenInfo = false;
                 this.reminderInfo = false;
                 this.communityInfo = false;
-                this.waterInfo = true;
+
+                if (this.waterInfo === false) {
+                    this.waterInfo = true;
+                } else {
+                    this.waterInfo = false;
+                }
             },
 
             tippsClick: function() {
@@ -335,7 +413,12 @@
                 this.gardenInfo = false;
                 this.reminderInfo = false;
                 this.communityInfo = false;
-                this.tippsInfo = true;
+
+                if (this.tippsInfo === false) {
+                    this.tippsInfo = true;
+                } else {
+                    this.tippsInfo = false;
+                }
             },
 
             gardenClick: function() {
@@ -343,7 +426,12 @@
                 this.tippsInfo = false;
                 this.reminderInfo = false;
                 this.communityInfo = false;
-                this.gardenInfo = true;
+
+                if (this.gardenInfo === false) {
+                    this.gardenInfo = true;
+                } else {
+                    this.gardenInfo = false;
+                }
             },
 
             reminderClick: function() {
@@ -351,7 +439,13 @@
                 this.tippsInfo = false;
                 this.gardenInfo = false;
                 this.communityInfo = false;
-                this.reminderInfo = true;
+
+                if (this.reminderInfo === false) {
+                    this.reminderInfo = true;
+                } else {
+                    this.reminderInfo = false;
+                }
+
             },
 
             communityClick: function() {
@@ -359,15 +453,13 @@
                 this.tippsInfo = false;
                 this.gardenInfo = false;
                 this.reminderInfo = false;
-                this.communityInfo = true;
 
-                /*let icon = document.getElementById("communitySvg");
-                console.log(icon);
-
-                let circle= icon.getElementsByClassName("circle");
-                console.log(circle);*/
+                if (this.communityInfo === false) {
+                    this.communityInfo = true;
+                } else {
+                    this.communityInfo = false;
+                }
             },
-
         },
         components:{
             Slider
@@ -376,10 +468,327 @@
 </script>
 
 <style scoped>
-    .rowsIndexBottom { padding-bottom: 5%; }
+    #indexLogo svg {
+        padding-left: 35px;
+        fill: white;
+        width: 150%;
+        margin-bottom: 20%;
+    }
 
-    .rowsIndexBottom p {
+    /*---------------------------------allgemein---------------------*/
+
+    .rowsIndex {
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+
+    .rowsIndexWelcome {
+        padding-top: 5%;
+        padding-bottom: 9%;
+    }
+
+    /*fonts*/
+    .h3Index {
+        font-size: 250%;
+        margin-bottom: 3%;
+        text-transform: uppercase;
+        font-weight: lighter;
+    }
+    .pIndex {
+        font-size: 110%;
+        font-weight: lighter;
+        line-height: 1.8;
+    }
+
+    /*---------------------------------welcome row----------------------*/
+    /* mit login, wilkommen und app download*/
+    #welcomeRow #h1Start {
+        font-size: 350%;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 10%;
+    }
+    #welcomeRow .profileLink { color: #707070; }
+    #welcomeRow .profileLink:hover { color: #B8E269; }
+    #welcomeRow .profileLink:active { color: #707070; }
+
+    #welcomeRow .logoutButton {
+        background-color: white;
+        padding: 1% 2%;
+        color: #97B753;;
+        border: 2px solid #97B753;
+        border-radius: 10px;
+        font-size: 90%;
+        margin-left: 2%;
+    }
+    #welcomeRow .logoutButton:hover {
+        background-color: #B8E269;
+        color: #707070;
+        border: 2px solid #B8E269;
+    }
+    #welcomeRow .logoutButton:active {
+        background-color: white;
+        color: #97B753;;
+        border: 2px solid white;
+    }
+
+
+    /*login form*/
+    #welcomeRow #loginIndex label {
+        width: 20%;
+        font-size: 120%;
+        text-align: right;
+        margin-right: 2%;
+    }
+    #welcomeRow #loginIndex input {
+        width: 65%;
+        margin-bottom: 4%;
+        color: #707070;
+        height: 90%;
+        border-radius: 10px;
+    }
+    #welcomeRow .notLoggedIn {
+        text-align: right;
+        margin-right: 13%;
+    }
+
+    #welcomeRow #loginIndex button { margin-right: 13%; }
+    #welcomeRow .oneColumn {
+        display: none;
+        margin: 2% 0% 6% 0%;
+    }
+
+    /*phone right*/
+    #welcomeRow #pIndexDownload { margin-bottom: 20%; }
+    #welcomeRow #phoneImg { border-left: 1px solid white; }
+    #welcomeRow #phoneImg div { text-align-last: center; }
+    #welcomeRow #handyImg { width: 90%; }
+
+
+    /*---------------------------------über plantbase row----------------------*/
+    #plantbaseInfo #indexAloe { width: 70%; }
+
+
+    /*---------------------------------Angebote row----------------------*/
+
+    #offerRowElements .indexIcon svg {
+        width: 90%;
+        height: 80%;
+        margin-bottom: 15%;
+        margin-top: 10%;
+    }
+
+    /*hover Animations*/
+    #offerRowElements .indexIconRotation:hover {
+        transform: rotateY(360deg);
+        transition: transform 1s;
+    }
+    #offerRowElements .rowsIndexBottom { padding-bottom: 5%; }
+    #offerRowElements .rowsIndexBottom p {
         font-size: 120%;
         margin: 0 5%;
+    }
+    #offerRowElements .offerText { place-content: center; }
+
+    /*fillings of the icons*/
+    #indexWateringCan svg .circle { fill: white; }
+    #indexWateringCan svg .grey { fill: #707070; }
+    #indexWateringCan svg .green { fill: #97B753 }
+
+    #indexWateringCan svg:active .circle { fill: #707070; }
+    #indexWateringCan svg:active .grey { fill: #B8E269; }
+    #indexWateringCan svg:active .green { fill: white; }
+
+    #indexIdea svg .circle { fill: white; }
+    #indexIdea svg .grey { fill: #707070; }
+    #indexIdea svg .green { fill: #97B753 }
+
+    #indexIdea svg:active .circle { fill: #707070; }
+    #indexIdea svg:active .grey { fill: #B8E269; }
+    #indexIdea svg:active .green { fill: white; }
+
+    #indexPlant svg .circle { fill: white; }
+    #indexPlant svg .green { fill: #97B753; stroke: #B8E269; }
+    #indexPlant svg .grey { fill: #707070; }
+
+    #indexPlant svg:active .circle { fill: #707070; }
+    #indexPlant svg:active .green { fill: white; stroke: #DEDEDE; }
+    #indexPlant svg:active .grey { fill: #B8E269; }
+
+    #indexBell svg .circle { fill: white; }
+    #indexBell svg .green { fill: #97B753; }
+    #indexBell svg .grey { fill: #707070; }
+
+    #indexBell svg:active .circle { fill: #707070; }
+    #indexBell svg:active .green { fill: white; }
+    #indexBell svg:active .grey { fill: #B8E269; }
+
+    #indexCommunity svg .circle { fill: white; }
+    #indexCommunity svg .green { fill: #97B753; }
+    #indexCommunity svg .grey { fill: #707070; }
+
+    #indexCommunity svg:active .circle { fill: #707070; }
+    #indexCommunity svg:active .green { fill: white; }
+    #indexCommunity svg:active .grey { fill: #B8E269; }
+
+
+
+    /*---------------------------------news slider row----------------------*/
+
+    /*news Sllider*/
+    .indexArrows svg { width: 50%; fill: #97B753; color:BLACK; }
+    .indexArrows svg:hover { fill: #B8E269; }
+    .indexArrows svg:active { fill: #707070; }
+    #indexNewsSlider {
+        color: transparent;
+        border: 2px solid #97B753;
+        border-radius: 10px;
+    }
+
+    /*---------------------------------------------Media Queries----------------------------*/
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
+        #indexLogo svg { width: 120%; }
+
+        #welcomeRow #loginIndex label {
+            width: 100%;
+            text-align-last: left;
+        }
+        #welcomeRow #loginIndex input { width: 87%; }
+        #welcomeRow #h1Start {
+            font-size: 300%;
+            margin-top: 5%;
+        }
+    }
+
+    /* Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
+        #indexLogo svg{
+            width: 100%;
+            margin-bottom: 0;
+        }
+
+        #welcomeRow #loginIndex label {
+            width: 20%;
+            text-align-last: right;
+        }
+        #welcomeRow #loginIndex input { width: 70%; }
+        #welcomeRow #loginIndex button { margin-right: 8%; }
+        #welcomeRow .oneColumn { display: block; }
+        #welcomeRow #h1Start {
+            font-size: 200%;
+            margin-bottom: 5%;
+        }
+
+        #welcomeRow #phoneImg {
+            border: none;
+            width: 50%;
+        }
+        #welcomeRow .phoneAppDownload { width: 50%; }
+
+        #plantbaseInfo .aloePicture { width: 30%; }
+        #plantbaseInfo .plantbaseInfoText { width: 70%; }
+
+        #offerRowElements .wateringHelp { width: 30%; }
+        #offerRowElements .tipsTricks { width: 30%; }
+        #offerRowElements .userGarden { width: 30%; }
+        #offerRowElements .userReminder { width: 30%; }
+        #offerRowElements .community { width: 30%; }
+    }
+
+    /*Small devices (landscape phones, less than 768px)*/
+    @media (max-width: 767.98px) {
+        .h3Index { font-size: 150%; }
+        .pIndex { font-size: 100%; }
+        #welcomeRow #dowloadNow { font-size: 150%; }
+
+        #plantbaseInfo .aloePicture { display: none; }
+        #plantbaseInfo .plantbaseInfoText { width: 100%; }
+
+
+    }
+
+    /* Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+        #indexLogo svg { width: 70% }
+
+        #welcomeRow #h1Start { margin-bottom: 7%; }
+        #welcomeRow #loginText { display: block; }
+        #welcomeRow #logoutTextLink {
+            display: block;
+            width: 100%;
+            margin-top: 8%;
+        }
+        #welcomeRow #logoutTextLink .logoutButton {
+            background-color: white;
+            padding: 5px 14px;
+            color: #97B753;;
+            border: 2px solid white;
+            border-radius: 10px;
+            font-size: 110%;
+            margin: 2% 0%;
+            font-weight: bold;
+        }
+
+        #welcomeRow #loginIndex label {
+            width: 100%;
+            text-align-last: left;
+            font-size: 140%;
+        }
+        #welcomeRow #loginIndex input { width: 100%; }
+        #welcomeRow #loginIndex button { margin-right: 0; }
+        #welcomeRow .oneColumn { margin: 8% 0% 10% 0%; }
+
+        #welcomeRow #phoneImg { display: none; }
+        #welcomeRow .phoneAppDownload { width: 100%; }
+        #welcomeRow #pIndexDownload { margin-bottom: 5%; }
+
+        #offerRowElements .wateringHelp {
+            width: 100%;
+            margin-top: 3%;
+        }
+        #offerRowElements .tipsTricks { width: 100%; }
+        #offerRowElements .userGarden { width: 100%; }
+        #offerRowElements .userReminder { width: 100%; }
+        #offerRowElements .community { width: 100%; }
+
+        #offerRowElements .offerIcon {
+            width: 15%;
+            float: left;
+            margin-left: 10%;
+        }
+        #offerRowElements .offerText {
+            font-size: 150%;
+            float: left;
+            margin-left: 10%;
+            margin-top: 3%;
+        }
+        #offerRowElements .offerText .pIndex { margin-bottom: 0; }
+
+        #offerRowElements .wateringHelp:hover,
+        #offerRowElements .tipsTricks:hover,
+        #offerRowElements .userGarden:hover,
+        #offerRowElements .userReminder:hover,
+        #offerRowElements .community:hover{
+            background-color: white;
+            color: #707070;
+            border-radius: 10px;
+        }
+        #offerRowElements .wateringHelp:active,
+        #offerRowElements .tipsTricks:active,
+        #offerRowElements .userGarden:active,
+        #offerRowElements .userReminder:active,
+        #offerRowElements .community:active{
+            background-color: #707070;
+            color: white;
+            border-radius: 10px;
+        }
+
+
+        /*own media*/
+        @media (max-width: 450px) {
+            #offerRowElements .offerIcon { margin-left: 4%; }
+            #offerRowElements .offerText { font-size: 120%; }
+        }
     }
 </style>

@@ -148,7 +148,7 @@ class Comment {
         return [
           'id' => $this->id,
           'user' => $this->user,
-          'thread' => $this->thread,
+          'thread' => $this->thread->toAssoc(),
           'text' => $this->text,
           'created' => $this->created,
           'updated' => $this->updated

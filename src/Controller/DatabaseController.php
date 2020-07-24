@@ -13,10 +13,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 
-/**
- * @IsGranted("ROLE_USER")
- */
-
 class DatabaseController extends AbstractController
 {
     /**
@@ -40,8 +36,6 @@ class DatabaseController extends AbstractController
         return new JsonResponse($database, Response::HTTP_OK);
 
     }
-
-
 
 }
 
