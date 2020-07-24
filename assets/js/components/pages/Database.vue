@@ -159,28 +159,87 @@
 
         <div v-if="findRandomPlant">
             <div class="row">
-                <button type="button" class="close left" aria-label="Close" @click="findRandomPlant= false">
+                <div  class="close col-9 "></div>
+                <button type="button" class="close col" aria-label="Close" @click="findRandomPlant= false">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <div class="row searchPlants">
-                    <div class="col-lg-10">
-                <div class="container-fluid plantProfil dropShadow bgWhiteGrey">
+            </div>
+            <div class="row searchPlants">
+                <div class="container-fluid plantProfilDb dropShadow bgWhiteGrey">
                     <div class="row">
-                       <div class="col plantInfo">
-                            <p class="text-left gardenPFirst"><b>{{ randomPlant.name }}</b></p>
-                            <p>{{randomPlant.genus}}</p>
+                        <div class="col plantInfoDb">
+                            <p class="text-left gardenPFirstDb"><b>{{ randomPlant.name }}</b></p>
+                            <p><b>Gattung:</b> {{randomPlant.genus}}</p>
+                            <p><b>Schwierigkeit:</b> {{randomPlant.careLevel}}</p>
+                            <p class="categoryDb"><b>Kathegorie:</b> {{randomPlant.categorySelect}}</p>
+                            <p><span  class="iconsDb"><svg><use href="#substratIcon"></use></svg></span>  {{ randomPlant.substrateIcon }}</p>
+                            <p><span  class="iconsDb"><svg><use href="#temperatureIcon"></use></svg></span>  {{ randomPlant.temperatureIcon }}</p>
+                            <p><span  class="iconsDb"><svg><use href="#heightIcon"></use></svg></span> {{ randomPlant.heightIcon }}</p>
                             <router-link :to="'/plant/' + randomPlant.linkName">
                                 <button class="buttonDarkGreenSmall">Zum Eintrag</button>
                             </router-link>
 
                         </div>
-                        <img class="col imgTest" v-bind:src="'../' + randomPlant.icon"  alt="Picture of plant" height="100" >
+                        <img class="col imgTest" v-bind:src="'../' + randomPlant.icon"  alt="Picture of plant" height="340" >
                     </div>
-                    </div>
-                <button class="col-lg-10 selfAlignCenter buttonWhiteExplore" v-on:click="chooseRandom()">Weitere Pflanzen entdecken </button>
+                </div>
             </div>
+            <div class="row">
+                <button class="selfAlignCenter col buttonWhiteExploreMore" v-on:click="chooseRandom()">Weitere Pflanzen entdecken </button>
             </div>
-            </div>
+        </div>
+
+
+        <div style="display:none;">
+            <svg xmlns="http://www.w3.org/2000/svg">
+                <symbol viewBox="0 0 63.465 63.465" id="heightIcon">
+                    <path id="king-size" d="M51.831,15.016,41.56,25.287h7.03a2.479,2.479,0,1,1,0,4.958h-9.3a6.2,6.2,0,0,1-6.2-6.2v-9.3a2.479,2.479,0,1,1,4.958,0v7.03l10.27-10.27a2.479,2.479,0,0,1,3.507,3.506ZM28.014,50.821a2.479,2.479,0,0,0,2.479-2.479v-9.3a6.2,6.2,0,0,0-6.2-6.2H15a2.479,2.479,0,1,0,0,4.958h7.03L11.758,48.077a2.479,2.479,0,0,0,3.507,3.506l10.27-10.27v7.03a2.479,2.479,0,0,0,2.479,2.479Zm32.972-7.189a2.479,2.479,0,0,0,2.479-2.479V9.916A9.927,9.927,0,0,0,53.548,0H9.916A9.927,9.927,0,0,0,0,9.916V53.548a9.927,9.927,0,0,0,9.916,9.916H53.548a9.927,9.927,0,0,0,9.916-9.916,2.479,2.479,0,1,0-4.958,0,4.964,4.964,0,0,1-4.958,4.958H9.916a4.964,4.964,0,0,1-4.958-4.958V9.916A4.964,4.964,0,0,1,9.916,4.958H53.548a4.964,4.964,0,0,1,4.958,4.958V41.153A2.479,2.479,0,0,0,60.986,43.632Zm0,0" fill="#97b753"/>
+                </symbol>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg">
+                <symbol viewBox="0 0 512 388" id="substratIcon">
+                    <g>
+                        <g id="Glyph">
+                            <path d="M298.2,207c22.3-12,36.5-44.7,37.1-46.1c1.7-4.1-0.3-8.9-4.4-10.6c-0.5-0.2-1-0.4-1.5-0.5c-1.5-0.3-36.6-6.5-58.9,5.4
+                                c-6,3.2-11.1,7.7-14.9,13.3c-3.8-5.6-8.9-10.1-14.9-13.3c-22.3-12-57.4-5.7-58.9-5.4c-4.4,0.9-7.2,5.1-6.4,9.5
+                                c0.1,0.5,0.3,1,0.5,1.5c0.6,1.4,14.8,34.1,37.1,46.1c12.3,6.6,24.5,6.1,35,2.5v19c-20.4,3.2-36.6,19.1-40.1,39.5H192
+                                c-4.3-0.1-7.9,3.4-8,7.7c-0.1,4.3,3.4,7.9,7.7,8c0.1,0,0.2,0,0.3,0h128c4.3,0.1,7.9-3.4,8-7.7c0.1-4.3-3.4-7.9-7.7-8
+                                c-0.1,0-0.2,0-0.3,0h-17.4c-3.4-19.8-18.8-35.5-38.6-39.2v-19.2C274.4,212.6,287.4,212.8,298.2,207z"/>
+                            <path d="M472,188c0-20.6-7.1-66.5-13.6-104.1c13.2-1.3,22.8-13,21.5-26.2c-0.5-5.1-2.6-9.9-6-13.7c4.2-4.7,6.4-10.9,6.1-17.2
+                                C479.4,14,468.4,4,455.5,4H48c-8.8,0-16,7.2-16,16l0,0c0,8.8,7.2,16,16,16h264c4.4,0,8,3.6,8,8l0,0c0,4.4-3.6,8-8,8H40
+                                c-4.4,0-8,3.6-8,8c0,12.3,9.4,22.7,21.6,23.9C47.1,121.5,40,167.4,40,188c0,83.1,5.1,116.1,7.4,126.5c-2,3.7-15.4,21.1-15.4,25.5
+                                c0,19,19.8,31.3,37.4,24.4c133.8,29,225,32.1,373.1,0c17.4,6.9,37.4-5.3,37.4-24.4c0-4.4-13.3-21.8-15.4-25.5
+                                C466.9,304.1,472,271.1,472,188z M292,324h-72c-59.6,0-108-48.4-108-108s48.4-108,108-108h72c59.6,0,108,48.4,108,108
+                                S351.6,324,292,324z M423.7,52H360c-4.4,0-8-3.6-8-8l0,0c0-4.4,3.6-8,8-8h64c4.4,0,8,3.6,8,8c0,0.2,0,0.4,0,0.5
+                                C431.6,48.8,428,52.1,423.7,52z"/>
+                        </g>
+                    </g>
+                </symbol>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg">
+                <symbol viewBox="0 0 277 512" id="temperatureIcon">
+                    <path d="M93.1,114.2v215.5c-28.3,10.5-47.2,37.6-47.2,67.9c0,40,32.5,72.5,72.5,72.5c40,0,72.5-32.5,72.5-72.5
+                        c0-30.4-18.9-57.4-47.2-67.9V114.2H93.1z"/>
+                    <path d="M262.3,167.4h-43.5c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5h43.5c4.1,0,7.5-3.4,7.5-7.5S266.4,167.4,262.3,167.4z"/>
+                    <path d="M218.8,121.7h19.8c4.1,0,7.5-3.4,7.5-7.5c0-4.1-3.4-7.5-7.5-7.5h-19.8c-4.1,0-7.5,3.4-7.5,7.5
+                        C211.3,118.3,214.6,121.7,218.8,121.7z"/>
+                    <path d="M218.8,60.9h26.8c4.1,0,7.5-3.4,7.5-7.5c0-4.1-3.4-7.5-7.5-7.5h-26.8c-4.1,0-7.5,3.4-7.5,7.5
+                        C211.3,57.5,214.6,60.9,218.8,60.9z"/>
+                    <path d="M245.5,289h-26.8c-4.1,0-7.5,3.4-7.5,7.5c0,4.1,3.4,7.5,7.5,7.5h26.8c4.1,0,7.5-3.4,7.5-7.5C253,292.4,249.7,289,245.5,289z
+                        "/>
+                    <path d="M218.8,243.2h19.8c4.1,0,7.5-3.4,7.5-7.5c0-4.1-3.4-7.5-7.5-7.5h-19.8c-4.1,0-7.5,3.4-7.5,7.5
+                        C211.3,239.9,214.6,243.2,218.8,243.2z"/>
+                    <path d="M186.2,309.8v-242c0-37.4-30.4-67.8-67.8-67.8C81,0,50.6,30.4,50.6,67.8v242c-28,21.2-44.6,54.5-44.6,89.7
+                        c0,62,50.5,112.5,112.5,112.5c62,0,112.5-50.5,112.5-112.5C230.9,364.3,214.3,331,186.2,309.8z M118.4,497
+                        c-53.7,0-97.5-43.7-97.5-97.5c0-31.7,15.5-61.5,41.5-79.8c2-1.4,3.2-3.7,3.2-6.1V67.8c0-29.1,23.7-52.8,52.8-52.8
+                        c29.1,0,52.8,23.7,52.8,52.8v245.8c0,2.4,1.2,4.7,3.2,6.1c26,18.3,41.5,48.1,41.5,79.8C215.9,453.3,172.1,497,118.4,497z"/>
+                    <path d="M151.2,324.7V67.8c0-18.1-14.7-32.8-32.8-32.8c-18.1,0-32.8,14.7-32.8,32.8v192.6c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5
+                        V121.7h35.7v208c0,3.1,1.9,5.9,4.9,7c25.3,9.4,42.3,33.9,42.3,60.9c0,35.8-29.2,65-65,65c-35.8,0-65-29.2-65-65
+                        c0-27,17-51.5,42.3-60.9c2.9-1.1,4.9-3.9,4.9-7v-39.2c0-4.1-3.4-7.5-7.5-7.5s-7.5,3.4-7.5,7.5v34.2c-28.4,12.8-47.2,41.5-47.2,72.9
+                        c0,44.1,35.9,80,80,80c44.1,0,80-35.9,80-80C198.4,366.2,179.6,337.5,151.2,324.7z M100.6,106.7V67.8c0-9.8,8-17.8,17.8-17.8
+                        c9.8,0,17.8,8,17.8,17.8v38.8H100.6z"/>
+                </symbol>
+            </svg>
         </div>
 
     </div>

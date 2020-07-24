@@ -3,7 +3,7 @@
     background-color: #97B753;
     color: white;
     padding-top: 6%;
-    padding-bottom: 4%;
+    padding-bottom: 10%;
 }
 
 .Databaselogo svg { width: 35%; fill: white; padding-bottom: 11px }
@@ -51,3 +51,44 @@
     overflow: auto;
 }
 
+.plantProfilDb {
+    border-radius: 10px;
+    padding: 20px 20px 20px 30px;
+    margin-right: 80px;
+    color: #707070;
+}
+
+.plantInfoDb {
+    font-size: 12pt;
+    text-align: left;
+}
+
+.plantInfoDb p {
+    margin-bottom: 2.5%;
+}
+
+.gardenPFirstDb {
+    padding-bottom: 4%;
+    font-size: 14pt;
+}
+
+.buttonWhiteExploreMore {
+    background-color: white;
+    padding: 40px 70px;
+    color: #97B753;;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 110%;
+    margin-right: 80px;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    font-weight: normal;
+}
+
+.iconsDb svg {    width: 2em;
+    height: 1.7em;
+    fill: #97B753;}
+
+.categoryDb {
+    padding-bottom: 4%;
+}

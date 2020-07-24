@@ -65,9 +65,3 @@
         name: "MainFooter"
     }
 </script>
-
-<style scoped>
-    .page-footer {
-        margin-top: 50px;
-    }
-</style>
