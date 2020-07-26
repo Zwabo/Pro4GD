@@ -9,7 +9,7 @@
                         <router-link to="/forum"  id="naviLogo">
                             Forum
                         </router-link>
-                        <span v-if="thread.category.parent!=null">/ {{thread.category.parent.title}}</span>
+                        <span v-if="thread.category.parent!==''">/ {{thread.category.parent.title}}</span>
                         / {{thread.category.title}}</h1>
                 </div>
 
@@ -197,7 +197,8 @@
                 userId: this.loggedUser.id,
             }).then(response => {
                 this.thread = response.data.shift();
-                this.comments = response.data
+                console.log(this.thread);
+                this.comments = response.data;
             })
                 .catch(error => {
                     alert(error);

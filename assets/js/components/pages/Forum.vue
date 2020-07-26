@@ -2324,5 +2324,4 @@
     .subCategories:active .svgSortSubCategories svg .svgArrowGreyFill { fill: #707070; }
 
     .subCategories svg { height: 50%; }
-
 </style>
