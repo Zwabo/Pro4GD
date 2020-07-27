@@ -115,10 +115,10 @@
             <div class="col-lg-6">
                 <div v-for="(plant, index) in filteredPlants" class="container-fluid">
                     <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
-                        <div class="container-fluid plantProfil dropShadow bgWhiteGrey ">
+                        <div class="container-fluid plantsProfilDa dropShadow bgWhiteGrey ">
                             <div class="row">
-                                <div class="col-sm-7 plantInfo">
-                                    <p class="text-left gardenPFirst"><b>{{ plant.name }}</b></p>
+                                <div class="col-sm-7 plantInfoDa">
+                                    <p class="text-left gardenPFirstDa"><b>{{ plant.name }}</b></p>
                                     <p>{{ plant.genus}}</p>
                                     <router-link :to="'/plant/' + plant.linkName">
                                         <button class="buttonDarkGreenSmall">Zum Eintrag</button>
@@ -136,10 +136,10 @@
             <div class="col-lg-6">
                 <div v-for="(plant, index) in filteredPlants" class="container-fluid">
                     <div v-if="index % 2 !== 0" class="row paddingNormalize">
-                        <div class="container-fluid plantProfil dropShadow bgWhiteGrey">
+                        <div class="container-fluid plantsProfilDa dropShadow bgWhiteGrey">
                             <div class="row">
-                                <div class="col-sm-7 plantInfo">
-                                    <p class="text-left gardenPFirst"><b>{{ plant.name }}</b></p>
+                                <div class="col-sm-7 plantInfoDa">
+                                    <p class="text-left gardenPFirstDa"><b>{{ plant.name }}</b></p>
                                     <p>{{plant.genus}}</p>
                                     <router-link :to="'/plant/' + plant.linkName">
                                         <button class="buttonDarkGreenSmall">Zum Eintrag</button>
@@ -164,7 +164,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="row searchPlants">
+            <div class="row searchPlant">
                 <div class="container-fluid plantProfilDb dropShadow bgWhiteGrey">
                     <div class="row">
                         <div class="col plantInfoDb">
@@ -188,8 +188,6 @@
                 <button class="selfAlignCenter col buttonWhiteExploreMore" v-on:click="chooseRandom()">Weitere Pflanzen entdecken </button>
             </div>
         </div>
-
-
         <div style="display:none;">
             <svg xmlns="http://www.w3.org/2000/svg">
                 <symbol viewBox="0 0 63.465 63.465" id="heightIcon">
@@ -317,5 +315,133 @@
 </script>
 
 <style scoped>
+
+
+    .database {
+        background-color: #97B753;
+        color: white;
+        padding-top: 5%;
+        padding-bottom: 12%;
+    }
+
+    .Databaselogo svg { width: 35%; fill: white; padding-bottom: 11px }
+
+    .search { font-size: x-large}
+
+    .buttonWhiteSearch {
+        background-color: white;
+        padding: 3px 20px;
+        color: #97B753;;
+        border: 2px solid white;
+        border-radius: 10px;
+        font-size: 100%;
+        margin-bottom: 12%;
+        margin-top: 2%;
+        font-weight: normal;
+    }
+
+    .buttonWhiteExplore {
+        background-image: url('/public/images/pictures/discover.png');
+        background-color: white;
+        padding: 40px 70px;
+        color: #97B753;
+        border: 2px solid white;
+        border-radius: 10px;
+        font-size: 110%;
+        margin-bottom: 2%;
+        margin-top: 2%;
+        font-weight: normal;
+    }
+
+    .searchBarDatabase {
+        margin-bottom: 10px;
+        text-align: center;
+        margin-right: 40px;
+    }
+
+    .DropdownFont {
+        font-weight: lighter;
+    }
+
+    .searchPlants {
+        margin-top: 30px;
+        height: 65vh;
+        width: 85vh;
+        overflow: auto;
+    }
+
+
+    .searchPlant {
+        margin-top: 30px;
+        height: 50vh;
+        width: 90vh;
+        overflow: auto;
+    }
+
+    .plantProfilDb {
+        border-radius: 10px;
+        padding: 20px 20px 20px 30px;
+        margin-right: 80px;
+        color: #707070;
+    }
+
+    .plantInfoDb {
+        font-size: 12pt;
+        text-align: left;
+    }
+
+    .plantInfoDb p {
+        margin-bottom: 2.5%;
+    }
+
+    .gardenPFirstDb {
+        padding-bottom: 4%;
+        font-size: 14pt;
+    }
+
+    .buttonWhiteExploreMore {
+        background-image: url('/public/images/pictures/discover.png');
+        background-color: white;
+        padding: 40px 70px;
+        color: #97B753;;
+        border: 2px solid white;
+        border-radius: 10px;
+        font-size: 110%;
+        margin-right: 80px;
+        margin-bottom: 2%;
+        margin-top: 2%;
+        font-weight: normal;
+    }
+
+    .iconsDb svg {    width: 2em;
+        height: 1.7em;
+        fill: #97B753;}
+
+    .categoryDb {
+        padding-bottom: 4%;
+    }
+
+    .plantsProfilDa {
+        border-radius: 10px;
+        padding: 10px 10px 10px 30px;
+        margin-bottom: 30px;
+        margin-left: 0;
+        margin-right: 10px;
+        height: 150px;
+        color: #707070;
+    }
+
+    .gardenPFirstDa {
+        font-size: 11.5pt;
+    }
+
+    .plantInfoDa {
+        font-size: 10pt;
+        text-align: left;
+    }
+
+    .plantInfoDa p {
+        margin-bottom: 2.5%;
+    }
 
 </style>

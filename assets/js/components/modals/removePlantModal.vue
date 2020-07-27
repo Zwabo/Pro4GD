@@ -64,4 +64,15 @@
 
 <style scoped>
 
+    .remove {
+        position: fixed;
+        height: 30px;
+        width: 30px;
+        z-index: 0;
+        background-color: #97B753;
+        color: white;
+        border: 2px solid #97B753;
+        border-radius: 15px;
+        font-size: 10pt;
+    }
 </style>
