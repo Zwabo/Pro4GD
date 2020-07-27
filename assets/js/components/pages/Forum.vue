@@ -3,9 +3,9 @@
         <div class="threadPosts marginLeftRight marginTopOnSite">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-10"><h1 class="forumH1">Forum</h1></div>
-                    <div class="col-lg-2 text-right">
-                        <form>
+                    <div class="col-lg-6"><h1 class="forumH1">Forum</h1></div>
+                    <div class="col-lg-6 text-right">
+                        <form class="searchForm">
                             <input type="text" placeholder="Suche nach Thread.." class="form-control form-control-sm threadSearchBar" aria-label="ShreadSearch" v-model="threadSearch">
 
                             <span class="searchForum"><svg xmlns="http://www.w3.org/2000/svg" width="41.472" height="35.105" viewBox="0 0 41.472 35.105">
@@ -2268,7 +2268,7 @@
     .svgIcons { margin-right: 1%; }
     .svgIconText { margin-right: 3%; }
 
-    .addIcon svg { width: 20%; fill: white; margin-bottom: 2%; }
+    .addIcon svg { width: 7%; fill: white; margin-bottom: 2%; }
     .addIcon svg .darkGreen { fill: #97B753; }
     .addIcon svg:hover .darkGreen {  fill: #B8E269; }
     .addIcon svg:active { fill: #B8E269; }
@@ -2321,8 +2321,11 @@
     .threadSearchBar {
         margin-bottom: 10px;
         text-align: center;
-        margin-right: 40px;
+        width: 85%;
+        float: left;
     }
+
+    .searchForm { width: 70% !important; float: left;}
     
     .subCategoryHeadline {margin-top: 0px}
     .subCategories:hover { background-color: #707070; color: white; }
