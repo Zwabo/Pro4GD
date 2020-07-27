@@ -6,7 +6,7 @@
                     <div class="col-lg-10"><h1 class="forumH1">Forum</h1></div>
                     <div class="col-lg-2 text-right">
                         <form>
-                            <input type="text" placeholder="Suche nach Thread.." class="form-control form-control-sm searchBarDatabase" aria-label="ShreadSearch" v-model="threadSearch">
+                            <input type="text" placeholder="Suche nach Thread.." class="form-control form-control-sm threadSearchBar" aria-label="ShreadSearch" v-model="threadSearch">
 
                             <span class="searchForum"><svg xmlns="http://www.w3.org/2000/svg" width="41.472" height="35.105" viewBox="0 0 41.472 35.105">
                                 <g id="Gruppe_730" data-name="Gruppe 730" transform="translate(0.872)">
@@ -142,7 +142,7 @@
                         <h3>Pflegetipps</h3>
                     </div>
                 </div>
-                <div class="col-lg-1 svgSortCategories text-right">
+                <div class="col-lg-1 svgSortCategories text-right tipsArrow">
                     <svg class="arrow" id="tipsArrow" xmlns="http://www.w3.org/2000/svg" width="41" height="49" viewBox="0 0 41 49">
                         <g id="Polygon_95" data-name="Polygon 95" transform="translate(41) rotate(90)" fill="#fff" class="svgWhiteFill">
                             <path d="M 41.95000839233398 39.99999618530273 L 7.049990177154541 39.99999618530273 C 5.956009864807129 39.99999618530273 4.980579853057861 39.43193817138672 4.440720081329346 38.48043823242188 C 3.900860071182251 37.52893829345703 3.913579940795898 36.40022659301758 4.47475004196167 35.46112823486328 L 21.92476081848145 6.259088039398193 C 22.47146987915039 5.344167709350586 23.43417930603027 4.797947883605957 24.5 4.797947883605957 C 25.56582069396973 4.797947883605957 26.52853012084961 5.344167709350586 27.07525062561035 6.259088039398193 L 44.52524948120117 35.46113967895508 C 45.08641815185547 36.40022659301758 45.09914016723633 37.52893829345703 44.55928039550781 38.48043823242188 C 44.01942825317383 39.43193817138672 43.04399871826172 39.99999618530273 41.95000839233398 39.99999618530273 Z" stroke="none"/>
@@ -2317,6 +2317,12 @@
         margin-right: 1%;
         margin-left: 1%;
     }
+
+    .threadSearchBar {
+        margin-bottom: 10px;
+        text-align: center;
+        margin-right: 40px;
+    }
     
     .subCategoryHeadline {margin-top: 0px}
     .subCategories:hover { background-color: #707070; color: white; }
@@ -2325,4 +2331,29 @@
     .subCategories:active .svgSortSubCategories svg .svgArrowGreyFill { fill: #707070; }
 
     .subCategories svg { height: 50%; }
+
+
+    /*---------------------------------------Media Queries-----------------------------------------------*/
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
+    }
+
+    /* Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
+        .addIcon svg { width: 5%; fill: white; margin-bottom: 2%; }
+        .col-lg-1, .col-lg-10, .col-lg-2  { width: 50% !important;}
+        .col-lg-1 { width: 30% !important;}
+        .col-lg-11 { width: 70% !important;}
+
+
+    }
+
+    /*Small devices (landscape phones, less than 768px)*/
+    @media (max-width: 767.98px) {
+
+    }
+
+    /* Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+    }
 </style>
