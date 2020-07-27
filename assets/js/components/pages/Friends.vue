@@ -4,7 +4,7 @@
             <h3 class="h3Margin">Freunde</h3>
             <div class="greenLine"></div>
 
-            <div v-for="friend in friendsData.friends" class="row justify-content-md-center bgWhiteGrey dropShadow borderRad10">
+            <div v-for="friend in friendsData.friends" class="row justify-content-md-center bgWhiteGrey dropShadow borderRad10 friendEntry">
                 <div class="col-lg-2 friendsPicture text-center justify-content-center">
                     <img class="smallUserPics" v-bind:src="friend.userPic">
                 </div>
@@ -135,6 +135,11 @@
         border-radius: 10px;
         font-size: 10pt;
     }
+    .friendEntry{
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+    .h4Box { margin-top: 0px; }
 
     /*Large devices (desktops, less than 1200px)*/
     @media (max-width: 1199.98px) {

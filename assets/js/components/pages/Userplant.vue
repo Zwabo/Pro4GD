@@ -67,15 +67,6 @@
                     <div class="greenLine"></div>
                     <p>{{userplant.plant.careTips}}</p>
                 </div>
-
-                <div id="moreInfos">
-                    <h3>Weitere Informationen</h3>
-                    <div class="greenLine"></div>
-                    <h4>Standort</h4>
-                    <p>{{userplant.plant.locationAddinfo}}</p>
-                    <h4>Temperatur</h4>
-                    <p>{{userplant.plant.temperatureAddinfo}}</p>
-                </div>
             </div>
             <div class="col-lg-4">
                 <div class="d-flex align-content-center flex-wrap" id="InfoWidgetContainerSpecial">
@@ -275,5 +266,14 @@
         height: 2px;
         background: #97B753;
         margin-bottom: 4%;
+    }
+    #dataBaseLink{
+        margin-bottom: 25px;
+    }
+
+    @media (max-width: 991.98px) {
+        #InfoWidgetContainerBasic{
+            margin-bottom: 50px;
+        }
     }
 </style>

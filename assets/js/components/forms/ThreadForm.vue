@@ -57,6 +57,12 @@
             this.$http.get('/api/forum/categories')
                 .then(response => {
                     this.categories = response.data;
+                    let i = this.categories.length
+                    while (i--) {
+                        if (this.categories[i].title === 'Pflanzen') {
+                            this.categories.splice(i, 1);
+                        }
+                    }
                 })
                 .catch(error => {
                     alert(error);

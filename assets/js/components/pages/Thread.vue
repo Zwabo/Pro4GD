@@ -9,7 +9,7 @@
                         <router-link to="/forum"  id="naviLogo">
                             Forum
                         </router-link>
-                        <span v-if="thread.category.parent!=null">/ {{thread.category.parent.title}}</span>
+                        <span v-if="thread.category.parent!==''">/ {{thread.category.parent.title}}</span>
                         / {{thread.category.title}}</h1>
                 </div>
 
@@ -197,7 +197,8 @@
                 userId: this.loggedUser.id,
             }).then(response => {
                 this.thread = response.data.shift();
-                this.comments = response.data
+                console.log(this.thread);
+                this.comments = response.data;
             })
                 .catch(error => {
                     alert(error);
@@ -397,4 +398,25 @@
     .threadIcons #heart:hover .heartHover { fill: #707070; }
     .iconText { margin-right: 5%; }
     .commentNr { font-weight: bolder; margin-left: 5%; }
+
+    /*---------------------------------------Media Queries-----------------------------------------------*/
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
+    }
+
+    /* Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
+        .col-lg-1, .col-lg-10, .col-lg-2  { width: 20% !important;}
+        .col-lg-8 { width: 60% !important;}
+
+    }
+
+    /*Small devices (landscape phones, less than 768px)*/
+    @media (max-width: 767.98px) {
+
+    }
+
+    /* Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+    }
 </style>
