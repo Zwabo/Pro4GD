@@ -317,59 +317,21 @@ class ForumController extends AbstractController
     {
         $data = $request->getContent();
         $data = json_decode($data, true);
-        $userid = $data["userId"];
+        $userId = $data["userId"];
 
         //find all comments from the specific thread
         $threadComments = $this->getDoctrine()
             ->getRepository(Comment::class)
             ->findBy(["thread" => $threadid]);
 
-
-        $test = [];
-        foreach($threadComments as $comment) {
-            $comment = $comment->toAssoc();
-            array_push($test, $comment);
-        }
-
-        //find all comments from the user in that thread
-        $commentsUser = [];
-        foreach($threadComments as $comment) {
-            $commentUserid = $comment->getUser()->getId();
-
-            if ($commentUserid === $userid) {
-                array_push($commentsUser, $comment);
-            }
-        }
-
-        $test2 = [];
-        foreach($commentsUser as $comment) {
-            $comment = $comment->toAssoc();
-            array_push($test2, $comment);
-        }
-
-        //get all liked threads of the user
-        $commentsLiked = [];
-        $test3 = null;
-        foreach($commentsUser as $comment) {
-            $id = $comment->getId();
-
-            $likedComment = $this->getDoctrine()
-                ->getRepository(ThumbUp::class)
-                ->findOneBy( ['Comment' => $id, 'user' => $userid] );
-
-            if ($likedComment) {
-                array_push($commentsLiked, $likedComment->getId()); }
-        }
-
         $commentIds = [];
-        $test4 = null;
-        foreach($commentsLiked as $comment) {
-            $ids = $this->getDoctrine()
+        foreach($threadComments as $comment) {
+            $liked = $this->getDoctrine()
                 ->getRepository(ThumbUp::class)
-                ->find($comment);
-
-            array_push($commentIds, $ids->getComment()->getId());
-            $test4 = $ids->getComment()->getId();
+                ->findOneBy(["Comment" => $comment->getId(), 'user' => $userId]);
+            if (!empty($liked)) {
+                $commentIds[] = $comment->getId();
+            }
         }
 
         return new JsonResponse($commentIds, Response::HTTP_OK);
