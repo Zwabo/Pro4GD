@@ -1,12 +1,12 @@
 <template>
-    <div class="row " v-if="garden !== null">
+    <div class="row ">
 
         <div class="col right marginLeftRight garden">
 
             <div class="row mygarden">
                 <h1 class="col-sm">Mein Garten
-                    <span class="fontLight edit" v-if="!edit" @click="edit = true"> edit</span>
-                    <span v-if="edit" class="fontLight edit" @click="edit = false"> close</span></h1>
+                    <span class="fontLight edit" v-if="!edit && garden !== null" @click="edit = true"> edit</span>
+                    <span v-if="edit && garden !== null" class="fontLight edit" @click="edit = false"> close</span></h1>
                 <div v-if="add===false" class="col-sm text-right add"><span @click="add = true" class="iconGarden">
 
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -26,9 +26,18 @@
 
             <div class="greenLine"></div>
 
+            <div v-if="garden === null" class="text-center">Wow such empty! Füge Pflanzen zu deinem Garten hinzu.</div>
+
             <div class="row scrollPlants">
 
-                <div class="col">
+                <b-modal id="modal-center" centered title="Pflanze gegossen!" ok-only>
+                    <p v-if="!LevelUp" class="my-4">Noch {{(MissingXPs(currentPlantXP))}} XP bis zum nächsten Level</p>
+                    <b-progress v-if="!LevelUp" :value="currentPlantXP" :max="currentPlantXP - currentPlantXP%100 +100"
+                                variant="dark" class="w-60" height="1.2rem" show-value ></b-progress>
+                    <p v-else class="my-4">Level Up! Pflanze ist jetzt Level {{plantLevel(currentPlantXP)}}</p>
+                </b-modal>
+
+                <div class="col" v-if="garden !== null">
                     <div v-for="(userplant, index) in garden">
                         <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
                             <remove-plant-modal v-if="edit" :userplant="userplant"
@@ -102,13 +111,13 @@
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="col" v-if="garden !== null">
                     <div v-for="(userplant, index) in garden">
                         <div v-if="index % 2 !== 0" class="row paddingNormalize">
                             <remove-plant-modal v-if="edit" :userplant="userplant"
                                                 @newUserplant="newUserplant"></remove-plant-modal>
                             <router-link :to="'/userplant/' + userplant.id">
-                                <div class="container-fluid plantsProfil dropShadow bgWhiteGrey"
+                                <div class="container-fluid plantsProfil dropShadow bgWhiteGrey "
                                      v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
                                     <div class="row">
                                         <div class="col-sm-7 plantInfo">
@@ -117,12 +126,12 @@
                                             <p>{{thirst(userplant.dateWatered)}}</p>
                                             <div class="list"></div>
                                             <p><span class="iconsGarden"> <svg version="1.1" id="Layer_1"
-                                                                              xmlns="http://www.w3.org/2000/svg"
-                                                                              xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                              x="0px" y="0px"
-                                                                              viewBox="0 0 512 512"
-                                                                              style="enable-background:new 0 0 512 512;"
-                                                                              xml:space="preserve">
+                                                                               xmlns="http://www.w3.org/2000/svg"
+                                                                               xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                               x="0px" y="0px"
+                                                                               viewBox="0 0 512 512"
+                                                                               style="enable-background:new 0 0 512 512;"
+                                                                               xml:space="preserve">
                                             <g>
                                                 <g>
                                                     <path d="M256,0C153.755,0,70.573,83.182,70.573,185.426c0,126.888,165.939,313.167,173.004,321.035
@@ -134,10 +143,10 @@
                                    </span> {{ userplant.location }}
                                             </p>
                                             <p><span class="iconsGarden"> <svg xmlns="http://www.w3.org/2000/svg"
-                                                                              xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                              x="0px" y="0px" viewBox="0 0 455.4 455.4"
-                                                                              style="enable-background:new 0 0 455.4 455.4;"
-                                                                              xml:space="preserve"><path class="path1" d="m80 320h53.332031c8.832031 0 16-7.167969 16-16v-53.332031c0-8.832031-7.167969-16-16-16h-53.332031c-8.832031 0-16 7.167969-16 16v53.332031c0 8.832031 7.167969 16 16 16zm0 0"/><path
+                                                                               xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                               x="0px" y="0px" viewBox="0 0 455.4 455.4"
+                                                                               style="enable-background:new 0 0 455.4 455.4;"
+                                                                               xml:space="preserve"><path class="path1" d="m80 320h53.332031c8.832031 0 16-7.167969 16-16v-53.332031c0-8.832031-7.167969-16-16-16h-53.332031c-8.832031 0-16 7.167969-16 16v53.332031c0 8.832031 7.167969 16 16 16zm0 0"/><path
                                                     class="path1"
                                                     d="m80 448h53.332031c8.832031 0 16-7.167969 16-16v-53.332031c0-8.832031-7.167969-16-16-16h-53.332031c-8.832031 0-16 7.167969-16 16v53.332031c0 8.832031 7.167969 16 16 16zm0 0"/><path
                                                     class="path1"
@@ -151,8 +160,8 @@
                                    </span> {{wateringTime(userplant.dateWatered)}}
                                             </p>
                                             <p><span class="water"> <svg xmlns="http://www.w3.org/2000/svg"
-                                                                              width="39.355" height="62.318"
-                                                                              viewBox="0 0 39.355 62.318">
+                                                                         width="39.355" height="62.318"
+                                                                         viewBox="0 0 39.355 62.318">
                                             <path id="Pfad_371" data-name="Pfad 371"
                                                   d="M46.867,425.31a19.678,19.678,0,1,1-39.355,0c0-8.9,13.184-33.135,17.968-41.639a1.96,1.96,0,0,1,3.417,0c4.786,8.5,17.97,32.743,17.97,41.639Zm0,0"
                                                   transform="translate(-7.512 -382.671)" fill="#B8E269"/>
@@ -244,7 +253,7 @@
             </div>
         </div>
 
-        <div class="col windowImage" v-else>
+        <div class="col windowImage" v-else-if="!add && garden !== null">
             <div v-if="image === ''" class="windowImage">
                 <img :src="'../' + garden[0].plant.WindowIcon" alt="Plant side view" height="675"
                      class="col-sm plantWindow">
@@ -253,13 +262,6 @@
                 <img :src="'../' + image" alt="Plant side view" height="675" class="col-sm plantWindow">
             </div>
         </div>
-
-        <b-modal id="modal-center" centered title="Pflanze gegossen!" ok-only>
-            <p v-if="!LevelUp" class="my-4">Noch {{(MissingXPs(currentPlantXP))}} XP bis zum nächsten Level</p>
-            <b-progress v-if="!LevelUp" :value="currentPlantXP" :max="currentPlantXP - currentPlantXP%100 +100"
-                        variant="dark" class="w-50"></b-progress>
-            <p v-else class="my-4">Level Up! Pflanze ist jetzt Level {{plantLevel(currentPlantXP)}}</p>
-        </b-modal>
 
     </div>
 
@@ -296,10 +298,8 @@
             this.$http.get('/api/garden/' + this.$route.params.id)
                 .then(response => {
                     this.garden = response.data;
-                })
-                .catch(error => {
-                    alert(error);
                 });
+
             this.$http.get('/api/garden/')
                 .then(response => {
                     this.plants = response.data;
