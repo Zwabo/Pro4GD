@@ -4,9 +4,9 @@
         <div class="container-fluid paddingLeftRight">
             <div class="row marginTopOnSite">
 
-                <div class="col-lg-10 paddingNormalize">
+                <div class="col-lg-9 paddingNormalize">
                     <h1 class="forumH1">
-                        <router-link to="/forum"  id="naviLogo">
+                        <router-link to="/forum"  id="naviLogo" class="backtextColor">
                             Forum
                         </router-link>
                         <span v-if="thread.category.parent!==''">/ {{thread.category.parent.title}}</span>
@@ -14,18 +14,11 @@
                 </div>
 
 
-                <div class="col-lg-1 text-right">
-
-                    <span class="searchForum"><svg xmlns="http://www.w3.org/2000/svg" width="41.472" height="35.105" viewBox="0 0 41.472 35.105">
-                      <g id="Gruppe_730" data-name="Gruppe 730" transform="translate(0.872)">
-                        <g id="Ellipse_28" data-name="Ellipse 28" transform="translate(12.6)" fill="#fff" stroke="#97b753" class="searchStroke" stroke-width="3">
-                          <circle cx="14" cy="14" r="14" stroke="none"/>
-                          <circle cx="14" cy="14" r="12.5" fill="none"/>
-                        </g>
-                        <line id="Linie_14" data-name="Linie 14" y1="10.93" x2="15.303" transform="translate(0 22.954)" fill="none" stroke="#97b753" class="searchStroke" stroke-width="3"/>
-                      </g>
-                    </svg></span>
-
+                <div class="col-lg-2 text-right">
+                            <router-link class="backLink routeBack" :to="'/forum/'">
+                                <svg class="backSvg"><use href="#backIcon"></use></svg>
+                                <span class="desktop backtext backtextColor">Zurück</span>
+                            </router-link>
                 </div>
 
                 <!-- Button zum löschen von Threads für admins und supporting users -->
@@ -123,6 +116,20 @@
                 </div>
                 <div class="greyLine commentLine"></div>
             </div>
+        </div>
+        <div style="display: none;">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 style="enable-background:new 0 0 41 49;" xml:space="preserve">
+                <symbol id="backIcon" viewBox="0 0 41 49">
+                    <g id="Polygon_98" transform="translate(41) rotate(90)">
+                        <path class="st0" d="M7,4.8l34.9,0c1.1,0,2.1,0.6,2.6,1.5s0.5,2.1,0,3L27.1,38.5c-0.5,0.9-1.5,1.5-2.6,1.5s-2-0.5-2.6-1.5L4.5,9.3
+                            c-0.6-0.9-0.6-2.1,0-3C5,5.4,6,4.8,7,4.8z"/>
+                        <path class="st0" d="M24.5,39c0.3,0,1.2-0.1,1.7-1L43.7,8.8c0.5-0.9,0.2-1.7,0-2c-0.2-0.3-0.7-1-1.7-1L7,5.8c-1.1,0-1.6,0.7-1.7,1
+                            c-0.2,0.3-0.5,1.1,0,2L22.8,38C23.3,38.9,24.2,39,24.5,39 M24.5,41c-1.3,0-2.7-0.6-3.4-1.9L3.6,9.8C2,7.2,3.9,3.8,7,3.8l34.9,0
+                            c3.1,0,5,3.4,3.4,6.1L27.9,39.1C27.2,40.4,25.8,41,24.5,41z"/>
+                    </g>
+                </symbol>
+            </svg>
         </div>
     </div>
 </template>
@@ -329,14 +336,18 @@
             },
             setHeartsComments: function(commentId) {
                 let like = false;
+                console.log('Liked Comments');
+                console.log(this.likedComments);
                 for(let i = 0; i < this.likedComments.length; i++) {
                     if (commentId === this.likedComments[i]) {
                         like = true;
                     }
                 }
                 if (like === true) {
+                    console.log('heart filled');
                     return '#707070';
                 } else {
+                    console.log('heart emptied');
                     return '#dedede';
                 }
             },
@@ -383,9 +394,20 @@
     .lineAboveStart { margin-bottom: 1%; }
     .commentLine{ margin:0; padding:0; }
 
+    .routeBack { float: right;}
+
     .startPost {
         padding: 2%;
         border-radius: 10px 10px 0px 0px;
+    }
+
+    .backtextColor {
+        color: #6c757d;
+    }
+
+    .backtext {
+        font-weight: normal;
+        margin-top: 4%;
     }
 
     .h3MarginThread {
@@ -408,6 +430,7 @@
     @media (max-width: 991.98px) {
         .col-lg-1, .col-lg-10, .col-lg-2  { width: 20% !important;}
         .col-lg-8 { width: 60% !important;}
+        .col-lg-9 { width: 70% !important;}
 
     }
 
