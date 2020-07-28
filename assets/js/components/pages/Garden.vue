@@ -1,5 +1,5 @@
 <template>
-    <div class="row container-fluid">
+    <div class="row container-fluid all">
 
         <div class="col right marginLeftRight garden">
 
@@ -464,6 +464,11 @@
     .windowImage {
         margin: 0;
         padding: 0;
+        width: 100%;
+    }
+
+    .all {
+        width: 103%;
     }
 
     .garden {

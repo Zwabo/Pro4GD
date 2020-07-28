@@ -320,6 +320,7 @@
     .database {
         background-color: #97B753;
         color: white;
+        width: 101%;
         padding-top: 5%;
         padding-bottom: 12%;
     }
