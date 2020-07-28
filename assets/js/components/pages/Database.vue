@@ -1,5 +1,5 @@
 <template>
-    <div class="row database" v-if="">
+    <div class="row database container-fluid" v-if="">
 
         <div class="col-5 selfAlignCenter text-center">
              <span class="Databaselogo">
@@ -76,7 +76,7 @@
                     <option>extrem</option>
                 </select>
                 <button class="buttonWhiteSearch" v-on:click="buttonPressed = true">Suche starten</button>
-                <button class="col-lg-10 selfAlignCenter buttonWhiteExplore" v-on:click="findRandomPlant= true" @mouseup="chooseRandom()" > Pflanzen entdecken </button>
+                <button class="col-lg-10 selfAlignCenter buttonWhiteExplore" v-on:click="findRandomPlant= true" @mouseup="chooseRandom()"> Pflanzen entdecken </button>
             </form>
 
         </div>
@@ -341,8 +341,8 @@
     }
 
     .buttonWhiteExplore {
-        background-image: url('/public/images/pictures/discover.png');
-        background-color: white;
+        background: url(../../../../public/images/pictures/discover.png) no-repeat;
+        background-size: 100% 100%;
         padding: 40px 70px;
         color: #97B753;
         border: 2px solid white;
@@ -400,10 +400,10 @@
     }
 
     .buttonWhiteExploreMore {
-        background-image: url('/public/images/pictures/discover.png');
-        background-color: white;
+        background: url(../../../../public/images/pictures/discover.png) no-repeat;
+        background-size: 100% 100%;
         padding: 40px 70px;
-        color: #97B753;;
+        color: #97B753;
         border: 2px solid white;
         border-radius: 10px;
         font-size: 110%;
@@ -443,5 +443,6 @@
     .plantInfoDa p {
         margin-bottom: 2.5%;
     }
+
 
 </style>
