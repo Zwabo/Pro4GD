@@ -1,7 +1,7 @@
 <template>
     <div class="row database container-fluid" v-if="">
 
-        <div class="col-5 selfAlignCenter text-center">
+        <div class="col-lg-5 selfAlignCenter text-center">
              <span class="Databaselogo">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  viewBox="0 0 385 284.4" style="enable-background:new 0 0 385 284.4;" xml:space="preserve">
@@ -46,12 +46,12 @@
 </g>
 </svg>
              </span>
-            <h1 class="font-weight-light">Datenbank</h1>
+            <h1 class="font-weight-light titleDa">Datenbank</h1>
         </div>
         <div class="col-lg-1 whiteLineVert" ></div>
 
-        <div class="col-5 text-center" v-if="!buttonPressed && !findRandomPlant">
-            <form >
+        <div class="col-lg-5 text-center" v-if="!buttonPressed && !findRandomPlant">
+            <form>
                 <p class="search">Suche</p>
                 <input type="text" placeholder="Suche nach Pflanzen.." class="form-control form-control-sm searchBarDatabase" aria-label="Search" v-model="search">
                 <select class="form-control form-control-sm searchBarDatabase DropdownFont" v-model="category">
@@ -84,8 +84,8 @@
         <div v-if="buttonPressed">
 
             <div class="row">
-                <input type="text" placeholder="Suche nach Pflanzen.." class="col-3 form-control form-control-sm searchBarDatabase" aria-label="Search" v-model="search">
-                <select class=" col-3 form-control form-control-sm searchBarDatabase DropdownFont" v-model="category">
+                <input type="text" placeholder="Suche nach Pflanzen.." class="col-3 form-control form-control-sm searchBarDatabase2" aria-label="Search" v-model="search">
+                <select class="col-lg-3 form-control form-control-sm searchBarDatabase2 DropdownFont select" v-model="category">
                     <option value="" selected>Kathegorie auswählen</option>
                     <option>Wildpflanze</option>
                     <option>Heilpflanze</option>
@@ -99,14 +99,14 @@
                     <option>Herbstblüher</option>
                     <option>Winterblüher</option>
                 </select>
-                <select class="col-3 form-control form-control-sm searchBarDatabase DropdownFont" v-model="difficulty">
+                <select class="col-lg-3 form-control form-control-sm searchBarDatabase2 DropdownFont select" v-model="difficulty">
                     <option value="" selected>Schwierigkeit</option>
                     <option>gering</option>
                     <option>mittel</option>
                     <option>hoch</option>
                     <option>extrem</option>
                 </select>
-                <button type="button" class="close col" aria-label="Close" @click="buttonPressed = false">
+                <button type="button" class="close col select" aria-label="Close" @click="buttonPressed = false">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -157,10 +157,10 @@
         </div>
         </div>
 
-        <div v-if="findRandomPlant">
+        <div v-if="findRandomPlant" class="findRandomPlant">
             <div class="row">
                 <div  class="close col-9 "></div>
-                <button type="button" class="close col" aria-label="Close" @click="findRandomPlant= false">
+                <button type="button" class="close col x" aria-label="Close" @click="findRandomPlant= false">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -320,7 +320,8 @@
     .database {
         background-color: #97B753;
         color: white;
-        width: 101%;
+        width: 100%;
+        height: 100%;
         padding-top: 5%;
         padding-bottom: 12%;
     }
@@ -355,6 +356,12 @@
     }
 
     .searchBarDatabase {
+        margin-bottom: 10px;
+        text-align: center;
+        margin-right: 40px;
+    }
+
+    .searchBarDatabase2 {
         margin-bottom: 10px;
         text-align: center;
         margin-right: 40px;
@@ -445,5 +452,147 @@
         margin-bottom: 2.5%;
     }
 
+    /* small devices )*/
+    @media (max-width: 768px) {
+
+
+    }
+
+    /*medium devices )*/
+    @media (max-width: 992px) and (orientation: landscape){
+        .database {
+            width: 101.5%;
+            padding-top: 3%;
+            padding-bottom: 5%; }
+
+        .Databaselogo svg { width: 18%;}
+
+        .search { font-size: larger}
+
+        .buttonWhiteExplore {
+            width: 50%;
+        }
+
+        .searchBarDatabase {
+            margin-left: 25%;
+            width: 50%;
+            align-self: center;
+        }
+
+        form {
+            margin-top: 5%;
+        }
+
+        .search {
+            display: none;
+        }
+
+        .buttonWhiteSearch {
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-bottom: 4%;
+        }
+
+        .searchPlants {
+            height: 120vh;
+            width: 70vh;
+            margin-left: 40%;
+        }
+
+        .findRandomPlant{
+            margin-left: 20%;
+        }
+
+        .searchPlant{
+            margin-bottom: 10%;
+            overflow: visible;
+        }
+
+        .searchBarDatabase2 {
+           margin-left: 50%;
+            margin-right: 0;
+
+        }
+
+        .titleDa{
+            margin-bottom: 5%;
+        }
+
+
+    }
+
+    @media (max-width: 992px) and (orientation: portrait){
+        .database {
+            width: 101.5%;
+            padding-top: 15%;
+            padding-bottom: 30.8%;
+        }
+
+        .Databaselogo svg { width: 25%;}
+
+        .buttonWhiteExplore {
+            width: 70%;
+        }
+
+        .searchBarDatabase {
+            margin-left: 15%;
+            width: 70%;
+            align-self: center;
+        }
+
+        form {
+            margin-top: 10%;
+        }
+
+        .buttonWhiteSearch {
+            margin-left: 15%;
+            margin-right: 15%;
+            margin-bottom: 4%;
+        }
+
+        .searchPlants {
+            height: 80vh;
+            width: 40vh;
+            margin-left: 40%;
+            margin-bottom: 0;
+        }
+
+        .findRandomPlant{
+            margin-left: 20%;
+            width: 50%;
+        }
+
+        .searchPlant{
+            margin-top: 10%;
+            margin-left: 10%;
+            width: 120%;
+            height: 50%;
+            margin-bottom: 20%;
+            overflow: visible;
+        }
+
+        .buttonWhiteExploreMore {
+            margin-left: 22%;
+            margin-right: 0;
+            width: 150%;
+            padding: 40px 70px;
+        }
+
+        .x {
+            margin-left: 107%;
+            margin-right: 0;
+        }
+
+        .searchBarDatabase2 {
+            margin-left: 80%;
+            width: 50%;
+            margin-right: 3%;
+        }
+
+        .titleDa{
+            margin-bottom: 3%;
+        }
+
+    }
 
 </style>
