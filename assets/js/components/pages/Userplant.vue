@@ -20,10 +20,10 @@
 
                 <h2>{{userplant.plant.name}}</h2>
 
-                <ul>
-                    <li>{{userplant.location}}</li>
-                    <li id ="watering">{{userplant.plant.wateringAmount}}</li>
-                    <li id="wateringDay">Alle {{userplant.wateringCycle}} Tage</li>
+                <ul class="statList">
+                    <li><img src="/images/icons/location.svg" width="32"> {{userplant.location}}</li>
+                    <li id ="watering"><img src="/images/icons/water.svg" width="32"> {{userplant.plant.wateringAmount}}</li>
+                    <li id="wateringDay"><img src="/images/icons/clock.svg" width="32"> Alle {{userplant.wateringCycle}} Tage</li>
                 </ul>
             </div>
             <div class="col-lg-4">
@@ -67,15 +67,6 @@
                     <div class="greenLine"></div>
                     <p>{{userplant.plant.careTips}}</p>
                 </div>
-
-                <div id="moreInfos">
-                    <h3>Weitere Informationen</h3>
-                    <div class="greenLine"></div>
-                    <h4>Standort</h4>
-                    <p>{{userplant.plant.locationAddinfo}}</p>
-                    <h4>Temperatur</h4>
-                    <p>{{userplant.plant.temperatureAddinfo}}</p>
-                </div>
             </div>
             <div class="col-lg-4">
                 <div class="d-flex align-content-center flex-wrap" id="InfoWidgetContainerSpecial">
@@ -104,7 +95,7 @@
                 </div>
 
                 <div id="dataBaseLink" class="text-center">
-                    <a href="" class="buttonDarkGreen">Zum Datenbankeintrag</a>
+                    <router-link :to="{ name: 'plantData', params: { linkname: userplant.plant.name }}" class="buttonDarkGreen">Zum Datenbankeintrag</router-link>
                 </div>
             </div>
         </div>
@@ -236,6 +227,16 @@
     .infoWidget ul li:last-child{
         margin-bottom: 0;
     }
+    ul.statList{
+        list-style: none;
+        padding: 0;
+    }
+    ul.statList li{
+        padding: 5px 0;
+    }
+    ul.statList li img{
+        margin-right: 20px;
+    }
     #notes{
         color: #ffffff;
         background-color: #97B753;
@@ -275,5 +276,14 @@
         height: 2px;
         background: #97B753;
         margin-bottom: 4%;
+    }
+    #dataBaseLink{
+        margin-bottom: 25px;
+    }
+
+    @media (max-width: 991.98px) {
+        #InfoWidgetContainerBasic{
+            margin-bottom: 50px;
+        }
     }
 </style>

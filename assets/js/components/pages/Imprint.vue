@@ -82,6 +82,9 @@
                         <li><span class="bold">Flower</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
                         <li><span class="bold">Leaves</span>, Pixel perfect, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
                         <li><span class="bold">List</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Location</span>, Freepik, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Water</span>, Good Ware, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
+                        <li><span class="bold">Clock</span>, bqlqn, <a href="https://www.flaticon.com/">Flaticon Basic License</a></li>
                     </ul>
                 </div>
 

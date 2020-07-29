@@ -184,7 +184,7 @@
                                 </div>
                             </div>
                     <div class="row">
-                        <div id="creditBox" class="col-lg-4">
+                        <div id="creditBox" class="col-lg">
                     <h3 id="credit">Credits</h3>
                     <p class="creditText">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, ed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
@@ -192,7 +192,7 @@
                         </div>
 
 
-                        <div id="contactBox" class="col-lg-4">
+                        <div id="contactBox" class="col-lg">
 
                             <h3 id="contact">Kontakt</h3>
                             <p class="contactText">Bei Problemen, Fragen und Beschwerden
@@ -295,6 +295,18 @@
 </script>
 
 <style scoped>
+    #userHeader{
+        padding: 25px 0;
+    }
+    #userPicCnt {
+        text-align-last: center;
+        align-self: center;
+    }
+    #userPicCnt .userPicture {
+        width: 150px;
+        height: 150px;
+        border-radius: 100px;
+    }
     #settings{
         text-transform: uppercase;
         color: #707070;
@@ -345,8 +357,7 @@
         color: #707070;
         font-weight: lighter;
         font-size: 90%;
-
-
+        width: auto;
     }
     #creditBox{
         background-color: #B8E269;
@@ -359,7 +370,9 @@
     #contactBox{
         background-color:#97B753;
         margin-left:5%;
+        margin-bottom: 50px;
         height: 280px;
+        border-radius: 12px;
         border-radius: 12px;
     }
 
@@ -391,8 +404,9 @@
     }
 
     #contactButton{
-        margin-left:5%;
-        margin-top:12%;
+        margin-left:25px;
+        margin-top:25px;
+        margin-bottom: 25px;
         background-color: #FFFFFF;
         color:#97B753;
         border-radius: 12px;
@@ -470,5 +484,26 @@
     #rudeSwitch{
         margin-bottom: -10%;
 
+    }
+    @media (max-width: 991.98px) {
+        .switch{
+            margin-left: 20px;
+        }
+        .privacyOptions{
+            color: #707070;
+            font-weight: lighter;
+            font-size: 90%;
+            width: auto;
+            padding: 0 8%;
+        }
+        .radioButton{
+            margin-right: 25%
+        }
+        #contactBox{
+            margin-left:0;
+        }
+        #creditBox{
+            margin: 25px 0;
+        }
     }
 </style>
