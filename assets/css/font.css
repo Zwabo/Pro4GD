@@ -1,3 +1,12 @@
+/* link style*/
+/*a:link { color: #97B753; }
+a:hover { color: #B8E269; }
+a:active { color: #707070; }
+
+.aGrey:link { color: #707070; }
+.aGrey:hover { color: #97B753; }
+.aGrey:active { color: #B8E269; }*/
+
 /*basic font for the site*/
 body {
     font-family: 'Quicksand', sans-serif;
