@@ -504,7 +504,7 @@
                                 <h4 class="rightBoxesH4">Forum</h4>
                             </div>
                             <div class="col-lg-5 paddingNormalize rightBoxesLink">
-                                <router-link :to="'/profile/' + profileUser.username + '/forum'">
+                                <router-link class="router-link" :to="'/profile/' + profileUser.username + '/forum'">
                                     Alle anzeigen
                                 </router-link>
                             </div>
@@ -1622,8 +1622,9 @@
     }
 
     /*weiter desktop*/
-    .routerText:hover { color: #97B753; }
-    .routerText:active { color: #B8E269; }
+    .rightBoxesLink a:link { color: #707070; }
+    .routerText:hover, .routerText:hover span { color: #97B753; }
+    .routerText:active, routerText:hover span { color: #B8E269; }
     .forthSvg {
         width: 20px;
         height: 20px;

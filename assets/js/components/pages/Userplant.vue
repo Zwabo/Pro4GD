@@ -20,10 +20,10 @@
 
                 <h2>{{userplant.plant.name}}</h2>
 
-                <ul>
-                    <li>{{userplant.location}}</li>
-                    <li id ="watering">{{userplant.plant.wateringAmount}}</li>
-                    <li id="wateringDay">Alle {{userplant.wateringCycle}} Tage</li>
+                <ul class="statList">
+                    <li><img src="/images/icons/location.svg" width="32"> {{userplant.location}}</li>
+                    <li id ="watering"><img src="/images/icons/water.svg" width="32"> {{userplant.plant.wateringAmount}}</li>
+                    <li id="wateringDay"><img src="/images/icons/clock.svg" width="32"> Alle {{userplant.wateringCycle}} Tage</li>
                 </ul>
             </div>
             <div class="col-lg-4">
@@ -95,7 +95,7 @@
                 </div>
 
                 <div id="dataBaseLink" class="text-center">
-                    <a href="" class="buttonDarkGreen">Zum Datenbankeintrag</a>
+                    <router-link :to="{ name: 'plantData', params: { linkname: userplant.plant.name }}" class="buttonDarkGreen">Zum Datenbankeintrag</router-link>
                 </div>
             </div>
         </div>
@@ -226,6 +226,16 @@
     }
     .infoWidget ul li:last-child{
         margin-bottom: 0;
+    }
+    ul.statList{
+        list-style: none;
+        padding: 0;
+    }
+    ul.statList li{
+        padding: 5px 0;
+    }
+    ul.statList li img{
+        margin-right: 20px;
     }
     #notes{
         color: #ffffff;
