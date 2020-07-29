@@ -458,8 +458,27 @@
         margin-bottom: 3%;
     }
 
-    .buttonPressed {
-        margin-left: 7%;
+    @media (max-width: 1200px) and (orientation: landscape){
+        .database {
+            width: 102%;
+            padding-top: 10%;
+            padding-bottom: 16%;
+        }
+    }
+
+    @media (max-width: 1200px) and (orientation: portrait){
+        .database {
+            width: 102%;
+            padding-top: 15%;
+            padding-bottom: 26%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .database {
+            width: 103%;
+        }
+
     }
 
 
