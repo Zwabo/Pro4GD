@@ -20,6 +20,15 @@ body {
 .fontLight { font-weight: lighter; }
 
 
+a {
+    color: inherit;
+}
+
+
+a:link {
+    text-decoration: none;
+}
+
 .fontUpperCase { text-transform: uppercase; }
 
 /*ul class for no list style*/
