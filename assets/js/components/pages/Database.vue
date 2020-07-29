@@ -111,13 +111,13 @@
                 </select>
             </form>
 
-            <div class="row searchPlants">
-            <div class="col-lg-5 col-md-3 col-sm">
+            <div class="row searchPlants ">
+            <div class="col-lg col-sm">
                 <div v-for="(plant, index) in filteredPlants" >
                     <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
-                        <div class="plantsProfilDa dropShadow bgWhiteGrey ">
+                        <div class="col-lg col-sm plantsProfilDa dropShadow bgWhiteGrey ">
                             <div class="row">
-                                <div class="col-lg-7 col-md-4 col-sm plantInfoDa">
+                                <div class="col-lg col-sm plantInfoDa">
                                     <p class="text-left gardenPFirstDa"><b>{{ plant.name }}</b></p>
                                     <p>{{ plant.genus}}</p>
                                     <router-link :to="'/plant/' + plant.linkName">
@@ -125,7 +125,7 @@
                                     </router-link>
 
                                 </div>
-                                <img class="col-lg-5 col-sm imgTest" v-bind:src="'../' + plant.icon"  alt="Picture of plant" height="100" >
+                                <img class="col-lg col-sm imgTest" v-bind:src="'../' + plant.icon"  alt="Picture of plant" height="100" >
 
                             </div>
                         </div>
@@ -133,12 +133,12 @@
                 </div>
             </div>
 
-            <div class="col-lg-5 col-md-3 col-sm">
+            <div class="col-lg col-sm">
                 <div v-for="(plant, index) in filteredPlants" >
                     <div v-if="index % 2 !== 0" class="row paddingNormalize">
-                        <div class="plantsProfilDa dropShadow bgWhiteGrey">
+                        <div class=" col-lg col-sm plantsProfilDa dropShadow bgWhiteGrey">
                             <div class="row">
-                                <div class="col-lg-7 col-md-4 col-sm plantInfoDa">
+                                <div class="col-lg col-sm plantInfoDa">
                                     <p class="text-left gardenPFirstDa"><b>{{ plant.name }}</b></p>
                                     <p>{{plant.genus}}</p>
                                     <router-link :to="'/plant/' + plant.linkName">
@@ -146,7 +146,7 @@
                                     </router-link>
 
                                 </div>
-                                <img class="col-lg-5 col-sm imgTest" v-bind:src="'../' + plant.icon"  alt="Picture of plant" height="100" >
+                                <img class="col-lg col-sm imgTest" v-bind:src="'../' + plant.icon"  alt="Picture of plant" height="100" >
 
                             </div>
                         </div>
@@ -180,7 +180,7 @@
                             </router-link>
 
                         </div>
-                        <img class="col-lg col-sm imgTest" v-bind:src="'../' + randomPlant.icon"  alt="Picture of plant" height="340" >
+                        <img class="col-lg col-sm imgTestuno" v-bind:src="'../' + randomPlant.icon"  alt="Picture of plant" height="340" >
                     </div>
                 </div>
             </div>
@@ -367,11 +367,9 @@
 
     .searchPlants {
         margin-top: 30px;
-        height: 65vh;
-        width: 85vh;
+        height: 50vh;
         overflow: auto;
     }
-
 
     .searchPlant {
         margin-top: 30px;
@@ -424,8 +422,8 @@
         border-radius: 10px;
         padding: 10px 10px 10px 30px;
         margin-bottom: 30px;
-        margin-left: 0;
-        margin-right: 10px;
+        margin-left: 2%;
+        margin-right: 2%;
         height: 150px;
         color: #707070;
     }
@@ -476,8 +474,27 @@
             padding-bottom: 46%;
         }
 
-        .imgTest{
+        .imgTestuno{
             display: none;
+        }
+
+        .plantsProfilDa {
+            height: 150px;
+            padding-top: 3%;
+        }
+
+        .imgTest {
+            height: 20vh;
+            width: 30vh;
+        }
+
+        .plantInfoDa {
+            height: 20vh;
+            width: 30vh;
+        }
+
+        .plantInfoDb p {
+            margin-bottom: 0;
         }
     }
 
