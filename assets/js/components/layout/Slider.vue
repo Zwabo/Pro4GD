@@ -138,4 +138,34 @@
         font-size:80%;
         margin-left: 80%;
     }
+
+
+    .slide-fade-enter-active{
+        overflow: hidden;
+        visibility: hidden;
+        transition: all 1s ease;
+        position: absolute;
+
+    }
+    .slide-fade-leave-active{
+        transition: all 0.4s ease;
+
+    }
+
+    .slide-fade-enter-to{
+        transition: all 0.4s ease;
+
+    }
+    .slide-fade-leave-to{
+        transition: all 1s ease;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+
+    .indexArrows svg { width: 50%; fill: #97B753; color:BLACK; }
+    .indexArrows svg:hover { fill: #B8E269; }
+    .indexArrows svg:active { fill: #707070; }
+
 </style>
