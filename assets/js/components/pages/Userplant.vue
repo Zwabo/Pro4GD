@@ -95,7 +95,7 @@
                 </div>
 
                 <div id="dataBaseLink" class="text-center">
-                    <a href="" class="buttonDarkGreen">Zum Datenbankeintrag</a>
+                    <router-link :to="{ name: 'plantData', params: { linkname: userplant.plant.name }}" class="buttonDarkGreen">Zum Datenbankeintrag</router-link>
                 </div>
             </div>
         </div>
