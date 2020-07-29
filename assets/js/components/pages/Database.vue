@@ -113,9 +113,9 @@
 
             <div class="row searchPlants">
             <div class="col-lg-5 col-md-3 col-sm">
-                <div v-for="(plant, index) in filteredPlants" class="container-fluid">
+                <div v-for="(plant, index) in filteredPlants" >
                     <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
-                        <div class="container-fluid plantsProfilDa dropShadow bgWhiteGrey ">
+                        <div class="plantsProfilDa dropShadow bgWhiteGrey ">
                             <div class="row">
                                 <div class="col-lg-7 col-md-4 col-sm plantInfoDa">
                                     <p class="text-left gardenPFirstDa"><b>{{ plant.name }}</b></p>
@@ -133,10 +133,10 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 col-md-3 col-sm">
-                <div v-for="(plant, index) in filteredPlants" class="container-fluid">
+            <div class="col-lg-5 col-md-3 col-sm">
+                <div v-for="(plant, index) in filteredPlants" >
                     <div v-if="index % 2 !== 0" class="row paddingNormalize">
-                        <div class="container-fluid plantsProfilDa dropShadow bgWhiteGrey">
+                        <div class="plantsProfilDa dropShadow bgWhiteGrey">
                             <div class="row">
                                 <div class="col-lg-7 col-md-4 col-sm plantInfoDa">
                                     <p class="text-left gardenPFirstDa"><b>{{ plant.name }}</b></p>
@@ -157,15 +157,15 @@
         </div>
         </div>
 
-        <div v-if="findRandomPlant" class="findRandomPlant col-lg-5 col-sm selfAlignCenter text-center">
+        <div v-if="findRandomPlant" class="findRandomPlant col-lg-5 col-sm">
             <div class="row">
-                <div  class="close col-lg-9 col-sm "></div>
+                <div  class="close col-lg-11 col-sm-9 col-sm "></div>
                 <button type="button" class="close col x" aria-label="Close" @click="findRandomPlant= false">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="row searchPlant">
-                <div class="container-fluid col-lg col-sm plantProfilDb dropShadow bgWhiteGrey">
+                <div class="col-lg col-sm plantProfilDb dropShadow bgWhiteGrey">
                     <div class="row">
                         <div class="col-lg col-sm plantInfoDb">
                             <p class="text-left gardenPFirstDb"><b>{{ randomPlant.name }}</b></p>
@@ -185,7 +185,7 @@
                 </div>
             </div>
             <div class="row">
-                <button class="selfAlignCenter col-lg col-sm buttonWhiteExploreMore" v-on:click="chooseRandom()">Weitere Pflanzen entdecken </button>
+                <button class="col-lg col-sm buttonWhiteExploreMore" v-on:click="chooseRandom()">Weitere Pflanzen entdecken </button>
             </div>
         </div>
         <div style="display:none;">
@@ -361,12 +361,6 @@
         margin-right: 40px;
     }
 
-    .searchBarDatabase2 {
-        margin-bottom: 10px;
-        text-align: center;
-        margin-right: 40px;
-    }
-
     .DropdownFont {
         font-weight: lighter;
     }
@@ -381,15 +375,12 @@
 
     .searchPlant {
         margin-top: 30px;
-        height: 50vh;
-        width: 90vh;
         overflow: auto;
     }
 
     .plantProfilDb {
         border-radius: 10px;
         padding: 20px 20px 20px 30px;
-        margin-right: 80px;
         color: #707070;
     }
 
@@ -416,7 +407,6 @@
         border: 2px solid white;
         border-radius: 10px;
         font-size: 110%;
-        margin-right: 80px;
         margin-bottom: 2%;
         margin-top: 2%;
         font-weight: normal;
@@ -458,6 +448,11 @@
         margin-bottom: 3%;
     }
 
+    .findRandomPlant {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
     @media (max-width: 1200px) and (orientation: landscape){
         .database {
             width: 102%;
@@ -477,8 +472,13 @@
     @media (max-width: 768px) {
         .database {
             width: 103%;
+            padding-top: 35%;
+            padding-bottom: 46%;
         }
 
+        .imgTest{
+            display: none;
+        }
     }
 
 
