@@ -161,6 +161,7 @@
     .iconNews svg:hover .path1 {  fill: #97B753; }
     .iconNews svg:active { fill: #B8E269; }
     .iconNews svg:active .path1 { fill: #000000;}
+
     .iconNews {
         padding-top: 11px;
         padding-bottom: 5px;
@@ -175,4 +176,5 @@
         cursor:pointer;
         overflow: hidden;
     }
+    
 </style>
