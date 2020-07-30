@@ -208,6 +208,7 @@
                         likes: 0,
                     })
                     .then(response => {
+                        this.comment = '';
                         this.comments.push(response.data)
                     }).catch(error => {
                     if(error.response.data){
