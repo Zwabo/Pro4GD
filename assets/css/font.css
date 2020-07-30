@@ -53,6 +53,8 @@ h4 {
 
 .marginTopOnSite { margin-top: 50px; }
 
+
+/*----------------------------Media Queries--------------*/
 @media (max-width: 1199.98px) {
     body {
         font-size: 100%;
