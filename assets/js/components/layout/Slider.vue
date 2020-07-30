@@ -1,15 +1,16 @@
 <template>
     <div class="row" id="slider">
 
-        <div class="col-sm-1 indexArrows">
+        <div id="leftSlide" class="col-sm-1 indexArrows" >
             <svg><use href="#indexArrowLeft"></use></svg>
             <a class="prev" @click="prev" >Previous</a>
         </div>
 
+
         <div class="col-sm-10" id="indexNewsSlider">
 
          <div v-for="i in [currentIndex]" :key="i" >
-            <div  class="row" >
+             <div class="row">
              <img class="col-sm-5"v-bind:src="currentArticle.thumbnail">
              <div class="col-sm-7"id="bgNewsArticleBox">
                  <h3 class="slider-title">{{currentArticle.title}}</h3>
@@ -19,7 +20,7 @@
              </div>
          </div>
         </div>
-        <div class="col-sm-1 text-right indexArrows">
+        <div id="rightSlide" class="col-sm-1 text-right indexArrows">
             <svg><use href="#indexArrowRight"></use></svg>
             <a class="next" @click="next" > Next</a>
         </div>
@@ -149,7 +150,6 @@
     /*Large devices (desktops, less than 1200px)*/
     @media (max-width: 1199.98px) {
 
-
         .col-sm-5 {
             width: 50%;
         }
@@ -168,9 +168,9 @@
         /* Medium devices (tablets, less than 992px)*/
         @media (max-width: 991.98px) {
 
-            img{
-                width:50%;
-                height:auto;
+            img {
+                width: 50%;
+                height: auto;
             }
 
             #slider-readMore {
@@ -179,16 +179,27 @@
             }
 
             .prev, .next {
+                cursor: pointer;
+                position: absolute;
                 top: 40%;
                 width: 70px;
                 padding: 16px;
+                color: white;
+                font-weight: bold;
+                font-size: 12px;
+                transition: 0.7s ease;
+                border-radius: 4px 4px 4px 4px;
+                text-decoration: none;
+                user-select: none;
                 text-align: center;
             }
         }
 
         /*Small devices (landscape phones, less than 768px)*/
         @media (max-width: 767.98px) {
-
+            .mobile{
+                display:none;
+            }
             img{
                min-width:35%;
                 height:auto;
@@ -208,19 +219,24 @@
 
         /* Extra small devices (portrait phones, less than 576px)*/
         @media (max-width: 575.98px) {
+            #leftSlide{
+
+            }
+            #rightSlide{
+
+            }
             #indexNewsSlider{
-                width: 70%;
+                width: 60%;
                 margin:auto;
             }
             img{
-                width:30%;
+                width:20%;
                 height:auto;
             }
             .prev, .next {
-                position: static;
-                top: 40%;
+                position:absolute;
+                margin-top: -50%;
                 width:60px;
-                padding: 16px;
                 text-align: center;
             }
         }
