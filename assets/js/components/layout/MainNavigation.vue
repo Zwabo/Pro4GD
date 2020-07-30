@@ -2,7 +2,7 @@
     <div class="container-fluid bgDarkGreen">
 
         <!----------------------------------------desktop navi----------------------------------------------------------------->
-        <nav class="navbar navbar-expand-md desktopNavi" id="naviLarge">
+        <nav v-if="navigationUser" class="navbar navbar-expand-md desktopNavi" id="naviLarge">
 
             <router-link to="/" class="selfAlignCenter" id="naviLogo">
                 <svg><use href="#logoNavi"></use></svg>
@@ -55,7 +55,7 @@
         </nav>
 
         <!----------------------------------------mobile navi----------------------------------------------------------------->
-        <div class="mobileNavi">
+        <div v-if="navigationUser" class="mobileNavi">
             <nav class="navbar navbar-expand-md">
                     <router-link to="/" class="selfAlignCenter" id="naviLogoOnly">
                         <div><svg><use href="#logoOnly"></use></svg></div>
