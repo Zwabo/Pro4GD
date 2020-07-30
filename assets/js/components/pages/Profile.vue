@@ -883,18 +883,9 @@
             },
 
             deleteComment: function(index) {
-                console.log(index);
-                //this.profileUser.comments = this.profileUser.comments.splice(index, 1);
-                console.log(this.profileUser.comments);
-                this.commentArray = this.profileUser.comments.splice(index, 1);
-                console.log("this.commentArray before");
-                console.log(this.commentArray);
-
+                this.profileUser.comments.splice(index, 1);
+                this.commentArray = this.profileUser.comments;
                 this.commentArray = JSON.stringify(this.commentArray);
-
-                console.log("splice");
-                console.log(this.commentArray);
-
 
                 this.$http.put('/api/profile/' + this.$route.params.username + '/deleteComment', this.commentArray)
                     .then(response => {

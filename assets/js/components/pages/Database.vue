@@ -1,7 +1,7 @@
 <template>
     <div class="row database container-fluid" v-if="">
 
-        <div class="col-lg-5 selfAlignCenter text-center">
+        <div class="col-lg-5 col-sm selfAlignCenter text-center">
              <span class="Databaselogo">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  viewBox="0 0 385 284.4" style="enable-background:new 0 0 385 284.4;" xml:space="preserve">
@@ -81,11 +81,14 @@
 
         </div>
 
-        <div v-if="buttonPressed">
+        <div v-if="buttonPressed"  class=" col-lg-5 text-center">
 
-            <div class="row">
-                <input type="text" placeholder="Suche nach Pflanzen.." class="col-3 form-control form-control-sm searchBarDatabase2" aria-label="Search" v-model="search">
-                <select class="col-lg-3 form-control form-control-sm searchBarDatabase2 DropdownFont select" v-model="category">
+            <form class="buttonPressed">
+                <button type="button" class="close select closeButton" aria-label="Close" @click="buttonPressed = false">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <input type="text" placeholder="Suche nach Pflanzen.." class="form-control form-control-sm searchBarDatabase" aria-label="Search" v-model="search">
+                <select class="form-control form-control-sm searchBarDatabase DropdownFont select" v-model="category">
                     <option value="" selected>Kathegorie auswählen</option>
                     <option>Wildpflanze</option>
                     <option>Heilpflanze</option>
@@ -99,25 +102,22 @@
                     <option>Herbstblüher</option>
                     <option>Winterblüher</option>
                 </select>
-                <select class="col-lg-3 form-control form-control-sm searchBarDatabase2 DropdownFont select" v-model="difficulty">
+                <select class="form-control form-control-sm searchBarDatabase DropdownFont select" v-model="difficulty">
                     <option value="" selected>Schwierigkeit</option>
                     <option>gering</option>
                     <option>mittel</option>
                     <option>hoch</option>
                     <option>extrem</option>
                 </select>
-                <button type="button" class="close col select" aria-label="Close" @click="buttonPressed = false">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+            </form>
 
-            <div class="row searchPlants">
-            <div class="col-lg-6">
-                <div v-for="(plant, index) in filteredPlants" class="container-fluid">
+            <div class="row searchPlants ">
+            <div class="col-lg col-sm">
+                <div v-for="(plant, index) in filteredPlants" >
                     <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
-                        <div class="container-fluid plantsProfilDa dropShadow bgWhiteGrey ">
+                        <div class="col-lg col-sm plantsProfilDa dropShadow bgWhiteGrey ">
                             <div class="row">
-                                <div class="col-sm-7 plantInfoDa">
+                                <div class="col-lg col-sm plantInfoDa">
                                     <p class="text-left gardenPFirstDa"><b>{{ plant.name }}</b></p>
                                     <p>{{ plant.genus}}</p>
                                     <router-link :to="'/plant/' + plant.linkName">
@@ -125,7 +125,7 @@
                                     </router-link>
 
                                 </div>
-                                <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon"  alt="Picture of plant" height="100" >
+                                <img class="col-lg col-sm imgTest" v-bind:src="'../' + plant.icon"  alt="Picture of plant" height="100" >
 
                             </div>
                         </div>
@@ -133,12 +133,12 @@
                 </div>
             </div>
 
-            <div class="col-lg-6">
-                <div v-for="(plant, index) in filteredPlants" class="container-fluid">
+            <div class="col-lg col-sm">
+                <div v-for="(plant, index) in filteredPlants" >
                     <div v-if="index % 2 !== 0" class="row paddingNormalize">
-                        <div class="container-fluid plantsProfilDa dropShadow bgWhiteGrey">
+                        <div class=" col-lg col-sm plantsProfilDa dropShadow bgWhiteGrey">
                             <div class="row">
-                                <div class="col-sm-7 plantInfoDa">
+                                <div class="col-lg col-sm plantInfoDa">
                                     <p class="text-left gardenPFirstDa"><b>{{ plant.name }}</b></p>
                                     <p>{{plant.genus}}</p>
                                     <router-link :to="'/plant/' + plant.linkName">
@@ -146,7 +146,7 @@
                                     </router-link>
 
                                 </div>
-                                <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon"  alt="Picture of plant" height="100" >
+                                <img class="col-lg col-sm imgTest" v-bind:src="'../' + plant.icon"  alt="Picture of plant" height="100" >
 
                             </div>
                         </div>
@@ -157,17 +157,17 @@
         </div>
         </div>
 
-        <div v-if="findRandomPlant" class="findRandomPlant">
+        <div v-if="findRandomPlant" class="findRandomPlant col-lg-5 col-sm">
             <div class="row">
-                <div  class="close col-9 "></div>
+                <div  class="close col-lg-11 col-sm-9 col-sm "></div>
                 <button type="button" class="close col x" aria-label="Close" @click="findRandomPlant= false">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="row searchPlant">
-                <div class="container-fluid plantProfilDb dropShadow bgWhiteGrey">
+                <div class="col-lg col-sm plantProfilDb dropShadow bgWhiteGrey">
                     <div class="row">
-                        <div class="col plantInfoDb">
+                        <div class="col-lg col-sm plantInfoDb">
                             <p class="text-left gardenPFirstDb"><b>{{ randomPlant.name }}</b></p>
                             <p><b>Gattung:</b> {{randomPlant.genus}}</p>
                             <p><b>Schwierigkeit:</b> {{randomPlant.careLevel}}</p>
@@ -180,12 +180,12 @@
                             </router-link>
 
                         </div>
-                        <img class="col imgTest" v-bind:src="'../' + randomPlant.icon"  alt="Picture of plant" height="340" >
+                        <img class="col-lg col-sm imgTestuno" v-bind:src="'../' + randomPlant.icon"  alt="Picture of plant" height="340" >
                     </div>
                 </div>
             </div>
             <div class="row">
-                <button class="selfAlignCenter col buttonWhiteExploreMore" v-on:click="chooseRandom()">Weitere Pflanzen entdecken </button>
+                <button class="col-lg col-sm buttonWhiteExploreMore" v-on:click="chooseRandom()">Weitere Pflanzen entdecken </button>
             </div>
         </div>
         <div style="display:none;">
@@ -320,10 +320,10 @@
     .database {
         background-color: #97B753;
         color: white;
-        width: 100%;
+        width: 101%;
         height: 100%;
         padding-top: 5%;
-        padding-bottom: 12%;
+        padding-bottom: 14%;
     }
 
     .Databaselogo svg { width: 35%; fill: white; padding-bottom: 11px }
@@ -361,39 +361,29 @@
         margin-right: 40px;
     }
 
-    .searchBarDatabase2 {
-        margin-bottom: 10px;
-        text-align: center;
-        margin-right: 40px;
-    }
-
     .DropdownFont {
         font-weight: lighter;
     }
 
     .searchPlants {
         margin-top: 30px;
-        height: 65vh;
-        width: 85vh;
+        height: 50vh;
         overflow: auto;
     }
 
-
     .searchPlant {
         margin-top: 30px;
-        height: 50vh;
-        width: 90vh;
         overflow: auto;
     }
 
     .plantProfilDb {
         border-radius: 10px;
         padding: 20px 20px 20px 30px;
-        margin-right: 80px;
         color: #707070;
     }
 
     .plantInfoDb {
+        margin-left: 2%;
         font-size: 12pt;
         text-align: left;
     }
@@ -415,7 +405,6 @@
         border: 2px solid white;
         border-radius: 10px;
         font-size: 110%;
-        margin-right: 80px;
         margin-bottom: 2%;
         margin-top: 2%;
         font-weight: normal;
@@ -433,8 +422,8 @@
         border-radius: 10px;
         padding: 10px 10px 10px 30px;
         margin-bottom: 30px;
-        margin-left: 0;
-        margin-right: 10px;
+        margin-left: 2%;
+        margin-right: 2%;
         height: 150px;
         color: #707070;
     }
@@ -452,147 +441,62 @@
         margin-bottom: 2.5%;
     }
 
-    /* small devices )*/
-    @media (max-width: 768px) {
-
-
+    .closeButton{
+        margin-left: 80%;
+        margin-bottom: 3%;
     }
 
-    /*medium devices )*/
-    @media (max-width: 992px) and (orientation: landscape){
+    .findRandomPlant {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    @media (max-width: 1200px) and (orientation: landscape){
         .database {
-            width: 101.5%;
-            padding-top: 3%;
-            padding-bottom: 5%; }
+            width: 102%;
+            padding-top: 10%;
+            padding-bottom: 16%;
+        }
+    }
 
-        .Databaselogo svg { width: 18%;}
+    @media (max-width: 1200px) and (orientation: portrait){
+        .database {
+            width: 102%;
+            padding-top: 15%;
+            padding-bottom: 26%;
+        }
+    }
 
-        .search { font-size: larger}
-
-        .buttonWhiteExplore {
-            width: 50%;
+    @media (max-width: 768px) {
+        .database {
+            width: 103%;
+            padding-top: 35%;
+            padding-bottom: 46%;
         }
 
-        .searchBarDatabase {
-            margin-left: 25%;
-            width: 50%;
-            align-self: center;
-        }
-
-        form {
-            margin-top: 5%;
-        }
-
-        .search {
+        .imgTestuno{
             display: none;
         }
 
-        .buttonWhiteSearch {
-            margin-left: 25%;
-            margin-right: 25%;
-            margin-bottom: 4%;
+        .plantsProfilDa {
+            height: 150px;
+            padding-top: 3%;
         }
 
-        .searchPlants {
-            height: 120vh;
-            width: 70vh;
-            margin-left: 40%;
+        .imgTest {
+            height: 20vh;
+            width: 30vh;
         }
 
-        .findRandomPlant{
-            margin-left: 20%;
+        .plantInfoDa {
+            height: 20vh;
+            width: 30vh;
         }
 
-        .searchPlant{
-            margin-bottom: 10%;
-            overflow: visible;
-        }
-
-        .searchBarDatabase2 {
-           margin-left: 50%;
-            margin-right: 0;
-
-        }
-
-        .titleDa{
-            margin-bottom: 5%;
-        }
-
-
-    }
-
-    @media (max-width: 992px) and (orientation: portrait){
-        .database {
-            width: 101.5%;
-            padding-top: 15%;
-            padding-bottom: 30.8%;
-        }
-
-        .Databaselogo svg { width: 25%;}
-
-        .buttonWhiteExplore {
-            width: 70%;
-        }
-
-        .searchBarDatabase {
-            margin-left: 15%;
-            width: 70%;
-            align-self: center;
-        }
-
-        form {
-            margin-top: 10%;
-        }
-
-        .buttonWhiteSearch {
-            margin-left: 15%;
-            margin-right: 15%;
-            margin-bottom: 4%;
-        }
-
-        .searchPlants {
-            height: 80vh;
-            width: 40vh;
-            margin-left: 40%;
+        .plantInfoDb p {
             margin-bottom: 0;
         }
-
-        .findRandomPlant{
-            margin-left: 20%;
-            width: 50%;
-        }
-
-        .searchPlant{
-            margin-top: 10%;
-            margin-left: 10%;
-            width: 120%;
-            height: 50%;
-            margin-bottom: 20%;
-            overflow: visible;
-        }
-
-        .buttonWhiteExploreMore {
-            margin-left: 22%;
-            margin-right: 0;
-            width: 150%;
-            padding: 40px 70px;
-        }
-
-        .x {
-            margin-left: 107%;
-            margin-right: 0;
-        }
-
-        .searchBarDatabase2 {
-            margin-left: 80%;
-            width: 50%;
-            margin-right: 3%;
-        }
-
-        .titleDa{
-            margin-bottom: 3%;
-        }
-
     }
+
 
 </style>
