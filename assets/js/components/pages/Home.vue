@@ -24,7 +24,7 @@
                             <h1 id="h1Start">Willkommen</h1>
 
                             <!-------------------------------------Login formular----------------------------->
-                            <div v-if="loggedUser == null">
+                            <div v-if="loggedUser === null">
                                 <form method="post" @submit="submitFormIndex" id="loginIndex">
 
                                     <div v-if="errorIndex" class="alert alert-danger">{{ errorIndex }}</div>
@@ -63,7 +63,7 @@
                             </div>
                             </div>
                             </div>
-                            <div class="registerIndex row">
+                            <div v-if="loggedUser === null" class="registerIndex row">
                                 <div class="col-lg-6 paddingNormalize h3RegisterCol align-self-center"><div class="paddingNormalize text-right h3RegisterDiv">
                                     <h3 id="h3Register">Noch kein Mitglied?</h3>
                                 </div></div>
