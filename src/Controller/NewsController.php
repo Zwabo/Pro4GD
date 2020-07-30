@@ -74,10 +74,6 @@ class NewsController extends AbstractController
     }
 
     /**
-     * @Security("is_granted('ROLE_ADMIN') and is_granted('ROLE_SUPPORT_USER')")
-     */
-
-    /**
      * @Route("/api/news/createNewsArticle", name="createNewsArticle", methods={"POST"})
      */
     public function createNewsArticle(Request $request, ValidatorInterface $validator): JsonResponse
@@ -97,13 +93,14 @@ class NewsController extends AbstractController
         if(count($errors) > 0){
             return new JsonResponse((string) $errors, Response::HTTP_CONFLICT);
         }
-
+        /**
         //Push notifications that new news-article has been released to all users
         $users = $this->getDoctrine()->getRepository(Product::class)->findAll();
         foreach ($users as $user) {
             $user->addNotification("Neuer News-Eintrag erschienen!", $news->getTitle());
         }
 
+      **/
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($news);
         $entityManager->flush();

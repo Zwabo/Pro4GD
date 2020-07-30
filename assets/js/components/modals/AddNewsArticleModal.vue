@@ -29,6 +29,7 @@
                                 <label for="fullText">Artikel</label>
                                 <textarea name="fullText" cols="40" rows="5" class="form-control" id="fullText" v-model="long_text" required></textarea>
                             </div>
+
                             <input type="submit" class="btn btn-primary" value="Artikel speichern">
                         </form>
 
