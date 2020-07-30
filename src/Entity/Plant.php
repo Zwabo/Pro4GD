@@ -570,7 +570,7 @@ class Plant
             'icon' => $this->icon,
             'locationIcon' => $this->locationIcon,
             'temperatureIcon' => $this->temperatureIcon,
-            'fertilizerIcon' => $this->fertiliserIcon,
+            'fertiliserIcon' => $this->fertiliserIcon,
             'substrateIcon' => $this->substrateIcon,
             'heydayIcon' => $this->heydayIcon,
             'heightIcon' => $this->heightIcon,
