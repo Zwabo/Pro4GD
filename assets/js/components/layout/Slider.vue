@@ -141,8 +141,6 @@
     }
 
 
-
-
     .indexArrows svg { width: 50%; fill: #97B753; color:BLACK; }
     .indexArrows svg:hover { fill: #B8E269; }
     .indexArrows svg:active { fill: #707070; }
@@ -192,7 +190,7 @@
         @media (max-width: 767.98px) {
 
             img{
-                width:35%;
+               min-width:35%;
                 height:auto;
             }
             #slider-readMore {
@@ -219,8 +217,9 @@
                 height:auto;
             }
             .prev, .next {
+                position: static;
                 top: 40%;
-                width:0px;
+                width:60px;
                 padding: 16px;
                 text-align: center;
             }
