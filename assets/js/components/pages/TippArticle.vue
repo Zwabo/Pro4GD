@@ -2,14 +2,12 @@
     <div class="row">
         <div class="col right marginLeftRight">
             <div class="row garden">
-                <h1 class="col-sm" id="news"> </h1>
 
-                <div class="greenLine"></div>
-
-                <div class="col-lg-8">
+                <div class="col-sm-11">
                     <h3 id="date">{{formatDate}}</h3>
                     <h2 id="title">{{tippArticle.title}}</h2>
                     <p id="shortTextIntro">{{tippArticle.shortText}}</p>
+                    <div class="greenLine"></div>
                     <p id="longText">{{tippArticle.long_Text}}</p>
                     <router-link  class="readMore"  :to="'/tipps'"> >zurück </router-link>
                 </div>
@@ -48,5 +46,42 @@
 </script>
 
 <style scoped>
+
+    /*---------------------------------------Media Queries-----------------------------------------------*/
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
+
+        .col-sm-11 { width: 100% !important;}
+        #date{
+            margin-top:5%;
+            font-size:120%;
+        }
+        #shortTextIntro{
+            font-weight: bold;
+            font-size:110%;
+        }
+
+    }
+
+    /* Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
+
+        .col-sm-11 { width: 100% !important;}
+    }
+
+    /*Small devices (landscape phones, less than 768px)*/
+    @media (max-width: 767.98px) {
+
+        .col-sm-11  { width: 100% !important;}
+
+    }
+
+    /* Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+        .col-sm-11 { width: 100% !important;}
+
+        longText{font-size: 110%;}
+    }
+
 
 </style>

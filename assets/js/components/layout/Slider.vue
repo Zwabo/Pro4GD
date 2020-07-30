@@ -1,5 +1,5 @@
 <template>
-    <div class="row">
+    <div class="row" id="slider">
 
         <div class="col-lg-1 indexArrows">
             <svg><use href="#indexArrowLeft"></use></svg>
@@ -9,7 +9,7 @@
         <div class="col-lg-10" id="indexNewsSlider">
 
          <div v-for="i in [currentIndex]" :key="i" >
-            <div  class="row">
+            <div  class="row" >
              <img class="col-lg-5"v-bind:src="currentArticle.thumbnail">
              <div class="col-lg-7"id="bgNewsArticleBox">
                  <h3 class="slider-title">{{currentArticle.title}}</h3>
@@ -127,6 +127,7 @@
         color:white;
         font-size:100%;
     }
+
     #bgNewsArticleBox{
         background-color: #97B753;
         height: auto;
@@ -167,5 +168,80 @@
     .indexArrows svg { width: 50%; fill: #97B753; color:BLACK; }
     .indexArrows svg:hover { fill: #B8E269; }
     .indexArrows svg:active { fill: #707070; }
+
+    /*---------------------------------------Media Queries-----------------------------------------------*/
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
+
+
+    }
+
+    /* Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
+        #slider{
+            width: 60%;
+        }
+
+
+        .col-lg-5{
+            width:50%;        }
+
+        .col-lg-7{
+            width:50%;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position:relative;
+            top: 40%;
+            width: 100px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.7s ease;
+            border-radius: 4px 4px 4px 4px;
+            text-decoration: none;
+            user-select: none;
+        }
+
+
+
+
+
+    }
+
+    /*Small devices (landscape phones, less than 768px)*/
+    @media (max-width: 767.98px) {
+        .col-lg-5{
+            width:50%;        }
+
+        .col-lg-7{
+            width:50%;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+           position:relative;
+            top: 40%;
+            width: 100px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.7s ease;
+            border-radius: 4px 4px 4px 4px;
+            text-decoration: none;
+            user-select: none;
+        }
+    }
+
+    /* Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+
+        #slider{
+            width: 80%;
+        }
+    }
 
 </style>
