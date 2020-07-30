@@ -5,7 +5,7 @@ Responsive Styles Finished
 - Kontakt
 - ProfileForum
 - Main Footer
-- Profile Awards
+- ProfileAwards
 - Login / LoginForm
 - Register / RegisterForm
 - Navigation

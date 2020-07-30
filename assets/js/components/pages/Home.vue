@@ -698,6 +698,7 @@
         #welcomeRow #loginIndex label {
             width: 100%;
             text-align-last: left;
+            text-align: left;
         }
         #welcomeRow #loginIndex input { width: 87%; }
         #welcomeRow #h1Start {

@@ -190,4 +190,6 @@
         font-weight: bolder;
         color: #97B753;
     }
+
+    a:hover { color: #97B753; }
 </style>

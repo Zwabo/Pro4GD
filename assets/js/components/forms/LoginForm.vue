@@ -2,9 +2,9 @@
     <form method="post" @submit="submitForm" id="loginForm">
         <div v-if="error" class="alert alert-danger">{{error}}</div>
 
-        <div class="mb-3" v-if="user != null">
+        <div class="mb-3 text-center" v-if="user != null">
             <span class="loggedInText">Sie sind als <router-link :to="'/profile/' + user.username" class="profileLink">{{user.username}}</router-link> eingeloggt.</span>
-            <router-link :to="'/profile/' + user.username" class="logoutButton">Ausloggen</router-link>
+            <router-link to="/logout" class="logoutButton">Ausloggen</router-link>
         </div>
 
         <div v-else class="container-fluid">

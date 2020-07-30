@@ -189,7 +189,7 @@
     }
     .right {
         width: 100%;
-        margin-left: 2%;
+        margin-left: 0;
     }
     .siteHL { font-size: 140%; }
     /*-----------------------allgemein------------------*/

@@ -29,8 +29,6 @@
                             <div class="registerInputs">
                                 <RegistrationForm></RegistrationForm>
                             </div>
-
-
                         </div>
                     </div>
 
