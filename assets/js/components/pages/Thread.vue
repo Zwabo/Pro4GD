@@ -47,18 +47,6 @@
                         <p class="commentNr">#0</p>
                     </div>
                     <div class="row threadIcons">
-                        <!--<svg xmlns="http://www.w3.org/2000/svg" width="41.215" height="28.101" viewBox="0 0 41.215 28.101">
-                            <g id="eye" transform="translate(0 -74.667)">
-                                <g id="Gruppe_987" data-name="Gruppe 987" transform="translate(0 74.667)">
-                                    <g id="Gruppe_986" data-name="Gruppe 986" transform="translate(0 0)">
-                                        <path id="Pfad_515" data-name="Pfad 515" d="M176.287,170.667a5.62,5.62,0,1,0,5.62,5.62A5.625,5.625,0,0,0,176.287,170.667Z" transform="translate(-155.68 -162.237)" fill="#707070"/>
-                                        <path id="Pfad_516" data-name="Pfad 516" d="M20.607,74.667A22.156,22.156,0,0,0,0,88.717a22.137,22.137,0,0,0,41.215,0A22.147,22.147,0,0,0,20.607,74.667Zm0,23.417a9.367,9.367,0,1,1,9.367-9.367A9.37,9.37,0,0,1,20.607,98.084Z" transform="translate(0 -74.667)" fill="#707070"/>
-                                    </g>
-                                </g>
-                            </g>
-                        </svg>
-                        <p class="iconText">seen</p>-->
-
                         <svg @click="likeIt" xmlns="http://www.w3.org/2000/svg" width="27.681" height="24.848" viewBox="0 0 27.681 24.848" id="heart">
                             <path id="heartFill" class="heartHover" d="M23.644,2.236A6.906,6.906,0,0,0,18.508,0a6.461,6.461,0,0,0-4.035,1.393,8.256,8.256,0,0,0-1.631,1.7,8.251,8.251,0,0,0-1.632-1.7A6.46,6.46,0,0,0,7.174,0,6.906,6.906,0,0,0,2.038,2.236,8.027,8.027,0,0,0,0,7.718a9.559,9.559,0,0,0,2.547,6.257,54.314,54.314,0,0,0,6.376,5.985c.883.753,1.885,1.606,2.925,2.516a1.508,1.508,0,0,0,1.985,0c1.04-.909,2.042-1.763,2.926-2.517a54.284,54.284,0,0,0,6.376-5.984,9.558,9.558,0,0,0,2.547-6.257,8.026,8.026,0,0,0-2.037-5.482Zm0,0" transform="translate(1 1)" v-bind:fill="likeHeartFill" stroke="#707070" stroke-width="2"/>
                         </svg>
@@ -68,11 +56,20 @@
             </div>
             <div class="greyLine commentLine"></div>
 
-            <div class="row">
+            <form method="post" @submit="submitForm" id="commentForm" class="commentForm">
+
                 <div class="container-fluid">
-                    <comment-form></comment-form>
+                    <div class="row">
+                        <label for="comment">Kommentar</label>
+                        <textarea v-model="comment"  type="text" name="comment" id="comment" class="form-control" required
+                                  placeholder="Dein Kommentar"></textarea>
+                    </div>
                 </div>
-            </div>
+
+                <button class="btn btn-lg btn-primary buttonDarkGreen float-right" type="submit">
+                    Kommentar erstellen
+                </button>
+            </form>
 
             <div class="greyLine commentLine"></div>
             <div v-for="comment in comments">
@@ -90,18 +87,6 @@
                             <p class="commentNr">#{{commentNr(comment.id)}}</p>
                         </div>
                         <div class="row threadIcons">
-                            <!--<svg xmlns="http://www.w3.org/2000/svg" width="41.215" height="28.101" viewBox="0 0 41.215 28.101">
-                                <g id="eye" transform="translate(0 -74.667)">
-                                    <g id="Gruppe_987" data-name="Gruppe 987" transform="translate(0 74.667)">
-                                        <g id="Gruppe_986" data-name="Gruppe 986" transform="translate(0 0)">
-                                            <path id="Pfad_515" data-name="Pfad 515" d="M176.287,170.667a5.62,5.62,0,1,0,5.62,5.62A5.625,5.625,0,0,0,176.287,170.667Z" transform="translate(-155.68 -162.237)" fill="#707070"/>
-                                            <path id="Pfad_516" data-name="Pfad 516" d="M20.607,74.667A22.156,22.156,0,0,0,0,88.717a22.137,22.137,0,0,0,41.215,0A22.147,22.147,0,0,0,20.607,74.667Zm0,23.417a9.367,9.367,0,1,1,9.367-9.367A9.37,9.37,0,0,1,20.607,98.084Z" transform="translate(0 -74.667)" fill="#707070"/>
-                                        </g>
-                                    </g>
-                                </g>
-                            </svg>
-                            <p class="iconText">seen</p>-->
-
                             <svg @click="likeItId(comment.id)" xmlns="http://www.w3.org/2000/svg" width="27.681" height="24.848" viewBox="0 0 27.681 24.848" id="heart">
                                 <path :id='"heartFill" + comment.id' class="heartHover" d="M23.644,2.236A6.906,6.906,0,0,0,18.508,0a6.461,6.461,0,0,0-4.035,1.393,8.256,8.256,0,0,0-1.631,1.7,8.251,8.251,0,0,0-1.632-1.7A6.46,6.46,0,0,0,7.174,0,6.906,6.906,0,0,0,2.038,2.236,8.027,8.027,0,0,0,0,7.718a9.559,9.559,0,0,0,2.547,6.257,54.314,54.314,0,0,0,6.376,5.985c.883.753,1.885,1.606,2.925,2.516a1.508,1.508,0,0,0,1.985,0c1.04-.909,2.042-1.763,2.926-2.517a54.284,54.284,0,0,0,6.376-5.984,9.558,9.558,0,0,0,2.547-6.257,8.026,8.026,0,0,0-2.037-5.482Zm0,0" transform="translate(1 1)" v-bind:fill="setHeartsComments(comment.id)" stroke="#707070" stroke-width="2"/>
                             </svg>
@@ -172,8 +157,6 @@
             })
                 .then(response => {
                     this.isLiked = response.data;
-                    //console.log("created likedStatus");
-                    //console.log(response.data);
                     if (this.isLiked === true) {
                         this.likeHeartFill = '#707070';
                     } else {
@@ -188,8 +171,6 @@
                 userId: this.loggedUser.id,
             })
                 .then(response => {
-                    console.log("this.likedComments  created");
-                    console.log(response.data);
                     this.likedComments = response.data;
 
                 })
@@ -199,12 +180,10 @@
         },
 
         mounted: function() {
-            //console.log(this.loggedUser);
             this.$http.post('/api/thread/' + this.$route.params.id, {
                 userId: this.loggedUser.id,
             }).then(response => {
                 this.thread = response.data.shift();
-                console.log(this.thread);
                 this.comments = response.data;
             })
                 .catch(error => {
@@ -213,6 +192,32 @@
         },
 
         methods: {
+            // ------------------------------------ CommentForm ------------------------------------
+
+            submitForm: function(e){
+                e.preventDefault();
+
+                this.isLoading = true;
+                this.error = '';
+
+                this.$http
+                    .post('/forum/addcomment', {
+                        userId: this.loggedUser.id,
+                        comment: this.comment,
+                        threadId: this.$route.params.id,
+                        likes: 0,
+                    })
+                    .then(response => {
+                        this.comment = '';
+                        this.comments.push(response.data)
+                    }).catch(error => {
+                    if(error.response.data){
+                        this.error = error.response.data.error;
+                    }
+                    console.log(error.response.data);
+                });
+            },
+
             //--------------------------------------THREADS LIKES + HILFSMETHODEN-------------------------------
             //likeIt for threads
             likeIt: function() {
@@ -256,8 +261,6 @@
                     this.isLiked = true;
                     this.thread.likes--;
                 }
-
-                //console.log(this.isLiked);
             },
             //check for threads
             checkLiked: function(commentId) {
@@ -304,10 +307,6 @@
                     })
                         .then(response => { this.likedComments = response.data; })
                         .catch(error => { console.log(error); });
-
-                    console.log("added at like for id " + commentid);
-                    console.log(this.likedComments);
-
                 } else {
                     this.$http.post('/forum/removeLike/' + commentid, {
                         userId: this.loggedUser.id,
@@ -329,25 +328,18 @@
                             this.likedComments = response.data;
                         })
                         .catch(error => { console.log(error); });
-
-                    console.log("removed at id " + idArray);
-                    console.log(this.likedComments);
                 }
             },
             setHeartsComments: function(commentId) {
                 let like = false;
-                console.log('Liked Comments');
-                console.log(this.likedComments);
                 for(let i = 0; i < this.likedComments.length; i++) {
                     if (commentId === this.likedComments[i]) {
                         like = true;
                     }
                 }
                 if (like === true) {
-                    console.log('heart filled');
                     return '#707070';
                 } else {
-                    console.log('heart emptied');
                     return '#dedede';
                 }
             },
@@ -385,6 +377,7 @@
 </script>
 
 <style scoped>
+    .commentForm { margin-bottom: 115px; }
     .searchForum svg:hover .searchStroke { stroke: #B8E269; }
     .searchForum svg:active .searchStroke { stroke: #707070; }
 
@@ -421,25 +414,14 @@
     .iconText { margin-right: 5%; }
     .commentNr { font-weight: bolder; margin-left: 5%; }
 
-    /*---------------------------------------Media Queries-----------------------------------------------*/
-    /*Large devices (desktops, less than 1200px)*/
-    @media (max-width: 1199.98px) {
-    }
+    .row { margin-top: 3%; margin-bottom: 1%; }
+    #comment { height: 10em; }
 
+    /*---------------------------------------Media Queries-----------------------------------------------*/
     /* Medium devices (tablets, less than 992px)*/
     @media (max-width: 991.98px) {
         .col-lg-1, .col-lg-10, .col-lg-2  { width: 20% !important;}
         .col-lg-8 { width: 60% !important;}
         .col-lg-9 { width: 70% !important;}
-
-    }
-
-    /*Small devices (landscape phones, less than 768px)*/
-    @media (max-width: 767.98px) {
-
-    }
-
-    /* Extra small devices (portrait phones, less than 576px)*/
-    @media (max-width: 575.98px) {
     }
 </style>

@@ -2,16 +2,17 @@
     <div class="row">
         <div class="col right marginLeftRight">
             <div class="row garden">
-                <h1 class="col-sm" id="news"> </h1>
-
-                <div class="greenLine"></div>
-
-                <div class="col-lg-8">
-                    <h3 id="date">{{formatDate}}</h3>
+                <div class="col-sm-11">
+                    <p id="date">{{formatDate}}</p>
                     <h2 id="title">{{article.title}}</h2>
                     <p id="shortTextIntro">{{article.shortText}}</p>
+                    <div class="greenLine"></div>
                     <p id="longText">{{article.long_Text}}</p>
-                    <router-link  class="readMore"  :to="'/news'"> >zurück </router-link>
+                    <div class="backLinkDiv">
+                    <router-link  class="readMore"  :to="'/news'">
+                        <svg class="backSvg"><use href="#backIcon"></use></svg><span class="desktop">Zurück</span>
+                    </router-link>
+                    </div>
                 </div>
             </div>
         </div>
@@ -48,5 +49,65 @@
 </script>
 
 <style scoped>
+
+#date{
+    margin-top:5%;
+}
+#shortTextIntro{
+    font-weight: bold;
+}
+
+.backSvg {
+    width: 20px;
+    height: 20px;
+    fill: #97B753;
+    padding-right: 2%;
+}
+
+.backLinkDiv {
+    text-align: right;
+    padding-right: 1%;
+}
+.backLink:hover { color: #97B753; }
+.backLink:hover .backSvg { fill: #B8E269; }
+.backLink:active { color: #707070; }
+.backLink:active .backSvg { fill: #707070; }
+
+
+/*---------------------------------------Media Queries-----------------------------------------------*/
+/*Large devices (desktops, less than 1200px)*/
+@media (max-width: 1199.98px) {
+
+    .col-sm-11 { width: 100% !important;}
+    #date{
+        margin-top:5%;
+        font-size:120%;
+    }
+    #shortTextIntro{
+        font-weight: bold;
+        font-size:110%;
+    }
+
+}
+
+/* Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) {
+
+    .col-sm-11 { width: 100% !important;}
+}
+
+/*Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767.98px) {
+
+    .col-sm-11  { width: 100% !important;}
+
+}
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .col-sm-11 { width: 100% !important;}
+
+   longText{font-size: 110%;}
+}
 
 </style>

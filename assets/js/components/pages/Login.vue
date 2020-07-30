@@ -134,11 +134,13 @@
         text-transform: uppercase;
     }
 
-    .left { width: 50%; }
+    .left {
+        width: 50%;
+        border-right: 1px solid white;
+    }
     .twoColumns { width: 5%; }
     .right {
         width: 45%;
-        border-left: 1px solid white;
     }
 
     .oneColumn { display: none; }
@@ -180,10 +182,12 @@
             display: block;
             margin: 5% 0%;
         }
-        .left { width: 100%; }
+        .left {
+            width: 100%;
+            border-right: none;
+        }
         .right {
             width: 100%;
-            border-left: none;
         }
     }
 

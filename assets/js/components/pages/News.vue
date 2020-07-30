@@ -16,10 +16,10 @@
                 <!-- v-for start-->
                 <div v-for="news in newsData" >
                     <div class ="row">
-                        <div class="col-lg-4">
+                        <div class="col-sm-4">
                         <img id="newsThumbnail"  v-bind:src="news.thumbnail">
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-sm-8">
                             <h3 id="date">{{ news.date_posted.date.substr(8, 2)
                                 + "." + news.date_posted.date.substr(5, 2)
                                 + "." + news.date_posted.date.substr(0, 4) + "  " + news.date_posted.date.substr(10,6)}}</h3>
@@ -143,18 +143,7 @@
         color:#97B753;
     }
 
-    #longText{
 
-        text-align: justify;
-        margin-left:15%;
-
-    }
-
-    #shortTextIntro{
-        margin-top: 3%;
-        font-weight: bold;
-
-    }
 
     .iconNews svg { width: 3%; fill: white; }
     .iconNews svg .path1 { fill: #B8E269; }
@@ -162,19 +151,59 @@
     .iconNews svg:active { fill: #B8E269; }
     .iconNews svg:active .path1 { fill: #000000;}
 
-    .iconNews {
-        padding-top: 11px;
-        padding-bottom: 5px;
+
+
+    /*---------------------------------------Media Queries-----------------------------------------------*/
+
+    /*---------------------------------------Media Queries-----------------------------------------------*/
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
+        .col-sm-4{width:40%}
+        .col-sm-8 { width: 60% !important;}
+
+        #newsThumbnail{ height:300px;
+            max-width: 100%;
+            height: auto;}
+    }
+
+    /* Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
+        .col-sm-4{width:40%}
+        .col-sm-8 { width: 60% !important;}
+
+        #newsThumbnail{ height:300px;
+            max-width: 100%;
+            height: auto;}
+
+        #date{font-size:110%;
+            margin-top:5%;
+        }
+        #shortText{
+            font-size:110%;
+        }
+    }
+
+
+    /*Small devices (landscape phones, less than 768px)*/
+    @media (max-width: 767.98px) {
+        .col-sm-4{width:40% }
+        .col-sm-8 { width: 100% !important;}
+
+        #newsThumbnail{
+            max-width: 100%;
+            min-width:60%;
+            height: auto;}
 
     }
 
-    .articleButtons{
-        background-color: Transparent;
-        outline: none;
-        background-repeat:no-repeat;
-        border: none;
-        cursor:pointer;
-        overflow: hidden;
+    /* Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+        .col-sm-4{width:40%}
+        .col-sm-8 { width:100% !important;}
+
+        #newsThumbnail{
+            max-width: 100%;
+            height: auto;}
     }
-    
+
 </style>

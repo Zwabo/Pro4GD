@@ -4,13 +4,13 @@
 
         <div class="container-fluid">
 
-            <div class="whiteLine"></div>
+            <div v-if="loggedUser" class="whiteLine"></div>
 
             <div class="row bgDarkGreen fontWhite rowsIndexWelcome">
                 <div class="container-fluid">
                     <!-----------------------großes Logo ---------------------------------------->
-                    <div v-if="loggedUser  === null" class="row" id="indexLogo">
-                        <div><svg><use href="#logoIndex"></use></svg></div>
+                    <div v-if="loggedUser === null" class="row" id="indexLogo">
+                        <div id="widthLogoIndex"><svg><use href="#logoIndex"></use></svg></div>
                     </div>
 
                     <!-----------------------------------wilkommen handy download----------------------->
@@ -19,10 +19,12 @@
                         <!----------------------------------------links - Willkommen/Login----------------------->
                         <div class="col-lg-6 selfAlignCenter">
 
+                            <div class="row">
+                            <div class="paddingNormalize marginNormalize container-fluid">
                             <h1 id="h1Start">Willkommen</h1>
 
                             <!-------------------------------------Login formular----------------------------->
-                            <div v-if="loggedUser == null">
+                            <div v-if="loggedUser === null">
                                 <form method="post" @submit="submitFormIndex" id="loginIndex">
 
                                     <div v-if="errorIndex" class="alert alert-danger">{{ errorIndex }}</div>
@@ -59,12 +61,22 @@
                                     </span>
                                 </p>
                             </div>
+                            </div>
+                            </div>
+                            <div v-if="loggedUser === null" class="registerIndex row">
+                                <div class="col-lg-6 paddingNormalize h3RegisterCol align-self-center"><div class="paddingNormalize text-right h3RegisterDiv">
+                                    <h3 id="h3Register">Noch kein Mitglied?</h3>
+                                </div></div>
+                                <div class="col-lg-6 buttonRegisterCol">
+                                    <button class="buttonWhiteIndex buttonRegister" @click="goToRegister">Jetzt registrieren</button>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="whiteLine oneColumn"></div>
 
                         <!---------------------------------------download app------------------------------>
-                        <div class ="col-lg-3 selfAlignCenter" id="phoneImg">
+                        <!--<div class ="col-lg-3 selfAlignCenter" id="phoneImg">
                             <div><img id="handyImg" src="/images/plantBase/PhoneMockup.png"></div>
                         </div>
 
@@ -72,6 +84,11 @@
                             <h3 id="dowloadNow">Downloade JETZT!</h3>
                             <p id="pIndexDownload">Lade dir PlantBase jetzt auf dein Handy!</p>
                             <button class="buttonWhiteIndex">Download</button>
+                        </div>-->
+
+                        <div class="col-lg-6 selfAlignCenter desktopCol">
+                            <div class="text-center"> <img id="desktopImg" src="/images/plantBase/mockUp_Endgeraete.png"> </div>
+                            <h3 id="h3Info" class="text-center">Nutze unser Angebot auf allen Endgeräten.</h3>
                         </div>
                     </div>
                 </div>
@@ -82,7 +99,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-3 selfAlignCenter aloePicture">
-                            <img id="indexAloe" src="/images/plants/Aloe.png">
+                            <img id="indexAloe" src="/images/plants/AloeQuad.png">
                         </div>
                         <div class="col-lg-9 selfAlignCenter plantbaseInfoText">
                             <div class="container-fluid">
@@ -356,6 +373,10 @@
         },
 
         methods: {
+            goToRegister: function() {
+                this.$router.push({path: '/register'});
+            },
+
             submitFormIndex: function(e){
                 e.preventDefault();
 
@@ -474,6 +495,7 @@
         width: 150%;
         margin-bottom: 20%;
     }
+    #widthLogoIndex { width: 20%; }
 
     /*---------------------------------allgemein---------------------*/
 
@@ -558,11 +580,30 @@
         margin: 2% 0% 6% 0%;
     }
 
+    /*registrierern*/
+    #welcomeRow .registerIndex { padding-top: 5%; }
+    #welcomeRow .registerIndex #h3Register {
+        font-size: 100%;
+        margin: 0;
+    }
+    #welcomeRow .registerIndex .buttonWhiteIndex {
+        font-size: 80%;
+        padding: 1% 2%;
+        margin: 0;
+    }
+
     /*phone right*/
     #welcomeRow #pIndexDownload { margin-bottom: 20%; }
     #welcomeRow #phoneImg { border-left: 1px solid white; }
     #welcomeRow #phoneImg div { text-align-last: center; }
     #welcomeRow #handyImg { width: 90%; }
+
+    /*desktop right*/
+    #welcomeRow .desktopCol { border-left: 1px solid white; }
+    #welcomeRow .desktopCol #desktopImg { width: 100%; margin-bottom: 1%;}
+    #welcomeRow #h3Info { font-size: 150%; }
+
+
 
 
     /*---------------------------------über plantbase row----------------------*/
@@ -646,13 +687,18 @@
     }
 
     /*---------------------------------------------Media Queries----------------------------*/
+    /*-----------------------------1200px-----------------------------*/
     /*Large devices (desktops, less than 1200px)*/
     @media (max-width: 1199.98px) {
-        #indexLogo svg { width: 120%; }
+        #welcomeRow #h3Info { font-size: 130%; }
+
+        #indexLogo svg { width: 110%; }
+        #widthLogoIndex { width: 30%; }
 
         #welcomeRow #loginIndex label {
             width: 100%;
             text-align-last: left;
+            text-align: left;
         }
         #welcomeRow #loginIndex input { width: 87%; }
         #welcomeRow #h1Start {
@@ -660,13 +706,20 @@
             margin-top: 5%;
         }
     }
-
+    /*-----------------------------992px-----------------------------*/
     /* Medium devices (tablets, less than 992px)*/
     @media (max-width: 991.98px) {
+        #welcomeRow .registerIndex .h3RegisterCol { width: 50%; }
+        #welcomeRow .registerIndex .buttonRegisterCol { width: 50%; }
+        #welcomeRow .registerIndex { margin-bottom: 5%; }
+
+        #welcomeRow #h3Info { font-size: 160%; }
+
         #indexLogo svg{
             width: 100%;
             margin-bottom: 0;
         }
+        #widthLogoIndex { width: 40%; }
 
         #welcomeRow #loginIndex label {
             width: 20%;
@@ -686,6 +739,11 @@
         }
         #welcomeRow .phoneAppDownload { width: 50%; }
 
+        #welcomeRow .desktopCol { border-left: none; }
+        #welcomeRow .desktopCol #desktopImg { width: 80%; }
+
+
+
         #plantbaseInfo .aloePicture { width: 30%; }
         #plantbaseInfo .plantbaseInfoText { width: 70%; }
 
@@ -696,8 +754,11 @@
         #offerRowElements .community { width: 30%; }
     }
 
+    /*-----------------------------768px-----------------------------*/
     /*Small devices (landscape phones, less than 768px)*/
     @media (max-width: 767.98px) {
+        #welcomeRow #h3Info { font-size: 130%; }
+
         .h3Index { font-size: 150%; }
         .pIndex { font-size: 100%; }
         #welcomeRow #dowloadNow { font-size: 150%; }
@@ -708,9 +769,17 @@
 
     }
 
+    /*-----------------------------576px-----------------------------*/
     /* Extra small devices (portrait phones, less than 576px)*/
     @media (max-width: 575.98px) {
-        #indexLogo svg { width: 70% }
+        #welcomeRow .registerIndex #h3Register { font-size: 140%; }
+        #welcomeRow .registerIndex .buttonRegister { font-size: 120%; }
+
+        #welcomeRow #h3Info { font-size: 140%; }
+        #welcomeRow .desktopCol #desktopImg { width: 100%; margin-bottom: 2%; }
+
+        #indexLogo svg { max-width: 50%; min-width: 15em; }
+        #widthLogoIndex { width: 100%; }
 
         #welcomeRow #h1Start { margin-bottom: 7%; }
         #welcomeRow #loginText { display: block; }
@@ -787,6 +856,17 @@
 
         /*own media*/
         @media (max-width: 450px) {
+            #welcomeRow .registerIndex .h3RegisterCol { width: 100%; }
+            #welcomeRow .registerIndex .buttonRegisterCol {
+                width: 100%;
+                text-align: center;
+            }
+            #welcomeRow .registerIndex .h3RegisterDiv {
+                text-align: center !important;
+                margin-bottom: 3%;
+                margin-top: 5%;
+            }
+
             #offerRowElements .offerIcon { margin-left: 4%; }
             #offerRowElements .offerText { font-size: 120%; }
         }

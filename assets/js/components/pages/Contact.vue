@@ -160,6 +160,8 @@
     }
 
     .right input, .right select { padding: 1% 2%; }
+    .right input { width: 60%; }
+    .right select { width: 60%; }
 
     /*---------------------------------------Media Queries-----------------------------------------------*/
     /*Large devices (desktops, less than 1200px)*/

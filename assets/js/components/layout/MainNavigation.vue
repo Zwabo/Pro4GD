@@ -2,7 +2,7 @@
     <div class="container-fluid bgDarkGreen">
 
         <!----------------------------------------desktop navi----------------------------------------------------------------->
-        <nav class="navbar navbar-expand-md desktopNavi" id="naviLarge">
+        <nav v-if="navigationUser" class="navbar navbar-expand-md desktopNavi" id="naviLarge">
 
             <router-link to="/" class="selfAlignCenter" id="naviLogo">
                 <svg><use href="#logoNavi"></use></svg>
@@ -11,14 +11,14 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div  class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown selfAlignCenter">
                         <a class="nav-link" href="#" id="datenbankDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Datenbank</a>
                         <div class="dropdown-menu dropdownShow bgDarkGrey" aria-labelledby="datenbankDropdown">
                             <router-link class="dropdown-item" :to="'/database/'">In Datenbank Suchen</router-link>
                             <!-- hides drop down item addPlant for standard user -->
-                            <router-link v-if="navigationUser" id ="addPlant-dropDown" class="dropdown-item" :to="'/addPlant/'">Neue Pflanze hinufügen</router-link>
+                            <router-link  id ="addPlant-dropDown" class="dropdown-item" :to="'/addPlant/'">Neue Pflanze hinufügen</router-link>
 
                         </div>
                     </li>
@@ -55,7 +55,7 @@
         </nav>
 
         <!----------------------------------------mobile navi----------------------------------------------------------------->
-        <div class="mobileNavi">
+        <div v-if="navigationUser" class="mobileNavi">
             <nav class="navbar navbar-expand-md">
                     <router-link to="/" class="selfAlignCenter" id="naviLogoOnly">
                         <div><svg><use href="#logoOnly"></use></svg></div>
@@ -192,8 +192,6 @@
             checkRole: function () {
                 if ((this.loggedInUser == null) ||(this.loggedInUser.roles == 'ROLE_USER') ) {
                     // redirect auf login einfügen
-                    let dropDown = document.getElementById('addPlant-dropDown');
-                    dropDown.style.display='none';
                     return true;
                 } else {
                     return false;
