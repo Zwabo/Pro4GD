@@ -13,12 +13,11 @@
                         / {{thread.category.title}}</h1>
                 </div>
 
-
-                <div class="col-lg-2 text-right">
-                            <router-link class="backLink routeBack" :to="'/forum/'">
-                                <svg class="backSvg"><use href="#backIcon"></use></svg>
-                                <span class="desktop backtext backtextColor">Zurück</span>
-                            </router-link>
+                <div class="col-lg-2">
+                    <router-link class="backLink routeBack" :to="'/forum/'">
+                        <svg class="backSvg"><use href="#backIcon"></use></svg>
+                        <span class="desktop backtext backtextColor">Zurück</span>
+                    </router-link>
                 </div>
 
                 <!-- Button zum löschen von Threads für admins und supporting users -->
@@ -416,12 +415,16 @@
 
     .row { margin-top: 3%; margin-bottom: 1%; }
     #comment { height: 10em; }
+    .col-lg-1 { width: 10% !important;}
+    .col-lg-9 { width: 90% !important;}
 
     /*---------------------------------------Media Queries-----------------------------------------------*/
     /* Medium devices (tablets, less than 992px)*/
     @media (max-width: 991.98px) {
-        .col-lg-1, .col-lg-10, .col-lg-2  { width: 20% !important;}
+        .col-lg-10, .col-lg-2  { width: 20% !important;}
         .col-lg-8 { width: 60% !important;}
-        .col-lg-9 { width: 70% !important;}
+        .col-lg-9 { width: 80% !important;}
+        .backtext { display: none !important;}
+        .backLink { float: right !important; }
     }
 </style>
