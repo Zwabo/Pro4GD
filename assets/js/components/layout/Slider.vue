@@ -219,26 +219,14 @@
 
         /* Extra small devices (portrait phones, less than 576px)*/
         @media (max-width: 575.98px) {
-            #leftSlide{
 
-            }
-            #rightSlide{
-
-            }
-            #indexNewsSlider{
-                width: 60%;
-                margin:auto;
-            }
-            img{
+            .col-sm-1{
                 width:20%;
-                height:auto;
             }
-            .prev, .next {
-                position:absolute;
-                margin-top: -50%;
-                width:60px;
-                text-align: center;
+            .col-sm-10{
+                width:80%;
             }
+
         }
 
 </style>
