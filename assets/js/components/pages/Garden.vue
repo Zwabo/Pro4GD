@@ -40,10 +40,9 @@
                 <div class="col" v-if="garden !== null">
                     <div v-for="(userplant, index) in garden">
                         <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
-                            <remove-plant-modal v-if="edit" :userplant="userplant"
-                                                @newUserplant="newUserplant"></remove-plant-modal>
+                            <remove-plant-modal v-if="edit" :userplant="userplant" @newUserplant="newUserplant"></remove-plant-modal>
                             <router-link :to="'/userplant/' + userplant.id">
-                                <div class="container-fluid plantsProfil dropShadow bgWhiteGrey "
+                                <div class="plantsProfil dropShadow bgWhiteGrey "
                                      v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
                                     <div class="row">
                                         <div class="col-sm-7 plantInfo">
@@ -100,7 +99,7 @@
                                         </div>
 
                                         <img class="col-sm-5 imgTest" v-bind:src="'../' + userplant.plant.icon"
-                                             alt="Picture of plant" height="190">
+                                             alt="Picture of plant" height="180">
 
 
                                     </div>
@@ -117,7 +116,7 @@
                             <remove-plant-modal v-if="edit" :userplant="userplant"
                                                 @newUserplant="newUserplant"></remove-plant-modal>
                             <router-link :to="'/userplant/' + userplant.id">
-                                <div class="container-fluid plantsProfil dropShadow bgWhiteGrey "
+                                <div class="plantsProfil dropShadow bgWhiteGrey "
                                      v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
                                     <div class="row">
                                         <div class="col-sm-7 plantInfo">
@@ -174,7 +173,7 @@
                                         </div>
 
                                         <img class="col-sm-5 imgTest" v-bind:src="'../' + userplant.plant.icon"
-                                             alt="Picture of plant" height="190">
+                                             alt="Picture of plant" height="180">
 
 
                                     </div>
@@ -207,7 +206,7 @@
                     <div class="col-lg-6">
                         <div v-for="(plant, index) in filteredPlants" class="container-fluid">
                             <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
-                                <div class="container-fluid plantProfil dropShadow bgWhiteGrey ">
+                                <div class="container-fluid plantProfileAdd dropShadow bgWhiteGrey ">
                                     <div class="row">
                                         <div class="col-sm-7 plantInfo">
                                             <p class="text-left gardenPFirst"><b>{{ plant.name }}</b></p>
@@ -229,7 +228,7 @@
                     <div class="col-lg-6">
                         <div v-for="(plant, index) in filteredPlants" class="container-fluid">
                             <div v-if="index % 2 !== 0" class="row paddingNormalize">
-                                <div class="container-fluid plantProfil dropShadow bgWhiteGrey">
+                                <div class="container-fluid plantProfileAdd dropShadow bgWhiteGrey">
                                     <div class="row">
                                         <div class="col-sm-7 plantInfo">
                                             <p class="text-left gardenPFirst"><b>{{ plant.name }}</b></p>
@@ -254,12 +253,12 @@
         </div>
 
         <div class="col windowImage windowPlant" v-else-if="!add && garden !== null">
-            <div v-if="image === ''" class="windowImage">
-                <img :src="'../' + garden[0].plant.WindowIcon" alt="Plant side view" height="675"
+            <div v-if="image === ''" >
+                <img :src="'../' + garden[0].plant.WindowIcon" alt="Plant side view"
                      class="col-sm plantWindow">
             </div>
-            <div v-else="image !== ''" class="windowImage">
-                <img :src="'../' + image" alt="Plant side view" height="675" class="col-sm plantWindow">
+            <div v-else="image !== ''" >
+                <img :src="'../' + image" alt="Plant side view" class="col-sm plantWindow">
             </div>
         </div>
 
@@ -283,7 +282,7 @@
                 </div>
             </div>
 
-                <div id="carouselExampleIndicators" class="carousel slide position-relative" data-ride="carousel" v-if="change === false && garden !== 0 && !add">
+                <div id="carouselExampleIndicators" class="carousel slide position-relative" data-ride="carousel" v-if="change === false && garden !== null && !add">
                     <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" class="active"></li>
                             <li data-target="#carouselExampleIndicators" v-for="userplant in garden" v-if="userplant !== garden[0]"></li>
@@ -432,7 +431,7 @@
                     </a>
                 </div>
 
-            <div v-if="change === true && garden !== 0" class="row">
+            <div v-if="change === true && garden !== null" class="row changeMobile">
                 <div class="col">
                     <div v-for="(userplant, index) in garden">
                         <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
@@ -495,8 +494,8 @@
                                             </button>
                                         </div>
 
-                                        <img class="col-sm-5 imgTest" v-bind:src="'../' + userplant.plant.icon"
-                                             alt="Picture of plant" height="190">
+                                        <img class="col-sm-5 imgTest imgMobile" v-bind:src="'../' + userplant.plant.icon"
+                                             alt="Picture of plant" height="230">
 
 
                                     </div>
@@ -569,8 +568,8 @@
                                             </button>
                                         </div>
 
-                                        <img class="col-sm-5 imgTest" v-bind:src="'../' + userplant.plant.icon"
-                                             alt="Picture of plant" height="190">
+                                        <img class="col-sm-5 imgTest imgMobile" v-bind:src="'../' + userplant.plant.icon"
+                                             alt="Picture of plant" height="230">
 
 
                                     </div>
@@ -581,7 +580,7 @@
                 </div>
             </div>
 
-            <div v-if="garden === null" class="text-center">Wow such empty! Füge Pflanzen zu deinem Garten hinzu.</div>
+            <div v-if="garden === null && add === false" class="text-center mobileNoplants">Wow such empty! Füge Pflanzen zu deinem Garten hinzu.</div>
 
         </div>
 
@@ -776,11 +775,6 @@
         color: inherit;
     }
 
-    .scroll {
-        height: 40%;
-        overflow: scroll;
-    }
-
     .scrollPlants {
         height: 64vh;
         overflow: scroll;
@@ -791,7 +785,10 @@
     .windowImage {
         margin: 0;
         padding: 0;
-        width: 100%;
+    }
+
+    .plantWindow{
+        height: 85vh;
     }
 
     .all {
@@ -880,14 +877,6 @@
         margin-top: 25px;
     }
 
-    .plantWindow {
-        position: -webkit-sticky; /* Safari */
-        position: sticky;
-        top: 0;
-    }
-
-    /* add plant window*/
-
     .plantProfil {
         border-radius: 10px;
         padding: 10px 10px 10px 30px;
@@ -953,6 +942,14 @@
         text-align: left;
     }
 
+    .plantProfileAdd {
+        border-radius: 10px;
+        padding: 10px 10px 10px 30px;
+        margin-bottom: 30px;
+        height: 140px;
+        color: #707070;
+    }
+
     .waterMobile{
         background-color: #97B753;
         color: white;
@@ -961,6 +958,18 @@
         font-size: 130%;
         margin-bottom: 10%;
         margin-top: 10%;
+    }
+
+    .changeMobile {
+        margin-top: 2%;
+        margin-right: 2%;
+        margin-left: 2%;
+    }
+
+    .mobileNoplants {
+        margin-top: 50vh;
+        margin-bottom: 50vh;
+        width:100%;
     }
 
     @media (max-width: 768px) {
@@ -996,12 +1005,20 @@
             font-size: 90%;
         }
 
+        .imgTest{
+            display: none;
+        }
+
+        .plantProfileAdd{
+            height: 180px;
+        }
+
     }
 
-    @media (max-width: 1200px) and (orientation: landscape){
+    @media (max-width: 1270px) and (orientation: landscape){
 
         .mobile {
-            display: unset
+            display: unset;
         }
 
         .windowPlant {
@@ -1016,11 +1033,15 @@
             padding: 10px 10px 10px 40px;
         }
 
+        .plantProfileAdd{
+            height: 160px;
+        }
+
     }
 
-    @media (max-width: 1200px) and (orientation: portrait){
+    @media (max-width: 1270px) and (orientation: portrait){
         .mobile {
-            display: unset
+            display: unset;
         }
 
         .windowPlant {
@@ -1032,9 +1053,12 @@
         }
 
         .plantsProfil {
-            padding: 10px 10px 10px 40px;
+            padding: 20px 10px 10px 40px;
+        }
+
+        .plantProfileAdd{
+            height: 160px;
         }
     }
-
 
 </style>
