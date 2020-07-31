@@ -216,7 +216,7 @@
                                             </add-userplant-modal>
 
                                         </div>
-                                        <img class="col-sm-5 imgTestAdd" v-bind:src="'../' + plant.icon"
+                                        <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon"
                                              alt="Picture of plant">
 
                                     </div>
@@ -238,7 +238,7 @@
                                             </add-userplant-modal>
 
                                         </div>
-                                        <img class="col-sm-5 imgTestAdd" v-bind:src="'../' + plant.icon"
+                                        <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon"
                                              alt="Picture of plant">
 
                                     </div>
@@ -1016,18 +1016,9 @@
             font-size: 110% !important;
         }
 
-        .plantProfileAdd{
-            height: 180px !important;
-        }
-
         .imgTest{
             display: none;
         }
-
-        .imgTestAdd{
-            height: 80px;
-        }
-
 
     }
 
@@ -1064,6 +1055,10 @@
             font-size: 90%;
         }
 
+        .plantProfileAdd{
+            height: 200px !important;
+        }
+
     }
 
     @media (max-width: 1270px) and (orientation: landscape){
@@ -1085,16 +1080,13 @@
         }
 
         .plantProfileAdd{
-            height: 160px;
+            height: 200px;
         }
 
         .imgTest{
-            height: 130px;
+            height: 170px;
         }
 
-        .imgTestAdd{
-            height: 130px;
-        }
 
     }
 
@@ -1116,16 +1108,13 @@
         }
 
         .plantProfileAdd{
-            height: 160px;
+            height: 200px;
         }
 
         .imgTest{
-            height: 130px;
+            height: 170px;
         }
 
-        .imgTestAdd{
-            height: 130px;
-        }
 
 
 
