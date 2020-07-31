@@ -285,20 +285,21 @@
 
                 <div id="carouselExampleIndicators" class="carousel slide position-relative" data-ride="carousel" v-if="change === false && garden !== 0 && !add">
                     <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" v-for="index in garden"></li>
+                            <li data-target="#carouselExampleIndicators" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" v-for="userplant in garden" v-if="userplant !== garden[0]"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="position-absolute mobileProfile">
                                 <remove-plant-modal v-if="edit" :userplant="garden[0]" @newUserplant="newUserplant" @closeModal="editU"></remove-plant-modal>
                                 <router-link :to="'/userplant/' + garden[0].id">
-                                    <div class="container-fluid plantsProfil  border border-secondary bgWhite "
+                                    <div class="container-fluid plantsProfil border border-secondary bgWhite "
                                          v-on:mouseover="replaceImage(garden[0].plant.WindowIcon)">
-                                        <p class="text-left gardenPFirst"><b>{{ garden[0].name }}</b> ({{
+                                        <p class="text-left gardenPFirstMobile"><b>{{ garden[0].name }}</b> ({{
                                             garden[0].plant.name }})</p>
-                                        <p>{{thirst(garden[0].dateWatered)}}</p>
+                                        <p class="thirst">{{thirst(garden[0].dateWatered)}}</p>
                                         <div class="row">
-                                            <div class="col-sm-7 plantInfo">
+                                            <div class="col-sm-7 plantInfoMobile">
                                                 <div class="list"></div>
                                                 <p><span class="iconsGarden"> <svg version="1.1" id="Layer_1"
                                                                                    xmlns="http://www.w3.org/2000/svg"
@@ -344,7 +345,7 @@
                                    </span> {{wateringShedule(garden[0].wateringCycle)}}
                                                 </p>
                                             </div>
-                                            <button v-b-modal.modal-center class="buttonDarkGreenSmall col-sm-5"
+                                            <button v-b-modal.modal-center class="col-sm-3 waterMobile"
                                                     @click="water($event, garden[0])"> Gießen
                                             </button>
 
@@ -360,11 +361,11 @@
                                 <router-link :to="'/userplant/' + userplant.id">
                                     <div class="container-fluid plantsProfil border border-secondary bgWhite"
                                          v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
-                                        <p class="text-left gardenPFirst"><b>{{ userplant.name }}</b> ({{
+                                        <p class="text-left gardenPFirstMobile"><b>{{ userplant.name }}</b> ({{
                                             userplant.plant.name }})</p>
-                                        <p>{{thirst(userplant.dateWatered)}}</p>
+                                        <p class="thirst">{{thirst(userplant.dateWatered)}}</p>
                                         <div class="row">
-                                            <div class="col-sm-7 plantInfo">
+                                            <div class="col-sm-7 plantInfoMobile">
                                                 <div class="list"></div>
                                                 <p><span class="iconsGarden"> <svg version="1.1" id="Layer_1"
                                                                                    xmlns="http://www.w3.org/2000/svg"
@@ -410,7 +411,7 @@
                                    </span> {{wateringShedule(userplant.wateringCycle)}}
                                                 </p>
                                             </div>
-                                            <button v-b-modal.modal-center class="buttonDarkGreenSmall col-sm-5 "
+                                            <button v-b-modal.modal-center class="col-sm-3 waterMobile"
                                                     @click="water($event, userplant)"> Gießen
                                             </button>
 
@@ -932,8 +933,33 @@
     .iconMobile {padding-top: 11px;}
 
     .mobileProfile{
-        margin-left: 28%;
-        margin-right: 20%;
+        left: 25%;
+        right: 25%;
+        margin-top: 10%;
+    }
+
+    .gardenPFirstMobile {
+        font-size: 18pt;
+        margin-top: 3%;
+        margin-bottom: 2%;
+    }
+
+    .thirst {
+        font-size: 14pt;
+    }
+
+    .plantInfoMobile {
+        font-size: 14pt;
+        text-align: left;
+    }
+
+    .waterMobile{
+        background-color: #97B753;
+        color: white;
+        border: 2px solid #97B753;
+        border-radius: 10px;
+        font-size: 130%;
+        margin-bottom: 10%;
         margin-top: 10%;
     }
 
@@ -945,6 +971,30 @@
         }
 
         .iconMobile svg { width: 70%;}
+
+        .gardenPFirstMobile {
+            font-size: 13pt;
+            margin-top: 2%;
+        }
+
+        .thirst {
+            font-size: 11pt;
+        }
+
+        .plantInfoMobile {
+            font-size: 11pt;
+            text-align: left;
+            margin-bottom: 3%;
+        }
+
+        .mobileProfile{
+            left: 15%;
+            right: 15%;
+        }
+
+        .waterMobile{
+            font-size: 90%;
+        }
 
     }
 
@@ -962,6 +1012,10 @@
             display: none;
         }
 
+        .plantsProfil {
+            padding: 10px 10px 10px 40px;
+        }
+
     }
 
     @media (max-width: 1200px) and (orientation: portrait){
@@ -975,6 +1029,10 @@
 
         .garden {
             display: none;
+        }
+
+        .plantsProfil {
+            padding: 10px 10px 10px 40px;
         }
     }
 
