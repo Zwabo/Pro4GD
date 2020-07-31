@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="zwischenstand - test - not push" />
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="isa workspace">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
@@ -145,8 +147,8 @@
           <entry key="project.open.time.6" value="12" />
           <entry key="project.open.time.7" value="14" />
           <entry key="project.open.time.8" value="15" />
-          <entry key="project.open.time.9" value="9" />
-          <entry key="project.opened" value="98" />
+          <entry key="project.open.time.9" value="10" />
+          <entry key="project.opened" value="99" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -165,7 +167,7 @@
           <entry key="svg" value="73" />
           <entry key="ts" value="2" />
           <entry key="twig" value="97" />
-          <entry key="vue" value="278" />
+          <entry key="vue" value="279" />
           <entry key="xml" value="1" />
           <entry key="yaml" value="3" />
         </counts>
@@ -185,7 +187,7 @@
           <entry key="SVG" value="73" />
           <entry key="Twig" value="97" />
           <entry key="TypeScript" value="2" />
-          <entry key="Vue.js" value="278" />
+          <entry key="Vue.js" value="279" />
           <entry key="XML" value="1" />
           <entry key="YAML" value="3" />
         </counts>
@@ -200,8 +202,8 @@
           <entry key="php" value="47725" />
           <entry key="svg" value="26" />
           <entry key="twig" value="20844" />
-          <entry key="txt" value="3589" />
-          <entry key="vue" value="163879" />
+          <entry key="txt" value="3602" />
+          <entry key="vue" value="163912" />
           <entry key="xml" value="11" />
           <entry key="yaml" value="138" />
         </counts>
@@ -213,10 +215,10 @@
           <entry key="JavaScript" value="2281" />
           <entry key="Markdown" value="308" />
           <entry key="PHP" value="47725" />
-          <entry key="PLAIN_TEXT" value="3614" />
+          <entry key="PLAIN_TEXT" value="3627" />
           <entry key="SVG" value="26" />
           <entry key="Twig" value="20844" />
-          <entry key="Vue.js" value="163878" />
+          <entry key="Vue.js" value="163911" />
           <entry key="XML" value="11" />
           <entry key="YAML" value="138" />
         </counts>
@@ -268,11 +270,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+            <state relative-caret-position="418">
+              <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Garden.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="348" column="53" lean-forward="true" selection-start-line="348" selection-start-column="53" selection-end-line="348" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -290,7 +301,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>standort</find>
       <find>router-link</find>
       <find>:hover</find>
       <find>routertext</find>
@@ -320,6 +330,7 @@
       <find>fertiliserIcon</find>
       <find>fertilisericon</find>
       <find>fertiliser</find>
+      <find>watermobile</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -343,7 +354,6 @@
         <option value="$PROJECT_DIR$/src/DataFixtures/AwardsFixtures.php" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Userplant.vue" />
         <option value="$PROJECT_DIR$/src/Controller/GardenController.php" />
-        <option value="$PROJECT_DIR$/assets/js/components/pages/Garden.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/modals/addUserplantModal.vue" />
         <option value="$PROJECT_DIR$/src/Controller/UserplantController.php" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Friends.vue" />
@@ -387,6 +397,7 @@
         <option value="$PROJECT_DIR$/src/Entity/Plant.php" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Plant.vue" />
         <option value="$PROJECT_DIR$/assets/js/components/modals/AddTippsArticleModal.vue" />
+        <option value="$PROJECT_DIR$/assets/js/components/pages/Garden.vue" />
       </list>
     </option>
   </component>
@@ -849,13 +860,7 @@
       <workItem from="1595495174487" duration="34634000" />
       <workItem from="1596010182662" duration="3880000" />
       <workItem from="1596102691967" duration="12136000" />
-    </task>
-    <task id="LOCAL-00061" summary="Profil fixed">
-      <created>1591802846599</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1591802846599</updated>
+      <workItem from="1596221761513" duration="459000" />
     </task>
     <task id="LOCAL-00062" summary="Pflanzen Formular hinzugefügt">
       <created>1591820683166</created>
@@ -1193,11 +1198,18 @@
       <option name="project" value="LOCAL" />
       <updated>1596217771984</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="isa workspace">
+      <created>1596221778262</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1596221778263</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="732590000" />
+    <option name="totallyTimeSpent" value="733049000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1210,8 +1222,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.22677323" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.22927073" />
       <window_info id="Structure" order="1" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
       <window_info id="npm" order="2" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
       <window_info id="Favorites" order="3" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
@@ -1223,12 +1236,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.497003" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44805196" weight="0.32293764" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44705296" visible="true" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.33866134" side_tool="true" visible="true" weight="0.28873238" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.55294704" side_tool="true" visible="true" weight="0.32293764" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4995005" weight="0.32997987" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="13" sideWeight="0.6613387" visible="true" weight="0.28873238" />
+      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.66033965" weight="0.28873238" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1268,7 +1281,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="picture upload part1" />
     <MESSAGE value="zwischenstand likes" />
     <MESSAGE value="added profile requests, styles zwischenstand" />
     <MESSAGE value="reload likes workaround implementiert" />
@@ -1293,7 +1305,8 @@
     <MESSAGE value="Browserkontrolle --&gt; Styles kompatipel mit allen Browser / BugFix" />
     <MESSAGE value="bugfix plant&#10;bitte neu migraten" />
     <MESSAGE value="zwischenstand - test - not push" />
-    <option name="LAST_COMMIT_MESSAGE" value="zwischenstand - test - not push" />
+    <MESSAGE value="isa workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="isa workspace" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
@@ -1431,10 +1444,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="943">
           <caret line="543" column="5" selection-start-line="543" selection-start-column="5" selection-end-line="543" selection-end-column="5" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#script#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1453,13 +1462,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Garden.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="98" column="31" lean-forward="true" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/settings.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -1471,9 +1473,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11462">
           <caret line="762" selection-start-line="762" selection-end-line="762" />
-          <folding>
-            <element signature="n#script#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1630,8 +1629,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+        <state relative-caret-position="418">
+          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Garden.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="348" column="53" lean-forward="true" selection-start-line="348" selection-start-column="53" selection-end-line="348" selection-end-column="53" />
         </state>
       </provider>
     </entry>
