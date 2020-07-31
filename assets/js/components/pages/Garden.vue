@@ -344,9 +344,11 @@
                                    </span> {{wateringShedule(garden[0].wateringCycle)}}
                                                 </p>
                                             </div>
-                                            <button v-b-modal.modal-center class="col-sm-3 waterMobile"
-                                                    @click="water($event, garden[0])"> Gießen
-                                            </button>
+                                            <div class="col-sm-6 paddingNormalize marginNormalize waterMobileCol">
+                                                <button v-b-modal.modal-center class="waterMobile"
+                                                        @click="water($event, garden[0])"> Gießen
+                                                </button>
+                                            </div>
 
                                         </div>
                                     </div>
@@ -410,10 +412,11 @@
                                    </span> {{wateringShedule(userplant.wateringCycle)}}
                                                 </p>
                                             </div>
-                                            <button v-b-modal.modal-center class="col-sm-3 waterMobile"
-                                                    @click="water($event, userplant)"> Gießen
-                                            </button>
-
+                                            <div class="col-sm-6 paddingNormalize marginNormalize waterMobileCol">
+                                                <button v-b-modal.modal-center class="waterMobile"
+                                                        @click="water($event, userplant)"> Gießen
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </router-link>
@@ -950,14 +953,17 @@
         color: #707070;
     }
 
+    .waterMobileCol {
+        align-self: center;
+        text-align: center;
+    }
     .waterMobile{
         background-color: #97B753;
         color: white;
         border: 2px solid #97B753;
         border-radius: 10px;
         font-size: 130%;
-        margin-bottom: 10%;
-        margin-top: 10%;
+        padding: 3% 5%;
     }
 
     .changeMobile {
@@ -975,6 +981,15 @@
     .imgMobile{
 
         width: 100%;
+    }
+
+    @media (max-width: 991.98px) {
+        .plantInfoMobile { font-size:  13pt; }
+    }
+
+    @media (max-width: 767.98px) {
+        .plantInfoMobile { font-size: 14pt; }
+        .waterMobile { padding: 5% 10%; }
     }
 
     @media (max-width: 600px) {
@@ -996,6 +1011,7 @@
         .plantInfoMobile {
             font-size: 10pt !important;
             margin-bottom: 2% !important;
+            width: 50%;
         }
 
         .iconsGarden svg{
@@ -1006,13 +1022,13 @@
             width: 5%;
         }
 
+
+        .waterMobileCol { width: 50%; }
         .waterMobile {
             padding: 1%;
             left: 55%;
             top: 30%;
-            width: 20%;
-            height:10%;
-            position: fixed;
+            padding: 15% 15%;
             font-size: 110% !important;
         }
 
@@ -1029,6 +1045,19 @@
         }
 
 
+    }
+
+    @media (max-width: 575.98px) {
+        .iconsGarden svg { width: 15px; }
+    }
+
+    @media (max-width: 400px) {
+        .plantInfoMobile { width: 100%; }
+        .waterMobileCol { width: 100%; }
+        .waterMobile {
+            padding: 8% 10%;
+            margin-bottom: 2%;
+        }
     }
 
     @media (max-width: 768px) {
