@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="Browserkontrolle --&gt; Styles kompatipel mit allen Browser / BugFix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Plant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Plant.php" afterDir="false" />
-    </list>
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="bugfix plant&#10;bitte neu migraten" />
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
@@ -131,7 +128,7 @@
     <session id="-1864558712">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="97" />
+          <entry key="project.closed" value="98" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.10" value="3" />
@@ -168,7 +165,7 @@
           <entry key="svg" value="73" />
           <entry key="ts" value="2" />
           <entry key="twig" value="97" />
-          <entry key="vue" value="274" />
+          <entry key="vue" value="276" />
           <entry key="xml" value="1" />
           <entry key="yaml" value="3" />
         </counts>
@@ -188,7 +185,7 @@
           <entry key="SVG" value="73" />
           <entry key="Twig" value="97" />
           <entry key="TypeScript" value="2" />
-          <entry key="Vue.js" value="274" />
+          <entry key="Vue.js" value="276" />
           <entry key="XML" value="1" />
           <entry key="YAML" value="3" />
         </counts>
@@ -203,7 +200,7 @@
           <entry key="php" value="47725" />
           <entry key="svg" value="26" />
           <entry key="twig" value="20844" />
-          <entry key="txt" value="3522" />
+          <entry key="txt" value="3558" />
           <entry key="vue" value="163879" />
           <entry key="xml" value="11" />
           <entry key="yaml" value="138" />
@@ -216,7 +213,7 @@
           <entry key="JavaScript" value="2281" />
           <entry key="Markdown" value="308" />
           <entry key="PHP" value="47725" />
-          <entry key="PLAIN_TEXT" value="3547" />
+          <entry key="PLAIN_TEXT" value="3583" />
           <entry key="SVG" value="26" />
           <entry key="Twig" value="20844" />
           <entry key="Vue.js" value="163878" />
@@ -244,7 +241,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Plant.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
@@ -268,6 +265,13 @@
             <state relative-caret-position="199">
               <caret line="52" column="33" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="33" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1122" />
           </provider>
         </entry>
       </file>
@@ -311,9 +315,9 @@
       <find>registriere dich</find>
       <find>sie sind als</find>
       <find>loginindex label</find>
+      <find>fertiliserIcon</find>
       <find>fertilisericon</find>
       <find>fertiliser</find>
-      <find>fertiliserIcon</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -329,7 +333,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/DataFixtures/BadgesFixtures.php" />
         <option value="$PROJECT_DIR$/src/Entity/Badge.php" />
         <option value="$PROJECT_DIR$/src/Entity/Award.php" />
@@ -380,6 +383,7 @@
         <option value="$PROJECT_DIR$/assets/js/components/pages/ProfileForum.vue" />
         <option value="$PROJECT_DIR$/src/Entity/Plant.php" />
         <option value="$PROJECT_DIR$/assets/js/components/pages/Plant.vue" />
+        <option value="$PROJECT_DIR$/assets/js/components/modals/AddTippsArticleModal.vue" />
       </list>
     </option>
   </component>
@@ -841,14 +845,7 @@
       <workItem from="1595275795894" duration="245000" />
       <workItem from="1595495174487" duration="34634000" />
       <workItem from="1596010182662" duration="3880000" />
-      <workItem from="1596102691967" duration="10770000" />
-    </task>
-    <task id="LOCAL-00058" summary="profil nix">
-      <created>1591744957492</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1591744957493</updated>
+      <workItem from="1596102691967" duration="12136000" />
     </task>
     <task id="LOCAL-00059" summary="profil nix">
       <created>1591790166464</created>
@@ -1186,11 +1183,18 @@
       <option name="project" value="LOCAL" />
       <updated>1596116750694</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="bugfix plant&#10;bitte neu migraten">
+      <created>1596119579952</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1596119579952</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="729758000" />
+    <option name="totallyTimeSpent" value="731124000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1203,7 +1207,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.22427572" />
       <window_info id="Structure" order="1" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
@@ -1217,7 +1220,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.497003" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44905096" weight="0.32293764" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44855145" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.33816183" side_tool="true" visible="true" weight="0.28873238" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4995005" weight="0.32997987" />
@@ -1262,7 +1265,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="badges hinzugefügt" />
     <MESSAGE value="fixed Profile.vue" />
     <MESSAGE value="picture upload part1" />
     <MESSAGE value="zwischenstand likes" />
@@ -1287,7 +1289,8 @@
     <MESSAGE value="App Download Bild zu Endgerätebild geändert" />
     <MESSAGE value="App Download Bild zu Endgerätebild geändert&#10;Register Button hinzugefügt&#10;Menü weggetan, wenn nicht eingeloggt" />
     <MESSAGE value="Browserkontrolle --&gt; Styles kompatipel mit allen Browser / BugFix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Browserkontrolle --&gt; Styles kompatipel mit allen Browser / BugFix" />
+    <MESSAGE value="bugfix plant&#10;bitte neu migraten" />
+    <option name="LAST_COMMIT_MESSAGE" value="bugfix plant&#10;bitte neu migraten" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
@@ -1312,20 +1315,6 @@
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controller/GardenController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="45" column="76" selection-start-line="45" selection-start-column="69" selection-end-line="45" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="127" column="12" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Thread.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
@@ -1612,10 +1601,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Plant.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="52" column="33" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="33" />
+        <state relative-caret-position="45">
+          <caret line="78" column="34" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1626,11 +1615,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Plant.vue">
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/PlantFixtures.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="78" column="34" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
+        <state relative-caret-position="199">
+          <caret line="52" column="33" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="33" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddTippsArticleModal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1122" />
       </provider>
     </entry>
   </component>
