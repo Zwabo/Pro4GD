@@ -157,7 +157,7 @@
                 <!-- Threaddisplay -->
                 <div v-for="thread in threads">
                     <div v-if="thread.category.title === 'Pflegetipps'">
-                        <div class="row threadBackground dropShadow pflanzenSub">
+                        <div class="row pflanzenSub">
                             <div class="container-fluid">
 
                                 <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
@@ -286,7 +286,7 @@
                 <!-- Threaddisplay -->
                 <div v-for="thread in threads">
                     <div v-if="thread.category.title === 'Neuigkeiten'">
-                        <div class="row threadBackground dropShadow pflanzenSub">
+                        <div class="row  pflanzenSub">
                             <div class="container-fluid">
                                 <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                     <div class="col-lg-11">
@@ -429,7 +429,7 @@
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Palmen'">
-                            <div class="row threadBackground dropShadow pflanzenSub">
+                            <div class="row  pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
@@ -539,7 +539,7 @@
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Kräuter'">
-                            <div class="row threadBackground dropShadow pflanzenSub">
+                            <div class="row  pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
@@ -649,7 +649,7 @@
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Kletterpflanzen'">
-                            <div class="row threadBackground dropShadow pflanzenSub">
+                            <div class="row  pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
@@ -759,7 +759,7 @@
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Zuchtpflanzen'">
-                            <div class="row threadBackground dropShadow pflanzenSub">
+                            <div class="row  pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
@@ -869,7 +869,7 @@
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Wildpflanzen'">
-                            <div class="row threadBackground dropShadow pflanzenSub">
+                            <div class="row  pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
@@ -979,7 +979,7 @@
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Heilpflanzen'">
-                            <div class="row threadBackground dropShadow pflanzenSub">
+                            <div class="row  pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
@@ -1089,7 +1089,7 @@
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Fleischfressende Pflanzen'">
-                            <div class="row threadBackground dropShadow pflanzenSub">
+                            <div class="row  pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
@@ -1199,7 +1199,7 @@
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Zimmerpflanzen'">
-                            <div class="row threadBackground dropShadow pflanzenSub">
+                            <div class="row  pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
@@ -1309,7 +1309,7 @@
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Sonnenpflanzen'">
-                            <div class="row threadBackground dropShadow pflanzenSub">
+                            <div class="row  pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
@@ -1419,7 +1419,7 @@
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Frühlingsblüher'">
-                            <div class="row threadBackground dropShadow pflanzenSub">
+                            <div class="row  pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
@@ -1529,7 +1529,7 @@
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Sommerblüher'">
-                            <div class="row threadBackground dropShadow pflanzenSub">
+                            <div class="row  pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
@@ -1639,7 +1639,7 @@
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Herbstblüher'">
-                            <div class="row threadBackground dropShadow pflanzenSub">
+                            <div class="row  pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
@@ -1749,7 +1749,7 @@
                     <!-- Threaddisplay -->
                     <div v-for="thread in threads">
                         <div v-if="thread.category.title === 'Winterblüher'">
-                            <div class="row threadBackground dropShadow pflanzenSub">
+                            <div class="row  pflanzenSub">
                                 <div class="container-fluid">
                                     <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                         <div class="col-lg-11">
@@ -1845,7 +1845,7 @@
                 <!-- Threaddisplay -->
                 <div v-for="thread in threads">
                     <div v-if="thread.category.title === 'Pflanzen'">
-                        <div class="row threadBackground dropShadow pflanzenSub">
+                        <div class="row  pflanzenSub">
                             <div class="container-fluid">
                                 <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
                                     <div class="col-lg-11">
@@ -2302,8 +2302,6 @@
         color: #707070;
         background-color: #dedede;
         margin-bottom: 1%;
-        margin-right: 0.5%;
-        margin-left: 0.5%;
         height: 3em;
     }
 
