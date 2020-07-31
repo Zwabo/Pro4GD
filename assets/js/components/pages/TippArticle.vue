@@ -2,14 +2,19 @@
     <div class="row">
         <div class="col right marginLeftRight">
             <div class="row garden">
-
                 <div class="col-sm-11">
+                    <div class="firstAfterMenue"></div>
                     <h3 id="date">{{formatDate}}</h3>
                     <h2 id="title">{{tippArticle.title}}</h2>
                     <p id="shortTextIntro">{{tippArticle.shortText}}</p>
                     <div class="greenLine"></div>
                     <p id="longText">{{tippArticle.long_Text}}</p>
-                    <router-link  class="readMore"  :to="'/tipps'"> >zurück </router-link>
+                    <div class="backLinkDiv">
+                    <router-link  class="readMore"  :to="'/tipps'">
+                        <svg class="backSvg"><use href="#backIcon"></use></svg><span class="desktop">Zurück</span>
+                    </router-link>
+                    <div class ="lastBeforeFooter"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -46,6 +51,28 @@
 </script>
 
 <style scoped>
+    #date{
+        margin-top:5%;
+    }
+    #shortTextIntro{
+        font-weight: bold;
+    }
+
+    .backSvg {
+        width: 20px;
+        height: 20px;
+        fill: #97B753;
+        padding-right: 2%;
+    }
+
+    .backLinkDiv {
+        text-align: right;
+        padding-right: 1%;
+    }
+    .backLink:hover { color: #97B753; }
+    .backLink:hover .backSvg { fill: #B8E269; }
+    .backLink:active { color: #707070; }
+    .backLink:active .backSvg { fill: #707070; }
 
     /*---------------------------------------Media Queries-----------------------------------------------*/
     /*Large devices (desktops, less than 1200px)*/

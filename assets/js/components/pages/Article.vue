@@ -2,7 +2,9 @@
     <div class="row">
         <div class="col right marginLeftRight">
             <div class="row garden">
+
                 <div class="col-sm-11">
+                    <div class="firstAfterMenue"></div>
                     <p id="date">{{formatDate}}</p>
                     <h2 id="title">{{article.title}}</h2>
                     <p id="shortTextIntro">{{article.shortText}}</p>
@@ -12,11 +14,14 @@
                     <router-link  class="readMore"  :to="'/news'">
                         <svg class="backSvg"><use href="#backIcon"></use></svg><span class="desktop">Zurück</span>
                     </router-link>
+                        <div class="lastBeforeFooter"></div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
+
 </template>
 
 <script>
