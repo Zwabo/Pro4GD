@@ -34,10 +34,12 @@
                             <div>
                                 <div class="row">
                                 <h3 id="push"class="col-lg-3">Push-Benachrichtigungen</h3>
-                                    <label class="switch">
-                                <input id="rudeSwitch"class="col-lg-4" type="checkbox">
+                                <div class="col-lg-4 ml-auto pushSwitch">
+                                    <label class="switch switchSpecial">
+                                        <input id="rudeSwitch"class="col-lg-4" type="checkbox">
                                         <span class="slider round"></span>
                                     </label>
+                                </div>
                                 </div>
                                 <div class="greenLine"></div>
 
@@ -319,11 +321,12 @@
         font-weight: normal;
         font-size: 100%;
         color:#97B753;
+        margin-top:20px;
     }
 
     .bulletPoints{
         color:#97B753;
-
+        margin-top: 20px;
         font-size: 88%;
     }
     .bulletExplanation{
@@ -341,6 +344,7 @@
     .private{
         color: #707070;
         font-size: 88%;
+        margin-top: 20px;
     }
 
     #privateHeader{
@@ -351,6 +355,7 @@
     .radioButton{
         margin-right: 15%;
         color: #97B753;
+        margin-top:20px;
     }
 
     .privacyOptions{
@@ -417,12 +422,17 @@
     }
 
 
+    .pushSwitch{
+        margin-right: 15px;
+    }
+
     /* The switch - the box around the slider */
     .switch {
         position: relative;
         display: inline-block;
         width: 40px;
         height: 20px;
+        margin-top:20px;
 
     }
 
@@ -483,11 +493,16 @@
 
     #rudeSwitch{
         margin-bottom: -10%;
+        float: right;
+        clear: both;
 
     }
     @media (max-width: 991.98px) {
         .switch{
             margin-left: 20px;
+        }
+        .switch.switchSpecial{
+            margin-left: 0px;
         }
         .privacyOptions{
             color: #707070;

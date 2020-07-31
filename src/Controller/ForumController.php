@@ -227,7 +227,17 @@ class ForumController extends AbstractController
         $entityManager->persist($user);
         $entityManager->flush();
 
-        return new JsonResponse($thread->toAssoc(), Response::HTTP_OK);
+        $rComment = [
+            'id' => $comment->getId(),
+            'text' => $comment->getText(),
+            'created' => $comment->getCreated()->format('d.m.Y, G:i'),
+            'username' => $comment->getUser()->getFirstName() . ' ' . $comment->getUser()->getLastName(),
+            'userPic' => $user->getUserPic(),
+            'likes' => 0,
+            'isLiked' => false
+        ];
+
+        return new JsonResponse($rComment, Response::HTTP_OK);
     }
 
     /**

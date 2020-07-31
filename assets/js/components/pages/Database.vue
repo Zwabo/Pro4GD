@@ -470,7 +470,7 @@
     @media (max-width: 768px) {
         .database {
             width: 103%;
-            padding-top: 35%;
+            padding-top: 15%;
             padding-bottom: 46%;
         }
 

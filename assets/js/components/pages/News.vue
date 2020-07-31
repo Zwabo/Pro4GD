@@ -5,7 +5,7 @@
 
             <add-news-article-modal
                     :newsData="newsData"
-                @newArticle="newArticle" v-if="checkRole()" >
+                @newArticle="newArticle"  v-if="checkRole()">
             </add-news-article-modal>
 
 
@@ -59,7 +59,7 @@
             this.$root.$on('loggedIn', () => {
                 this.loggedInUser = JSON.parse(localStorage.getItem('user'));
             });
-            if(this.loggedInUser == null){
+            if(this.loggedInUser === null){
                 this.$router.push('/login');
             }
         },
@@ -152,16 +152,13 @@
     .iconNews svg:active .path1 { fill: #000000;}
 
 
-
-    /*---------------------------------------Media Queries-----------------------------------------------*/
-
     /*---------------------------------------Media Queries-----------------------------------------------*/
     /*Large devices (desktops, less than 1200px)*/
     @media (max-width: 1199.98px) {
         .col-sm-4{width:40%}
         .col-sm-8 { width: 60% !important;}
 
-        #newsThumbnail{ height:300px;
+        #newsThumbnail{
             max-width: 100%;
             height: auto;}
     }
@@ -171,7 +168,7 @@
         .col-sm-4{width:40%}
         .col-sm-8 { width: 60% !important;}
 
-        #newsThumbnail{ height:300px;
+        #newsThumbnail{
             max-width: 100%;
             height: auto;}
 

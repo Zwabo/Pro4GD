@@ -10,7 +10,7 @@
 
                 <div class="modal-header">
                     <h5>Willst du {{userplant.name}} {{userplant.plant.name}} wirklich löschen?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="modalOpen = false">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="close()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -18,7 +18,7 @@
                 <div class="modal-body">
                     <form v-on:submit="removeUserplant">
                         <input type="submit" class="btn btn-primary" value="Ja">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" @click="modalOpen = false">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" @click="close()">
                             <span aria-hidden="true">Nein</span></button>
                     </form>
                 </div>
@@ -57,6 +57,12 @@
                 this.$emit('newUserplant');
 
                 e.preventDefault();
+            },
+
+            close:function () {
+
+                this.$emit('closeModal');
+                this.modalOpen = false;
             }
         }
     }

@@ -14,7 +14,9 @@
             <!-- v-for start-->
             <div v-for="tipps in tippsData">
                 <div class ="row">
-                    <img class="col-sm-4" id="newsThumbnail"  v-bind:src="tipps.thumbnail">
+                    <div class="col-sm-4">
+                    <img  id="newsThumbnail"  v-bind:src="tipps.thumbnail">
+                    </div>
                     <div class="col-sm-8">
                         <h3 id="date">{{ tipps.date_posted.date.substr(8, 2)
                             + "." + tipps.date_posted.date.substr(5, 2)
@@ -86,6 +88,11 @@
                     }
                 };
 
+            },
+            filters: {
+                reverse(items) {
+                    return items.slice().reverse()
+                }
             }
         }
     }
@@ -147,7 +154,7 @@
         .col-sm-4{width:40%}
         .col-sm-8 { width: 60% !important;}
 
-        #newsThumbnail{ height:300px;
+        #newsThumbnail{
             max-width: 100%;
             height: auto;}
     }
@@ -157,7 +164,7 @@
         .col-sm-4{width:40%}
         .col-sm-8 { width: 60% !important;}
 
-        #newsThumbnail{ height:300px;
+        #newsThumbnail{
             max-width: 100%;
             height: auto;}
 
