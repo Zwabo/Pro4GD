@@ -264,10 +264,10 @@
         </div>
 
         <div class="mobile">
-            <div class="row">
-                <div class="col">Hello Username</div>
-                <button class="btn col" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="iconGarden">
+            <div  v-if="!add" class="row">
+                <p class="col-8 mygardenmobile">Mein Garten</p>
+                <button class="btn col-3 mobileAdd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="iconMobile">
 
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 455.4 455.4" style="enable-background:new 0 0 455.4 455.4;" xml:space="preserve"><path class="path1" d="M405.5,412.8c-69.7,56.9-287.3,56.9-355.6,0c-69.7-56.9-62.6-300.1,0-364.1s293-64,355.6,0S475.2,355.9,405.5,412.8z"/><path
@@ -278,29 +278,27 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#" @click="add = true" >Neue Pflanze hinzufügen</a>
                     <a v-if="change===false" class="dropdown-item" href="#" @click="change=true"  >Zu Listenansicht wechseln</a>
-                    <a v-if="change===true" class="dropdown-item" href="#" @click="change=false"  >Zu Ansicht wechseln</a>
+                    <a v-if="change===true" class="dropdown-item" href="#" @click="change=false"  >Zu Fensterbankansicht wechseln</a>
                     <a class="dropdown-item" href="#" @click="edit = true" >Pflanzen löschen</a>
                 </div>
             </div>
 
-                <div id="carouselExampleIndicators" class="carousel slide position-relative" data-ride="carousel" v-if="change === false && garden !== 0">
+                <div id="carouselExampleIndicators" class="carousel slide position-relative" data-ride="carousel" v-if="change === false && garden !== 0 && !add">
                     <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" ></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="index" v-for="index in garden" v-if="index !== 0"></li>
-
+                            <li data-target="#carouselExampleIndicators" v-for="index in garden"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <div class="position-absolute">
-                                <remove-plant-modal v-if="edit" :userplant="garden[0]" @newUserplant="newUserplant"></remove-plant-modal>
+                            <div class="position-absolute mobileProfile">
+                                <remove-plant-modal v-if="edit" :userplant="garden[0]" @newUserplant="newUserplant" @closeModal="editU"></remove-plant-modal>
                                 <router-link :to="'/userplant/' + garden[0].id">
-                                    <div class="container-fluid plantsProfil dropShadow bgWhiteGrey "
+                                    <div class="container-fluid plantsProfil  border border-secondary bgWhite "
                                          v-on:mouseover="replaceImage(garden[0].plant.WindowIcon)">
+                                        <p class="text-left gardenPFirst"><b>{{ garden[0].name }}</b> ({{
+                                            garden[0].plant.name }})</p>
+                                        <p>{{thirst(garden[0].dateWatered)}}</p>
                                         <div class="row">
                                             <div class="col-sm-7 plantInfo">
-                                                <p class="text-left gardenPFirst"><b>{{ garden[0].name }}</b> ({{
-                                                    garden[0].plant.name }})</p>
-                                                <p>{{thirst(garden[0].dateWatered)}}</p>
                                                 <div class="list"></div>
                                                 <p><span class="iconsGarden"> <svg version="1.1" id="Layer_1"
                                                                                    xmlns="http://www.w3.org/2000/svg"
@@ -345,10 +343,10 @@
                                             </svg>
                                    </span> {{wateringShedule(garden[0].wateringCycle)}}
                                                 </p>
-                                                <button v-b-modal.modal-center class="buttonDarkGreenSmall"
-                                                        @click="water($event, garden[0])"> Gießen
-                                                </button>
                                             </div>
+                                            <button v-b-modal.modal-center class="buttonDarkGreenSmall col-sm-5"
+                                                    @click="water($event, garden[0])"> Gießen
+                                            </button>
 
                                         </div>
                                     </div>
@@ -357,16 +355,16 @@
                             <img :src="'../' + garden[0].plant.WindowIcon" class="d-block w-100" alt="Window Image of Plant">
                         </div>
                         <div class="carousel-item" v-for="userplant in garden" v-if="userplant !== garden[0]">
-                            <div class="position-absolute">
-                                <remove-plant-modal v-if="edit" :userplant="userplant" @newUserplant="newUserplant"></remove-plant-modal>
+                            <div class="position-absolute mobileProfile">
+                                <remove-plant-modal v-if="edit" :userplant="userplant" @newUserplant="newUserplant" @closeModal="editU"></remove-plant-modal>
                                 <router-link :to="'/userplant/' + userplant.id">
-                                    <div class="container-fluid plantsProfil dropShadow bgWhiteGrey "
+                                    <div class="container-fluid plantsProfil border border-secondary bgWhite"
                                          v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
+                                        <p class="text-left gardenPFirst"><b>{{ userplant.name }}</b> ({{
+                                            userplant.plant.name }})</p>
+                                        <p>{{thirst(userplant.dateWatered)}}</p>
                                         <div class="row">
                                             <div class="col-sm-7 plantInfo">
-                                                <p class="text-left gardenPFirst"><b>{{ userplant.name }}</b> ({{
-                                                    userplant.plant.name }})</p>
-                                                <p>{{thirst(userplant.dateWatered)}}</p>
                                                 <div class="list"></div>
                                                 <p><span class="iconsGarden"> <svg version="1.1" id="Layer_1"
                                                                                    xmlns="http://www.w3.org/2000/svg"
@@ -411,10 +409,10 @@
                                             </svg>
                                    </span> {{wateringShedule(userplant.wateringCycle)}}
                                                 </p>
-                                                <button v-b-modal.modal-center class="buttonDarkGreenSmall"
-                                                        @click="water($event, userplant)"> Gießen
-                                                </button>
                                             </div>
+                                            <button v-b-modal.modal-center class="buttonDarkGreenSmall col-sm-5 "
+                                                    @click="water($event, userplant)"> Gießen
+                                            </button>
 
                                         </div>
                                     </div>
@@ -433,12 +431,12 @@
                     </a>
                 </div>
 
-            <div v-if="change === true && garden !== 0">
+            <div v-if="change === true && garden !== 0" class="row">
                 <div class="col">
                     <div v-for="(userplant, index) in garden">
                         <div v-if="index % 2 == 0 || index == 0" class="row paddingNormalize">
                             <remove-plant-modal v-if="edit" :userplant="userplant"
-                                                @newUserplant="newUserplant"></remove-plant-modal>
+                                                @newUserplant="newUserplant" @closeModal="editU" ></remove-plant-modal>
                             <router-link :to="'/userplant/' + userplant.id">
                                 <div class="container-fluid plantsProfil dropShadow bgWhiteGrey "
                                      v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
@@ -512,7 +510,7 @@
                     <div v-for="(userplant, index) in garden">
                         <div v-if="index % 2 !== 0" class="row paddingNormalize">
                             <remove-plant-modal v-if="edit" :userplant="userplant"
-                                                @newUserplant="newUserplant"></remove-plant-modal>
+                                                @newUserplant="newUserplant" @closeModal="editU" ></remove-plant-modal>
                             <router-link :to="'/userplant/' + userplant.id">
                                 <div class="container-fluid plantsProfil dropShadow bgWhiteGrey "
                                      v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
@@ -762,6 +760,10 @@
 
                 return Math.trunc(xp / 100) + 1;
             },
+
+            editU:function() {
+                this.edit = false;
+            }
         }
 
     }
@@ -912,8 +914,37 @@
         font-size: x-small;
     }
 
+    .mygardenmobile {
+        padding-left: 2%;
+        font-size: 20pt;
+        margin: 3%;
+    }
+
+    .mobileAdd{
+        padding-left: 15%;
+    }
+
+    .iconMobile svg { width: 50%; fill: white;}
+    .iconMobile svg .path1 { fill: #B8E269; }
+    .iconMobile svg:hover .path1 {  fill: #97B753; }
+    .iconMobile svg:active { fill: #B8E269; }
+    .iconMobile svg:active .path1 { fill: #000000;}
+    .iconMobile {padding-top: 11px;}
+
+    .mobileProfile{
+        margin-left: 28%;
+        margin-right: 20%;
+        margin-top: 10%;
+    }
+
     @media (max-width: 768px) {
 
+        .mygardenmobile {
+            padding-left: 3%;
+            font-size: 16pt;
+        }
+
+        .iconMobile svg { width: 70%;}
 
     }
 
