@@ -216,7 +216,7 @@
                                             </add-userplant-modal>
 
                                         </div>
-                                        <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon"
+                                        <img class="col-sm-5 imgTestAdd" v-bind:src="'../' + plant.icon"
                                              alt="Picture of plant">
 
                                     </div>
@@ -238,7 +238,7 @@
                                             </add-userplant-modal>
 
                                         </div>
-                                        <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon"
+                                        <img class="col-sm-5 imgTestAdd" v-bind:src="'../' + plant.icon"
                                              alt="Picture of plant">
 
                                     </div>
@@ -298,7 +298,7 @@
                                             garden[0].plant.name }})</p>
                                         <p class="thirst">{{thirst(garden[0].dateWatered)}}</p>
                                         <div class="row">
-                                            <div class="col-sm-7 plantInfoMobile">
+                                            <div class="col-sm-6 plantInfoMobile">
                                                 <div class="list"></div>
                                                 <p><span class="iconsGarden"> <svg version="1.1" id="Layer_1"
                                                                                    xmlns="http://www.w3.org/2000/svg"
@@ -352,7 +352,7 @@
                                     </div>
                                 </router-link>
                             </div>
-                            <img :src="'../' + garden[0].plant.WindowIcon" class="d-block w-100" alt="Window Image of Plant">
+                            <img :src="'../' + garden[0].plant.WindowIcon" class="d-block imgMobile" alt="Window Image of Plant">
                         </div>
                         <div class="carousel-item" v-for="userplant in garden" v-if="userplant !== garden[0]">
                             <div class="position-absolute mobileProfile">
@@ -364,7 +364,7 @@
                                             userplant.plant.name }})</p>
                                         <p class="thirst">{{thirst(userplant.dateWatered)}}</p>
                                         <div class="row">
-                                            <div class="col-sm-7 plantInfoMobile">
+                                            <div class="col-sm-6 plantInfoMobile">
                                                 <div class="list"></div>
                                                 <p><span class="iconsGarden"> <svg version="1.1" id="Layer_1"
                                                                                    xmlns="http://www.w3.org/2000/svg"
@@ -418,7 +418,7 @@
                                     </div>
                                 </router-link>
                             </div>
-                            <img :src="'../' + userplant.plant.WindowIcon" class="d-block w-100" alt="Window Image of Plant">
+                            <img :src="'../' + userplant.plant.WindowIcon" class="d-block imgMobile" alt="Window Image of Plant">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -972,6 +972,65 @@
         width:100%;
     }
 
+    .imgMobile{
+
+        width: 100%;
+    }
+
+    @media (max-width: 600px) {
+
+        .mobileProfile{
+            left: 5% !important;
+            right: 5% !important;
+        }
+
+        .gardenPFirstMobile {
+            font-size: 11pt !important;
+            margin-top: 1% !important;
+        }
+
+        .thirst {
+            font-size: 10pt !important;
+        }
+
+        .plantInfoMobile {
+            font-size: 10pt !important;
+            margin-bottom: 2% !important;
+        }
+
+        .iconsGarden svg{
+            width: 5%;
+        }
+
+        .water svg {
+            width: 5%;
+        }
+
+        .waterMobile {
+            padding: 1%;
+            left: 55%;
+            top: 30%;
+            width: 20%;
+            height:10%;
+            position: fixed;
+            font-size: 110% !important;
+        }
+
+        .plantProfileAdd{
+            height: 180px !important;
+        }
+
+        .imgTest{
+            display: none;
+        }
+
+        .imgTestAdd{
+            height: 80px;
+        }
+
+
+    }
+
     @media (max-width: 768px) {
 
         .mygardenmobile {
@@ -1005,14 +1064,6 @@
             font-size: 90%;
         }
 
-        .imgTest{
-            display: none;
-        }
-
-        .plantProfileAdd{
-            height: 180px;
-        }
-
     }
 
     @media (max-width: 1270px) and (orientation: landscape){
@@ -1038,6 +1089,10 @@
         }
 
         .imgTest{
+            height: 130px;
+        }
+
+        .imgTestAdd{
             height: 130px;
         }
 
@@ -1067,6 +1122,13 @@
         .imgTest{
             height: 130px;
         }
+
+        .imgTestAdd{
+            height: 130px;
+        }
+
+
+
     }
 
 </style>
