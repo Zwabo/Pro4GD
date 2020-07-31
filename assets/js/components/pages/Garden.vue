@@ -45,7 +45,7 @@
                                 <div class="plantsProfil dropShadow bgWhiteGrey "
                                      v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
                                     <div class="row">
-                                        <div class="col-sm-7 plantInfo">
+                                        <div class="col-sm-5 plantInfo">
                                             <p class="text-left gardenPFirst"><b>{{ userplant.name }}</b> ({{
                                                 userplant.plant.name }})</p>
                                             <p>{{thirst(userplant.dateWatered)}}</p>
@@ -98,8 +98,8 @@
                                             </button>
                                         </div>
 
-                                        <img class="col-sm-5 imgTest" v-bind:src="'../' + userplant.plant.icon"
-                                             alt="Picture of plant" height="180">
+                                        <img class="col-sm-7 imgTest" v-bind:src="'../' + userplant.plant.icon"
+                                             alt="Picture of plant">
 
 
                                     </div>
@@ -119,7 +119,7 @@
                                 <div class="plantsProfil dropShadow bgWhiteGrey "
                                      v-on:mouseover="replaceImage(userplant.plant.WindowIcon)">
                                     <div class="row">
-                                        <div class="col-sm-7 plantInfo">
+                                        <div class="col-sm-5 plantInfo">
                                             <p class="text-left gardenPFirst"><b>{{ userplant.name }}</b> ({{
                                                 userplant.plant.name }})</p>
                                             <p>{{thirst(userplant.dateWatered)}}</p>
@@ -172,8 +172,8 @@
                                             </button>
                                         </div>
 
-                                        <img class="col-sm-5 imgTest" v-bind:src="'../' + userplant.plant.icon"
-                                             alt="Picture of plant" height="180">
+                                        <img class="col-sm-7 imgTest" v-bind:src="'../' + userplant.plant.icon"
+                                             alt="Picture of plant">
 
 
                                     </div>
@@ -217,7 +217,7 @@
 
                                         </div>
                                         <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon"
-                                             alt="Picture of plant" height="100">
+                                             alt="Picture of plant">
 
                                     </div>
                                 </div>
@@ -239,7 +239,7 @@
 
                                         </div>
                                         <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon"
-                                             alt="Picture of plant" height="100">
+                                             alt="Picture of plant">
 
                                     </div>
                                 </div>
@@ -1037,6 +1037,10 @@
             height: 160px;
         }
 
+        .imgTest{
+            height: 130px;
+        }
+
     }
 
     @media (max-width: 1270px) and (orientation: portrait){
@@ -1058,6 +1062,10 @@
 
         .plantProfileAdd{
             height: 160px;
+        }
+
+        .imgTest{
+            height: 130px;
         }
     }
 
