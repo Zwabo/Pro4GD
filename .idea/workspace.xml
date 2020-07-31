@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="isa workspace">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="isa workspace" />
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
@@ -130,7 +128,7 @@
     <session id="-1864558712">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="99" />
+          <entry key="project.closed" value="100" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.10" value="3" />
@@ -203,7 +201,7 @@
           <entry key="svg" value="26" />
           <entry key="twig" value="20844" />
           <entry key="txt" value="3602" />
-          <entry key="vue" value="163912" />
+          <entry key="vue" value="164005" />
           <entry key="xml" value="11" />
           <entry key="yaml" value="138" />
         </counts>
@@ -218,7 +216,7 @@
           <entry key="PLAIN_TEXT" value="3627" />
           <entry key="SVG" value="26" />
           <entry key="Twig" value="20844" />
-          <entry key="Vue.js" value="163911" />
+          <entry key="Vue.js" value="164004" />
           <entry key="XML" value="11" />
           <entry key="YAML" value="138" />
         </counts>
@@ -282,8 +280,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Garden.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="348" column="53" lean-forward="true" selection-start-line="348" selection-start-column="53" selection-end-line="348" selection-end-column="53" />
+            <state relative-caret-position="132">
+              <caret line="350" column="46" lean-forward="true" selection-start-line="350" selection-start-column="46" selection-end-line="350" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -301,7 +299,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>router-link</find>
       <find>:hover</find>
       <find>routertext</find>
       <find>alle anzeigen</find>
@@ -330,6 +327,7 @@
       <find>fertiliserIcon</find>
       <find>fertilisericon</find>
       <find>fertiliser</find>
+      <find>watermobilediv</find>
       <find>watermobile</find>
     </findStrings>
   </component>
@@ -860,14 +858,7 @@
       <workItem from="1595495174487" duration="34634000" />
       <workItem from="1596010182662" duration="3880000" />
       <workItem from="1596102691967" duration="12136000" />
-      <workItem from="1596221761513" duration="459000" />
-    </task>
-    <task id="LOCAL-00062" summary="Pflanzen Formular hinzugefügt">
-      <created>1591820683166</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1591820683166</updated>
+      <workItem from="1596221761513" duration="957000" />
     </task>
     <task id="LOCAL-00063" summary="Category added - plant.php + fixtures">
       <created>1592151365625</created>
@@ -1205,11 +1196,18 @@
       <option name="project" value="LOCAL" />
       <updated>1596221778263</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="isa workspace">
+      <created>1596222254552</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1596222254553</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="733049000" />
+    <option name="totallyTimeSpent" value="733547000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1222,9 +1220,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.22927073" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.22927073" />
       <window_info id="Structure" order="1" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
       <window_info id="npm" order="2" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
       <window_info id="Favorites" order="3" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
@@ -1236,7 +1233,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.497003" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44705296" visible="true" weight="0.32293764" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.44705296" visible="true" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.55294704" side_tool="true" visible="true" weight="0.32293764" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4995005" weight="0.32997987" />
@@ -1636,8 +1633,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Garden.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="348" column="53" lean-forward="true" selection-start-line="348" selection-start-column="53" selection-end-line="348" selection-end-column="53" />
+        <state relative-caret-position="132">
+          <caret line="350" column="46" lean-forward="true" selection-start-line="350" selection-start-column="46" selection-end-line="350" selection-end-column="46" />
         </state>
       </provider>
     </entry>
