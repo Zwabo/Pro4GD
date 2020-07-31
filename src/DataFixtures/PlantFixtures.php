@@ -120,7 +120,7 @@ Gießwasser darf nicht im Untersetzer oder Übertopf belassen werden. Es ist von
 
         $alpenveilchen->setCategory("Wildpflanze");
 
-        $alpenveilchen->setIcon("images/plants/Alpenveilchen1.png");
+        $alpenveilchen->setIcon("images/plants/Alpenveilchen.png");
         $alpenveilchen->setWindowIcon("images/plants/AlpenveilchenBackground.png");
 
         $manager->persist($alpenveilchen);
