@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="zwischenstand - test - not push">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="zwischenstand - test - not push" />
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
@@ -130,7 +128,7 @@
     <session id="-1864558712">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="98" />
+          <entry key="project.closed" value="99" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.10" value="3" />
@@ -272,7 +270,11 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -848,13 +850,6 @@
       <workItem from="1596010182662" duration="3880000" />
       <workItem from="1596102691967" duration="12136000" />
     </task>
-    <task id="LOCAL-00060" summary="Profil update - Besuchernachrichten">
-      <created>1591800019288</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1591800019289</updated>
-    </task>
     <task id="LOCAL-00061" summary="Profil fixed">
       <created>1591802846599</created>
       <option name="number" value="00061" />
@@ -1191,11 +1186,18 @@
       <option name="project" value="LOCAL" />
       <updated>1596217638485</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="zwischenstand - test - not push">
+      <created>1596217771984</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1596217771984</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="731956000" />
+    <option name="totallyTimeSpent" value="732590000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1221,12 +1223,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.497003" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44805196" visible="true" weight="0.32293764" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44805196" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.5519481" side_tool="true" visible="true" weight="0.32293764" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.33866134" side_tool="true" visible="true" weight="0.28873238" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4995005" weight="0.32997987" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.6618382" weight="0.28873238" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="13" sideWeight="0.6613387" visible="true" weight="0.28873238" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1627,7 +1629,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/modals/AddNewsArticleModal.vue">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
