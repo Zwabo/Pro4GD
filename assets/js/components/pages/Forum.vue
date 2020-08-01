@@ -1,7 +1,7 @@
 <template>
     <div id="root">
         <div class="threadPosts marginLeftRight marginTopOnSite">
-            <div class="container-fluid">
+            <div>
                 <div class="row">
                     <div class="col-lg-6"><h1 class="forumH1">Forum</h1></div>
                     <div class="col-lg-6 text-right">
@@ -42,7 +42,7 @@
 
             </div>
             <div v-for="(thread, index) in filteredThreads.slice(0,3)" class="container-fluid">
-                <router-link :to="'/forum/' + thread.id" class="row thread dropSchadow">
+                <router-link :to="'/forum/' + thread.id" class="row topThread dropSchadow">
                     <div class="col-lg-11">
                         <div class="row">
                             <h3 class="threadHeadline">{{thread.headline}}</h3>
@@ -2833,12 +2833,28 @@
 </script>
 
 <style scoped>
+
+    .topThread {
+        margin-bottom: 2%;
+        border-radius: 10px;
+        color: #707070;
+        background-color: #F5F5F5;
+        padding: 1%;
+    }
+
     .thread {
         margin-bottom: 2%;
         border-radius: 10px;
         color: #707070;
         background-color: #F5F5F5;
         padding: 1%;
+        margin-right: 0.1%;
+        margin-left: 0.1%;
+    }
+
+    .sortCategories.thread {
+        margin-right: 0.1%;
+        margin-left: 0.1%;
     }
 
     .sortCategories.thread {
@@ -2853,6 +2869,16 @@
         color: #707070;
         background-color: #DEDEDE;
     }
+
+    .topThread:hover {
+        color: white;
+        background-color: #707070;
+    }
+    .topThread:active {
+        color: #707070;
+        background-color: #DEDEDE;
+    }
+
     .forumPics {
         max-width: 80px;
         min-width: 50px;
@@ -2862,6 +2888,21 @@
     .newThread { margin-bottom: 3%; }
 
     .svgDarkGreen { fill: #97B753; }
+
+    .topThread:hover svg .svgDarkGreen { fill: white; }
+    .topThread:hover svg .svgDarkGreenStroke { stroke: white; }
+    .topThread:hover svg .svgDarkGrey { fill: #B8E269; }
+    .topThread:hover svg .svgDarkGreyStroke { stroke: #B8E269; }
+    .topThread:hover svg .svgWhite { fill: #707070; }
+    .topThread:hover svg .svgWhiteStroke { stroke: #707070; }
+
+    .topThread:active svg .svgDarkGreen { fill: #97B753; }
+    .topThread:active svg .svgDarkGreenStroke { stroke: #97B753; }
+    .topThread:active svg .svgDarkGrey { fill: #707070; }
+    .topThread:active svg .svgHeartDarkGrey { fill: #707070; }
+    .topThread:active svg .svgDarkGreyStroke { stroke: #707070; }
+    .topThread:active svg .svgWhite { fill: white; }
+    .topThread:active svg .svgWhiteStroke { stroke: white; }
 
     .thread:hover svg .svgDarkGreen { fill: white; }
     .thread:hover svg .svgDarkGreenStroke { stroke: white; }
@@ -2923,6 +2964,8 @@
         background-color: #dedede;
         margin-bottom: 1%;
         height: 3em;
+        margin-right: 0.1%;
+        margin-left: 0.1%;
     }
 
     .threadBackground {
@@ -2953,7 +2996,7 @@
 
     .subCategories svg { height: 50%; }
 
-
+    .col-lg-6 { width: 50% !important;}
     /*---------------------------------------Media Queries-----------------------------------------------*/
     /*Large devices (desktops, less than 1200px)*/
     @media (max-width: 1199.98px) {
