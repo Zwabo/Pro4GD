@@ -979,6 +979,12 @@
 
     @media (max-width: 600px) {
 
+        .imgMobile {
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 112% !important;
+        }
+
         .mobileProfile{
             left: 5% !important;
             right: 5% !important;
@@ -1006,6 +1012,10 @@
             width: 5%;
         }
 
+        .imgTest{
+            display: none;
+        }
+
         .waterMobile {
             padding: 1%;
             left: 55%;
@@ -1015,11 +1025,6 @@
             position: fixed;
             font-size: 110% !important;
         }
-
-        .imgTest{
-            display: none;
-        }
-
     }
 
     @media (max-width: 768px) {
@@ -1058,6 +1063,7 @@
         .plantProfileAdd{
             height: 200px !important;
         }
+
 
     }
 
