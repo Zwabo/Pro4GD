@@ -97,7 +97,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-2 categoryName"><p>{{thread.category.title}}</p></div>
                                 </div>
                             </div>
 
@@ -174,7 +174,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <h3>Pflegetipps</h3>
+                        <h3 class="categoryHeadline">Pflegetipps</h3>
                     </div>
                 </div>
                 <div class="col-lg-1 svgSortCategories text-right tipsArrow">
@@ -251,7 +251,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                 </div>
                                             </div>
 
@@ -339,11 +339,11 @@
                                 </g>
                             </svg>
                         </div>
-                        <h3>Neuigkeiten</h3>
+                        <h3 class="categoryHeadline">Neuigkeiten</h3>
                     </div>
                 </div>
                 <div class="col-lg-1 svgSortCategories text-right">
-                    <svg class="arrow" id="newsArrow" xmlns="http://www.w3.org/2000/svg" width="41" height="49" viewBox="0 0 41 49">
+                    <svg class="arrow" id="newsArrow" xmlns="http://www.w3.org/2000/svg" width="41" height="59" viewBox="0 0 41 49">
                         <g id="Polygon_95" data-name="Polygon 95" transform="translate(41) rotate(90)" fill="#fff" class="svgWhiteFill">
                             <path d="M 41.95000839233398 39.99999618530273 L 7.049990177154541 39.99999618530273 C 5.956009864807129 39.99999618530273 4.980579853057861 39.43193817138672 4.440720081329346 38.48043823242188 C 3.900860071182251 37.52893829345703 3.913579940795898 36.40022659301758 4.47475004196167 35.46112823486328 L 21.92476081848145 6.259088039398193 C 22.47146987915039 5.344167709350586 23.43417930603027 4.797947883605957 24.5 4.797947883605957 C 25.56582069396973 4.797947883605957 26.52853012084961 5.344167709350586 27.07525062561035 6.259088039398193 L 44.52524948120117 35.46113967895508 C 45.08641815185547 36.40022659301758 45.09914016723633 37.52893829345703 44.55928039550781 38.48043823242188 C 44.01942825317383 39.43193817138672 43.04399871826172 39.99999618530273 41.95000839233398 39.99999618530273 Z" stroke="none"/>
                             <path d="M 24.5 5.797946929931641 C 24.15880966186523 5.797946929931641 23.30853080749512 5.892868041992188 22.78317070007324 6.772037506103516 L 5.333160400390625 35.97408676147461 C 4.793918609619141 36.87648773193359 5.137660980224609 37.68236923217773 5.310470581054688 37.98695755004883 C 5.483291625976563 38.29154968261719 5.998741149902344 39 7.049991607666016 39 L 41.95000839233398 39 C 43.00125122070313 39 43.51670074462891 38.29154968261719 43.68952178955078 37.98695755004883 C 43.86233901977539 37.68236923217773 44.20608139038086 36.87649917602539 43.66683959960938 35.97408676147461 L 26.21682929992676 6.772037506103516 C 25.69146919250488 5.892868041992188 24.84119033813477 5.797946929931641 24.5 5.797946929931641 M 24.5 3.797950744628906 C 25.82877731323242 3.797950744628906 27.15755462646484 4.447341918945313 27.93366050720215 5.746128082275391 L 45.38367080688477 34.94817733764648 C 46.97689056396484 37.61438751220703 45.05598068237305 40.99999618530273 41.95000839233398 40.99999618530273 L 7.049991607666016 40.99999618530273 C 3.944019317626953 40.99999618530273 2.023101806640625 37.61438751220703 3.616329193115234 34.94817733764648 L 21.06633949279785 5.746128082275391 C 21.84244537353516 4.447341918945313 23.17122268676758 3.797950744628906 24.5 3.797950744628906 Z" stroke="none" fill="#fff"/>
@@ -415,7 +415,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                 </div>
                                             </div>
 
@@ -501,7 +501,7 @@
                             </svg>
                         </div>
 
-                        <h3>Pflanzen</h3>
+                        <h3 class="categoryHeadline">Pflanzen</h3>
                     </div>
                 </div>
                 <div class="col-lg-1 svgSortCategories text-right">
@@ -594,7 +594,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -740,7 +740,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -886,7 +886,7 @@
                                                                 </svg>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                                        <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1032,7 +1032,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1178,7 +1178,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1324,7 +1324,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1470,7 +1470,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1616,7 +1616,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1762,7 +1762,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1908,7 +1908,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -2054,7 +2054,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -2200,7 +2200,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -2346,7 +2346,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -2478,7 +2478,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
+                                    <div class="col-lg-1 categoryName"><p>{{thread.category.title}}</p></div>
                                                 </div>
                                             </div>
                                             <div class="threadStates col-lg-10 paddingNormalize">
@@ -2996,6 +2996,11 @@
 
     .subCategories svg { height: 50%; }
 
+    .categoryHeadline {
+        font-size: 1.5rem;
+        padding-top: 3px;
+    }
+
     .col-lg-6 { width: 50% !important;}
     /*---------------------------------------Media Queries-----------------------------------------------*/
     /*Large devices (desktops, less than 1200px)*/
@@ -3008,16 +3013,15 @@
         .col-lg-1, .col-lg-10, .col-lg-2  { width: 50% !important;}
         .col-lg-1 { width: 30% !important;}
         .col-lg-11 { width: 70% !important;}
-
-
+        .forumPics { max-width: 65px !important; }
     }
 
     /*Small devices (landscape phones, less than 768px)*/
     @media (max-width: 767.98px) {
-
     }
 
     /* Extra small devices (portrait phones, less than 576px)*/
     @media (max-width: 575.98px) {
+        .categoryName { display: none !important; }
     }
 </style>
