@@ -49,20 +49,55 @@
                         </div>
 
                         <div class="row">
-
                             <div class="threadCategory threadStates col-lg-2">
                                 <div class="row">
-                                    <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                            <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                            </g>
-                                        </svg>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                 </div>
                             </div>
 
@@ -170,17 +205,53 @@
 
                                             <div class="threadCategory threadStates col-lg-2">
                                                 <div class="row">
-                                                    <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                            <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                            </g>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                 </div>
                                             </div>
 
@@ -275,7 +346,7 @@
                     <svg class="arrow" id="newsArrow" xmlns="http://www.w3.org/2000/svg" width="41" height="49" viewBox="0 0 41 49">
                         <g id="Polygon_95" data-name="Polygon 95" transform="translate(41) rotate(90)" fill="#fff" class="svgWhiteFill">
                             <path d="M 41.95000839233398 39.99999618530273 L 7.049990177154541 39.99999618530273 C 5.956009864807129 39.99999618530273 4.980579853057861 39.43193817138672 4.440720081329346 38.48043823242188 C 3.900860071182251 37.52893829345703 3.913579940795898 36.40022659301758 4.47475004196167 35.46112823486328 L 21.92476081848145 6.259088039398193 C 22.47146987915039 5.344167709350586 23.43417930603027 4.797947883605957 24.5 4.797947883605957 C 25.56582069396973 4.797947883605957 26.52853012084961 5.344167709350586 27.07525062561035 6.259088039398193 L 44.52524948120117 35.46113967895508 C 45.08641815185547 36.40022659301758 45.09914016723633 37.52893829345703 44.55928039550781 38.48043823242188 C 44.01942825317383 39.43193817138672 43.04399871826172 39.99999618530273 41.95000839233398 39.99999618530273 Z" stroke="none"/>
-                            <path d="M 24.5 5.797946929931641 C 24.15880966186523 5.797946929931641 23.30853080749512 5.892868041992188 22.78317070007324 6.772037506103516 L 5.333160400390625 35.97408676147461 C 4.793918609619141 36.87648773193359 5.137660980224609 37.68236923217773 5.310470581054688 37.98695755004883 C 5.483291625976563 38.29154968261719 5.998741149902344 39 7.049991607666016 39 L 41.95000839233398 39 C 43.00125122070313 39 43.51670074462891 38.29154968261719 43.68952178955078 37.98695755004883 C 43.86233901977539 37.68236923217773 44.20608139038086 36.87649917602539 43.66683959960938 35.97408676147461 L 26.21682929992676 6.772037506103516 C 25.69146919250488 5.892868041992188 24.84119033813477 5.797946929931641 24.5 5.797946929931641 M 24.5 3.797950744628906 C 25.82877731323242 3.797950744628906 27.15755462646484 4.447341918945313 27.93366050720215 5.746128082275391 L 45.38367080688477 34.94817733764648 C 46.97689056396484 37.61438751220703 45.05598068237305 40.99999618530273 41.95000839233398 40.99999618530273 L 7.049991607666016 40.99999618530273 C 3.944019317626953 40.99999618530273 2.023101806640625 37.61438751220703 3.616329193115234 34.94817733764648 L 21.06633949279785 5.746128082275391 C 21.84244537353516 4.447341918945313 23.17122268676758 3.797950744628906 24.5 3.797950744628906 Z" stroke="none" fill="#fff" class="svgWhiteFill"/>
+                            <path d="M 24.5 5.797946929931641 C 24.15880966186523 5.797946929931641 23.30853080749512 5.892868041992188 22.78317070007324 6.772037506103516 L 5.333160400390625 35.97408676147461 C 4.793918609619141 36.87648773193359 5.137660980224609 37.68236923217773 5.310470581054688 37.98695755004883 C 5.483291625976563 38.29154968261719 5.998741149902344 39 7.049991607666016 39 L 41.95000839233398 39 C 43.00125122070313 39 43.51670074462891 38.29154968261719 43.68952178955078 37.98695755004883 C 43.86233901977539 37.68236923217773 44.20608139038086 36.87649917602539 43.66683959960938 35.97408676147461 L 26.21682929992676 6.772037506103516 C 25.69146919250488 5.892868041992188 24.84119033813477 5.797946929931641 24.5 5.797946929931641 M 24.5 3.797950744628906 C 25.82877731323242 3.797950744628906 27.15755462646484 4.447341918945313 27.93366050720215 5.746128082275391 L 45.38367080688477 34.94817733764648 C 46.97689056396484 37.61438751220703 45.05598068237305 40.99999618530273 41.95000839233398 40.99999618530273 L 7.049991607666016 40.99999618530273 C 3.944019317626953 40.99999618530273 2.023101806640625 37.61438751220703 3.616329193115234 34.94817733764648 L 21.06633949279785 5.746128082275391 C 21.84244537353516 4.447341918945313 23.17122268676758 3.797950744628906 24.5 3.797950744628906 Z" stroke="none" fill="#fff"/>
                         </g>
                     </svg>
                 </div>
@@ -298,17 +369,53 @@
 
                                             <div class="threadCategory threadStates col-lg-2">
                                                 <div class="row">
-                                                    <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                            <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                            </g>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                 </div>
                                             </div>
 
@@ -441,17 +548,53 @@
 
                                                 <div class="threadCategory threadStates col-lg-2">
                                                     <div class="row">
-                                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                </g>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -551,17 +694,53 @@
 
                                                 <div class="threadCategory threadStates col-lg-2">
                                                     <div class="row">
-                                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                </g>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -661,17 +840,53 @@
 
                                                 <div class="threadCategory threadStates col-lg-2">
                                                     <div class="row">
-                                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                </g>
-                                                            </svg>
+                                                        <div v-if="thread.category.title === 'Neuigkeiten'">
+                                                            <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                                    <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                                        <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                                            <g id="Gruppe_121" data-name="Gruppe 121">
+                                                                                <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                                            </g>
+                                                                        </g>
+                                                                        <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                                            <g id="Gruppe_123" data-name="Gruppe 123">
+                                                                                <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </svg>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                                        <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                                            <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                                    <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                                        <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                                        <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                                        <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                                        <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                                    </g>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div v-else>
+                                                            <!-- Pflanzen-->
+                                                            <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                                    <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                                        <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                                        <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                                        <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                                        <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                                        <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                                        <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                                        <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                                    </g>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -771,17 +986,53 @@
 
                                                 <div class="threadCategory threadStates col-lg-2">
                                                     <div class="row">
-                                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                </g>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -881,17 +1132,53 @@
 
                                                 <div class="threadCategory threadStates col-lg-2">
                                                     <div class="row">
-                                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                </g>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -991,17 +1278,53 @@
 
                                                 <div class="threadCategory threadStates col-lg-2">
                                                     <div class="row">
-                                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                </g>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1101,17 +1424,53 @@
 
                                                 <div class="threadCategory threadStates col-lg-2">
                                                     <div class="row">
-                                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                </g>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1211,17 +1570,53 @@
 
                                                 <div class="threadCategory threadStates col-lg-2">
                                                     <div class="row">
-                                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                </g>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1321,17 +1716,53 @@
 
                                                 <div class="threadCategory threadStates col-lg-2">
                                                     <div class="row">
-                                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                </g>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1431,17 +1862,53 @@
 
                                                 <div class="threadCategory threadStates col-lg-2">
                                                     <div class="row">
-                                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                </g>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1541,17 +2008,53 @@
 
                                                 <div class="threadCategory threadStates col-lg-2">
                                                     <div class="row">
-                                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                </g>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1651,17 +2154,53 @@
 
                                                 <div class="threadCategory threadStates col-lg-2">
                                                     <div class="row">
-                                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                </g>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1761,17 +2300,53 @@
 
                                                 <div class="threadCategory threadStates col-lg-2">
                                                     <div class="row">
-                                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                </g>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                     </div>
                                                 </div>
                                                 <div class="threadStates col-lg-10 paddingNormalize">
@@ -1857,17 +2432,53 @@
 
                                             <div class="threadCategory threadStates col-lg-2">
                                                 <div class="row">
-                                                    <div class="svgIconCategory col-lg-1 paddingNormalize">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
-                                                            <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
-                                                                <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
-                                                                <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                                <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
-                                                            </g>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="col-lg-11"><p>{{thread.category.title}}</p></div>
+                                    <div v-if="thread.category.title === 'Neuigkeiten'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 41.642 49.733">
+                                                <g id="Gruppe_979" data-name="Gruppe 979" transform="translate(-621.542 -1515.167)">
+                                                    <g id="Gruppe_950" data-name="Gruppe 950" transform="translate(622.058 1515.667)">
+                                                        <g id="Gruppe_121" data-name="Gruppe 121">
+                                                            <path id="Pfad_213" data-name="Pfad 213" d="M83.14,41.1l-3.486-5.811a17.262,17.262,0,0,1-2.461-8.882V21.32A14.232,14.232,0,0,0,67.04,7.706V4.061a4.061,4.061,0,1,0-8.122,0V7.706A14.232,14.232,0,0,0,48.765,21.32v5.091a17.273,17.273,0,0,1-2.459,8.88L42.82,41.1a1.017,1.017,0,0,0,.869,1.539h38.58A1.015,1.015,0,0,0,83.14,41.1Z" transform="translate(-42.675)" fill="#fff" stroke="#fff" class="svgDarkGreen svgWhiteStroke" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                    <g id="Gruppe_951" data-name="Gruppe 951" transform="translate(635.968 1560.339)">
+                                                        <g id="Gruppe_123" data-name="Gruppe 123">
+                                                            <path id="Pfad_214" data-name="Pfad 214" d="M188.815,469.333a7.064,7.064,0,0,0,12.788,0Z" transform="translate(-188.815 -469.333)" fill="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke="#707070" stroke-width="1"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="thread.category.title === 'Pflegetipps'">
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="28.229" viewBox="0 0 17.8 28.229">
+                                                <g id="Gruppe_969" data-name="Gruppe 969" transform="translate(0.5 0.5)">
+                                                    <path id="Pfad_501" data-name="Pfad 501" d="M12.379,19.6H5.415a.8.8,0,0,1-.8-.8,6.71,6.71,0,0,0-1.837-4.6A8.411,8.411,0,0,1,2.934,2.523,8.315,8.315,0,0,1,8.881,0H8.9a8.414,8.414,0,0,1,8.4,8.428,8.407,8.407,0,0,1-2.3,5.8,6.641,6.641,0,0,0-1.817,4.581.8.8,0,0,1-.8.8Zm0,0" transform="translate(-0.497 0)" fill="#97b753" class="svgDarkGreen svgDarkGreenStroke" stroke="#97b753" stroke-width="1"/>
+                                                    <path id="Pfad_502" data-name="Pfad 502" d="M87.486,388.005H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -365.86)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_503" data-name="Pfad 503" d="M87.486,435.8H80.731a.8.8,0,0,1,0-1.6h6.755a.8.8,0,0,1,0,1.6Zm0,0" transform="translate(-75.708 -411.111)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_504" data-name="Pfad 504" d="M108.372,483.6H104.1a.8.8,0,0,1,0-1.6h4.269a.8.8,0,1,1,0,1.6Zm0,0" transform="translate(-97.837 -456.366)" fill="#707070" stroke="#707070" class="svgDarkGrey svgDarkGreyStroke" stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <!-- Pflanzen-->
+                                        <div class="svgIconCategory col-lg-1 paddingNormalize">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"  viewBox="0 0 45.711 57.738">
+                                                <g id="Gruppe_980" data-name="Gruppe 980" transform="translate(-112.445 -793.803)">
+                                                    <path id="Pfad_505" data-name="Pfad 505" d="M298.68,45.536c.25.683,3.026,8.813-2.667,18.4-3.458,5.823-8.709,6.208-9.223,6.232-.3-.418-3.265-4.768-.857-11.1C289.9,48.648,297.99,45.765,298.68,45.536Z" transform="translate(-146.494 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_506" data-name="Pfad 506" d="M95.883,45.536c-.25.683-3.026,8.813,2.667,18.4,3.458,5.823,8.709,6.208,9.223,6.232.3-.418,3.265-4.768.857-11.1C104.665,48.648,96.573,45.765,95.883,45.536Z" transform="translate(22.532 753.993)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_507" data-name="Pfad 507" d="M181.442,0c-.848.823-10.646,10.752-9.088,28.791.946,10.957,8.353,15.226,9.088,15.624.735-.4,8.142-4.668,9.088-15.624C192.088,10.752,182.289.823,181.442,0Z" transform="translate(-46.142 794.5)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_508" data-name="Pfad 508" d="M276.978,151.56a35.5,35.5,0,0,0,1.22-12.226s-3.55,1.582-12.473,7.347c-6.936,4.482-9.081,12.34-9.725,14.458h8.151A13.344,13.344,0,0,0,276.978,151.56Z" transform="translate(-120.699 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_509" data-name="Pfad 509" d="M55.39,151.56a35.5,35.5,0,0,1-1.22-12.226s3.55,1.582,12.473,7.347c6.936,4.482,9.081,12.34,9.725,14.458H68.217A13.344,13.344,0,0,1,55.39,151.56Z" transform="translate(58.932 670.553)" fill="#fff" stroke="#dedede" class="svgDarkGreen svgWhiteGreyStroke" stroke-width="1"/>
+                                                    <path id="Pfad_510" data-name="Pfad 510" d="M142.653,359.8H130.864a6.49,6.49,0,0,1-6.381-5.3L121.956,340.9h29.605l-2.527,13.591A6.49,6.49,0,0,1,142.653,359.8Z" transform="translate(-1.458 491.245)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill" stroke-width="1"/>
+                                                    <path id="Pfad_511" data-name="Pfad 511" d="M129.811,332.343H99.174a2.248,2.248,0,0,1-2.248-2.248h0a2.248,2.248,0,0,1,2.248-2.248h30.638a2.248,2.248,0,0,1,2.248,2.248h0A2.248,2.248,0,0,1,129.811,332.343Z" transform="translate(20.808 502.857)" fill="#707070" stroke="#707070" class="svgDarkGreyStroke svgDarkGreyFill"  stroke-width="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"><p>{{thread.category.title}}</p></div>
                                                 </div>
                                             </div>
                                             <div class="threadStates col-lg-10 paddingNormalize">
@@ -2229,6 +2840,11 @@
         background-color: #F5F5F5;
         padding: 1%;
     }
+
+    .sortCategories.thread {
+        margin-right: 0.1%;
+        margin-left: 0.1%;
+    }
     .thread:hover {
         color: white;
         background-color: #707070;
@@ -2244,6 +2860,8 @@
         border-radius: 100px;
     }
     .newThread { margin-bottom: 3%; }
+
+    .svgDarkGreen { fill: #97B753; }
 
     .thread:hover svg .svgDarkGreen { fill: white; }
     .thread:hover svg .svgDarkGreenStroke { stroke: white; }
@@ -2287,6 +2905,8 @@
         height: 3.5em;
         background-color: #97B753;
         margin-bottom: 2%;
+        margin-right: 0.1%;
+        margin-left: 0.1%;
     }
     .sortCategories:hover { background-color: #B8E269; color: #707070; }
     .sortCategories:active { background-color: #707070; color: white; }
