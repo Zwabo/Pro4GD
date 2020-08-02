@@ -3,8 +3,8 @@
         <div class="threadPosts marginLeftRight marginTopOnSite">
             <div>
                 <div class="row">
-                    <div class="col-lg-6"><h1 class="forumH1">Forum</h1></div>
-                    <div class="col-lg-6 text-right">
+                    <div class="col-lg-5"><h1 class="forumH1">Forum</h1></div>
+                    <div class="col-lg-7 text-right">
                         <form class="searchForm">
                             <input type="text" placeholder="Suche nach Thread.." class="form-control form-control-sm threadSearchBar" aria-label="ShreadSearch" v-model="threadSearch">
 
@@ -158,7 +158,6 @@
                     </div>
                 </router-link>
             </div>
-
 
             <!-- Kategorien zum Einordnenstart -->
             <div class="row sortCategories dropShadow pflegetipps" id="sortCategoriesFirst" @click="showTipsCategories">
@@ -3018,10 +3017,19 @@
 
     /*Small devices (landscape phones, less than 768px)*/
     @media (max-width: 767.98px) {
+        .col-lg-1 { width: 10% !important;}
+        .col-lg-2  { width: 20% !important;}
+        .col-lg-10 { width: 70% !important;}
+        .col-lg-11 { width: 88% !important;}
+        .categoryName { display: none !important; }
     }
 
     /* Extra small devices (portrait phones, less than 576px)*/
     @media (max-width: 575.98px) {
+        .col-lg-1 { width: 10% !important;}
+        .col-lg-2  { width: 20% !important;}
+        .col-lg-10 { width: 70% !important;}
+        .col-lg-11 { width: 85% !important;}
         .categoryName { display: none !important; }
     }
 </style>
