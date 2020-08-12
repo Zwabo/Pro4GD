@@ -3,7 +3,7 @@
         <div class="col right marginLeftRight">
             <div class="row garden">
 
-                <div class="col-sm-11">
+                <div class="col-lg-11">
                     <div class="firstAfterMenue"></div>
                     <p id="date">{{formatDate}}</p>
                     <h2 id="title">{{article.title}}</h2>

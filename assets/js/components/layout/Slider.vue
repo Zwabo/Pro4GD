@@ -1,18 +1,18 @@
 <template>
     <div class="row" id="slider">
 
-        <div id="leftSlide" class="col-sm-1 indexArrows" >
+        <div id="leftSlide" class="col-lg-1 indexArrows" >
             <svg><use href="#indexArrowLeft"></use></svg>
             <a class="prev" @click="prev" >Previous</a>
         </div>
 
 
-        <div class="col-sm-10" id="indexNewsSlider">
+        <div class="col-lg-10" id="indexNewsSlider">
 
          <div v-for="i in [currentIndex]" :key="i" >
              <div class="row">
-             <img class="col-sm-5"v-bind:src="currentArticle.thumbnail">
-             <div class="col-sm-7"id="bgNewsArticleBox">
+             <img class="col-lg-5"v-bind:src="currentArticle.thumbnail">
+             <div class="col-lg-7"id="bgNewsArticleBox">
                  <h3 class="slider-title">{{currentArticle.title}}</h3>
                  <p id="slider-text">{{currentArticle.shortText}}</p>
                  <router-link class="slider-title"  id="slider-readMore" :to="'/news/' + currentArticle.id"> mehr lesen <b>>> </b></router-link>
@@ -20,7 +20,7 @@
              </div>
          </div>
         </div>
-        <div id="rightSlide" class="col-sm-1 text-right indexArrows">
+        <div id="rightSlide" class="col-lg-1 text-right indexArrows">
             <svg><use href="#indexArrowRight"></use></svg>
             <a class="next" @click="next" > Next</a>
         </div>
