@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import VueMeta from 'vue-meta';
 
 import Home from './components/pages/Home';
 import Login from './components/pages/Login';
@@ -26,6 +27,7 @@ import Forum from "./components/pages/Forum";
 import Thread from "./components/pages/Thread"
 
 Vue.use(VueRouter);
+Vue.use(VueMeta);
 
 const router = new VueRouter({
     mode: 'history',

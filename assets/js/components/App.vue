@@ -11,6 +11,12 @@
     import MainFooter from "./layout/MainFooter";
     import Push from 'push.js';
 export default {
+    metaInfo: {
+        meta: [
+            { charset: 'utf-8' },
+            { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+        ]
+    },
     components: {MainFooter, MainNavigation},
     created: function(){
 
