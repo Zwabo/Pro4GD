@@ -216,7 +216,7 @@
                                             </add-userplant-modal>
 
                                         </div>
-                                        <img class="col-sm-5 imgTestAdd" v-bind:src="'../' + plant.icon"
+                                        <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon"
                                              alt="Picture of plant">
 
                                     </div>
@@ -238,7 +238,7 @@
                                             </add-userplant-modal>
 
                                         </div>
-                                        <img class="col-sm-5 imgTestAdd" v-bind:src="'../' + plant.icon"
+                                        <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon"
                                              alt="Picture of plant">
 
                                     </div>
@@ -344,11 +344,9 @@
                                    </span> {{wateringShedule(garden[0].wateringCycle)}}
                                                 </p>
                                             </div>
-                                            <div class="col-sm-6 paddingNormalize marginNormalize waterMobileCol">
-                                                <button v-b-modal.modal-center class="waterMobile"
-                                                        @click="water($event, garden[0])"> Gießen
-                                                </button>
-                                            </div>
+                                            <button v-b-modal.modal-center class="col-sm-3 waterMobile"
+                                                    @click="water($event, garden[0])"> Gießen
+                                            </button>
 
                                         </div>
                                     </div>
@@ -412,11 +410,10 @@
                                    </span> {{wateringShedule(userplant.wateringCycle)}}
                                                 </p>
                                             </div>
-                                            <div class="col-sm-6 paddingNormalize marginNormalize waterMobileCol">
-                                                <button v-b-modal.modal-center class="waterMobile"
-                                                        @click="water($event, userplant)"> Gießen
-                                                </button>
-                                            </div>
+                                            <button v-b-modal.modal-center class="col-sm-3 waterMobile"
+                                                    @click="water($event, userplant)"> Gießen
+                                            </button>
+
                                         </div>
                                     </div>
                                 </router-link>
@@ -953,17 +950,14 @@
         color: #707070;
     }
 
-    .waterMobileCol {
-        align-self: center;
-        text-align: center;
-    }
     .waterMobile{
         background-color: #97B753;
         color: white;
         border: 2px solid #97B753;
         border-radius: 10px;
         font-size: 130%;
-        padding: 3% 5%;
+        margin-bottom: 10%;
+        margin-top: 10%;
     }
 
     .changeMobile {
@@ -983,16 +977,13 @@
         width: 100%;
     }
 
-    @media (max-width: 991.98px) {
-        .plantInfoMobile { font-size:  13pt; }
-    }
-
-    @media (max-width: 767.98px) {
-        .plantInfoMobile { font-size: 14pt; }
-        .waterMobile { padding: 5% 10%; }
-    }
-
     @media (max-width: 600px) {
+
+        .imgMobile {
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 112% !important;
+        }
 
         .mobileProfile{
             left: 5% !important;
@@ -1011,7 +1002,6 @@
         .plantInfoMobile {
             font-size: 10pt !important;
             margin-bottom: 2% !important;
-            width: 50%;
         }
 
         .iconsGarden svg{
@@ -1022,41 +1012,18 @@
             width: 5%;
         }
 
-
-        .waterMobileCol { width: 50%; }
-        .waterMobile {
-            padding: 1%;
-            left: 55%;
-            top: 30%;
-            padding: 15% 15%;
-            font-size: 110% !important;
-        }
-
-        .plantProfileAdd{
-            height: 180px !important;
-        }
-
         .imgTest{
             display: none;
         }
 
-        .imgTestAdd{
-            height: 80px;
-        }
-
-
-    }
-
-    @media (max-width: 575.98px) {
-        .iconsGarden svg { width: 15px; }
-    }
-
-    @media (max-width: 400px) {
-        .plantInfoMobile { width: 100%; }
-        .waterMobileCol { width: 100%; }
         .waterMobile {
-            padding: 8% 10%;
-            margin-bottom: 2%;
+            padding: 1%;
+            left: 55%;
+            top: 30%;
+            width: 20%;
+            height:10%;
+            position: fixed;
+            font-size: 110% !important;
         }
     }
 
@@ -1093,6 +1060,11 @@
             font-size: 90%;
         }
 
+        .plantProfileAdd{
+            height: 200px !important;
+        }
+
+
     }
 
     @media (max-width: 1270px) and (orientation: landscape){
@@ -1114,16 +1086,13 @@
         }
 
         .plantProfileAdd{
-            height: 160px;
+            height: 200px;
         }
 
         .imgTest{
-            height: 130px;
+            height: 170px;
         }
 
-        .imgTestAdd{
-            height: 130px;
-        }
 
     }
 
@@ -1145,16 +1114,13 @@
         }
 
         .plantProfileAdd{
-            height: 160px;
+            height: 200px;
         }
 
         .imgTest{
-            height: 130px;
+            height: 170px;
         }
 
-        .imgTestAdd{
-            height: 130px;
-        }
 
 
 
