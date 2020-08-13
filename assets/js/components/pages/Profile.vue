@@ -48,11 +48,15 @@
                             <svg><use href="#locationPin"></use></svg>
                             {{ profileUser.country }}
                         </li>
-                        <li v-if="showBirthday" id="userDataCntBirthday" class="floatSmall">
+                        <li v-if="showBirthday && profileUser.dateBirth !== null && !editProfile" id="userDataCntBirthday" class="floatSmall">
                             <svg><use href="#calendar"></use></svg>
                             {{ birthdayString }}
                         </li>
-                        <li v-if="showBirthday" id="userDataCntAge">
+                        <li v-else>
+                            <svg><use href="#calendar"></use></svg>
+                            <input type="date" class="smallInput" @blur="saveBirthday" v-model="newDate">
+                        </li>
+                        <li v-if="showBirthday && profileUser.dateBirth !== null" id="userDataCntAge">
                             <svg><use href="#birthday"></use></svg>
                             {{ userAge }}
                         </li>
@@ -644,6 +648,8 @@
                 birthdayString: null,
                 userAge: null,
 
+                newDate: null,
+
                 editProfile: false,             // bool if edit profile is active or not
                 userTemp: null,
 
@@ -849,6 +855,24 @@
                     .then(response => {
                         this.editProfile = false;
                         this.submitFile();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            },
+
+            saveBirthday: function() {
+                console.log(this.newDate);
+
+                const moment = require('moment');
+                const newBirthdayDate = moment(this.newDate).format('YYYY-MM-DD HH:mm:ss');
+                console.log("formated date: " + newBirthdayDate);
+
+                this.$http.put('/api/profile/' + this.$route.params.username + '/setBirthday', {
+                    newBirthday: newBirthdayDate,
+                })
+                    .then(response => {
+                        console.log("saveBirthday: " + response.data);
                     })
                     .catch(error => {
                         console.log(error);
@@ -2319,15 +2343,16 @@
             width: 100%;
             font-size: 110%;
         }
-        #userHeader #userButton { font-size: 80%; }
+        #userHeader #userButton { font-size: 100%; }
 
         #userHeader #userDataCnt {
             width: 100%;
             margin-left: 0;
+            font-size: 140%;
         }
         #userHeader #userDataCnt .floatSmall {
             float: left;
-            width: 150px;
+            width: 100%;
         }
 
         /*-----------------------------------friends 430px----------------------------*/
