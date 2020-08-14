@@ -83,8 +83,11 @@ class UserController extends AbstractController
         $data = $request->getContent();
         $params = json_decode($data, true);
 
-        $birthday = $params["newBirthday"];
-        $birthday = date_create_from_format('Y/m/d:H:i:s', $birthday);
+        $birthday = $params["newBirthday"];     //string
+        /*$birthday = strtotime($birthday);       //should
+        echo date('YYYY-MM-DD:H:i:s');
+        $birthday = date('YYYY-MM-DD:H:i:s', $birthday);*/
+        $birthday = date_create_from_format('Y-m-d H:i:s', $birthday);
 
         $user->setDateBirth($birthday);
         $this->getDoctrine()->getManager()->flush();

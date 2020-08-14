@@ -54,7 +54,7 @@
                         </li>
                         <li v-else>
                             <svg><use href="#calendar"></use></svg>
-                            <input type="date" class="smallInput" @blur="saveBirthday" v-model="newDate">
+                            <input id="birthdayInput" type="date" class="smallInput" @blur="saveBirthday" v-model="newDate">
                         </li>
                         <li v-if="showBirthday && profileUser.dateBirth !== null" id="userDataCntAge">
                             <svg><use href="#birthday"></use></svg>
@@ -872,11 +872,32 @@
                     newBirthday: newBirthdayDate,
                 })
                     .then(response => {
-                        console.log("saveBirthday: " + response.data);
+                        console.log("saveBirthday: " + response.data.dateBirth);
+                        console.log(response.data);
                     })
                     .catch(error => {
                         console.log(error);
                     });
+
+                this.calculateBirthdayAge();
+            },
+
+            calculateBirthdayAge: function() {
+                /*save the birtday as string*/
+                this.birthdayString = this.profileUser.dateBirth.date.substr(8,2)
+                    + "." + this.profileUser.dateBirth.date.substr(5,2)
+                    + "." + this.profileUser.dateBirth.date.substr(0,4);
+
+                /*calculate the age*/
+                let year = Number(this.profileUser.dateBirth.date.substr(0,4));
+                let month = Number(this.profileUser.dateBirth.date.substr(5,2));
+                let day = Number(this.profileUser.dateBirth.date.substr(8,2));
+                let today = new Date();
+                let age = today.getFullYear() - year;
+                if(today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
+                    age--;
+                }
+                this.userAge = age.toString();
             },
 
             saveComment: function() {
@@ -1628,6 +1649,16 @@
         background-color: #F5F5F5;
         font-size: 100%;
         padding: 1% 2%;
+    }
+
+    #birthdayInput {
+        height: 30px;
+        border: 1px solid #978753;
+        background-color: #F5F5F5;
+        font-size: 100%;
+        padding: 1% 2%;
+        display: inline-block;
+        width: 80%;
     }
 
     /*linke seite weiter zu den unterseiten*/
