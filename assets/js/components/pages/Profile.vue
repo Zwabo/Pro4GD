@@ -859,6 +859,8 @@
                     .catch(error => {
                         console.log(error);
                     });
+
+                this.$router.go();
             },
 
             saveBirthday: function() {

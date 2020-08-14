@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="formated font for small&#10;&#10;- added birthday date to profile - need fix yet">
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="fixed birthday bearbeiten">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
     </list>
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
@@ -204,8 +203,8 @@
           <entry key="php" value="48693" />
           <entry key="svg" value="26" />
           <entry key="twig" value="20844" />
-          <entry key="txt" value="3748" />
-          <entry key="vue" value="166274" />
+          <entry key="txt" value="3780" />
+          <entry key="vue" value="166376" />
           <entry key="xml" value="11" />
           <entry key="yaml" value="138" />
         </counts>
@@ -217,10 +216,10 @@
           <entry key="JavaScript" value="2281" />
           <entry key="Markdown" value="308" />
           <entry key="PHP" value="48693" />
-          <entry key="PLAIN_TEXT" value="3773" />
+          <entry key="PLAIN_TEXT" value="3805" />
           <entry key="SVG" value="26" />
           <entry key="Twig" value="20844" />
-          <entry key="Vue.js" value="166273" />
+          <entry key="Vue.js" value="166375" />
           <entry key="XML" value="11" />
           <entry key="YAML" value="138" />
         </counts>
@@ -257,8 +256,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="890" column="37" lean-forward="true" selection-start-line="890" selection-start-column="37" selection-end-line="890" selection-end-column="37" />
+            <state relative-caret-position="430">
+              <caret line="862" column="33" selection-start-line="862" selection-start-column="33" selection-end-line="862" selection-end-column="33" />
               <folding>
                 <element signature="n#svg#0;n#router-link#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#style#0;n#svg#0;n#router-link#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -316,7 +315,6 @@
       <find>col</find>
       <find>col-sm</find>
       <find>pindex</find>
-      <find>saveprofile</find>
       <find>setdescription</find>
       <find>setbirthday</find>
       <find>smallinput</find>
@@ -324,6 +322,7 @@
       <find>savebirthday</find>
       <find>getcreatedthreads</find>
       <find>datebirth</find>
+      <find>saveprofile</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -825,14 +824,7 @@
       <workItem from="1597077812711" duration="619000" />
       <workItem from="1597216528784" duration="3149000" />
       <workItem from="1597302926470" duration="4827000" />
-      <workItem from="1597401355438" duration="2088000" />
-    </task>
-    <task id="LOCAL-00070" summary="badges hinzugefügt">
-      <created>1594562009685</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1594562009685</updated>
+      <workItem from="1597401355438" duration="2683000" />
     </task>
     <task id="LOCAL-00071" summary="badges hinzugefügt">
       <created>1594562047094</created>
@@ -1170,11 +1162,18 @@
       <option name="project" value="LOCAL" />
       <updated>1597307034195</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="fixed birthday bearbeiten">
+      <created>1597403525496</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1597403525497</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="746660000" />
+    <option name="totallyTimeSpent" value="747255000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1201,12 +1200,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.497003" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44255745" weight="0.32293764" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44205794" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.34565434" side_tool="true" visible="true" weight="0.28873238" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.34615386" side_tool="true" visible="true" weight="0.28873238" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4995005" weight="0.32997987" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="13" sideWeight="0.65434563" visible="true" weight="0.28873238" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="13" sideWeight="0.65384614" visible="true" weight="0.28873238" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1246,7 +1245,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- unterseiten hinzugefügt von profil details&#10;- bug fixes&#10;- zurück und weiter button" />
     <MESSAGE value="- styles added" />
     <MESSAGE value="- styles added&#10;&#10;responsive styles finished till now:&#10;- Impressum&#10;- AGB&#10;- Kontakt&#10;- ProfileForum&#10;- Main Footer&#10;- Profile Awards&#10;- Login / LoginForm&#10;- Register / RegisterForm" />
     <MESSAGE value="zwischenstand&#10;&#10;landing page styling" />
@@ -1271,7 +1269,8 @@
     <MESSAGE value="isa workspace" />
     <MESSAGE value="navi anpassung" />
     <MESSAGE value="formated font for small&#10;&#10;- added birthday date to profile - need fix yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="formated font for small&#10;&#10;- added birthday date to profile - need fix yet" />
+    <MESSAGE value="fixed birthday bearbeiten" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed birthday bearbeiten" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
@@ -1617,8 +1616,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="890" column="37" lean-forward="true" selection-start-line="890" selection-start-column="37" selection-end-line="890" selection-end-column="37" />
+        <state relative-caret-position="430">
+          <caret line="862" column="33" selection-start-line="862" selection-start-column="33" selection-end-line="862" selection-end-column="33" />
           <folding>
             <element signature="n#svg#0;n#router-link#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#style#0;n#svg#0;n#router-link#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
