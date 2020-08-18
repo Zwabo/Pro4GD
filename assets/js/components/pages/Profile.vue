@@ -860,7 +860,7 @@
                         console.log(error);
                     });
 
-                this.$router.go();
+                //this.$router.go();
             },
 
             saveBirthday: function() {
@@ -874,14 +874,23 @@
                     newBirthday: newBirthdayDate,
                 })
                     .then(response => {
-                        console.log("saveBirthday: " + response.data.dateBirth);
-                        console.log(response.data);
+                        let year = Number(response.data.dateBirth.date.substr(0,4));
+                        let month = Number(response.data.dateBirth.date.substr(5,2));
+                        let day = Number(response.data.dateBirth.date.substr(8,2));
+
+                        this.birthdayString = day + "." + month + "." + year;
+                        let today = new Date();
+
+                        let age = today.getFullYear() - year;
+                        if(today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
+                            age--;
+                        }
+                        this.userAge = age;
+
                     })
                     .catch(error => {
                         console.log(error);
                     });
-
-                this.calculateBirthdayAge();
             },
 
             calculateBirthdayAge: function() {
