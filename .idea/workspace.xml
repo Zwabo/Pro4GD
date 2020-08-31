@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="fixed birthday bearbeiten">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" afterDir="false" />
-    </list>
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="fixed birthday save for reactivity system" />
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
@@ -131,7 +128,7 @@
     <session id="-1864558712">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="103" />
+          <entry key="project.closed" value="104" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.10" value="3" />
@@ -203,7 +200,7 @@
           <entry key="php" value="48693" />
           <entry key="svg" value="26" />
           <entry key="twig" value="20844" />
-          <entry key="txt" value="3780" />
+          <entry key="txt" value="3823" />
           <entry key="vue" value="167106" />
           <entry key="xml" value="11" />
           <entry key="yaml" value="138" />
@@ -216,7 +213,7 @@
           <entry key="JavaScript" value="2281" />
           <entry key="Markdown" value="308" />
           <entry key="PHP" value="48693" />
-          <entry key="PLAIN_TEXT" value="3805" />
+          <entry key="PLAIN_TEXT" value="3848" />
           <entry key="SVG" value="26" />
           <entry key="Twig" value="20844" />
           <entry key="Vue.js" value="167105" />
@@ -825,14 +822,7 @@
       <workItem from="1597216528784" duration="3149000" />
       <workItem from="1597302926470" duration="4827000" />
       <workItem from="1597401355438" duration="3343000" />
-      <workItem from="1597739046105" duration="1457000" />
-    </task>
-    <task id="LOCAL-00072" summary="badges hinzugefügt">
-      <created>1594565080705</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1594565080706</updated>
+      <workItem from="1597739046105" duration="1772000" />
     </task>
     <task id="LOCAL-00073" summary="badges hinzugefügt">
       <created>1594565106656</created>
@@ -1170,11 +1160,18 @@
       <option name="project" value="LOCAL" />
       <updated>1597404091799</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="fixed birthday save for reactivity system">
+      <created>1597741732999</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1597741733000</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="749372000" />
+    <option name="totallyTimeSpent" value="749687000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1187,7 +1184,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.24425575" />
       <window_info id="Structure" order="1" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
@@ -1201,12 +1197,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.497003" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44205794" weight="0.32293764" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.44155845" visible="true" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.34665334" side_tool="true" visible="true" weight="0.28873238" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5584416" side_tool="true" visible="true" weight="0.32293764" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4995005" weight="0.32997987" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="13" sideWeight="0.65334666" visible="true" weight="0.28873238" />
+      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.65334666" weight="0.28873238" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1246,7 +1242,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- styles added" />
     <MESSAGE value="- styles added&#10;&#10;responsive styles finished till now:&#10;- Impressum&#10;- AGB&#10;- Kontakt&#10;- ProfileForum&#10;- Main Footer&#10;- Profile Awards&#10;- Login / LoginForm&#10;- Register / RegisterForm" />
     <MESSAGE value="zwischenstand&#10;&#10;landing page styling" />
     <MESSAGE value="- styles hinzugefügt - home.vue (-rita slider)" />
@@ -1271,7 +1266,8 @@
     <MESSAGE value="navi anpassung" />
     <MESSAGE value="formated font for small&#10;&#10;- added birthday date to profile - need fix yet" />
     <MESSAGE value="fixed birthday bearbeiten" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed birthday bearbeiten" />
+    <MESSAGE value="fixed birthday save for reactivity system" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed birthday save for reactivity system" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
