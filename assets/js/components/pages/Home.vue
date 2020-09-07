@@ -869,6 +869,9 @@
 
             #offerRowElements .offerIcon { margin-left: 4%; }
             #offerRowElements .offerText { font-size: 120%; }
+
+            .pIndex, .loggedInIndex { font-size: 105%; }
+            .h3Index, #h1Start { font-size: 170%; margin-bottom: 6%; }
         }
     }
 </style>

@@ -69,6 +69,33 @@ class UserController extends AbstractController
     }
 
     /**
+     * @Route("/api/profile/{username}/setBirthday", name="setBirthday", methods={"PUT"})
+     */
+    public function setProfileUserBirthday($username, Request $request) {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $username]);
+
+        if (!$user) {
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        }
+
+        $data = $request->getContent();
+        $params = json_decode($data, true);
+
+        $birthday = $params["newBirthday"];     //string
+        /*$birthday = strtotime($birthday);       //should
+        echo date('YYYY-MM-DD:H:i:s');
+        $birthday = date('YYYY-MM-DD:H:i:s', $birthday);*/
+        $birthday = date_create_from_format('Y-m-d H:i:s', $birthday);
+
+        $user->setDateBirth($birthday);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse($user->toAssoc(), Response::HTTP_OK);
+    }
+
+    /**
      * @Route("/api/profile/{username}/userplants", name="profile_userplant", methods={"GET"})
      */
     public function getProfileUserplant($username){

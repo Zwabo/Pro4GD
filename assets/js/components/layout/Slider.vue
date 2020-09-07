@@ -1,18 +1,26 @@
 <template>
     <div class="row" id="slider">
 
-        <div id="leftSlide" class="col-sm-1 indexArrows" >
-            <svg><use href="#indexArrowLeft"></use></svg>
-            <a class="prev" @click="prev" >Previous</a>
+        <div id="leftSlide" class="col-lg-1 indexArrows" >
+
+            <a class="prev" @click="prev"> <svg xmlns="http://www.w3.org/2000/svg" width="49.021" height="62.886" viewBox="0 0 49.021 62.886">
+                <g id="arrows" transform="translate(2156.676 -153.6) rotate(180)">
+                    <g id="Gruppe_14" data-name="Gruppe 14" transform="translate(1900.2 -280)">
+                        <g id="Gruppe_13" data-name="Gruppe 13" transform="translate(208 64.013)">
+                            <path id="Pfad_37" data-name="Pfad 37" d="M255.1,93.077l-25.317-28.13a2.815,2.815,0,0,0-2.093-.934H210.816a2.811,2.811,0,0,0-2.093,4.692l23.624,26.251L208.723,121.2a2.816,2.816,0,0,0,2.093,4.7h16.878a2.851,2.851,0,0,0,2.093-.928L255.1,96.841A2.815,2.815,0,0,0,255.1,93.077Z" transform="translate(-208 -64.013)" fill="#97b753" stroke="#97b753" stroke-width="1"/>
+                        </g>
+                    </g>
+                </g>
+            </svg></a>
         </div>
 
 
-        <div class="col-sm-10" id="indexNewsSlider">
+        <div class="col-lg-10" id="indexNewsSlider">
 
          <div v-for="i in [currentIndex]" :key="i" >
              <div class="row">
-             <img class="col-sm-5"v-bind:src="currentArticle.thumbnail">
-             <div class="col-sm-7"id="bgNewsArticleBox">
+             <img class="col-lg-5"v-bind:src="currentArticle.thumbnail">
+             <div class="col-lg-7"id="bgNewsArticleBox">
                  <h3 class="slider-title">{{currentArticle.title}}</h3>
                  <p id="slider-text">{{currentArticle.shortText}}</p>
                  <router-link class="slider-title"  id="slider-readMore" :to="'/news/' + currentArticle.id"> mehr lesen <b>>> </b></router-link>
@@ -20,9 +28,18 @@
              </div>
          </div>
         </div>
-        <div id="rightSlide" class="col-sm-1 text-right indexArrows">
+        <div id="rightSlide" class="col-lg-1 text-right indexArrows">
             <svg><use href="#indexArrowRight"></use></svg>
-            <a class="next" @click="next" > Next</a>
+            <a class="next" @click="next" > <svg xmlns="http://www.w3.org/2000/svg" width="49.021" height="62.886" viewBox="0 0 49.021 62.886">
+                <g id="arrows" transform="translate(-2107.655 216.487)">
+                    <g id="Gruppe_14" data-name="Gruppe 14" transform="translate(1900.2 -280)">
+                        <g id="Gruppe_13" data-name="Gruppe 13" transform="translate(208 64.013)">
+                            <path id="Pfad_37" data-name="Pfad 37" d="M255.1,93.077l-25.317-28.13a2.815,2.815,0,0,0-2.093-.934H210.816a2.811,2.811,0,0,0-2.093,4.692l23.624,26.251L208.723,121.2a2.816,2.816,0,0,0,2.093,4.7h16.878a2.851,2.851,0,0,0,2.093-.928L255.1,96.841A2.815,2.815,0,0,0,255.1,93.077Z" transform="translate(-208 -64.013)" fill="#97b753" stroke="#97b753" stroke-width="1"/>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            </a>
         </div>
 
     </div>
@@ -89,6 +106,7 @@
         height:300px;
         width:100%
     }
+
     .prev, .next {
         cursor: pointer;
         position: absolute;
@@ -97,12 +115,13 @@
         padding: 16px;
         color: white;
         font-weight: bold;
-        font-size: 12px;
+        font-size: 11px;
         transition: 0.7s ease;
         border-radius: 4px 4px 4px 4px;
         text-decoration: none;
         user-select: none;
     }
+
 
     .next {
         right: 0;
@@ -110,10 +129,6 @@
 
     .prev {
         left: 0;
-    }
-
-    .prev:hover, .next:hover {
-        background-color: rgba(0,0,0,0.9);
     }
 
 
@@ -150,28 +165,43 @@
     /*Large devices (desktops, less than 1200px)*/
     @media (max-width: 1199.98px) {
 
-        .col-sm-5 {
+
+        .prev,.next{
+            width:10%;
+        }
+
+        .col-lg-5 {
             width: 50%;
         }
 
-        .col-sm-7 {
+        .col-lg-7 {
             width: 50%;
         }
+        /*
 
         .prev, .next {
             top: 40%;
-            width: 70px;
+            width:70px;
             padding: 16px;
-            text-align: center;
+            text-align: left;
         }
+        */
     }
         /* Medium devices (tablets, less than 992px)*/
         @media (max-width: 991.98px) {
 
             img {
-                width: 50%;
-                height: auto;
+                height:auto;
+                width:50%
             }
+
+            .col-lg-1{
+                width:10%;
+            }
+            .col-lg-10{
+                width:80%;
+            }
+
 
             #slider-readMore {
                 font-size: 80%;
@@ -197,13 +227,16 @@
 
         /*Small devices (landscape phones, less than 768px)*/
         @media (max-width: 767.98px) {
-            .mobile{
-                display:none;
+            .prev,.next{
+                width:10%;
             }
-            img{
-               min-width:35%;
-                height:auto;
+            .col-lg-1{
+                width:10%;
             }
+            .col-lg-10{
+                width:80%;
+            }
+
             #slider-readMore {
                 font-size: 80%;
                 margin-left: 60%;
@@ -220,12 +253,24 @@
         /* Extra small devices (portrait phones, less than 576px)*/
         @media (max-width: 575.98px) {
 
-            .col-sm-1{
-                width:20%;
+            .prev,.next{
+                width:15%;
+                top: 40%;
+                width: 60px;
+                padding: 16px;
+
             }
-            .col-sm-10{
-                width:80%;
+            .col-lg-1{
+                width:15%;
             }
+            .col-lg-10{
+                width:70%;
+            }
+            #slider-readMore {
+                font-size: 80%;
+                margin-left: 60%;
+            }
+
 
         }
 

@@ -67,7 +67,7 @@
                             <div class="col-lg-2 col-form-label fieldName">
                                 <label for="alNamen" class="paddingNormalize marginNormalize">Alternative Namen</label>
                             </div>
-                            <div class="col-sm-10 fieldInput">
+                            <div class="col-lg-10 fieldInput">
                                 <input v-model="alternativeName" type="text" class="form-control-sm searchBarDatabase inputPlantForm"
                                        id="alNamen" placeholder="Alternativer Name">
                             </div>

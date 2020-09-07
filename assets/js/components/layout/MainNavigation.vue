@@ -2,7 +2,7 @@
     <div class="container-fluid bgDarkGreen">
 
         <!----------------------------------------desktop navi----------------------------------------------------------------->
-        <nav v-if="navigationUser" class="navbar navbar-expand-md desktopNavi" id="naviLarge">
+        <nav v-if="navigationUser" class="navbar navbar-expand-lg desktopNavi" id="naviLarge">
 
             <router-link to="/" class="selfAlignCenter" id="naviLogo">
                 <svg><use href="#logoNavi"></use></svg>
@@ -56,7 +56,7 @@
 
         <!----------------------------------------mobile navi----------------------------------------------------------------->
         <div v-if="navigationUser" class="mobileNavi">
-            <nav class="navbar navbar-expand-md">
+            <nav class="navbar navbar-expand-lg">
                     <router-link to="/" class="selfAlignCenter" id="naviLogoOnly">
                         <div><svg><use href="#logoOnly"></use></svg></div>
                     </router-link>
@@ -342,7 +342,8 @@
 
     /* Medium devices (tablets, less than 992px)*/
     @media (max-width: 991.98px) {
-
+        .desktopNavi { display: none; }
+        .mobileNavi { display: block; }
     }
 
     /*Small devices (landscape phones, less than 768px)*/

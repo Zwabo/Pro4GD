@@ -48,11 +48,15 @@
                             <svg><use href="#locationPin"></use></svg>
                             {{ profileUser.country }}
                         </li>
-                        <li v-if="showBirthday" id="userDataCntBirthday" class="floatSmall">
+                        <li v-if="showBirthday && profileUser.dateBirth !== null && !editProfile" id="userDataCntBirthday" class="floatSmall">
                             <svg><use href="#calendar"></use></svg>
                             {{ birthdayString }}
                         </li>
-                        <li v-if="showBirthday" id="userDataCntAge">
+                        <li v-else>
+                            <svg><use href="#calendar"></use></svg>
+                            <input id="birthdayInput" type="date" class="smallInput" @blur="saveBirthday" v-model="newDate">
+                        </li>
+                        <li v-if="showBirthday && profileUser.dateBirth !== null" id="userDataCntAge">
                             <svg><use href="#birthday"></use></svg>
                             {{ userAge }}
                         </li>
@@ -644,6 +648,8 @@
                 birthdayString: null,
                 userAge: null,
 
+                newDate: null,
+
                 editProfile: false,             // bool if edit profile is active or not
                 userTemp: null,
 
@@ -853,6 +859,56 @@
                     .catch(error => {
                         console.log(error);
                     });
+
+                //this.$router.go();
+            },
+
+            saveBirthday: function() {
+                console.log(this.newDate);
+
+                const moment = require('moment');
+                const newBirthdayDate = moment(this.newDate).format('YYYY-MM-DD HH:mm:ss');
+                console.log("formated date: " + newBirthdayDate);
+
+                this.$http.put('/api/profile/' + this.$route.params.username + '/setBirthday', {
+                    newBirthday: newBirthdayDate,
+                })
+                    .then(response => {
+                        let year = Number(response.data.dateBirth.date.substr(0,4));
+                        let month = Number(response.data.dateBirth.date.substr(5,2));
+                        let day = Number(response.data.dateBirth.date.substr(8,2));
+
+                        this.birthdayString = day + "." + month + "." + year;
+                        let today = new Date();
+
+                        let age = today.getFullYear() - year;
+                        if(today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
+                            age--;
+                        }
+                        this.userAge = age;
+
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            },
+
+            calculateBirthdayAge: function() {
+                /*save the birtday as string*/
+                this.birthdayString = this.profileUser.dateBirth.date.substr(8,2)
+                    + "." + this.profileUser.dateBirth.date.substr(5,2)
+                    + "." + this.profileUser.dateBirth.date.substr(0,4);
+
+                /*calculate the age*/
+                let year = Number(this.profileUser.dateBirth.date.substr(0,4));
+                let month = Number(this.profileUser.dateBirth.date.substr(5,2));
+                let day = Number(this.profileUser.dateBirth.date.substr(8,2));
+                let today = new Date();
+                let age = today.getFullYear() - year;
+                if(today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
+                    age--;
+                }
+                this.userAge = age.toString();
             },
 
             saveComment: function() {
@@ -1606,6 +1662,16 @@
         padding: 1% 2%;
     }
 
+    #birthdayInput {
+        height: 30px;
+        border: 1px solid #978753;
+        background-color: #F5F5F5;
+        font-size: 100%;
+        padding: 1% 2%;
+        display: inline-block;
+        width: 80%;
+    }
+
     /*linke seite weiter zu den unterseiten*/
     .rightBoxesLink {
         text-align-last: right;
@@ -2319,15 +2385,16 @@
             width: 100%;
             font-size: 110%;
         }
-        #userHeader #userButton { font-size: 80%; }
+        #userHeader #userButton { font-size: 100%; }
 
         #userHeader #userDataCnt {
             width: 100%;
             margin-left: 0;
+            font-size: 140%;
         }
         #userHeader #userDataCnt .floatSmall {
             float: left;
-            width: 150px;
+            width: 100%;
         }
 
         /*-----------------------------------friends 430px----------------------------*/
