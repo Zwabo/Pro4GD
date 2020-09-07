@@ -99,7 +99,7 @@
                                         </div>
 
                                         <img class="col-sm-7 imgTest" v-bind:src="'../' + userplant.plant.icon"
-                                             alt="Picture of plant">
+                                             alt="Picture of plant" height="200">
 
 
                                     </div>
@@ -173,7 +173,7 @@
                                         </div>
 
                                         <img class="col-sm-7 imgTest" v-bind:src="'../' + userplant.plant.icon"
-                                             alt="Picture of plant">
+                                             alt="Picture of plant" height="200">
 
 
                                     </div>
@@ -216,7 +216,7 @@
                                             </add-userplant-modal>
 
                                         </div>
-                                        <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon"
+                                        <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon" height="100"
                                              alt="Picture of plant">
 
                                     </div>
@@ -238,7 +238,7 @@
                                             </add-userplant-modal>
 
                                         </div>
-                                        <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon"
+                                        <img class="col-sm-5 imgTest" v-bind:src="'../' + plant.icon" height="100"
                                              alt="Picture of plant">
 
                                     </div>
@@ -1013,7 +1013,7 @@
         }
 
         .imgTest{
-            display: none;
+           display: none;
         }
 
         .waterMobile {
@@ -1069,6 +1069,10 @@
 
     @media (max-width: 1270px) and (orientation: landscape){
 
+        .all {
+            width: 106%;
+        }
+
         .mobile {
             display: unset;
         }
@@ -1097,6 +1101,11 @@
     }
 
     @media (max-width: 1270px) and (orientation: portrait){
+
+        .all {
+            width: 103%;
+        }
+
         .mobile {
             display: unset;
         }
@@ -1114,14 +1123,12 @@
         }
 
         .plantProfileAdd{
-            height: 200px;
+            height: 250px;
         }
 
         .imgTest{
-            height: 170px;
+            height: 200px;
         }
-
-
 
 
     }

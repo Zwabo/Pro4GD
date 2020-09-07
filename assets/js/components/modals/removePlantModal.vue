@@ -71,7 +71,8 @@
 <style scoped>
 
     .remove {
-        position: fixed;
+        position: relative;
+        top: 30px;
         height: 30px;
         width: 30px;
         z-index: 0;
@@ -80,5 +81,15 @@
         border: 2px solid #97B753;
         border-radius: 15px;
         font-size: 10pt;
+    }
+
+    @media (max-width: 1270px) {
+        .remove {
+            height: 60px;
+            width: 60px;
+            border-radius: 30px;
+            font-size: 25pt;
+        }
+
     }
 </style>

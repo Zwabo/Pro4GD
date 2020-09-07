@@ -53,8 +53,8 @@
         <div class="col-lg-5 text-center" v-if="!buttonPressed && !findRandomPlant">
             <form>
                 <p class="search">Suche</p>
-                <input type="text" placeholder="Suche nach Pflanzen.." class="form-control form-control-sm searchBarDatabase" aria-label="Search" v-model="search">
-                <select class="form-control form-control-sm searchBarDatabase DropdownFont" v-model="category">
+                <input type="text" placeholder="Suche nach Pflanzen.." class="form-control form-control-m searchBarDatabase" aria-label="Search" v-model="search">
+                <select class="form-control form-control-m searchBarDatabase DropdownFont" v-model="category">
                     <option value="" selected>Kathegorie auswählen</option>
                     <option>Wildpflanze</option>
                     <option>Heilpflanze</option>
@@ -68,7 +68,7 @@
                     <option>Herbstblüher</option>
                     <option>Winterblüher</option>
                 </select>
-                <select class="form-control form-control-sm searchBarDatabase DropdownFont" v-model="difficulty">
+                <select class="form-control form-control-m searchBarDatabase DropdownFont" v-model="difficulty">
                     <option value="" selected>Schwierigkeit</option>
                     <option>gering</option>
                     <option>mittel</option>
@@ -87,8 +87,8 @@
                 <button type="button" class="close select closeButton" aria-label="Close" @click="buttonPressed = false">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <input type="text" placeholder="Suche nach Pflanzen.." class="form-control form-control-sm searchBarDatabase" aria-label="Search" v-model="search">
-                <select class="form-control form-control-sm searchBarDatabase DropdownFont select" v-model="category">
+                <input type="text" placeholder="Suche nach Pflanzen.." class="form-control form-control-m searchBarDatabase" aria-label="Search" v-model="search">
+                <select class="form-control form-control-m searchBarDatabase DropdownFont select" v-model="category">
                     <option value="" selected>Kathegorie auswählen</option>
                     <option>Wildpflanze</option>
                     <option>Heilpflanze</option>
@@ -102,7 +102,7 @@
                     <option>Herbstblüher</option>
                     <option>Winterblüher</option>
                 </select>
-                <select class="form-control form-control-sm searchBarDatabase DropdownFont select" v-model="difficulty">
+                <select class="form-control form-control-m searchBarDatabase DropdownFont select" v-model="difficulty">
                     <option value="" selected>Schwierigkeit</option>
                     <option>gering</option>
                     <option>mittel</option>
@@ -125,7 +125,7 @@
                                     </router-link>
 
                                 </div>
-                                <img class="col-lg col-sm imgTest" v-bind:src="'../' + plant.icon"  alt="Picture of plant" height="100" >
+                                <img class="col-lg col-sm imgTestDa" v-bind:src="'../' + plant.icon"  alt="Picture of plant" height="100" >
 
                             </div>
                         </div>
@@ -146,7 +146,7 @@
                                     </router-link>
 
                                 </div>
-                                <img class="col-lg col-sm imgTest" v-bind:src="'../' + plant.icon"  alt="Picture of plant" height="100" >
+                                <img class="col-lg col-sm imgTestDa" v-bind:src="'../' + plant.icon"  alt="Picture of plant" height="100" >
 
                             </div>
                         </div>
@@ -367,7 +367,7 @@
 
     .searchPlants {
         margin-top: 30px;
-        height: 50vh;
+        height: 40vh;
         overflow: auto;
     }
 
@@ -454,9 +454,10 @@
     @media (max-width: 1200px) and (orientation: landscape){
         .database {
             width: 102%;
-            padding-top: 10%;
+            padding-top: 15%;
             padding-bottom: 16%;
         }
+
     }
 
     @media (max-width: 1200px) and (orientation: portrait){
@@ -465,13 +466,14 @@
             padding-top: 15%;
             padding-bottom: 26%;
         }
+
     }
 
     @media (max-width: 768px) {
         .database {
             width: 103%;
-            padding-top: 15%;
-            padding-bottom: 46%;
+            padding-top: 20%;
+            padding-bottom: 60%;
         }
 
         .imgTestuno{
