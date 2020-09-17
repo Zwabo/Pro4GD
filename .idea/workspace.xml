@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="isa workspace">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="profile fix 2.0">
       <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
     </list>
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
@@ -162,7 +160,7 @@
           <entry key="js" value="47" />
           <entry key="json" value="3" />
           <entry key="md" value="15" />
-          <entry key="php" value="411" />
+          <entry key="php" value="412" />
           <entry key="png" value="1" />
           <entry key="rnc" value="1" />
           <entry key="scss" value="1" />
@@ -182,7 +180,7 @@
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="47" />
           <entry key="Markdown" value="15" />
-          <entry key="PHP" value="411" />
+          <entry key="PHP" value="412" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="RNG Compact" value="1" />
           <entry key="SCSS" value="1" />
@@ -204,8 +202,8 @@
           <entry key="php" value="48851" />
           <entry key="svg" value="26" />
           <entry key="twig" value="20844" />
-          <entry key="txt" value="3837" />
-          <entry key="vue" value="167602" />
+          <entry key="txt" value="3852" />
+          <entry key="vue" value="167695" />
           <entry key="xml" value="11" />
           <entry key="yaml" value="138" />
         </counts>
@@ -217,10 +215,10 @@
           <entry key="JavaScript" value="2281" />
           <entry key="Markdown" value="308" />
           <entry key="PHP" value="48851" />
-          <entry key="PLAIN_TEXT" value="3862" />
+          <entry key="PLAIN_TEXT" value="3877" />
           <entry key="SVG" value="26" />
           <entry key="Twig" value="20844" />
-          <entry key="Vue.js" value="167601" />
+          <entry key="Vue.js" value="167694" />
           <entry key="XML" value="11" />
           <entry key="YAML" value="138" />
         </counts>
@@ -248,8 +246,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="57" column="29" lean-forward="true" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
+            <state relative-caret-position="375">
+              <caret line="912" column="22" selection-start-line="912" selection-start-column="22" selection-end-line="912" selection-end-column="22" />
+              <folding>
+                <element signature="n#style#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -257,8 +258,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="114" column="36" selection-start-line="114" selection-start-column="36" selection-end-line="114" selection-end-column="36" />
+            <state relative-caret-position="67">
+              <caret line="304" column="50" selection-start-line="304" selection-start-column="39" selection-end-line="304" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="399" column="30" selection-start-line="399" selection-start-column="20" selection-end-line="399" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -276,9 +286,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>left</find>
-      <find>you are</find>
-      <find>goto</find>
       <find>eingeloggt</find>
       <find>registriere dich</find>
       <find>sie sind als</find>
@@ -303,9 +310,12 @@
       <find>rotate</find>
       <find>savebirthday</find>
       <find>newdate</find>
-      <find>savecountry</find>
       <find>birthdayinput</find>
+      <find>setcount</find>
       <find>setbirthday</find>
+      <find>savecountry</find>
+      <find>ADDNEWAWARD</find>
+      <find>NEWCOUNTRY</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -563,21 +573,13 @@
             <path>
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -793,14 +795,7 @@
       <workItem from="1599949812417" duration="948000" />
       <workItem from="1600246461788" duration="121000" />
       <workItem from="1600246712709" duration="529000" />
-      <workItem from="1600336640799" duration="1551000" />
-    </task>
-    <task id="LOCAL-00074" summary="zwischenstand">
-      <created>1594572397906</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1594572397906</updated>
+      <workItem from="1600336640799" duration="1987000" />
     </task>
     <task id="LOCAL-00075" summary="fixed Profile.vue">
       <created>1594572988985</created>
@@ -1138,11 +1133,18 @@
       <option name="project" value="LOCAL" />
       <updated>1598889965535</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="profile fix 2.0">
+      <created>1600338289397</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1600338289397</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="755863000" />
+    <option name="totallyTimeSpent" value="756299000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1169,12 +1171,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.497003" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44105893" weight="0.32293764" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44055945" visible="true" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.35114884" side_tool="true" visible="true" weight="0.2917505" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.55944055" side_tool="true" visible="true" weight="0.32293764" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4995005" weight="0.32997987" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.64885116" visible="true" weight="0.2917505" />
+      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.64885116" weight="0.2917505" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1214,7 +1216,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- styles added&#10;&#10;responsive styles finished till now:&#10;- Impressum&#10;- AGB&#10;- Kontakt&#10;- ProfileForum&#10;- Main Footer&#10;- Profile Awards&#10;- Login / LoginForm&#10;- Register / RegisterForm" />
     <MESSAGE value="zwischenstand&#10;&#10;landing page styling" />
     <MESSAGE value="- styles hinzugefügt - home.vue (-rita slider)" />
     <MESSAGE value="- styles hinzugefügt (ProfilHeader, Profil Zwischensatnd)" />
@@ -1239,7 +1240,8 @@
     <MESSAGE value="fixed birthday bearbeiten" />
     <MESSAGE value="fixed birthday save for reactivity system" />
     <MESSAGE value="isa workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="isa workspace" />
+    <MESSAGE value="profile fix 2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="profile fix 2.0" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
@@ -1523,13 +1525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="387" column="32" selection-start-line="387" selection-start-column="20" selection-end-line="387" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1564,17 +1559,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="399" column="30" selection-start-line="399" selection-start-column="20" selection-end-line="399" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="114" column="36" selection-start-line="114" selection-start-column="36" selection-end-line="114" selection-end-column="36" />
+        <state relative-caret-position="67">
+          <caret line="304" column="50" selection-start-line="304" selection-start-column="39" selection-end-line="304" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="57" column="29" lean-forward="true" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
+        <state relative-caret-position="375">
+          <caret line="912" column="22" selection-start-line="912" selection-start-column="22" selection-end-line="912" selection-end-column="22" />
+          <folding>
+            <element signature="n#style#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>

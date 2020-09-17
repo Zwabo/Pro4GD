@@ -909,6 +909,7 @@
                     .then(response => {
                         console.log(response.data);
                         console.log('saveCountry');
+                        this.profileUser = response.data;
                     })
                     .catch(error => {
                         console.log(error);
