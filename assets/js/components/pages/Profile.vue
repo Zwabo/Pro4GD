@@ -60,7 +60,7 @@
                             <svg><use href="#calendar"></use></svg>
                             <input id="birthdayInput" type="date" class="smallInput" @blur="saveBirthday" v-model="newDate">
                         </li>
-                        <li v-if="showBirthday && profileUser.dateBirth !== null" id="userDataCntAge">
+                        <li v-if="userAge > -1" id="userDataCntAge">
                             <svg><use href="#birthday"></use></svg>
                             {{ userAge }}
                         </li>
