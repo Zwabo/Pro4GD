@@ -435,7 +435,7 @@
                             <div class="row" id="leaveComment">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-lg-2 commentPicDiv"><img class="commentPic" v-bind:src="profileUser.userPic"></div>
+                                        <div class="col-lg-2 commentPicDiv"><img class="commentPic" v-bind:src="loggedInUser.userPic"></div>
                                         <div class="col-lg-10 commentInputDiv"><textarea v-model="commentMessage" class="commentInput" type="text" placeholder="Nachricht hinterlassen"></textarea></div>
                                     </div>
                                     <div class="text-right buttonCommentDiv"><button v-on:click="saveComment" class="buttonComment">Nachricht speichern</button></div>
@@ -457,7 +457,7 @@
                                             </div>
                                             <div class="row commentTextRow">
                                                 <div class="col-lg-6 paddingNormalize commentUsernameDiv">
-                                                    <p class="commentUsername">{{profileComment.username}}</p>
+                                                    <p class="commentUsername"><a :href="'/profile/' + profileComment.username">{{profileComment.username}}</a></p>
                                                 </div>
                                                 <div class="col-lg-6 paddingNormalize text-right commentStatsDiv">
                                                     <p class="commentStats">{{profileComment.date}},  {{profileComment.time}}</p></div>

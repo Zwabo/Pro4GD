@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="profile fix 2.0">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" afterDir="false" />
     </list>
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
@@ -130,7 +131,7 @@
     <session id="-1864558712">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="112" />
+          <entry key="project.closed" value="113" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="7" />
           <entry key="project.open.time.10" value="3" />
@@ -140,7 +141,7 @@
           <entry key="project.open.time.14" value="6" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.2" value="6" />
+          <entry key="project.open.time.2" value="7" />
           <entry key="project.open.time.3" value="9" />
           <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.5" value="3" />
@@ -148,7 +149,7 @@
           <entry key="project.open.time.7" value="14" />
           <entry key="project.open.time.8" value="16" />
           <entry key="project.open.time.9" value="14" />
-          <entry key="project.opened" value="114" />
+          <entry key="project.opened" value="115" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -167,7 +168,7 @@
           <entry key="svg" value="74" />
           <entry key="ts" value="2" />
           <entry key="twig" value="97" />
-          <entry key="vue" value="306" />
+          <entry key="vue" value="308" />
           <entry key="xml" value="1" />
           <entry key="yaml" value="3" />
         </counts>
@@ -187,7 +188,7 @@
           <entry key="SVG" value="74" />
           <entry key="Twig" value="97" />
           <entry key="TypeScript" value="2" />
-          <entry key="Vue.js" value="306" />
+          <entry key="Vue.js" value="308" />
           <entry key="XML" value="1" />
           <entry key="YAML" value="3" />
         </counts>
@@ -203,7 +204,7 @@
           <entry key="svg" value="26" />
           <entry key="twig" value="20844" />
           <entry key="txt" value="3852" />
-          <entry key="vue" value="167695" />
+          <entry key="vue" value="167730" />
           <entry key="xml" value="11" />
           <entry key="yaml" value="138" />
         </counts>
@@ -218,7 +219,7 @@
           <entry key="PLAIN_TEXT" value="3877" />
           <entry key="SVG" value="26" />
           <entry key="Twig" value="20844" />
-          <entry key="Vue.js" value="167694" />
+          <entry key="Vue.js" value="167729" />
           <entry key="XML" value="11" />
           <entry key="YAML" value="138" />
         </counts>
@@ -242,12 +243,12 @@
     <favorites_list name="Pro4GD" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="912" column="22" selection-start-line="912" selection-start-column="22" selection-end-line="912" selection-end-column="22" />
+            <state relative-caret-position="429">
+              <caret line="458" column="100" selection-start-line="458" selection-start-column="100" selection-end-line="458" selection-end-column="100" />
               <folding>
                 <element signature="n#style#0;n#!!top" />
               </folding>
@@ -256,9 +257,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="38" column="29" lean-forward="true" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
+            <state relative-caret-position="6380">
               <caret line="304" column="50" selection-start-line="304" selection-start-column="39" selection-end-line="304" selection-end-column="50" />
             </state>
           </provider>
@@ -267,7 +277,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
+            <state relative-caret-position="8646">
               <caret line="399" column="30" selection-start-line="399" selection-start-column="20" selection-end-line="399" selection-end-column="30" />
             </state>
           </provider>
@@ -286,8 +296,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>eingeloggt</find>
-      <find>registriere dich</find>
       <find>sie sind als</find>
       <find>loginindex label</find>
       <find>fertiliserIcon</find>
@@ -316,6 +324,8 @@
       <find>savecountry</find>
       <find>ADDNEWAWARD</find>
       <find>NEWCOUNTRY</find>
+      <find>besuchernachrichten</find>
+      <find>profil</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -539,6 +549,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -550,12 +561,6 @@
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
@@ -573,19 +578,15 @@
             <path>
               <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pro4GD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pro4GD" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -795,14 +796,8 @@
       <workItem from="1599949812417" duration="948000" />
       <workItem from="1600246461788" duration="121000" />
       <workItem from="1600246712709" duration="529000" />
-      <workItem from="1600336640799" duration="1987000" />
-    </task>
-    <task id="LOCAL-00075" summary="fixed Profile.vue">
-      <created>1594572988985</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1594572988985</updated>
+      <workItem from="1600336640799" duration="2771000" />
+      <workItem from="1600359409087" duration="714000" />
     </task>
     <task id="LOCAL-00076" summary="picture upload part1">
       <created>1594584847372</created>
@@ -1140,11 +1135,18 @@
       <option name="project" value="LOCAL" />
       <updated>1600338289397</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="profile fix 2.0">
+      <created>1600338639985</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1600338639985</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="756299000" />
+    <option name="totallyTimeSpent" value="757797000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1159,7 +1161,7 @@
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.16433567" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.16583416" />
       <window_info id="Structure" order="1" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
       <window_info id="npm" order="2" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
       <window_info id="Favorites" order="3" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
@@ -1171,12 +1173,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.497003" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44055945" visible="true" weight="0.32293764" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44005993" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.55944055" side_tool="true" visible="true" weight="0.32293764" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.35164836" side_tool="true" visible="true" weight="0.2917505" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4995005" weight="0.32997987" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.64885116" weight="0.2917505" />
+      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.64835167" visible="true" weight="0.2917505" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1518,13 +1520,6 @@
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Friends.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="224" column="70" selection-start-line="224" selection-start-column="70" selection-end-line="224" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1542,13 +1537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Home.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="94" column="18" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/images/icons/arrow_forth.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1559,24 +1547,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6380">
+          <caret line="304" column="50" selection-start-line="304" selection-start-column="39" selection-end-line="304" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
+        <state relative-caret-position="8646">
           <caret line="399" column="30" selection-start-line="399" selection-start-column="20" selection-end-line="399" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="304" column="50" selection-start-line="304" selection-start-column="39" selection-end-line="304" selection-end-column="50" />
+        <state relative-caret-position="1540">
+          <caret line="94" column="18" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/components/layout/MainNavigation.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="38" column="29" lean-forward="true" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="76" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="912" column="22" selection-start-line="912" selection-start-column="22" selection-end-line="912" selection-end-column="22" />
+        <state relative-caret-position="429">
+          <caret line="458" column="100" selection-start-line="458" selection-start-column="100" selection-end-line="458" selection-end-column="100" />
           <folding>
             <element signature="n#style#0;n#!!top" />
           </folding>
