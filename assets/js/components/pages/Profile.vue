@@ -44,9 +44,13 @@
                             <svg><use href="#profile"></use></svg>
                             seit {{ createdUserString }} Mitglied
                         </li>
-                        <li id="userDataCntLocation">
+                        <li v-if="profileUser.country !== null && !editProfile" id="userDataCntLocation">
                             <svg><use href="#locationPin"></use></svg>
                             {{ profileUser.country }}
+                        </li>
+                        <li v-if="editProfile">
+                            <svg><use href="#locationPin"></use></svg>
+                            <input id="countryInput" class="smallInput" @blur="saveCountry" v-model="newCountry">
                         </li>
                         <li v-if="showBirthday && profileUser.dateBirth !== null && !editProfile" id="userDataCntBirthday" class="floatSmall">
                             <svg><use href="#calendar"></use></svg>
@@ -84,8 +88,11 @@
                             <p v-if="editProfile">
                                 <textarea class="smallInput" @blur="saveProfile" v-model="profileUser.description"></textarea>
                             </p>
-                            <p v-if="!editProfile">
+                            <p v-if="!editProfile && profileUser.description !== null">
                                 {{ profileUser.description }}
+                            </p>
+                            <p v-if="!editProfile && profileUser.description === ''">
+                                Füge eine persönliche Bescreibung hinzu.
                             </p>
                         </div>
 
@@ -649,6 +656,7 @@
                 userAge: null,
 
                 newDate: null,
+                newCountry: null,
 
                 editProfile: false,             // bool if edit profile is active or not
                 userTemp: null,
@@ -887,6 +895,20 @@
                         }
                         this.userAge = age;
 
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            },
+
+            saveCountry: function() {
+                console.log(this.newCountry);
+                this.$http.put('/api/profile/' + this.$route.params.username + '/setCountry', {
+                    newCountry: this.newCountry,
+                })
+                    .then(response => {
+                        console.log(response.data);
+                        console.log('saveCountry');
                     })
                     .catch(error => {
                         console.log(error);
@@ -1662,7 +1684,7 @@
         padding: 1% 2%;
     }
 
-    #birthdayInput {
+    #birthdayInput, #countryInput {
         height: 30px;
         border: 1px solid #978753;
         background-color: #F5F5F5;
