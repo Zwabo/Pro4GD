@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="profile fix 2.0">
+    <list default="true" id="3711e7ce-7eb9-4f86-a5b4-ddef677a0e46" name="Default" comment="profile fix 2.0 age fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/pages/Profile.vue" afterDir="false" />
     </list>
     <list id="97e173ab-cded-4352-bd21-ec6e60952605" name="Revert: " comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
@@ -131,7 +130,7 @@
     <session id="-1864558712">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="114" />
+          <entry key="project.closed" value="116" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="8" />
           <entry key="project.open.time.10" value="3" />
@@ -147,9 +146,9 @@
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="12" />
           <entry key="project.open.time.7" value="14" />
-          <entry key="project.open.time.8" value="16" />
+          <entry key="project.open.time.8" value="17" />
           <entry key="project.open.time.9" value="14" />
-          <entry key="project.opened" value="116" />
+          <entry key="project.opened" value="117" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -203,8 +202,8 @@
           <entry key="php" value="48851" />
           <entry key="svg" value="26" />
           <entry key="twig" value="20844" />
-          <entry key="txt" value="3852" />
-          <entry key="vue" value="167837" />
+          <entry key="txt" value="3860" />
+          <entry key="vue" value="167839" />
           <entry key="xml" value="11" />
           <entry key="yaml" value="138" />
         </counts>
@@ -216,10 +215,10 @@
           <entry key="JavaScript" value="2281" />
           <entry key="Markdown" value="308" />
           <entry key="PHP" value="48851" />
-          <entry key="PLAIN_TEXT" value="3877" />
+          <entry key="PLAIN_TEXT" value="3885" />
           <entry key="SVG" value="26" />
           <entry key="Twig" value="20844" />
-          <entry key="Vue.js" value="167836" />
+          <entry key="Vue.js" value="167838" />
           <entry key="XML" value="11" />
           <entry key="YAML" value="138" />
         </counts>
@@ -243,12 +242,12 @@
     <favorites_list name="Pro4GD" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
+            <state relative-caret-position="514">
+              <caret line="68" selection-start-line="68" selection-end-line="69" />
               <folding>
                 <element signature="n#style#0;n#!!top" />
               </folding>
@@ -511,9 +510,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
+    <option name="x" value="-2368" />
+    <option name="y" value="-19" />
     <option name="width" value="1300" />
-    <option name="height" value="1400" />
+    <option name="height" value="1208" />
   </component>
   <component name="ProjectId" id="1aBMjwTOzdV3XHXsdTmLo0udF2h" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -771,14 +771,8 @@
       <workItem from="1600246712709" duration="529000" />
       <workItem from="1600336640799" duration="2771000" />
       <workItem from="1600359409087" duration="1557000" />
-      <workItem from="1600381877139" duration="1009000" />
-    </task>
-    <task id="LOCAL-00077" summary="zwischenstand likes">
-      <created>1594666265287</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1594666265288</updated>
+      <workItem from="1600381877139" duration="1065000" />
+      <workItem from="1600416549858" duration="2018000" />
     </task>
     <task id="LOCAL-00078" summary="zwischenstand likes">
       <created>1594669305463</created>
@@ -1116,11 +1110,18 @@
       <option name="project" value="LOCAL" />
       <updated>1600360133184</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="profile fix 2.0 age fix">
+      <created>1600383088997</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1600383088997</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="759649000" />
+    <option name="totallyTimeSpent" value="761723000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1132,10 +1133,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
-    <editor active="true" />
+    <frame x="-2567" y="-7" width="2062" height="1126" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.16733266" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7829787" visible="true" weight="0.16883117" />
       <window_info id="Structure" order="1" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
       <window_info id="npm" order="2" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
       <window_info id="Favorites" order="3" sideWeight="0.21702127" side_tool="true" weight="0.3226773" />
@@ -1147,12 +1147,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.497003" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.44005993" weight="0.32293764" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.43906093" weight="0.32293764" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.35214785" side_tool="true" visible="true" weight="0.2917505" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.35264736" side_tool="true" visible="true" weight="0.2917505" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4995005" weight="0.32997987" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.6478521" visible="true" weight="0.2917505" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="13" sideWeight="0.64735264" visible="true" weight="0.2917505" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1192,7 +1192,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="zwischenstand&#10;&#10;landing page styling" />
     <MESSAGE value="- styles hinzugefügt - home.vue (-rita slider)" />
     <MESSAGE value="- styles hinzugefügt (ProfilHeader, Profil Zwischensatnd)" />
     <MESSAGE value="userplant bilder gleiche höhe" />
@@ -1217,7 +1216,8 @@
     <MESSAGE value="fixed birthday save for reactivity system" />
     <MESSAGE value="isa workspace" />
     <MESSAGE value="profile fix 2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="profile fix 2.0" />
+    <MESSAGE value="profile fix 2.0 age fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="profile fix 2.0 age fix" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="7" width="1084" height="810" key="CommitChangelistDialog2" />
@@ -1557,8 +1557,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/components/pages/Profile.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
+        <state relative-caret-position="514">
+          <caret line="68" selection-start-line="68" selection-end-line="69" />
           <folding>
             <element signature="n#style#0;n#!!top" />
           </folding>
