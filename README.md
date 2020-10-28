@@ -1,5 +1,6 @@
 Project Setup:
 composer install
+
 npm install
 
 symfony serve //start des lokalen entwicklungsservers
