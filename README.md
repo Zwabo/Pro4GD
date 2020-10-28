@@ -1,36 +1,6 @@
-Responsive Styles Finished
-
-- Impressum
-- AGB
-- Kontakt
-- ProfileForum
-- Main Footer
-- ProfileAwards
-- Login / LoginForm
-- Register / RegisterForm
-- Navigation
-- Home (- Rita Slider)
-- ProfilHeader
-- Profil
-- Plant
-- AddPlant
-
----
----
-
-
-Hey Pro4GD:
-
-Fuer den Vendor Ordner im PHP Storm Terminal folgendes eingeben:
+Project Setup:
 composer install
-
-npm install 
-
-
-and vue tutorial
-http://zetcode.com/symfony/vue/
-
-
+npm install
 
 symfony serve //start des lokalen entwicklungsservers
 
